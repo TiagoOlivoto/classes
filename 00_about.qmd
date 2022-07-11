@@ -1,0 +1,65 @@
+---
+title: "Informações"
+---
+
+
+# <i class="fas fa-laptop-code"></i> Software and instalation
+
+<a class="btn btn-success" href="https://cran.r-project.org/bin/windows/base/" target="_blank"><i class="fa fa-save"></i> Download do R</a>
+
+
+<a class="btn btn-success" href="https://www.rstudio.com/products/rstudio/download/" target="_blank"><i class="fa fa-save"></i> Download do RStudio</a>
+
+
+<iframe width="940" height="530" src="https://www.youtube.com/embed/e89kyYJgWqc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+# <i class="fas fa-chalkboard-teacher"></i> Professor
+
+[![](imgs/site.png)](https://olivoto.netlify.app/){target="_blank"}
+
+
+
+# <i class="fas fa-box-open"></i> Useful packages
+
+É sugerido instalar os seguintes pacotes
+
+```{r warning=FALSE, message = FALSE}
+library(tidyverse)  # manipulação de dados
+library(metan)      # estatísticas descritivas
+library(rio)        # importação/exportação de dados
+library(emmeans)    # comparação de médias
+library(AgroR)      # casualização e ANOVA
+```
+
+
+
+
+# <i class="fab fa-creative-commons"></i> Licença
+
+  Estilo <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener"><img alt="Licença Creative Commons" ="border-width:0" src="https://raw.githubusercontent.com/TiagoOlivoto/tiagoolivoto/master/static/img/gemsr/license.jpg" width="300" height="214" />< /a><br />Este conteúdo está licenciado sob uma <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons - Atribuição-NãoComercial- CompartilhaIgual 4.0 Internacional</a>. O resumo de licença legível afirma que você tem o direito de:
+
+
+
+<i class="fas fa-check"></i> **Compartilhe** — copie e redistribua o material em qualquer meio ou formato
+
+<i class="fas fa-check"></i>**Adapt** — remixar, transformar e construir sobre o material
+
+<i class="fas fa-check"></i>**Atribuição** — Você deve dar o crédito apropriado, fornecer um link para a licença e indicar se foram feitas alterações. Você deve fazê-lo sob quaisquer circunstâncias razoáveis, mas de forma alguma que sugira que o licenciante endossa você ou seu uso.
+
+<i class="fas fa-check"></i>**De acordo com os seguintes termos**
+
+* **Não comercial** — Você não pode usar o material para fins comerciais.
+
+* **ShareAlike** — Se você remixar, transformar ou desenvolver o material, deverá distribuir suas contribuições sob a mesma licença do original.
+
+* **Sem restrições adicionais** — Você não pode aplicar termos legais ou medidas tecnológicas que restrinjam legalmente outras pessoas de fazer qualquer coisa que a licença permita.
+
+
+# <i class="fab fa-creative-commons"></i> Selo Democratizando o Conhecimento
+
+O [selo Democratizando Conhecimento](https://bendeivide.github.io/dc/) (DC) é uma ideia criada pelo Prof. [Ben Dêivid](https://bendeivide.github.io/), e é utilizado aqui para que o acesso de todo esse material seja livre e que todo o material possa ser utilizado.
+
+O selo DC é compatível com a licença [Creative Commons CC BY NC SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+
