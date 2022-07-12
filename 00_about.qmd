@@ -1,9 +1,19 @@
 ---
-title: "Informações"
+title: "Material de apoio à disciplinas"
+subtitle: "Tutoriais com Aplicação em R"
 ---
 
 
-# <i class="fas fa-laptop-code"></i> Software and instalation
+![](figs/logos.png)
+
+Esta página contém os materiais de apoio em linguagem R das disciplinas ministradas pelo Prof. Tiago Olivoto no [Departamento de Fitotecnia](https://fit.ufsc.br/) do [Centro de Ciências Agrárias](https://cca.ufsc.br/) da [Universidade Federal de Santa Catarina](https://ufsc.br/)
+
+
+# Instalação dos softwares
+
+Para reprodução dos exemplos deste material, os softwares R e RStudio são necessários
+
+<iframe width="720" height="406" src="https://www.youtube.com/embed/e89kyYJgWqc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <a class="btn btn-success" href="https://cran.r-project.org/bin/windows/base/" target="_blank"><i class="fa fa-save"></i> Download do R</a>
 
@@ -11,55 +21,67 @@ title: "Informações"
 <a class="btn btn-success" href="https://www.rstudio.com/products/rstudio/download/" target="_blank"><i class="fa fa-save"></i> Download do RStudio</a>
 
 
-<iframe width="940" height="530" src="https://www.youtube.com/embed/e89kyYJgWqc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+# Professor
+
+:::{.callout-note}
+Técnico Agrícola pela Escola Estadual de Educação Básica Viadutos (2008), Engenheiro agrônomo pela Universidade do Oeste de Santa Catarina (2014), Mestre em Agronomia: Agricultura e Ambiente pela Universidade Federal de Santa Maria (2017) e Doutor em Agronomia com ênfase em Melhoramento Genético Vegetal e Experimentação Agrícola pela Universidade Federal de Santa Maria (2020). Atualmente é Professor Adjunto A1 do Departamento de Fitotecnia da Universidade Federal de Santa Catarina (UFSC), atuando na área de Melhoramento Genético Vegetal e Experimentação Agrícola. Exerce atividades relacionadas ao planejamento, condução e avaliação de experimentos com culturas anuais, com ênfase no desenvolvimento e aperfeiçoamento de métodos estatístico-experimentais para avaliação de ensaios multi-ambientes em melhoramento genético de plantas. Em seu Currículo, os termos mais frequentes na contextualização da produção científica são: análise de ensaios multi-ambientes, índices multivariados, intervalo de confiança para correlação, planejamento de experimentos, seleção indireta, interação genótipo-vs-ambiente, modelos mistos e parâmetros genéticos. É membro atuante da International Biometric Society (IBS) e integrante da comissão de Jovens Pesquisadores da Região Brasileira da Sociedade Internacional de Biometria, RBras, (JP-RBras) representando os estados do RS, SC e PR. Atua também como revisor ad hoc em revistas científicas nacionais e internacionais. Tem experiência com os softwares Gênes, GEA-R, R, SAS e SPSS. Vem desenvolvendo os pacotes para software R [metan](https://tiagoolivoto.github.io/metan/), voltado para a checagem, manipulação, análise e apresentação de dados de ensaios multi-ambientes e [pliman](https://tiagoolivoto.github.io/pliman/) voltado para a análise de imagens de plantas.
+:::
 
 
-# <i class="fas fa-chalkboard-teacher"></i> Professor
-
-[![](imgs/site.png)](https://olivoto.netlify.app/){target="_blank"}
+[![](figs/site.png)](https://olivoto.netlify.app/){target="_blank"}
 
 
+# Pacotes úteis
 
-# <i class="fas fa-box-open"></i> Useful packages
-
-É sugerido instalar os seguintes pacotes
+Para reprodução dos exemplos deste repositório é sugerido instalar os seguintes pacotes. Para saber como instalar pacotes no R, visite [este vídeo](https://www.youtube.com/watch?v=8B8QDZnDhtY)!
 
 ```{r warning=FALSE, message = FALSE}
+#| code-fold: false
 library(tidyverse)  # manipulação de dados
-library(metan)      # estatísticas descritivas
+library(metan)      # estatísticas descritivas/gráficos
 library(rio)        # importação/exportação de dados
 library(emmeans)    # comparação de médias
 library(AgroR)      # casualização e ANOVA
+
 ```
 
 
 
+# Licença
 
-# <i class="fab fa-creative-commons"></i> Licença
-
-  Estilo <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener"><img alt="Licença Creative Commons" ="border-width:0" src="https://raw.githubusercontent.com/TiagoOlivoto/tiagoolivoto/master/static/img/gemsr/license.jpg" width="300" height="214" />< /a><br />Este conteúdo está licenciado sob uma <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons - Atribuição-NãoComercial- CompartilhaIgual 4.0 Internacional</a>. O resumo de licença legível afirma que você tem o direito de:
-
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener"><img alt="Licença Creative Commons" style="border-width:0" src="https://raw.githubusercontent.com/TiagoOlivoto/tiagoolivoto/master/static/img/gemsr/license.jpg" width="300" height="80" /></a><br />Este conteúdo está licenciado com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons - Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional</a>. O resumo legível da licença afirma que você tem o direito de:
 
 
-<i class="fas fa-check"></i> **Compartilhe** — copie e redistribua o material em qualquer meio ou formato
 
-<i class="fas fa-check"></i>**Adapt** — remixar, transformar e construir sobre o material
+* **Compartilhar** — copie e redistribua o material em qualquer meio ou formato.
 
-<i class="fas fa-check"></i>**Atribuição** — Você deve dar o crédito apropriado, fornecer um link para a licença e indicar se foram feitas alterações. Você deve fazê-lo sob quaisquer circunstâncias razoáveis, mas de forma alguma que sugira que o licenciante endossa você ou seu uso.
+* **Adaptar** — remixar, transformar e construir sobre o material
 
-<i class="fas fa-check"></i>**De acordo com os seguintes termos**
+* **Atribuir** — Você deve dar o crédito apropriado, fornecer um link para a licença e indicar se foram feitas alterações. Você deve fazê-lo sob quaisquer circunstâncias razoáveis, mas de forma alguma sugerindo que o licenciante endossa você ou seu uso.
 
-* **Não comercial** — Você não pode usar o material para fins comerciais.
+Esta licença e válida sob os seguintes termos:
 
-* **ShareAlike** — Se você remixar, transformar ou desenvolver o material, deverá distribuir suas contribuições sob a mesma licença do original.
-
+* **Não comercial (NC)** — Você não pode usar o material para fins comerciais.
+* **Share Alike (SA)** — Se você remixar, transformar ou desenvolver o material, deverá distribuir suas contribuições sob a mesma licença do original.
 * **Sem restrições adicionais** — Você não pode aplicar termos legais ou medidas tecnológicas que restrinjam legalmente outras pessoas de fazer qualquer coisa que a licença permita.
 
 
-# <i class="fab fa-creative-commons"></i> Selo Democratizando o Conhecimento
+# Selo DC
 
-O [selo Democratizando Conhecimento](https://bendeivide.github.io/dc/) (DC) é uma ideia criada pelo Prof. [Ben Dêivid](https://bendeivide.github.io/), e é utilizado aqui para que o acesso de todo esse material seja livre e que todo o material possa ser utilizado.
+<a rel="license" href="https://bendeivide.github.io/dc/" target="_blank" rel="noopener"><img alt="Licença Creative Commons" style="border-width:0" src="https://github.com/bendeivide/dc/raw/main/SeloDC-preto2.png" width="500" height="200" /></a>
 
-O selo DC é compatível com a licença [Creative Commons CC BY NC SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/)
+O selo [selo Democratizando Conhecimento](https://bendeivide.github.io/dc/) (DC) é uma ideia criada pelo Prof. [Ben Dêivid](https://bendeivide.github.io/). O selo é compatível com a licença [Creative Commons CC BY NC SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/) e é utilizado aqui para garantir que o acesso de todo esse material seja livre, gratuíto e de código aberto. Meu principal objetivo com isso é democratizar o uso e aplicação do R nas Ciências Agrárias.
 
+# Visite-nos!
 
+```{r}
+#| echo: false
+library(leaflet)
+leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng=-48.505555555556,
+             lat=-27.582222222222,
+             popup="The birthplace of R")
+
+```
+     

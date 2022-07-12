@@ -1,5 +1,5 @@
 ---
-title: "Estatística Descritiva"
+title: "1. Estatística Descritiva"
 ---
 
 # Pacotes
@@ -11,25 +11,83 @@ library(metan)
 
 # Introdução
 
-Nesse material trataremos das medidas de posição e medidas de dispersão mais utilizadas para descrever um conjunto de dados (ou grupos de dados).
+A estatística descritiva é um ramo da estatística que aplica várias técnicas para descrever e sumarizar um conjunto de dados^[https://pt.wikipedia.org/wiki/Estat%C3%ADstica_descritiva]. Nesse material trataremos das medidas de posição e medidas de dispersão mais utilizadas para descrever um conjunto de dados (ou grupos de dados).
+
 
 # Medidas de posição
-Seja uma amostra $X_1$, $X_2$, $X_n$, de uma população $X_1$, $X_2$, $X_N$ de tamanho $n$ e $N$, definimos a média aritmética por
+As medidas de posição (também conhecidas como medidas de tendência central) indicam um valor que melhor representa todo o conjunto de dados, ou seja, dão a tendência da concentração dos valores observados. É necessário, no entanto, cautela na interpretação de medidas de posição utilizadas de forma isolada, pois elas não nos dão a ideia da dispersão dos dados. As principais medidas de posição são: a média, a mediana e a moda. 
+## Média
 
+### Média aritmética
+Seja uma amostra $X_1$, $X_2$, $X_n$, de uma população $X_1$, $X_2$, $X_N$ de tamanho $n$ e $N$, definimos a média aritmética por
 
 $$
 \mu  = \frac{\displaystyle\sum_{i=1}^{N}X_i}{N}, \quad \textrm{(População)}
 $$
 
-
 $$
 \bar{X} = \frac{\displaystyle\sum_{i=1}^{n}X_i}{n}. \quad \textrm{(Amostra)}
 $$
 
-Considere a altura (em cm) de cinco plantas de milho, armazenada no objeto `altura`. Para calcular a média destas alturas, utilziamos a função `mean()`. A mediana é calculada com a função `median()`.
+Considere a altura (em cm) de cinco plantas de milho, armazenada no objeto `altura`. Para calcular a média aritmética destas alturas, utilziamos a função `mean()`.
 
 ```{r}
 altura <- c(245, 250, 269, 280, 262)
+mean(altura)
+
+```
+
+### Média geométrica
+A média geométrica ($m_g$) entre um conjunto de `n` dados é a `n`-ésima raíz do produto desses dados.
+
+$$
+m_g = \sqrt[n]{\prod\limits_{i = 1}^n {{x_i}} }
+$$
+
+### Média harmônica
+A média harmônica ($m_h$) é definida como sendo o inverso da média aritmética dos inversos, representada como segue
+
+$$
+m_h = \frac{n}{{\sum\limits_{i = 1}^n {\frac{1}{{{x_i}}}} }}
+$$
+
+
+A escolha pelo uso da média harmônica para representação da média de um conjunto está ligada a situações que envolvem grandezas inversamente proporcionais, por exemplo a velocidade média. 
+
+::: callout-tip
+#### Exemplo de aplicação
+Um carro percorre um percurso de mesma distância duas vezes. No primeira, ele faz o percurso com uma velocidade V1 = 80 km/h. No segunda, ele realiza o mesmo percurso com velocidade de V2 = 120 km/h. Pede-se: qual foi a velocidade média dos dois percursos?
+
+Intuitivamente (e erroneamente) computaríamos a média aritmética ($(80 + 120) / 2 = 100$). Note que a distância é a mesma, para os dois percursos, o que muda é a velocidade e, consequentemente, o tempo. A resolução correta do problema é a seguinte:
+
+Sejam,
+
+$d$, a distância do percurso
+$v_1$, a velocidade média do percurso
+$t_i$, o tempo de viagem do percurso
+
+Então, temos que $d = v_1t_1=v_2t_2$. Se $v$ é a velocidad média nos dois trajetos, então $2d=v(t_1+t_2)$, ou $2d=v(d/v_1+d/v_2)$. Moral da história: a velocidade média no percurso todo é a média harmônica das velocidades dos dois percursos:
+
+$$
+m_h = \frac{2}{{{\frac{1}{{{80}}} + \frac{1}{{{120}}}} }} = 96
+$$
+
+
+:::
+
+No R base, não existe uma função específica para a média harmônica. Pode-se utilizar, então, a função `hmean()` do pacote `metan`^[https://tiagoolivoto.github.io/metan/].
+```{r}
+library(metan)
+hmean(c(80, 120))
+
+```
+
+
+## Mediana
+ A mediana é calculada com a função `median()`.
+```{r}
+altura <- c(245, 250, 269, 280, 262)
+
 # Média
 (media <- mean(altura))
 
@@ -44,7 +102,9 @@ sort(altura)
 
 
 # Medidas de dispersão
+
 ## Amplitude
+
 A primeira medida de dispersão que definiremos é a amplitude ou amplitude total, denotada por $A_p = X_{(max)} - X_{(min)}$, onde $X_{(max)}$ e $X_{(min)}$ são os valores máximos e mínimos do conjunto de dados, respectivamente. Os valores extremos podem ser encontrados com a função `range()`.
 
 ```{r}
@@ -52,7 +112,6 @@ A primeira medida de dispersão que definiremos é a amplitude ou amplitude tota
 (amplitude <- extremos[2] - extremos[1])
 
 ```
-
 
 ## Desvios médios
 
@@ -63,6 +122,7 @@ DM  = \sum_{i = 1}^{n} \left(X_i - \bar{X} \right)
 $$
 
 Para calcularmos os desvios, basta utilizar o operador `-` no R.
+
 ```{r}
 (desvios <- altura - media)
 ```
@@ -91,11 +151,10 @@ ggplot(df, aes(x = altura, y = pessoa)) +
        y = "Planta")
 ```
 
-
-A expressão anterior resulta em
-$$
+A expressão anterior resulta em $$
 DM  = \sum_{i = 1}^{n} \left(X_i - \bar{X} \right) = 0
 $$
+
 ```{r}
 sum(desvios) |> round()
 ```
@@ -116,7 +175,7 @@ somadesv / 5
 
 ## Variância
 
-Utilizando uma função quadrática na medida surge uma outra medida de variabilidade que é a soma de quadrados.  A soma de quadrados apresenta uma outra informação interessante que é penalizar as observações quanto mais estiver distante do valor central. Assim, quando elevamos ao quadrado um alto desvio, esse valor se torna maior ainda, mas quando elevamos ao quadrado um desvio pequeno, esse valor não cresce tanto. Com isso, conseguimos compreender quais os dados que estão mais dispersos em torno da média. Ao dividir a soma de quadrados por $n-1$ temos o estimador da variância amostral ($S^2$), dado por:
+Utilizando uma função quadrática na medida surge uma outra medida de variabilidade que é a soma de quadrados. A soma de quadrados apresenta uma outra informação interessante que é penalizar as observações quanto mais estiver distante do valor central. Assim, quando elevamos ao quadrado um alto desvio, esse valor se torna maior ainda, mas quando elevamos ao quadrado um desvio pequeno, esse valor não cresce tanto. Com isso, conseguimos compreender quais os dados que estão mais dispersos em torno da média. Ao dividir a soma de quadrados por $n-1$ temos o estimador da variância amostral ($S^2$), dado por:
 
 $$
 S^2 = \frac{\sum_{i = 1}^{n} \left(X_i - \bar X_i \right)^2}{n-1}
@@ -140,7 +199,6 @@ Anteriormente, vimos o passo a passo para o cálculo da variância amostral. No 
 var(altura)
 ```
 
-
 ## Desvio padrão
 
 A variância, como medida de dispersão, apresenta sua unidade ao quadrado da unidade da variável em estudo. Em outras palavras, que se tivermos usando uma variável na escala de centímetros (ex., algura), a dispersão dada pela variância estará na escala de área (cm$^2$). Isso se torna difícil a percepção de dispersão quando observamos os dados. Para contornar isso, utilizamos o desvio padrão, que é a raíz quadrada da variância, dado por
@@ -157,7 +215,6 @@ Para o exemplo acima, computamos o desvio padrão extraíndo a raíz de `var_alt
 sd(altura)
 ```
 
-
 ## Coeficiente de variação
 
 As medidas de variabilidade tais como a variância e desvio padrão, são conhecidas como medidas de dispersão absoluta. Isto significa que elas serão diretamente influenciadas pela magnitude da variável. Vamos tomar como motivação, os valores em `altura`, tomados em cm. Consideremos que estes dados são transformados para metros, por tanto, cada observação será dividida por 100. Observe abaixo o resultado do desvio padrão da mesma variável, mas com escala diferente.
@@ -167,7 +224,7 @@ As medidas de variabilidade tais como a variância e desvio padrão, são conhec
 (desv_altura_m <- sd(altura_m))
 ```
 
-Para contornar este problema, podemos utilizar uma medida relativa de variabilidade chamada de Coeficiente de Variação (CV). Este pode ser usada para comparar a variabilidade entre quaisquer grupo de dados, independentemente da sua escala.  O coeficiente de variação é definido por:
+Para contornar este problema, podemos utilizar uma medida relativa de variabilidade chamada de Coeficiente de Variação (CV). Este pode ser usada para comparar a variabilidade entre quaisquer grupo de dados, independentemente da sua escala. O coeficiente de variação é definido por:
 
 $$
 CV = \frac{S}{\bar{X}} \times 100
@@ -197,7 +254,6 @@ CV <- function(dados){
 CV(altura)
 ```
 
-
 ## Erro padrão da média
 
 O erro padrão da média é a estimativa do desvio padrão de sua distribuição amostral. O desvio padrão visto anteriormente reflete a variabilidade de cada observação em torno da média amostral. Já o erro padrão da média, representa a variabilidade de cada média amostral de todas amostra possíveis, em relação a média populacional. Sua estimativa é dada por:
@@ -206,7 +262,7 @@ $$
 S_{\bar{X}}  = \frac{S}{\sqrt{n}}
 $$
 
-É fácil observar que à medida que $n \to N$, isto é, à medida que  
+É fácil observar que à medida que $n \to N$, isto é, à medida que\
 $n$ aumenta, a média amostral ($\bar X$) tende a média populacional ($\mu$). Isso significa que a média amostral é mais precisa porque se aproxima cada vez mais da média populacional. Para os dados em `altura`, o erro padrão da média é calculado com:
 
 ```{r}
@@ -215,9 +271,10 @@ $n$ aumenta, a média amostral ($\bar X$) tende a média populacional ($\mu$). I
 ```
 
 # Aplicação utilizando o pacote metan
-## Exemplo da altura de planta
-Para calcular todas as estatísticas de uma só vez, podemos usar `desc_stat()` do pacote metan. Esta função pode ser usada para calcular medidas de tendência central, posição e dispersão. Por padrão (`stats = "main"`), sete estatísticas (coeficiente de variação, máximo, média, mediana, mínimo, desvio padrão da amostra, erro padrão e intervalo de confiança da média) são calculadas. Outros valores permitidos são `"all"` para mostrar todas as estatísticas, `"robust"` para mostrar estatísticas robustas, `"quantile"` para mostrar estatísticas quantílicas ou escolher uma (ou mais) estatísticas usando um vetor separado por vírgula com os nomes das estatísticas, por exemplo, `stats = c("mean, cv")`. Também podemos usar `hist = TRUE` para criar um histograma para cada variável. Para mais detalhes consulte [este material](https://tiagoolivoto.github.io/e-bookr/analdata.html#ebasic).
 
+## Exemplo da altura de planta
+
+Para calcular todas as estatísticas de uma só vez, podemos usar `desc_stat()` do pacote metan. Esta função pode ser usada para calcular medidas de tendência central, posição e dispersão. Por padrão (`stats = "main"`), sete estatísticas (coeficiente de variação, máximo, média, mediana, mínimo, desvio padrão da amostra, erro padrão e intervalo de confiança da média) são calculadas. Outros valores permitidos são `"all"` para mostrar todas as estatísticas, `"robust"` para mostrar estatísticas robustas, `"quantile"` para mostrar estatísticas quantílicas ou escolher uma (ou mais) estatísticas usando um vetor separado por vírgula com os nomes das estatísticas, por exemplo, `stats = c("mean, cv")`. Também podemos usar `hist = TRUE` para criar um histograma para cada variável. Para mais detalhes consulte [este material](https://tiagoolivoto.github.io/e-bookr/analdata.html#ebasic).
 
 ```{r}
 library(metan)
@@ -229,8 +286,8 @@ desc_stat(altura,
   as.data.frame()
 ```
 
-
 ## Exemplo com os dados coletados em aula
+
 Neste exemplo, mostro como as estatísticas descritivas para os dados coletados em aula podem ser calculadas utilizando o pacote `metan`. Os dados são importados diretamente da planilha armazenada no drive, utilizando a função `import()` do pacote `rio`.
 
 ```{r}
@@ -249,12 +306,11 @@ str(df)
 head(df)
 ```
 
-Os dados foram organziados de maneira que cada fator (coloração e grupo) estivessem em uma coluna. Isto possibilita o cálculo das estatísticas para cada nível destes fatores. As duas variáveis quantitativas contínuas são: `comprimento` (o comprimento do grão em mm); e `diametro` (o diâmetro do grão em mm). 
-
+Os dados foram organziados de maneira que cada fator (coloração e grupo) estivessem em uma coluna. Isto possibilita o cálculo das estatísticas para cada nível destes fatores. As duas variáveis quantitativas contínuas são: `comprimento` (o comprimento do grão em mm); e `diametro` (o diâmetro do grão em mm).
 
 ### Estatísticas gerais
-Para saber as estatísticas descritivas gerais (sem estratificação por grupo), vamos utilizar a função `group_by()` para agrupar por `Coloracao`. Com isso, as estatísticas serão calculadas separadamente para `vermelho` e `verde`. Por padrão, a função calcula as estatísticas descritivas para todas as variáveis numéricas do conjunto de dados. Sendo assim, não há necessidade de informar qual variável analisar.
 
+Para saber as estatísticas descritivas gerais (sem estratificação por grupo), vamos utilizar a função `group_by()` para agrupar por `Coloracao`. Com isso, as estatísticas serão calculadas separadamente para `vermelho` e `verde`. Por padrão, a função calcula as estatísticas descritivas para todas as variáveis numéricas do conjunto de dados. Sendo assim, não há necessidade de informar qual variável analisar.
 
 ```{r}
 stats = c("mean, median, range, ave.dev, var.amo, sd.amo, cv, se, n")
@@ -272,8 +328,6 @@ df |>
   group_by(Grupo, Coloracao) |> 
   desc_stat(stats = stats)
 ```
-
-
 
 # Simulação de dados com diferentes variâncias
 
@@ -303,15 +357,14 @@ dados
 
 ```
 
-
 Utilizando a função `means_by()` do pacote metan é possível computar médias por grupos.
+
 ```{r}
 # calcular a média por grupo
 means_by(dados, grupo) |> as.data.frame()
 ```
 
 Dessa forma, poderíamos concluir que os grupos de dados são iguais? A resposta é não. Isso significa, que essa medida de posição apenas não consegue caracterizar completamente os grupos de dados. Para isto, medidas de dispersão são necessárias. Note no exemplo abaixo, como as medidas de dispersão diferem consideravelmente entre os grupos!
-
 
 ```{r}
 desc_stat(dados,
