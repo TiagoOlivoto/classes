@@ -273,13 +273,12 @@
 </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306\FIT5306_01_DESC.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 <div class="quarto-title"><h1 class="title d-none d-lg-block">1. Estatística Descritiva</h1></div></header><section id="pacotes" class="level1" data-number="1"><h1 data-number="1">
 <span class="header-section-number">1</span> Pacotes</h1>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TiagoOlivoto/metan">metan</a></span><span class="op">)</span>   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section><section id="introdução" class="level1" data-number="2"><h1 data-number="2">
 <span class="header-section-number">2</span> Introdução</h1>
@@ -298,9 +297,9 @@
 \]</span></p>
 <p>Considere a altura (em cm) de cinco plantas de milho, armazenada no objeto <code>altura</code>. Para calcular a média aritmética destas alturas, utilziamos a função <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">altura</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">245</span>, <span class="fl">250</span>, <span class="fl">269</span>, <span class="fl">280</span>, <span class="fl">262</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">altura</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">245</span>, <span class="fl">250</span>, <span class="fl">269</span>, <span class="fl">280</span>, <span class="fl">262</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">altura</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>[1] 261.2</code></pre>
 </div>
 </div>
@@ -338,31 +337,31 @@ m_h = \frac{2}{{{\frac{1}{{{80}}} + \frac{1}{{{120}}}} }} = 96
 </div>
 </div>
 <p>No R base, não existe uma função específica para a média harmônica. Pode-se utilizar, então, a função <code><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">hmean()</a></code> do pacote <code>metan</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. ::: {.cell}</p>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TiagoOlivoto/metan">metan</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TiagoOlivoto/metan">metan</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">hmean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">80</span>, <span class="fl">120</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>[1] 96</code></pre>
 </div>
 <p>:::</p>
 </section><section id="mediana" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="mediana">
 <span class="header-section-number">3.1</span> Mediana</h2>
 <p>A mediana é calculada com a função <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code>. ::: {.cell}</p>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">altura</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">245</span>, <span class="fl">250</span>, <span class="fl">269</span>, <span class="fl">280</span>, <span class="fl">262</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">altura</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">245</span>, <span class="fl">250</span>, <span class="fl">269</span>, <span class="fl">280</span>, <span class="fl">262</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Média</span></span>
 <span><span class="op">(</span><span class="va">media</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">altura</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>[1] 261.2</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Mediana</span></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Mediana</span></span>
 <span><span class="co"># Ordenar os dados</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">altura</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>[1] 245 250 262 269 280</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calcular a mediana</span></span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calcular a mediana</span></span>
 <span><span class="op">(</span><span class="va">mediana</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">altura</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>[1] 262</code></pre>
 </div>
 <p>:::</p>
@@ -372,12 +371,12 @@ m_h = \frac{2}{{{\frac{1}{{{80}}} + \frac{1}{{{120}}}} }} = 96
 <span class="header-section-number">4.1</span> Amplitude</h2>
 <p>A primeira medida de dispersão que definiremos é a amplitude ou amplitude total, denotada por <span class="math inline">\(A_p = X_{(max)} - X_{(min)}\)</span>, onde <span class="math inline">\(X_{(max)}\)</span> e <span class="math inline">\(X_{(min)}\)</span> são os valores máximos e mínimos do conjunto de dados, respectivamente. Os valores extremos podem ser encontrados com a função <code><a href="https://rdrr.io/r/base/range.html">range()</a></code>.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">extremos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">altura</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">extremos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">altura</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[1] 245 280</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">amplitude</span> <span class="op">&lt;-</span> <span class="va">extremos</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">-</span> <span class="va">extremos</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">amplitude</span> <span class="op">&lt;-</span> <span class="va">extremos</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">-</span> <span class="va">extremos</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[1] 35</code></pre>
 </div>
 </div>
@@ -389,14 +388,14 @@ DM  = \sum_{i = 1}^{n} \left(X_i - \bar{X} \right)
 \]</span></p>
 <p>Para calcularmos os desvios, basta utilizar o operador <code>-</code> no R.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">desvios</span> <span class="op">&lt;-</span> <span class="va">altura</span> <span class="op">-</span> <span class="va">media</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">desvios</span> <span class="op">&lt;-</span> <span class="va">altura</span> <span class="op">-</span> <span class="va">media</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[1] -16.2 -11.2   7.8  18.8   0.8</code></pre>
 </div>
 </div>
 <p>Para expressar estes desvios, vamos construir um gráfico utilizando o pacote <code>ggplot2</code>.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>pessoa <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Planta"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>,</span>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>pessoa <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Planta"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>,</span>
 <span>                 altura <span class="op">=</span> <span class="va">altura</span>,</span>
 <span>                 altura_media <span class="op">=</span> <span class="va">media</span>,</span>
 <span>                 desvio <span class="op">=</span> <span class="va">desvios</span><span class="op">)</span></span>
@@ -415,7 +414,7 @@ DM  = \sum_{i = 1}^{n} \left(X_i - \bar{X} \right)
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Altura da planta (cm)"</span>,</span>
 <span>       y <span class="op">=</span> <span class="st">"Planta"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_01_DESC_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
@@ -423,8 +422,8 @@ DM  = \sum_{i = 1}^{n} \left(X_i - \bar{X} \right)
 DM  = \sum_{i = 1}^{n} \left(X_i - \bar{X} \right) = 0
 \]</span></p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">desvios</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">desvios</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
 </div>
@@ -433,14 +432,14 @@ DM  = \sum_{i = 1}^{n} \left(X_i - \bar{X} \right) = 0
 S_{|\bar{X}|} = \frac{\sum_{i = 1}^{n} \left|X_i - \bar{X} \right|}{n}
 \]</span></p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># soma dos desvios em módulo</span></span>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># soma dos desvios em módulo</span></span>
 <span><span class="op">(</span><span class="va">somadesv</span> <span class="op">&lt;-</span> <span class="va">desvios</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>[1] 54.8</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># desvio médio</span></span>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># desvio médio</span></span>
 <span><span class="va">somadesv</span> <span class="op">/</span> <span class="fl">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>[1] 10.96</code></pre>
 </div>
 </div>
@@ -451,26 +450,26 @@ S_{|\bar{X}|} = \frac{\sum_{i = 1}^{n} \left|X_i - \bar{X} \right|}{n}
 S^2 = \frac{\sum_{i = 1}^{n} \left(X_i - \bar X_i \right)^2}{n-1}
 \]</span></p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Desvios ao quadrado</span></span>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Desvios ao quadrado</span></span>
 <span><span class="op">(</span><span class="va">desvq</span> <span class="op">&lt;-</span> <span class="va">desvios</span> <span class="op">^</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>[1] 262.44 125.44  60.84 353.44   0.64</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># soma dos desvios ao quadrado</span></span>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># soma dos desvios ao quadrado</span></span>
 <span><span class="op">(</span><span class="va">somadesvq</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">desvq</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>[1] 802.8</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># divisão por n - 1</span></span>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># divisão por n - 1</span></span>
 <span><span class="op">(</span><span class="va">var_altura</span> <span class="op">&lt;-</span> <span class="va">somadesvq</span> <span class="op">/</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>[1] 200.7</code></pre>
 </div>
 </div>
 <p>Anteriormente, vimos o passo a passo para o cálculo da variância amostral. No R, a função <code><a href="https://rdrr.io/r/stats/cor.html">var()</a></code> pode ser utilizada para este fim.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">altura</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">altura</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[1] 200.7</code></pre>
 </div>
 </div>
@@ -482,13 +481,13 @@ S = \sqrt{S^2}
 \]</span></p>
 <p>Para o exemplo acima, computamos o desvio padrão extraíndo a raíz de <code>var_altura</code>, ou, como para a variância, utilizando uma função específica do R para isso: <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> (de <code>s</code>tandard <code>d</code>eviation).</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">desv_altura</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">var_altura</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">desv_altura</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">var_altura</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[1] 14.16686</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># utilizando a função sd()</span></span>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># utilizando a função sd()</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">altura</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>[1] 14.16686</code></pre>
 </div>
 </div>
@@ -496,12 +495,12 @@ S = \sqrt{S^2}
 <span class="header-section-number">4.5</span> Coeficiente de variação</h2>
 <p>As medidas de variabilidade tais como a variância e desvio padrão, são conhecidas como medidas de dispersão absoluta. Isto significa que elas serão diretamente influenciadas pela magnitude da variável. Vamos tomar como motivação, os valores em <code>altura</code>, tomados em cm. Consideremos que estes dados são transformados para metros, por tanto, cada observação será dividida por 100. Observe abaixo o resultado do desvio padrão da mesma variável, mas com escala diferente.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">altura_m</span> <span class="op">&lt;-</span> <span class="va">altura</span> <span class="op">/</span> <span class="fl">100</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">altura_m</span> <span class="op">&lt;-</span> <span class="va">altura</span> <span class="op">/</span> <span class="fl">100</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[1] 2.45 2.50 2.69 2.80 2.62</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">desv_altura_m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">altura_m</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">desv_altura_m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">altura_m</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[1] 0.1416686</code></pre>
 </div>
 </div>
@@ -510,20 +509,20 @@ S = \sqrt{S^2}
 CV = \frac{S}{\bar{X}} \times 100
 \]</span></p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># coeficiente de variação da variável em centímetros</span></span>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># coeficiente de variação da variável em centímetros</span></span>
 <span><span class="op">(</span><span class="va">cv_altura</span> <span class="op">&lt;-</span> <span class="va">desv_altura</span> <span class="op">/</span> <span class="va">media</span> <span class="op">*</span> <span class="fl">100</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>[1] 5.423761</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># coeficiente de variação da variável em metros</span></span>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># coeficiente de variação da variável em metros</span></span>
 <span><span class="op">(</span><span class="va">cv_altura2</span> <span class="op">&lt;-</span> <span class="va">desv_altura_m</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">altura_m</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>[1] 5.423761</code></pre>
 </div>
 </div>
 <p>Não existe no R base uma função para computar o coeficiente de variação, então vamos criá-la utilizando a abordagem <code>function()</code>.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">CV</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dados</span><span class="op">)</span><span class="op">{</span></span>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">CV</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dados</span><span class="op">)</span><span class="op">{</span></span>
 <span>  <span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">dados</span><span class="op">)</span> <span class="op">==</span> <span class="st">"numeric"</span><span class="op">)</span><span class="op">{</span></span>
 <span>    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"Os dados precisam ser numéricos"</span><span class="op">)</span></span>
 <span>  <span class="op">}</span> <span class="co">#Indica que os dados devem ser numéricos</span></span>
@@ -534,7 +533,7 @@ CV = \frac{S}{\bar{X}} \times 100
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu">CV</span><span class="op">(</span><span class="va">altura</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>[1] 5.423761</code></pre>
 </div>
 </div>
@@ -546,8 +545,8 @@ S_{\bar{X}}  = \frac{S}{\sqrt{n}}
 \]</span></p>
 <p>É fácil observar que à medida que <span class="math inline">\(n \to N\)</span>, isto é, à medida que<br><span class="math inline">\(n\)</span> aumenta, a média amostral (<span class="math inline">\(\bar X\)</span>) tende a média populacional (<span class="math inline">\(\mu\)</span>). Isso significa que a média amostral é mais precisa porque se aproxima cada vez mais da média populacional. Para os dados em <code>altura</code>, o erro padrão da média é calculado com:</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">epm</span> <span class="op">&lt;-</span> <span class="va">desv_altura</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">epm</span> <span class="op">&lt;-</span> <span class="va">desv_altura</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[1] 6.335614</code></pre>
 </div>
 </div>
@@ -557,9 +556,9 @@ S_{\bar{X}}  = \frac{S}{\sqrt{n}}
 <span class="header-section-number">5.1</span> Exemplo da altura de planta</h2>
 <p>Para calcular todas as estatísticas de uma só vez, podemos usar <code><a href="https://rdrr.io/pkg/metan/man/desc_stat.html">desc_stat()</a></code> do pacote metan. Esta função pode ser usada para calcular medidas de tendência central, posição e dispersão. Por padrão (<code>stats = "main"</code>), sete estatísticas (coeficiente de variação, máximo, média, mediana, mínimo, desvio padrão da amostra, erro padrão e intervalo de confiança da média) são calculadas. Outros valores permitidos são <code>"all"</code> para mostrar todas as estatísticas, <code>"robust"</code> para mostrar estatísticas robustas, <code>"quantile"</code> para mostrar estatísticas quantílicas ou escolher uma (ou mais) estatísticas usando um vetor separado por vírgula com os nomes das estatísticas, por exemplo, <code>stats = c("mean, cv")</code>. Também podemos usar <code>hist = TRUE</code> para criar um histograma para cada variável. Para mais detalhes consulte <a href="https://tiagoolivoto.github.io/e-bookr/analdata.html#ebasic">este material</a>.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TiagoOlivoto/metan">metan</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TiagoOlivoto/metan">metan</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/desc_stat.html">desc_stat</a></span><span class="op">(</span><span class="va">altura</span>, stats <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>  variable av.dev    ci.t    ci.z     cv    gmean    hmean iqr    kurt     mad
 1      val  10.96 17.5905 12.4176 5.4238 260.8937 260.5887  19 -1.3829 17.7912
   max  mean median min n n.valid n.missing n.unique      ps  q2.5 q25 q75 q97.5
@@ -569,11 +568,11 @@ S_{\bar{X}}  = \frac{S}{\sqrt{n}}
   var.pop
 1  160.56</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># estatísticas vistas neste material</span></span>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># estatísticas vistas neste material</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/desc_stat.html">desc_stat</a></span><span class="op">(</span><span class="va">altura</span>,</span>
 <span>          stats <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mean, median, range, ave.dev, var.amo, sd.amo, cv, se"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>  variable  mean median range ave.dev var.amo  sd.amo     cv     se
 1      val 261.2    262    35   10.96   200.7 14.1669 5.4238 6.3356</code></pre>
 </div>
@@ -582,7 +581,7 @@ S_{\bar{X}}  = \frac{S}{\sqrt{n}}
 <span class="header-section-number">5.2</span> Exemplo com os dados coletados em aula</h2>
 <p>Neste exemplo, mostro como as estatísticas descritivas para os dados coletados em aula podem ser calculadas utilizando o pacote <code>metan</code>. Os dados são importados diretamente da planilha armazenada no drive, utilizando a função <code><a href="https://rdrr.io/pkg/rio/man/import.html">import()</a></code> do pacote <code>rio</code>.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leeper/rio">rio</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leeper/rio">rio</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># link dos dados</span></span>
 <span><span class="va">link</span> <span class="op">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1216373680"</span></span>
@@ -592,16 +591,16 @@ S_{\bar{X}}  = \frac{S}{\sqrt{n}}
 <span></span>
 <span><span class="co"># estrutura dos dados </span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>'data.frame':   40 obs. of  4 variables:
  $ Grupo      : chr  "Grupo 1" "Grupo 1" "Grupo 1" "Grupo 1" ...
  $ Coloracao  : chr  "vermelho" "vermelho" "vermelho" "vermelho" ...
  $ comprimento: num  15.9 14.7 13.6 11.4 14.3 ...
  $ diametro   : num  11.7 11.4 11.4 11.6 10.7 ...</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># primeiras linhas</span></span>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># primeiras linhas</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>    Grupo Coloracao comprimento diametro
 1 Grupo 1  vermelho       15.89    11.66
 2 Grupo 1  vermelho       14.68    11.37
@@ -616,11 +615,11 @@ S_{\bar{X}}  = \frac{S}{\sqrt{n}}
 <span class="header-section-number">5.2.1</span> Estatísticas gerais</h3>
 <p>Para saber as estatísticas descritivas gerais (sem estratificação por grupo), vamos utilizar a função <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> para agrupar por <code>Coloracao</code>. Com isso, as estatísticas serão calculadas separadamente para <code>vermelho</code> e <code>verde</code>. Por padrão, a função calcula as estatísticas descritivas para todas as variáveis numéricas do conjunto de dados. Sendo assim, não há necessidade de informar qual variável analisar.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">stats</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mean, median, range, ave.dev, var.amo, sd.amo, cv, se, n"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">stats</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mean, median, range, ave.dev, var.amo, sd.amo, cv, se, n"</span><span class="op">)</span></span>
 <span><span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Coloracao</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/desc_stat.html">desc_stat</a></span><span class="op">(</span>stats <span class="op">=</span> <span class="va">stats</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code># A tibble: 4 × 11
   Coloracao variable  mean median range ave.dev var.amo sd.amo    cv    se     n
   &lt;chr&gt;     &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -634,10 +633,10 @@ S_{\bar{X}}  = \frac{S}{\sqrt{n}}
 <span class="header-section-number">5.2.2</span> Estatísticas por grupo e coloração</h3>
 <p>Para obter as estatística para cada grupo, basta adicionar o fator <code>Grupo</code> na função <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> e realizar o mesmo comando mostrado acima.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Grupo</span>, <span class="va">Coloracao</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/desc_stat.html">desc_stat</a></span><span class="op">(</span>stats <span class="op">=</span> <span class="va">stats</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code># A tibble: 8 × 12
   Grupo Coloracao variable  mean median range ave.dev var.amo sd.amo    cv    se
   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -656,7 +655,7 @@ S_{\bar{X}}  = \frac{S}{\sqrt{n}}
 <span class="header-section-number">6</span> Simulação de dados com diferentes variâncias</h1>
 <p>O código a seguir apresenta uma simulação de três grupos com 10 observações cada um. Os grupos formados são A, B e C, todos com média <code>9,018686</code>.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Dados dos grupos gerados</span></span>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Dados dos grupos gerados</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span> <span class="co"># assegura a reprodutibilidade</span></span>
 <span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10</span>, mean <span class="op">=</span> <span class="fl">10</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
@@ -676,7 +675,7 @@ S_{\bar{X}}  = \frac{S}{\sqrt{n}}
 <span>             valor <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">A</span>, <span class="va">B</span>, <span class="va">C</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">dados</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>   grupo      valor
 1      A 10.0374923
 2      A  9.6314949
@@ -712,9 +711,9 @@ S_{\bar{X}}  = \frac{S}{\sqrt{n}}
 </div>
 <p>Utilizando a função <code><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">means_by()</a></code> do pacote metan é possível computar médias por grupos.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># calcular a média por grupo</span></span>
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># calcular a média por grupo</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">means_by</a></span><span class="op">(</span><span class="va">dados</span>, <span class="va">grupo</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>  grupo    valor
 1     A 9.018686
 2     B 9.018686
@@ -723,10 +722,10 @@ S_{\bar{X}}  = \frac{S}{\sqrt{n}}
 </div>
 <p>Dessa forma, poderíamos concluir que os grupos de dados são iguais? A resposta é não. Isso significa, que essa medida de posição apenas não consegue caracterizar completamente os grupos de dados. Para isto, medidas de dispersão são necessárias. Note no exemplo abaixo, como as medidas de dispersão diferem consideravelmente entre os grupos!</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/desc_stat.html">desc_stat</a></span><span class="op">(</span><span class="va">dados</span>,</span>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/desc_stat.html">desc_stat</a></span><span class="op">(</span><span class="va">dados</span>,</span>
 <span>          by <span class="op">=</span> <span class="va">grupo</span>,</span>
 <span>          stats <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mean, median, range, ave.dev, var.amo, sd.amo, cv, se"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code># A tibble: 3 × 10
   grupo variable  mean median range ave.dev var.amo sd.amo    cv    se
   &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -737,13 +736,13 @@ S_{\bar{X}}  = \frac{S}{\sqrt{n}}
 </div>
 <p>Isto fica mais facilmente notado ao criarmos um gráfico do tipo boxplot, contendo a dispersão dos dados.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://indrajeetpatil.github.io/ggstatsplot/">ggstatsplot</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stderr">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://indrajeetpatil.github.io/ggstatsplot/">ggstatsplot</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stderr">
 <pre><code>You can cite this package as:
      Patil, I. (2021). Visualizations with statistical details: The 'ggstatsplot' approach.
      Journal of Open Source Software, 6(61), 3167, doi:10.21105/joss.03167</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://indrajeetpatil.github.io/ggstatsplot/reference/ggbetweenstats.html">ggbetweenstats</a></span><span class="op">(</span><span class="va">dados</span>,</span>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://indrajeetpatil.github.io/ggstatsplot/reference/ggbetweenstats.html">ggbetweenstats</a></span><span class="op">(</span><span class="va">dados</span>,</span>
 <span>               x <span class="op">=</span> <span class="va">grupo</span>,</span>
 <span>               y <span class="op">=</span> <span class="va">valor</span>,</span>
 <span>               plot.type <span class="op">=</span> <span class="st">"box"</span>,</span>
@@ -751,7 +750,7 @@ S_{\bar{X}}  = \frac{S}{\sqrt{n}}
 <span>               results.subtitle <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>               ylab <span class="op">=</span> <span class="st">"rendimento"</span>,</span>
 <span>               k <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_01_DESC_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="768"></p>
 </div>
 </div>

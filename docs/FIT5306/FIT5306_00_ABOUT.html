@@ -239,16 +239,15 @@
 </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306\FIT5306_00_ABOUT.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 <div class="quarto-title"><h1 class="title d-none d-lg-block">FIT5306 - Bioestatística e Experimentação Agrícola</h1></div></header><section id="pacotes-necessários" class="level1" data-number="1"><h1 data-number="1">
 <span class="header-section-number">1</span> Pacotes necessários</h1>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>  <span class="co"># manipulação de dados</span></span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>  <span class="co"># manipulação de dados</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TiagoOlivoto/metan">metan</a></span><span class="op">)</span>      <span class="co"># estatísticas descritivas</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leeper/rio">rio</a></span><span class="op">)</span>        <span class="co"># importação/exportação de dados</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rvlenth/emmeans">emmeans</a></span><span class="op">)</span>    <span class="co"># comparação de médias</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://agronomiar.github.io/AgroR_package/index.html">AgroR</a></span><span class="op">)</span>      <span class="co"># casualização e ANOVA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section><section id="dados-de-exemplo" class="level1" data-number="2"><h1 data-number="2">
 <span class="header-section-number">2</span> Dados de exemplo</h1>
@@ -328,10 +327,10 @@ Note
 <span class="header-section-number">3</span> Download dos dados</h1>
 <p>Planilhas específicas podem ser baixadas diretamente no software R, utilizando o argumento <code>sheet</code> da função <code><a href="https://rdrr.io/pkg/rio/man/import.html">import()</a></code> do pacote <code>rio</code>.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
 <span><span class="va">df_biostat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="va">url</span>, sheet <span class="op">=</span> <span class="st">"DIC-DBC"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_biostat</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>Rows: 12
 Columns: 5
 $ RAD   &lt;dbl&gt; 50, 50, 50, 50, 70, 70, 70, 70, 100, 100, 100, 100

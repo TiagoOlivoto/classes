@@ -306,16 +306,15 @@
 </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306\FIT5306_09_FAT.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 <div class="quarto-title"><h1 class="title d-none d-lg-block">9. Experimentos Fatoriais</h1></div></header><section id="pacotes" class="level1" data-number="1"><h1 data-number="1">
 <span class="header-section-number">1</span> Pacotes</h1>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TiagoOlivoto/metan">metan</a></span><span class="op">)</span>      <span class="co"># estatísticas descritivas</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leeper/rio">rio</a></span><span class="op">)</span>        <span class="co"># importação/exportação de dados</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rvlenth/emmeans">emmeans</a></span><span class="op">)</span>    <span class="co"># comparação de médias</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://agronomiar.github.io/AgroR_package/index.html">AgroR</a></span><span class="op">)</span>      <span class="co"># casualização e ANOVA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section><section id="experimentos-fatoriais" class="level1" data-number="2"><h1 data-number="2">
 <span class="header-section-number">2</span> Experimentos fatoriais</h1>
@@ -325,22 +324,22 @@
 <section id="delineamento-inteiramente-casualizado" class="level3" data-number="2.1.1"><h3 data-number="2.1.1" class="anchored" data-anchor-id="delineamento-inteiramente-casualizado">
 <span class="header-section-number">2.1.1</span> Delineamento Inteiramente Casualizado</h3>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/AgroR/man/sketch.html">sketch</a></span><span class="op">(</span>trat<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A1"</span>, <span class="st">"A2"</span><span class="op">)</span>,</span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/AgroR/man/sketch.html">sketch</a></span><span class="op">(</span>trat<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A1"</span>, <span class="st">"A2"</span><span class="op">)</span>,</span>
 <span>       trat1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"B1"</span>, <span class="st">"B2"</span>, <span class="st">"B3"</span><span class="op">)</span>,</span>
 <span>       design <span class="op">=</span> <span class="st">"FAT2DIC"</span>,</span>
 <span>       r <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="delineamento-de-blocos-casualizados" class="level3" data-number="2.1.2"><h3 data-number="2.1.2" class="anchored" data-anchor-id="delineamento-de-blocos-casualizados">
 <span class="header-section-number">2.1.2</span> Delineamento de Blocos Casualizados</h3>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/AgroR/man/sketch.html">sketch</a></span><span class="op">(</span>trat<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A1"</span>, <span class="st">"A2"</span><span class="op">)</span>,</span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/AgroR/man/sketch.html">sketch</a></span><span class="op">(</span>trat<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A1"</span>, <span class="st">"A2"</span><span class="op">)</span>,</span>
 <span>       trat1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"B1"</span>, <span class="st">"B2"</span>, <span class="st">"B3"</span><span class="op">)</span>,</span>
 <span>       design <span class="op">=</span> <span class="st">"FAT2DBC"</span>,</span>
 <span>       r <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
@@ -349,7 +348,7 @@
 <section id="ausência-de-interação" class="level3" data-number="2.2.1"><h3 data-number="2.2.1" class="anchored" data-anchor-id="ausência-de-interação">
 <span class="header-section-number">2.2.1</span> Ausência de interação</h3>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># sem interação</span></span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># sem interação</span></span>
 <span><span class="va">dfsi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span></span>
 <span>  <span class="op">~</span><span class="va">GEN</span>, <span class="op">~</span><span class="va">FONTEN</span>, <span class="op">~</span><span class="va">RG</span>,</span>
 <span>  <span class="st">"Híbrido 1"</span>,<span class="st">"Ureia"</span>,   <span class="fl">5.7</span>,</span>
@@ -367,7 +366,7 @@
 <span>                xlab <span class="op">=</span> <span class="st">"Híbrido"</span>,</span>
 <span>                legend.position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.89</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Ausência de interação"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stderr">
+<div class="cell-output-stderr">
 <pre><code>Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos
 
 Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos
@@ -376,47 +375,47 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos
 
 Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
 <p>De posse dos dados, vamos construir uma tabela dupla entrada com os valores totais e outra com os valores médios. Os efeitos da interação são calculados como…</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mat_dfsi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/make_mat.html">make_mat</a></span><span class="op">(</span><span class="va">dfsi</span>, <span class="va">GEN</span>, <span class="va">FONTEN</span>, <span class="va">RG</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mat_dfsi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/make_mat.html">make_mat</a></span><span class="op">(</span><span class="va">dfsi</span>, <span class="va">GEN</span>, <span class="va">FONTEN</span>, <span class="va">RG</span><span class="op">)</span></span>
 <span><span class="va">mat_dfsi</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>          Nitrato Ureia
 Híbrido 1     6.8   5.7
 Híbrido 2     9.3   8.2</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># tabela dupla entrada (totais)</span></span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># tabela dupla entrada (totais)</span></span>
 <span><span class="va">mat_dfsi</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">row_col_sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>          Nitrato Ureia row_sums
 Híbrido 1     6.8   5.7     12.5
 Híbrido 2     9.3   8.2     17.5
 col_sums     16.1  13.9     30.0</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># tabela dupla entrada (totais)</span></span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># tabela dupla entrada (totais)</span></span>
 <span><span class="va">mat_dfsi</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">row_col_mean</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>          Nitrato Ureia row_means
 Híbrido 1    6.80  5.70      6.25
 Híbrido 2    9.30  8.20      8.75
 col_means    8.05  6.95      7.50</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># soma de quadrados do fator GEN</span></span>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># soma de quadrados do fator GEN</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">mat_dfsi</span><span class="op">)</span> <span class="op">^</span> <span class="fl">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>Híbrido 1 Híbrido 2 
    156.25    306.25 </code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">modsi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">RG</span> <span class="op">~</span> <span class="va">GEN</span> <span class="op">*</span> <span class="va">FONTEN</span>, data <span class="op">=</span> <span class="va">dfsi</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">modsi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">RG</span> <span class="op">~</span> <span class="va">GEN</span> <span class="op">*</span> <span class="va">FONTEN</span>, data <span class="op">=</span> <span class="va">dfsi</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">modsi</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>            Df Sum Sq Mean Sq
 GEN          1   6.25    6.25
 FONTEN       1   1.21    1.21
@@ -426,7 +425,7 @@ GEN:FONTEN   1   0.00    0.00</code></pre>
 </section><section id="interação-simples-quantitativa" class="level3" data-number="2.2.2"><h3 data-number="2.2.2" class="anchored" data-anchor-id="interação-simples-quantitativa">
 <span class="header-section-number">2.2.2</span> Interação simples (quantitativa)</h3>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># interação simples</span></span>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># interação simples</span></span>
 <span><span class="va">df_is</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span></span>
 <span>  <span class="op">~</span><span class="va">GEN</span>, <span class="op">~</span><span class="va">FONTEN</span>, <span class="op">~</span><span class="va">RG</span>,</span>
 <span>  <span class="st">"Híbrido 1"</span>,<span class="st">"Ureia"</span>,   <span class="fl">4.5</span>,</span>
@@ -445,7 +444,7 @@ GEN:FONTEN   1   0.00    0.00</code></pre>
 <span>                xlab <span class="op">=</span> <span class="st">"Híbrido"</span>,</span>
 <span>                legend.position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.89</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Interação simples"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stderr">
+<div class="cell-output-stderr">
 <pre><code>Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos
 
 Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos
@@ -454,15 +453,15 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos
 
 Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
 </section><section id="interação-complexa-qualitativa" class="level3" data-number="2.2.3"><h3 data-number="2.2.3" class="anchored" data-anchor-id="interação-complexa-qualitativa">
 <span class="header-section-number">2.2.3</span> Interação complexa (qualitativa)</h3>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># interação complexa</span></span>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># interação complexa</span></span>
 <span><span class="va">df_ic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span></span>
 <span>  <span class="op">~</span><span class="va">GEN</span>, <span class="op">~</span><span class="va">FONTEN</span>, <span class="op">~</span><span class="va">RG</span>,</span>
 <span>  <span class="st">"Híbrido 1"</span>,<span class="st">"Ureia"</span>,   <span class="fl">4.1</span>,</span>
@@ -480,7 +479,7 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 <span>                xlab <span class="op">=</span> <span class="st">"Híbrido"</span>,</span>
 <span>                legend.position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.89</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Interação complexa"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stderr">
+<div class="cell-output-stderr">
 <pre><code>Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos
 
 Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos
@@ -489,8 +488,8 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos
 
 Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
@@ -511,16 +510,15 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 <p>Os tratamentos consistiram da combinação de três níveis de parcelamento de N (DA: 100% no duplo anel; AF+DA: 50% no afilhamento + 50% no duplo anel; DA+ES: 50% no afilhamento + 50% no espigamento) e dois níveis de enxofre (S+: com enxofre; S-: sem enxofre).</p>
 <p>Para fins didáticos, a extensibilidade da massa (L, mm) é utilizada. Para importação, utiliza-se a função <code><a href="https://rdrr.io/pkg/rio/man/import.html">import()</a></code> do pacote <code>rio</code>. A função <code>as_factor</code> converte as primeiras três colunas para fator.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
 <span><span class="va">df_fat</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="va">url</span>, sheet <span class="op">=</span> <span class="st">"FAT1_CI2"</span>, setclass <span class="op">=</span> <span class="st">"tbl"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_as.html">as_factor</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>No seguinte gráfico, apresento as médias observadas da extensibilidade nos diferentes tratamentos.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_factbars</a></span><span class="op">(</span><span class="va">df_fat</span>, <span class="va">ENX</span>, <span class="va">NIT</span>, resp <span class="op">=</span> <span class="va">L</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_factbars</a></span><span class="op">(</span><span class="va">df_fat</span>, <span class="va">ENX</span>, <span class="va">NIT</span>, resp <span class="op">=</span> <span class="va">L</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
@@ -528,7 +526,7 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 <span class="header-section-number">2.5</span> Verificação de outliers</h2>
 <p>A função <code>inspect</code> do pacote <code>metan</code> é utilizada para inspecionar o conjunto de dados. Com esta função, é possível identificar possíveis outliers, bem como valores faltantes.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/inspect.html">inspect</a></span><span class="op">(</span><span class="va">df_fat</span>, plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/inspect.html">inspect</a></span><span class="op">(</span><span class="va">df_fat</span>, plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">## # A tibble: 4 × 10</span></span>
 <span><span class="co">##   Variable Class   Missing Levels Valid_n   Min Median   Max Outlier Text </span></span>
 <span><span class="co">##   &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;lgl&gt;</span></span>
@@ -536,7 +534,7 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 <span><span class="co">## 2 NIT      factor  No      3           24    NA   NA      NA      NA NA   </span></span>
 <span><span class="co">## 3 REP      factor  No      4           24    NA   NA      NA      NA NA   </span></span>
 <span><span class="co">## 4 L        numeric No      -           24    67   78.5    96       0 NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
@@ -544,26 +542,25 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 <span class="header-section-number">2.6</span> Estatística descritiva</h2>
 <p>A função <code><a href="https://rdrr.io/pkg/metan/man/desc_stat.html">desc_stat()</a></code> do pacote <code>metan</code> computa estatísticas descritivas para a variável L.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/desc_stat.html">desc_stat</a></span><span class="op">(</span><span class="va">df_fat</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/desc_stat.html">desc_stat</a></span><span class="op">(</span><span class="va">df_fat</span><span class="op">)</span></span>
 <span><span class="co">## # A tibble: 1 × 10</span></span>
 <span><span class="co">##   variable    cv   max  mean median   min sd.amo    se  ci.t n.valid</span></span>
 <span><span class="co">##   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;</span></span>
 <span><span class="co">## 1 L         10.5    96  80.4   78.5    67   8.43  1.72  3.56      24</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section><section id="análise-de-variância" class="level2" data-number="2.7"><h2 data-number="2.7" class="anchored" data-anchor-id="análise-de-variância">
 <span class="header-section-number">2.7</span> Análise de variância</h2>
 <section id="manual" class="level3" data-number="2.7.1"><h3 data-number="2.7.1" class="anchored" data-anchor-id="manual">
 <span class="header-section-number">2.7.1</span> Manual</h3>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mat_df_fat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/make_mat.html">make_mat</a></span><span class="op">(</span><span class="va">df_fat</span>, <span class="va">ENX</span>, <span class="va">NIT</span>, <span class="va">L</span>, fun <span class="op">=</span> <span class="va">sum</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mat_df_fat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/make_mat.html">make_mat</a></span><span class="op">(</span><span class="va">df_fat</span>, <span class="va">ENX</span>, <span class="va">NIT</span>, <span class="va">L</span>, fun <span class="op">=</span> <span class="va">sum</span><span class="op">)</span></span>
 <span><span class="va">mat_df_fat</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>   AF+DA  DA DA+ES
 S-   297 316   310
 S+   286 373   347</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># total dos blocos</span></span>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># total dos blocos</span></span>
 <span><span class="va">tbloco</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">sum_by</a></span><span class="op">(</span><span class="va">df_fat</span>, <span class="va">REP</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">I</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nlevels.html">nlevels</a></span><span class="op">(</span><span class="va">df_fat</span><span class="op">$</span><span class="va">ENX</span><span class="op">)</span></span>
@@ -595,7 +592,7 @@ S+   286 373   347</code></pre>
 <span><span class="va">FC</span><span class="op">[</span><span class="fl">5</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>FV <span class="op">=</span> <span class="va">FV</span>, GL <span class="op">=</span> <span class="va">GL</span>, SQ <span class="op">=</span> <span class="va">SQ</span>, QM <span class="op">=</span> <span class="va">QM</span>, FC <span class="op">=</span> <span class="va">FC</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>       FV GL         SQ         QM         FC
 1   BLOCO  3   10.45833   3.486111  0.1779889
 2     ENX  1  287.04167 287.041667 14.6553680
@@ -607,7 +604,7 @@ S+   286 373   347</code></pre>
 </div>
 <p>A análise de variância é computada no software R utilizando a função <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code>. Considerando o Delineamento de Blocos Casualizados (DBC), as três fontes de variação incluídas no modelo são a de enxofre (<code>ENX</code>), nitrogênio (<code>NIT</code>) e bloco (<code>REP</code>). Note que todos os termos (efeito principal e interação) podem ser declarados quando se utiliza <code>ENX*NIT</code>; também é possível indicar termos específicos no modelo.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># opção 1</span></span>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># opção 1</span></span>
 <span><span class="va">anova</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">L</span> <span class="op">~</span> <span class="va">ENX</span><span class="op">*</span><span class="va">NIT</span> <span class="op">+</span> <span class="va">REP</span>, data <span class="op">=</span> <span class="va">df_fat</span><span class="op">)</span></span>
 <span><span class="co"># modelo idêntico, indicando os termos explicitamente</span></span>
 <span><span class="va">anova</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">L</span> <span class="op">~</span> <span class="va">ENX</span> <span class="op">+</span> <span class="va">NIT</span> <span class="op">+</span> <span class="va">ENX</span><span class="op">:</span><span class="va">NIT</span> <span class="op">+</span> <span class="va">REP</span>, data <span class="op">=</span> <span class="va">df_fat</span><span class="op">)</span></span>
@@ -620,17 +617,16 @@ S+   286 373   347</code></pre>
 <span><span class="co">## Residuals   15  293.8    19.6                     </span></span>
 <span><span class="co">## ---</span></span>
 <span><span class="co">## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section></section><section id="comparação-de-médias" class="level2" data-number="2.8"><h2 data-number="2.8" class="anchored" data-anchor-id="comparação-de-médias">
 <span class="header-section-number">2.8</span> Comparação de médias</h2>
 <p>A análise de variância revelou efeito significativo da interação. Nesse caso, segue-se comparando as médias do fator nitrogênio dentro de cada nível do fator enxofre e do enxofre dentro de cada nível do fator nitrogênio. Para isso, utilizo o pacote <code>emmeans</code> (teste Tukey). Nesta abordagem, a avaliação da significância das médias de dois tratamentos é dada pela sobreposição das flechas de cada tratamento. Se dois tratamentos apresentam setas que se sobrepõem (considerando o eixo x), assume-se que estes tratamentos são estatisticamente diferentes um do outro.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">medias_fat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">anova</span>, <span class="op">~</span> <span class="va">NIT</span> <span class="op">|</span> <span class="va">ENX</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">medias_fat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">anova</span>, <span class="op">~</span> <span class="va">NIT</span> <span class="op">|</span> <span class="va">ENX</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">medias_fat</span>,</span>
 <span>     CIs <span class="op">=</span> <span class="cn">FALSE</span>, <span class="co"># remove os intervalos de confiança das médias</span></span>
 <span>     comparisons <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># insere setas para comparação de médias (Tukey)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
@@ -638,7 +634,7 @@ S+   286 373   347</code></pre>
 <span class="header-section-number">2.9</span> Pacote AgroR</h2>
 <p>No pacote <a href="https://agronomiar.github.io/AgroR_Tutorial/delineamento-em-blocos-casualizados-1.html">agroR</a>, a análise de variância neste delineamento pode ser realizada com a função <code><a href="https://rdrr.io/pkg/AgroR/man/FAT2DBC.html">FAT2DBC()</a></code>.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_fat</span>,</span>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_fat</span>,</span>
 <span>     <span class="fu"><a href="https://rdrr.io/pkg/AgroR/man/FAT2DBC.html">FAT2DBC</a></span><span class="op">(</span><span class="va">ENX</span>, <span class="va">NIT</span>, <span class="va">REP</span>, <span class="va">L</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## -----------------------------------------------------------------</span></span>
@@ -714,7 +710,7 @@ S+   286 373   347</code></pre>
 <span><span class="co">## Residuals           15  293.79   19.59                      </span></span>
 <span><span class="co">## ---</span></span>
 <span><span class="co">## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
 <pre><code>## 
@@ -737,20 +733,20 @@ S+   286 373   347</code></pre>
 <section id="casualização-1" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="casualização-1">
 <span class="header-section-number">3.1</span> Casualização</h2>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/AgroR/man/sketch.html">sketch</a></span><span class="op">(</span>trat<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A1"</span>, <span class="st">"A2"</span><span class="op">)</span>,</span>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/AgroR/man/sketch.html">sketch</a></span><span class="op">(</span>trat<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A1"</span>, <span class="st">"A2"</span><span class="op">)</span>,</span>
 <span>       trat1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"B1"</span>, <span class="st">"B2"</span>, <span class="st">"B3"</span><span class="op">)</span>,</span>
 <span>       design <span class="op">=</span> <span class="st">"PSUBDBC"</span>,</span>
 <span>       r <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="análise-de-variância-1" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="análise-de-variância-1">
 <span class="header-section-number">3.2</span> Análise de variância</h2>
 <p>Considerando o mesmo conjunto de dados do exemplo anterior e assumindo que o enxofre estava casualizado nas parcelas principais e o nitrogênio nas subparcelas, a análise de variância no software R é computada conforme segue ::: {.cell}</p>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">anova_psub</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">L</span> <span class="op">~</span> <span class="va">ENX</span><span class="op">*</span><span class="va">NIT</span> <span class="op">+</span> <span class="fu">Error</span><span class="op">(</span><span class="va">REP</span><span class="op">/</span><span class="va">ENX</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">df_fat</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">anova_psub</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">L</span> <span class="op">~</span> <span class="va">ENX</span><span class="op">*</span><span class="va">NIT</span> <span class="op">+</span> <span class="fu">Error</span><span class="op">(</span><span class="va">REP</span><span class="op">/</span><span class="va">ENX</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">df_fat</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">anova_psub</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>
 Error: REP
           Df Sum Sq Mean Sq F value Pr(&gt;F)
@@ -776,7 +772,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span class="header-section-number">3.3</span> Pacote AgroR</h2>
 <p>No pacote <a href="https://agronomiar.github.io/AgroR_Tutorial/delineamento-em-blocos-casualizados-1.html">agroR</a>, a análise de variância neste delineamento pode ser realizada com a função <code><a href="https://rdrr.io/pkg/AgroR/man/PSUBDBC.html">PSUBDBC()</a></code>.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_fat</span>,</span>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_fat</span>,</span>
 <span>     <span class="fu"><a href="https://rdrr.io/pkg/AgroR/man/PSUBDBC.html">PSUBDBC</a></span><span class="op">(</span><span class="va">ENX</span>, <span class="va">NIT</span>, <span class="va">REP</span>, <span class="va">L</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## -----------------------------------------------------------------</span></span>
@@ -844,7 +840,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="co">## F2 : F1 S-   2  47.16667  23.58333  1.139597 0.352262</span></span>
 <span><span class="co">## F2 : F1 S+   2 997.16667 498.58333 24.092617  6.3e-05</span></span>
 <span><span class="co">## Error b     12 248.33333  20.69444</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
 <pre><code>## 
@@ -864,7 +860,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span class="header-section-number">4.1.1</span> Pacotes e dados</h3>
 <p>Assumindo que todos estão instalados, é só carregar com</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leeper/rio">rio</a></span><span class="op">)</span> <span class="co"># importar e exportar arquivos</span></span>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leeper/rio">rio</a></span><span class="op">)</span> <span class="co"># importar e exportar arquivos</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">ExpDes.pt</span><span class="op">)</span> <span class="co"># fazer anova</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TiagoOlivoto/metan">metan</a></span><span class="op">)</span> <span class="co"># gráficos</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> <span class="co"># manipulação de dados e gráficos</span></span>
@@ -876,7 +872,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span></span>
 <span><span class="co"># Apenas para mostrar a estrutura dos dados</span></span>
 <span><span class="va">df_cobmassa</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code># A tibble: 32 × 6
    NITROGENIO ESPECIE     REP       MV    MS   MSR
    &lt;fct&gt;      &lt;fct&gt;       &lt;fct&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -896,8 +892,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </section><section id="estatistica-descritiva" class="level3" data-number="4.1.2"><h3 data-number="4.1.2" class="anchored" data-anchor-id="estatistica-descritiva">
 <span class="header-section-number">4.1.2</span> Estatistica descritiva</h3>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/desc_stat.html">desc_stat</a></span><span class="op">(</span><span class="va">df_cobmassa</span>, stats <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"min, mean, max"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/desc_stat.html">desc_stat</a></span><span class="op">(</span><span class="va">df_cobmassa</span>, stats <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"min, mean, max"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   variable    min   mean    max
   &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -915,14 +911,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <p>onde <span class="math inline">\({y_{ijk}}\)</span> é a variável resposta observada; <span class="math inline">\(\mu\)</span> é a média geral; <span class="math inline">\(\mathop \alpha \nolimits_i\)</span> é o efeito do <span class="math inline">\(i\)</span>-ésimo nível do fator espécie de cobertura ; <span class="math inline">\(\mathop \beta \nolimits_{k}\)</span> é o efeito do bloco <span class="math inline">\(k\)</span>; <span class="math inline">\(\mathop \eta \nolimits_{ik}\)</span> é o erro de parcela, mais conhecido como erro a; <span class="math inline">\(\mathop \tau \nolimits_j\)</span> é o efeito do <span class="math inline">\(j\)</span>-ésimo nível do fator nitrogênio; <span class="math inline">\(\mathop {(\alpha \tau )}\nolimits_{ij}\)</span> é o efeito da interação do <span class="math inline">\(i\)</span>-ésimo nível do fator espécie com o <span class="math inline">\(j\)</span>-ésimo nível do fator nitrogênio; e <span class="math inline">\(\mathop \varepsilon \nolimits_{ijk}\)</span> é o erro da subparcela, mais conhecido como erro b.</p>
 <section id="massa-verde-mv-por-ha" class="level4"><h4 class="anchored" data-anchor-id="massa-verde-mv-por-ha">Massa verde (MV) por ha</h4>
 <p><strong>ANOVA</strong> ::: {.cell}</p>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_cobmassa</span>,</span>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_cobmassa</span>,</span>
 <span>     <span class="fu"><a href="https://rdrr.io/pkg/ExpDes.pt/man/psub2.dbc.html">psub2.dbc</a></span><span class="op">(</span>fator1 <span class="op">=</span> <span class="va">ESPECIE</span>,</span>
 <span>               fator2 <span class="op">=</span> <span class="va">NITROGENIO</span>,</span>
 <span>               bloco <span class="op">=</span> <span class="va">REP</span>,</span>
 <span>               resp <span class="op">=</span> <span class="va">MV</span>,</span>
 <span>               fac.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ESPECIE"</span>, <span class="st">"NITROGENIO"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>------------------------------------------------------------------------
 Legenda:
 FATOR 1 (parcela):  ESPECIE 
@@ -969,7 +965,7 @@ a    Com N   30030.17
 <p><strong>GRÁFICO</strong></p>
 <p>Como somente foi observado efeito significativo para o fator nitrogênio, prossegue-se com a comparação de médias para o efeito de N, conforme resultado do Teste Tukey acima. Neste gráfico, as barras mostram a média e as barras de erro, o erro padrão da média. Apenas para apresentação, incluo também a média do fator cobertura de solo, sem as letras pois o seu efeito não foi significativo, segundo a ANOVA.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pn_mv</span> <span class="op">&lt;-</span> </span>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pn_mv</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_bars</a></span><span class="op">(</span><span class="va">df_cobmassa</span>,</span>
 <span>            x <span class="op">=</span> <span class="va">NITROGENIO</span>,</span>
 <span>            y <span class="op">=</span> <span class="va">MV</span>,</span>
@@ -987,20 +983,20 @@ a    Com N   30030.17
 <span></span>
 <span><span class="co"># organiza os gráficos</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/arrange_ggplot.html">arrange_ggplot</a></span><span class="op">(</span><span class="va">pn_mv</span>, <span class="va">pcob_mv</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
 </section><section id="massa-seca-ms-por-ha" class="level4"><h4 class="anchored" data-anchor-id="massa-seca-ms-por-ha">Massa seca (MS) por ha</h4>
 <p><strong>ANOVA</strong> ::: {.cell}</p>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_cobmassa</span>,</span>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_cobmassa</span>,</span>
 <span>     <span class="fu"><a href="https://rdrr.io/pkg/ExpDes.pt/man/psub2.dbc.html">psub2.dbc</a></span><span class="op">(</span>fator1 <span class="op">=</span> <span class="va">ESPECIE</span>,</span>
 <span>               fator2 <span class="op">=</span> <span class="va">NITROGENIO</span>,</span>
 <span>               bloco <span class="op">=</span> <span class="va">REP</span>,</span>
 <span>               resp <span class="op">=</span> <span class="va">MS</span>,</span>
 <span>               fac.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ESPECIE"</span>, <span class="st">"NITROGENIO"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>------------------------------------------------------------------------
 Legenda:
 FATOR 1 (parcela):  ESPECIE 
@@ -1047,7 +1043,7 @@ a    Com N   5717.6
 <p><strong>GRÁFICO</strong></p>
 <p>Como somente foi observado efeito significativo para o fator nitrogênio, prossegue-se com a comparação de médias para o efeito de N, conforme resultado do Teste Tukey acima. Apenas para apresentação, incluo também a média do fator cobertura de solo, sem as letras pois o seu efeito não foi significativo, segundo a ANOVA.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pn_ms</span> <span class="op">&lt;-</span> </span>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pn_ms</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_bars</a></span><span class="op">(</span><span class="va">df_cobmassa</span>,</span>
 <span>            x <span class="op">=</span> <span class="va">NITROGENIO</span>,</span>
 <span>            y <span class="op">=</span> <span class="va">MS</span>,</span>
@@ -1065,20 +1061,20 @@ a    Com N   5717.6
 <span></span>
 <span><span class="co"># organiza os gráficos</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/arrange_ggplot.html">arrange_ggplot</a></span><span class="op">(</span><span class="va">pn_ms</span>, <span class="va">pcob_ms</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
 </section><section id="massa-seca-de-raiz-msr-por-ha" class="level4"><h4 class="anchored" data-anchor-id="massa-seca-de-raiz-msr-por-ha">Massa seca de raiz (MSR) por ha</h4>
 <p><strong>ANOVA</strong> ::: {.cell}</p>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_cobmassa</span>,</span>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_cobmassa</span>,</span>
 <span>     <span class="fu"><a href="https://rdrr.io/pkg/ExpDes.pt/man/psub2.dbc.html">psub2.dbc</a></span><span class="op">(</span>fator1 <span class="op">=</span> <span class="va">ESPECIE</span>,</span>
 <span>               fator2 <span class="op">=</span> <span class="va">NITROGENIO</span>,</span>
 <span>               bloco <span class="op">=</span> <span class="va">REP</span>,</span>
 <span>               resp <span class="op">=</span> <span class="va">MSR</span>,</span>
 <span>               fac.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ESPECIE"</span>, <span class="st">"NITROGENIO"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>------------------------------------------------------------------------
 Legenda:
 FATOR 1 (parcela):  ESPECIE 
@@ -1125,7 +1121,7 @@ a    Com N   439.875
 <p><strong>GRÁFICO</strong></p>
 <p>Como somente foi observado efeito significativo para o fator nitrogênio, prossegue-se com a comparação de médias para o efeito de N, conforme resultado do Teste Tukey acima. Apenas para apresentação, incluo também a média do fator cobertura de solo, sem as letras pois o seu efeito não foi significativo, segundo a ANOVA.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pn_msr</span> <span class="op">&lt;-</span> </span>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pn_msr</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_bars</a></span><span class="op">(</span><span class="va">df_cobmassa</span>,</span>
 <span>            x <span class="op">=</span> <span class="va">NITROGENIO</span>,</span>
 <span>            y <span class="op">=</span> <span class="va">MSR</span>,</span>
@@ -1143,7 +1139,7 @@ a    Com N   439.875
 <span></span>
 <span><span class="co"># organiza os gráficos</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/arrange_ggplot.html">arrange_ggplot</a></span><span class="op">(</span><span class="va">pn_msr</span>, <span class="va">pcob_msr</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
@@ -1153,7 +1149,7 @@ a    Com N   439.875
 <section id="pacotes-e-dados-1" class="level3" data-number="4.2.1"><h3 data-number="4.2.1" class="anchored" data-anchor-id="pacotes-e-dados-1">
 <span class="header-section-number">4.2.1</span> Pacotes e dados</h3>
 <p>Assumindo que todos estão instalados, é só carregar com ::: {.cell}</p>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leeper/rio">rio</a></span><span class="op">)</span> <span class="co"># importar e exportar arquivos</span></span>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leeper/rio">rio</a></span><span class="op">)</span> <span class="co"># importar e exportar arquivos</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">ExpDes.pt</span><span class="op">)</span> <span class="co"># fazer anova</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TiagoOlivoto/metan">metan</a></span><span class="op">)</span> <span class="co"># gráficos</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> <span class="co"># manipulação de dados e gráficos</span></span>
@@ -1165,7 +1161,7 @@ a    Com N   439.875
 <span></span>
 <span><span class="co"># Apenas para mostrar a estrutura dos dados</span></span>
 <span><span class="va">df_cobsoja</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code># A tibble: 32 × 7
    ESPECIE     NITROGENIO REP      NL   NGL   MMG    RG
    &lt;fct&gt;       &lt;fct&gt;      &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -1185,8 +1181,8 @@ a    Com N   439.875
 </section><section id="estatistica-descritiva-1" class="level3" data-number="4.2.2"><h3 data-number="4.2.2" class="anchored" data-anchor-id="estatistica-descritiva-1">
 <span class="header-section-number">4.2.2</span> Estatistica descritiva</h3>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/desc_stat.html">desc_stat</a></span><span class="op">(</span><span class="va">df_cobsoja</span>, stats <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"min, mean, max"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/desc_stat.html">desc_stat</a></span><span class="op">(</span><span class="va">df_cobsoja</span>, stats <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"min, mean, max"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code># A tibble: 4 × 4
   variable    min    mean     max
   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -1201,14 +1197,14 @@ a    Com N   439.875
 <p>O modelo considerado é descrito no <a href="#modanova">exemplo anterior</a>.</p>
 <section id="variável-número-de-legumes-por-planta-nl" class="level4"><h4 class="anchored" data-anchor-id="variável-número-de-legumes-por-planta-nl">Variável número de legumes por planta (NL)</h4>
 <p><strong>ANOVA</strong> ::: {.cell}</p>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_cobsoja</span>,</span>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_cobsoja</span>,</span>
 <span>     <span class="fu"><a href="https://rdrr.io/pkg/ExpDes.pt/man/fat2.dbc.html">fat2.dbc</a></span><span class="op">(</span>fator1 <span class="op">=</span> <span class="va">ESPECIE</span>,</span>
 <span>              fator2 <span class="op">=</span> <span class="va">NITROGENIO</span>,</span>
 <span>              bloco <span class="op">=</span> <span class="va">REP</span>,</span>
 <span>              resp <span class="op">=</span> <span class="va">NL</span>,</span>
 <span>              fac.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ESPECIE"</span>, <span class="st">"NITROGENIO"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>------------------------------------------------------------------------
 Legenda:
 FATOR 1:  ESPECIE 
@@ -1341,26 +1337,26 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <p><strong>GRÁFICO</strong></p>
 <p>Como não a houve diferença para os efeitos principais (ESPECIE E NITROGÊNIO) mas deu interação entre estes fatores, vamos apresentar um gráfico mostrando essa interação. No gráfico, letras maiúsculas comparam as espécies dentro de cada manejo de N e minúsculas comparam o manejo de N dentro de cada espécie. As barras mostram a média e as barras de erro, o erro padrão da média.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_factbars</a></span><span class="op">(</span><span class="va">df_cobsoja</span>, <span class="va">ESPECIE</span>, <span class="va">NITROGENIO</span>,</span>
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_factbars</a></span><span class="op">(</span><span class="va">df_cobsoja</span>, <span class="va">ESPECIE</span>, <span class="va">NITROGENIO</span>,</span>
 <span>              resp <span class="op">=</span> <span class="va">NL</span>,</span>
 <span>              lab.bar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Aa"</span>, <span class="st">"Aa"</span>, <span class="st">"Aa"</span>, <span class="st">"Aa"</span>, <span class="st">"Bb"</span>, <span class="st">"Aa"</span>, <span class="st">"ABa"</span>, <span class="st">"Aa"</span><span class="op">)</span>,</span>
 <span>              y.expand <span class="op">=</span> <span class="fl">0.1</span>,</span>
 <span>              xlab <span class="op">=</span> <span class="st">"Espécie"</span>,</span>
 <span>              ylab <span class="op">=</span> <span class="st">"Número de legumes por planta"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="variável-número-de-grãos-por-legume-ngl" class="level4"><h4 class="anchored" data-anchor-id="variável-número-de-grãos-por-legume-ngl">Variável número de grãos por legume (NGL)</h4>
 <p><strong>ANOVA</strong> ::: {.cell}</p>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_cobsoja</span>,</span>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_cobsoja</span>,</span>
 <span>     <span class="fu"><a href="https://rdrr.io/pkg/ExpDes.pt/man/fat2.dbc.html">fat2.dbc</a></span><span class="op">(</span>fator1 <span class="op">=</span> <span class="va">ESPECIE</span>,</span>
 <span>              fator2 <span class="op">=</span> <span class="va">NITROGENIO</span>,</span>
 <span>              bloco <span class="op">=</span> <span class="va">REP</span>,</span>
 <span>              resp <span class="op">=</span> <span class="va">NGL</span>,</span>
 <span>              fac.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ESPECIE"</span>, <span class="st">"NITROGENIO"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>------------------------------------------------------------------------
 Legenda:
 FATOR 1:  ESPECIE 
@@ -1410,25 +1406,25 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <p>COMO NÃO DEU DIFERENÇA SIGNIFICATIVA PARA NENHUM FATOR, PODE-SE APENAS APRESENTAR O GRÁFICO, MAS SEM DISCUTIR DIFERENÇAS ENTRE OS TRATAMENTOS/N</p>
 </blockquote>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_factbars</a></span><span class="op">(</span><span class="va">df_cobsoja</span>, <span class="va">ESPECIE</span>, <span class="va">NITROGENIO</span>,</span>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_factbars</a></span><span class="op">(</span><span class="va">df_cobsoja</span>, <span class="va">ESPECIE</span>, <span class="va">NITROGENIO</span>,</span>
 <span>              resp <span class="op">=</span> <span class="va">NGL</span>,</span>
 <span>              y.expand <span class="op">=</span> <span class="fl">0.1</span>,</span>
 <span>              xlab <span class="op">=</span> <span class="st">"Espécie"</span>,</span>
 <span>              ylab <span class="op">=</span> <span class="st">"Número de grãos por legume"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="variável-massa-de-mil-grãos-mmg" class="level4"><h4 class="anchored" data-anchor-id="variável-massa-de-mil-grãos-mmg">Variável massa de mil grãos (MMG)</h4>
 <p><strong>ANOVA</strong> ::: {.cell}</p>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_cobsoja</span>,</span>
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_cobsoja</span>,</span>
 <span>     <span class="fu"><a href="https://rdrr.io/pkg/ExpDes.pt/man/fat2.dbc.html">fat2.dbc</a></span><span class="op">(</span>fator1 <span class="op">=</span> <span class="va">ESPECIE</span>,</span>
 <span>              fator2 <span class="op">=</span> <span class="va">NITROGENIO</span>,</span>
 <span>              bloco <span class="op">=</span> <span class="va">REP</span>,</span>
 <span>              resp <span class="op">=</span> <span class="va">MMG</span>,</span>
 <span>              fac.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ESPECIE"</span>, <span class="st">"NITROGENIO"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>------------------------------------------------------------------------
 Legenda:
 FATOR 1:  ESPECIE 
@@ -1478,25 +1474,25 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <p>COMO NÃO DEU DIFERENÇA SIGNIFICATIVA PARA NENHUM FATOR, PODE-SE APENAS APRESENTAR O GRÁFICO, MAS SEM DISCUTIR DIFERENÇAS ENTRE OS TRATAMENTOS/N</p>
 </blockquote>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_factbars</a></span><span class="op">(</span><span class="va">df_cobsoja</span>, <span class="va">ESPECIE</span>, <span class="va">NITROGENIO</span>,</span>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_factbars</a></span><span class="op">(</span><span class="va">df_cobsoja</span>, <span class="va">ESPECIE</span>, <span class="va">NITROGENIO</span>,</span>
 <span>              resp <span class="op">=</span> <span class="va">MMG</span>,</span>
 <span>              y.expand <span class="op">=</span> <span class="fl">0.1</span>,</span>
 <span>              xlab <span class="op">=</span> <span class="st">"Espécie"</span>,</span>
 <span>              ylab <span class="op">=</span> <span class="st">"Massa de mil grãos (g)"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="variável-rg" class="level4"><h4 class="anchored" data-anchor-id="variável-rg">Variável RG</h4>
 <p><strong>ANOVA</strong> ::: {.cell}</p>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_cobsoja</span>,</span>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_cobsoja</span>,</span>
 <span>     <span class="fu"><a href="https://rdrr.io/pkg/ExpDes.pt/man/fat2.dbc.html">fat2.dbc</a></span><span class="op">(</span>fator1 <span class="op">=</span> <span class="va">ESPECIE</span>,</span>
 <span>              fator2 <span class="op">=</span> <span class="va">NITROGENIO</span>,</span>
 <span>              bloco <span class="op">=</span> <span class="va">REP</span>,</span>
 <span>              resp <span class="op">=</span> <span class="va">RG</span>,</span>
 <span>              fac.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ESPECIE"</span>, <span class="st">"NITROGENIO"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>------------------------------------------------------------------------
 Legenda:
 FATOR 1:  ESPECIE 
@@ -1546,12 +1542,12 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <p>COMO NÃO DEU DIFERENÇA SIGNIFICATIVA PARA NENHUM FATOR, PODE-SE APENAS APRESENTAR O GRÁFICO, MAS SEM DISCUTIR DIFERENÇAS ENTRE OS TRATAMENTOS/N</p>
 </blockquote>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_factbars</a></span><span class="op">(</span><span class="va">df_cobsoja</span>, <span class="va">ESPECIE</span>, <span class="va">NITROGENIO</span>,</span>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_factbars</a></span><span class="op">(</span><span class="va">df_cobsoja</span>, <span class="va">ESPECIE</span>, <span class="va">NITROGENIO</span>,</span>
 <span>              resp <span class="op">=</span> <span class="va">RG</span>,</span>
 <span>              y.expand <span class="op">=</span> <span class="fl">0.1</span>,</span>
 <span>              xlab <span class="op">=</span> <span class="st">"Espécie"</span>,</span>
 <span>              ylab <span class="op">=</span> <span class="st">"RG (kg/ha)"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
@@ -1561,7 +1557,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span class="header-section-number">4.3.1</span> Sem interação significativa</h3>
 <p>O conjunto de dados utilizado neste exemplo será o <strong>FAT2_SI</strong>. Como já de conhecimento prévio, a interação não é significativa neste exemplo.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leeper/rio">rio</a></span><span class="op">)</span> <span class="co"># importar e exportar arquivos</span></span>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leeper/rio">rio</a></span><span class="op">)</span> <span class="co"># importar e exportar arquivos</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">ExpDes.pt</span><span class="op">)</span> <span class="co"># fazer anova</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TiagoOlivoto/metan">metan</a></span><span class="op">)</span> <span class="co"># gráficos</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> <span class="co"># manipulação de dados e gráficos</span></span>
@@ -1570,7 +1566,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
 <span><span class="va">FAT2_SI</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="va">url</span>, sheet <span class="op">=</span> <span class="st">"FAT2_SI"</span>, setclass <span class="op">=</span> <span class="st">"tbl"</span><span class="op">)</span></span>
 <span><span class="va">FAT2_SI</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code># A tibble: 40 × 4
    BLOCO HIBRIDO DOSEN    RG
    &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
@@ -1589,18 +1585,17 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 </div>
 <p>A função <code>fat2.rdb()</code>é utilizada neste exemplo. Como o fator DOSEN é quantitativo, precisamos informar isto no argumento <code>quali</code> da função.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">FAT2_SI</span>, </span>
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">FAT2_SI</span>, </span>
 <span>     <span class="fu"><a href="https://rdrr.io/pkg/ExpDes.pt/man/fat2.dbc.html">fat2.dbc</a></span><span class="op">(</span>fator1 <span class="op">=</span>  <span class="va">HIBRIDO</span>,</span>
 <span>              fator2 <span class="op">=</span>  <span class="va">DOSEN</span>,</span>
 <span>              bloco <span class="op">=</span> <span class="va">BLOCO</span>,</span>
 <span>              resp <span class="op">=</span>  <span class="va">RG</span>,</span>
 <span>              quali <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span>,</span>
 <span>              fac.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"HIBRIDO"</span>, <span class="st">"DOSE"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Como a interação não foi significativa, proceder-se-a a comparação de médias dos dois híbridos considerando a média de todas as doses de nitrogênio, e o ajuste de apenas uma regressão para os dois híbridos. Como o grau do polinômio significativo foi quadrático, declararmos <code>fit = 2</code> na função <code><a href="https://rdrr.io/pkg/metan/man/lineplots.html">plot_lines()</a></code> do pacote <code>metan</code>.</p>
 <div class="cell" data-layout-align="center">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">h</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_bars</a></span><span class="op">(</span><span class="va">FAT2_SI</span>, <span class="va">HIBRIDO</span>, <span class="va">RG</span>,</span>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">h</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_bars</a></span><span class="op">(</span><span class="va">FAT2_SI</span>, <span class="va">HIBRIDO</span>, <span class="va">RG</span>,</span>
 <span>               width.bar <span class="op">=</span> <span class="fl">0.5</span>,</span>
 <span>               lab.bar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/lineplots.html">plot_lines</a></span><span class="op">(</span><span class="va">FAT2_SI</span>, <span class="va">DOSEN</span>, <span class="va">RG</span>,</span>
@@ -1613,7 +1608,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span>            col <span class="op">=</span> <span class="st">"black"</span>,</span>
 <span>            parse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/arrange_ggplot.html">arrange_ggplot</a></span><span class="op">(</span><span class="va">h</span>, <span class="va">d</span>, tag_levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"h"</span>, <span class="st">"d"</span><span class="op">)</span><span class="op">)</span>, widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
@@ -1624,7 +1619,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span class="header-section-number">4.3.2</span> Com interação significativa</h3>
 <p>O conjunto de dados utilizado neste exemplo será o <strong>FAT2_CI</strong>. Neste exemplo já sabe-se que a interação híbrido x dose de N é significativa.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leeper/rio">rio</a></span><span class="op">)</span> <span class="co"># importar e exportar arquivos</span></span>
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leeper/rio">rio</a></span><span class="op">)</span> <span class="co"># importar e exportar arquivos</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">ExpDes.pt</span><span class="op">)</span> <span class="co"># fazer anova</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TiagoOlivoto/metan">metan</a></span><span class="op">)</span> <span class="co"># gráficos</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> <span class="co"># manipulação de dados e gráficos</span></span>
@@ -1633,7 +1628,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
 <span><span class="va">FAT2_CI</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="va">url</span>, sheet <span class="op">=</span> <span class="st">"FAT2_CI"</span>, setclass <span class="op">=</span> <span class="st">"tbl"</span><span class="op">)</span></span>
 <span><span class="va">FAT2_CI</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code># A tibble: 40 × 4
    BLOCO HIBRIDO DOSEN    RG
    &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
@@ -1651,7 +1646,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 </div>
 </div>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">FAT2_CI</span>, </span>
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">FAT2_CI</span>, </span>
 <span>     <span class="fu"><a href="https://rdrr.io/pkg/ExpDes.pt/man/fat2.dbc.html">fat2.dbc</a></span><span class="op">(</span>fator1 <span class="op">=</span>  <span class="va">HIBRIDO</span>,</span>
 <span>              fator2 <span class="op">=</span>  <span class="va">DOSEN</span>,</span>
 <span>              bloco <span class="op">=</span> <span class="va">BLOCO</span>,</span>
@@ -1934,7 +1929,6 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span><span class="co">## Residuos             27 0.8282  0.0307               </span></span>
 <span><span class="co">## -----------------------------------------------------</span></span>
 <span><span class="co">## ------------------------------------------------------------------------</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>A análise de indicou efeitos significativos tanto para os efeitos principais, quanto para a interação. Assim, as análises complementares realizadas foram (i) a comparação das médias pelo teste Tukey em cada nível da dose de N; e (ii) uma regressão polinomial ajustada para cada híbrido. Por padrão, o máximo grau do polinômio ajustado é 3 (modelo cúbico).</p>
 <ul>
@@ -1942,7 +1936,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 </ul>
 <p>As comparações de médias são apresentadas como saída da função <code><a href="https://rdrr.io/pkg/ExpDes.pt/man/fat2.dbc.html">fat2.dbc()</a></code> após a análise de variância. Neste momento, utilizaremos a função <code><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_factbars()</a></code> pacote <code>metan</code>** para plotar as médias dos híbridos em cada dose de nitrogênio. A apresentação gráfica de resultados, mesmo considerando médias, é uma alternativa interessante à tabela, pois permite uma interpretação mais clara e intuitiva dos resultados.</p>
 <div class="cell" data-layout-align="center">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_factbars</a></span><span class="op">(</span><span class="va">FAT2_CI</span>, <span class="va">DOSEN</span>, <span class="va">HIBRIDO</span>,</span>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_factbars</a></span><span class="op">(</span><span class="va">FAT2_CI</span>, <span class="va">DOSEN</span>, <span class="va">HIBRIDO</span>,</span>
 <span>              resp <span class="op">=</span> <span class="va">RG</span>,</span>
 <span>              xlab <span class="op">=</span> <span class="st">"Doses de nitrogênio"</span>,</span>
 <span>              ylab <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Rendimento de grãos (Mg ha"</span><span class="op">^</span><span class="op">-</span><span class="fl">1</span>,<span class="st">")"</span><span class="op">)</span><span class="op">)</span>,</span>
@@ -1952,7 +1946,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span>                          <span class="st">"a"</span>, <span class="st">"b"</span>, <span class="co"># 50</span></span>
 <span>                          <span class="st">"a"</span>, <span class="st">"b"</span>, <span class="co"># 75</span></span>
 <span>                          <span class="st">"a"</span>, <span class="st">"a"</span><span class="op">)</span><span class="op">)</span> <span class="co"># 100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Gráfico das médias dos híbridos em cada dose de nitrogênio.</figcaption><p></p>
@@ -1976,16 +1970,15 @@ MET = \frac{{ - {\beta _1}}}{{2 \times {\beta _2}}}
 MET = \frac{{ - 0,05575}}{{2 \times  -0,0005574}} = 50
 \]</span></p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x_met</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="fl">0.05575</span> <span class="op">/</span> <span class="op">(</span><span class="fl">2</span> <span class="op">*</span> <span class="op">-</span><span class="fl">0.0005574</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x_met</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="fl">0.05575</span> <span class="op">/</span> <span class="op">(</span><span class="fl">2</span> <span class="op">*</span> <span class="op">-</span><span class="fl">0.0005574</span><span class="op">)</span></span>
 <span><span class="va">x_met</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>[1] 50.00897</code></pre>
 </div>
 </div>
 <p>Logo, a dose que proporciona a máxima produtividade para o híbrido <em>NUPEC_1</em> é aproximadamente 50 kg de N ha<span class="math inline">\(^{-1}\)</span>. Assim para sabermos qual é esta produtividade estimada, basta substituir o <em>x</em> da equação por 50, resultando em <span class="math inline">\(y_{máx}\)</span> = 12,949 Mg ha<span class="math inline">\(^{-1}\)</span>.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y_met</span> <span class="op">&lt;-</span> <span class="fl">11.555</span> <span class="op">+</span> <span class="fl">0.05575</span> <span class="op">*</span> <span class="fl">50</span> <span class="op">-</span> <span class="fl">0.0005574</span> <span class="op">*</span> <span class="fl">50</span><span class="op">^</span><span class="fl">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y_met</span> <span class="op">&lt;-</span> <span class="fl">11.555</span> <span class="op">+</span> <span class="fl">0.05575</span> <span class="op">*</span> <span class="fl">50</span> <span class="op">-</span> <span class="fl">0.0005574</span> <span class="op">*</span> <span class="fl">50</span><span class="op">^</span><span class="fl">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Outro ponto importante que é possível de estimar utilizando uma equação de segundo grau, é a máxima eficiência econômica (MEE), ou seja, a dose máxima, neste caso de nitrogênio, em que é possível aplicar obtendo-se lucro. Este ponto é importante, pois a partir de uma certa dose, os incrementos em produtividade não compensariam o preço pago pelo nitrogênio aplicado. Este ponto pode ser facilmente estimado por:</p>
 <p><span class="math display">\[
@@ -1997,22 +1990,22 @@ MEE = 50 + \frac{{5}}{{2 \times (-0,0005574) \times 1300}} \approx 46
 \]</span></p>
 <p>Assim, a dose máxima de nitrogênio que em que os incrementos de produtividade são lucrativos é de <span class="math inline">\(\approx 48\)</span> Kg ha<span class="math inline">\(^{-1}\)</span>.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x_mee</span> <span class="op">&lt;-</span> <span class="va">x_met</span> <span class="op">+</span> <span class="op">(</span><span class="fl">5</span> <span class="op">/</span> <span class="op">(</span><span class="fl">2</span> <span class="op">*</span> <span class="op">-</span><span class="fl">0.0005574</span> <span class="op">*</span> <span class="fl">1300</span><span class="op">)</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x_mee</span> <span class="op">&lt;-</span> <span class="va">x_met</span> <span class="op">+</span> <span class="op">(</span><span class="fl">5</span> <span class="op">/</span> <span class="op">(</span><span class="fl">2</span> <span class="op">*</span> <span class="op">-</span><span class="fl">0.0005574</span> <span class="op">*</span> <span class="fl">1300</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">x_mee</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>[1] 46.55889</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># predito na mee</span></span>
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># predito na mee</span></span>
 <span></span>
 <span><span class="va">y_mee</span> <span class="op">&lt;-</span> <span class="fl">11.555</span> <span class="op">+</span> <span class="fl">0.05575</span> <span class="op">*</span> <span class="va">x_mee</span> <span class="op">-</span> <span class="fl">0.0005574</span> <span class="op">*</span> <span class="va">x_mee</span><span class="op">^</span><span class="fl">2</span></span>
 <span><span class="va">y_mee</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>[1] 12.94237</code></pre>
 </div>
 </div>
 <p>Semelhante ao exemplo das médias nas doses de nitrogênio, utilizaremos a função <code><a href="https://rdrr.io/pkg/metan/man/lineplots.html">plot_factlines()</a></code> para plotar, agora, uma regressão ajustada para cada híbrido. Os argumentos a serem informados são os seguintes: <code>.data</code>, o conjunto de dados (neste caso <em>FAT2_CI</em>); <code>x</code> e <code>y</code>, as colunas dos dados correspondentes aos eixos x e y do gráfico, respectivamente; <code>group</code> a coluna que contém os níveis dos fatores em que as regressões serão ajustadas; <code>fit</code> um vetor de comprimento igual ao número de níveis da coluna informada em <code>group</code>. O número indicado em cada posição do vetor, corresponde ao grau do polinômio ajustado (máximo grau ajustado = 4). Em nosso exemplo, utilizaremos <code>fit = c(2, 1)</code> para ajustar uma regressão quadrática para o híbrido <em>NUPEC_1</em> e uma regressão linear para o híbrido <em>NUPEC_2</em>.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/lineplots.html">plot_factlines</a></span><span class="op">(</span><span class="va">FAT2_CI</span>, <span class="va">DOSEN</span>, <span class="va">RG</span>,</span>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/lineplots.html">plot_factlines</a></span><span class="op">(</span><span class="va">FAT2_CI</span>, <span class="va">DOSEN</span>, <span class="va">RG</span>,</span>
 <span>               group <span class="op">=</span> <span class="va">HIBRIDO</span>,</span>
 <span>               fit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="co"># Linhas e ponto da MET</span></span>
@@ -2066,7 +2059,7 @@ MEE = 50 + \frac{{5}}{{2 \times (-0,0005574) \times 1300}} \approx 46
 <span>  size <span class="op">=</span> <span class="fl">5</span>,</span>
 <span>  col <span class="op">=</span> <span class="st">"black"</span>,</span>
 <span>  parse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>

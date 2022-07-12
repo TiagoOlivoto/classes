@@ -93,7 +93,7 @@ format:
     number-sections: true
     number-depth: 3
     smooth-scroll: true
-    code-fold: true
+    code-fold: false
     code-summary: "Mostrar código"
     code-tools: true
     code-link: true

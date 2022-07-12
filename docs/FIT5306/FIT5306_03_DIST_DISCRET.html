@@ -266,7 +266,7 @@
 </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306\FIT5306_03_DIST_DISCRET.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 <div class="quarto-title"><h1 class="title d-none d-lg-block">3. Distribuições discretas</h1></div></header><section id="introdução-à-probabilidade" class="level1" data-number="1"><h1 data-number="1">
 <span class="header-section-number">1</span> Introdução à probabilidade</h1>
 <p>Um modelo probabilístico é um modelo em que, à priori, não é possível definir um resultado particular. Este modelo é especificado por meio de uma distribuição de probabilidade. Geralmente, modelos probabilísticos são utilizados quando se tem um grande número de variáveis influenciando o resultado e estas variáveis não podem ser controladas. Como exemplo, pode-se citar a observação da germinação de uma semente, o lançamento de um dado, onde tenta-se prever o número da face que irá sair, etc.</p>
@@ -299,20 +299,20 @@ P(X = k) = \left( \begin{array}{l}n\\k\end{array} \right) \times {p^k} \times {q
 <span class="header-section-number">2.1</span> Um exemplo simples</h2>
 <p>Consideremos a variável aleatória discreta <em>X</em> como o sexo de um bezerro nascido. Denotando sucesso (1 = fêmea) e fracasso (2 = macho), a probabilidade de sucesso é <span class="math inline">\(p = 0,5\)</span> e a de fracasso <span class="math inline">\(q = 1 - q = 0,5\)</span>. Assim, considerando o parto de uma vaca, há 50% de chance de nascimento de uma terneira.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rich-iannone/DiagrammeR">DiagrammeR</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rich-iannone/DiagrammeR">DiagrammeR</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/DiagrammeR/man/mermaid.html">mermaid</a></span><span class="op">(</span><span class="st">"</span></span>
 <span><span class="st">   graph TB</span></span>
 <span><span class="st">    Start --&gt;|0,5|A(1)</span></span>
 <span><span class="st">    Start --&gt;|0,5|B(0)</span></span>
 <span><span class="st">"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
-<div id="htmlwidget-2fb718858600feaf35bb" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2fb718858600feaf35bb">{"x":{"diagram":"\n   graph TB\n    Start -->|0,5|A(1)\n    Start -->|0,5|B(0)\n"},"evals":[],"jsHooks":[]}</script>
+<div class="cell-output-display">
+<div id="htmlwidget-52898ac1fb74b470738f" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-52898ac1fb74b470738f">{"x":{"diagram":"\n   graph TB\n    Start -->|0,5|A(1)\n    Start -->|0,5|B(0)\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Considerando duas vacas prenhas, com a mesma probabilidade de nascimento de fêmeas, temos então o seguinte cenário.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/DiagrammeR/man/mermaid.html">mermaid</a></span><span class="op">(</span><span class="st">"</span></span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/DiagrammeR/man/mermaid.html">mermaid</a></span><span class="op">(</span><span class="st">"</span></span>
 <span><span class="st">   graph TB</span></span>
 <span><span class="st">    Start --&gt; |0,5|A(1)</span></span>
 <span><span class="st">    Start --&gt; |0,5|B(0)</span></span>
@@ -325,9 +325,9 @@ P(X = k) = \left( \begin{array}{l}n\\k\end{array} \right) \times {p^k} \times {q
 <span><span class="st">    E --&gt; I(01 = qp)</span></span>
 <span><span class="st">    F --&gt; J(00 = qq)</span></span>
 <span><span class="st">"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
-<div id="htmlwidget-9fad50d41f54d74d7c79" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9fad50d41f54d74d7c79">{"x":{"diagram":"\n   graph TB\n    Start --> |0,5|A(1)\n    Start --> |0,5|B(0)\n    A --> |0,5|C(1)\n    A --> |0,5|D(0)\n    B --> |0,5|E(1)\n    B --> |0,5|F(0)\n    C --> G(11 = pp)\n    D --> H(10 = pq)\n    E --> I(01 = qp)\n    F --> J(00 = qq)\n"},"evals":[],"jsHooks":[]}</script>
+<div class="cell-output-display">
+<div id="htmlwidget-6483446cfd704c6e2197" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6483446cfd704c6e2197">{"x":{"diagram":"\n   graph TB\n    Start --> |0,5|A(1)\n    Start --> |0,5|B(0)\n    A --> |0,5|C(1)\n    A --> |0,5|D(0)\n    B --> |0,5|E(1)\n    B --> |0,5|F(0)\n    C --> G(11 = pp)\n    D --> H(10 = pq)\n    E --> I(01 = qp)\n    F --> J(00 = qq)\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Assim, as probabilidades associadas ao número de nascimentos de bezzeras são dadas por</p>
@@ -351,8 +351,8 @@ P(X = 2) = \left( \begin{array}{l}2\\\2\end{array} \right) \times {0,5^2} \times
 \]</span></p>
 <p>No software R, a probabilidade de sucesso de um evento para uma variável que segue uma distribuição binomial é computada com a função <code><a href="https://rdrr.io/r/stats/Binomial.html">dbinom()</a></code>.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/args.html">args</a></span><span class="op">(</span><span class="va">dbinom</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/args.html">args</a></span><span class="op">(</span><span class="va">dbinom</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>function (x, size, prob, log = FALSE) 
 NULL</code></pre>
 </div>
@@ -366,10 +366,10 @@ NULL</code></pre>
 <code>prob</code> é a probabilidade de sucesso em cada experimento aleatório.</li>
 </ul>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>nbez <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">2</span>,</span>
 <span>           prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">2</span>, size <span class="op">=</span> <span class="fl">2</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>  nbez prob
 1    0 0.25
 2    1 0.50
@@ -378,7 +378,7 @@ NULL</code></pre>
 </div>
 <p>A mesma lógica é utilizada para uma situação onde três vacas estão prenhas. Assim, <span class="math inline">\(n = 3\)</span>, gera o seguinte cenário.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/DiagrammeR/man/mermaid.html">mermaid</a></span><span class="op">(</span><span class="st">"</span></span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/DiagrammeR/man/mermaid.html">mermaid</a></span><span class="op">(</span><span class="st">"</span></span>
 <span><span class="st">   graph TB</span></span>
 <span><span class="st">    Start --&gt; |0,5|A(1)</span></span>
 <span><span class="st">    Start --&gt; |0,5|B(0)</span></span>
@@ -403,15 +403,15 @@ NULL</code></pre>
 <span><span class="st">    M --&gt; U(001 = qqp)</span></span>
 <span><span class="st">    N --&gt; V(000 = qqq)</span></span>
 <span><span class="st">"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
-<div id="htmlwidget-ed6e3f79f75f84214b43" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ed6e3f79f75f84214b43">{"x":{"diagram":"\n   graph TB\n    Start --> |0,5|A(1)\n    Start --> |0,5|B(0)\n    A --> |0,5|C(1)\n    A --> |0,5|D(0)\n    B --> |0,5|E(1)\n    B --> |0,5|F(0)\n    C --> |0,5|G(1)\n    C --> |0,5|H(0)\n    D --> |0,5|I(1)\n    D --> |0,5|J(0)\n    E --> |0,5|K(1)\n    E --> |0,5|L(0)\n    F --> |0,5|M(1)\n    F --> |0,5|N(0)\n    G --> O(111 = ppp)\n    H --> P(110 = ppq)\n    I --> Q(101 = pqp)\n    J --> R(100 = pqq)\n    K --> S(011 = qpp)\n    L --> T(010 = qpq)\n    M --> U(001 = qqp)\n    N --> V(000 = qqq)\n"},"evals":[],"jsHooks":[]}</script>
+<div class="cell-output-display">
+<div id="htmlwidget-b8d41db903ebb329e741" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b8d41db903ebb329e741">{"x":{"diagram":"\n   graph TB\n    Start --> |0,5|A(1)\n    Start --> |0,5|B(0)\n    A --> |0,5|C(1)\n    A --> |0,5|D(0)\n    B --> |0,5|E(1)\n    B --> |0,5|F(0)\n    C --> |0,5|G(1)\n    C --> |0,5|H(0)\n    D --> |0,5|I(1)\n    D --> |0,5|J(0)\n    E --> |0,5|K(1)\n    E --> |0,5|L(0)\n    F --> |0,5|M(1)\n    F --> |0,5|N(0)\n    G --> O(111 = ppp)\n    H --> P(110 = ppq)\n    I --> Q(101 = pqp)\n    J --> R(100 = pqq)\n    K --> S(011 = qpp)\n    L --> T(010 = qpq)\n    M --> U(001 = qqp)\n    N --> V(000 = qqq)\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>n_femeas <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span>,</span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>n_femeas <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span>,</span>
 <span>           prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">3</span>, size <span class="op">=</span> <span class="fl">3</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>  n_femeas  prob
 1        0 0.125
 2        1 0.375
@@ -423,14 +423,14 @@ NULL</code></pre>
 <span class="header-section-number">2.2</span> Exercício bezerro</h2>
 <p>Um produtor possui quatro vacas prenhas de monta natural. Como está cursando a disciplina de Bioestatística, ele gostaria de calcular probabilidades associadas ao nascimento de bezerras fêmeas.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span></span>
 <span><span class="va">bezerros</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>nbez <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">4</span>,</span>
 <span>         prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">4</span>, size <span class="op">=</span> <span class="fl">4</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,</span>
 <span>         prob_ac <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">prob</span><span class="op">)</span>,</span>
 <span>         prob_ac_inv <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="va">prob_ac</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">bezerros</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code># A tibble: 5 × 4
    nbez   prob prob_ac prob_ac_inv
   &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;
@@ -440,7 +440,7 @@ NULL</code></pre>
 4     3 0.25    0.938       0.313 
 5     4 0.0625  1           0.0625</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Gráfico da distribuição</span></span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Gráfico da distribuição</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">bezerros</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">nbez</span>, <span class="va">prob</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>,</span>
@@ -453,7 +453,7 @@ NULL</code></pre>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_grey</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_03_DIST_DISCRET_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
@@ -463,8 +463,8 @@ NULL</code></pre>
 <section id="probabilidade-de-não-acertar-nenhuma-questão" class="level3" data-number="2.3.1"><h3 data-number="2.3.1" class="anchored" data-anchor-id="probabilidade-de-não-acertar-nenhuma-questão">
 <span class="header-section-number">2.3.1</span> Probabilidade de não acertar nenhuma questão</h3>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[1] 0.1073742</code></pre>
 </div>
 </div>
@@ -472,8 +472,8 @@ NULL</code></pre>
 <span class="header-section-number">2.3.2</span> Probabilidade de ser reprovado</h3>
 <p>João será reprovado caso acerte menos que quatro questões. Logo, a soma as probabilidades de acertar 0, 1, 2 e 3 questões é esta probabilidade.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[1] 0.8791261</code></pre>
 </div>
 </div>
@@ -481,8 +481,8 @@ NULL</code></pre>
 <span class="header-section-number">2.3.3</span> Probabilidade de ficar em exame</h3>
 <p>João ficará em exame caso acerte entre 4 e 7 questões. Logo, a probabilidade de ficar em exame será a soma das probabilidades individuais destes números de questões.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">7</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">7</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[1] 0.120796</code></pre>
 </div>
 </div>
@@ -490,12 +490,12 @@ NULL</code></pre>
 <span class="header-section-number">2.3.4</span> Passe na prova</h3>
 <p>João somente passará na prova, caso acerte mais que sete questões. Valendo-se da propriedade da soma das probabilidades, a probabilidade de João passar na prova é data tanto somando-se as probabilidades de acertar 8, 9 e 10 questões, quanto subtraindo a unidade da probabilidade da soma de acerto de até 7 questões.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">8</span><span class="op">:</span><span class="fl">10</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">8</span><span class="op">:</span><span class="fl">10</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[1] 7.79264e-05</code></pre>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">7</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">7</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[1] 7.79264e-05</code></pre>
 </div>
 </div>
@@ -503,13 +503,13 @@ NULL</code></pre>
 <span class="header-section-number">2.3.5</span> Gabarite a prova</h3>
 <p>A probabilidade de acerto de 10 questões é dada pela probabilidade pontual de exatamente 10 sucessos em 10 tentativas.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">10</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">10</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[1] 1.024e-07</code></pre>
 </div>
 </div>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prova</span> <span class="op">&lt;-</span> </span>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prova</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>nques <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">10</span>,</span>
 <span>         prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">10</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span>,</span>
 <span>         prob_ac <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">prob</span><span class="op">)</span><span class="op">)</span></span>
@@ -528,10 +528,10 @@ NULL</code></pre>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>vjust <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_grey</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_03_DIST_DISCRET_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="960"></p>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># distribuição acumulada</span></span>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># distribuição acumulada</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">prova</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">nques</span>, <span class="va">prob_ac</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_path</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">+</span></span>
@@ -542,7 +542,7 @@ NULL</code></pre>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_grey</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_03_DIST_DISCRET_files/figure-html/unnamed-chunk-13-2.png" class="img-fluid" width="960"></p>
 </div>
 </div>
@@ -550,8 +550,8 @@ NULL</code></pre>
 <span class="header-section-number">2.4</span> Exercício germinação de sementes</h2>
 <p>Uma empresa produtora de sementes de moranga vende pacotes com 20 sementes cada. O percentual de germinação destas sementes é de 92%. A empresa garante que pacotes que contém menos de 18 sementes germinadas são indenizados na metade do valor de venda. Se você comprou um pacote de sementes desta empresa a probabilidade de ser indenizado é de:</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">17</span>, size <span class="op">=</span> <span class="fl">20</span>, prob <span class="op">=</span> <span class="fl">0.92</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">17</span>, size <span class="op">=</span> <span class="fl">20</span>, prob <span class="op">=</span> <span class="fl">0.92</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[1] 0.2120538</code></pre>
 </div>
 </div>
@@ -565,8 +565,8 @@ NULL</code></pre>
 <span class="header-section-number">2.5.1</span> Todos os bezerros nascidos sejam fêmeas</h3>
 <p>Neste caso, a probabilidade é dada pela probabilidade pontual de 120 nascimentos de fêmeas.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">120</span>, size <span class="op">=</span> <span class="fl">120</span>, prob <span class="op">=</span> <span class="fl">0.85</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">120</span>, size <span class="op">=</span> <span class="fl">120</span>, prob <span class="op">=</span> <span class="fl">0.85</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[1] 3.390557e-09</code></pre>
 </div>
 </div>
@@ -574,12 +574,12 @@ NULL</code></pre>
 <span class="header-section-number">2.5.2</span> Pelo menos 90% dos bezerros nascidos sejam fêmeas</h3>
 <p>Neste caso, precisaríamos de, pelo menos, 108 (120 <span class="math inline">\(\times\)</span> 0,9) bezerros fêmeas. Então, a probabilidade dessa ocorrência é <span class="math inline">\(P(X \&gt;= 108) = P(X = 109) + P(X = 109) + ... + P(X = 120)\)</span></p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> </span>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>nascimentos <span class="op">=</span> <span class="fl">108</span><span class="op">:</span><span class="fl">120</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="va">nascimentos</span>, size <span class="op">=</span> <span class="fl">120</span>, prob <span class="op">=</span> <span class="fl">0.85</span><span class="op">)</span>,</span>
 <span>         acum <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">prob</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="cell-output-stdout">
 <pre><code>   nascimentos         prob       acum
 1          108 3.260600e-02 0.03260600
 2          109 2.034136e-02 0.05294736
@@ -601,14 +601,14 @@ NULL</code></pre>
 <p>O vendedor do sêmen se comprometeu em pagar uma multa de R$10,00 para cada bezerro macho nascido se a taxa de parição de fêmeas fosse menor que 75%. Qual a probabilidade do produtor receber alguma indenização?</p>
 <p>O produtor somente será indenizado se nascerem 89 ou menos bezerras. Assim, a probabilidade é dada pela soma das probabilidades individuais de 0 até 89</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">89</span>, size <span class="op">=</span> <span class="fl">120</span>, prob <span class="op">=</span> <span class="fl">0.85</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-stdout">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">89</span>, size <span class="op">=</span> <span class="fl">120</span>, prob <span class="op">=</span> <span class="fl">0.85</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
 <pre><code>[1] 0.001409492</code></pre>
 </div>
 </div>
 <p>Abaixo, é possível identificar a distribuição de probabilidade para o exemplo dado.</p>
 <div class="cell">
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bezerros</span> <span class="op">&lt;-</span> </span>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bezerros</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>nbez <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">120</span>,</span>
 <span>         prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">120</span>, size <span class="op">=</span> <span class="fl">120</span>, prob <span class="op">=</span> <span class="fl">0.85</span><span class="op">)</span>,</span>
 <span>         prob_ac <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">prob</span><span class="op">)</span><span class="op">)</span></span>
@@ -626,10 +626,10 @@ NULL</code></pre>
 <span>          subtitle <span class="op">=</span> <span class="st">"Sêmen com 85% de probabilidade de nascimento de terneiras"</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">120</span>, <span class="fl">20</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_03_DIST_DISCRET_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
-<details><summary>Mostrar código</summary><div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># distribuição acumulada</span></span>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># distribuição acumulada</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">bezerros</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">nbez</span>, <span class="va">prob_ac</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_path</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">+</span></span>
@@ -640,7 +640,7 @@ NULL</code></pre>
 <span>  <span class="co"># scale_x_continuous(breaks = c(0:10)) +</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_grey</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <p><img src="FIT5306_03_DIST_DISCRET_files/figure-html/unnamed-chunk-18-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
