@@ -424,7 +424,7 @@ $$
 onde *u* e *m* são os preços do nitrogênio e do milho em grão, respectivamente, na mesma unidade utilizada para a estimativa da equação (neste caso, preço do nitrogênio por kg e preço do milho por tonelada). Considerando o preço de custo do nitrogênio como R 3 por kg e o preço de venda do milho a 1,300 por tonelada, substituindo-se na formula obtêm-se:
 
 $$
-MEE = 129,56 + \frac{{3,0}}{{2 \times (-2,071^{-05}) \times 1.300}} \approx 100
+MEE = 173,41 + \frac{{3,0}}{{2 \times (-2,071^{-05}) \times 1.300}} \approx 117
 $$
 
 ```{r}
@@ -548,183 +548,183 @@ corr_plot(df_mat)
 ```
 
 
-<!-- # Exercício prático Regressão -->
-<!-- ## Dados -->
-<!-- > Neste exemplo, serão utilizados dados de produtividade de grãos de milho (Kg /ha) de acordo com diferentes doses de dejeto suíno (m3/ha) aplicadas na cultura do milho^[https://periodicos.uem.br/ojs/index.php/ActaSciTechnol/article/download/5312/5312/]. -->
+# Exercício prático Regressão
+## Dados
+> Neste exemplo, serão utilizados dados de produtividade de grãos de milho (Kg /ha) de acordo com diferentes doses de dejeto suíno (m3/ha) aplicadas na cultura do milho^[https://periodicos.uem.br/ojs/index.php/ActaSciTechnol/article/download/5312/5312/].
 
-<!-- ```{r} -->
-<!-- url <- "https://bit.ly/df_bioestat" -->
-<!-- reg_ex <- import(url, sheet = "REG_EXERCICIO", setclass = "tbl") -->
-<!-- reg_ex -->
+```{r}
+url <- "https://bit.ly/df_bioestat"
+reg_ex <- import(url, sheet = "REG_EXERCICIO", setclass = "tbl")
+reg_ex
 
-<!-- ``` -->
+```
 
-<!-- ## Cálculo dos coeficientes (manual) -->
+## Cálculo dos coeficientes (manual)
 
-<!-- a) Ajuste o modelo de regressão linear da forma $y_i = \beta_0 + \beta_1x_i$, apresentando o valor dos parâmetros $\beta_0$ e $\beta_1$. -->
+a) Ajuste o modelo de regressão linear da forma $y_i = \beta_0 + \beta_1x_i$, apresentando o valor dos parâmetros $\beta_0$ e $\beta_1$.
 
 
-<!-- ```{r} -->
-<!-- (x <- reg_ex$DOSE) -->
-<!-- (y <- reg_ex$RG) -->
-<!-- # número de pontos -->
-<!-- (n <- length(x)) -->
-<!-- # médias  -->
-<!-- (mx <- mean(x)) -->
-<!-- (my <- mean(y)) -->
-<!-- # soma de x -->
-<!-- (sumx <- sum(x)) -->
-<!-- # soma de y -->
-<!-- (sumy <- sum(y)) -->
-<!-- # soma de x * y -->
-<!-- (sumxy <- sum(x * y)) -->
-<!-- # soma de x ao quadrado -->
-<!-- (sumx2 <- sum(x ^ 2)) -->
-<!-- # soma de y ao quadrado -->
-<!-- (sumy2 <- sum(y ^ 2)) -->
-
-
-<!-- # soma de produtos xy (SPxy) -->
-<!-- (SPxy <- sumxy - (sumx * sumy / n)) -->
-<!-- # soma de quadrados de x SQx -->
-<!-- (SQx <- sumx2 - sumx ^ 2 / n) -->
-<!-- # soma de quadrados de y -->
-<!-- (SQy <- sumy2 - sumy ^ 2 / n) -->
+```{r}
+(x <- reg_ex$DOSE)
+(y <- reg_ex$RG)
+# número de pontos
+(n <- length(x))
+# médias
+(mx <- mean(x))
+(my <- mean(y))
+# soma de x
+(sumx <- sum(x))
+# soma de y
+(sumy <- sum(y))
+# soma de x * y
+(sumxy <- sum(x * y))
+# soma de x ao quadrado
+(sumx2 <- sum(x ^ 2))
+# soma de y ao quadrado
+(sumy2 <- sum(y ^ 2))
+
+
+# soma de produtos xy (SPxy)
+(SPxy <- sumxy - (sumx * sumy / n))
+# soma de quadrados de x SQx
+(SQx <- sumx2 - sumx ^ 2 / n)
+# soma de quadrados de y
+(SQy <- sumy2 - sumy ^ 2 / n)
 
-<!-- ## coeficientes -->
-<!-- # b1 -->
-<!-- (b1 <- SPxy / SQx) -->
-<!-- # b0 -->
-<!-- (b0 <- my - mx * b1) -->
-<!-- # equação: y = 6150 + 6,15x -->
+## coeficientes
+# b1
+(b1 <- SPxy / SQx)
+# b0
+(b0 <- my - mx * b1)
+# equação: y = 6150 + 6,15x
 
-<!-- ``` -->
+```
 
 
-<!-- b) Interprete o valor dos coeficientes, indicando sua aplicação prática. -->
+b) Interprete o valor dos coeficientes, indicando sua aplicação prática.
 
-<!-- ::: callout-important -->
-<!-- ## Interpretação dos coeficientes -->
+::: callout-important
+## Interpretação dos coeficientes
 
-<!-- O intercept indica .... -->
+O intercept indica ....
 
-<!-- o coeficiente angular...  -->
-<!-- ::: -->
+o coeficiente angular...
+:::
 
 
-<!-- c) Calcule o valor do coeficiente de determinação (R2) do modelo ajustado e interprete os resultados -->
+c) Calcule o valor do coeficiente de determinação (R2) do modelo ajustado e interprete os resultados
 
-<!-- ```{r} -->
+```{r}
 
-<!-- ################## SOMAS DE QUADRADOS DA REGRESSÃO E R2 ############ -->
+################## SOMAS DE QUADRADOS DA REGRESSÃO E R2 ############
 
-<!-- # soma de quadrado total -->
-<!-- (SQtot <- SQy) -->
-<!-- # soma de quadrados da regressão -->
-<!-- (SQreg <- SPxy ^ 2 / (SQx)) -->
-<!-- # soma de quadrados do resíduo -->
-<!-- (SQres <- SQtot - SQreg) -->
-<!-- # coeficiente de determinação -->
-<!-- (R2 <- SQreg / SQtot) -->
-<!-- ``` -->
+# soma de quadrado total
+(SQtot <- SQy)
+# soma de quadrados da regressão
+(SQreg <- SPxy ^ 2 / (SQx))
+# soma de quadrados do resíduo
+(SQres <- SQtot - SQreg)
+# coeficiente de determinação
+(R2 <- SQreg / SQtot)
+```
 
 
 
-<!-- d) Realize a predição da produtividade para uma dose de dejeto aplicado de 35 metros cúbicos por ha. -->
+d) Realize a predição da produtividade para uma dose de dejeto aplicado de 35 metros cúbicos por ha.
 
-<!-- ```{r} -->
+```{r}
 
-<!-- # y predito com x = 35 -->
-<!-- (yx35 <- b0 + b1 * 35) -->
+# y predito com x = 35
+(yx35 <- b0 + b1 * 35)
 
-<!-- ``` -->
+```
 
 
-<!-- e) Ajuste a regressão no software R utilizando a função lm(). Após, construa um gráfico de dispersão com a reta de predição do modelo. -->
+e) Ajuste a regressão no software R utilizando a função lm(). Após, construa um gráfico de dispersão com a reta de predição do modelo.
 
-<!-- ```{r} -->
-<!-- reg <- lm(RG ~ DOSE, data = reg_ex) -->
-<!-- # coeficientes e R2 -->
-<!-- summary(reg) -->
-<!-- # anova -->
-<!-- anova(reg) -->
-<!-- ``` -->
+```{r}
+reg <- lm(RG ~ DOSE, data = reg_ex)
+# coeficientes e R2
+summary(reg)
+# anova
+anova(reg)
+```
 
 
-<!-- ## Gráfico -->
-<!-- ```{r} -->
-<!-- library(ggpmisc) # adiciona a equação no gráfico -->
-<!-- p1 <-  -->
-<!--   ggplot(reg_ex, aes(DOSE, RG)) + -->
-<!--   geom_smooth(se = FALSE, method = "lm") + -->
-<!--   geom_point(size = 4, color = "blue") +  -->
-<!--   stat_poly_eq(formula = y ~ x, -->
-<!--                aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~~")), -->
-<!--                coef.digits = 5) + -->
-<!--   labs(x = expression(Doses~de~dejeto~(m^3~ha^{-1})), -->
-<!--        y = expression(Rendimento~de~grãos~(t~ha^{-1})), -->
-<!--        title = "Rendimento de grãos em função da dose de dejeto") -->
+## Gráfico
+```{r}
+library(ggpmisc) # adiciona a equação no gráfico
+p1 <-
+  ggplot(reg_ex, aes(DOSE, RG)) +
+  geom_smooth(se = FALSE, method = "lm") +
+  geom_point(size = 4, color = "blue") +
+  stat_poly_eq(formula = y ~ x,
+               aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~~")),
+               coef.digits = 5) +
+  labs(x = expression(Doses~de~dejeto~(m^3~ha^{-1})),
+       y = expression(Rendimento~de~grãos~(t~ha^{-1})),
+       title = "Rendimento de grãos em função da dose de dejeto")
 
-<!-- p2 <-  -->
-<!--   ggplot(reg_ex, aes(DOSE, RG)) + -->
-<!--     geom_abline(intercept = b0, -->
-<!--               slope = b1, -->
-<!--               color = "red") + -->
-<!--   geom_smooth(se = FALSE, method = "lm") + -->
-<!--   geom_point(size = 4, color = "blue") +  -->
-<!--   stat_poly_eq(formula = y ~ x, -->
-<!--                aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~~")), -->
-<!--                coef.digits = 5) + -->
-<!--   labs(x = expression(Doses~de~dejeto~(m^3~ha^{-1})), -->
-<!--        y = expression(Rendimento~de~grãos~(t~ha^{-1})), -->
-<!--        title = expression(Compreendendo~o~intercept~(beta[0]))) + -->
-<!--   scale_x_continuous(limits = c(0, 50), -->
-<!--                      expand = expansion(c(0, 0.05))) + -->
-<!--   scale_y_continuous(limits = c(6, 9), -->
-<!--                      breaks = c(6, 6.155, 7, 8, 9)) + -->
-<!--   theme(panel.grid.minor = element_blank()) -->
+p2 <-
+  ggplot(reg_ex, aes(DOSE, RG)) +
+    geom_abline(intercept = b0,
+              slope = b1,
+              color = "red") +
+  geom_smooth(se = FALSE, method = "lm") +
+  geom_point(size = 4, color = "blue") +
+  stat_poly_eq(formula = y ~ x,
+               aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~~")),
+               coef.digits = 5) +
+  labs(x = expression(Doses~de~dejeto~(m^3~ha^{-1})),
+       y = expression(Rendimento~de~grãos~(t~ha^{-1})),
+       title = expression(Compreendendo~o~intercept~(beta[0]))) +
+  scale_x_continuous(limits = c(0, 50),
+                     expand = expansion(c(0, 0.05))) +
+  scale_y_continuous(limits = c(6, 9),
+                     breaks = c(6, 6.155, 7, 8, 9)) +
+  theme(panel.grid.minor = element_blank())
 
-<!-- p1 + p2 -->
+p1 + p2
 
-<!-- ``` -->
+```
 
 
-<!-- ## Valores preditos -->
+## Valores preditos
 
-<!-- Para obter os valores preditos, precisamos considerar os parâmetros estimados da regressão linear, substituindo o *x* pelos valores observados de x. Felizmente, a vetorização proporcionada pelo R, nos facilita este procedimento, bastando realizar o seguinte comando -->
+Para obter os valores preditos, precisamos considerar os parâmetros estimados da regressão linear, substituindo o *x* pelos valores observados de x. Felizmente, a vetorização proporcionada pelo R, nos facilita este procedimento, bastando realizar o seguinte comando
 
-<!-- ```{r} -->
-<!-- (pred <- b0 + b1 * x) -->
-<!-- ``` -->
+```{r}
+(pred <- b0 + b1 * x)
+```
 
-<!-- Os valores preditos também podem ser obtidos com a função `predict()`, informando o modelo ajustado -->
+Os valores preditos também podem ser obtidos com a função `predict()`, informando o modelo ajustado
 
-<!-- ```{r} -->
-<!-- (pred2 <- predict(reg)) -->
-<!-- ``` -->
+```{r}
+(pred2 <- predict(reg))
+```
 
-<!-- ## Residuais -->
+## Residuais
 
-<!-- Os resíduos são obtidos pela diferença entre os valores observados e os preditos pelo modelo ajustado. Para isso, utilizamos o seguinte comando: -->
+Os resíduos são obtidos pela diferença entre os valores observados e os preditos pelo modelo ajustado. Para isso, utilizamos o seguinte comando:
 
-<!-- ```{r} -->
-<!-- (res <- y - pred) -->
-<!-- # o mesmo com a função residuals() -->
-<!-- (res2 <- residuals(reg)) -->
-<!-- ``` -->
+```{r}
+(res <- y - pred)
+# o mesmo com a função residuals()
+(res2 <- residuals(reg))
+```
 
-<!-- Apenas para fins de comprovação, observe que a soma de quadrado do resíduo obtida anteriormente pode ser calculada agora como: -->
+Apenas para fins de comprovação, observe que a soma de quadrado do resíduo obtida anteriormente pode ser calculada agora como:
 
-<!-- ```{r} -->
-<!-- (sqres2 <- sum(res ^ 2)) -->
-<!-- ``` -->
+```{r}
+(sqres2 <- sum(res ^ 2))
+```
 
-<!-- Por fim, é possível mutar o conjunto de dados incluindo os valores preditos e residuais. -->
-<!-- ```{r} -->
-<!-- mutate(reg_ex, -->
-<!--        predito = pred, -->
-<!--        residual = res) -->
-<!-- ``` -->
+Por fim, é possível mutar o conjunto de dados incluindo os valores preditos e residuais.
+```{r}
+mutate(reg_ex,
+       predito = pred,
+       residual = res)
+```
 
 
 
@@ -736,84 +736,84 @@ corr_plot(df_mat)
 
 
 
-<!-- # Exercício correlação -->
-<!-- ## Dados -->
+# Exercício correlação
+## Dados
 
-<!-- > Neste exemplo, serão utilizados dados referentes ao número de grãos (NGRA) e massa de grãos (MGRA) observados em 15 espigas de milho (n = 15). -->
+> Neste exemplo, serão utilizados dados referentes ao número de grãos (NGRA) e massa de grãos (MGRA) observados em 15 espigas de milho (n = 15).
 
-<!-- ```{r} -->
-<!-- url <- "http://bit.ly/df_biostat_exp" -->
-<!-- cor_ex <- import(url, sheet = "COR_EXERCICIO", setclass = "tbl") -->
+```{r}
+url <- "http://bit.ly/df_biostat_exp"
+cor_ex <- import(url, sheet = "COR_EXERCICIO", setclass = "tbl")
 
-<!-- (x <- cor_ex$NGRA) -->
-<!-- (y <- cor_ex$MGRA) -->
-<!-- (n <- length(x)) -->
-<!-- ``` -->
+(x <- cor_ex$NGRA)
+(y <- cor_ex$MGRA)
+(n <- length(x))
+```
 
-<!-- ## Método dos mínimos quadrados -->
+## Método dos mínimos quadrados
 
-<!-- ```{r} -->
-<!-- (xy <- x * y) -->
-<!-- (x2 <- x ^ 2) -->
-<!-- (y2 <- y ^ 2) -->
+```{r}
+(xy <- x * y)
+(x2 <- x ^ 2)
+(y2 <- y ^ 2)
 
-<!-- # soma de xy -->
-<!-- (somxy <- sum(xy)) -->
+# soma de xy
+(somxy <- sum(xy))
 
-<!-- # soma de x -->
-<!-- (somx <- sum(x)) -->
+# soma de x
+(somx <- sum(x))
 
-<!-- # soma de y -->
-<!-- (somy <- sum(y)) -->
+# soma de y
+(somy <- sum(y))
 
-<!-- # soma de x2 -->
-<!-- (somx2 <- sum(x2)) -->
+# soma de x2
+(somx2 <- sum(x2))
 
-<!-- # soma de y2 -->
-<!-- (somy2 <- sum(y2)) -->
+# soma de y2
+(somy2 <- sum(y2))
 
-<!-- # adiciona as colunas nos dados originais usando mutate() -->
-<!-- cor_ex <- -->
-<!--   mutate(cor_ex, -->
-<!--          xy = xy, -->
-<!--          x2 = x2, -->
-<!--          y2 = y2) -->
-<!-- data.frame(cor_ex) -->
+# adiciona as colunas nos dados originais usando mutate()
+cor_ex <-
+  mutate(cor_ex,
+         xy = xy,
+         x2 = x2,
+         y2 = y2)
+data.frame(cor_ex)
 
 
-<!-- # soma de produtos xy -->
-<!-- (sxy <- somxy - (somx * somy / n)) -->
+# soma de produtos xy
+(sxy <- somxy - (somx * somy / n))
 
-<!-- # soma de quadrados de x -->
-<!-- (sx <- somx2 - somx ^ 2 / n) -->
+# soma de quadrados de x
+(sx <- somx2 - somx ^ 2 / n)
 
-<!-- # soma de quadrados de y -->
-<!-- (sy <- somy2 - somy ^ 2 / n) -->
+# soma de quadrados de y
+(sy <- somy2 - somy ^ 2 / n)
 
-<!-- # coeficiente de correlaçao -->
-<!-- (r <- sxy / (sqrt(sx * sy))) -->
+# coeficiente de correlaçao
+(r <- sxy / (sqrt(sx * sy)))
 
 
-<!-- # t calculado -->
-<!-- (tc <- r * sqrt((n - 2) / (1 - r ^ 2))) -->
+# t calculado
+(tc <- r * sqrt((n - 2) / (1 - r ^ 2)))
 
-<!-- # t tabelado (cauda direita) = 2.16 -->
-<!-- # como é bicaudal, considera-se 0.05 / 2 -->
-<!-- qt(0.025, df = 13, lower.tail = FALSE) -->
+# t tabelado (cauda direita) = 2.16
+# como é bicaudal, considera-se 0.05 / 2
+qt(0.025, df = 13, lower.tail = FALSE)
 
 
-<!-- ``` -->
+```
 
-<!-- ## Função cor e cor.test() -->
+## Função cor e cor.test()
 
-<!-- ```{r} -->
-<!-- # somente calcula o r -->
-<!-- cor(x, y) -->
+```{r}
+# somente calcula o r
+cor(x, y)
 
 
-<!-- # computa o r e realiza o teste de hipótese -->
-<!-- cor.test(x, y) -->
-<!-- ``` -->
+# computa o r e realiza o teste de hipótese
+cor.test(x, y)
+```
 
 
 

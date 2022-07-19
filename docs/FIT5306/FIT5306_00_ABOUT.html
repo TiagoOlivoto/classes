@@ -205,7 +205,7 @@
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_06_AMOSTRAGEM.html" class="sidebar-item-text sidebar-link">6. Distribuição de frequências</a>
+  <a href="../FIT5306/FIT5306_06_AMOSTRAGEM.html" class="sidebar-item-text sidebar-link">6. Amostragem</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -252,7 +252,7 @@
 </section><section id="dados-de-exemplo" class="level1" data-number="2"><h1 data-number="2">
 <span class="header-section-number">2</span> Dados de exemplo</h1>
 <hr>
-<p>O conjunto de dados <code>dados_biost_exp.xlsx</code> contém dados que podem ser utilizados para aplicação prática dos conteúdos trabalhados na disciplina. O arquivo contém as seguintes planilhas:</p>
+<p>O conjunto de dados <code>dados_biost.xlsx</code> contém dados que podem ser utilizados para aplicação prática dos conteúdos trabalhados na disciplina. O arquivo contém as seguintes planilhas:</p>
 <ul>
 <li>
 <code>REG_DATA</code>: dados sem repetição (<strong>hipotéticos</strong>) do RG observados em diferentes doses de Nitrogênio.</li>
@@ -327,7 +327,7 @@ Note
 <span class="header-section-number">3</span> Download dos dados</h1>
 <p>Planilhas específicas podem ser baixadas diretamente no software R, utilizando o argumento <code>sheet</code> da função <code><a href="https://rdrr.io/pkg/rio/man/import.html">import()</a></code> do pacote <code>rio</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_bioestat"</span></span>
 <span><span class="va">df_biostat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="va">url</span>, sheet <span class="op">=</span> <span class="st">"DIC-DBC"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_biostat</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
@@ -364,7 +364,7 @@ $ MST   &lt;dbl&gt; 12.30785, 10.73315, 10.86140, 10.97850, 15.75180, 13.30495, 
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>O conjunto de dados <span class="in">`dados_biost_exp.xlsx`</span> contém dados que podem ser utilizados para aplicação prática dos conteúdos trabalhados na disciplina. O arquivo contém as seguintes planilhas:</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>O conjunto de dados <span class="in">`dados_biost.xlsx`</span> contém dados que podem ser utilizados para aplicação prática dos conteúdos trabalhados na disciplina. O arquivo contém as seguintes planilhas:</span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_DATA`</span>: dados sem repetição (**hipotéticos**) do RG observados em diferentes doses de Nitrogênio.</span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_ANALISE`</span>: Análise de regressão linear de primeiro grau dos dados <span class="in">`REG_DATA`</span>.</span>
@@ -408,7 +408,7 @@ $ MST   &lt;dbl&gt; 12.30785, 10.73315, 10.86140, 10.97850, 15.75180, 13.30495, 
 <span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>Planilhas específicas podem ser baixadas diretamente no software R, utilizando o argumento <span class="in">`sheet`</span> da função <span class="in">`import()`</span> do pacote <span class="in">`rio`</span>.</span>
 <span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"http://bit.ly/df_bioestat"</span></span>
 <span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>df_biostat <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"DIC-DBC"</span>)</span>
 <span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_biostat)</span>
 <span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>

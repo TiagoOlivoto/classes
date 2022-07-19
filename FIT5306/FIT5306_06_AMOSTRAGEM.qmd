@@ -1,194 +1,166 @@
 ---
-title: "6. Distribuição de frequências"
+title: "6. Amostragem"
 ---
 
 
-Uma forma de lidar com grandes conjuntos de dados e identificar informações relevantes é agrupar estes dados. O agrupamento é feito em tabelas, denominadas de distribuições de frequências. A construção de distribuição de frequências é geralmente realizada de forma distinta para variáveis discretas (distribuição por pontos) e contínuas (distribuição por classes ou intervalos).
-
-Neste exemplo, vamos utilizar os dados coletados do comprimento, diâmetro e cor de grão de café.
-
-```{r warning=FALSE, message=FALSE}
+```{r}
 library(tidyverse)
 library(rio)
-library(metan)
-
-
-# importar os dados do google sheet
-df <- import("https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=353032103",
-             dec = ",")
-# mostrar os dados
-knitr::kable(df)
+df <- import("https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1461701268")
+df
 ```
 
-# Variáveis qualitativas e quantitativas discretas
-
-Para exemplificar a construção de tabelas de frequências de variáveis qualitativas / quantitativas discretas, utilizaremos a variável cor do grão. Neste caso, três classes (classes naturais) estão presentes: vermelho, amarelo e verde. Assim, a construção da tabela de frequência diz respeito a contagem de observações em cada uma destas classes e o cálculo das frequências relativas e absolutas.
-
-## Representação tabular
-
-Pode-se criar facilmente esta tabela de frequência combinando as funções `count()` e `mutate()` do pacote `dplyr` (parte do `tidyverse`).
+A função `sample_random()` pode ser utilizada para amostrar `n` linhas aleatoriamente do conjunto de dados `data`. Utilizando `prop`, uma proporção dos dados é amostrada. Este último é útil ao realizar amostragens estratificadas informando o argumento `strata`, onde cada estrato possui diferentes tamanhos de amostra.
 
 ```{r}
-tab_feq <- 
-  df %>%
-  count(cor_grao) |>
-  mutate(abs_freq = n,
-         abs_freq_ac = cumsum(abs_freq),
-         rel_freq = abs_freq / sum(abs_freq),
-         rel_freq_ac = cumsum(rel_freq))
-
-knitr::kable(tab_feq)
+# Função auxiliar
+sample_random <- function(data, n, prop, strata = NULL){
+  if(!missing(strata)){
+    data <- data |> group_by({{strata}})
+  }
+  slice_sample(data, n = n, prop = prop)
+}
 ```
 
-## Representação gráfica
 
-Para apresentar estes dados graficamente, pode-se construir um gráfico de barras, mostrando a contagem em cada classe.
+# Amostragem aleatória simples
+A amostragem aleatória simples é o método mais básico de amostragem que tanto pode ser utilizado diretamente na seleção de uma amostra, quando se conhece os indivíduos da população, como ser parte de outros planos amostrais como, por exemplo, da Amostragem Estratificada.
 
-# 
-
-```{r}
-
-ggplot(df, aes(cor_grao)) + 
-  geom_histogram(stat="count") +
-  scale_y_continuous(breaks = 0:15) + 
-  labs(x = "Cor do grão",
-       y = "Número de observações") +
-  theme(panel.grid.minor = element_blank())
-```
-
-# Variáveis quantitativas
-
-Para o caso de variáveis quantitativas contínuas (ex. `X`), precisamos agrupar os valores observados em intervalos de classe. Por exemplo, quando medimos uma altura de uma planta (ex. 1,86 m), a altura real não está limitado a segunda casa decimal. Então, a melhor forma será criar regiões (intervalos), de modo que possamos contemplar um conjunto de valores.
+O número possíveis de amostras com `n` indivíduos de uma população com `N` elementos, é dado por:
 
 $$
-\sqrt{250 \times \frac{2}{3}}
+\mathop C\nolimits_N^n = \frac{N!}{n!(N-n)!}
 $$
 
-Um critério empírico, para definição do número de classes ($k$) a ser criado se baseia no número de elementos ($n$) na amostra. Caso ($n$) seja igual ou inferior a 100, calcula-se o número de classes com $k = \sqrt{n}$. Caso ($n$) seja maior que 100, calcula-se o número de classes com $k = 5 \log\_{10}(n)$.
-
-Após a determinação do número de classes, é necessário determinar a amplitude total ($A$), dada por:
-
-$$
-A = \max(X) - \min(X)
-$$
-
-Posteriormente, determina-se a amplitude da classe ($c$), dada por:
-
-$$
-c = \frac{A}{k - 1}
-$$
-
-Por fim, calcula-se o o limite inferior ($LI_1$) e superior ($LS_1$) da primeira classe, dados por
-
-$$
-LI_1 = min(X) - c/2\\\\
-$$
-
-$$
-LS_1 = LI_1 + c
-$$
-
-O valor do limite superior não pertence a classe e será contabilizado para a próxima classe. Dizemos, então, que o conjunto é fechado a esquerda e aberto à direita. O limite inferior da segunda classe é dado pelo limite superior da primeira class ($LI_2 = LS_1$); o limite superior da segunda classe é dado por ($LS_2 = LI_2 + c$). Esta lógica segue até completar-se o número de classes do conjunto.
-
-A função `freq_table()` está disponível no pacote metan e é mostrada explicitamente aqui. Ela automatiza o processo de construção de tabelas de frequências, tanto para variáveis qualitativas como quantitativas. Basta informar o conjunto de dados, a variável, e, opcionalmente, o número de classes a ser criado.
-
-
-## Apresentação tabular
+No próximo exemplo, veremos as possíveis amostras (120) com 3 indivíduos, tomadas de uma população com 10 indivíduos.
 
 ```{r}
-frequencias <- freq_table(df, comp_grao)
-knitr::kable(frequencias$freqs)
-```
-
-## Apresentação gráfica
-
-```{r}
-freq_hist(frequencias)
-```
-
-# Exemplos discutidos em aula
-
-## Cor do grão do café (grupo 3)
-
-```{r}
-df_cor_grao <- import("https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=353032103",
-                      dec = ",")
-
-
-freq_cafe <- freq_table(df_cor_grao, var = cor_grao)
-knitr::kable(freq_cafe$freqs)
-
-
-# criar um histograma
-freq_hist(freq_cafe)
-```
-
-## Altura da turma
-
-```{r}
-df_altura <- import("https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1992833755") |> 
-  as_numeric(Altura)
-
-# Tabela
-dist_altura <- freq_table(df_altura, var = Altura)
-knitr::kable(dist_altura$freqs)
-
-# Gráfico
-freq_hist(dist_altura)
+N <- 10
+n <- 3
+d <- combn(N, n)
+t(d)
 ```
 
 
-# Exercício
 
-1. Considerando os dados dos 5 grupos (classes), disponível na planilha ‘união’ (https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1453191616), construa e interprete a tabela de frequências, referente ao número de folhas avaliadas em cada grupo (quantitativa discreta). 
+## Aplicação
+Vamos considerar uma variável `x`, distribuida normalmente  com média \$\bar x = 10\$ e desvio padrão \$S = 2\$, avaliada em população com N = 10.
 
 ```{r}
-df_uniao <- 
-  import("https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1453191616",
-         dec = ",")
-
-# filtrar somente folhas
-df_folha <- subset(df_uniao, tipo == "Folha")
-dist_numfolha <- freq_table(df_folha, var = grupo)
-knitr::kable(dist_numfolha$freqs)
-
-
-# Gráfico
-freq_hist(dist_numfolha)
+N <- 10
+df2 <- data.frame(id = 1:N,
+                 x = rnorm(n = N, mean = 10, sd = 2))
+df2
 ```
 
-
-2. Considerando as observações de todos os grupos para a variável quantitativa contínua largura da folha, calcule:
-
-   a. O tamanho da amostra (n): 57
-```{r}
-(n <- nrow(df_folha))
-```
-   
-   b. O número de classes (k):
-```{r}
-(k <- round(sqrt(n)))
-```
-   
-   c. A amplitude dos dados:
-```{r}
-(ampl <- range_data(df_folha, largura))
-```
-	
-   d. O tamanho da classe
-```{r}
-ampl / (k - 1)
-```
-
-   e. A tabela de distribuição de frequências contendo as frequências relativas e absolutas de cada classe.
+Considerando uma amostragem com `n = 3`, as 120 amostras possíveis são
 
 
 ```{r}
-dist_largf <- 
-  freq_table(df_folha,
-             var = largura)
-knitr::kable(dist_largf$freqs)
-
-# Gráfico
-freq_hist(dist_largf)
+n <- 3
+amostras <- combn(N, n) |> t()
+amostras |> head()
+amostras |> tail()
 ```
+
+A seguinte função, computa a média das 120 amostras. Assim, obtém-se a distribuição das médias amostrais.
+```{r}
+library(tidyverse)
+medias <- NULL
+# abordagem com for-loop
+for (i in 1:nrow(amostras)) {
+  individ <- amostras[i,]
+  valores <- df2$x[individ]
+  medias <- append(medias, mean(valores))
+}
+
+# criar um data frame com as médias
+df_medias <- data.frame(amostras) |> mutate(media = medias)
+head(df_medias)
+tail(df_medias)
+```
+
+
+Ao computar a média das medias amostrais, obtém-se a média populacional
+```{r}
+med_amostral <- mean(df_medias$media)
+med_pop <-  mean(df2$x)
+
+identical(med_amostral, med_pop)
+
+ggplot(df_medias, aes(x = media)) +
+  geom_histogram(bins = 8, color = "black", fill = "gray") +
+  geom_vline(xintercept = med_pop, color = "red", size = 1)
+```
+
+## Abordagem paralela
+Quando o número de amostras cresce bastante, a abordagem for-loop não é computacionalmente eficiente. Assim, uma abordagem utilizando `sapply()` é mais eficiente. Quando paraleliza-se a função, a eficiência aumenta mais ainda.
+
+```{r eval = FALSE}
+# criando uma função para obter a média de um id
+get_mean <- function(df, var, amostras, id){
+  individ <- amostras[id,]
+  mean(df[[var]][individ])
+}
+
+
+N <- 30
+n <- 5
+df2 <- data.frame(id = 1:N,
+                  x = rnorm(n = N, mean = 10, sd = 2))
+amostras2 <- combn(N, n) |> t()
+
+
+system.time(
+  medias2 <-
+    sapply(1:nrow(amostras2), function(i){
+      get_mean(df, "x", amostras2, id = i)
+    })
+)
+
+
+library(parallel)
+clust <- makeCluster(5)
+clusterExport(clust,
+              varlist = c("df", "amostras2", "get_mean"))
+system.time(
+  medias3 <-
+    parLapply(clust, 1:nrow(amostras2), function(i){
+      get_mean(df, "x", amostras2, id = i)
+    })
+)
+stopCluster(clust)
+
+```
+
+
+# Amostragem Aleatória Estratificada
+## Número igual dentro de cada estrato
+```{r}
+sample_random(df, n = 3, strata = cromossomo)
+```
+
+
+## Proporção da população em cada estrato
+```{r}
+sample_random(df,
+              prop = 0.3,
+              strata = cromossomo)
+```
+
+
+
+# Amostragem aleatória sistemática
+```{r}
+sample_sist <- function(data, n, r = NULL){
+  k <- ceiling(nrow(data) / n)
+  if(is.null(r)){
+    r <- sample(1:k, 1)
+  }
+  rows <- seq(r, r + k*(n-1), k)
+  slice(data, rows)
+}
+
+sample_sist(df, n = 4, r = 1)
+```
+
