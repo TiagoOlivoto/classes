@@ -16,7 +16,7 @@ library(AgroR)      # casualização e ANOVA
 
 ------------------------------------------------------------------------
 
-O conjunto de dados `dados_biost_exp.xlsx` contém dados que podem ser utilizados para aplicação prática dos conteúdos trabalhados na disciplina. O arquivo contém as seguintes planilhas:
+O conjunto de dados `dados_biost.xlsx` contém dados que podem ser utilizados para aplicação prática dos conteúdos trabalhados na disciplina. O arquivo contém as seguintes planilhas:
 
 -   `REG_DATA`: dados sem repetição (**hipotéticos**) do RG observados em diferentes doses de Nitrogênio.
 -   `REG_ANALISE`: Análise de regressão linear de primeiro grau dos dados `REG_DATA`.
@@ -60,7 +60,7 @@ As seguintes planilhas contém dados de experimentos bifatoriais com diferentes 
 Planilhas específicas podem ser baixadas diretamente no software R, utilizando o argumento `sheet` da função `import()` do pacote `rio`.
 
 ```{r}
-url <- "http://bit.ly/df_biostat_exp"
+url <- "http://bit.ly/df_bioestat"
 df_biostat <- import(url, sheet = "DIC-DBC")
 glimpse(df_biostat)
 ```

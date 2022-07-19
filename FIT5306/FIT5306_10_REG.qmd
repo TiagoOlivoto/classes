@@ -3,6 +3,7 @@ title: "10. Regressão linear"
 ---
 
 # Pacotes
+
 ```{r collapse = FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(metan)      # estatísticas descritivas
@@ -11,75 +12,258 @@ library(AgroR)
 library(broom)
 ```
 
-# Introdução
+# Regressão linear
 
-A análise de regressão tem como objetivo verificar como uma variável independente influencia a resposta de uma variável dependente. A análise de regressão é amplamente utilizada nas ciências agrárias. O modelo mais simples de regressão linear é a de primeiro grau, descrita conforme o modelo a seguir:
+## Introdução
+
+A análise de regressão tem como objetivo verificar como uma variável independente (*x*) influencia a resposta de uma variável dependente (*y*). A análise de regressão é amplamente utilizada nas ciências agrárias. O modelo mais simples de regressão linear é a de primeiro grau, descrita conforme o modelo a seguir:
 
 $$
 Y_i = {\beta _0} + {\beta _1}x + \varepsilon_i  
 $$
 
-Onde $Y_i$ é a variável dependente, $x$ é a variável independente, $\beta_0$ é o intercepto, $\beta_1$ é a inclinação da reta e $\varepsilon$ é o desvio. 
+Onde $Y_i$ é o valor observado da variável dependente no *i*-ésimo nível da variável independente; $x_i$ é o valor do *i*-ésimo nível da variável independente, $\beta_0$ é o intercepto (valor que a reta predita intercepta o eixo *y* quando *x* é igual a zero); $\beta_1$ é a inclinação da reta (quantas unidades mudam em *y* a cada unidade alterada em *x*) e $\varepsilon$ é o desvio.
 
+## O problema
 
-
-# Regressão linear (dados sem repetições)
-
-Neste exemplo, 
+::: callout-note
+No seguinte exemplo é apresentado o valor do rendimento de grãos de um certo híbrido de milho (eixo *y*) em função da dose de N (eixo *x*).
 
 ```{r}
-# definir tema
-theme_set(theme_gray(base_size = 14) +
-            theme(panel.grid.minor = element_blank()))
+x <- seq(0, 150, by = 25)
+y <- c(8.6, 8.9, 9.5, 9.9, 10, 10.2, 10.5)
+df <- data.frame(x = x, y = y)
 
-DOSEN <- seq(0, 150, by = 25)
-RG <- c(8.6, 8.9, 9.5, 9.9, 10, 10.2, 10.5)
-df <- data.frame(DOSEN = DOSEN, RG = RG)
-
-# ajustar modelo de regressão linear
-mod <- lm(RG ~ DOSEN, data = df)
-
-# gráfico base
-p0 <- ggplot(df, aes(DOSEN, RG))
-
-# pontos plotados
-p0 + 
-  geom_point(size = 4, color = "red") +
-  scale_x_continuous(breaks = DOSEN) +
-  labs(x = "Dose de N (Kg/ha)",
-       y= "Rendimento de grãos (t/ha)")
-
-# diversos modelos
-p0 + 
-  geom_point(size = 4, color = "red") +
-  geom_abline(intercept = 9, slope = 0.01, color = "red") +
-  geom_abline(intercept = 8.5, slope = 0.015, color = "blue") +
-  geom_smooth(se = FALSE, method = "lm") +
-  geom_abline(intercept = 8.7, slope = 0.012, color = "green") +
-  geom_abline(intercept = 9.1, slope = 0.008, color = "black") +
-  scale_x_continuous(breaks = DOSEN) +
-  labs(x = "Dose de N (Kg/ha)",
-       y= "Rendimento de grãos (t/ha)")
-
-# modelo ajustado com resíduos
-p0 +
-  geom_segment(aes(x = DOSEN, y = RG, xend = DOSEN, yend = fitted(mod))) +
+# plotar os valores
+ggplot(df, aes(x, y)) +
   geom_point(size = 4, color = "red") + 
   geom_smooth(se = FALSE, method = "lm") +
-  scale_x_continuous(breaks = DOSEN) +
+  scale_x_continuous(breaks = x) +
   labs(x = "Dose de N (Kg/ha)",
        y= "Rendimento de grãos (t/ha)")
 
+```
+
+O problema consiste em obter o valor de $\beta_0$ e $\beta_1$ de melhor ajuste para a equação, de modo que a soma de quadrado dos desvios (diferença entre os pontos observados e a reta de predição) seja mínima. Assim, adota-se o critério de obter a solução que minimiza soma dos quadrados dos resídulos ($\sum\nolimits_{i = 1}^n {{e_i}^2}$), método conhecido como [Método dos Mínimos Quadrados](https://pt.wikipedia.org/wiki/M%C3%A9todo_dos_m%C3%ADnimos_quadrados)
+
+$$
+{b_1} = \frac{{S{P_{xy}}}}{{S{Q_x}}}
+$$
+:::
+
+::: callout-note
+$$
+{b_0} = \bar y - {b_1} \times \bar x
+$$
+:::
+
+::: callout-note
+Onde
+
+$$
+S{P_{xy}} = \sum\limits_{i = 1}^n {{x_i}{y_i}}  - \frac{{\left( {\sum\limits_{i = 1}^n {{x_i}} } \right)\left( {\sum\limits_{i = 1}^n {{y_i}} } \right)}}{n}
+$$ {#eq-spxy}
+
+$$
+\\S{Q_x} = \sum\limits_{i = 1}^n {x_i^2}  - \frac{{{{\left( {\sum\limits_{i = 1}^n {x_i^{}} } \right)}^2}}}{n}
+$$ {#eq-sqx}
+
+$$
+\\S{Q_y} = \sum\limits_{i = 1}^n {y_i^2}  - \frac{{{{\left( {\sum\limits_{i = 1}^n {y_i^{}} } \right)}^2}}}{n}
+$$ {#eq-sqy}
+
+De posse deste valor pode ser obtidas as somas de quadrados:
+
+$$
+S{Q_{total}} = S{Q_y}
+$$
+
+$$
+S{Q_{reg}} = \frac{{S{P_{xy}}^2}}{{S{Q_x}}}
+$$
+
+$$
+S{Q_{erro}} = S{Q_{total}} - S{Q_{reg}}
+$$
+:::
+
+## Estimação dos coeficientes
+
+No seguinte exemplo, são calculados as somas de *x* e *y*, as somas de $x^2$ e $y^2$ e também as somas de $x\times y$ .
+
+```{r}
+df2 <- 
+  mutate(df,
+         x2 = x ^ 2,
+         y2 = y ^ 2,
+         xy = x * y)
+df2
+
+
+# número de pontos
+(n <- length(x))
+# soma de xi
+(sum_xi <- sum(x))
+# soma de xi ao quadrado
+(sum_xi2 <- sum(x ^ 2))
+# soma de yi
+(sum_yi <- sum(y))
+# soma de yi ao quadrado
+(sum_yi2 <- sum(y ^ 2))
+# soma de xi * yi
+(sum_xiyi <- sum(x * y))
+
+
+```
+
+Note que estas mesmas somas podem ser obtidas facilmente utilizando duas outras abordagens. A primeira usando a função `colSums()` e outra a função `apply()`.
+
+```{r}
+colSums(df2)
+apply(df2, 2, sum)
+```
+
+De posse destes valores é possível computar a soma de produtos de *x* e *y ,* bem como suas somas de quadrados.
+
+```{r}
+# soma de produtos de X e Y
+(SPxy <- sum_xiyi - (sum_xi * sum_yi) / n)
+# soma de quadrados de X
+(SQx <- sum_xi2 - (sum_xi ^2) / n)
+# soma de quadrados de Y
+(SQy <- sum_yi2 - (sum_yi ^ 2) / n)
+
+# computar o b1
+(b1 <- SPxy / SQx)
+# computar o b0
+(b0 <- mean(y) - b1 * mean(x))
+```
+
+## Regressão ajustada e tabela ANOVA
+
+A equação ajustada é então $y = 8,7142 + 0,01257x$. As somas de quadrados de regressão e resídulo são dadas à seguir
+
+```{r}
+# soma de quadrado total
+(SQtot <- SQy)
+(SQreg <- SPxy ^ 2 / SQx)
+(SQerro <- SQtot - SQreg)
+```
+
+Pode-se ainda obter a análise da variância da regressão, cujo esquema é apresentado a seguir na Tabela.
+
+```{r}
+FV <- c("Regressão", "Desvio", "Total")
+GL <- c(1, n - 2, n - 1)
+SQ <- c(SQreg, SQerro, SQtot)
+QM <- SQ / GL
+FC <- c(QM[[1]] / QM[[3]], NA, NA)
+data.frame(FV, GL, SQ, QM, FC) |> knitr::kable()
+```
+
+## Grau de ajuste do modelo
+
+A proporção da variação de y que é explicada pelos níveis de x é conhecido como coeficiente de determinação ($R^2$) e é calculado por:
+
+$$
+R^2 = \frac{SQ_{reg}}{SQ_{tot}}
+$$
+
+```{r}
+(R2 <- SQreg / SQtot)
+```
+
+Pode-se ainda obter o ($R^2$) ajustado ($R^2_{adj}$) . O $R^2_{adj}$ pode ser usado quando desejar comparar modelos que têm diferentes números de preditores. O ($R^2$) sempre aumenta quando você adiciona um preditor ao modelo, mesmo quando não existe uma verdadeira melhoria ao modelo. O valor de ($R^2_{adj}$) ajustado o número de preditores no modelo para ajudá-lo a escolher o modelo correto[^1], sendo calculado por:
+
+[^1]: https://support.minitab.com/pt-br/minitab/18/help-and-how-to/modeling-statistics/regression/how-to/best-subsets-regression/interpret-the-results/all-statistics/
+
+$$
+R^2_{adj} = 1 -\frac{(n - 1)(1 -  R^2)}{n - p}
+$$ Sendo que para a regressão linear simples estima-se 2 parâmetros ($\beta_0$ e $\beta_1$).
+
+```{r}
+R2adj <- 1 - ((n - 1)*(1 - R2)) / (n - 2)
+R2adj
+```
+
+## Valores preditos e resíduos
+
+Os valores preditos são obtidos substituindo-se o *x* da equação pelo valor de *x* testado. Como o R trabalha de forma vetorizada, podemos facilmente obter os valores preditos para cada elemento de `x` com:
+
+```{r}
+(pred <- b0 + b1 * x)
+```
+
+Os desvios são computados como a diferença entre o valor observado e o valor predito. Assim, pode calculá-los com:
+
+```{r}
+(desvios <- y - pred)
+```
+
+Fica fácil identificar estes desvios plotando-os no gráfico abaixo.
+
+```{r}
+# gráfico base
+ggplot(df, aes(x, y)) +
+  geom_segment(aes(x = x,
+                   y = y,
+                   xend = x,
+                   yend = pred)) +
+  geom_point(size = 4, color = "red") + 
+  geom_smooth(se = FALSE, method = "lm") +
+  scale_x_continuous(breaks = x) +
+  labs(x = "Dose de N (Kg/ha)",
+       y= "Rendimento de grãos (t/ha)")
+```
+
+A soma de quadrado dos desvios obtida anteriormente pode ser obtida aqui também, ao somarmos o quadrado dos desvios.
+
+```{r}
+sum(desvios ^ 2)
+```
+
+## A função `lm()`
+
+No R, a função `lm()` (linear model) pode ser utilizada para ajustar a equação linear. Para isso, utiliza-se uma fórmula to tipo `y ~ x` (ou seja, y em função de x). Note que `y` e `x` são os nomes das variáveis presentes no data frame, informado no argumento `data`.
+
+```{r}
+# ajustar modelo de regressão linear
+mod <- lm(y ~ x, data = df)
+
+# coeficientes
+summary(mod)
+
+
+# Análise de variância
+anova(mod)
+
+
+```
+
+::: callout-important
+## Conferindo os resultados
+
+Compare os valores obtidos no cálculo passo-a-passo com os valores dos coeficientes obtidos com a função `summary(mod)` e `anova(mod)`. Os valores conferem?
+:::
+
+
+No código abaixo é criado um novo conjunto de dados, contendo os valores preditos e os resíduos.
+
+```{r}
 
 # valores preditos
 pred <- 
   df %>% 
   mutate(predito = predict(mod),
-         residual = RG - predito)
+         residual = y - predito)
 pred
 
 
+```
 
+Os valores preditos são obtidos ao substituir o *x* da equação pelo valor utilizado. Pode-se criar uma função para retornar os valores preditos utilizando um modelo ajustado e o valor de x desejado. No seguinte exemplo, o valor de *y* quando *x* é 75 é calculado e plotado no gráfico.
+
+```{r}
 # modelo ajustado o valor predito para x = 75
 # função auxiliar
 pred_linear <- function(mod, x){
@@ -92,13 +276,13 @@ pred_linear <- function(mod, x){
 pred_75 <- pred_linear(mod, 75)
 pred_75
 
-p0 +
+ggplot(df, aes(x, y)) +
   geom_smooth(se = FALSE, method = "lm") +
   geom_segment(aes(x = 75, y = 8.5, xend = 75, yend = pred_75)) +
   geom_segment(aes(x = 0, y = pred_75, xend = 75, yend = pred_75)) +
   geom_point(aes(x = 75, y = pred_75), color = "blue", size = 4) +
   geom_point(size = 4, color = "red") + 
-  scale_x_continuous(breaks = DOSEN) +
+  scale_x_continuous(breaks = x) +
   labs(x = "Dose de N (Kg/ha)",
        y= "Rendimento de grãos (t/ha)",
        title = "Reta predita para o modelo de regressão",
@@ -106,8 +290,8 @@ p0 +
 ```
 
 
+## Regressão linear com repetições
 
-# Regressão linear (com repetições)
 ```{r}
 url <- "http://bit.ly/df_biostat_exp"
 df_reg <- import(url, sheet = "REG_DEL_DATA", setclass = "tbl")
@@ -130,10 +314,8 @@ tidy(anova_reg) %>% as.data.frame() %>% slice(1)
 
 
 
-p0 <- ggplot(df_reg, aes(DOSEN, RG))
-
 # pontos plotados
-p0 + 
+ggplot(df_reg, aes(DOSEN, RG)) +
   geom_point(color = "red") +
   stat_summary(geom = "point",
                fun = mean,
@@ -144,8 +326,7 @@ p0 +
 
 ```
 
-
-# Polinômio de segundo grau
+## Polinômio de segundo grau
 
 A regressão polinomial de segundo grau (que também é linear!) é uma outra opção muito útil para analisar dados que apresentem comportamento de parábola, por vezes observado em ensaios que testam dosagens de algum produto/fertilizante, etc. Neste tipo, um parâmetro a mais é adicionado ao modelo, ficando na forma:
 
@@ -186,12 +367,10 @@ p1
 
 ```
 
-
-
 O ponto em X (dose de N) em que a produtividade é máxima é chamado de máxima eficiência técnica (MET) e pode ser estimado por:
 
 $$
-MET = \frac{{ - {b _1}}}{{2 \times {b _2}}}
+MET = \frac{{ - {\beta _1}}}{{2 \times {\beta _2}}}
 $$
 
 Substituindo com os parâmetros estimados, temos:
@@ -200,8 +379,8 @@ $$
 MET = \frac{{ - 0,007184}}{{2 \times  -2,071^{-05}}} \approx 173,4
 $$
 
-
 No R, podemos criar uma função auxiliar para calcular o ponto de MET.
+
 ```{r}
 # máxima eficiência técnica
 # mod é o modelo quadrático ajustado
@@ -215,7 +394,6 @@ met <- function(mod){
 x_met <- met(mod2)
 x_met
 ```
-
 
 Em nosso exemplo, o ponto em x (dose de N) que proporciona o máximo rendimento predito é 173,413. Assim para sabermos qual é este rendimento estimado, basta substituir o *x* da equação por 173,4: $y = 7,075 + 0,007184\times 173,413 -2,071^{-05}\times 173,413^2 \approx 7,70$
 
@@ -237,11 +415,10 @@ pred_met
 
 ```
 
-
 Outro ponto importante que é possível de estimar utilizando uma equação de segundo grau, é a máxima eficiência econômica (MEE), ou seja, a dose máxima, neste caso de nitrogênio, em que é possível aplicar obtendo-se lucro. Este ponto é importante, pois a partir de uma certa dose, os incrementos em produtividade não compensariam o preço pago pelo nitrogênio aplicado. Este ponto pode ser facilmente estimado por:
 
 $$
-MEE = MET + \frac{u}{{2 \times b_2 \times m}}
+MEE = MET + \frac{u}{{2 \times \beta_2 \times m}}
 $$
 
 onde *u* e *m* são os preços do nitrogênio e do milho em grão, respectivamente, na mesma unidade utilizada para a estimativa da equação (neste caso, preço do nitrogênio por kg e preço do milho por tonelada). Considerando o preço de custo do nitrogênio como R 3 por kg e o preço de venda do milho a 1,300 por tonelada, substituindo-se na formula obtêm-se:
@@ -299,355 +476,344 @@ p1 +
 
 ```
 
-
-
 # Correlação
 
+Conhecer o grau de associação linear entre caracteres é de fundamental importância em um programa de melhoramento genético vegetal. Esta importância aumenta, principalmente se algum caractere desejável é de difícil mensuração, ou apresenta baixa herdabilidade. O coeficiente de correlação produto-momento de (Pearson, 1920)[^2], *r*, vem sendo amplamente utilizado para este fim. Embora o mérito desta análise seja atribuído à Karl Pearson, o método foi originalmente concebido por Francis Galton, que definiu o termo correlação como como o seguinte: *duas variáveis são ditas correlacionadas quando a variação de uma é acompanhada na média, mais ou menos a variação da outra, e no mesmo sentido* (Galton, 1888)[^3].
+
+[^2]: PEARSON, K. Notes on the History of Correlation. Biometrika, v. 13, n. 1, p. 25--45, 1920
+
+[^3]: GALTON, F. Co-relations and their measurement, chiefly from anthropometric data. Proceedings of the Royal Society of London, v. 45, n. 273--279, p. 135--145, 1888
+
+## Cálculo do coeficiente de correlação
+
+Utilizando o método dos mínimos quadrados, a correlação entre duas variáveis (x e y) é dada por:
+
+$$
+r = \frac{SP_{xy}}{\sqrt{SQ_x\times SQ_y}}
+$$
+
+As definições de $SP_{xy}$, $SQ_{x}$ e $SQ_{y}$ foram apresentadas nas Equações @eq-spxy, @eq-sqx e @eq-sqy, respectivamente.
+
+A significância da correlação (r) é testada utilizando um teste *t* com $t_{\alpha(n-2)}$ graus liberdade. As hipóteses são:
+
+$$
+{H_0}:r = 0
+$$
+
+$$
+{H_1}:r \ne 0
+$$
+
+O valor de *t* calculado é dado por:
+
+$$
+{t_0} = r\sqrt {\frac{{n - 2}}{{1 - {r^2}}}}
+$$
+
+Por fim, compara-se o *t* calculado com o tabelado ao nível $\alpha$ de significância de erro (teste bilateral), com *n* menos dois graus liberdade.
+
+$$
+{t_0} > {t_{\alpha (n - 2)}} = r \ne 0
+$$
+
+## A função `cor()` do R
+
+Utilizando a função do R `cor()` é possível obter o coeficiente de correlação entre duas variáveis, por exemplo, `APLA` e `AIES` do seguinte conjunto de dados:
+
 ```{r}
 url <- "http://bit.ly/df_biostat_exp"
-df_cor <- import(url, sheet = "CORRELACAO_DATA", setclass = "tbl")
+df_mat <- 
+  import(url, sheet = "maize", setclass = "tbl") |> 
+  select(APLA:MGRA)
 
 # correlação de pearson (AP e A)
-cor(df_cor)
+cor(df_mat$APLA, df_mat$AIES)
 
 
-# matriz de correlação
-df_mat <- import(url, sheet = "maize", setclass = "tbl")
-df_maize <- 
-  df_mat %>% 
-  select(APLA:MGRA)
-cor(df_maize)
 
+```
+
+Uma matriz de correlação também pode ser calculada informando um data frame de variáveis numéricas
+
+```{r}
 # Matriz gráfica de correlação
-corr_plot(df_maize)
+cor(df_mat)
 ```
 
-
-# Notas da aula prática
-Os dados utilizados referem-se a uma amostra de tamanho n = 11, na qual se aplicou CO2 em diferentes concentrações em folhas de trigo (X). A quantidade de C02 absorvida (Y) em cm3 / dm2 / hora foi avaliada.
-
-## Regressão
-### Dados
-> Neste exemplo, será utilizado Os dados referente a uma amostra de tamanho n = 11, na qual se aplicou CO2 em diferentes concentrações em folhas de trigo (X). A quantidade de C02 absorvida (Y) em cm3 / dm2 / hora foi avaliada. Esse exemplo foi apresentado por Ferreira (2009)^[FERREIRA, D. F. **Estatistica Basica**. 2. ed. Viçosa, MG.: UFV, 2009]
-
+Usando a função `corr_plot()` do pacote metan, é possível obter uma matriz mista (gráfico e número), contendo a distribuição dos pontos e o coeficiente de correlação entre as variáveis.
 
 ```{r}
-url <- "http://bit.ly/df_biostat_exp"
-df_co2 <- import(url, sheet = "REG_PRATICA", setclass = "tbl")
-
-(x <- df_co2$x)
-(y <- df_co2$y)
-(n <- length(x))
-(mx <- mean(x))
-(my <- mean(y))
+# Matriz gráfica de correlação
+corr_plot(df_mat)
 ```
 
 
-### Método dos mínimos quadrados
-```{r}
-(xy <- x * y)
-(x2 <- x ^ 2)
-(y2 <- y ^ 2)
-
-(sxy <- sum(xy) - (sum(x) * sum(y) / n))
-(sx <- sum(x2) - sum(x) ^ 2 / n)
-(sy <- sum(y2) - sum(y) ^ 2 / n)
-
-(b1 <- sxy / sx)
-(b0 <- my - b1 * mx)
+<!-- # Exercício prático Regressão -->
+<!-- ## Dados -->
+<!-- > Neste exemplo, serão utilizados dados de produtividade de grãos de milho (Kg /ha) de acordo com diferentes doses de dejeto suíno (m3/ha) aplicadas na cultura do milho^[https://periodicos.uem.br/ojs/index.php/ActaSciTechnol/article/download/5312/5312/]. -->
 
-## somas de quadrados
-(sqtotal <- sy)
-(sqreg <- sxy ^ 2 / sx)
-(sqres <- sqtotal - sqreg)
-(R2 <- sqreg / sqtotal)
-```
+<!-- ```{r} -->
+<!-- url <- "https://bit.ly/df_bioestat" -->
+<!-- reg_ex <- import(url, sheet = "REG_EXERCICIO", setclass = "tbl") -->
+<!-- reg_ex -->
 
-### Função `lm`
+<!-- ``` -->
 
-Utilizando a função `lm`, o modelo acima é ajustado facilmente, com:
-```{r}
-mod <- lm(y ~ x)
-summary(mod)
-```
+<!-- ## Cálculo dos coeficientes (manual) -->
 
-### Valores preditos
-Para obter os valores preditos, precisamos considerar os parâmetros estimados da regressão linear, substituindo o *x* pelos valores observados de x. Felizmente, a vetorização proporcionada pelo R, nos facilita este procedimento, bastando realizar o seguinte comando
+<!-- a) Ajuste o modelo de regressão linear da forma $y_i = \beta_0 + \beta_1x_i$, apresentando o valor dos parâmetros $\beta_0$ e $\beta_1$. -->
 
-```{r}
-(pred <- b0 + b1 * x)
-```
 
-Os valores preditos também podem ser obtidos com a função `predict()`, informando o modelo ajustado
+<!-- ```{r} -->
+<!-- (x <- reg_ex$DOSE) -->
+<!-- (y <- reg_ex$RG) -->
+<!-- # número de pontos -->
+<!-- (n <- length(x)) -->
+<!-- # médias  -->
+<!-- (mx <- mean(x)) -->
+<!-- (my <- mean(y)) -->
+<!-- # soma de x -->
+<!-- (sumx <- sum(x)) -->
+<!-- # soma de y -->
+<!-- (sumy <- sum(y)) -->
+<!-- # soma de x * y -->
+<!-- (sumxy <- sum(x * y)) -->
+<!-- # soma de x ao quadrado -->
+<!-- (sumx2 <- sum(x ^ 2)) -->
+<!-- # soma de y ao quadrado -->
+<!-- (sumy2 <- sum(y ^ 2)) -->
+
+
+<!-- # soma de produtos xy (SPxy) -->
+<!-- (SPxy <- sumxy - (sumx * sumy / n)) -->
+<!-- # soma de quadrados de x SQx -->
+<!-- (SQx <- sumx2 - sumx ^ 2 / n) -->
+<!-- # soma de quadrados de y -->
+<!-- (SQy <- sumy2 - sumy ^ 2 / n) -->
 
-```{r}
-(pred2 <- predict(mod))
-```
+<!-- ## coeficientes -->
+<!-- # b1 -->
+<!-- (b1 <- SPxy / SQx) -->
+<!-- # b0 -->
+<!-- (b0 <- my - mx * b1) -->
+<!-- # equação: y = 6150 + 6,15x -->
 
-### Residuais
-Os resíduos são obtidos pela diferença entre os valores observados e os preditos pelo modelo ajustado. Para isso, utilizamos o seguinte comando:
-```{r}
-(res <- y - pred)
+<!-- ``` -->
 
-```
 
-Apenas para fins de comprovação, observe que a soma de quadrado do resíduo obtida anteriormente pode ser calculada agora como:
-```{r}
-(sqres2 <- sum(res ^ 2))
-```
+<!-- b) Interprete o valor dos coeficientes, indicando sua aplicação prática. -->
 
-A função `residuals()` também pode ser utilizada para oter os resíduos de um modelo ajustado.
-```{r}
-(res2 <- residuals(mod))
-```
+<!-- ::: callout-important -->
+<!-- ## Interpretação dos coeficientes -->
 
-### Gráfico
-Para confecção do gráfico de regressão, será utilizado o pacote `ggplot2`
+<!-- O intercept indica .... -->
 
-```{r}
-# gráfico base
-ggplot(df_co2, aes(x, y)) +
-  geom_point(size = 4, color = "red") +
-  labs(x = "CO2 aplicado",
-       y = "CO2 absorvido") +
-  geom_segment(aes(x = x, y = y, xend = x, yend = fitted(mod))) +
-  geom_smooth(se = FALSE, method = "lm")
-```
+<!-- o coeficiente angular...  -->
+<!-- ::: -->
 
 
-## Correlação
-### Dados
-> Dois métodos de mensurar a densidade média da madeira (g /cm$^3$) em *Eucalyptus grandis* foram aplicados a uma amostra de n = 13 árvores. O primeiro método (X) é determinado utilizando um paquímetro e uma sonda Pressler de 0,5 cm na região da árvore determinada no diâmetro à altura do peito (DAP). A segunda, variável (Y) também foi mensurada no DAP utilizando cortes transversais no tronco. Esse exemplo foi apresentado por Ferreira (2009)^[FERREIRA, D. F. **Estatistica Basica**. 2. ed. Viçosa, MG.: UFV, 2009]
+<!-- c) Calcule o valor do coeficiente de determinação (R2) do modelo ajustado e interprete os resultados -->
 
-```{r}
-url <- "http://bit.ly/df_biostat_exp"
-df_densidade <- import(url, sheet = "COR_DATA_DENSIDADE", setclass = "tbl")
+<!-- ```{r} -->
 
-x <- df_densidade$X
-y <- df_densidade$Y
-n <- length(x)
+<!-- ################## SOMAS DE QUADRADOS DA REGRESSÃO E R2 ############ -->
 
-```
+<!-- # soma de quadrado total -->
+<!-- (SQtot <- SQy) -->
+<!-- # soma de quadrados da regressão -->
+<!-- (SQreg <- SPxy ^ 2 / (SQx)) -->
+<!-- # soma de quadrados do resíduo -->
+<!-- (SQres <- SQtot - SQreg) -->
+<!-- # coeficiente de determinação -->
+<!-- (R2 <- SQreg / SQtot) -->
+<!-- ``` -->
 
-### método dos mínimos quadrados
-```{r}
-xy <- x * y
-x2 <- x ^ 2
-y2 <- y ^ 2
 
-(sxy <- sum(xy) - (sum(x) * sum(y) / n))
-(sx <- sum(x2) - sum(x) ^ 2 / n)
-(sy <- sum(y2) - sum(y) ^ 2 / n)
 
-(r <- sxy / sqrt(sx * sy))
+<!-- d) Realize a predição da produtividade para uma dose de dejeto aplicado de 35 metros cúbicos por ha. -->
 
-(tcal <- r * (sqrt((n - 2) / (1 - r ^ 2))))
-(ttab <- abs(qt(0.025, df = 11)))
-tcal > ttab
+<!-- ```{r} -->
 
-```
+<!-- # y predito com x = 35 -->
+<!-- (yx35 <- b0 + b1 * 35) -->
 
-### Função `cor()`
+<!-- ``` -->
 
-Para computar o coeficiente de correlação de Pearson, utilizamos a função `cor()`, indicando o vetor x e y, ou um data.frame com variáveis numéricas. Neste último caso, uma matriz de correlação é retornada.
-```{r}
-cor(x, y)
-```
 
-Para realizar o teste de hipótese, utiliza-se a função `cor.test()`.
+<!-- e) Ajuste a regressão no software R utilizando a função lm(). Após, construa um gráfico de dispersão com a reta de predição do modelo. -->
 
-```{r}
-cor.test(x, y)
-```
+<!-- ```{r} -->
+<!-- reg <- lm(RG ~ DOSE, data = reg_ex) -->
+<!-- # coeficientes e R2 -->
+<!-- summary(reg) -->
+<!-- # anova -->
+<!-- anova(reg) -->
+<!-- ``` -->
 
 
-# Exercício resolvido
-## Correlação
-### Dados
-> Neste exemplo, serão utilizados dados referentes ao número de grãos (NGRA) e massa de grãos (MGRA) observados em 15 espigas de milho (n = 15).
+<!-- ## Gráfico -->
+<!-- ```{r} -->
+<!-- library(ggpmisc) # adiciona a equação no gráfico -->
+<!-- p1 <-  -->
+<!--   ggplot(reg_ex, aes(DOSE, RG)) + -->
+<!--   geom_smooth(se = FALSE, method = "lm") + -->
+<!--   geom_point(size = 4, color = "blue") +  -->
+<!--   stat_poly_eq(formula = y ~ x, -->
+<!--                aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~~")), -->
+<!--                coef.digits = 5) + -->
+<!--   labs(x = expression(Doses~de~dejeto~(m^3~ha^{-1})), -->
+<!--        y = expression(Rendimento~de~grãos~(t~ha^{-1})), -->
+<!--        title = "Rendimento de grãos em função da dose de dejeto") -->
 
+<!-- p2 <-  -->
+<!--   ggplot(reg_ex, aes(DOSE, RG)) + -->
+<!--     geom_abline(intercept = b0, -->
+<!--               slope = b1, -->
+<!--               color = "red") + -->
+<!--   geom_smooth(se = FALSE, method = "lm") + -->
+<!--   geom_point(size = 4, color = "blue") +  -->
+<!--   stat_poly_eq(formula = y ~ x, -->
+<!--                aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~~")), -->
+<!--                coef.digits = 5) + -->
+<!--   labs(x = expression(Doses~de~dejeto~(m^3~ha^{-1})), -->
+<!--        y = expression(Rendimento~de~grãos~(t~ha^{-1})), -->
+<!--        title = expression(Compreendendo~o~intercept~(beta[0]))) + -->
+<!--   scale_x_continuous(limits = c(0, 50), -->
+<!--                      expand = expansion(c(0, 0.05))) + -->
+<!--   scale_y_continuous(limits = c(6, 9), -->
+<!--                      breaks = c(6, 6.155, 7, 8, 9)) + -->
+<!--   theme(panel.grid.minor = element_blank()) -->
 
-```{r}
-url <- "http://bit.ly/df_biostat_exp"
-cor_ex <- import(url, sheet = "COR_EXERCICIO", setclass = "tbl")
+<!-- p1 + p2 -->
 
-(x <- cor_ex$NGRA)
-(y <- cor_ex$MGRA)
-(n <- length(x))
-```
+<!-- ``` -->
 
 
-### Método dos mínimos quadrados
-```{r}
-(xy <- x * y)
-(x2 <- x ^ 2)
-(y2 <- y ^ 2)
+<!-- ## Valores preditos -->
 
-# soma de xy
-(somxy <- sum(xy))
+<!-- Para obter os valores preditos, precisamos considerar os parâmetros estimados da regressão linear, substituindo o *x* pelos valores observados de x. Felizmente, a vetorização proporcionada pelo R, nos facilita este procedimento, bastando realizar o seguinte comando -->
 
-# soma de x
-(somx <- sum(x))
+<!-- ```{r} -->
+<!-- (pred <- b0 + b1 * x) -->
+<!-- ``` -->
 
-# soma de y
-(somy <- sum(y))
+<!-- Os valores preditos também podem ser obtidos com a função `predict()`, informando o modelo ajustado -->
 
-# soma de x2
-(somx2 <- sum(x2))
+<!-- ```{r} -->
+<!-- (pred2 <- predict(reg)) -->
+<!-- ``` -->
 
-# soma de y2
-(somy2 <- sum(y2))
+<!-- ## Residuais -->
 
-# adiciona as colunas nos dados originais usando mutate()
-cor_ex <- 
-  mutate(cor_ex,
-         xy = xy,
-         x2 = x2,
-         y2 = y2)
-data.frame(cor_ex)
+<!-- Os resíduos são obtidos pela diferença entre os valores observados e os preditos pelo modelo ajustado. Para isso, utilizamos o seguinte comando: -->
 
+<!-- ```{r} -->
+<!-- (res <- y - pred) -->
+<!-- # o mesmo com a função residuals() -->
+<!-- (res2 <- residuals(reg)) -->
+<!-- ``` -->
 
-# soma de produtos xy
-(sxy <- somxy - (somx * somy / n))
+<!-- Apenas para fins de comprovação, observe que a soma de quadrado do resíduo obtida anteriormente pode ser calculada agora como: -->
 
-# soma de quadrados de x
-(sx <- somx2 - somx ^ 2 / n)
+<!-- ```{r} -->
+<!-- (sqres2 <- sum(res ^ 2)) -->
+<!-- ``` -->
 
-# soma de quadrados de y
-(sy <- somy2 - somy ^ 2 / n)
+<!-- Por fim, é possível mutar o conjunto de dados incluindo os valores preditos e residuais. -->
+<!-- ```{r} -->
+<!-- mutate(reg_ex, -->
+<!--        predito = pred, -->
+<!--        residual = res) -->
+<!-- ``` -->
 
-# coeficiente de correlaçao
-(r <- sxy / (sqrt(sx * sy)))
 
 
-# t calculado
-(tc <- r * sqrt((n - 2) / (1 - r ^ 2)))
 
-# t tabelado (cauda direita) = 2.16
-# como é bicaudal, considera-se 0.05 / 2
-qt(0.025, df = 13, lower.tail = FALSE)
 
 
-```
 
-### Função cor e cor.test()
-```{r}
-# somente calcula o r
-cor(x, y)
 
 
-# computa o r e realiza o teste de hipótese
-cor.test(x, y)
-```
 
 
-## Regressão
-### Dados
-> Neste exemplo, serão utilizados dados de produtividade de grãos de milho (Kg /ha) de acordo com diferentes doses de dejeto suíno (m3/ha) aplicadas na cultura do milho^[https://periodicos.uem.br/ojs/index.php/ActaSciTechnol/article/download/5312/5312/].
+<!-- # Exercício correlação -->
+<!-- ## Dados -->
 
+<!-- > Neste exemplo, serão utilizados dados referentes ao número de grãos (NGRA) e massa de grãos (MGRA) observados em 15 espigas de milho (n = 15). -->
 
-```{r}
-url <- "http://bit.ly/df_biostat_exp"
-reg_ex <- import(url, sheet = "REG_EXERCICIO", setclass = "tbl")
+<!-- ```{r} -->
+<!-- url <- "http://bit.ly/df_biostat_exp" -->
+<!-- cor_ex <- import(url, sheet = "COR_EXERCICIO", setclass = "tbl") -->
 
-(x <- reg_ex$DOSE)
-(y <- reg_ex$RG)
-# número de amostras
-(n <- length(x))
-# médias 
-(mx <- mean(x))
-(my <- mean(y))
-```
+<!-- (x <- cor_ex$NGRA) -->
+<!-- (y <- cor_ex$MGRA) -->
+<!-- (n <- length(x)) -->
+<!-- ``` -->
 
+<!-- ## Método dos mínimos quadrados -->
 
-### Método dos mínimos quadrados
-```{r}
-# x vezes y
-(xy <- x * y)
+<!-- ```{r} -->
+<!-- (xy <- x * y) -->
+<!-- (x2 <- x ^ 2) -->
+<!-- (y2 <- y ^ 2) -->
 
-# x ao quadrado
-(x2 <- x ^ 2)
+<!-- # soma de xy -->
+<!-- (somxy <- sum(xy)) -->
 
-# y ao quadrado
-(y2 <- y ^ 2)
+<!-- # soma de x -->
+<!-- (somx <- sum(x)) -->
 
-# soma de xy
-(somxy <- sum(xy))
+<!-- # soma de y -->
+<!-- (somy <- sum(y)) -->
 
-# soma de x
-(somx <- sum(x))
+<!-- # soma de x2 -->
+<!-- (somx2 <- sum(x2)) -->
 
-# soma de y
-(somy <- sum(y))
+<!-- # soma de y2 -->
+<!-- (somy2 <- sum(y2)) -->
 
-# soma de x2
-(somx2 <- sum(x2))
+<!-- # adiciona as colunas nos dados originais usando mutate() -->
+<!-- cor_ex <- -->
+<!--   mutate(cor_ex, -->
+<!--          xy = xy, -->
+<!--          x2 = x2, -->
+<!--          y2 = y2) -->
+<!-- data.frame(cor_ex) -->
 
-# soma de y2
-(somy2 <- sum(y2))
 
-# soma de produtos xy
-(sxy <- somxy - (somx * somy / n))
+<!-- # soma de produtos xy -->
+<!-- (sxy <- somxy - (somx * somy / n)) -->
 
-# soma de quadrados de x
-(sx <- somx2 - somx ^ 2 / n)
+<!-- # soma de quadrados de x -->
+<!-- (sx <- somx2 - somx ^ 2 / n) -->
 
-# soma de quadrados de y
-(sy <- somy2 - somy ^ 2 / n)
+<!-- # soma de quadrados de y -->
+<!-- (sy <- somy2 - somy ^ 2 / n) -->
 
-# b1
-(b1 <- sxy / sx)
+<!-- # coeficiente de correlaçao -->
+<!-- (r <- sxy / (sqrt(sx * sy))) -->
 
-# b0
-(b0 <- my - mx * b1)
 
-# equação: y = 6150 + 46,2x
+<!-- # t calculado -->
+<!-- (tc <- r * sqrt((n - 2) / (1 - r ^ 2))) -->
 
-# y predito com x = 35
-(yx35 <- b0 + b1 * 35)
+<!-- # t tabelado (cauda direita) = 2.16 -->
+<!-- # como é bicaudal, considera-se 0.05 / 2 -->
+<!-- qt(0.025, df = 13, lower.tail = FALSE) -->
 
 
-################## SOMAS DE QUADRADOS DA REGRESSÃO E R2 ############
-# soma de quadrado total
-(sqt <- sy)
+<!-- ``` -->
 
-# soma de quadrados da regressão
-(sqreg <- sxy ^ 2 / (sx))
+<!-- ## Função cor e cor.test() -->
 
-# soma de quadrados do resíduo
-(sqres <- sqt - sqreg)
+<!-- ```{r} -->
+<!-- # somente calcula o r -->
+<!-- cor(x, y) -->
 
-# coeficiente de determinação
-R2 <- sqreg / sqt
-```
 
-### Utilizando a função lm()
+<!-- # computa o r e realiza o teste de hipótese -->
+<!-- cor.test(x, y) -->
+<!-- ``` -->
 
-```{r}
-reg <- lm(y ~ x)
 
-# coeficientes e R2
-summary(reg)
-
-# anova
-anova(reg)
-
-```
-
-
-### Gráfico
-```{r}
-library(ggpmisc) # adiciona a equação no gráfico
-ggplot(reg_ex, aes(DOSE, RG)) +
-  geom_smooth(se = FALSE, method = "lm") +
-  geom_segment(aes(x = 35, y = 7000, xend = 35, yend = yx35)) +
-  geom_segment(aes(x = 18, y = yx35, xend = 35, yend = yx35)) +
-  geom_point(aes(x = 35, y = yx35), color = "red", size = 4) +
-  geom_point(size = 4, color = "blue") + 
-  stat_poly_eq(formula = y ~ x,
-               aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")),
-               coef.digits = 5) +
-  labs(x = "Dose de dejeto (m3/ha)",
-       y = "Rendimento de grãos (kg/ha)")
-```
 
