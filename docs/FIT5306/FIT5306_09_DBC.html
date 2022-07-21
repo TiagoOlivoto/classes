@@ -77,8 +77,8 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/quarto-nav/headroom.min.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><link href="../FIT5306/FIT5306_09_FAT.html" rel="next">
-<link href="../FIT5306/FIT5306_07_DIC.html" rel="prev">
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><link href="../FIT5306/FIT5306_10_FAT.html" rel="next">
+<link href="../FIT5306/FIT5306_08_DIC.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link class="quarto-color-scheme" href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
 <link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css">
@@ -211,22 +211,27 @@
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_07_DIC.html" class="sidebar-item-text sidebar-link">7. Delineamento Inteiramente Casualizado</a>
+  <a href="../FIT5306/FIT5306_07_DELN.html" class="sidebar-item-text sidebar-link">7. Análise de Variância</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_08_DBC.html" class="sidebar-item-text sidebar-link active">8. Delineamento de Blocos Completos Casualizados</a>
+  <a href="../FIT5306/FIT5306_08_DIC.html" class="sidebar-item-text sidebar-link">7. Delineamento Inteiramente Casualizado</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_09_FAT.html" class="sidebar-item-text sidebar-link">9. Experimentos Fatoriais</a>
+  <a href="../FIT5306/FIT5306_09_DBC.html" class="sidebar-item-text sidebar-link active">8. Delineamento de Blocos Completos Casualizados</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_10_REG.html" class="sidebar-item-text sidebar-link">10. Regressão linear</a>
+  <a href="../FIT5306/FIT5306_10_FAT.html" class="sidebar-item-text sidebar-link">9. Experimentos Fatoriais</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../FIT5306/FIT5306_11_REG.html" class="sidebar-item-text sidebar-link">10. Regressão linear</a>
   </div>
 </li>
     </ul>
@@ -236,7 +241,7 @@
 <ul>
 <li><a href="#pacotes" class="nav-link active" data-scroll-target="#pacotes"> <span class="header-section-number">1</span> Pacotes</a></li>
 <li>
-<a href="#delineamento-de-blocos-completos-casualizados-dbc" class="nav-link" data-scroll-target="#delineamento-de-blocos-completos-casualizados-dbc"> <span class="header-section-number">2</span> Delineamento de Blocos Completos Casualizados (DBC)</a>
+<a href="#sec-dbc" class="nav-link" data-scroll-target="#sec-dbc"> <span class="header-section-number">2</span> Delineamento de Blocos Completos Casualizados (DBC)</a>
 <ul class="collapse">
 <li><a href="#caracter%C3%ADsticas" class="nav-link" data-scroll-target="#caracter%C3%ADsticas"> <span class="header-section-number">2.1</span> Características</a></li>
 <li><a href="#vantagens" class="nav-link" data-scroll-target="#vantagens"> <span class="header-section-number">2.2</span> Vantagens</a></li>
@@ -265,7 +270,7 @@
 <li><a href="#agror" class="nav-link" data-scroll-target="#agror"> <span class="header-section-number">7.3</span> AgroR</a></li>
 </ul>
 </li>
-</ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306\FIT5306_08_DBC.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306\FIT5306_09_DBC.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
@@ -279,7 +284,7 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://agronomiar.github.io/AgroR_package/index.html">AgroR</a></span><span class="op">)</span>      <span class="co"># casualização e ANOVA</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">ExpDes.pt</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="delineamento-de-blocos-completos-casualizados-dbc" class="level1" data-number="2"><h1 data-number="2">
+</section><section id="sec-dbc" class="level1" data-number="2"><h1 data-number="2">
 <span class="header-section-number">2</span> Delineamento de Blocos Completos Casualizados (DBC)</h1>
 <p>No Delineamento de Blocos Completos Casualizados uma restrição na casualização é imposta visando agrupar unidades experimentais uniformes dentro de um bloco, de maneira que a heterogeneidade da área experimental fique entre os blocos. O bloqueamento tem como objetivo reduzir o erro experimental, <em>“transferindo”</em> parte do erro experimental para efeito de bloco.</p>
 <section id="características" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="características">
@@ -309,12 +314,12 @@
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/AgroR/man/sketch.html">sketch</a></span><span class="op">(</span><span class="va">trats</span>, r <span class="op">=</span> <span class="fl">4</span>, pos <span class="op">=</span> <span class="st">"line"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_08_DBC_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_09_DBC_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># casualização em DBC</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/AgroR/man/sketch.html">sketch</a></span><span class="op">(</span><span class="va">trats</span>, r <span class="op">=</span> <span class="fl">4</span>, design <span class="op">=</span> <span class="st">"DBC"</span>, pos <span class="op">=</span> <span class="st">"line"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_08_DBC_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_09_DBC_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section></section><section id="conjunto-de-dados" class="level1" data-number="3"><h1 data-number="3">
@@ -326,7 +331,7 @@
 <p>Para fins didáticos, a área foliar (AF, cm<span class="math inline">\(^2\)</span>) e a matéria seca por planta (MST, g planta<span class="math inline">\(^{-1}\)</span>) mensuradas aos 35 dias após a implantação são apresentadas aqui.</p>
 <p>Para importação, utiliza-se a função <code><a href="https://rdrr.io/pkg/rio/man/import.html">import()</a></code> do pacote <code>rio</code>. A função <code>as_factor</code> converte as primeiras duas colunas para fator.</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span><span class="va">df_dbc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="va">url</span>, sheet <span class="op">=</span> <span class="st">"DIC-DBC"</span>, setclass <span class="op">=</span> <span class="st">"tbl"</span><span class="op">)</span></span>
 <span><span class="va">df_dbc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_as.html">as_factor</a></span><span class="op">(</span><span class="va">df_dbc</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -336,7 +341,7 @@
 <span><span class="va">bloco</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_bars</a></span><span class="op">(</span><span class="va">df_dbc</span>, <span class="va">REP</span>, <span class="va">MST</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/arrange_ggplot.html">arrange_ggplot</a></span><span class="op">(</span><span class="va">trat</span>, <span class="va">bloco</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_08_DBC_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_09_DBC_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="verificação-de-outliers" class="level1" data-number="4"><h1 data-number="4">
@@ -353,7 +358,7 @@
 <span><span class="co">## 4 AF       numeric No      -           12 3648.   5287.   6118.         0 NA   </span></span>
 <span><span class="co">## 5 MST      numeric No      -           12   10.7    13.6    16.9        0 NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_08_DBC_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_09_DBC_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="estatística-descritiva" class="level1" data-number="5"><h1 data-number="5">
@@ -436,7 +441,7 @@ Lower triangle: Comparisons (estimate)   earlier vs. later</code></pre>
 <span>               tag_levels <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="FIT5306_08_DBC_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="FIT5306_09_DBC_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Comparações entre pares de médias com base no teste Tukey considerando o delineamento inteiramente casualizado (a) e o delineamento de blocos casualizados (b)</figcaption><p></p>
 </figure>
 </div>
@@ -458,7 +463,7 @@ Lower triangle: Comparisons (estimate)   earlier vs. later</code></pre>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/arrange_ggplot.html">arrange_ggplot</a></span><span class="op">(</span><span class="va">medias</span>, <span class="va">medias2</span>, tag_levels <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_08_DBC_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_09_DBC_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="pacote-agror" class="level2" data-number="6.5"><h2 data-number="6.5" class="anchored" data-anchor-id="pacote-agror">
@@ -469,7 +474,7 @@ Lower triangle: Comparisons (estimate)   earlier vs. later</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_dbc</span>,</span>
 <span>     <span class="fu"><a href="https://rdrr.io/pkg/AgroR/man/DBC.html">DBC</a></span><span class="op">(</span><span class="va">RAD</span>, <span class="va">REP</span>, <span class="va">MST</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_08_DBC_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_09_DBC_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 <pre><code>## 
 ## -----------------------------------------------------------------
@@ -520,7 +525,7 @@ Lower triangle: Comparisons (estimate)   earlier vs. later</code></pre>
 ## 70  14.00834      b
 ## 50  11.22022      c</code></pre>
 <div class="cell-output-display">
-<p><img src="FIT5306_08_DBC_files/figure-html/unnamed-chunk-11-2.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_09_DBC_files/figure-html/unnamed-chunk-11-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section></section><section id="exemplo-2-híbridos-de-milho" class="level1" data-number="7"><h1 data-number="7">
@@ -568,7 +573,7 @@ Lower triangle: Comparisons (estimate)   earlier vs. later</code></pre>
 </div>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">med_hib</span>, comparisons <span class="op">=</span> <span class="cn">TRUE</span>, CIs <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_08_DBC_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_09_DBC_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="agror" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="agror">
@@ -633,7 +638,7 @@ Residuals 12  5.484793  0.4570661                     </code></pre>
 <pre><code>As the calculated p-value, it is less than the 5% significance level. The hypothesis H0 of equality of means is rejected. Therefore, at least two treatments differ</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="FIT5306_08_DBC_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_09_DBC_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output-stdout">
 <pre><code>
@@ -648,7 +653,7 @@ NP_4 7.24500     bc
 NP_5 6.28300      c</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="FIT5306_08_DBC_files/figure-html/unnamed-chunk-14-2.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_09_DBC_files/figure-html/unnamed-chunk-14-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
@@ -671,7 +676,7 @@ NP_5 6.28300      c</code></pre>
 <span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="fu"># Delineamento de Blocos Completos Casualizados (DBC)</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="fu"># Delineamento de Blocos Completos Casualizados (DBC) {#sec-dbc}</span></span>
 <span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>No Delineamento de Blocos Completos Casualizados uma restrição na casualização é imposta visando agrupar unidades experimentais uniformes dentro de um bloco, de maneira que a heterogeneidade da área experimental fique entre os blocos. O bloqueamento tem como objetivo reduzir o erro experimental, *"transferindo"* parte do erro experimental para efeito de bloco. </span>
 <span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a></span>
@@ -724,7 +729,7 @@ NP_5 6.28300      c</code></pre>
 <span id="cb30-69"><a href="#cb30-69" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-70"><a href="#cb30-70" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-71"><a href="#cb30-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
-<span id="cb30-72"><a href="#cb30-72" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<span id="cb30-72"><a href="#cb30-72" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span id="cb30-73"><a href="#cb30-73" aria-hidden="true" tabindex="-1"></a>df_dbc <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"DIC-DBC"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
 <span id="cb30-74"><a href="#cb30-74" aria-hidden="true" tabindex="-1"></a>df_dbc <span class="ot">&lt;-</span> <span class="fu">as_factor</span>(df_dbc, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
 <span id="cb30-75"><a href="#cb30-75" aria-hidden="true" tabindex="-1"></a></span>
@@ -1107,12 +1112,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../FIT5306/FIT5306_07_DIC.html" class="pagination-link">
+      <a href="../FIT5306/FIT5306_08_DIC.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">7. Delineamento Inteiramente Casualizado</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../FIT5306/FIT5306_09_FAT.html" class="pagination-link">
+      <a href="../FIT5306/FIT5306_10_FAT.html" class="pagination-link">
         <span class="nav-page-text">9. Experimentos Fatoriais</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

@@ -68,10 +68,11 @@ website:
         - FIT5306/FIT5306_04_DIST_CONT.qmd
         - FIT5306/FIT5306_05_DATAVIZ.qmd
         - FIT5306/FIT5306_06_AMOSTRAGEM.qmd
-        - FIT5306/FIT5306_07_DIC.qmd
-        - FIT5306/FIT5306_08_DBC.qmd
-        - FIT5306/FIT5306_09_FAT.qmd
-        - FIT5306/FIT5306_10_REG.qmd
+        - FIT5306/FIT5306_07_DELN.qmd
+        - FIT5306/FIT5306_08_DIC.qmd
+        - FIT5306/FIT5306_09_DBC.qmd
+        - FIT5306/FIT5306_10_FAT.qmd
+        - FIT5306/FIT5306_11_REG.qmd
         
     - title: "Agroclimatologia"
       style: "docked"

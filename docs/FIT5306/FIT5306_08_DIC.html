@@ -77,8 +77,8 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/quarto-nav/headroom.min.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><link href="../FIT5306/FIT5306_08_DBC.html" rel="next">
-<link href="../FIT5306/FIT5306_06_AMOSTRAGEM.html" rel="prev">
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><link href="../FIT5306/FIT5306_09_DBC.html" rel="next">
+<link href="../FIT5306/FIT5306_07_DELN.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link class="quarto-color-scheme" href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
 <link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css">
@@ -211,22 +211,27 @@
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_07_DIC.html" class="sidebar-item-text sidebar-link active">7. Delineamento Inteiramente Casualizado</a>
+  <a href="../FIT5306/FIT5306_07_DELN.html" class="sidebar-item-text sidebar-link">7. Análise de Variância</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_08_DBC.html" class="sidebar-item-text sidebar-link">8. Delineamento de Blocos Completos Casualizados</a>
+  <a href="../FIT5306/FIT5306_08_DIC.html" class="sidebar-item-text sidebar-link active">7. Delineamento Inteiramente Casualizado</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_09_FAT.html" class="sidebar-item-text sidebar-link">9. Experimentos Fatoriais</a>
+  <a href="../FIT5306/FIT5306_09_DBC.html" class="sidebar-item-text sidebar-link">8. Delineamento de Blocos Completos Casualizados</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_10_REG.html" class="sidebar-item-text sidebar-link">10. Regressão linear</a>
+  <a href="../FIT5306/FIT5306_10_FAT.html" class="sidebar-item-text sidebar-link">9. Experimentos Fatoriais</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../FIT5306/FIT5306_11_REG.html" class="sidebar-item-text sidebar-link">10. Regressão linear</a>
   </div>
 </li>
     </ul>
@@ -236,12 +241,11 @@
 <ul>
 <li><a href="#pacotes" class="nav-link active" data-scroll-target="#pacotes"> <span class="header-section-number">1</span> Pacotes</a></li>
 <li>
-<a href="#delineamento-inteiramente-casualizado-dic" class="nav-link" data-scroll-target="#delineamento-inteiramente-casualizado-dic"> <span class="header-section-number">2</span> Delineamento Inteiramente Casualizado (DIC)</a>
+<a href="#sec-dic" class="nav-link" data-scroll-target="#sec-dic"> <span class="header-section-number">2</span> Delineamento Inteiramente Casualizado (DIC)</a>
 <ul class="collapse">
 <li><a href="#caracter%C3%ADsticas" class="nav-link" data-scroll-target="#caracter%C3%ADsticas"> <span class="header-section-number">2.1</span> Características</a></li>
 <li><a href="#vantagens" class="nav-link" data-scroll-target="#vantagens"> <span class="header-section-number">2.2</span> Vantagens</a></li>
 <li><a href="#desvantagens" class="nav-link" data-scroll-target="#desvantagens"> <span class="header-section-number">2.3</span> Desvantagens</a></li>
-<li><a href="#casualiza%C3%A7%C3%A3o" class="nav-link" data-scroll-target="#casualiza%C3%A7%C3%A3o"> <span class="header-section-number">2.4</span> Casualização</a></li>
 </ul>
 </li>
 <li><a href="#conjunto-de-dados" class="nav-link" data-scroll-target="#conjunto-de-dados"> <span class="header-section-number">3</span> Conjunto de dados</a></li>
@@ -256,7 +260,7 @@
 </ul>
 </li>
 <li><a href="#pacote-agror" class="nav-link" data-scroll-target="#pacote-agror"> <span class="header-section-number">7</span> Pacote AgroR</a></li>
-</ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306\FIT5306_07_DIC.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306\FIT5306_08_DIC.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
@@ -269,7 +273,7 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rvlenth/emmeans">emmeans</a></span><span class="op">)</span>    <span class="co"># comparação de médias</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://agronomiar.github.io/AgroR_package/index.html">AgroR</a></span><span class="op">)</span>      <span class="co"># casualização e ANOVA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="delineamento-inteiramente-casualizado-dic" class="level1" data-number="2"><h1 data-number="2">
+</section><section id="sec-dic" class="level1" data-number="2"><h1 data-number="2">
 <span class="header-section-number">2</span> Delineamento Inteiramente Casualizado (DIC)</h1>
 <p>O Delineamento inteiramente casualizado (DIC) é considerado o delineamento mais simples na experimentação agrícola. Neste delineamento, as unidades experimentais são destinadas a cada tratamento de uma forma inteiramente casual (sorteio). Este delineamento apresenta as seguintes características:</p>
 <section id="características" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="características">
@@ -290,17 +294,7 @@
 <ul>
 <li>Exige homogeneidade das condições ambientais</li>
 <li>Pode estimar uma variância residual muito alta caso a área experimental apresente heterogeneidade, inflacionando o quadrado médio do erro.</li>
-</ul></section><section id="casualização" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="casualização">
-<span class="header-section-number">2.4</span> Casualização</h2>
-<p>Para realizar a casualização em um experimento de delineamento inteiramente ao acaso, pode-se utilizar a função <a href="https://agronomiar.github.io/AgroR_Tutorial/fun%C3%A7%C3%A3o-para-croqui-experimental.html#delineamento-inteiramente-casualizado"><code>sketch</code></a> do pacote agroR. Neste exemplo, simulo a casualização de três tratamentos em um ensaio conduzido em delineamento inteiramente casualizado (DIC) com quatro repetições (<code>r</code>).</p>
-<div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">trats</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"50"</span>, <span class="st">"70"</span>, <span class="st">"100"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/AgroR/man/sketch.html">sketch</a></span><span class="op">(</span><span class="va">trats</span>, r <span class="op">=</span> <span class="fl">4</span>, pos <span class="op">=</span> <span class="st">"line"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="FIT5306_07_DIC_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</section></section><section id="conjunto-de-dados" class="level1" data-number="3"><h1 data-number="3">
+</ul></section></section><section id="conjunto-de-dados" class="level1" data-number="3"><h1 data-number="3">
 <span class="header-section-number">3</span> Conjunto de dados</h1>
 <p>O conjunto de dados utilizado neste exemplo é oriundo de um experimento que avaliou caracteres qualitativos e quantitativos de chicória sob diferentes níveis de sombreamento</p>
 <blockquote class="blockquote">
@@ -309,7 +303,7 @@
 <p>Para fins didáticos, a área foliar (AF, cm<span class="math inline">\(^2\)</span>) e a matéria seca por planta (MST, g planta<span class="math inline">\(^{-1}\)</span>) mensuradas aos 35 dias após a implantação são apresentadas aqui.</p>
 <p>Para importação, utiliza-se a função <code><a href="https://rdrr.io/pkg/rio/man/import.html">import()</a></code> do pacote <code>rio</code>. A função <code>as_factor</code> converte as primeiras duas colunas para fator.</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span><span class="va">df_dic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="va">url</span>, sheet <span class="op">=</span> <span class="st">"DIC-DBC"</span>, setclass <span class="op">=</span> <span class="st">"tbl"</span><span class="op">)</span></span>
 <span><span class="va">df_dic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_as.html">as_factor</a></span><span class="op">(</span><span class="va">df_dic</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -317,7 +311,7 @@
 <span class="header-section-number">4</span> Verificação de outliers</h1>
 <p>A função <code>inspect</code> do pacote <code>metan</code> é utilizada para inspecionar o conjunto de dados. Com esta função, é possível identificar possíveis outliers, bem como valores faltantes.</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/inspect.html">inspect</a></span><span class="op">(</span><span class="va">df_dic</span>, plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/inspect.html">inspect</a></span><span class="op">(</span><span class="va">df_dic</span>, plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">## # A tibble: 5 × 10</span></span>
 <span><span class="co">##   Variable Class   Missing Levels Valid_n     Min  Median     Max Outlier Text </span></span>
 <span><span class="co">##   &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;    &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;lgl&gt;</span></span>
@@ -327,14 +321,14 @@
 <span><span class="co">## 4 AF       numeric No      -           12 3648.   5287.   6118.         0 NA   </span></span>
 <span><span class="co">## 5 MST      numeric No      -           12   10.7    13.6    16.9        0 NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_07_DIC_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_08_DIC_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="estatística-descritiva" class="level1" data-number="5"><h1 data-number="5">
 <span class="header-section-number">5</span> Estatística descritiva</h1>
 <p>A função <code><a href="https://rdrr.io/pkg/metan/man/desc_stat.html">desc_stat()</a></code> do pacote <code>metan</code> computa estatísticas descritivas para os dois caracteres numéricos (AF e MST).</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/desc_stat.html">desc_stat</a></span><span class="op">(</span><span class="va">df_dic</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/desc_stat.html">desc_stat</a></span><span class="op">(</span><span class="va">df_dic</span><span class="op">)</span></span>
 <span><span class="co">## # A tibble: 3 × 10</span></span>
 <span><span class="co">##   variable    cv     max    mean  median     min  sd.amo      se    ci.t n.valid</span></span>
 <span><span class="co">##   &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;</span></span>
@@ -356,7 +350,7 @@
 <span class="header-section-number">6.2</span> Análise de variância</h2>
 <p>A análise de variância é computada no software R utilizando a função <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code>. Considerando o Delineamento Inteiramente Casualizado (DIC), a única fonte de variação incluída no modelo é tratamento, neste caso, <code>RAD</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">anova</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">MST</span> <span class="op">~</span> <span class="va">RAD</span>, data <span class="op">=</span> <span class="va">df_dic</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">anova</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">MST</span> <span class="op">~</span> <span class="va">RAD</span>, data <span class="op">=</span> <span class="va">df_dic</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">anova</span><span class="op">)</span></span>
 <span><span class="co">##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    </span></span>
 <span><span class="co">## RAD          2  45.06  22.529   25.22 0.000205 ***</span></span>
@@ -366,9 +360,29 @@
 </div>
 </section><section id="comparação-de-médias" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="comparação-de-médias">
 <span class="header-section-number">6.3</span> Comparação de médias</h2>
-<p>A análise de variância revelou efeito de tratamento significativo. Nesse caso, segue-se realizando uma análise de comparação múltipla de médias. Podemos realizar a comparação par-a-par utilizando a função <code><a href="https://rdrr.io/pkg/emmeans/man/pwpm.html">pwpm()</a></code> do pacote <code>emmeans</code>. Neste exemplo, o teste Tukey é utilizado.</p>
+<p>Em sequência a ANOVA, quando o efeito de tratamento é significativo, teste de Tukey (5% de erro) pode ser utilizado para comparação das médias. Este teste realiza todas as combinações possíveis entre as médias (por isso o nome comparação múltipla de medias), comparando se a diferença entre duas médias é maior ou menor que uma diferença mínima significativa (DMS). Esta DMS é calculada pela seguinte fórmula <span class="math inline">\(DMS = q \times \sqrt{QME/r}\)</span>, onde q é um valor tabelado, considerando o número de tratamentos e o GL do erro; QME é o quadrado médio do erro; e r é o número de repetições (ou blocos).</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A fórmula da DMS descrita acima é utilizada apenas se (e somente se) o número de repetições de todos os tratamentos é igual. Caso algum tratamento apresente um número inferir de repetições, fato comumente observado em experimentos de campo devido a presença de parcelas perdidas, a DMS deste par de médias em específico deve ser corrigida. Geralmente, as análises complementares são realizadas quando a ANOVA indica significância para um determinado fator de variação, no entanto, o teste Tukey pode revelar diferença entre as médias, mesmo quando o teste F não indicar essa diferença. Isto pode ser observado, principalmente quando a probabilidade de erro for muito próxima de 5%, por exemplo, Pr&gt;Fc = 0.0502. A recíproca também é verdadeira. O teste Tukey pode indicar que as médias não diferem, se Pr&gt;Fc = 0.0492, por exemplo.</p>
+</div>
+</div>
+<p>O valor de q pode ser encontrado na seguinte tabela:</p>
+<div id="fig-anonymous-12513" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><a href="https://github.com/TiagoOlivoto/classes/blob/master/FIT5306/data/tabela_tukey.pdf"><img src="figs/tabela_tukey.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+<p>Para este caso, considerando 3 e 9 como o número de tratamentos e o GL do erro, respectivamente, o valor de q é 3,95, que aplicado na fórmula resulta em <span class="math inline">\(DMS = 3,95 \times \sqrt{0,893/4}=1,866\)</span>. Logo, a diferença mínima entre duas médias para que estas sejam significativamente diferentes (5% de erro), deve ser de 1,866.</p>
+<p>Podemos realizar a comparação par-a-par utilizando a função <code><a href="https://rdrr.io/pkg/emmeans/man/pwpm.html">pwpm()</a></code> do pacote <code>emmeans</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">medias</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">anova</span>, <span class="op">~</span> <span class="va">RAD</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">medias</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">anova</span>, <span class="op">~</span> <span class="va">RAD</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/pwpm.html">pwpm</a></span><span class="op">(</span><span class="va">medias</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>        50     70    100
@@ -382,13 +396,12 @@ Diagonal: [Estimates] (emmean)
 Lower triangle: Comparisons (estimate)   earlier vs. later</code></pre>
 </div>
 </div>
-<p>Uma alternativa é o <a href="https://cran.r-project.org/web/packages/emmeans/vignettes/comparisons.html">Pairwise P-value plot</a> exibindo todos os P-values em comparações de pares. Cada comparação está associada a um segmento de linha vertical que une as posições de escala das duas médias que estão sendo comparadas e cuja posição horizontal é determinada pelo P-valor dessa comparação. Esta técnica não é indicada quando muitas comparações estão sendo testadas.</p>
+<p>Uma alternativa é o <a href="https://cran.r-project.org/web/packages/emmeans/vignettes/comparisons.html">Pairwise P-value plot</a> exibindo todos os <em>P-values</em> em comparações de pares. Cada comparação está associada a um segmento de linha vertical que une as posições de escala das duas médias que estão sendo comparadas e cuja posição horizontal é determinada pelo P-valor dessa comparação. Esta técnica não é indicada quando muitas comparações estão sendo testadas.</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># mostra apenas 'significativo' (valor P &lt; 0,05)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/pwpp.html">pwpp</a></span><span class="op">(</span><span class="va">medias</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/pwpp.html">pwpp</a></span><span class="op">(</span><span class="va">medias</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="FIT5306_07_DIC_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="FIT5306_08_DIC_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Pairwise P-value plot</figcaption><p></p>
 </figure>
 </div>
@@ -396,12 +409,12 @@ Lower triangle: Comparisons (estimate)   earlier vs. later</code></pre>
 </div>
 <p>Outra maneira de representar comparações graficamente por meio do argumento de comparações em <code>plot.emm()</code>. Nesta abordagem, a avaliação da significância das médias de dois tratamentos é dada pela sobreposição das flechas de cada tratamento. Se dois tratamentos apresentam setas que se sobrepoem (considerando o eixo x), assume-se que estes tratamentos são estatisticamente diferentes um do outro.</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">medias</span>,</span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">medias</span>,</span>
 <span>     CIs <span class="op">=</span> <span class="cn">FALSE</span>, <span class="co"># remove os intervalos de confiança das médias</span></span>
 <span>     comparisons <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># insere setas para comparação de médias (Tukey)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="FIT5306_07_DIC_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="FIT5306_08_DIC_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Comparações entre pares de médias com base no teste Tukey</figcaption><p></p>
 </figure>
 </div>
@@ -411,10 +424,10 @@ Lower triangle: Comparisons (estimate)   earlier vs. later</code></pre>
 <span class="header-section-number">7</span> Pacote AgroR</h1>
 <p>Uma outra alternativa para realizar a análise de variância no software R é o pacote <code>agroR</code>. Neste exemplo, a ANOVA e a comparação de médias são realizadas com a função <code>DIC</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_dic</span>,</span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df_dic</span>,</span>
 <span>     <span class="fu"><a href="https://rdrr.io/pkg/AgroR/man/DIC.html">DIC</a></span><span class="op">(</span><span class="va">RAD</span>, <span class="va">MST</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_07_DIC_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_08_DIC_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 <pre><code>## 
 ## -----------------------------------------------------------------
@@ -466,165 +479,154 @@ Lower triangle: Comparisons (estimate)   earlier vs. later</code></pre>
 ## 70  14.00834      b
 ## 50  11.22022      c</code></pre>
 <div class="cell-output-display">
-<p><img src="FIT5306_07_DIC_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_08_DIC_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
 
 <!-- -->
 <div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title anchored" id="quarto-embedded-source-code-modal-label" data-anchor-id="pacote-agror">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb13" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "7. Delineamento Inteiramente Casualizado"</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacotes</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># manipulação de dados</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)      <span class="co"># estatísticas descritivas</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)        <span class="co"># importação/exportação de dados</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)    <span class="co"># comparação de médias</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(AgroR)      <span class="co"># casualização e ANOVA</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="fu"># Delineamento Inteiramente Casualizado (DIC)</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>O Delineamento inteiramente casualizado (DIC) é considerado o delineamento mais simples na experimentação agrícola. Neste delineamento, as unidades experimentais são destinadas a cada tratamento de uma forma inteiramente casual (sorteio). Este delineamento apresenta as seguintes características:</span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Características</span></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Utiliza apenas os princípios de repetição e casualização;</span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Os tratamentos são alocados nas parcelas de forma inteiramente casual, sem nenhum tipo de bloqueamento.</span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Exige que o material experimental e a área experimental sejam uniformes.</span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>Ele geralmente é mais utilizado em experimentos nos quais as condições experimentais podem ser bastante controladas (por exemplo em laboratórios);</span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vantagens</span></span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Delineamento flexível, onde o número de tratamentos e repetições depende apenas da quantidade de parcelas disponíveis na área experimental.</span>
-<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O número de repetições pode diferir de um tratamento para o outro (experimento não balanceado)</span>
-<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A análise estatística é simples</span>
-<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>O número de graus de liberdade do erro é o maior possível considerando o número de repetições utilizado.</span>
-<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Desvantagens</span></span>
-<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Exige homogeneidade das condições ambientais</span>
-<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pode estimar uma variância residual muito alta caso a área experimental apresente heterogeneidade, inflacionando o quadrado médio do erro.</span>
-<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## Casualização</span></span>
-<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a>Para realizar a casualização em um experimento de delineamento inteiramente ao acaso, pode-se utilizar a função <span class="co">[</span><span class="ot">`sketch`</span><span class="co">](https://agronomiar.github.io/AgroR_Tutorial/fun%C3%A7%C3%A3o-para-croqui-experimental.html#delineamento-inteiramente-casualizado)</span> do pacote agroR. Neste exemplo, simulo a casualização de três tratamentos em um ensaio conduzido em delineamento inteiramente casualizado (DIC) com quatro repetições (<span class="in">`r`</span>).</span>
-<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a>trats <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"50"</span>, <span class="st">"70"</span>, <span class="st">"100"</span>)</span>
-<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a><span class="fu">sketch</span>(trats, <span class="at">r =</span> <span class="dv">4</span>, <span class="at">pos =</span> <span class="st">"line"</span>)</span>
-<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a><span class="fu"># Conjunto de dados</span></span>
-<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a>O conjunto de dados utilizado neste exemplo é oriundo de um experimento que avaliou caracteres qualitativos e quantitativos de chicória sob diferentes níveis de sombreamento</span>
-<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;OLIVOTO, T.; ELLI, E. F.; SCHMIDT, D.; CARON, B. O.; DE SOUZA, V. Q. Photosynthetic photon flux density levels affect morphology and bromatology in *Cichorium endivia* L. var. *latifolia* grown in a hydroponic system. **Scientia Horticulturae**, v. 230, p. 178–185, 2018. Disponível em: https://doi.org/10.1016/j.scienta.2017.11.031</span></span>
-<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a>Para fins didáticos, a área foliar (AF, cm$^2$) e a matéria seca por planta (MST, g planta$^{-1}$) mensuradas aos 35 dias após a implantação são apresentadas aqui.</span>
-<span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a>Para importação, utiliza-se a função <span class="in">`import()`</span> do pacote <span class="in">`rio`</span>. A função <span class="in">`as_factor`</span> converte as primeiras duas colunas para fator.</span>
-<span id="cb13-67"><a href="#cb13-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-68"><a href="#cb13-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-69"><a href="#cb13-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
-<span id="cb13-70"><a href="#cb13-70" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
-<span id="cb13-71"><a href="#cb13-71" aria-hidden="true" tabindex="-1"></a>df_dic <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"DIC-DBC"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
-<span id="cb13-72"><a href="#cb13-72" aria-hidden="true" tabindex="-1"></a>df_dic <span class="ot">&lt;-</span> <span class="fu">as_factor</span>(df_dic, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
-<span id="cb13-73"><a href="#cb13-73" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-74"><a href="#cb13-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-75"><a href="#cb13-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-76"><a href="#cb13-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a><span class="fu"># Verificação de outliers</span></span>
-<span id="cb13-78"><a href="#cb13-78" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`inspect`</span> do pacote <span class="in">`metan`</span> é utilizada para inspecionar o conjunto de dados. Com esta função, é possível identificar possíveis outliers, bem como valores faltantes.</span>
-<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-80"><a href="#cb13-80" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
-<span id="cb13-81"><a href="#cb13-81" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(df_dic, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb13-82"><a href="#cb13-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-84"><a href="#cb13-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-85"><a href="#cb13-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-86"><a href="#cb13-86" aria-hidden="true" tabindex="-1"></a><span class="fu"># Estatística descritiva </span></span>
-<span id="cb13-87"><a href="#cb13-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-88"><a href="#cb13-88" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`desc_stat()`</span> do pacote <span class="in">`metan`</span> computa estatísticas descritivas para os dois caracteres numéricos (AF e MST).</span>
-<span id="cb13-89"><a href="#cb13-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-90"><a href="#cb13-90" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
-<span id="cb13-91"><a href="#cb13-91" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_stat</span>(df_dic)</span>
-<span id="cb13-92"><a href="#cb13-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-93"><a href="#cb13-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-94"><a href="#cb13-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-95"><a href="#cb13-95" aria-hidden="true" tabindex="-1"></a><span class="fu"># Análise de variância</span></span>
-<span id="cb13-96"><a href="#cb13-96" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modelo estatístico</span></span>
-<span id="cb13-97"><a href="#cb13-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-98"><a href="#cb13-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-99"><a href="#cb13-99" aria-hidden="true" tabindex="-1"></a>O delineamento inteiramente casualizado (DIC) é um delineamento adequado para áreas uniformes (parcelas são uniformes), onde não há necessidade de controle local (bloqueamento). Neste delineamento, os tratamentos devem ser distribuídos aleatoriamente nas parcelas.</span>
-<span id="cb13-100"><a href="#cb13-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-101"><a href="#cb13-101" aria-hidden="true" tabindex="-1"></a>O modelo do DIC é dado por</span>
-<span id="cb13-102"><a href="#cb13-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-103"><a href="#cb13-103" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb13-104"><a href="#cb13-104" aria-hidden="true" tabindex="-1"></a>{Y_{ij}} = m + {t_i} + {\varepsilon _{ij}}</span>
-<span id="cb13-105"><a href="#cb13-105" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb13-106"><a href="#cb13-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-107"><a href="#cb13-107" aria-hidden="true" tabindex="-1"></a>Onde *m* é a média geral do experimento, $t_i$ é o efeito de tratamentos, sendo estimado por $\hat t_i = \bar Y_{i.} - \bar Y_{..}$ com a seguinte restrição: $\sum_i \hat t_i = 0 ~~~~\forall_i$ (leia-se, o somatório dos efeitos de tratamento é zero para todo tratamento $i$). $\epsilon_{ij}$ é o erro experimental estimado por $\hat e_{ij} = Y_{ij} - m - \hat t_i$ onde ${e_{ij}}\sim NID(0,{\sigma ^2})$.</span>
-<span id="cb13-108"><a href="#cb13-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-109"><a href="#cb13-109" aria-hidden="true" tabindex="-1"></a><span class="fu">## Análise de variância</span></span>
-<span id="cb13-110"><a href="#cb13-110" aria-hidden="true" tabindex="-1"></a>A análise de variância é computada no software R utilizando a função <span class="in">`aov()`</span>. Considerando o Delineamento Inteiramente Casualizado (DIC), a única fonte de variação incluída no modelo é tratamento, neste caso, <span class="in">`RAD`</span>.</span>
-<span id="cb13-111"><a href="#cb13-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-112"><a href="#cb13-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-113"><a href="#cb13-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
-<span id="cb13-114"><a href="#cb13-114" aria-hidden="true" tabindex="-1"></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(MST <span class="sc">~</span> RAD, <span class="at">data =</span> df_dic)</span>
-<span id="cb13-115"><a href="#cb13-115" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova)</span>
-<span id="cb13-116"><a href="#cb13-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-117"><a href="#cb13-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-118"><a href="#cb13-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-119"><a href="#cb13-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-120"><a href="#cb13-120" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comparação de médias</span></span>
-<span id="cb13-121"><a href="#cb13-121" aria-hidden="true" tabindex="-1"></a>A análise de variância revelou efeito de tratamento significativo. Nesse caso, segue-se realizando uma análise de comparação múltipla de médias. Podemos realizar a comparação par-a-par utilizando a função <span class="in">`pwpm()`</span> do pacote <span class="in">`emmeans`</span>. Neste exemplo, o teste Tukey é utilizado.</span>
-<span id="cb13-122"><a href="#cb13-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-123"><a href="#cb13-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-126"><a href="#cb13-126" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-127"><a href="#cb13-127" aria-hidden="true" tabindex="-1"></a>medias <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(anova, <span class="sc">~</span> RAD)</span>
-<span id="cb13-128"><a href="#cb13-128" aria-hidden="true" tabindex="-1"></a><span class="fu">pwpm</span>(medias)</span>
-<span id="cb13-129"><a href="#cb13-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-130"><a href="#cb13-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-131"><a href="#cb13-131" aria-hidden="true" tabindex="-1"></a>Uma alternativa é o <span class="co">[</span><span class="ot">Pairwise P-value plot</span><span class="co">](https://cran.r-project.org/web/packages/emmeans/vignettes/comparisons.html)</span> exibindo todos os P-values em comparações de pares. Cada comparação está associada a um segmento de linha vertical que une as posições de escala das duas médias que estão sendo comparadas e cuja posição horizontal é determinada pelo P-valor dessa comparação. Esta técnica não é indicada quando muitas comparações estão sendo testadas.</span>
-<span id="cb13-132"><a href="#cb13-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-133"><a href="#cb13-133" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,fig.cap="Pairwise P-value plot"}</span></span>
-<span id="cb13-134"><a href="#cb13-134" aria-hidden="true" tabindex="-1"></a><span class="co"># mostra apenas 'significativo' (valor P &lt; 0,05)</span></span>
-<span id="cb13-135"><a href="#cb13-135" aria-hidden="true" tabindex="-1"></a><span class="fu">pwpp</span>(medias)</span>
-<span id="cb13-136"><a href="#cb13-136" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-137"><a href="#cb13-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-138"><a href="#cb13-138" aria-hidden="true" tabindex="-1"></a>Outra maneira de representar comparações graficamente por meio do argumento de comparações em <span class="in">`plot.emm()`</span>. Nesta abordagem, a avaliação da significância das médias de dois tratamentos é dada pela sobreposição das flechas de cada tratamento. Se dois tratamentos apresentam setas que se sobrepoem (considerando o eixo x), assume-se que estes tratamentos são estatisticamente diferentes um do outro.</span>
-<span id="cb13-139"><a href="#cb13-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-140"><a href="#cb13-140" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.cap="Comparações entre pares de médias com base no teste Tukey"}</span></span>
-<span id="cb13-141"><a href="#cb13-141" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(medias,</span>
-<span id="cb13-142"><a href="#cb13-142" aria-hidden="true" tabindex="-1"></a>     <span class="at">CIs =</span> <span class="cn">FALSE</span>, <span class="co"># remove os intervalos de confiança das médias</span></span>
-<span id="cb13-143"><a href="#cb13-143" aria-hidden="true" tabindex="-1"></a>     <span class="at">comparisons =</span> <span class="cn">TRUE</span>) <span class="co"># insere setas para comparação de médias (Tukey)</span></span>
-<span id="cb13-144"><a href="#cb13-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-145"><a href="#cb13-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-146"><a href="#cb13-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-147"><a href="#cb13-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-148"><a href="#cb13-148" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacote AgroR</span></span>
-<span id="cb13-149"><a href="#cb13-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-150"><a href="#cb13-150" aria-hidden="true" tabindex="-1"></a>Uma outra alternativa para realizar a análise de variância no software R é o pacote <span class="in">`agroR`</span>. Neste exemplo, a ANOVA e a comparação de médias são realizadas com a função <span class="in">`DIC`</span>.</span>
-<span id="cb13-151"><a href="#cb13-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-152"><a href="#cb13-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
-<span id="cb13-153"><a href="#cb13-153" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_dic,</span>
-<span id="cb13-154"><a href="#cb13-154" aria-hidden="true" tabindex="-1"></a>     <span class="fu">DIC</span>(RAD, MST))</span>
-<span id="cb13-155"><a href="#cb13-155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-156"><a href="#cb13-156" aria-hidden="true" tabindex="-1"></a></span>
+<div class="sourceCode" id="cb12" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "7. Delineamento Inteiramente Casualizado"</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacotes</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># manipulação de dados</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)      <span class="co"># estatísticas descritivas</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)        <span class="co"># importação/exportação de dados</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)    <span class="co"># comparação de médias</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(AgroR)      <span class="co"># casualização e ANOVA</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="fu"># Delineamento Inteiramente Casualizado (DIC) {#sec-dic}</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>O Delineamento inteiramente casualizado (DIC) é considerado o delineamento mais simples na experimentação agrícola. Neste delineamento, as unidades experimentais são destinadas a cada tratamento de uma forma inteiramente casual (sorteio). Este delineamento apresenta as seguintes características:</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Características</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Utiliza apenas os princípios de repetição e casualização;</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Os tratamentos são alocados nas parcelas de forma inteiramente casual, sem nenhum tipo de bloqueamento.</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Exige que o material experimental e a área experimental sejam uniformes. Ele geralmente é mais utilizado em experimentos nos quais as condições experimentais podem ser bastante controladas (por exemplo em laboratórios);</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vantagens</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Delineamento flexível, onde o número de tratamentos e repetições depende apenas da quantidade de parcelas disponíveis na área experimental.</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>O número de repetições pode diferir de um tratamento para o outro (experimento não balanceado)</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A análise estatística é simples</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>O número de graus de liberdade do erro é o maior possível considerando o número de repetições utilizado.</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## Desvantagens</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Exige homogeneidade das condições ambientais</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Pode estimar uma variância residual muito alta caso a área experimental apresente heterogeneidade, inflacionando o quadrado médio do erro.</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a><span class="fu"># Conjunto de dados</span></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>O conjunto de dados utilizado neste exemplo é oriundo de um experimento que avaliou caracteres qualitativos e quantitativos de chicória sob diferentes níveis de sombreamento</span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; OLIVOTO, T.; ELLI, E. F.; SCHMIDT, D.; CARON, B. O.; DE SOUZA, V. Q. Photosynthetic photon flux density levels affect morphology and bromatology in *Cichorium endivia* L. var. *latifolia* grown in a hydroponic system. **Scientia Horticulturae**, v. 230, p. 178--185, 2018. Disponível em: https://doi.org/10.1016/j.scienta.2017.11.031</span></span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>Para fins didáticos, a área foliar (AF, cm$^2$) e a matéria seca por planta (MST, g planta$^{-1}$) mensuradas aos 35 dias após a implantação são apresentadas aqui.</span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>Para importação, utiliza-se a função <span class="in">`import()`</span> do pacote <span class="in">`rio`</span>. A função <span class="in">`as_factor`</span> converte as primeiras duas colunas para fator.</span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>df_dic <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"DIC-DBC"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>df_dic <span class="ot">&lt;-</span> <span class="fu">as_factor</span>(df_dic, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a><span class="fu"># Verificação de outliers</span></span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`inspect`</span> do pacote <span class="in">`metan`</span> é utilizada para inspecionar o conjunto de dados. Com esta função, é possível identificar possíveis outliers, bem como valores faltantes.</span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(df_dic, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a><span class="fu"># Estatística descritiva</span></span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`desc_stat()`</span> do pacote <span class="in">`metan`</span> computa estatísticas descritivas para os dois caracteres numéricos (AF e MST).</span>
+<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_stat</span>(df_dic)</span>
+<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a><span class="fu"># Análise de variância</span></span>
+<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modelo estatístico</span></span>
+<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a>O delineamento inteiramente casualizado (DIC) é um delineamento adequado para áreas uniformes (parcelas são uniformes), onde não há necessidade de controle local (bloqueamento). Neste delineamento, os tratamentos devem ser distribuídos aleatoriamente nas parcelas.</span>
+<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a>O modelo do DIC é dado por</span>
+<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a>{Y_{ij}} = m + {t_i} + {\varepsilon _{ij}}</span>
+<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a>Onde *m* é a média geral do experimento, $t_i$ é o efeito de tratamentos, sendo estimado por $\hat t_i = \bar Y_{i.} - \bar Y_{..}$ com a seguinte restrição: $\sum_i \hat t_i = 0 ~~~~\forall_i$ (leia-se, o somatório dos efeitos de tratamento é zero para todo tratamento $i$). $\epsilon_{ij}$ é o erro experimental estimado por $\hat e_{ij} = Y_{ij} - m - \hat t_i$ onde ${e_{ij}}\sim NID(0,{\sigma ^2})$.</span>
+<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a><span class="fu">## Análise de variância</span></span>
+<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a>A análise de variância é computada no software R utilizando a função <span class="in">`aov()`</span>. Considerando o Delineamento Inteiramente Casualizado (DIC), a única fonte de variação incluída no modelo é tratamento, neste caso, <span class="in">`RAD`</span>.</span>
+<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(MST <span class="sc">~</span> RAD, <span class="at">data =</span> df_dic)</span>
+<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova)</span>
+<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comparação de médias</span></span>
+<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a>Em sequência a ANOVA, quando o efeito de tratamento é significativo, teste de Tukey (5% de erro) pode ser utilizado para comparação das médias. Este teste realiza todas as combinações possíveis entre as médias (por isso o nome comparação múltipla de medias), comparando se a diferença entre duas médias é maior ou menor que uma diferença mínima significativa (DMS). Esta DMS é calculada pela seguinte fórmula $DMS = q \times \sqrt{QME/r}$, onde q é um valor tabelado, considerando o número de tratamentos e o GL do erro; QME é o quadrado médio do erro; e r é o número de repetições (ou blocos).</span>
+<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a>A fórmula da DMS descrita acima é utilizada apenas se (e somente se) o número de repetições de todos os tratamentos é igual. Caso algum tratamento apresente um número inferir de repetições, fato comumente observado em experimentos de campo devido a presença de parcelas perdidas, a DMS deste par de médias em específico deve ser corrigida. Geralmente, as análises complementares são realizadas quando a ANOVA indica significância para um determinado fator de variação, no entanto, o teste Tukey pode revelar diferença entre as médias, mesmo quando o teste F não indicar essa diferença. Isto pode ser observado, principalmente quando a probabilidade de erro for muito próxima de 5%, por exemplo, Pr<span class="sc">\&gt;</span>Fc = 0.0502. A recíproca também é verdadeira. O teste Tukey pode indicar que as médias não diferem, se Pr<span class="sc">\&gt;</span>Fc = 0.0492, por exemplo.</span>
+<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a>O valor de q pode ser encontrado na seguinte tabela:</span>
+<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![](figs/tabela_tukey.png)</span><span class="co">](https://github.com/TiagoOlivoto/classes/blob/master/FIT5306/data/tabela_tukey.pdf)</span></span>
+<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a>Para este caso, considerando 3 e 9 como o número de tratamentos e o GL do erro, respectivamente, o valor de q é 3,95, que aplicado na fórmula resulta em $DMS = 3,95 \times \sqrt{0,893/4}=1,866$. Logo, a diferença mínima entre duas médias para que estas sejam significativamente diferentes (5% de erro), deve ser de 1,866.</span>
+<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a>Podemos realizar a comparação par-a-par utilizando a função <span class="in">`pwpm()`</span> do pacote <span class="in">`emmeans`</span>.</span>
+<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a>medias <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(anova, <span class="sc">~</span> RAD)</span>
+<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a><span class="fu">pwpm</span>(medias)</span>
+<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a>Uma alternativa é o <span class="co">[</span><span class="ot">Pairwise P-value plot</span><span class="co">](https://cran.r-project.org/web/packages/emmeans/vignettes/comparisons.html)</span> exibindo todos os *P-values* em comparações de pares. Cada comparação está associada a um segmento de linha vertical que une as posições de escala das duas médias que estão sendo comparadas e cuja posição horizontal é determinada pelo P-valor dessa comparação. Esta técnica não é indicada quando muitas comparações estão sendo testadas.</span>
+<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,fig.cap="Pairwise P-value plot"}</span></span>
+<span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a><span class="fu">pwpp</span>(medias)</span>
+<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a>Outra maneira de representar comparações graficamente por meio do argumento de comparações em <span class="in">`plot.emm()`</span>. Nesta abordagem, a avaliação da significância das médias de dois tratamentos é dada pela sobreposição das flechas de cada tratamento. Se dois tratamentos apresentam setas que se sobrepoem (considerando o eixo x), assume-se que estes tratamentos são estatisticamente diferentes um do outro.</span>
+<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.cap="Comparações entre pares de médias com base no teste Tukey"}</span></span>
+<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(medias,</span>
+<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a>     <span class="at">CIs =</span> <span class="cn">FALSE</span>, <span class="co"># remove os intervalos de confiança das médias</span></span>
+<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a>     <span class="at">comparisons =</span> <span class="cn">TRUE</span>) <span class="co"># insere setas para comparação de médias (Tukey)</span></span>
+<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacote AgroR</span></span>
+<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a>Uma outra alternativa para realizar a análise de variância no software R é o pacote <span class="in">`agroR`</span>. Neste exemplo, a ANOVA e a comparação de médias são realizadas com a função <span class="in">`DIC`</span>.</span>
+<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_dic,</span>
+<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a>     <span class="fu">DIC</span>(RAD, MST))</span>
+<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </section></main><!-- /main --><script type="application/javascript">
@@ -851,12 +853,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../FIT5306/FIT5306_06_AMOSTRAGEM.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">6. Amostragem</span>
+      <a href="../FIT5306/FIT5306_07_DELN.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">7. Análise de Variância</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../FIT5306/FIT5306_08_DBC.html" class="pagination-link">
+      <a href="../FIT5306/FIT5306_09_DBC.html" class="pagination-link">
         <span class="nav-page-text">8. Delineamento de Blocos Completos Casualizados</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

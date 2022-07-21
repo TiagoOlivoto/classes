@@ -14,7 +14,7 @@ library(AgroR)      # casualização e ANOVA
 ```
 
 
-# Experimentos fatoriais
+# Experimentos fatoriais {#sec-fats}
 
 Experimentos fatoriais são muito comuns nas ciências agrárias, pois permitem o estudo de dois ou mais fatores em um mesmo experimento. Diversas são as vantagens em se conduzir um experimento deste tipo. Dentre elas, podemos citar a redução de custos, quando comparado à realizar um experimento para cada fator, a otimização da área experimental e dos tratos culturais, bem como a possibilidade de identificar o efeito de dois ou mais fatores sobre a magnitude da variável resposta. Esta é, talvez, a principal vantagem destes experimentos. Ao memo tempo, no entanto, é a fonte de um dos maiores desafios encontrados no meio acadêmico. O surgimento de uma terceira fonte de variação, conhecida por interação.
 
@@ -173,7 +173,7 @@ Para fins didáticos, a extensibilidade da massa (L, mm) é utilizada. Para impo
 
 
 ```{r collapse = TRUE, message=FALSE, warning=FALSE}
-url <- "http://bit.ly/df_biostat_exp"
+url <- "https://bit.ly/df_biostat"
 df_fat <- 
   import(url, sheet = "FAT1_CI2", setclass = "tbl") |>
   as_factor(1:3)
@@ -347,7 +347,7 @@ library(metan) # gráficos
 library(tidyverse) # manipulação de dados e gráficos
 
 # dados
-url <- "http://bit.ly/df_biostat_exp"
+url <- "https://bit.ly/df_biostat"
 df_cobmassa <- import(url, sheet = "COBERTURA_N_MASSA", setclass = "tbl")
 df_cobmassa <- as_factor(df_cobmassa, 1:3)
 
@@ -530,7 +530,7 @@ library(metan) # gráficos
 library(tidyverse) # manipulação de dados e gráficos
 
 # dados
-url <- "http://bit.ly/df_biostat_exp"
+url <- "https://bit.ly/df_biostat"
 df_cobsoja <- import(url, sheet = "COBERTURA_N_SOJA", setclass = "tbl")
 df_cobsoja <- as_factor(df_cobsoja, 1:3)
 
@@ -688,7 +688,7 @@ library(metan) # gráficos
 library(tidyverse) # manipulação de dados e gráficos
 
 # dados
-url <- "http://bit.ly/df_biostat_exp"
+url <- "https://bit.ly/df_biostat"
 FAT2_SI <- import(url, sheet = "FAT2_SI", setclass = "tbl")
 FAT2_SI
 ```
@@ -737,7 +737,7 @@ library(metan) # gráficos
 library(tidyverse) # manipulação de dados e gráficos
 
 # dados
-url <- "http://bit.ly/df_biostat_exp"
+url <- "https://bit.ly/df_biostat"
 FAT2_CI <- import(url, sheet = "FAT2_CI", setclass = "tbl")
 FAT2_CI
 ```

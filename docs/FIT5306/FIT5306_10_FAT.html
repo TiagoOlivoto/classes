@@ -77,8 +77,8 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/quarto-nav/headroom.min.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><link href="../FIT5306/FIT5306_10_REG.html" rel="next">
-<link href="../FIT5306/FIT5306_08_DBC.html" rel="prev">
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><link href="../FIT5306/FIT5306_11_REG.html" rel="next">
+<link href="../FIT5306/FIT5306_09_DBC.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link class="quarto-color-scheme" href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
 <link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css">
@@ -211,22 +211,27 @@
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_07_DIC.html" class="sidebar-item-text sidebar-link">7. Delineamento Inteiramente Casualizado</a>
+  <a href="../FIT5306/FIT5306_07_DELN.html" class="sidebar-item-text sidebar-link">7. Análise de Variância</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_08_DBC.html" class="sidebar-item-text sidebar-link">8. Delineamento de Blocos Completos Casualizados</a>
+  <a href="../FIT5306/FIT5306_08_DIC.html" class="sidebar-item-text sidebar-link">7. Delineamento Inteiramente Casualizado</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_09_FAT.html" class="sidebar-item-text sidebar-link active">9. Experimentos Fatoriais</a>
+  <a href="../FIT5306/FIT5306_09_DBC.html" class="sidebar-item-text sidebar-link">8. Delineamento de Blocos Completos Casualizados</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_10_REG.html" class="sidebar-item-text sidebar-link">10. Regressão linear</a>
+  <a href="../FIT5306/FIT5306_10_FAT.html" class="sidebar-item-text sidebar-link active">9. Experimentos Fatoriais</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../FIT5306/FIT5306_11_REG.html" class="sidebar-item-text sidebar-link">10. Regressão linear</a>
   </div>
 </li>
     </ul>
@@ -236,7 +241,7 @@
 <ul>
 <li><a href="#pacotes" class="nav-link active" data-scroll-target="#pacotes"> <span class="header-section-number">1</span> Pacotes</a></li>
 <li>
-<a href="#experimentos-fatoriais" class="nav-link" data-scroll-target="#experimentos-fatoriais"> <span class="header-section-number">2</span> Experimentos fatoriais</a>
+<a href="#sec-fats" class="nav-link" data-scroll-target="#sec-fats"> <span class="header-section-number">2</span> Experimentos fatoriais</a>
 <ul class="collapse">
 <li>
 <a href="#casualiza%C3%A7%C3%A3o" class="nav-link" data-scroll-target="#casualiza%C3%A7%C3%A3o"> <span class="header-section-number">2.1</span> Casualização</a>
@@ -303,7 +308,7 @@
 </li>
 </ul>
 </li>
-</ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306\FIT5306_09_FAT.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306\FIT5306_10_FAT.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
@@ -316,7 +321,7 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rvlenth/emmeans">emmeans</a></span><span class="op">)</span>    <span class="co"># comparação de médias</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://agronomiar.github.io/AgroR_package/index.html">AgroR</a></span><span class="op">)</span>      <span class="co"># casualização e ANOVA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="experimentos-fatoriais" class="level1" data-number="2"><h1 data-number="2">
+</section><section id="sec-fats" class="level1" data-number="2"><h1 data-number="2">
 <span class="header-section-number">2</span> Experimentos fatoriais</h1>
 <p>Experimentos fatoriais são muito comuns nas ciências agrárias, pois permitem o estudo de dois ou mais fatores em um mesmo experimento. Diversas são as vantagens em se conduzir um experimento deste tipo. Dentre elas, podemos citar a redução de custos, quando comparado à realizar um experimento para cada fator, a otimização da área experimental e dos tratos culturais, bem como a possibilidade de identificar o efeito de dois ou mais fatores sobre a magnitude da variável resposta. Esta é, talvez, a principal vantagem destes experimentos. Ao memo tempo, no entanto, é a fonte de um dos maiores desafios encontrados no meio acadêmico. O surgimento de uma terceira fonte de variação, conhecida por interação.</p>
 <section id="casualização" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="casualização">
@@ -329,7 +334,7 @@
 <span>       design <span class="op">=</span> <span class="st">"FAT2DIC"</span>,</span>
 <span>       r <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="delineamento-de-blocos-casualizados" class="level3" data-number="2.1.2"><h3 data-number="2.1.2" class="anchored" data-anchor-id="delineamento-de-blocos-casualizados">
@@ -340,7 +345,7 @@
 <span>       design <span class="op">=</span> <span class="st">"FAT2DBC"</span>,</span>
 <span>       r <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section></section><section id="tipos-de-interação" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="tipos-de-interação">
@@ -377,7 +382,7 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 </div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="960"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
 <p>De posse dos dados, vamos construir uma tabela dupla entrada com os valores totais e outra com os valores médios. Os efeitos da interação são calculados como…</p>
@@ -455,7 +460,7 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 </div>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="960"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
 </section><section id="interação-complexa-qualitativa" class="level3" data-number="2.2.3"><h3 data-number="2.2.3" class="anchored" data-anchor-id="interação-complexa-qualitativa">
@@ -490,7 +495,7 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 </div>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="960"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
 </section></section><section id="modelo-estatístico" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="modelo-estatístico">
@@ -510,7 +515,7 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 <p>Os tratamentos consistiram da combinação de três níveis de parcelamento de N (DA: 100% no duplo anel; AF+DA: 50% no afilhamento + 50% no duplo anel; DA+ES: 50% no afilhamento + 50% no espigamento) e dois níveis de enxofre (S+: com enxofre; S-: sem enxofre).</p>
 <p>Para fins didáticos, a extensibilidade da massa (L, mm) é utilizada. Para importação, utiliza-se a função <code><a href="https://rdrr.io/pkg/rio/man/import.html">import()</a></code> do pacote <code>rio</code>. A função <code>as_factor</code> converte as primeiras três colunas para fator.</p>
 <div class="cell">
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span><span class="va">df_fat</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="va">url</span>, sheet <span class="op">=</span> <span class="st">"FAT1_CI2"</span>, setclass <span class="op">=</span> <span class="st">"tbl"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_as.html">as_factor</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -519,7 +524,7 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 <div class="cell">
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/barplots.html">plot_factbars</a></span><span class="op">(</span><span class="va">df_fat</span>, <span class="va">ENX</span>, <span class="va">NIT</span>, resp <span class="op">=</span> <span class="va">L</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="verificação-de-outliers" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="verificação-de-outliers">
@@ -535,7 +540,7 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 <span><span class="co">## 3 REP      factor  No      4           24    NA   NA      NA      NA NA   </span></span>
 <span><span class="co">## 4 L        numeric No      -           24    67   78.5    96       0 NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="estatística-descritiva" class="level2" data-number="2.6"><h2 data-number="2.6" class="anchored" data-anchor-id="estatística-descritiva">
@@ -627,7 +632,7 @@ S+   286 373   347</code></pre>
 <span>     CIs <span class="op">=</span> <span class="cn">FALSE</span>, <span class="co"># remove os intervalos de confiança das médias</span></span>
 <span>     comparisons <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># insere setas para comparação de médias (Tukey)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="pacote-agror" class="level2" data-number="2.9"><h2 data-number="2.9" class="anchored" data-anchor-id="pacote-agror">
@@ -711,7 +716,7 @@ S+   286 373   347</code></pre>
 <span><span class="co">## ---</span></span>
 <span><span class="co">## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
 <pre><code>## 
 ## -----------------------------------------------------------------
@@ -738,7 +743,7 @@ S+   286 373   347</code></pre>
 <span>       design <span class="op">=</span> <span class="st">"PSUBDBC"</span>,</span>
 <span>       r <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="análise-de-variância-1" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="análise-de-variância-1">
@@ -841,7 +846,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="co">## F2 : F1 S+   2 997.16667 498.58333 24.092617  6.3e-05</span></span>
 <span><span class="co">## Error b     12 248.33333  20.69444</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
 <pre><code>## 
 ## -----------------------------------------------------------------
@@ -866,7 +871,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> <span class="co"># manipulação de dados e gráficos</span></span>
 <span></span>
 <span><span class="co"># dados</span></span>
-<span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span><span class="va">df_cobmassa</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="va">url</span>, sheet <span class="op">=</span> <span class="st">"COBERTURA_N_MASSA"</span>, setclass <span class="op">=</span> <span class="st">"tbl"</span><span class="op">)</span></span>
 <span><span class="va">df_cobmassa</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_as.html">as_factor</a></span><span class="op">(</span><span class="va">df_cobmassa</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span>
 <span></span>
@@ -984,7 +989,7 @@ a    Com N   30030.17
 <span><span class="co"># organiza os gráficos</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/arrange_ggplot.html">arrange_ggplot</a></span><span class="op">(</span><span class="va">pn_mv</span>, <span class="va">pcob_mv</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="960"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
 </section><section id="massa-seca-ms-por-ha" class="level4"><h4 class="anchored" data-anchor-id="massa-seca-ms-por-ha">Massa seca (MS) por ha</h4>
@@ -1062,7 +1067,7 @@ a    Com N   5717.6
 <span><span class="co"># organiza os gráficos</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/arrange_ggplot.html">arrange_ggplot</a></span><span class="op">(</span><span class="va">pn_ms</span>, <span class="va">pcob_ms</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="960"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
 </section><section id="massa-seca-de-raiz-msr-por-ha" class="level4"><h4 class="anchored" data-anchor-id="massa-seca-de-raiz-msr-por-ha">Massa seca de raiz (MSR) por ha</h4>
@@ -1140,7 +1145,7 @@ a    Com N   439.875
 <span><span class="co"># organiza os gráficos</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/arrange_ggplot.html">arrange_ggplot</a></span><span class="op">(</span><span class="va">pn_msr</span>, <span class="va">pcob_msr</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="960"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
 </section></section></section><section id="coberturas-de-solo-e-doses-de-nitrogênio-efeito-na-cultura-da-soja" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="coberturas-de-solo-e-doses-de-nitrogênio-efeito-na-cultura-da-soja">
@@ -1155,7 +1160,7 @@ a    Com N   439.875
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> <span class="co"># manipulação de dados e gráficos</span></span>
 <span></span>
 <span><span class="co"># dados</span></span>
-<span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span><span class="va">df_cobsoja</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="va">url</span>, sheet <span class="op">=</span> <span class="st">"COBERTURA_N_SOJA"</span>, setclass <span class="op">=</span> <span class="st">"tbl"</span><span class="op">)</span></span>
 <span><span class="va">df_cobsoja</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_as.html">as_factor</a></span><span class="op">(</span><span class="va">df_cobsoja</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span>
 <span></span>
@@ -1344,7 +1349,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span>              xlab <span class="op">=</span> <span class="st">"Espécie"</span>,</span>
 <span>              ylab <span class="op">=</span> <span class="st">"Número de legumes por planta"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="variável-número-de-grãos-por-legume-ngl" class="level4"><h4 class="anchored" data-anchor-id="variável-número-de-grãos-por-legume-ngl">Variável número de grãos por legume (NGL)</h4>
@@ -1412,7 +1417,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span>              xlab <span class="op">=</span> <span class="st">"Espécie"</span>,</span>
 <span>              ylab <span class="op">=</span> <span class="st">"Número de grãos por legume"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="variável-massa-de-mil-grãos-mmg" class="level4"><h4 class="anchored" data-anchor-id="variável-massa-de-mil-grãos-mmg">Variável massa de mil grãos (MMG)</h4>
@@ -1480,7 +1485,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span>              xlab <span class="op">=</span> <span class="st">"Espécie"</span>,</span>
 <span>              ylab <span class="op">=</span> <span class="st">"Massa de mil grãos (g)"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="variável-rg" class="level4"><h4 class="anchored" data-anchor-id="variável-rg">Variável RG</h4>
@@ -1548,7 +1553,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span>              xlab <span class="op">=</span> <span class="st">"Espécie"</span>,</span>
 <span>              ylab <span class="op">=</span> <span class="st">"RG (kg/ha)"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section></section></section><section id="doses-de-nitrogênio-x-híbridos-de-milho" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="doses-de-nitrogênio-x-híbridos-de-milho">
@@ -1563,7 +1568,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> <span class="co"># manipulação de dados e gráficos</span></span>
 <span></span>
 <span><span class="co"># dados</span></span>
-<span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span><span class="va">FAT2_SI</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="va">url</span>, sheet <span class="op">=</span> <span class="st">"FAT2_SI"</span>, setclass <span class="op">=</span> <span class="st">"tbl"</span><span class="op">)</span></span>
 <span><span class="va">FAT2_SI</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
@@ -1610,7 +1615,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/arrange_ggplot.html">arrange_ggplot</a></span><span class="op">(</span><span class="va">h</span>, <span class="va">d</span>, tag_levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"h"</span>, <span class="st">"d"</span><span class="op">)</span><span class="op">)</span>, widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="960"></p>
+<figure class="figure"><p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1625,7 +1630,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> <span class="co"># manipulação de dados e gráficos</span></span>
 <span></span>
 <span><span class="co"># dados</span></span>
-<span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span><span class="va">FAT2_CI</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="va">url</span>, sheet <span class="op">=</span> <span class="st">"FAT2_CI"</span>, setclass <span class="op">=</span> <span class="st">"tbl"</span><span class="op">)</span></span>
 <span><span class="va">FAT2_CI</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
@@ -1948,7 +1953,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span>                          <span class="st">"a"</span>, <span class="st">"a"</span><span class="op">)</span><span class="op">)</span> <span class="co"># 100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Gráfico das médias dos híbridos em cada dose de nitrogênio.</figcaption><p></p>
 </figure>
 </div>
@@ -2060,7 +2065,7 @@ MEE = 50 + \frac{{5}}{{2 \times (-0,0005574) \times 1300}} \approx 46
 <span>  col <span class="op">=</span> <span class="st">"black"</span>,</span>
 <span>  parse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_09_FAT_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Observando-se a figura acima, é possível identificar o comportamento quadrático da variável resposta do híbrido <em>NUPEC_1</em>. Para este híbrido, houve um incremento positivo na produtividade até um ponto, posteriormente observa-se que a produtividade tendeu a reduzir. Uma explicação biológica para esta redução seria que o excesso de nitrogênio aplicado proporcionou um alto vigor vegetativo as plantas, podendo ter ocorrido competição entre as plantas por água, luz e outros nutrientes, ou até mesmo tombamento das plantas.</p>
@@ -2084,7 +2089,7 @@ MEE = 50 + \frac{{5}}{{2 \times (-0,0005574) \times 1300}} \approx 46
 <span id="cb85-14"><a href="#cb85-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb85-15"><a href="#cb85-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb85-16"><a href="#cb85-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb85-17"><a href="#cb85-17" aria-hidden="true" tabindex="-1"></a><span class="fu"># Experimentos fatoriais</span></span>
+<span id="cb85-17"><a href="#cb85-17" aria-hidden="true" tabindex="-1"></a><span class="fu"># Experimentos fatoriais {#sec-fats}</span></span>
 <span id="cb85-18"><a href="#cb85-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb85-19"><a href="#cb85-19" aria-hidden="true" tabindex="-1"></a>Experimentos fatoriais são muito comuns nas ciências agrárias, pois permitem o estudo de dois ou mais fatores em um mesmo experimento. Diversas são as vantagens em se conduzir um experimento deste tipo. Dentre elas, podemos citar a redução de custos, quando comparado à realizar um experimento para cada fator, a otimização da área experimental e dos tratos culturais, bem como a possibilidade de identificar o efeito de dois ou mais fatores sobre a magnitude da variável resposta. Esta é, talvez, a principal vantagem destes experimentos. Ao memo tempo, no entanto, é a fonte de um dos maiores desafios encontrados no meio acadêmico. O surgimento de uma terceira fonte de variação, conhecida por interação.</span>
 <span id="cb85-20"><a href="#cb85-20" aria-hidden="true" tabindex="-1"></a></span>
@@ -2243,7 +2248,7 @@ MEE = 50 + \frac{{5}}{{2 \times (-0,0005574) \times 1300}} \approx 46
 <span id="cb85-175"><a href="#cb85-175" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb85-176"><a href="#cb85-176" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb85-177"><a href="#cb85-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
-<span id="cb85-178"><a href="#cb85-178" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<span id="cb85-178"><a href="#cb85-178" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span id="cb85-179"><a href="#cb85-179" aria-hidden="true" tabindex="-1"></a>df_fat <span class="ot">&lt;-</span> </span>
 <span id="cb85-180"><a href="#cb85-180" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"FAT1_CI2"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb85-181"><a href="#cb85-181" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_factor</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
@@ -2417,7 +2422,7 @@ MEE = 50 + \frac{{5}}{{2 \times (-0,0005574) \times 1300}} \approx 46
 <span id="cb85-357"><a href="#cb85-357" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># manipulação de dados e gráficos</span></span>
 <span id="cb85-358"><a href="#cb85-358" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb85-359"><a href="#cb85-359" aria-hidden="true" tabindex="-1"></a><span class="co"># dados</span></span>
-<span id="cb85-360"><a href="#cb85-360" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<span id="cb85-360"><a href="#cb85-360" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span id="cb85-361"><a href="#cb85-361" aria-hidden="true" tabindex="-1"></a>df_cobmassa <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"COBERTURA_N_MASSA"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
 <span id="cb85-362"><a href="#cb85-362" aria-hidden="true" tabindex="-1"></a>df_cobmassa <span class="ot">&lt;-</span> <span class="fu">as_factor</span>(df_cobmassa, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
 <span id="cb85-363"><a href="#cb85-363" aria-hidden="true" tabindex="-1"></a></span>
@@ -2600,7 +2605,7 @@ MEE = 50 + \frac{{5}}{{2 \times (-0,0005574) \times 1300}} \approx 46
 <span id="cb85-550"><a href="#cb85-550" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># manipulação de dados e gráficos</span></span>
 <span id="cb85-551"><a href="#cb85-551" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb85-552"><a href="#cb85-552" aria-hidden="true" tabindex="-1"></a><span class="co"># dados</span></span>
-<span id="cb85-553"><a href="#cb85-553" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<span id="cb85-553"><a href="#cb85-553" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span id="cb85-554"><a href="#cb85-554" aria-hidden="true" tabindex="-1"></a>df_cobsoja <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"COBERTURA_N_SOJA"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
 <span id="cb85-555"><a href="#cb85-555" aria-hidden="true" tabindex="-1"></a>df_cobsoja <span class="ot">&lt;-</span> <span class="fu">as_factor</span>(df_cobsoja, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
 <span id="cb85-556"><a href="#cb85-556" aria-hidden="true" tabindex="-1"></a></span>
@@ -2754,7 +2759,7 @@ MEE = 50 + \frac{{5}}{{2 \times (-0,0005574) \times 1300}} \approx 46
 <span id="cb85-724"><a href="#cb85-724" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># manipulação de dados e gráficos</span></span>
 <span id="cb85-725"><a href="#cb85-725" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb85-726"><a href="#cb85-726" aria-hidden="true" tabindex="-1"></a><span class="co"># dados</span></span>
-<span id="cb85-727"><a href="#cb85-727" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<span id="cb85-727"><a href="#cb85-727" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span id="cb85-728"><a href="#cb85-728" aria-hidden="true" tabindex="-1"></a>FAT2_SI <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"FAT2_SI"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
 <span id="cb85-729"><a href="#cb85-729" aria-hidden="true" tabindex="-1"></a>FAT2_SI</span>
 <span id="cb85-730"><a href="#cb85-730" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -2803,7 +2808,7 @@ MEE = 50 + \frac{{5}}{{2 \times (-0,0005574) \times 1300}} \approx 46
 <span id="cb85-775"><a href="#cb85-775" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># manipulação de dados e gráficos</span></span>
 <span id="cb85-776"><a href="#cb85-776" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb85-777"><a href="#cb85-777" aria-hidden="true" tabindex="-1"></a><span class="co"># dados</span></span>
-<span id="cb85-778"><a href="#cb85-778" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<span id="cb85-778"><a href="#cb85-778" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span id="cb85-779"><a href="#cb85-779" aria-hidden="true" tabindex="-1"></a>FAT2_CI <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"FAT2_CI"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
 <span id="cb85-780"><a href="#cb85-780" aria-hidden="true" tabindex="-1"></a>FAT2_CI</span>
 <span id="cb85-781"><a href="#cb85-781" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -3190,12 +3195,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../FIT5306/FIT5306_08_DBC.html" class="pagination-link">
+      <a href="../FIT5306/FIT5306_09_DBC.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">8. Delineamento de Blocos Completos Casualizados</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../FIT5306/FIT5306_10_REG.html" class="pagination-link">
+      <a href="../FIT5306/FIT5306_11_REG.html" class="pagination-link">
         <span class="nav-page-text">10. Regressão linear</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

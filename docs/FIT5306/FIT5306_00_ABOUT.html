@@ -210,22 +210,27 @@
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_07_DIC.html" class="sidebar-item-text sidebar-link">7. Delineamento Inteiramente Casualizado</a>
+  <a href="../FIT5306/FIT5306_07_DELN.html" class="sidebar-item-text sidebar-link">7. Análise de Variância</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_08_DBC.html" class="sidebar-item-text sidebar-link">8. Delineamento de Blocos Completos Casualizados</a>
+  <a href="../FIT5306/FIT5306_08_DIC.html" class="sidebar-item-text sidebar-link">7. Delineamento Inteiramente Casualizado</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_09_FAT.html" class="sidebar-item-text sidebar-link">9. Experimentos Fatoriais</a>
+  <a href="../FIT5306/FIT5306_09_DBC.html" class="sidebar-item-text sidebar-link">8. Delineamento de Blocos Completos Casualizados</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_10_REG.html" class="sidebar-item-text sidebar-link">10. Regressão linear</a>
+  <a href="../FIT5306/FIT5306_10_FAT.html" class="sidebar-item-text sidebar-link">9. Experimentos Fatoriais</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../FIT5306/FIT5306_11_REG.html" class="sidebar-item-text sidebar-link">10. Regressão linear</a>
   </div>
 </li>
     </ul>
@@ -327,7 +332,7 @@ Note
 <span class="header-section-number">3</span> Download dos dados</h1>
 <p>Planilhas específicas podem ser baixadas diretamente no software R, utilizando o argumento <code>sheet</code> da função <code><a href="https://rdrr.io/pkg/rio/man/import.html">import()</a></code> do pacote <code>rio</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_bioestat"</span></span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span><span class="va">df_biostat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="va">url</span>, sheet <span class="op">=</span> <span class="st">"DIC-DBC"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_biostat</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
@@ -341,7 +346,7 @@ $ MST   &lt;dbl&gt; 12.30785, 10.73315, 10.86140, 10.97850, 15.75180, 13.30495, 
 </div>
 </div>
 <p>Para baixar o arquivo <code>.xlsx</code>, utilize o botão abaixo.</p>
-<p><a href="http://bit.ly/df_biostat_exp" target="_blank" rel="noopener"> <button class="btn btn-success"><i class="fa fa-save"></i> Download dados_biost_exp.xlsx</button> </a></p>
+<p><a href="https://bit.ly/df_biostat" target="_blank" rel="noopener"> <button class="btn btn-success"><i class="fa fa-save"></i> Download dados_biost_exp.xlsx</button> </a></p>
 
 
 <!-- -->
@@ -408,14 +413,14 @@ $ MST   &lt;dbl&gt; 12.30785, 10.73315, 10.86140, 10.97850, 15.75180, 13.30495, 
 <span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>Planilhas específicas podem ser baixadas diretamente no software R, utilizando o argumento <span class="in">`sheet`</span> da função <span class="in">`import()`</span> do pacote <span class="in">`rio`</span>.</span>
 <span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"http://bit.ly/df_bioestat"</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>df_biostat <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"DIC-DBC"</span>)</span>
 <span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_biostat)</span>
 <span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>Para baixar o arquivo <span class="in">`.xlsx`</span>, utilize o botão abaixo.</span>
 <span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;a</span> <span class="er">href</span><span class="ot">=</span><span class="st">"http://bit.ly/df_biostat_exp"</span> <span class="er">target</span><span class="ot">=</span><span class="st">"_blank"</span> <span class="er">rel</span><span class="ot">=</span><span class="st">"noopener"</span><span class="kw">&gt;</span> <span class="kw">&lt;button</span> <span class="er">class</span><span class="ot">=</span><span class="st">"btn btn-success"</span><span class="kw">&gt;&lt;i</span> <span class="er">class</span><span class="ot">=</span><span class="st">"fa fa-save"</span><span class="kw">&gt;&lt;/i&gt;</span> Download dados_biost_exp.xlsx<span class="kw">&lt;/button&gt;</span> <span class="kw">&lt;/a&gt;</span></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;a</span> <span class="er">href</span><span class="ot">=</span><span class="st">"https://bit.ly/df_biostat"</span> <span class="er">target</span><span class="ot">=</span><span class="st">"_blank"</span> <span class="er">rel</span><span class="ot">=</span><span class="st">"noopener"</span><span class="kw">&gt;</span> <span class="kw">&lt;button</span> <span class="er">class</span><span class="ot">=</span><span class="st">"btn btn-success"</span><span class="kw">&gt;&lt;i</span> <span class="er">class</span><span class="ot">=</span><span class="st">"fa fa-save"</span><span class="kw">&gt;&lt;/i&gt;</span> Download dados_biost_exp.xlsx<span class="kw">&lt;/button&gt;</span> <span class="kw">&lt;/a&gt;</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </section><div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>

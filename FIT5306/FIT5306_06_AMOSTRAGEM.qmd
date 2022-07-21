@@ -44,7 +44,7 @@ t(d)
 
 
 ## Aplicação
-Vamos considerar uma variável `x`, distribuida normalmente  com média \$\bar x = 10\$ e desvio padrão \$S = 2\$, avaliada em população com N = 10.
+Vamos considerar uma variável `x`, distribuida normalmente  com média $\bar X = 10$ e desvio padrão $S = 2$, avaliada em população com N = 10.
 
 ```{r}
 N <- 10
@@ -82,6 +82,7 @@ tail(df_medias)
 
 
 Ao computar a média das medias amostrais, obtém-se a média populacional
+
 ```{r}
 med_amostral <- mean(df_medias$media)
 med_pop <-  mean(df2$x)

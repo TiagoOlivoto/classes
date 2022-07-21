@@ -77,7 +77,7 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/quarto-nav/headroom.min.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><link href="../FIT5306/FIT5306_09_FAT.html" rel="prev">
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><link href="../FIT5306/FIT5306_10_FAT.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link class="quarto-color-scheme" href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
 <link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css">
@@ -210,22 +210,27 @@
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_07_DIC.html" class="sidebar-item-text sidebar-link">7. Delineamento Inteiramente Casualizado</a>
+  <a href="../FIT5306/FIT5306_07_DELN.html" class="sidebar-item-text sidebar-link">7. Análise de Variância</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_08_DBC.html" class="sidebar-item-text sidebar-link">8. Delineamento de Blocos Completos Casualizados</a>
+  <a href="../FIT5306/FIT5306_08_DIC.html" class="sidebar-item-text sidebar-link">7. Delineamento Inteiramente Casualizado</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_09_FAT.html" class="sidebar-item-text sidebar-link">9. Experimentos Fatoriais</a>
+  <a href="../FIT5306/FIT5306_09_DBC.html" class="sidebar-item-text sidebar-link">8. Delineamento de Blocos Completos Casualizados</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_10_REG.html" class="sidebar-item-text sidebar-link active">10. Regressão linear</a>
+  <a href="../FIT5306/FIT5306_10_FAT.html" class="sidebar-item-text sidebar-link">9. Experimentos Fatoriais</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../FIT5306/FIT5306_11_REG.html" class="sidebar-item-text sidebar-link active">10. Regressão linear</a>
   </div>
 </li>
     </ul>
@@ -273,7 +278,7 @@
 <li><a href="#fun%C3%A7%C3%A3o-cor-e-cor.test" class="nav-link" data-scroll-target="#fun%C3%A7%C3%A3o-cor-e-cor.test"> <span class="header-section-number">5.3</span> Função cor e cor.test()</a></li>
 </ul>
 </li>
-</ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306\FIT5306_10_REG.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306\FIT5306_11_REG.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
@@ -324,7 +329,7 @@ Note
 <pre><code>`geom_smooth()` using formula 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="FIT5306_10_REG_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_11_REG_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>O problema consiste em obter o valor de <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span> de melhor ajuste para a equação, de modo que a soma de quadrado dos desvios (diferença entre os pontos observados e a reta de predição) seja mínima. Assim, adota-se o critério de obter a solução que minimiza soma dos quadrados dos resídulos (<span class="math inline">\(\sum\nolimits_{i = 1}^n {{e_i}^2}\)</span>), método conhecido como <a href="https://pt.wikipedia.org/wiki/M%C3%A9todo_dos_m%C3%ADnimos_quadrados">Método dos Mínimos Quadrados</a></p>
@@ -590,7 +595,7 @@ R^2_{adj} = 1 -\frac{(n - 1)(1 -  R^2)}{n - p}
 <pre><code>`geom_smooth()` using formula 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="FIT5306_10_REG_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_11_REG_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>A soma de quadrado dos desvios obtida anteriormente pode ser obtida aqui também, ao somarmos o quadrado dos desvios.</p>
@@ -706,13 +711,13 @@ Conferindo os resultados
 <pre><code>`geom_smooth()` using formula 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="FIT5306_10_REG_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_11_REG_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="regressão-linear-com-repetições" class="level2" data-number="2.8"><h2 data-number="2.8" class="anchored" data-anchor-id="regressão-linear-com-repetições">
 <span class="header-section-number">2.8</span> Regressão linear com repetições</h2>
 <div class="cell">
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span><span class="va">df_reg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="va">url</span>, sheet <span class="op">=</span> <span class="st">"REG_DEL_DATA"</span>, setclass <span class="op">=</span> <span class="st">"tbl"</span><span class="op">)</span></span>
 <span></span>
 <span></span>
@@ -754,7 +759,7 @@ Conferindo os resultados
 <pre><code>`geom_smooth()` using formula 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="FIT5306_10_REG_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_11_REG_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="polinômio-de-segundo-grau" class="level2" data-number="2.9"><h2 data-number="2.9" class="anchored" data-anchor-id="polinômio-de-segundo-grau">
@@ -820,7 +825,7 @@ F-statistic: 23.06 on 2 and 3 DF,  p-value: 0.0151</code></pre>
 <span>       y <span class="op">=</span> <span class="st">"Rendimento de grãos (t/ha)"</span><span class="op">)</span></span>
 <span><span class="va">p1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_10_REG_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_11_REG_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>O ponto em X (dose de N) em que a produtividade é máxima é chamado de máxima eficiência técnica (MET) e pode ser estimado por:</p>
@@ -922,7 +927,7 @@ MEE = 173,41 + \frac{{3,0}}{{2 \times (-2,071^{-05}) \times 1.300}} \approx 117
 <span>  col <span class="op">=</span> <span class="st">"black"</span>,</span>
 <span>  parse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_10_REG_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_11_REG_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section></section><section id="correlação" class="level1" data-number="3"><h1 data-number="3">
@@ -954,7 +959,7 @@ r = \frac{SP_{xy}}{\sqrt{SQ_x\times SQ_y}}
 <span class="header-section-number">3.2</span> A função <code>cor()</code> do R</h2>
 <p>Utilizando a função do R <code><a href="https://rdrr.io/r/stats/cor.html">cor()</a></code> é possível obter o coeficiente de correlação entre duas variáveis, por exemplo, <code>APLA</code> e <code>AIES</code> do seguinte conjunto de dados:</p>
 <div class="cell">
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span><span class="va">df_mat</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="va">url</span>, sheet <span class="op">=</span> <span class="st">"maize"</span>, setclass <span class="op">=</span> <span class="st">"tbl"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">APLA</span><span class="op">:</span><span class="va">MGRA</span><span class="op">)</span></span>
@@ -983,7 +988,7 @@ MGRA 0.5096475 0.4649353 0.6763286 0.7649486 1.0000000</code></pre>
 <div class="sourceCode" id="cb87"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Matriz gráfica de correlação</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/corr_plot.html">corr_plot</a></span><span class="op">(</span><span class="va">df_mat</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_10_REG_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_11_REG_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section></section><section id="exercício-prático-regressão" class="level1" data-number="4"><h1 data-number="4">
@@ -994,7 +999,7 @@ MGRA 0.5096475 0.4649353 0.6763286 0.7649486 1.0000000</code></pre>
 <p>Neste exemplo, serão utilizados dados de produtividade de grãos de milho (Kg /ha) de acordo com diferentes doses de dejeto suíno (m3/ha) aplicadas na cultura do milho<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"https://bit.ly/df_bioestat"</span></span>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span><span class="va">reg_ex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="va">url</span>, sheet <span class="op">=</span> <span class="st">"REG_EXERCICIO"</span>, setclass <span class="op">=</span> <span class="st">"tbl"</span><span class="op">)</span></span>
 <span><span class="va">reg_ex</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
@@ -1236,7 +1241,7 @@ Attaching package: 'ggpp'</code></pre>
 <pre><code>`geom_smooth()` using formula 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="FIT5306_10_REG_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_11_REG_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="valores-preditos" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="valores-preditos">
@@ -1300,7 +1305,7 @@ Attaching package: 'ggpp'</code></pre>
 <p>Neste exemplo, serão utilizados dados referentes ao número de grãos (NGRA) e massa de grãos (MGRA) observados em 15 espigas de milho (n = 15).</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span><span class="va">cor_ex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="va">url</span>, sheet <span class="op">=</span> <span class="st">"COR_EXERCICIO"</span>, setclass <span class="op">=</span> <span class="st">"tbl"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="op">(</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">cor_ex</span><span class="op">$</span><span class="va">NGRA</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1739,7 +1744,7 @@ sample estimates:
 <span id="cb194-322"><a href="#cb194-322" aria-hidden="true" tabindex="-1"></a><span class="fu">## Regressão linear com repetições</span></span>
 <span id="cb194-323"><a href="#cb194-323" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb194-326"><a href="#cb194-326" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb194-327"><a href="#cb194-327" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<span id="cb194-327"><a href="#cb194-327" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span id="cb194-328"><a href="#cb194-328" aria-hidden="true" tabindex="-1"></a>df_reg <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"REG_DEL_DATA"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
 <span id="cb194-329"><a href="#cb194-329" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb194-330"><a href="#cb194-330" aria-hidden="true" tabindex="-1"></a></span>
@@ -1967,7 +1972,7 @@ sample estimates:
 <span id="cb194-564"><a href="#cb194-564" aria-hidden="true" tabindex="-1"></a>Utilizando a função do R <span class="in">`cor()`</span> é possível obter o coeficiente de correlação entre duas variáveis, por exemplo, <span class="in">`APLA`</span> e <span class="in">`AIES`</span> do seguinte conjunto de dados:</span>
 <span id="cb194-565"><a href="#cb194-565" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb194-568"><a href="#cb194-568" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb194-569"><a href="#cb194-569" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<span id="cb194-569"><a href="#cb194-569" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span id="cb194-570"><a href="#cb194-570" aria-hidden="true" tabindex="-1"></a>df_mat <span class="ot">&lt;-</span> </span>
 <span id="cb194-571"><a href="#cb194-571" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"maize"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb194-572"><a href="#cb194-572" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(APLA<span class="sc">:</span>MGRA)</span>
@@ -1999,7 +2004,7 @@ sample estimates:
 <span id="cb194-602"><a href="#cb194-602" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Neste exemplo, serão utilizados dados de produtividade de grãos de milho (Kg /ha) de acordo com diferentes doses de dejeto suíno (m3/ha) aplicadas na cultura do milho^</span><span class="co">[</span><span class="ot">https://periodicos.uem.br/ojs/index.php/ActaSciTechnol/article/download/5312/5312/</span><span class="co">]</span><span class="at">.</span></span>
 <span id="cb194-603"><a href="#cb194-603" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb194-606"><a href="#cb194-606" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb194-607"><a href="#cb194-607" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_bioestat"</span></span>
+<span id="cb194-607"><a href="#cb194-607" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span id="cb194-608"><a href="#cb194-608" aria-hidden="true" tabindex="-1"></a>reg_ex <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"REG_EXERCICIO"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
 <span id="cb194-609"><a href="#cb194-609" aria-hidden="true" tabindex="-1"></a>reg_ex</span>
 <span id="cb194-610"><a href="#cb194-610" aria-hidden="true" tabindex="-1"></a></span>
@@ -2186,7 +2191,7 @@ sample estimates:
 <span id="cb194-811"><a href="#cb194-811" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Neste exemplo, serão utilizados dados referentes ao número de grãos (NGRA) e massa de grãos (MGRA) observados em 15 espigas de milho (n = 15).</span></span>
 <span id="cb194-812"><a href="#cb194-812" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb194-815"><a href="#cb194-815" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb194-816"><a href="#cb194-816" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"http://bit.ly/df_biostat_exp"</span></span>
+<span id="cb194-816"><a href="#cb194-816" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span id="cb194-817"><a href="#cb194-817" aria-hidden="true" tabindex="-1"></a>cor_ex <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"COR_EXERCICIO"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
 <span id="cb194-818"><a href="#cb194-818" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb194-819"><a href="#cb194-819" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> cor_ex<span class="sc">$</span>NGRA)</span>
@@ -2492,7 +2497,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../FIT5306/FIT5306_09_FAT.html" class="pagination-link">
+      <a href="../FIT5306/FIT5306_10_FAT.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">9. Experimentos Fatoriais</span>
       </a>          
   </div>

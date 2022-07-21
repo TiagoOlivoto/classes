@@ -14,7 +14,7 @@ library(ExpDes.pt)
 ```
 
 
-# Delineamento de Blocos Completos Casualizados (DBC)
+# Delineamento de Blocos Completos Casualizados (DBC) {#sec-dbc}
 
 No Delineamento de Blocos Completos Casualizados uma restrição na casualização é imposta visando agrupar unidades experimentais uniformes dentro de um bloco, de maneira que a heterogeneidade da área experimental fique entre os blocos. O bloqueamento tem como objetivo reduzir o erro experimental, *"transferindo"* parte do erro experimental para efeito de bloco. 
 
@@ -67,7 +67,7 @@ Para importação, utiliza-se a função `import()` do pacote `rio`. A função 
 
 
 ```{r collapse = TRUE, message=FALSE, warning=FALSE}
-url <- "http://bit.ly/df_biostat_exp"
+url <- "https://bit.ly/df_biostat"
 df_dbc <- import(url, sheet = "DIC-DBC", setclass = "tbl")
 df_dbc <- as_factor(df_dbc, 1:2)
 

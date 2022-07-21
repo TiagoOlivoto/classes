@@ -1,0 +1,259 @@
+---
+title: "7. Análise de Variância"
+bibliography: references.bib
+---
+
+
+::: callout-note
+"Muito melhor uma resposta aproximada à pergunta certa, que muitas vezes é vaga, do que uma resposta exata à pergunta errada, que sempre pode ser feita com precisão." --- John Tukey
+:::
+
+
+# Introdução
+
+As análises realizadas até agora tinham como objetivo verificar a existência de diferenças entre as médias de duas amostras. Porém, quando deseja-se estudar o efeito de "grupos de fatores" sobre determinado fenômeno, a análise da variância (ANOVA) é indicada. A ANOVA atribui a diversos fatores partes da variabilidade dos dados.
+
+Fisher e Mackenzie (1923)[^1] estudando a variação de diferentes cultivares de batata, publicaram o primeiro trabalho demonstrando o uso da ANOVA para a avaliação de experimentos agrícolas. O método da ANOVA se tornaria popular e amplamente utilizado após Fisher estabelecer as bases teóricas e os pressupostos desta técnica (Fisher, 1925[^2]; Fisher, 1935[^3]).
+
+[^1]: Fisher, R.A., and W.A. Mackenzie. 1923. Studies in crop variation. II. The manurial response of different potato varieties. The Journal of Agricultural Science 13(03): 311–320. doi: 10.1017/S0021859600003592.
+
+
+[^2]: Fisher, R.A. 1925. Statistical methods for research workers. Oliver and Boyd, Edinburgh.
+
+
+[^3]: Fisher, R.A. 1935. The design of experiments. Oliver and Boyd, Edinburgh.
+
+
+Os delineamentos experimentais são partes importantes da ANOVA. Em seções próprias, serão apresentados os mais comuns: o delineamento inteiramente casualisado ([DIC](@sec-dic)) e o blocos ao acaso ([DBC](@sec-dbc)). Na seção @sec-fats são discutidos os experimentos fatoriais experimentos bifatoriais com e sem parcelas subdivididas.
+
+# Princípios básicos
+
+Os principios básicos da experimentação são a *casualisação* e a *repetição*. A repetição possibilita que o erro seja estimado; a casualisação que eles sejam independentes. Um terceiro princípio (não obrigatório) é o controle local (ou bloqueamento). O bloqueamento é utilizado no No DBC como objetivo isolar parte da variação residual do modelo DIC para uma fonte de variação conhecida (BLOCO). Com isso (principalmente quando há efeito de bloco), a precisão da análise é maior.
+
+# Casualização
+
+
+## DIC
+
+Para realizar a casualização em um experimento de delineamento inteiramente ao acaso, pode-se utilizar a função [`sketch`](https://agronomiar.github.io/AgroR_Tutorial/fun%C3%A7%C3%A3o-para-croqui-experimental.html#delineamento-inteiramente-casualizado) do pacote agroR. Neste exemplo, simulo a casualização de quatro tratamentos ("C1", "C2", "C3" e "C4") em um ensaio conduzido em delineamento inteiramente casualizado (DIC) com quatro repetições (`r`).
+
+```{r}
+library(AgroR)
+set.seed(1)
+trats <- c("C1", "C2", "C3", "C4")
+sketch(trats, r = 4)
+```
+
+## DBC
+
+Para casualização em DBC, a mesma função `sketch` é usada. No entanto, utiliza-se o argumento `design` para indicar que o delineamento é um DBC
+
+```{r}
+set.seed(1)
+trats <- c("C1", "C2", "C3", "C4")
+# casualização em DBC
+sketch(trats, r = 4, design = "DBC")
+# inverte a posição dos blocos
+sketch(trats, r = 4, design = "DBC", pos = "column")
+
+```
+
+
+
+## Exemplo de aplicação
+
+Na figura abaixo é mostrado como o DBC pode ser utilizado para considerar fontes de variação conhecida na área experimental. Neste caso, um gradiente de fósforo conhecido é notado no solo, onde maiores valores são observados na parte inferior e menores na parte inferior. Assim, os blocos podem ser alocados de modo que cada tratamento seja casualizado dentro de grupos de unidades experimentais homogêneas (blocos).
+
+![Exemplo de casualização em DBC](figs/exemplo_casualizacao.png)
+
+
+# Pressupostos
+
+Independente do delineamento, os pressupostos do modelo estatístico são que os erros são independentes, homocedásticos e normais:
+
+$$
+{\boldsymbol{\varepsilon }} \sim {\textrm N}\left( {0,{\boldsymbol{I}}{\sigma ^2}} \right)
+$$
+
+# Distribuição F
+
+Esses pressupostos são necessários para que o teste F seja utilizado na análise de variância. Sob normalidade dos resíduos e hipótese nula $H_0$, a razão entre as somas de quadrado de tratamento e resíduo tem distribuição F (Rencher et al., 2008)[^4]. Já em condições de não normalidade dos resíduos, o poder do teste (probabilidade de rejeitar $H_0$) é reduzido. Apesar disso, não há grandes mudanças no erro tipo I quando a pressuposição de normalidade é violada (Senoglu e Tiku, 2001)[^5], e por isso ele é considerado robusto.
+
+[^4]: RENCHER, A. C.; SCHAALJE, G. BRUCE. Linear models in statistics. \[s.l.\] John Wiley & Sons, 2008.
+
+[^5]: SENOGLU, B.; TIKU, M. L. Analysis of variance in experimental design with nonnormal error distributions. Communications in Statistics - Theory and Methods, v. 30, n. 7, p. 1335--1352, 2001
+
+Abaixo, é apresentada a distribuição F considerando 4 e 20 como graus liberdade do tratamento e erro, respectivamente. Note que o valor em x em que acumula à direita 0,05 é o conhecido F tabelado.
+
+
+
+```{r}
+library(ggplot2)
+#| code-fold: false
+#| code-summary: "Mostrar código"
+#| fig.height=3
+#| fig.width=6
+
+
+df1 <- 4
+df2 <- 20
+(ftab <- qf(0.05, df1, df2, lower.tail = FALSE))
+
+ggplot() +
+  scale_x_continuous(limits = c(0,  6),
+                     breaks = c(0,  2, ftab, 4, 6)) +
+  stat_function(fun = df,
+                geom = "area",
+                fill = "forestgreen",
+                xlim = c(ftab, 6),
+                args = list(
+                  df1 = df1,
+                  df2 = df2
+                )) +
+  stat_function(fun = df,
+                geom = "line",
+                size = 1,
+                args = list(
+                  df1 = df1,
+                  df2 = df2
+                )) +
+  theme_bw(base_size = 16) +
+  theme(panel.grid.minor = element_blank()) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1)))+
+  labs(x = "Valor de F",
+       y = "Probabilidade acumulada",
+       title = "Distribuição F (DF1: 4, DF2: 20)")
+```
+
+# Um exemplo
+
+
+## Dados
+
+Os dados utilizados neste exemplo estão na planilha `QUALI` do conjunto de dados `data_R.xlsx`. Os próximos códigos carregam o conjunto de dados e criam um gráfico do tipo boxplot para explorar o padrão dos dados.
+
+```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(metan)
+library(rio)
+library(AgroR)
+
+url <- "http://bit.ly/df_biostat"
+df <- import(url, sheet = "QUALI")
+str(df)
+
+p1 <-
+  ggplot(df, aes(HIBRIDO, RG))+
+  geom_hline(yintercept = mean(df$RG), linetype = "dashed")+
+  geom_boxplot()+
+  stat_summary(geom = "point", fun = mean, shape = 23) +
+  stat_summary(aes(label = round(after_stat(y), 2),
+                   x = HIBRIDO), 
+               fun=mean,
+               geom="text",
+               hjust=-0.3)
+
+p2 <- 
+  ggplot(df, aes(factor(BLOCO), RG))+
+  geom_hline(yintercept = mean(df$RG), linetype = "dashed")+
+  geom_boxplot()+
+  stat_summary(geom = "point", fun = mean, shape = 23) +
+    stat_summary(aes(label = round(after_stat(y), 2),
+                   x = BLOCO), 
+               fun=mean,
+               geom="text",
+               hjust=-0.3)
+
+p1 + p2
+
+
+
+```
+
+
+Analizando o boxplot acima é razoável dizer que as médias dos tratamentos são diferentes, principalmente comparando o `NP_1` com `NP_5`. Esta suspeita de diferença, no entanto, deve ser suportada com a realização da análise de variância.
+
+## Anova em DIC
+
+No pacote `AgroR`, quando os fatores são qualitativos, a análise complementar aplicada é a comparção de médias. A função `DIC()` do pacote retorna a tabela da ANOVA, a análise de pressupostos (normalidade e homogeneidade) e o teste de comparação de médias.
+
+```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}
+
+mod_dic <- with(df, DIC(HIBRIDO, RG))
+
+```
+
+
+::: callout-tip
+As funções do pacote **AgroR** utilizam os dados "anexados" ao ambiente de trabalho, ou seja, um argumento `data = .` não existe para suas funções. Note que no exemplo acima foi utilizado a função `with(qualitativo, DIC(...))`. Isto permite acessar variáveis presentes no data frame. Uma outra maneira de realizar esta mesma análise é utilizando a função `attach(df)`, qual carregará o data frame no ambiente R, assim é possível utilizar a função `DIC(...)`. Após realizada a análise, é recomendado executar o comando `detach(df)` para "limpar" os dados do ambiente de trabalho.
+:::
+
+A interpretação da significância, ou seja, se as médias de produtividade dos híbridos foram significativamente diferentes a uma determinada probabilidade de erro é feita verificando-se o valor de `"Pr>fc"` na ANOVA. A figura abaixo mostra a distribuição *F* considerando os graus de liberdade de tratamento e erro $F_{4, 15}$ e nos ajuda a compreender um pouco melhor isto.
+
+
+```{r eval=FALSE, results='hold'}
+#| code-fold: true
+#| code-summary: "Veja o código que gerou o gráfico"
+
+
+df1 <- 4
+df2 <- 15
+fcal <- 2.2543
+ftab <- 3.055
+
+ggplot() +
+  scale_x_continuous(limits = c(0,  6),
+                     breaks = c(0,  fcal, ftab,  6)) +
+  stat_function(fun = df,
+                geom = "area",
+                fill = "red",
+                xlim = c(fcal, 6),
+                args = list(
+                  df1 = df1,
+                  df2 = 63
+                )) +
+  stat_function(fun = df,
+                geom = "area",
+                fill = "forestgreen",
+                xlim = c(ftab, 6),
+                args = list(
+                  df1 = df1,
+                  df2 = 63
+                )) +
+  stat_function(fun = df,
+                geom = "line",
+                size = 1,
+                args = list(
+                  df1 = df1,
+                  df2 = 63
+                )) +
+  theme_bw(base_size = 16) +
+  theme(panel.grid.minor = element_blank()) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1)))+
+  labs(x = "Valor de F",
+       y = "Probabilidade acumulada",
+       title = "Distribuição F (DF1: 4, DF2: 15)")
+
+```
+
+
+![Distribuição F com DF1 = 1 e DF2 = 15](figs/dist_f.png){fig-align="center"}
+
+O valor de *F* calculado em nosso exemplo foi de 2,2543, o que resulta em uma probabilidade de erro acumulada de 0,1117 (11,17%). Esta probabilidade de erro acumulada está representada pela cor vermelha. Logo, não rejeitou-se a hipótese Para que uma diferença significativa a 5% de probabilidade de erro tivesse sido observada, o valor de *F* calculado deveria ter sido 3,055 `qf(0.05, 4, 15, lower.tail = FALSE)`, representado neste caso pela cor verde no gráfico.
+
+
+Considerando nosso exemplo, parece razoável dizer que 9,48 t (NP_1) é uma produção maior que 6,28 t (NP_5). Então, é justo perguntar: O que pode ter acontecido para que as médias não tenham sido consideradas diferentes considerando a probabilidade de erro, mesmo tendo fortes indícios de que elas seriam? A primeira opção que nos vem a mente --e que na maioria das vezes é encontrada em artigos científicos-- é que as alterações no rendimento de grão observadas fora resultado do acaso; ou seja, neste caso, há a probabilidade de 11,17% de que uma diferença pelo menos tão grande quanto a observada no estudo possa ser gerada a partir de amostras aleatórias se os tratamentos não aferatem a variável resposta. Logo, a **recomendação estatística** neste caso, seria por optar por qualquer um dos tratamentos. Do ponto de vista prático, sabemos que esta recomendação está totalmente equivocada. Neste ponto surge uma importante (e polêmica) questão: a interpretação do *p*-valor. Um *p*-valor de 0,05 não significa que há uma chance de 95% de que determinada hipótese esteja correta. Em vez disso, significa que se a hipótese nula for verdadeira e todas as outras suposições feitas forem válidas, haverá 5% de chance que diferenças ao menos tão grandes quanto as observadas podem ser obtidas de amostras aleatórias. É preciso ter em mente que o *p*-valor relatado pelos testes é um significado probabilístico, não biológico. Assim, em experimentos biológicos, a interpretação desta estatística deve ser cautelosa, pois um *p*-valor pode não indicar a importância de uma descoberta. Por exemplo, um medicamento pode ter um efeito estatisticamente significativo nos níveis de glicose no sangue dos pacientes sem ter um efeito terapêutico. Sugerimos a leitura de cinco interessantes artigos relacionados a este assunto^[] [@altman2017; @baker2016; @singhchawla2017; @krzywinski2013; @nuzzo2014].
+
+Em adição à justificativa anterior (as alterações no rendimento de grão observadas fora resultado do acaso), existem pelo menos mais três razões potenciais para a não regeição da hipótese $H_0$ em nosso exemplo:
+
+1.  um experimento mal projetado com poder insuficiente para detectar uma diferença (à 5% de erro) entre as médias;
+2.  os tratamentos foram mal escolhidos e não refletiram adequadamente a hipótese inicial do estudo
+3.  o experimento foi indevidamente instalado e conduzido sem supervisão adequada, com baixo controle de qualidade sobre os protocolos de tratamento, coleta e análise de dados.
+
+Esta última opção parece ser a mais razoável aqui. É possivel observar no boxplot para o fator bloco que o bloco 4 parece ter uma média superior aos outros blocos. Sabe-ser que no DIC, toda diferença entre as repetições de um mesmo tratamento comporão o erro experimental. Logo, neste exemplo, a área experimental não era homogênea como se pressupunha na instalação do experimento. Isto ficará claro, posteriormente, ao analisarmos o mesmo conjunto de dados, no entanto considerando um DBC.
+
+## Anova em DBC
+```{r}
+with(df,
+     DBC(HIBRIDO, BLOCO, RG))
+```

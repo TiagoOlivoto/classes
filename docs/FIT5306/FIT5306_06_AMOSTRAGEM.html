@@ -77,7 +77,7 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/quarto-nav/headroom.min.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><link href="../FIT5306/FIT5306_07_DIC.html" rel="next">
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><link href="../FIT5306/FIT5306_07_DELN.html" rel="next">
 <link href="../FIT5306/FIT5306_05_DATAVIZ.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link class="quarto-color-scheme" href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
@@ -211,22 +211,27 @@
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_07_DIC.html" class="sidebar-item-text sidebar-link">7. Delineamento Inteiramente Casualizado</a>
+  <a href="../FIT5306/FIT5306_07_DELN.html" class="sidebar-item-text sidebar-link">7. Análise de Variância</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_08_DBC.html" class="sidebar-item-text sidebar-link">8. Delineamento de Blocos Completos Casualizados</a>
+  <a href="../FIT5306/FIT5306_08_DIC.html" class="sidebar-item-text sidebar-link">7. Delineamento Inteiramente Casualizado</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_09_FAT.html" class="sidebar-item-text sidebar-link">9. Experimentos Fatoriais</a>
+  <a href="../FIT5306/FIT5306_09_DBC.html" class="sidebar-item-text sidebar-link">8. Delineamento de Blocos Completos Casualizados</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_10_REG.html" class="sidebar-item-text sidebar-link">10. Regressão linear</a>
+  <a href="../FIT5306/FIT5306_10_FAT.html" class="sidebar-item-text sidebar-link">9. Experimentos Fatoriais</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../FIT5306/FIT5306_11_REG.html" class="sidebar-item-text sidebar-link">10. Regressão linear</a>
   </div>
 </li>
     </ul>
@@ -452,7 +457,7 @@
 </div>
 <section id="aplicação" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="aplicação">
 <span class="header-section-number">1.1</span> Aplicação</h2>
-<p>Vamos considerar uma variável <code>x</code>, distribuida normalmente com média $x = 10$ e desvio padrão $S = 2$, avaliada em população com N = 10.</p>
+<p>Vamos considerar uma variável <code>x</code>, distribuida normalmente com média <span class="math inline">\(\bar X = 10\)</span> e desvio padrão <span class="math inline">\(S = 2\)</span>, avaliada em população com N = 10.</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">N</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
 <span><span class="va">df2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">N</span>,</span>
@@ -460,16 +465,16 @@
 <span><span class="va">df2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>   id         x
-1   1 11.752907
-2   2  9.943288
-3   3  8.937223
-4   4 10.383449
-5   5  8.011774
-6   6 10.896359
-7   7 11.064803
-8   8 10.598519
-9   9  8.756339
-10 10  9.848901</code></pre>
+1   1  9.540154
+2   2  8.384215
+3   3 10.983604
+4   4 11.272380
+5   5  8.923937
+6   6  6.580294
+7   7 10.788441
+8   8 10.587815
+9   9 12.041337
+10 10  8.239767</code></pre>
 </div>
 </div>
 <p>Considerando uma amostragem com <code>n = 3</code>, as 120 amostras possíveis são</p>
@@ -511,26 +516,27 @@
 <span><span class="va">df_medias</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">amostras</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>media <span class="op">=</span> <span class="va">medias</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df_medias</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>  X1 X2 X3     media
-1  1  2  3 10.211139
-2  1  2  4 10.693214
-3  1  2  5  9.902656
-4  1  2  6 10.864185
-5  1  2  7 10.920332
-6  1  2  8 10.764904</code></pre>
+<pre><code>  X1 X2 X3    media
+1  1  2  3 9.635991
+2  1  2  4 9.732250
+3  1  2  5 8.949435
+4  1  2  6 8.168221
+5  1  2  7 9.570937
+6  1  2  8 9.504061</code></pre>
 </div>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">df_medias</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>    X1 X2 X3     media
-115  6  8 10 10.447927
-116  6  9 10  9.833867
-117  7  8  9 10.139887
-118  7  8 10 10.504075
-119  7  9 10  9.890015
-120  8  9 10  9.734586</code></pre>
+115  6  8 10  8.469292
+116  6  9 10  8.953799
+117  7  8  9 11.139198
+118  7  8 10  9.872008
+119  7  9 10 10.356515
+120  8  9 10 10.289640</code></pre>
 </div>
 <p>:::</p>
-<p>Ao computar a média das medias amostrais, obtém-se a média populacional ::: {.cell}</p>
+<p>Ao computar a média das medias amostrais, obtém-se a média populacional</p>
+<div class="cell">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">med_amostral</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">df_medias</span><span class="op">$</span><span class="va">media</span><span class="op">)</span></span>
 <span><span class="va">med_pop</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">df2</span><span class="op">$</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
@@ -544,7 +550,7 @@
 <div class="cell-output-display">
 <p><img src="FIT5306_06_AMOSTRAGEM_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
-<p>:::</p>
+</div>
 </section><section id="abordagem-paralela" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="abordagem-paralela">
 <span class="header-section-number">1.2</span> Abordagem paralela</h2>
 <p>Quando o número de amostras cresce bastante, a abordagem for-loop não é computacionalmente eficiente. Assim, uma abordagem utilizando <code><a href="https://rdrr.io/r/base/lapply.html">sapply()</a></code> é mais eficiente. Quando paraleliza-se a função, a eficiência aumenta mais ainda.</p>
@@ -592,14 +598,14 @@
 <div class="cell-output-stdout">
 <pre><code># A tibble: 6 × 4
 # Groups:   cromossomo [2]
-     id nome                     cromossomo `altura (cm)`
-  &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;              &lt;int&gt;
-1    11 Giulia Rosa              xx                   166
-2     6 Eloísa Vitória Cerezolli xx                   170
-3    13 Jessica Soccol de Lara   xx                   169
-4     9 Gabriel Aguiar Alamy     xy                    NA
-5    16 João Theodoro Bentz      xy                   180
-6    10 Giovanni Jansen Odorizzi xy                    NA</code></pre>
+     id nome                                 cromossomo `altura (cm)`
+  &lt;int&gt; &lt;chr&gt;                                &lt;chr&gt;              &lt;int&gt;
+1     6 Eloísa Vitória Cerezolli             xx                   170
+2     8 Flora dos Santos                     xx                   164
+3    27 Rafaela Seidler                      xx                   160
+4    21 Marcelo Augusto Nascimento dos Anjos xy                    NA
+5    22 Matheus de Oliveira Mussi            xy                    NA
+6    24 Paulo Romero Oliveira Sousa          xy                   176</code></pre>
 </div>
 </div>
 </section><section id="proporção-da-população-em-cada-estrato" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="proporção-da-população-em-cada-estrato">
@@ -611,16 +617,16 @@
 <div class="cell-output-stdout">
 <pre><code># A tibble: 8 × 4
 # Groups:   cromossomo [2]
-     id nome                              cromossomo `altura (cm)`
-  &lt;int&gt; &lt;chr&gt;                             &lt;chr&gt;              &lt;int&gt;
-1     8 Flora dos Santos                  xx                   164
-2    27 Rafaela Seidler                   xx                   160
-3    12 Jeronimo Osorio                   xy                    NA
-4    14 João Antonio Reitz Santos         xy                    NA
-5     5 Christiano Lohan Caldeira Correia xy                   173
-6    19 Kenji da Cruz Konno               xy                   168
-7     4 Arthur Pedro Ferreira Neto        xy                   174
-8    23 Matheus Ferreira Brascher         xy                   169</code></pre>
+     id nome                                 cromossomo `altura (cm)`
+  &lt;int&gt; &lt;chr&gt;                                &lt;chr&gt;              &lt;int&gt;
+1     3 Ana Júlia Melzzi                     xx                    NA
+2     2 Alice Maria Trois                    xx                   158
+3    25 Pedro Saraiva Dalberto               xy                   187
+4     1 Alexandre da Rocha Ramos             xy                    NA
+5    16 João Theodoro Bentz                  xy                   180
+6     4 Arthur Pedro Ferreira Neto           xy                   174
+7     9 Gabriel Aguiar Alamy                 xy                    NA
+8    21 Marcelo Augusto Nascimento dos Anjos xy                    NA</code></pre>
 </div>
 </div>
 </section></section><section id="amostragem-aleatória-sistemática" class="level1" data-number="3"><h1 data-number="3">
@@ -694,7 +700,7 @@
 <span id="cb30-50"><a href="#cb30-50" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-51"><a href="#cb30-51" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-52"><a href="#cb30-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aplicação</span></span>
-<span id="cb30-53"><a href="#cb30-53" aria-hidden="true" tabindex="-1"></a>Vamos considerar uma variável <span class="in">`x`</span>, distribuida normalmente  com média \$\bar x = 10\$ e desvio padrão \$S = 2\$, avaliada em população com N = 10.</span>
+<span id="cb30-53"><a href="#cb30-53" aria-hidden="true" tabindex="-1"></a>Vamos considerar uma variável <span class="in">`x`</span>, distribuida normalmente  com média $\bar X = 10$ e desvio padrão $S = 2$, avaliada em população com N = 10.</span>
 <span id="cb30-54"><a href="#cb30-54" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-57"><a href="#cb30-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb30-58"><a href="#cb30-58" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">10</span></span>
@@ -732,87 +738,88 @@
 <span id="cb30-94"><a href="#cb30-94" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-95"><a href="#cb30-95" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-96"><a href="#cb30-96" aria-hidden="true" tabindex="-1"></a>Ao computar a média das medias amostrais, obtém-se a média populacional</span>
-<span id="cb30-99"><a href="#cb30-99" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-100"><a href="#cb30-100" aria-hidden="true" tabindex="-1"></a>med_amostral <span class="ot">&lt;-</span> <span class="fu">mean</span>(df_medias<span class="sc">$</span>media)</span>
-<span id="cb30-101"><a href="#cb30-101" aria-hidden="true" tabindex="-1"></a>med_pop <span class="ot">&lt;-</span>  <span class="fu">mean</span>(df2<span class="sc">$</span>x)</span>
-<span id="cb30-102"><a href="#cb30-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-103"><a href="#cb30-103" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(med_amostral, med_pop)</span>
-<span id="cb30-104"><a href="#cb30-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-105"><a href="#cb30-105" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_medias, <span class="fu">aes</span>(<span class="at">x =</span> media)) <span class="sc">+</span></span>
-<span id="cb30-106"><a href="#cb30-106" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"gray"</span>) <span class="sc">+</span></span>
-<span id="cb30-107"><a href="#cb30-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> med_pop, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>)</span>
-<span id="cb30-108"><a href="#cb30-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-109"><a href="#cb30-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-110"><a href="#cb30-110" aria-hidden="true" tabindex="-1"></a><span class="fu">## Abordagem paralela</span></span>
-<span id="cb30-111"><a href="#cb30-111" aria-hidden="true" tabindex="-1"></a>Quando o número de amostras cresce bastante, a abordagem for-loop não é computacionalmente eficiente. Assim, uma abordagem utilizando <span class="in">`sapply()`</span> é mais eficiente. Quando paraleliza-se a função, a eficiência aumenta mais ainda.</span>
-<span id="cb30-112"><a href="#cb30-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-113"><a href="#cb30-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval = FALSE}</span></span>
-<span id="cb30-114"><a href="#cb30-114" aria-hidden="true" tabindex="-1"></a><span class="co"># criando uma função para obter a média de um id</span></span>
-<span id="cb30-115"><a href="#cb30-115" aria-hidden="true" tabindex="-1"></a>get_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(df, var, amostras, id){</span>
-<span id="cb30-116"><a href="#cb30-116" aria-hidden="true" tabindex="-1"></a>  individ <span class="ot">&lt;-</span> amostras[id,]</span>
-<span id="cb30-117"><a href="#cb30-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(df[[var]][individ])</span>
-<span id="cb30-118"><a href="#cb30-118" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb30-119"><a href="#cb30-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-97"><a href="#cb30-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-100"><a href="#cb30-100" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-101"><a href="#cb30-101" aria-hidden="true" tabindex="-1"></a>med_amostral <span class="ot">&lt;-</span> <span class="fu">mean</span>(df_medias<span class="sc">$</span>media)</span>
+<span id="cb30-102"><a href="#cb30-102" aria-hidden="true" tabindex="-1"></a>med_pop <span class="ot">&lt;-</span>  <span class="fu">mean</span>(df2<span class="sc">$</span>x)</span>
+<span id="cb30-103"><a href="#cb30-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-104"><a href="#cb30-104" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(med_amostral, med_pop)</span>
+<span id="cb30-105"><a href="#cb30-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-106"><a href="#cb30-106" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_medias, <span class="fu">aes</span>(<span class="at">x =</span> media)) <span class="sc">+</span></span>
+<span id="cb30-107"><a href="#cb30-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"gray"</span>) <span class="sc">+</span></span>
+<span id="cb30-108"><a href="#cb30-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> med_pop, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>)</span>
+<span id="cb30-109"><a href="#cb30-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-110"><a href="#cb30-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-111"><a href="#cb30-111" aria-hidden="true" tabindex="-1"></a><span class="fu">## Abordagem paralela</span></span>
+<span id="cb30-112"><a href="#cb30-112" aria-hidden="true" tabindex="-1"></a>Quando o número de amostras cresce bastante, a abordagem for-loop não é computacionalmente eficiente. Assim, uma abordagem utilizando <span class="in">`sapply()`</span> é mais eficiente. Quando paraleliza-se a função, a eficiência aumenta mais ainda.</span>
+<span id="cb30-113"><a href="#cb30-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-114"><a href="#cb30-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval = FALSE}</span></span>
+<span id="cb30-115"><a href="#cb30-115" aria-hidden="true" tabindex="-1"></a><span class="co"># criando uma função para obter a média de um id</span></span>
+<span id="cb30-116"><a href="#cb30-116" aria-hidden="true" tabindex="-1"></a>get_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(df, var, amostras, id){</span>
+<span id="cb30-117"><a href="#cb30-117" aria-hidden="true" tabindex="-1"></a>  individ <span class="ot">&lt;-</span> amostras[id,]</span>
+<span id="cb30-118"><a href="#cb30-118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(df[[var]][individ])</span>
+<span id="cb30-119"><a href="#cb30-119" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb30-120"><a href="#cb30-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-121"><a href="#cb30-121" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">30</span></span>
-<span id="cb30-122"><a href="#cb30-122" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb30-123"><a href="#cb30-123" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>N,</span>
-<span id="cb30-124"><a href="#cb30-124" aria-hidden="true" tabindex="-1"></a>                  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> N, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>))</span>
-<span id="cb30-125"><a href="#cb30-125" aria-hidden="true" tabindex="-1"></a>amostras2 <span class="ot">&lt;-</span> <span class="fu">combn</span>(N, n) <span class="sc">|&gt;</span> <span class="fu">t</span>()</span>
-<span id="cb30-126"><a href="#cb30-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-121"><a href="#cb30-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-122"><a href="#cb30-122" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb30-123"><a href="#cb30-123" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb30-124"><a href="#cb30-124" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>N,</span>
+<span id="cb30-125"><a href="#cb30-125" aria-hidden="true" tabindex="-1"></a>                  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> N, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>))</span>
+<span id="cb30-126"><a href="#cb30-126" aria-hidden="true" tabindex="-1"></a>amostras2 <span class="ot">&lt;-</span> <span class="fu">combn</span>(N, n) <span class="sc">|&gt;</span> <span class="fu">t</span>()</span>
 <span id="cb30-127"><a href="#cb30-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-128"><a href="#cb30-128" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
-<span id="cb30-129"><a href="#cb30-129" aria-hidden="true" tabindex="-1"></a>  medias2 <span class="ot">&lt;-</span></span>
-<span id="cb30-130"><a href="#cb30-130" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(amostras2), <span class="cf">function</span>(i){</span>
-<span id="cb30-131"><a href="#cb30-131" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_mean</span>(df, <span class="st">"x"</span>, amostras2, <span class="at">id =</span> i)</span>
-<span id="cb30-132"><a href="#cb30-132" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb30-133"><a href="#cb30-133" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-134"><a href="#cb30-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-128"><a href="#cb30-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-129"><a href="#cb30-129" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
+<span id="cb30-130"><a href="#cb30-130" aria-hidden="true" tabindex="-1"></a>  medias2 <span class="ot">&lt;-</span></span>
+<span id="cb30-131"><a href="#cb30-131" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(amostras2), <span class="cf">function</span>(i){</span>
+<span id="cb30-132"><a href="#cb30-132" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_mean</span>(df, <span class="st">"x"</span>, amostras2, <span class="at">id =</span> i)</span>
+<span id="cb30-133"><a href="#cb30-133" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb30-134"><a href="#cb30-134" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb30-135"><a href="#cb30-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-136"><a href="#cb30-136" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(parallel)</span>
-<span id="cb30-137"><a href="#cb30-137" aria-hidden="true" tabindex="-1"></a>clust <span class="ot">&lt;-</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
-<span id="cb30-138"><a href="#cb30-138" aria-hidden="true" tabindex="-1"></a><span class="fu">clusterExport</span>(clust,</span>
-<span id="cb30-139"><a href="#cb30-139" aria-hidden="true" tabindex="-1"></a>              <span class="at">varlist =</span> <span class="fu">c</span>(<span class="st">"df"</span>, <span class="st">"amostras2"</span>, <span class="st">"get_mean"</span>))</span>
-<span id="cb30-140"><a href="#cb30-140" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
-<span id="cb30-141"><a href="#cb30-141" aria-hidden="true" tabindex="-1"></a>  medias3 <span class="ot">&lt;-</span></span>
-<span id="cb30-142"><a href="#cb30-142" aria-hidden="true" tabindex="-1"></a>    <span class="fu">parLapply</span>(clust, <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(amostras2), <span class="cf">function</span>(i){</span>
-<span id="cb30-143"><a href="#cb30-143" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_mean</span>(df, <span class="st">"x"</span>, amostras2, <span class="at">id =</span> i)</span>
-<span id="cb30-144"><a href="#cb30-144" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb30-145"><a href="#cb30-145" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-146"><a href="#cb30-146" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(clust)</span>
-<span id="cb30-147"><a href="#cb30-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-148"><a href="#cb30-148" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-149"><a href="#cb30-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-136"><a href="#cb30-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-137"><a href="#cb30-137" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(parallel)</span>
+<span id="cb30-138"><a href="#cb30-138" aria-hidden="true" tabindex="-1"></a>clust <span class="ot">&lt;-</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
+<span id="cb30-139"><a href="#cb30-139" aria-hidden="true" tabindex="-1"></a><span class="fu">clusterExport</span>(clust,</span>
+<span id="cb30-140"><a href="#cb30-140" aria-hidden="true" tabindex="-1"></a>              <span class="at">varlist =</span> <span class="fu">c</span>(<span class="st">"df"</span>, <span class="st">"amostras2"</span>, <span class="st">"get_mean"</span>))</span>
+<span id="cb30-141"><a href="#cb30-141" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
+<span id="cb30-142"><a href="#cb30-142" aria-hidden="true" tabindex="-1"></a>  medias3 <span class="ot">&lt;-</span></span>
+<span id="cb30-143"><a href="#cb30-143" aria-hidden="true" tabindex="-1"></a>    <span class="fu">parLapply</span>(clust, <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(amostras2), <span class="cf">function</span>(i){</span>
+<span id="cb30-144"><a href="#cb30-144" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_mean</span>(df, <span class="st">"x"</span>, amostras2, <span class="at">id =</span> i)</span>
+<span id="cb30-145"><a href="#cb30-145" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb30-146"><a href="#cb30-146" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb30-147"><a href="#cb30-147" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(clust)</span>
+<span id="cb30-148"><a href="#cb30-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-149"><a href="#cb30-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb30-150"><a href="#cb30-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-151"><a href="#cb30-151" aria-hidden="true" tabindex="-1"></a><span class="fu"># Amostragem Aleatória Estratificada</span></span>
-<span id="cb30-152"><a href="#cb30-152" aria-hidden="true" tabindex="-1"></a><span class="fu">## Número igual dentro de cada estrato</span></span>
-<span id="cb30-155"><a href="#cb30-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-156"><a href="#cb30-156" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_random</span>(df, <span class="at">n =</span> <span class="dv">3</span>, <span class="at">strata =</span> cromossomo)</span>
-<span id="cb30-157"><a href="#cb30-157" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-158"><a href="#cb30-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-151"><a href="#cb30-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-152"><a href="#cb30-152" aria-hidden="true" tabindex="-1"></a><span class="fu"># Amostragem Aleatória Estratificada</span></span>
+<span id="cb30-153"><a href="#cb30-153" aria-hidden="true" tabindex="-1"></a><span class="fu">## Número igual dentro de cada estrato</span></span>
+<span id="cb30-156"><a href="#cb30-156" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-157"><a href="#cb30-157" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_random</span>(df, <span class="at">n =</span> <span class="dv">3</span>, <span class="at">strata =</span> cromossomo)</span>
+<span id="cb30-158"><a href="#cb30-158" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb30-159"><a href="#cb30-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-160"><a href="#cb30-160" aria-hidden="true" tabindex="-1"></a><span class="fu">## Proporção da população em cada estrato</span></span>
-<span id="cb30-163"><a href="#cb30-163" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-164"><a href="#cb30-164" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_random</span>(df,</span>
-<span id="cb30-165"><a href="#cb30-165" aria-hidden="true" tabindex="-1"></a>              <span class="at">prop =</span> <span class="fl">0.3</span>,</span>
-<span id="cb30-166"><a href="#cb30-166" aria-hidden="true" tabindex="-1"></a>              <span class="at">strata =</span> cromossomo)</span>
-<span id="cb30-167"><a href="#cb30-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb30-168"><a href="#cb30-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-160"><a href="#cb30-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-161"><a href="#cb30-161" aria-hidden="true" tabindex="-1"></a><span class="fu">## Proporção da população em cada estrato</span></span>
+<span id="cb30-164"><a href="#cb30-164" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-165"><a href="#cb30-165" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_random</span>(df,</span>
+<span id="cb30-166"><a href="#cb30-166" aria-hidden="true" tabindex="-1"></a>              <span class="at">prop =</span> <span class="fl">0.3</span>,</span>
+<span id="cb30-167"><a href="#cb30-167" aria-hidden="true" tabindex="-1"></a>              <span class="at">strata =</span> cromossomo)</span>
+<span id="cb30-168"><a href="#cb30-168" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb30-169"><a href="#cb30-169" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-170"><a href="#cb30-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-171"><a href="#cb30-171" aria-hidden="true" tabindex="-1"></a><span class="fu"># Amostragem aleatória sistemática</span></span>
-<span id="cb30-174"><a href="#cb30-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-175"><a href="#cb30-175" aria-hidden="true" tabindex="-1"></a>sample_sist <span class="ot">&lt;-</span> <span class="cf">function</span>(data, n, <span class="at">r =</span> <span class="cn">NULL</span>){</span>
-<span id="cb30-176"><a href="#cb30-176" aria-hidden="true" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(<span class="fu">nrow</span>(data) <span class="sc">/</span> n)</span>
-<span id="cb30-177"><a href="#cb30-177" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.null</span>(r)){</span>
-<span id="cb30-178"><a href="#cb30-178" aria-hidden="true" tabindex="-1"></a>    r <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>k, <span class="dv">1</span>)</span>
-<span id="cb30-179"><a href="#cb30-179" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb30-180"><a href="#cb30-180" aria-hidden="true" tabindex="-1"></a>  rows <span class="ot">&lt;-</span> <span class="fu">seq</span>(r, r <span class="sc">+</span> k<span class="sc">*</span>(n<span class="dv">-1</span>), k)</span>
-<span id="cb30-181"><a href="#cb30-181" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(data, rows)</span>
-<span id="cb30-182"><a href="#cb30-182" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb30-183"><a href="#cb30-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-184"><a href="#cb30-184" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_sist</span>(df, <span class="at">n =</span> <span class="dv">4</span>, <span class="at">r =</span> <span class="dv">1</span>)</span>
-<span id="cb30-185"><a href="#cb30-185" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb30-171"><a href="#cb30-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-172"><a href="#cb30-172" aria-hidden="true" tabindex="-1"></a><span class="fu"># Amostragem aleatória sistemática</span></span>
+<span id="cb30-175"><a href="#cb30-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-176"><a href="#cb30-176" aria-hidden="true" tabindex="-1"></a>sample_sist <span class="ot">&lt;-</span> <span class="cf">function</span>(data, n, <span class="at">r =</span> <span class="cn">NULL</span>){</span>
+<span id="cb30-177"><a href="#cb30-177" aria-hidden="true" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(<span class="fu">nrow</span>(data) <span class="sc">/</span> n)</span>
+<span id="cb30-178"><a href="#cb30-178" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.null</span>(r)){</span>
+<span id="cb30-179"><a href="#cb30-179" aria-hidden="true" tabindex="-1"></a>    r <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>k, <span class="dv">1</span>)</span>
+<span id="cb30-180"><a href="#cb30-180" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb30-181"><a href="#cb30-181" aria-hidden="true" tabindex="-1"></a>  rows <span class="ot">&lt;-</span> <span class="fu">seq</span>(r, r <span class="sc">+</span> k<span class="sc">*</span>(n<span class="dv">-1</span>), k)</span>
+<span id="cb30-182"><a href="#cb30-182" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(data, rows)</span>
+<span id="cb30-183"><a href="#cb30-183" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb30-184"><a href="#cb30-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-185"><a href="#cb30-185" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_sist</span>(df, <span class="at">n =</span> <span class="dv">4</span>, <span class="at">r =</span> <span class="dv">1</span>)</span>
+<span id="cb30-186"><a href="#cb30-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </section></main><!-- /main --><script type="application/javascript">
@@ -1044,8 +1051,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../FIT5306/FIT5306_07_DIC.html" class="pagination-link">
-        <span class="nav-page-text">7. Delineamento Inteiramente Casualizado</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../FIT5306/FIT5306_07_DELN.html" class="pagination-link">
+        <span class="nav-page-text">7. Análise de Variância</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

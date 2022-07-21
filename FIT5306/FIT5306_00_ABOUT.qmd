@@ -60,11 +60,11 @@ As seguintes planilhas contém dados de experimentos bifatoriais com diferentes 
 Planilhas específicas podem ser baixadas diretamente no software R, utilizando o argumento `sheet` da função `import()` do pacote `rio`.
 
 ```{r}
-url <- "http://bit.ly/df_bioestat"
+url <- "https://bit.ly/df_biostat"
 df_biostat <- import(url, sheet = "DIC-DBC")
 glimpse(df_biostat)
 ```
 
 Para baixar o arquivo `.xlsx`, utilize o botão abaixo.
 
-<a href="http://bit.ly/df_biostat_exp" target="_blank" rel="noopener"> <button class="btn btn-success"><i class="fa fa-save"></i> Download dados_biost_exp.xlsx</button> </a>
+<a href="https://bit.ly/df_biostat" target="_blank" rel="noopener"> <button class="btn btn-success"><i class="fa fa-save"></i> Download dados_biost_exp.xlsx</button> </a>

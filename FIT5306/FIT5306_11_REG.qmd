@@ -293,7 +293,7 @@ ggplot(df, aes(x, y)) +
 ## Regressão linear com repetições
 
 ```{r}
-url <- "http://bit.ly/df_biostat_exp"
+url <- "https://bit.ly/df_biostat"
 df_reg <- import(url, sheet = "REG_DEL_DATA", setclass = "tbl")
 
 
@@ -521,7 +521,7 @@ $$
 Utilizando a função do R `cor()` é possível obter o coeficiente de correlação entre duas variáveis, por exemplo, `APLA` e `AIES` do seguinte conjunto de dados:
 
 ```{r}
-url <- "http://bit.ly/df_biostat_exp"
+url <- "https://bit.ly/df_biostat"
 df_mat <- 
   import(url, sheet = "maize", setclass = "tbl") |> 
   select(APLA:MGRA)
@@ -553,7 +553,7 @@ corr_plot(df_mat)
 > Neste exemplo, serão utilizados dados de produtividade de grãos de milho (Kg /ha) de acordo com diferentes doses de dejeto suíno (m3/ha) aplicadas na cultura do milho^[https://periodicos.uem.br/ojs/index.php/ActaSciTechnol/article/download/5312/5312/].
 
 ```{r}
-url <- "https://bit.ly/df_bioestat"
+url <- "https://bit.ly/df_biostat"
 reg_ex <- import(url, sheet = "REG_EXERCICIO", setclass = "tbl")
 reg_ex
 
@@ -742,7 +742,7 @@ mutate(reg_ex,
 > Neste exemplo, serão utilizados dados referentes ao número de grãos (NGRA) e massa de grãos (MGRA) observados em 15 espigas de milho (n = 15).
 
 ```{r}
-url <- "http://bit.ly/df_biostat_exp"
+url <- "https://bit.ly/df_biostat"
 cor_ex <- import(url, sheet = "COR_EXERCICIO", setclass = "tbl")
 
 (x <- cor_ex$NGRA)
