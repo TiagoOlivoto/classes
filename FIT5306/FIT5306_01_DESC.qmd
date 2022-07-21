@@ -16,6 +16,7 @@ A estatística descritiva é um ramo da estatística que aplica várias técnica
 
 # Medidas de posição
 As medidas de posição (também conhecidas como medidas de tendência central) indicam um valor que melhor representa todo o conjunto de dados, ou seja, dão a tendência da concentração dos valores observados. É necessário, no entanto, cautela na interpretação de medidas de posição utilizadas de forma isolada, pois elas não nos dão a ideia da dispersão dos dados. As principais medidas de posição são: a média, a mediana e a moda. 
+
 ## Média
 
 ### Média aritmética
@@ -54,8 +55,9 @@ $$
 
 A escolha pelo uso da média harmônica para representação da média de um conjunto está ligada a situações que envolvem grandezas inversamente proporcionais, por exemplo a velocidade média. 
 
+
 ::: callout-tip
-#### Exemplo de aplicação
+## Exemplo de aplicação
 Um carro percorre um percurso de mesma distância duas vezes. No primeira, ele faz o percurso com uma velocidade V1 = 80 km/h. No segunda, ele realiza o mesmo percurso com velocidade de V2 = 120 km/h. Pede-se: qual foi a velocidade média dos dois percursos?
 
 Intuitivamente (e erroneamente) computaríamos a média aritmética ($(80 + 120) / 2 = 100$). Note que a distância é a mesma, para os dois percursos, o que muda é a velocidade e, consequentemente, o tempo. A resolução correta do problema é a seguinte:
@@ -385,3 +387,5 @@ ggbetweenstats(dados,
                ylab = "rendimento",
                k = 0)
 ```
+
+

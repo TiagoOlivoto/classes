@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.80">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Aulas - 2. Distribuição de frequências</title>
-<style>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.80">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Aulas - 2. Distribuição de frequências</title>
+  <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     span.underline{text-decoration: underline;}
@@ -76,16 +75,28 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/quarto-nav/headroom.min.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><link href="../FIT5306/FIT5306_03_DIST_DISCRET.html" rel="next">
-<link href="../FIT5306/FIT5306_01_DESC.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link class="quarto-color-scheme" href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
-<link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script><link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link class="quarto-color-scheme" href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
-<link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="../site_libs/bootstrap/bootstrap-dark.min.css">
-<script id="quarto-search-options" type="application/json">{
+
+  <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="../site_libs/quarto-nav/headroom.min.js"></script>
+  <script src="../site_libs/clipboard/clipboard.min.js"></script>
+  <meta name="quarto:offset" content="../">
+  <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+  <script src="../site_libs/quarto-search/fuse.min.js"></script>
+  <script src="../site_libs/quarto-search/quarto-search.js"></script>
+  <link href="../FIT5306/FIT5306_03_DIST_DISCRET.html" rel="next">
+  <link href="../FIT5306/FIT5306_01_DESC.html" rel="prev">
+  <script src="../site_libs/quarto-html/quarto.js"></script>
+  <script src="../site_libs/quarto-html/popper.min.js"></script>
+  <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="../site_libs/quarto-html/anchor.min.js"></script>
+  <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link class="quarto-color-scheme" href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css">
+  <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link class="quarto-color-scheme" href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="../site_libs/bootstrap/bootstrap-dark.min.css">
+  <script id="quarto-search-options" type="application/json">{
     "location": "sidebar",
     "copy-button": false,
     "collapse-after": 2,
@@ -103,17 +114,23 @@
       "search-detached-cancel-button-title": "Cancel",
       "search-submit-button-title": "Submit"
     }
-  }</script><script type="application/json" class="js-hypothesis-config">
+  }</script>
+  <script type="application/json" class="js-hypothesis-config">
   {
     "theme": "clean"
   }
-  </script><script async="" src="https://hypothes.is/embed.js"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><!--[if lt IE 9]>
+  </script>
+  <script async="" src="https://hypothes.is/embed.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body class="docked">
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
       <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Aulas</span>
   </a>
@@ -122,18 +139,15 @@
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-<li class="nav-item">
+  <li class="nav-item">
     <a class="nav-link" href="../00_about.html">About</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../FIT5306/FIT5306_00_ABOUT.html" aria-current="page">Bioestatística</a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../AGRCLI/AGRCLI_0_ABOUT.qmd">Agroclimatologia</a>
-  </li>  
 </ul>
-<ul class="navbar-nav navbar-nav-scroll ms-auto">
-<li class="nav-item compact">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
     <a class="nav-link" href="https://www.researchgate.net/profile/Tiago_Olivoto"><i class="bi bi-fab fa-researchgate fa" role="img">
 </i> 
  </a>
@@ -154,27 +168,33 @@
  </a>
   </li>  
 </ul>
-<div class="quarto-toggle-container">
+              <div class="quarto-toggle-container">
                   <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
               </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">2. Distribuição de frequências</h1>
       <button type="button" class="quarto-btn-toggle btn">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto"><div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../FIT5306/FIT5306_00_ABOUT.html" class="sidebar-item-text sidebar-link">FIT5306 - Bioestatística e Experimentação Agrícola</a>
   </div>
@@ -216,12 +236,12 @@
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_08_DIC.html" class="sidebar-item-text sidebar-link">7. Delineamento Inteiramente Casualizado</a>
+  <a href="../FIT5306/FIT5306_08_DIC.html" class="sidebar-item-text sidebar-link">8. Delineamento Inteiramente Casualizado</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_09_DBC.html" class="sidebar-item-text sidebar-link">8. Delineamento de Blocos Completos Casualizados</a>
+  <a href="../FIT5306/FIT5306_09_DBC.html" class="sidebar-item-text sidebar-link">9. Delineamento de Blocos Completos Casualizados</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -231,62 +251,66 @@
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_11_REG.html" class="sidebar-item-text sidebar-link">10. Regressão linear</a>
+  <a href="../FIT5306/FIT5306_11_REG.html" class="sidebar-item-text sidebar-link">11. Regressão linear</a>
   </div>
 </li>
     </ul>
-</div>
-</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc"><h2 id="toc-title">Nesta página</h2>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+<h2 id="toc-title">Nesta página</h2>
 <ul>
-<li>
-<a href="#vari%C3%A1veis-qualitativas-e-quantitativas-discretas" class="nav-link active" data-scroll-target="#vari%C3%A1veis-qualitativas-e-quantitativas-discretas"> <span class="header-section-number">1</span> Variáveis qualitativas e quantitativas discretas</a>
+<li><a href="#variáveis-qualitativas-e-quantitativas-discretas" class="nav-link active" data-scroll-target="#variáveis-qualitativas-e-quantitativas-discretas"> <span class="header-section-number">1</span> Variáveis qualitativas e quantitativas discretas</a>
 <ul class="collapse">
-<li><a href="#representa%C3%A7%C3%A3o-tabular" class="nav-link" data-scroll-target="#representa%C3%A7%C3%A3o-tabular"> <span class="header-section-number">1.1</span> Representação tabular</a></li>
-<li><a href="#representa%C3%A7%C3%A3o-gr%C3%A1fica" class="nav-link" data-scroll-target="#representa%C3%A7%C3%A3o-gr%C3%A1fica"> <span class="header-section-number">1.2</span> Representação gráfica</a></li>
-</ul>
-</li>
+<li><a href="#representação-tabular" class="nav-link" data-scroll-target="#representação-tabular"> <span class="header-section-number">1.1</span> Representação tabular</a></li>
+<li><a href="#representação-gráfica" class="nav-link" data-scroll-target="#representação-gráfica"> <span class="header-section-number">1.2</span> Representação gráfica</a></li>
+</ul></li>
 <li><a href="#section" class="nav-link" data-scroll-target="#section"> <span class="header-section-number">2</span> </a></li>
-<li>
-<a href="#vari%C3%A1veis-quantitativas" class="nav-link" data-scroll-target="#vari%C3%A1veis-quantitativas"> <span class="header-section-number">3</span> Variáveis quantitativas</a>
+<li><a href="#variáveis-quantitativas" class="nav-link" data-scroll-target="#variáveis-quantitativas"> <span class="header-section-number">3</span> Variáveis quantitativas</a>
 <ul class="collapse">
-<li><a href="#apresenta%C3%A7%C3%A3o-tabular" class="nav-link" data-scroll-target="#apresenta%C3%A7%C3%A3o-tabular"> <span class="header-section-number">3.1</span> Apresentação tabular</a></li>
-<li><a href="#apresenta%C3%A7%C3%A3o-gr%C3%A1fica" class="nav-link" data-scroll-target="#apresenta%C3%A7%C3%A3o-gr%C3%A1fica"> <span class="header-section-number">3.2</span> Apresentação gráfica</a></li>
-</ul>
-</li>
-<li>
-<a href="#exemplos-discutidos-em-aula" class="nav-link" data-scroll-target="#exemplos-discutidos-em-aula"> <span class="header-section-number">4</span> Exemplos discutidos em aula</a>
+<li><a href="#apresentação-tabular" class="nav-link" data-scroll-target="#apresentação-tabular"> <span class="header-section-number">3.1</span> Apresentação tabular</a></li>
+<li><a href="#apresentação-gráfica" class="nav-link" data-scroll-target="#apresentação-gráfica"> <span class="header-section-number">3.2</span> Apresentação gráfica</a></li>
+</ul></li>
+<li><a href="#exemplos-discutidos-em-aula" class="nav-link" data-scroll-target="#exemplos-discutidos-em-aula"> <span class="header-section-number">4</span> Exemplos discutidos em aula</a>
 <ul class="collapse">
-<li><a href="#cor-do-gr%C3%A3o-do-caf%C3%A9-grupo-3" class="nav-link" data-scroll-target="#cor-do-gr%C3%A3o-do-caf%C3%A9-grupo-3"> <span class="header-section-number">4.1</span> Cor do grão do café (grupo 3)</a></li>
+<li><a href="#cor-do-grão-do-café-grupo-3" class="nav-link" data-scroll-target="#cor-do-grão-do-café-grupo-3"> <span class="header-section-number">4.1</span> Cor do grão do café (grupo 3)</a></li>
 <li><a href="#altura-da-turma" class="nav-link" data-scroll-target="#altura-da-turma"> <span class="header-section-number">4.2</span> Altura da turma</a></li>
+</ul></li>
+<li><a href="#exercício" class="nav-link" data-scroll-target="#exercício"> <span class="header-section-number">5</span> Exercício</a></li>
 </ul>
-</li>
-<li><a href="#exerc%C3%ADcio" class="nav-link" data-scroll-target="#exerc%C3%ADcio"> <span class="header-section-number">5</span> Exercício</a></li>
-</ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306\FIT5306_02_FREQ.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306\FIT5306_02_FREQ.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<div class="quarto-title"><h1 class="title d-none d-lg-block">2. Distribuição de frequências</h1></div></header><p>Uma forma de lidar com grandes conjuntos de dados e identificar informações relevantes é agrupar estes dados. O agrupamento é feito em tabelas, denominadas de distribuições de frequências. A construção de distribuição de frequências é geralmente realizada de forma distinta para variáveis discretas (distribuição por pontos) e contínuas (distribuição por classes ou intervalos).</p>
+<main class="content" id="quarto-document-content">
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title"><h1 class="title d-none d-lg-block">2. Distribuição de frequências</h1></div></header>
+
+<p>Uma forma de lidar com grandes conjuntos de dados e identificar informações relevantes é agrupar estes dados. O agrupamento é feito em tabelas, denominadas de distribuições de frequências. A construção de distribuição de frequências é geralmente realizada de forma distinta para variáveis discretas (distribuição por pontos) e contínuas (distribuição por classes ou intervalos).</p>
 <p>Neste exemplo, vamos utilizar os dados coletados do comprimento, diâmetro e cor de grão de café.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leeper/rio">rio</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TiagoOlivoto/metan">metan</a></span><span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="co"># importar os dados do google sheet</span></span>
-<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=353032103"</span>,</span>
-<span>             dec <span class="op">=</span> <span class="st">","</span><span class="op">)</span></span>
-<span><span class="co"># mostrar os dados</span></span>
-<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># importar os dados do google sheet</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=353032103"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">dec =</span> <span class="st">","</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># mostrar os dados</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: right;">amostra</th>
 <th style="text-align: right;">comp_grao</th>
 <th style="text-align: right;">diam_grao</th>
 <th style="text-align: left;">cor_grao</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
@@ -460,32 +484,34 @@
 </table>
 </div>
 </div>
-<section id="variáveis-qualitativas-e-quantitativas-discretas" class="level1" data-number="1"><h1 data-number="1">
-<span class="header-section-number">1</span> Variáveis qualitativas e quantitativas discretas</h1>
+<section id="variáveis-qualitativas-e-quantitativas-discretas" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Variáveis qualitativas e quantitativas discretas</h1>
 <p>Para exemplificar a construção de tabelas de frequências de variáveis qualitativas / quantitativas discretas, utilizaremos a variável cor do grão. Neste caso, três classes (classes naturais) estão presentes: vermelho, amarelo e verde. Assim, a construção da tabela de frequência diz respeito a contagem de observações em cada uma destas classes e o cálculo das frequências relativas e absolutas.</p>
-<section id="representação-tabular" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="representação-tabular">
-<span class="header-section-number">1.1</span> Representação tabular</h2>
-<p>Pode-se criar facilmente esta tabela de frequência combinando as funções <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code> e <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> do pacote <code>dplyr</code> (parte do <code>tidyverse</code>).</p>
+<section id="representação-tabular" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="representação-tabular"><span class="header-section-number">1.1</span> Representação tabular</h2>
+<p>Pode-se criar facilmente esta tabela de frequência combinando as funções <code>count()</code> e <code>mutate()</code> do pacote <code>dplyr</code> (parte do <code>tidyverse</code>).</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tab_feq</span> <span class="op">&lt;-</span> </span>
-<span>  <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">cor_grao</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>abs_freq <span class="op">=</span> <span class="va">n</span>,</span>
-<span>         abs_freq_ac <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">abs_freq</span><span class="op">)</span>,</span>
-<span>         rel_freq <span class="op">=</span> <span class="va">abs_freq</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">abs_freq</span><span class="op">)</span>,</span>
-<span>         rel_freq_ac <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">rel_freq</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">tab_feq</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tab_feq <span class="ot">&lt;-</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(cor_grao) <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">abs_freq =</span> n,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">abs_freq_ac =</span> <span class="fu">cumsum</span>(abs_freq),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">rel_freq =</span> abs_freq <span class="sc">/</span> <span class="fu">sum</span>(abs_freq),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">rel_freq_ac =</span> <span class="fu">cumsum</span>(rel_freq))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(tab_feq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">cor_grao</th>
 <th style="text-align: right;">n</th>
 <th style="text-align: right;">abs_freq</th>
 <th style="text-align: right;">abs_freq_ac</th>
 <th style="text-align: right;">rel_freq</th>
 <th style="text-align: right;">rel_freq_ac</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">amarelo</td>
@@ -515,18 +541,21 @@
 </table>
 </div>
 </div>
-</section><section id="representação-gráfica" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="representação-gráfica">
-<span class="header-section-number">1.2</span> Representação gráfica</h2>
+</section>
+<section id="representação-gráfica" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="representação-gráfica"><span class="header-section-number">1.2</span> Representação gráfica</h2>
 <p>Para apresentar estes dados graficamente, pode-se construir um gráfico de barras, mostrando a contagem em cada classe.</p>
-</section></section><section id="section" class="level1" data-number="2"><h1 data-number="2">
-<span class="header-section-number">2</span> </h1>
+</section>
+</section>
+<section id="section" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> </h1>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">cor_grao</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>stat<span class="op">=</span><span class="st">"count"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">15</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Cor do grão"</span>,</span>
-<span>       y <span class="op">=</span> <span class="st">"Número de observações"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(cor_grao)) <span class="sc">+</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">stat=</span><span class="st">"count"</span>) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">15</span>) <span class="sc">+</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Cor do grão"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Número de observações"</span>) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stderr">
 <pre><code>Warning: Ignoring unknown parameters: binwidth, bins, pad</code></pre>
 </div>
@@ -534,8 +563,9 @@
 <p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section><section id="variáveis-quantitativas" class="level1" data-number="3"><h1 data-number="3">
-<span class="header-section-number">3</span> Variáveis quantitativas</h1>
+</section>
+<section id="variáveis-quantitativas" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Variáveis quantitativas</h1>
 <p>Para o caso de variáveis quantitativas contínuas (ex. <code>X</code>), precisamos agrupar os valores observados em intervalos de classe. Por exemplo, quando medimos uma altura de uma planta (ex. 1,86 m), a altura real não está limitado a segunda casa decimal. Então, a melhor forma será criar regiões (intervalos), de modo que possamos contemplar um conjunto de valores.</p>
 <p><span class="math display">\[
 \sqrt{250 \times \frac{2}{3}}
@@ -557,12 +587,12 @@ LI_1 = min(X) - c/2\\\\
 LS_1 = LI_1 + c
 \]</span></p>
 <p>O valor do limite superior não pertence a classe e será contabilizado para a próxima classe. Dizemos, então, que o conjunto é fechado a esquerda e aberto à direita. O limite inferior da segunda classe é dado pelo limite superior da primeira class (<span class="math inline">\(LI_2 = LS_1\)</span>); o limite superior da segunda classe é dado por (<span class="math inline">\(LS_2 = LI_2 + c\)</span>). Esta lógica segue até completar-se o número de classes do conjunto.</p>
-<p>A função <code><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">freq_table()</a></code> está disponível no pacote metan e é mostrada explicitamente aqui. Ela automatiza o processo de construção de tabelas de frequências, tanto para variáveis qualitativas como quantitativas. Basta informar o conjunto de dados, a variável, e, opcionalmente, o número de classes a ser criado.</p>
-<section id="apresentação-tabular" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="apresentação-tabular">
-<span class="header-section-number">3.1</span> Apresentação tabular</h2>
+<p>A função <code>freq_table()</code> está disponível no pacote metan e é mostrada explicitamente aqui. Ela automatiza o processo de construção de tabelas de frequências, tanto para variáveis qualitativas como quantitativas. Basta informar o conjunto de dados, a variável, e, opcionalmente, o número de classes a ser criado.</p>
+<section id="apresentação-tabular" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="apresentação-tabular"><span class="header-section-number">3.1</span> Apresentação tabular</h2>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">frequencias</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">freq_table</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">comp_grao</span><span class="op">)</span></span>
-<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">frequencias</span><span class="op">$</span><span class="va">freqs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>frequencias <span class="ot">&lt;-</span> <span class="fu">freq_table</span>(df, comp_grao)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(frequencias<span class="sc">$</span>freqs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
 <colgroup>
@@ -572,13 +602,15 @@ LS_1 = LI_1 + c
 <col style="width: 12%">
 <col style="width: 16%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">class</th>
 <th style="text-align: right;">abs_freq</th>
 <th style="text-align: right;">abs_freq_ac</th>
 <th style="text-align: right;">rel_freq</th>
 <th style="text-align: right;">rel_freq_ac</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">8.229 |— 9.952</td>
@@ -626,34 +658,39 @@ LS_1 = LI_1 + c
 </table>
 </div>
 </div>
-</section><section id="apresentação-gráfica" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="apresentação-gráfica">
-<span class="header-section-number">3.2</span> Apresentação gráfica</h2>
+</section>
+<section id="apresentação-gráfica" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="apresentação-gráfica"><span class="header-section-number">3.2</span> Apresentação gráfica</h2>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">freq_hist</a></span><span class="op">(</span><span class="va">frequencias</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">freq_hist</span>(frequencias)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section></section><section id="exemplos-discutidos-em-aula" class="level1" data-number="4"><h1 data-number="4">
-<span class="header-section-number">4</span> Exemplos discutidos em aula</h1>
-<section id="cor-do-grão-do-café-grupo-3" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="cor-do-grão-do-café-grupo-3">
-<span class="header-section-number">4.1</span> Cor do grão do café (grupo 3)</h2>
+</section>
+</section>
+<section id="exemplos-discutidos-em-aula" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Exemplos discutidos em aula</h1>
+<section id="cor-do-grão-do-café-grupo-3" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="cor-do-grão-do-café-grupo-3"><span class="header-section-number">4.1</span> Cor do grão do café (grupo 3)</h2>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_cor_grao</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=353032103"</span>,</span>
-<span>                      dec <span class="op">=</span> <span class="st">","</span><span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="va">freq_cafe</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">freq_table</a></span><span class="op">(</span><span class="va">df_cor_grao</span>, var <span class="op">=</span> <span class="va">cor_grao</span><span class="op">)</span></span>
-<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">freq_cafe</span><span class="op">$</span><span class="va">freqs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_cor_grao <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=353032103"</span>,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">dec =</span> <span class="st">","</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>freq_cafe <span class="ot">&lt;-</span> <span class="fu">freq_table</span>(df_cor_grao, <span class="at">var =</span> cor_grao)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(freq_cafe<span class="sc">$</span>freqs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">cor_grao</th>
 <th style="text-align: right;">abs_freq</th>
 <th style="text-align: right;">abs_freq_ac</th>
 <th style="text-align: right;">rel_freq</th>
 <th style="text-align: right;">rel_freq_ac</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">amarelo</td>
@@ -686,21 +723,22 @@ LS_1 = LI_1 + c
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># criar um histograma</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">freq_hist</a></span><span class="op">(</span><span class="va">freq_cafe</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># criar um histograma</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">freq_hist</span>(freq_cafe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section><section id="altura-da-turma" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="altura-da-turma">
-<span class="header-section-number">4.2</span> Altura da turma</h2>
+</section>
+<section id="altura-da-turma" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="altura-da-turma"><span class="header-section-number">4.2</span> Altura da turma</h2>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_altura</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1992833755"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_as.html">as_numeric</a></span><span class="op">(</span><span class="va">Altura</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Tabela</span></span>
-<span><span class="va">dist_altura</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">freq_table</a></span><span class="op">(</span><span class="va">df_altura</span>, var <span class="op">=</span> <span class="va">Altura</span><span class="op">)</span></span>
-<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">dist_altura</span><span class="op">$</span><span class="va">freqs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_altura <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1992833755"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_numeric</span>(Altura)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabela</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>dist_altura <span class="ot">&lt;-</span> <span class="fu">freq_table</span>(df_altura, <span class="at">var =</span> Altura)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(dist_altura<span class="sc">$</span>freqs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
 <colgroup>
@@ -710,13 +748,15 @@ LS_1 = LI_1 + c
 <col style="width: 12%">
 <col style="width: 16%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">class</th>
 <th style="text-align: right;">abs_freq</th>
 <th style="text-align: right;">abs_freq_ac</th>
 <th style="text-align: right;">rel_freq</th>
 <th style="text-align: right;">rel_freq_ac</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">154.333 |— 163.666</td>
@@ -756,35 +796,39 @@ LS_1 = LI_1 + c
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Gráfico</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">freq_hist</a></span><span class="op">(</span><span class="va">dist_altura</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">freq_hist</span>(dist_altura)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section></section><section id="exercício" class="level1" data-number="5"><h1 data-number="5">
-<span class="header-section-number">5</span> Exercício</h1>
+</section>
+</section>
+<section id="exercício" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Exercício</h1>
 <ol type="1">
 <li>Considerando os dados dos 5 grupos (classes), disponível na planilha ‘união’ (https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1453191616), construa e interprete a tabela de frequências, referente ao número de folhas avaliadas em cada grupo (quantitativa discreta).</li>
 </ol>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_uniao</span> <span class="op">&lt;-</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/rio/man/import.html">import</a></span><span class="op">(</span><span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1453191616"</span>,</span>
-<span>         dec <span class="op">=</span> <span class="st">","</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># filtrar somente folhas</span></span>
-<span><span class="va">df_folha</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">df_uniao</span>, <span class="va">tipo</span> <span class="op">==</span> <span class="st">"Folha"</span><span class="op">)</span></span>
-<span><span class="va">dist_numfolha</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">freq_table</a></span><span class="op">(</span><span class="va">df_folha</span>, var <span class="op">=</span> <span class="va">grupo</span><span class="op">)</span></span>
-<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">dist_numfolha</span><span class="op">$</span><span class="va">freqs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_uniao <span class="ot">&lt;-</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1453191616"</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">dec =</span> <span class="st">","</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># filtrar somente folhas</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>df_folha <span class="ot">&lt;-</span> <span class="fu">subset</span>(df_uniao, tipo <span class="sc">==</span> <span class="st">"Folha"</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>dist_numfolha <span class="ot">&lt;-</span> <span class="fu">freq_table</span>(df_folha, <span class="at">var =</span> grupo)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(dist_numfolha<span class="sc">$</span>freqs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">grupo</th>
 <th style="text-align: right;">abs_freq</th>
 <th style="text-align: right;">abs_freq_ac</th>
 <th style="text-align: right;">rel_freq</th>
 <th style="text-align: right;">rel_freq_ac</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Grupo 1</td>
@@ -831,21 +875,19 @@ LS_1 = LI_1 + c
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Gráfico</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">freq_hist</a></span><span class="op">(</span><span class="va">dist_numfolha</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">freq_hist</span>(dist_numfolha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <ol start="2" type="1">
-<li>
-<p>Considerando as observações de todos os grupos para a variável quantitativa contínua largura da folha, calcule:</p>
+<li><p>Considerando as observações de todos os grupos para a variável quantitativa contínua largura da folha, calcule:</p>
 <ol type="a">
 <li>O tamanho da amostra (n): 57 ::: {.cell}</li>
+</ol></li>
 </ol>
-</li>
-</ol>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">df_folha</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>(n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(df_folha))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>[1] 57</code></pre>
 </div>
@@ -853,7 +895,7 @@ LS_1 = LI_1 + c
 <ol start="2" type="a">
 <li>O número de classes (k): ::: {.cell}</li>
 </ol>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">k</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>(k <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">sqrt</span>(n)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>[1] 8</code></pre>
 </div>
@@ -861,7 +903,7 @@ LS_1 = LI_1 + c
 <ol start="3" type="a">
 <li>A amplitude dos dados: ::: {.cell}</li>
 </ol>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">ampl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">range_data</a></span><span class="op">(</span><span class="va">df_folha</span>, <span class="va">largura</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>(ampl <span class="ot">&lt;-</span> <span class="fu">range_data</span>(df_folha, largura))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>  largura
 1     5.9</code></pre>
@@ -870,7 +912,7 @@ LS_1 = LI_1 + c
 <ol start="4" type="a">
 <li>O tamanho da classe ::: {.cell}</li>
 </ol>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ampl</span> <span class="op">/</span> <span class="op">(</span><span class="va">k</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ampl <span class="sc">/</span> (k <span class="sc">-</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>    largura
 1 0.8428571</code></pre>
@@ -880,10 +922,10 @@ LS_1 = LI_1 + c
 <li>A tabela de distribuição de frequências contendo as frequências relativas e absolutas de cada classe.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dist_largf</span> <span class="op">&lt;-</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">freq_table</a></span><span class="op">(</span><span class="va">df_folha</span>,</span>
-<span>             var <span class="op">=</span> <span class="va">largura</span><span class="op">)</span></span>
-<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">dist_largf</span><span class="op">$</span><span class="va">freqs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>dist_largf <span class="ot">&lt;-</span> </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_table</span>(df_folha,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">var =</span> largura)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(dist_largf<span class="sc">$</span>freqs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
 <colgroup>
@@ -893,13 +935,15 @@ LS_1 = LI_1 + c
 <col style="width: 12%">
 <col style="width: 17%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">class</th>
 <th style="text-align: right;">abs_freq</th>
 <th style="text-align: right;">abs_freq_ac</th>
 <th style="text-align: right;">rel_freq</th>
 <th style="text-align: right;">rel_freq_ac</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">1.078 |— 1.922</td>
@@ -967,8 +1011,8 @@ LS_1 = LI_1 + c
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Gráfico</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/metan/man/utils_stats.html">freq_hist</a></span><span class="op">(</span><span class="va">dist_largf</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">freq_hist</span>(dist_largf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1172,7 +1216,9 @@ LS_1 = LI_1 + c
 <span id="cb23-217"><a href="#cb23-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
-</section></main><!-- /main --><script type="application/javascript">
+</section>
+</main> <!-- /main -->
+<script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const disableStylesheet = (stylesheets) => {
     for (let i=0; i < stylesheets.length; i++) {
@@ -1395,7 +1441,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="../FIT5306/FIT5306_01_DESC.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">1. Estatística Descritiva</span>
       </a>          
@@ -1407,7 +1455,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">Material de apoio à disciplinas</div>   
     <div class="nav-footer-right">Prof.&nbsp;Dr.&nbsp;Tiago Olivoto FIT/CCA/UFSC</div>
   </div>

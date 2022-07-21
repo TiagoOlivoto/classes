@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.80">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Aulas - 3. Distribuições discretas</title>
-<style>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.80">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Aulas - 3. Distribuições discretas</title>
+  <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     span.underline{text-decoration: underline;}
@@ -76,16 +75,28 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/quarto-nav/headroom.min.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><link href="../FIT5306/FIT5306_04_DIST_CONT.html" rel="next">
-<link href="../FIT5306/FIT5306_02_FREQ.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link class="quarto-color-scheme" href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
-<link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script><link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link class="quarto-color-scheme" href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
-<link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="../site_libs/bootstrap/bootstrap-dark.min.css">
-<script id="quarto-search-options" type="application/json">{
+
+  <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="../site_libs/quarto-nav/headroom.min.js"></script>
+  <script src="../site_libs/clipboard/clipboard.min.js"></script>
+  <meta name="quarto:offset" content="../">
+  <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+  <script src="../site_libs/quarto-search/fuse.min.js"></script>
+  <script src="../site_libs/quarto-search/quarto-search.js"></script>
+  <link href="../FIT5306/FIT5306_04_DIST_CONT.html" rel="next">
+  <link href="../FIT5306/FIT5306_02_FREQ.html" rel="prev">
+  <script src="../site_libs/quarto-html/quarto.js"></script>
+  <script src="../site_libs/quarto-html/popper.min.js"></script>
+  <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="../site_libs/quarto-html/anchor.min.js"></script>
+  <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link class="quarto-color-scheme" href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css">
+  <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link class="quarto-color-scheme" href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="../site_libs/bootstrap/bootstrap-dark.min.css">
+  <script id="quarto-search-options" type="application/json">{
     "location": "sidebar",
     "copy-button": false,
     "collapse-after": 2,
@@ -103,19 +114,31 @@
       "search-detached-cancel-button-title": "Cancel",
       "search-submit-button-title": "Submit"
     }
-  }</script><script type="application/json" class="js-hypothesis-config">
+  }</script>
+  <script type="application/json" class="js-hypothesis-config">
   {
     "theme": "clean"
   }
-  </script><script async="" src="https://hypothes.is/embed.js"></script><script src="..%5Csite_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="..%5Csite_libs/d3-3.3.8/d3.min.js"></script><script src="..%5Csite_libs/dagre-0.4.0/dagre-d3.min.js"></script><link href="..%5Csite_libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
-<script src="..%5Csite_libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script><link href="..%5Csite_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="..%5Csite_libs/chromatography-0.1/chromatography.js"></script><script src="..%5Csite_libs/DiagrammeR-binding-1.0.9/DiagrammeR.js"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><!--[if lt IE 9]>
+  </script>
+  <script async="" src="https://hypothes.is/embed.js"></script>
+  <script src="..\site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+  <script src="..\site_libs/d3-3.3.8/d3.min.js"></script>
+  <script src="..\site_libs/dagre-0.4.0/dagre-d3.min.js"></script>
+  <link href="..\site_libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
+  <script src="..\site_libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+  <link href="..\site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+  <script src="..\site_libs/chromatography-0.1/chromatography.js"></script>
+  <script src="..\site_libs/DiagrammeR-binding-1.0.9/DiagrammeR.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body class="docked">
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
       <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Aulas</span>
   </a>
@@ -124,18 +147,15 @@
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-<li class="nav-item">
+  <li class="nav-item">
     <a class="nav-link" href="../00_about.html">About</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../FIT5306/FIT5306_00_ABOUT.html" aria-current="page">Bioestatística</a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../AGRCLI/AGRCLI_0_ABOUT.qmd">Agroclimatologia</a>
-  </li>  
 </ul>
-<ul class="navbar-nav navbar-nav-scroll ms-auto">
-<li class="nav-item compact">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
     <a class="nav-link" href="https://www.researchgate.net/profile/Tiago_Olivoto"><i class="bi bi-fab fa-researchgate fa" role="img">
 </i> 
  </a>
@@ -156,27 +176,33 @@
  </a>
   </li>  
 </ul>
-<div class="quarto-toggle-container">
+              <div class="quarto-toggle-container">
                   <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
               </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">3. Distribuições discretas</h1>
       <button type="button" class="quarto-btn-toggle btn">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto"><div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../FIT5306/FIT5306_00_ABOUT.html" class="sidebar-item-text sidebar-link">FIT5306 - Bioestatística e Experimentação Agrícola</a>
   </div>
@@ -218,12 +244,12 @@
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_08_DIC.html" class="sidebar-item-text sidebar-link">7. Delineamento Inteiramente Casualizado</a>
+  <a href="../FIT5306/FIT5306_08_DIC.html" class="sidebar-item-text sidebar-link">8. Delineamento Inteiramente Casualizado</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_09_DBC.html" class="sidebar-item-text sidebar-link">8. Delineamento de Blocos Completos Casualizados</a>
+  <a href="../FIT5306/FIT5306_09_DBC.html" class="sidebar-item-text sidebar-link">9. Delineamento de Blocos Completos Casualizados</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -233,50 +259,53 @@
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_11_REG.html" class="sidebar-item-text sidebar-link">10. Regressão linear</a>
+  <a href="../FIT5306/FIT5306_11_REG.html" class="sidebar-item-text sidebar-link">11. Regressão linear</a>
   </div>
 </li>
     </ul>
-</div>
-</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc"><h2 id="toc-title">Nesta página</h2>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+<h2 id="toc-title">Nesta página</h2>
 <ul>
-<li><a href="#introdu%C3%A7%C3%A3o-%C3%A0-probabilidade" class="nav-link active" data-scroll-target="#introdu%C3%A7%C3%A3o-%C3%A0-probabilidade"> <span class="header-section-number">1</span> Introdução à probabilidade</a></li>
-<li>
-<a href="#distribui%C3%A7%C3%A3o-binomial" class="nav-link" data-scroll-target="#distribui%C3%A7%C3%A3o-binomial"> <span class="header-section-number">2</span> Distribuição binomial</a>
+<li><a href="#introdução-à-probabilidade" class="nav-link active" data-scroll-target="#introdução-à-probabilidade"> <span class="header-section-number">1</span> Introdução à probabilidade</a></li>
+<li><a href="#distribuição-binomial" class="nav-link" data-scroll-target="#distribuição-binomial"> <span class="header-section-number">2</span> Distribuição binomial</a>
 <ul class="collapse">
 <li><a href="#um-exemplo-simples" class="nav-link" data-scroll-target="#um-exemplo-simples"> <span class="header-section-number">2.1</span> Um exemplo simples</a></li>
-<li><a href="#exerc%C3%ADcio-bezerro" class="nav-link" data-scroll-target="#exerc%C3%ADcio-bezerro"> <span class="header-section-number">2.2</span> Exercício bezerro</a></li>
-<li>
-<a href="#exerc%C3%ADcio-quest%C3%B5es-prova" class="nav-link" data-scroll-target="#exerc%C3%ADcio-quest%C3%B5es-prova"> <span class="header-section-number">2.3</span> Exercício questões prova</a>
+<li><a href="#exercício-bezerro" class="nav-link" data-scroll-target="#exercício-bezerro"> <span class="header-section-number">2.2</span> Exercício bezerro</a></li>
+<li><a href="#exercício-questões-prova" class="nav-link" data-scroll-target="#exercício-questões-prova"> <span class="header-section-number">2.3</span> Exercício questões prova</a>
 <ul class="collapse">
-<li><a href="#probabilidade-de-n%C3%A3o-acertar-nenhuma-quest%C3%A3o" class="nav-link" data-scroll-target="#probabilidade-de-n%C3%A3o-acertar-nenhuma-quest%C3%A3o"> <span class="header-section-number">2.3.1</span> Probabilidade de não acertar nenhuma questão</a></li>
+<li><a href="#probabilidade-de-não-acertar-nenhuma-questão" class="nav-link" data-scroll-target="#probabilidade-de-não-acertar-nenhuma-questão"> <span class="header-section-number">2.3.1</span> Probabilidade de não acertar nenhuma questão</a></li>
 <li><a href="#probabilidade-de-ser-reprovado" class="nav-link" data-scroll-target="#probabilidade-de-ser-reprovado"> <span class="header-section-number">2.3.2</span> Probabilidade de ser reprovado</a></li>
 <li><a href="#probabilidade-de-ficar-em-exame" class="nav-link" data-scroll-target="#probabilidade-de-ficar-em-exame"> <span class="header-section-number">2.3.3</span> Probabilidade de ficar em exame</a></li>
 <li><a href="#passe-na-prova" class="nav-link" data-scroll-target="#passe-na-prova"> <span class="header-section-number">2.3.4</span> Passe na prova</a></li>
 <li><a href="#gabarite-a-prova" class="nav-link" data-scroll-target="#gabarite-a-prova"> <span class="header-section-number">2.3.5</span> Gabarite a prova</a></li>
-</ul>
-</li>
-<li><a href="#exerc%C3%ADcio-germina%C3%A7%C3%A3o-de-sementes" class="nav-link" data-scroll-target="#exerc%C3%ADcio-germina%C3%A7%C3%A3o-de-sementes"> <span class="header-section-number">2.4</span> Exercício germinação de sementes</a></li>
-<li>
-<a href="#exerc%C3%ADcio-nascimento-de-bezerros" class="nav-link" data-scroll-target="#exerc%C3%ADcio-nascimento-de-bezerros"> <span class="header-section-number">2.5</span> Exercício nascimento de bezerros</a>
+</ul></li>
+<li><a href="#exercício-germinação-de-sementes" class="nav-link" data-scroll-target="#exercício-germinação-de-sementes"> <span class="header-section-number">2.4</span> Exercício germinação de sementes</a></li>
+<li><a href="#exercício-nascimento-de-bezerros" class="nav-link" data-scroll-target="#exercício-nascimento-de-bezerros"> <span class="header-section-number">2.5</span> Exercício nascimento de bezerros</a>
 <ul class="collapse">
-<li><a href="#todos-os-bezerros-nascidos-sejam-f%C3%AAmeas" class="nav-link" data-scroll-target="#todos-os-bezerros-nascidos-sejam-f%C3%AAmeas"> <span class="header-section-number">2.5.1</span> Todos os bezerros nascidos sejam fêmeas</a></li>
-<li><a href="#pelo-menos-90-dos-bezerros-nascidos-sejam-f%C3%AAmeas" class="nav-link" data-scroll-target="#pelo-menos-90-dos-bezerros-nascidos-sejam-f%C3%AAmeas"> <span class="header-section-number">2.5.2</span> Pelo menos 90% dos bezerros nascidos sejam fêmeas</a></li>
-<li><a href="#multa-por-inefici%C3%AAncia" class="nav-link" data-scroll-target="#multa-por-inefici%C3%AAncia"> <span class="header-section-number">2.5.3</span> Multa por ineficiência</a></li>
+<li><a href="#todos-os-bezerros-nascidos-sejam-fêmeas" class="nav-link" data-scroll-target="#todos-os-bezerros-nascidos-sejam-fêmeas"> <span class="header-section-number">2.5.1</span> Todos os bezerros nascidos sejam fêmeas</a></li>
+<li><a href="#pelo-menos-90-dos-bezerros-nascidos-sejam-fêmeas" class="nav-link" data-scroll-target="#pelo-menos-90-dos-bezerros-nascidos-sejam-fêmeas"> <span class="header-section-number">2.5.2</span> Pelo menos 90% dos bezerros nascidos sejam fêmeas</a></li>
+<li><a href="#multa-por-ineficiência" class="nav-link" data-scroll-target="#multa-por-ineficiência"> <span class="header-section-number">2.5.3</span> Multa por ineficiência</a></li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306\FIT5306_03_DIST_DISCRET.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306\FIT5306_03_DIST_DISCRET.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<div class="quarto-title"><h1 class="title d-none d-lg-block">3. Distribuições discretas</h1></div></header><section id="introdução-à-probabilidade" class="level1" data-number="1"><h1 data-number="1">
-<span class="header-section-number">1</span> Introdução à probabilidade</h1>
+<main class="content" id="quarto-document-content">
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title"><h1 class="title d-none d-lg-block">3. Distribuições discretas</h1></div></header>
+
+<section id="introdução-à-probabilidade" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introdução à probabilidade</h1>
 <p>Um modelo probabilístico é um modelo em que, à priori, não é possível definir um resultado particular. Este modelo é especificado por meio de uma distribuição de probabilidade. Geralmente, modelos probabilísticos são utilizados quando se tem um grande número de variáveis influenciando o resultado e estas variáveis não podem ser controladas. Como exemplo, pode-se citar a observação da germinação de uma semente, o lançamento de um dado, onde tenta-se prever o número da face que irá sair, etc.</p>
-</section><section id="distribuição-binomial" class="level1" data-number="2"><h1 data-number="2">
-<span class="header-section-number">2</span> Distribuição binomial</h1>
+</section>
+<section id="distribuição-binomial" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Distribuição binomial</h1>
 <p>Seja <span class="math inline">\(E\)</span> um experimento aleatório e <span class="math inline">\(\Omega\)</span> um espaço amostra associado, onde <span class="math inline">\(n\)</span> é o número de vezes que o experimento <span class="math inline">\(E\)</span> é repetido, <span class="math inline">\(p\)</span> é a probabilidade de <span class="math inline">\(\Omega\)</span> ocorrer em cada uma das <span class="math inline">\(n\)</span> repetições de <span class="math inline">\(E\)</span>. Como existem apenas duas situações (<span class="math inline">\(\Omega\)</span> ocorre ou <span class="math inline">\(\Omega\)</span> não ocorre), pode-se determinar a probabilidade de <span class="math inline">\(\Omega\)</span> não ocorrer como sendo <span class="math inline">\(q = 1 - p\)</span>.</p>
 <p>Algumas condições devem ser respeitadas</p>
 <ul>
@@ -291,48 +320,44 @@ P(X = k) = \left( \begin{array}{l}n\\k\end{array} \right) \times {p^k} \times {q
 \]</span></p>
 <p>Onde:</p>
 <ul>
-<li>
-<span class="math inline">\(p\)</span> é probabilidade de sucesso;</li>
-<li>
-<span class="math inline">\(q\)</span> é probabilidade de fracasso;</li>
-<li>
-<span class="math inline">\(k\)</span> é número de sucessos;</li>
-<li>
-<span class="math inline">\(n\)</span> é tamanho amostral (número de experimentos).</li>
+<li><span class="math inline">\(p\)</span> é probabilidade de sucesso;</li>
+<li><span class="math inline">\(q\)</span> é probabilidade de fracasso;</li>
+<li><span class="math inline">\(k\)</span> é número de sucessos;</li>
+<li><span class="math inline">\(n\)</span> é tamanho amostral (número de experimentos).</li>
 </ul>
-<section id="um-exemplo-simples" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="um-exemplo-simples">
-<span class="header-section-number">2.1</span> Um exemplo simples</h2>
+<section id="um-exemplo-simples" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="um-exemplo-simples"><span class="header-section-number">2.1</span> Um exemplo simples</h2>
 <p>Consideremos a variável aleatória discreta <em>X</em> como o sexo de um bezerro nascido. Denotando sucesso (1 = fêmea) e fracasso (2 = macho), a probabilidade de sucesso é <span class="math inline">\(p = 0,5\)</span> e a de fracasso <span class="math inline">\(q = 1 - q = 0,5\)</span>. Assim, considerando o parto de uma vaca, há 50% de chance de nascimento de uma terneira.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rich-iannone/DiagrammeR">DiagrammeR</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/DiagrammeR/man/mermaid.html">mermaid</a></span><span class="op">(</span><span class="st">"</span></span>
-<span><span class="st">   graph TB</span></span>
-<span><span class="st">    Start --&gt;|0,5|A(1)</span></span>
-<span><span class="st">    Start --&gt;|0,5|B(0)</span></span>
-<span><span class="st">"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DiagrammeR)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mermaid</span>(<span class="st">"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">   graph TB</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">    Start --&gt;|0,5|A(1)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">    Start --&gt;|0,5|B(0)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-c0c372afec81f7441693" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c0c372afec81f7441693">{"x":{"diagram":"\n   graph TB\n    Start -->|0,5|A(1)\n    Start -->|0,5|B(0)\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-65405794f419a4a49d26" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-65405794f419a4a49d26">{"x":{"diagram":"\n   graph TB\n    Start -->|0,5|A(1)\n    Start -->|0,5|B(0)\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Considerando duas vacas prenhas, com a mesma probabilidade de nascimento de fêmeas, temos então o seguinte cenário.</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/DiagrammeR/man/mermaid.html">mermaid</a></span><span class="op">(</span><span class="st">"</span></span>
-<span><span class="st">   graph TB</span></span>
-<span><span class="st">    Start --&gt; |0,5|A(1)</span></span>
-<span><span class="st">    Start --&gt; |0,5|B(0)</span></span>
-<span><span class="st">    A --&gt; |0,5|C(1)</span></span>
-<span><span class="st">    A --&gt; |0,5|D(0)</span></span>
-<span><span class="st">    B --&gt; |0,5|E(1)</span></span>
-<span><span class="st">    B --&gt; |0,5|F(0)</span></span>
-<span><span class="st">    C --&gt; G(11 = pp)</span></span>
-<span><span class="st">    D --&gt; H(10 = pq)</span></span>
-<span><span class="st">    E --&gt; I(01 = qp)</span></span>
-<span><span class="st">    F --&gt; J(00 = qq)</span></span>
-<span><span class="st">"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mermaid</span>(<span class="st">"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="st">   graph TB</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="st">    Start --&gt; |0,5|A(1)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">    Start --&gt; |0,5|B(0)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">    A --&gt; |0,5|C(1)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="st">    A --&gt; |0,5|D(0)</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">    B --&gt; |0,5|E(1)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">    B --&gt; |0,5|F(0)</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">    C --&gt; G(11 = pp)</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">    D --&gt; H(10 = pq)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">    E --&gt; I(01 = qp)</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">    F --&gt; J(00 = qq)</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-fb30aea11af4c1eb36c5" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fb30aea11af4c1eb36c5">{"x":{"diagram":"\n   graph TB\n    Start --> |0,5|A(1)\n    Start --> |0,5|B(0)\n    A --> |0,5|C(1)\n    A --> |0,5|D(0)\n    B --> |0,5|E(1)\n    B --> |0,5|F(0)\n    C --> G(11 = pp)\n    D --> H(10 = pq)\n    E --> I(01 = qp)\n    F --> J(00 = qq)\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a8eb9b28ebc6e5d8f498" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a8eb9b28ebc6e5d8f498">{"x":{"diagram":"\n   graph TB\n    Start --> |0,5|A(1)\n    Start --> |0,5|B(0)\n    A --> |0,5|C(1)\n    A --> |0,5|D(0)\n    B --> |0,5|E(1)\n    B --> |0,5|F(0)\n    C --> G(11 = pp)\n    D --> H(10 = pq)\n    E --> I(01 = qp)\n    F --> J(00 = qq)\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Assim, as probabilidades associadas ao número de nascimentos de bezzeras são dadas por</p>
@@ -354,26 +379,23 @@ P(X = 1) = \left( \begin{array}{l}2\\\1\end{array} \right) \times {0,5^1} \times
 <p><span class="math display">\[
 P(X = 2) = \left( \begin{array}{l}2\\\2\end{array} \right) \times {0,5^2} \times {0,5^{2 - 2}} = 0,25
 \]</span></p>
-<p>No software R, a probabilidade de sucesso de um evento para uma variável que segue uma distribuição binomial é computada com a função <code><a href="https://rdrr.io/r/stats/Binomial.html">dbinom()</a></code>.</p>
+<p>No software R, a probabilidade de sucesso de um evento para uma variável que segue uma distribuição binomial é computada com a função <code>dbinom()</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/args.html">args</a></span><span class="op">(</span><span class="va">dbinom</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">args</span>(dbinom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>function (x, size, prob, log = FALSE) 
 NULL</code></pre>
 </div>
 </div>
 <ul>
-<li>
-<code>x</code> é o vetor de quantiles (sucesso);</li>
-<li>
-<code>size</code> é o número de experimentos (repetições);</li>
-<li>
-<code>prob</code> é a probabilidade de sucesso em cada experimento aleatório.</li>
+<li><code>x</code> é o vetor de quantiles (sucesso);</li>
+<li><code>size</code> é o número de experimentos (repetições);</li>
+<li><code>prob</code> é a probabilidade de sucesso em cada experimento aleatório.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>nbez <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">2</span>,</span>
-<span>           prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">2</span>, size <span class="op">=</span> <span class="fl">2</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">nbez =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">2</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">prob =</span> <span class="fu">dbinom</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">prob =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>  nbez prob
 1    0 0.25
@@ -383,39 +405,39 @@ NULL</code></pre>
 </div>
 <p>A mesma lógica é utilizada para uma situação onde três vacas estão prenhas. Assim, <span class="math inline">\(n = 3\)</span>, gera o seguinte cenário.</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/DiagrammeR/man/mermaid.html">mermaid</a></span><span class="op">(</span><span class="st">"</span></span>
-<span><span class="st">   graph TB</span></span>
-<span><span class="st">    Start --&gt; |0,5|A(1)</span></span>
-<span><span class="st">    Start --&gt; |0,5|B(0)</span></span>
-<span><span class="st">    A --&gt; |0,5|C(1)</span></span>
-<span><span class="st">    A --&gt; |0,5|D(0)</span></span>
-<span><span class="st">    B --&gt; |0,5|E(1)</span></span>
-<span><span class="st">    B --&gt; |0,5|F(0)</span></span>
-<span><span class="st">    C --&gt; |0,5|G(1)</span></span>
-<span><span class="st">    C --&gt; |0,5|H(0)</span></span>
-<span><span class="st">    D --&gt; |0,5|I(1)</span></span>
-<span><span class="st">    D --&gt; |0,5|J(0)</span></span>
-<span><span class="st">    E --&gt; |0,5|K(1)</span></span>
-<span><span class="st">    E --&gt; |0,5|L(0)</span></span>
-<span><span class="st">    F --&gt; |0,5|M(1)</span></span>
-<span><span class="st">    F --&gt; |0,5|N(0)</span></span>
-<span><span class="st">    G --&gt; O(111 = ppp)</span></span>
-<span><span class="st">    H --&gt; P(110 = ppq)</span></span>
-<span><span class="st">    I --&gt; Q(101 = pqp)</span></span>
-<span><span class="st">    J --&gt; R(100 = pqq)</span></span>
-<span><span class="st">    K --&gt; S(011 = qpp)</span></span>
-<span><span class="st">    L --&gt; T(010 = qpq)</span></span>
-<span><span class="st">    M --&gt; U(001 = qqp)</span></span>
-<span><span class="st">    N --&gt; V(000 = qqq)</span></span>
-<span><span class="st">"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mermaid</span>(<span class="st">"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="st">   graph TB</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="st">    Start --&gt; |0,5|A(1)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="st">    Start --&gt; |0,5|B(0)</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="st">    A --&gt; |0,5|C(1)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="st">    A --&gt; |0,5|D(0)</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="st">    B --&gt; |0,5|E(1)</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="st">    B --&gt; |0,5|F(0)</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="st">    C --&gt; |0,5|G(1)</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="st">    C --&gt; |0,5|H(0)</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="st">    D --&gt; |0,5|I(1)</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="st">    D --&gt; |0,5|J(0)</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="st">    E --&gt; |0,5|K(1)</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="st">    E --&gt; |0,5|L(0)</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="st">    F --&gt; |0,5|M(1)</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="st">    F --&gt; |0,5|N(0)</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="st">    G --&gt; O(111 = ppp)</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="st">    H --&gt; P(110 = ppq)</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="st">    I --&gt; Q(101 = pqp)</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="st">    J --&gt; R(100 = pqq)</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="st">    K --&gt; S(011 = qpp)</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="st">    L --&gt; T(010 = qpq)</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="st">    M --&gt; U(001 = qqp)</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="st">    N --&gt; V(000 = qqq)</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-426deddd986aeff49345" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-426deddd986aeff49345">{"x":{"diagram":"\n   graph TB\n    Start --> |0,5|A(1)\n    Start --> |0,5|B(0)\n    A --> |0,5|C(1)\n    A --> |0,5|D(0)\n    B --> |0,5|E(1)\n    B --> |0,5|F(0)\n    C --> |0,5|G(1)\n    C --> |0,5|H(0)\n    D --> |0,5|I(1)\n    D --> |0,5|J(0)\n    E --> |0,5|K(1)\n    E --> |0,5|L(0)\n    F --> |0,5|M(1)\n    F --> |0,5|N(0)\n    G --> O(111 = ppp)\n    H --> P(110 = ppq)\n    I --> Q(101 = pqp)\n    J --> R(100 = pqq)\n    K --> S(011 = qpp)\n    L --> T(010 = qpq)\n    M --> U(001 = qqp)\n    N --> V(000 = qqq)\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-cf62f7950180e5d637e4" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cf62f7950180e5d637e4">{"x":{"diagram":"\n   graph TB\n    Start --> |0,5|A(1)\n    Start --> |0,5|B(0)\n    A --> |0,5|C(1)\n    A --> |0,5|D(0)\n    B --> |0,5|E(1)\n    B --> |0,5|F(0)\n    C --> |0,5|G(1)\n    C --> |0,5|H(0)\n    D --> |0,5|I(1)\n    D --> |0,5|J(0)\n    E --> |0,5|K(1)\n    E --> |0,5|L(0)\n    F --> |0,5|M(1)\n    F --> |0,5|N(0)\n    G --> O(111 = ppp)\n    H --> P(110 = ppq)\n    I --> Q(101 = pqp)\n    J --> R(100 = pqq)\n    K --> S(011 = qpp)\n    L --> T(010 = qpq)\n    M --> U(001 = qqp)\n    N --> V(000 = qqq)\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>n_femeas <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span>,</span>
-<span>           prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">3</span>, size <span class="op">=</span> <span class="fl">3</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">n_femeas =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">3</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">prob =</span> <span class="fu">dbinom</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">prob =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>  n_femeas  prob
 1        0 0.125
@@ -424,17 +446,18 @@ NULL</code></pre>
 4        3 0.125</code></pre>
 </div>
 </div>
-</section><section id="exercício-bezerro" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="exercício-bezerro">
-<span class="header-section-number">2.2</span> Exercício bezerro</h2>
+</section>
+<section id="exercício-bezerro" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="exercício-bezerro"><span class="header-section-number">2.2</span> Exercício bezerro</h2>
 <p>Um produtor possui quatro vacas prenhas de monta natural. Como está cursando a disciplina de Bioestatística, ele gostaria de calcular probabilidades associadas ao nascimento de bezerras fêmeas.</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span></span>
-<span><span class="va">bezerros</span> <span class="op">&lt;-</span> </span>
-<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>nbez <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">4</span>,</span>
-<span>         prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">4</span>, size <span class="op">=</span> <span class="fl">4</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,</span>
-<span>         prob_ac <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">prob</span><span class="op">)</span>,</span>
-<span>         prob_ac_inv <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="va">prob_ac</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">bezerros</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>bezerros <span class="ot">&lt;-</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">nbez =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">prob =</span> <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">prob =</span> <span class="fl">0.5</span>),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">prob_ac =</span> <span class="fu">cumsum</span>(prob),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">prob_ac_inv =</span> <span class="fu">rev</span>(prob_ac))</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>bezerros</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code># A tibble: 5 × 4
    nbez   prob prob_ac prob_ac_inv
@@ -445,145 +468,154 @@ NULL</code></pre>
 4     3 0.25    0.938       0.313 
 5     4 0.0625  1           0.0625</code></pre>
 </div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Gráfico da distribuição</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">bezerros</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">nbez</span>, <span class="va">prob</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>,</span>
-<span>           col <span class="op">=</span> <span class="st">"black"</span>,</span>
-<span>           size <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>           fill <span class="op">=</span> <span class="st">"cyan"</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Número de bezerros fêmeas"</span>,</span>
-<span>       y <span class="op">=</span> <span class="st">"Probabilidade"</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_grey</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico da distribuição</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bezerros, <span class="fu">aes</span>(nbez, prob))<span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">col =</span> <span class="st">"black"</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="dv">0</span>,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">"cyan"</span>)<span class="sc">+</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Número de bezerros fêmeas"</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Probabilidade"</span>)<span class="sc">+</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>))) <span class="sc">+</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))) <span class="sc">+</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_grey</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="FIT5306_03_DIST_DISCRET_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section><section id="exercício-questões-prova" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="exercício-questões-prova">
-<span class="header-section-number">2.3</span> Exercício questões prova</h2>
+</section>
+<section id="exercício-questões-prova" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="exercício-questões-prova"><span class="header-section-number">2.3</span> Exercício questões prova</h2>
 <p>Considere uma prova de estatística com peso 10 contendo 10 questões, cada uma com 5 alternativas. Apenas 1 é correta. Se o aluno tirar uma nota inferior a 4, o aluno está reprovado. Notas entre 4 e 7 fazem com que o aluno fique em exame. Se a nota for superior a 7 o aluno passa. Como João não prestou atenção nas aulas de estatística, ele decidiu “chutar” todas as questões. Calcule as probabilidades que se pede.</p>
-<section id="probabilidade-de-não-acertar-nenhuma-questão" class="level3" data-number="2.3.1"><h3 data-number="2.3.1" class="anchored" data-anchor-id="probabilidade-de-não-acertar-nenhuma-questão">
-<span class="header-section-number">2.3.1</span> Probabilidade de não acertar nenhuma questão</h3>
+<section id="probabilidade-de-não-acertar-nenhuma-questão" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="probabilidade-de-não-acertar-nenhuma-questão"><span class="header-section-number">2.3.1</span> Probabilidade de não acertar nenhuma questão</h3>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>[1] 0.1073742</code></pre>
 </div>
 </div>
-</section><section id="probabilidade-de-ser-reprovado" class="level3" data-number="2.3.2"><h3 data-number="2.3.2" class="anchored" data-anchor-id="probabilidade-de-ser-reprovado">
-<span class="header-section-number">2.3.2</span> Probabilidade de ser reprovado</h3>
+</section>
+<section id="probabilidade-de-ser-reprovado" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="probabilidade-de-ser-reprovado"><span class="header-section-number">2.3.2</span> Probabilidade de ser reprovado</h3>
 <p>João será reprovado caso acerte menos que quatro questões. Logo, a soma as probabilidades de acertar 0, 1, 2 e 3 questões é esta probabilidade.</p>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.2</span>) <span class="sc">%&gt;%</span> <span class="fu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>[1] 0.8791261</code></pre>
 </div>
 </div>
-</section><section id="probabilidade-de-ficar-em-exame" class="level3" data-number="2.3.3"><h3 data-number="2.3.3" class="anchored" data-anchor-id="probabilidade-de-ficar-em-exame">
-<span class="header-section-number">2.3.3</span> Probabilidade de ficar em exame</h3>
+</section>
+<section id="probabilidade-de-ficar-em-exame" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="probabilidade-de-ficar-em-exame"><span class="header-section-number">2.3.3</span> Probabilidade de ficar em exame</h3>
 <p>João ficará em exame caso acerte entre 4 e 7 questões. Logo, a probabilidade de ficar em exame será a soma das probabilidades individuais destes números de questões.</p>
 <div class="cell">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">7</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.2</span>) <span class="sc">%&gt;%</span> <span class="fu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>[1] 0.120796</code></pre>
 </div>
 </div>
-</section><section id="passe-na-prova" class="level3" data-number="2.3.4"><h3 data-number="2.3.4" class="anchored" data-anchor-id="passe-na-prova">
-<span class="header-section-number">2.3.4</span> Passe na prova</h3>
+</section>
+<section id="passe-na-prova" class="level3" data-number="2.3.4">
+<h3 data-number="2.3.4" class="anchored" data-anchor-id="passe-na-prova"><span class="header-section-number">2.3.4</span> Passe na prova</h3>
 <p>João somente passará na prova, caso acerte mais que sete questões. Valendo-se da propriedade da soma das probabilidades, a probabilidade de João passar na prova é data tanto somando-se as probabilidades de acertar 8, 9 e 10 questões, quanto subtraindo a unidade da probabilidade da soma de acerto de até 7 questões.</p>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">8</span><span class="op">:</span><span class="fl">10</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">8</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.2</span>) <span class="sc">%&gt;%</span> <span class="fu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>[1] 7.79264e-05</code></pre>
 </div>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">7</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">dbinom</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.2</span>) <span class="sc">|&gt;</span> <span class="fu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>[1] 7.79264e-05</code></pre>
 </div>
 </div>
-</section><section id="gabarite-a-prova" class="level3" data-number="2.3.5"><h3 data-number="2.3.5" class="anchored" data-anchor-id="gabarite-a-prova">
-<span class="header-section-number">2.3.5</span> Gabarite a prova</h3>
+</section>
+<section id="gabarite-a-prova" class="level3" data-number="2.3.5">
+<h3 data-number="2.3.5" class="anchored" data-anchor-id="gabarite-a-prova"><span class="header-section-number">2.3.5</span> Gabarite a prova</h3>
 <p>A probabilidade de acerto de 10 questões é dada pela probabilidade pontual de exatamente 10 sucessos em 10 tentativas.</p>
 <div class="cell">
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">10</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">10</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>[1] 1.024e-07</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prova</span> <span class="op">&lt;-</span> </span>
-<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>nques <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">10</span>,</span>
-<span>         prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">10</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span>,</span>
-<span>         prob_ac <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">prob</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">prova</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">nques</span>, <span class="va">prob</span>, label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">prob</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>,</span>
-<span>           col <span class="op">=</span> <span class="st">"black"</span>,</span>
-<span>           fill <span class="op">=</span> <span class="st">"cyan"</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Número de questões"</span>,</span>
-<span>       y <span class="op">=</span> <span class="st">"Probabilidade"</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"Probabilidade de acerto em uma prova de 10 questões"</span>,</span>
-<span>          subtitle <span class="op">=</span> <span class="st">"Cada questão tem 5 alternativas, apenas 1 é correta"</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>vjust <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_grey</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>prova <span class="ot">&lt;-</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">nques =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">prob =</span> <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.2</span>),</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">prob_ac =</span> <span class="fu">cumsum</span>(prob))</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(prova, <span class="fu">aes</span>(nques, prob, <span class="at">label =</span> <span class="fu">round</span>(prob, <span class="dv">4</span>)))<span class="sc">+</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>,</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">col =</span> <span class="st">"black"</span>,</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">"cyan"</span>)<span class="sc">+</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>))<span class="sc">+</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Número de questões"</span>,</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Probabilidade"</span>)<span class="sc">+</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label =</span> <span class="st">"Probabilidade de acerto em uma prova de 10 questões"</span>,</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">subtitle =</span> <span class="st">"Cada questão tem 5 alternativas, apenas 1 é correta"</span>)<span class="sc">+</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>)))<span class="sc">+</span></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_grey</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="FIT5306_03_DIST_DISCRET_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="960"></p>
 </div>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># distribuição acumulada</span></span>
-<span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">prova</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">nques</span>, <span class="va">prob_ac</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_path</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Número de questões"</span>,</span>
-<span>       y <span class="op">=</span> <span class="st">"Probabilidade acumulada"</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"Probabilidade acumulada de acertar 10 questões 'chutando' todas"</span>,</span>
-<span>          subtitle <span class="op">=</span> <span class="st">"Cada questão tem 5 alternativas, apenas 1 é correta"</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_grey</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># distribuição acumulada</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(prova, <span class="fu">aes</span>(nques, prob_ac))<span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Número de questões"</span>,</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Probabilidade acumulada"</span>)<span class="sc">+</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label =</span> <span class="st">"Probabilidade acumulada de acertar 10 questões 'chutando' todas"</span>,</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">subtitle =</span> <span class="st">"Cada questão tem 5 alternativas, apenas 1 é correta"</span>)<span class="sc">+</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_grey</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="FIT5306_03_DIST_DISCRET_files/figure-html/unnamed-chunk-13-2.png" class="img-fluid" width="960"></p>
 </div>
 </div>
-</section></section><section id="exercício-germinação-de-sementes" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="exercício-germinação-de-sementes">
-<span class="header-section-number">2.4</span> Exercício germinação de sementes</h2>
+</section>
+</section>
+<section id="exercício-germinação-de-sementes" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="exercício-germinação-de-sementes"><span class="header-section-number">2.4</span> Exercício germinação de sementes</h2>
 <p>Uma empresa produtora de sementes de moranga vende pacotes com 20 sementes cada. O percentual de germinação destas sementes é de 92%. A empresa garante que pacotes que contém menos de 18 sementes germinadas são indenizados na metade do valor de venda. Se você comprou um pacote de sementes desta empresa a probabilidade de ser indenizado é de:</p>
 <div class="cell">
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">17</span>, size <span class="op">=</span> <span class="fl">20</span>, prob <span class="op">=</span> <span class="fl">0.92</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">17</span>, <span class="at">size =</span> <span class="dv">20</span>, <span class="at">prob =</span> <span class="fl">0.92</span>) <span class="sc">|&gt;</span> <span class="fu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>[1] 0.2120538</code></pre>
 </div>
 </div>
-</section><section id="exercício-nascimento-de-bezerros" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="exercício-nascimento-de-bezerros">
-<span class="header-section-number">2.5</span> Exercício nascimento de bezerros</h2>
+</section>
+<section id="exercício-nascimento-de-bezerros" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="exercício-nascimento-de-bezerros"><span class="header-section-number">2.5</span> Exercício nascimento de bezerros</h2>
 <blockquote class="blockquote">
 <p>A inseminação artificial (IA) é uma das biotecnias da reprodução bovina mais importante e utilizada visando o melhoramento genético do rebanho. O uso de sêmem sexado é uma tecnologia em que os espermatozoides que vão resultar na escolha do sexo que o criador deseja, são separados daqueles que resultariam em machos após a fecundação do óvulo. Ou seja, ao final do processo obtêm-se uma paleta de sêmen com predominância de espermatozoides “fêmeas” ou “Machos”, dependendo da escolha. Portanto, a sexagem de espermatozoides permite maximizar a produção animal, possibilitando maior progresso genético entre as gerações<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 </blockquote>
 <p>Considere um lote de 120 vacas inseminadas com sêmem sexado que contenha a probabilidade de 85% de nascimento de fêmeas. Assumindo um nascimento por fêmea, calcule a probabilidade de:</p>
-<section id="todos-os-bezerros-nascidos-sejam-fêmeas" class="level3" data-number="2.5.1"><h3 data-number="2.5.1" class="anchored" data-anchor-id="todos-os-bezerros-nascidos-sejam-fêmeas">
-<span class="header-section-number">2.5.1</span> Todos os bezerros nascidos sejam fêmeas</h3>
+<section id="todos-os-bezerros-nascidos-sejam-fêmeas" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="todos-os-bezerros-nascidos-sejam-fêmeas"><span class="header-section-number">2.5.1</span> Todos os bezerros nascidos sejam fêmeas</h3>
 <p>Neste caso, a probabilidade é dada pela probabilidade pontual de 120 nascimentos de fêmeas.</p>
 <div class="cell">
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">120</span>, size <span class="op">=</span> <span class="fl">120</span>, prob <span class="op">=</span> <span class="fl">0.85</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">120</span>, <span class="at">size =</span> <span class="dv">120</span>, <span class="at">prob =</span> <span class="fl">0.85</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>[1] 3.390557e-09</code></pre>
 </div>
 </div>
-</section><section id="pelo-menos-90-dos-bezerros-nascidos-sejam-fêmeas" class="level3" data-number="2.5.2"><h3 data-number="2.5.2" class="anchored" data-anchor-id="pelo-menos-90-dos-bezerros-nascidos-sejam-fêmeas">
-<span class="header-section-number">2.5.2</span> Pelo menos 90% dos bezerros nascidos sejam fêmeas</h3>
+</section>
+<section id="pelo-menos-90-dos-bezerros-nascidos-sejam-fêmeas" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="pelo-menos-90-dos-bezerros-nascidos-sejam-fêmeas"><span class="header-section-number">2.5.2</span> Pelo menos 90% dos bezerros nascidos sejam fêmeas</h3>
 <p>Neste caso, precisaríamos de, pelo menos, 108 (120 <span class="math inline">\(\times\)</span> 0,9) bezerros fêmeas. Então, a probabilidade dessa ocorrência é <span class="math inline">\(P(X \&gt;= 108) = P(X = 109) + P(X = 109) + ... + P(X = 120)\)</span></p>
 <div class="cell">
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>nascimentos <span class="op">=</span> <span class="fl">108</span><span class="op">:</span><span class="fl">120</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="va">nascimentos</span>, size <span class="op">=</span> <span class="fl">120</span>, prob <span class="op">=</span> <span class="fl">0.85</span><span class="op">)</span>,</span>
-<span>         acum <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">prob</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">nascimentos =</span> <span class="dv">108</span><span class="sc">:</span><span class="dv">120</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> <span class="fu">dbinom</span>(nascimentos, <span class="at">size =</span> <span class="dv">120</span>, <span class="at">prob =</span> <span class="fl">0.85</span>),</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">acum =</span> <span class="fu">cumsum</span>(prob))</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>   nascimentos         prob       acum
 1          108 3.260600e-02 0.03260600
@@ -601,50 +633,51 @@ NULL</code></pre>
 13         120 3.390557e-09 0.07463092</code></pre>
 </div>
 </div>
-</section><section id="multa-por-ineficiência" class="level3" data-number="2.5.3"><h3 data-number="2.5.3" class="anchored" data-anchor-id="multa-por-ineficiência">
-<span class="header-section-number">2.5.3</span> Multa por ineficiência</h3>
+</section>
+<section id="multa-por-ineficiência" class="level3" data-number="2.5.3">
+<h3 data-number="2.5.3" class="anchored" data-anchor-id="multa-por-ineficiência"><span class="header-section-number">2.5.3</span> Multa por ineficiência</h3>
 <p>O vendedor do sêmen se comprometeu em pagar uma multa de R$10,00 para cada bezerro macho nascido se a taxa de parição de fêmeas fosse menor que 75%. Qual a probabilidade do produtor receber alguma indenização?</p>
 <p>O produtor somente será indenizado se nascerem 89 ou menos bezerras. Assim, a probabilidade é dada pela soma das probabilidades individuais de 0 até 89</p>
 <div class="cell">
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">89</span>, size <span class="op">=</span> <span class="fl">120</span>, prob <span class="op">=</span> <span class="fl">0.85</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">89</span>, <span class="at">size =</span> <span class="dv">120</span>, <span class="at">prob =</span> <span class="fl">0.85</span>) <span class="sc">|&gt;</span> <span class="fu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>[1] 0.001409492</code></pre>
 </div>
 </div>
 <p>Abaixo, é possível identificar a distribuição de probabilidade para o exemplo dado.</p>
 <div class="cell">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bezerros</span> <span class="op">&lt;-</span> </span>
-<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>nbez <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">120</span>,</span>
-<span>         prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">120</span>, size <span class="op">=</span> <span class="fl">120</span>, prob <span class="op">=</span> <span class="fl">0.85</span><span class="op">)</span>,</span>
-<span>         prob_ac <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">prob</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="co"># Gráfico da distribuição</span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">bezerros</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">nbez</span>, <span class="va">prob</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>,</span>
-<span>           col <span class="op">=</span> <span class="st">"black"</span>,</span>
-<span>           size <span class="op">=</span> <span class="fl">0.05</span>,</span>
-<span>           fill <span class="op">=</span> <span class="st">"cyan"</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Número de bezerros fêmeas"</span>,</span>
-<span>       y <span class="op">=</span> <span class="st">"Probabilidade"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"Probabilidade de nascimento de terneiras em 120 partos"</span>,</span>
-<span>          subtitle <span class="op">=</span> <span class="st">"Sêmen com 85% de probabilidade de nascimento de terneiras"</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">120</span>, <span class="fl">20</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>bezerros <span class="ot">&lt;-</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">nbez =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">120</span>,</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">prob =</span> <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">120</span>, <span class="at">size =</span> <span class="dv">120</span>, <span class="at">prob =</span> <span class="fl">0.85</span>),</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">prob_ac =</span> <span class="fu">cumsum</span>(prob))</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico da distribuição</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bezerros, <span class="fu">aes</span>(nbez, prob))<span class="sc">+</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>,</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">col =</span> <span class="st">"black"</span>,</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="fl">0.05</span>,</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">"cyan"</span>)<span class="sc">+</span></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Número de bezerros fêmeas"</span>,</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Probabilidade"</span>) <span class="sc">+</span></span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label =</span> <span class="st">"Probabilidade de nascimento de terneiras em 120 partos"</span>,</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">subtitle =</span> <span class="st">"Sêmen com 85% de probabilidade de nascimento de terneiras"</span>)<span class="sc">+</span></span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>)))<span class="sc">+</span></span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">120</span>, <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="FIT5306_03_DIST_DISCRET_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># distribuição acumulada</span></span>
-<span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">bezerros</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">nbez</span>, <span class="va">prob_ac</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_path</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Número de fêmeas"</span>,</span>
-<span>       y <span class="op">=</span> <span class="st">"Probabilidade acumulada"</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"Probabilidade acumulada de nascimento de fêmeas"</span>,</span>
-<span>          subtitle <span class="op">=</span> <span class="st">"Sêmem sexado com 85% de chance de nascimento de fêmeas"</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="co"># scale_x_continuous(breaks = c(0:10)) +</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_grey</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># distribuição acumulada</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bezerros, <span class="fu">aes</span>(nbez, prob_ac))<span class="sc">+</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Número de fêmeas"</span>,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Probabilidade acumulada"</span>)<span class="sc">+</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label =</span> <span class="st">"Probabilidade acumulada de nascimento de fêmeas"</span>,</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">subtitle =</span> <span class="st">"Sêmem sexado com 85% de chance de nascimento de fêmeas"</span>)<span class="sc">+</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># scale_x_continuous(breaks = c(0:10)) +</span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_grey</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="FIT5306_03_DIST_DISCRET_files/figure-html/unnamed-chunk-18-2.png" class="img-fluid" width="672"></p>
 </div>
@@ -987,10 +1020,17 @@ NULL</code></pre>
 <span id="cb37-364"><a href="#cb37-364" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
-</section></section></section><div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+</section>
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
 <ol>
 <li id="fn1" role="doc-endnote"><p>https://cooperativa.coop.br/semen-sexado-entenda-o-que-e/<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol></section></div></main><!-- /main --><script type="application/javascript">
+</ol>
+</section></div></main> <!-- /main -->
+<script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const disableStylesheet = (stylesheets) => {
     for (let i=0; i < stylesheets.length; i++) {
@@ -1213,7 +1253,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="../FIT5306/FIT5306_02_FREQ.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2. Distribuição de frequências</span>
       </a>          
@@ -1225,7 +1267,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">Material de apoio à disciplinas</div>   
     <div class="nav-footer-right">Prof.&nbsp;Dr.&nbsp;Tiago Olivoto FIT/CCA/UFSC</div>
   </div>

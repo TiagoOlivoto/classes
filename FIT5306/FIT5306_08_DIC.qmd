@@ -1,5 +1,5 @@
 ---
-title: "7. Delineamento Inteiramente Casualizado"
+title: "8. Delineamento Inteiramente Casualizado"
 ---
 
 # Pacotes

@@ -4,7 +4,6 @@ project:
   render:
     - "*.qmd"
     - "FIT5306/"
-    - "!AGRCLI/"
 
 comments:
   hypothesis: 
@@ -40,8 +39,6 @@ website:
         icon: fa fa-home
       - text: "Bioestatística"
         file: FIT5306/FIT5306_00_ABOUT.qmd
-      - text: "Agroclimatologia"
-        file: AGRCLI/AGRCLI_0_ABOUT.qmd
 
 
     right:
@@ -73,15 +70,6 @@ website:
         - FIT5306/FIT5306_09_DBC.qmd
         - FIT5306/FIT5306_10_FAT.qmd
         - FIT5306/FIT5306_11_REG.qmd
-        
-    - title: "Agroclimatologia"
-      style: "docked"
-      background: light
-      contents:
-        - AGRCLI/AGRCLI_0_ABOUT.qmd
-        - AGRCLI/AGRCLI_01_TEMP.qmd
-        - AGRCLI/AGRCLI_02_VENTO.qmd
-
 
 format:
   html:
@@ -91,13 +79,13 @@ format:
     toc: true
     df_print: paged
     toc-title: "Nesta página"
+    toc-depth: 4
     number-sections: true
     number-depth: 3
     smooth-scroll: true
     code-fold: false
     code-summary: "Mostrar código"
     code-tools: true
-    code-link: true
     code-block-bg: "#f5f2f2"
     highlight-style: tango
     code-block-border-left: "#31BAE9"
