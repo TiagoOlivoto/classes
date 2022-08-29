@@ -13,7 +13,7 @@ Esta página contém os materiais de apoio em linguagem R das disciplinas minist
 
 Para reprodução dos exemplos deste material, os softwares R e RStudio são necessários
 
-<iframe width="720" height="406" src="https://www.youtube.com/embed/e89kyYJgWqc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="780" height="440" src="https://www.youtube.com/embed/e89kyYJgWqc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <a class="btn btn-success" href="https://cran.r-project.org/bin/windows/base/" target="_blank"><i class="fa fa-save"></i> Download do R</a>
 

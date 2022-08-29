@@ -11,15 +11,18 @@ library(metan)
 
 # Introdução
 
-A estatística descritiva é um ramo da estatística que aplica várias técnicas para descrever e sumarizar um conjunto de dados^[https://pt.wikipedia.org/wiki/Estat%C3%ADstica_descritiva]. Nesse material trataremos das medidas de posição e medidas de dispersão mais utilizadas para descrever um conjunto de dados (ou grupos de dados).
+A estatística descritiva é um ramo da estatística que aplica várias técnicas para descrever e sumarizar um conjunto de dados[^1]. Nesse material trataremos das medidas de posição e medidas de dispersão mais utilizadas para descrever um conjunto de dados (ou grupos de dados).
 
+[^1]: https://pt.wikipedia.org/wiki/Estat%C3%ADstica_descritiva
 
 # Medidas de posição
-As medidas de posição (também conhecidas como medidas de tendência central) indicam um valor que melhor representa todo o conjunto de dados, ou seja, dão a tendência da concentração dos valores observados. É necessário, no entanto, cautela na interpretação de medidas de posição utilizadas de forma isolada, pois elas não nos dão a ideia da dispersão dos dados. As principais medidas de posição são: a média, a mediana e a moda. 
+
+As medidas de posição (também conhecidas como medidas de tendência central) indicam um valor que melhor representa todo o conjunto de dados, ou seja, dão a tendência da concentração dos valores observados. É necessário, no entanto, cautela na interpretação de medidas de posição utilizadas de forma isolada, pois elas não nos dão a ideia da dispersão dos dados. As principais medidas de posição são: a média, a mediana e a moda.
 
 ## Média
 
 ### Média aritmética
+
 Seja uma amostra $X_1$, $X_2$, $X_n$, de uma população $X_1$, $X_2$, $X_N$ de tamanho $n$ e $N$, definimos a média aritmética por
 
 $$
@@ -39,6 +42,7 @@ mean(altura)
 ```
 
 ### Média geométrica
+
 A média geométrica ($m_g$) entre um conjunto de `n` dados é a `n`-ésima raíz do produto desses dados.
 
 $$
@@ -46,47 +50,47 @@ m_g = \sqrt[n]{\prod\limits_{i = 1}^n {{x_i}} }
 $$
 
 ### Média harmônica
+
 A média harmônica ($m_h$) é definida como sendo o inverso da média aritmética dos inversos, representada como segue
 
 $$
 m_h = \frac{n}{{\sum\limits_{i = 1}^n {\frac{1}{{{x_i}}}} }}
 $$
 
-
-A escolha pelo uso da média harmônica para representação da média de um conjunto está ligada a situações que envolvem grandezas inversamente proporcionais, por exemplo a velocidade média. 
-
+A escolha pelo uso da média harmônica para representação da média de um conjunto está ligada a situações que envolvem grandezas inversamente proporcionais, por exemplo a velocidade média.
 
 ::: callout-tip
 ## Exemplo de aplicação
+
 Um carro percorre um percurso de mesma distância duas vezes. No primeira, ele faz o percurso com uma velocidade V1 = 80 km/h. No segunda, ele realiza o mesmo percurso com velocidade de V2 = 120 km/h. Pede-se: qual foi a velocidade média dos dois percursos?
 
 Intuitivamente (e erroneamente) computaríamos a média aritmética ($(80 + 120) / 2 = 100$). Note que a distância é a mesma, para os dois percursos, o que muda é a velocidade e, consequentemente, o tempo. A resolução correta do problema é a seguinte:
 
 Sejam,
 
-$d$, a distância do percurso
-$v_1$, a velocidade média do percurso
-$t_i$, o tempo de viagem do percurso
+$d$, a distância do percurso $v_1$, a velocidade média do percurso $t_i$, o tempo de viagem do percurso
 
 Então, temos que $d = v_1t_1=v_2t_2$. Se $v$ é a velocidad média nos dois trajetos, então $2d=v(t_1+t_2)$, ou $2d=v(d/v_1+d/v_2)$. Moral da história: a velocidade média no percurso todo é a média harmônica das velocidades dos dois percursos:
 
 $$
 m_h = \frac{2}{{{\frac{1}{{{80}}} + \frac{1}{{{120}}}} }} = 96
 $$
-
-
 :::
 
-No R base, não existe uma função específica para a média harmônica. Pode-se utilizar, então, a função `hmean()` do pacote `metan`^[https://tiagoolivoto.github.io/metan/].
+No R base, não existe uma função específica para a média harmônica. Pode-se utilizar, então, a função `hmean()` do pacote `metan`[^2].
+
+[^2]: https://tiagoolivoto.github.io/metan/
+
 ```{r}
 library(metan)
 hmean(c(80, 120))
 
 ```
 
-
 ## Mediana
- A mediana é calculada com a função `median()`.
+
+A mediana é calculada com a função `median()`.
+
 ```{r}
 altura <- c(245, 250, 269, 280, 262)
 
@@ -101,7 +105,6 @@ sort(altura)
 (mediana <- median(altura))
 
 ```
-
 
 # Medidas de dispersão
 
@@ -153,7 +156,9 @@ ggplot(df, aes(x = altura, y = pessoa)) +
        y = "Planta")
 ```
 
-A expressão anterior resulta em $$
+A expressão anterior resulta em
+
+$$
 DM  = \sum_{i = 1}^{n} \left(X_i - \bar{X} \right) = 0
 $$
 
@@ -356,7 +361,6 @@ dados <-
              valor = c(A, B, C))
 
 dados
-
 ```
 
 Utilizando a função `means_by()` do pacote metan é possível computar médias por grupos.
@@ -387,5 +391,3 @@ ggbetweenstats(dados,
                ylab = "rendimento",
                k = 0)
 ```
-
-

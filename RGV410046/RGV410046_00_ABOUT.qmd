@@ -1,0 +1,116 @@
+---
+title: "RGV410046 - Introdução à linguagem R de programação"
+---
+
+![](figs/bem-vindo.png)
+
+Bem-vindo ao material de apoio da disciplina RGV410046 (Introdução à linguagem R de programação)! Esta página contém os dados e scripts R necessários para aplicação prática dos conteúdos vistos na disciplina.
+
+# Docentes
+
+[Prof. Dr. Tiago olivoto](https://olivoto.netlify.app/)
+
+[Prof. Dra. Ana Catarina Conte Jakovac](http://lattes.cnpq.br/6851033339458776)
+
+
+# Conteúdo programático
+
+* 21/11/2022 a 02/12/2022
+
+## 21/11/2022 (08:20 às 11:50)
+
+* Introdução à disciplina
+* Instalação do R e Rstudio
+* Introdução ao R
+  - Script
+  - Básico de funções
+  - Pacotes
+  - Fóruns e materiais de apoio
+  
+* Exercício (encontrar pacotes)
+  
+
+## 23/11/2022 (13:30 às 16:00)
+* Dinâmica aula anterior
+* Tipos de dados
+   - Numérico
+   - Lógico
+   - Caractere
+* Estrutura de dados;
+   - Vetor
+   - Matriz
+   - Data frame
+   - Tibbles
+   - Array
+* Lógica de programação
+  - Base
+  - Tidyverse
+* Exercício (lógica de programação)
+
+## 24/11/2022 (13:30 às 16:00)
+* Importação de dados (pc, repositório)
+* dados tidy
+* Conversão de dados
+* Exercício descrição dos dados, arrumar tipo de dados
+* Exportação de dados
+
+## 25/11/2022 (13:30 às 16:00)
+* Mutação de dados
+  - select
+  - filter
+  - arrange
+  - mutate
+  - group_by
+* (dados próprios para o dia 1)
+
+
+## 28/11/2022  (08:20 às 11:50)
+* Sintetização de dados
+  - summarise
+  - across
+
+
+## 30/11/2022 (13:30 às 16:00)
+* Manipulação de dados 
+   - Longer (dados errados, para arrumar)
+   - Wider
+   - rename
+   - Separate
+   - Unite
+
+
+## 01/12/2022 (13:30 às 16:00)
+* Seus dados, suas análises
+
+
+## 02/12/2022 (13:30 às 15:00)
+* o básico do ggplot2
+* Fechamento da disciplina
+
+
+# Instalação do R e Rstudio
+
+Para reprodução dos exemplos deste material, os softwares R e RStudio são necessários
+
+<iframe width="720" height="406" src="https://www.youtube.com/embed/e89kyYJgWqc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<a class="btn btn-success" href="https://cran.r-project.org/bin/windows/base/" target="_blank"><i class="fa fa-save"></i> Download do R</a>
+
+
+<a class="btn btn-success" href="https://www.rstudio.com/products/rstudio/download/" target="_blank"><i class="fa fa-save"></i> Download do RStudio</a>
+
+
+# Pacotes necessários
+
+Para começar, é sugerido que os seguintes pacotes sejam instalados (confira como fazer isso no vídeo abaixo).
+
+<iframe width="780" height="440" src="https://www.youtube.com/embed/8B8QDZnDhtY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+```{r warning=FALSE, message = FALSE}
+library(tidyverse)  # manipulação de dados
+library(metan)      # estatísticas descritivas
+library(rio)        # importação/exportação de dados
+```
+
+# Dados de exemplo
+

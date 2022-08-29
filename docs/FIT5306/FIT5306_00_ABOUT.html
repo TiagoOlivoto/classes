@@ -1,131 +1,138 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-  <meta charset="utf-8">
-  <meta name="generator" content="quarto-0.9.80">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Aulas - FIT5306 - Bioestatística e Experimentação Agrícola</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {   }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
 
-  <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-  <script src="../site_libs/quarto-nav/headroom.min.js"></script>
-  <script src="../site_libs/clipboard/clipboard.min.js"></script>
-  <meta name="quarto:offset" content="../">
-  <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-  <script src="../site_libs/quarto-search/fuse.min.js"></script>
-  <script src="../site_libs/quarto-search/quarto-search.js"></script>
-  <link href="../FIT5306/FIT5306_01_DESC.html" rel="next">
-  <script src="../site_libs/quarto-html/quarto.js"></script>
-  <script src="../site_libs/quarto-html/popper.min.js"></script>
-  <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-  <script src="../site_libs/quarto-html/anchor.min.js"></script>
-  <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-  <link class="quarto-color-scheme" href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
-  <link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css">
-  <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-  <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-  <link class="quarto-color-scheme" href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
-  <link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="../site_libs/bootstrap/bootstrap-dark.min.css">
-  <script id="quarto-search-options" type="application/json">{
-    "location": "sidebar",
-    "copy-button": false,
-    "collapse-after": 2,
-    "panel-placement": "start",
-    "type": "textbox",
-    "limit": 20,
-    "language": {
-      "search-no-results-text": "No results",
-      "search-matching-documents-text": "matching documents",
-      "search-copy-link-title": "Copy link to search",
-      "search-hide-matches-text": "Hide additional matches",
-      "search-more-match-text": "more match in this document",
-      "search-more-matches-text": "more matches in this document",
-      "search-clear-button-title": "Clear",
-      "search-detached-cancel-button-title": "Cancel",
-      "search-submit-button-title": "Submit"
-    }
-  }</script>
-  <script type="application/json" class="js-hypothesis-config">
-  {
-    "theme": "clean"
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Aulas - FIT5306 - Bioestatística e Experimentação Agrícola</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
   }
-  </script>
-  <script async="" src="https://hypothes.is/embed.js"></script>
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../FIT5306/FIT5306_01_DESC.html" rel="next">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean"
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+
 </head>
-<body class="docked">
+
+<body class="nav-sidebar docked nav-fixed">
+
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
@@ -143,6 +150,9 @@
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../FIT5306/FIT5306_00_ABOUT.html" aria-current="page">Bioestatística</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../RGV410046/RGV410046_00_ABOUT.html">Introdução ao R</a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -176,7 +186,7 @@
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">FIT5306 - Bioestatística e Experimentação Agrícola</h1>
-      <button type="button" class="quarto-btn-toggle btn">
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
@@ -250,7 +260,7 @@
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_11_REG.html" class="sidebar-item-text sidebar-link">11. Regressão linear</a>
+  <a href="../FIT5306/FIT5306_11_REG.html" class="sidebar-item-text sidebar-link">11. Regressão e correlação</a>
   </div>
 </li>
     </ul>
@@ -259,34 +269,78 @@
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc">
-<h2 id="toc-title">Nesta página</h2>
-<ul>
-<li><a href="#pacotes-necessários" class="nav-link active" data-scroll-target="#pacotes-necessários"> <span class="header-section-number">1</span> Pacotes necessários</a></li>
-<li><a href="#dados-de-exemplo" class="nav-link" data-scroll-target="#dados-de-exemplo"> <span class="header-section-number">2</span> Dados de exemplo</a></li>
-<li><a href="#download-dos-dados" class="nav-link" data-scroll-target="#download-dos-dados"> <span class="header-section-number">3</span> Download dos dados</a></li>
-</ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306\FIT5306_00_ABOUT.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#pacotes-necessários" id="toc-pacotes-necessários" class="nav-link active" data-scroll-target="#pacotes-necessários">Pacotes necessários</a></li>
+  <li><a href="#dados-de-exemplo" id="toc-dados-de-exemplo" class="nav-link" data-scroll-target="#dados-de-exemplo">Dados de exemplo</a>
+  <ul class="collapse">
+  <li><a href="#regressão" id="toc-regressão" class="nav-link" data-scroll-target="#regressão">Regressão</a></li>
+  <li><a href="#correlação" id="toc-correlação" class="nav-link" data-scroll-target="#correlação">Correlação</a></li>
+  <li><a href="#experimentos-unifatoriais" id="toc-experimentos-unifatoriais" class="nav-link" data-scroll-target="#experimentos-unifatoriais">Experimentos unifatoriais</a></li>
+  <li><a href="#experimentos-bifatoriais" id="toc-experimentos-bifatoriais" class="nav-link" data-scroll-target="#experimentos-bifatoriais">Experimentos bifatoriais</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306/FIT5306_00_ABOUT.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<div class="quarto-title"><h1 class="title d-none d-lg-block">FIT5306 - Bioestatística e Experimentação Agrícola</h1></div></header>
 
-<section id="pacotes-necessários" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Pacotes necessários</h1>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">FIT5306 - Bioestatística e Experimentação Agrícola</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p><img src="figs/bem-vindo.png" class="img-fluid"></p>
+<p>Bem-vindo ao material de apoio da disciplina FIT5306 (Bioestatística e Experimentação Agrícola)! Esta página contém os dados e scripts R necessários para aplicação prática dos conteúdos vistos na disciplina.</p>
+<section id="pacotes-necessários" class="level1">
+<h1>Pacotes necessários</h1>
+<p>Para começar, é sugerido que os seguintes pacotes sejam instalados (confira como fazer isso no vídeo abaixo).</p>
+<iframe width="780" height="440" src="https://www.youtube.com/embed/8B8QDZnDhtY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># manipulação de dados</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># manipulação de dados</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)      <span class="co"># estatísticas descritivas</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)        <span class="co"># importação/exportação de dados</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)    <span class="co"># comparação de médias</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(AgroR)      <span class="co"># casualização e ANOVA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(AgroR)      <span class="co"># casualização e ANOVA</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggstatsplot)<span class="co"># Gráficos com inferência estatística</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="dados-de-exemplo" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Dados de exemplo</h1>
+<section id="dados-de-exemplo" class="level1">
+<h1>Dados de exemplo</h1>
 <hr>
-<p>O conjunto de dados <code>dados_biost.xlsx</code> contém dados que podem ser utilizados para aplicação prática dos conteúdos trabalhados na disciplina. O arquivo contém as seguintes planilhas:</p>
+<p>O conjunto de dados <code>dados_biost.xlsx</code> contém dados que podem ser utilizados para aplicação prática dos conteúdos trabalhados na disciplina. Para baixar o arquivo <code>.xlsx</code>, utilize o botão abaixo.</p>
+<p><a href="https://bit.ly/df_biostat" target="_blank" rel="noopener"> <button class="btn btn-success"><i class="fa fa-save"></i> Download dados_biost_exp.xlsx</button> </a></p>
+<p>Planilhas específicas podem ser baixadas diretamente no software R, utilizando o argumento <code>sheet</code> da função <code>import()</code> do pacote <code>rio</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_biostat <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"DIC-DBC"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_biostat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 12
+Columns: 5
+$ RAD   &lt;dbl&gt; 50, 50, 50, 50, 70, 70, 70, 70, 100, 100, 100, 100
+$ REP   &lt;dbl&gt; 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4
+$ AF_M2 &lt;dbl&gt; 5.02, 3.65, 3.93, 4.71, 6.12, 5.61, 5.11, 4.98, 5.46, 5.55, 5.72…
+$ AF    &lt;dbl&gt; 5016.429, 3648.359, 3925.333, 4705.269, 6118.425, 5614.233, 5109…
+$ MST   &lt;dbl&gt; 12.30785, 10.73315, 10.86140, 10.97850, 15.75180, 13.30495, 13.8…</code></pre>
+</div>
+</div>
+<p>O arquivo contém as seguintes planilhas, que podem ser reunidas nas seguintes classes:</p>
+<section id="regressão" class="level2">
+<h2 class="anchored" data-anchor-id="regressão">Regressão</h2>
 <ul>
 <li><code>REG_DATA</code>: dados sem repetição (<strong>hipotéticos</strong>) do RG observados em diferentes doses de Nitrogênio.</li>
 <li><code>REG_ANALISE</code>: Análise de regressão linear de primeiro grau dos dados <code>REG_DATA</code>.</li>
@@ -294,10 +348,18 @@
 <li><code>REG_DEL_ANALISE</code>: Análise de regressão dos dados <code>REG_DEL_DATA</code>.</li>
 <li><code>REG_PRATICA</code>: dados referente a uma amostra de tamanho n = 11, na qual se aplicou CO2 em diferentes concentrações em folhas de trigo (X). A quantidade de C02 absorvida (Y) em cm3 / dm2 / hora foi avaliada. Esse exemplo foi apresentado por Ferreira (2009)[^1].</li>
 <li><code>REG_PRATICA_ANALISE</code>: Análise de regressão dos dados <code>REG_PRATICA</code>.</li>
+</ul>
+</section>
+<section id="correlação" class="level2">
+<h2 class="anchored" data-anchor-id="correlação">Correlação</h2>
+<ul>
 <li><code>COR_DATA_DENSIDADE</code>: Dois métodos de mensurar a densidade média da madeira (g /cm<span class="math inline">\(^3\)</span>) em <em>Eucalyptus grandis</em> foram aplicados a uma amostra de n = 13 árvores. O primeiro método (X) é determinado utilizando um paquímetro e uma sonda Pressler de 0,5 cm na região da árvore determinada no diâmetro à altura do peito (DAP). A segunda, variável (Y) também foi mensurada no DAP utilizando cortes transversais no tronco. Esse exemplo foi apresentado por Ferreira (2009)[^1].</li>
 <li><code>CORRELACAO_DATA</code>: dados de altura de planta (AP) e altura da espiga (AE) observados em 10 plantas de milho.</li>
 <li><code>CORRELACAO_ANALISE</code>: Análise de correlação para os dados <code>CORRELACAO_DATA</code>.</li>
 </ul>
+</section>
+<section id="experimentos-unifatoriais" class="level2">
+<h2 class="anchored" data-anchor-id="experimentos-unifatoriais">Experimentos unifatoriais</h2>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -323,6 +385,9 @@ Note
 <li><code>QUANTI_QUADRÁTICA</code>: Dados do rendimento de grãos (RG) de um híbrido de milho sob diferentes doses de nitrogênio, avaliados em um delineamento de blocos completos casualizados, com quatro repetições. O conjunto apresenta um comportamento quadrático.</li>
 <li><code>maize</code>: Dados de um ensaio multi-ambientes onde 13 híbridos de milho foram avaliados em quatro localidades, sendo que em cada localidade um delineamento de blocos completos casualizados com três repetições foi utilizado. São apresentados dados de sete caracteres quantitativos avaliados em cinco plantas aleatoriamente escolhidas em cada parcela.</li>
 </ul>
+</section>
+<section id="experimentos-bifatoriais" class="level2">
+<h2 class="anchored" data-anchor-id="experimentos-bifatoriais">Experimentos bifatoriais</h2>
 <p>As seguintes planilhas contém dados de experimentos bifatoriais com diferentes combinações de fatores qualitativos e quantitativos na presença de interação significativa e não significativa. Em todos os exemplos, é utilizado o delineamento de blocos completos casualizados.</p>
 <ul>
 <li><code>FAT1_SI</code>: Fator 1 <strong>qualitativo</strong> (fontes de nitrogênio), com três níveis; Fator 2 <strong>qualitativo</strong> (híbridos), com três níveis, <strong>com interação significativa</strong>.</li>
@@ -333,103 +398,13 @@ Note
 <li><code>FAT3</code>: Fator 1 <strong>quantitativo</strong> (doses de N), com quatro níveis; Fator 2 <strong>quantitativo</strong> (doses de K), com cinco níveis, <strong>com interação significativa</strong>.</li>
 </ul>
 <hr>
-</section>
-<section id="download-dos-dados" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Download dos dados</h1>
-<p>Planilhas específicas podem ser baixadas diretamente no software R, utilizando o argumento <code>sheet</code> da função <code>import()</code> do pacote <code>rio</code>.</p>
-<div class="cell">
-<div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_biostat <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"DIC-DBC"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_biostat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
-<pre><code>Rows: 12
-Columns: 5
-$ RAD   &lt;dbl&gt; 50, 50, 50, 50, 70, 70, 70, 70, 100, 100, 100, 100
-$ REP   &lt;dbl&gt; 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4
-$ AF_M2 &lt;dbl&gt; 5.02, 3.65, 3.93, 4.71, 6.12, 5.61, 5.11, 4.98, 5.46, 5.55, 5.72…
-$ AF    &lt;dbl&gt; 5016.429, 3648.359, 3925.333, 4705.269, 6118.425, 5614.233, 5109…
-$ MST   &lt;dbl&gt; 12.30785, 10.73315, 10.86140, 10.97850, 15.75180, 13.30495, 13.8…</code></pre>
-</div>
-</div>
-<p>Para baixar o arquivo <code>.xlsx</code>, utilize o botão abaixo.</p>
-<p><a href="https://bit.ly/df_biostat" target="_blank" rel="noopener"> <button class="btn btn-success"><i class="fa fa-save"></i> Download dados_biost_exp.xlsx</button> </a></p>
 
 
 <!-- -->
-<div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title anchored" id="quarto-embedded-source-code-modal-label" data-anchor-id="download-dos-dados">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "FIT5306 - Bioestatística e Experimentação Agrícola"</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacotes necessários</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{r warning=FALSE, message = FALSE}</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># manipulação de dados</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)      <span class="co"># estatísticas descritivas</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)        <span class="co"># importação/exportação de dados</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)    <span class="co"># comparação de médias</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(AgroR)      <span class="co"># casualização e ANOVA</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu"># Dados de exemplo</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>O conjunto de dados <span class="in">`dados_biost.xlsx`</span> contém dados que podem ser utilizados para aplicação prática dos conteúdos trabalhados na disciplina. O arquivo contém as seguintes planilhas:</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_DATA`</span>: dados sem repetição (**hipotéticos**) do RG observados em diferentes doses de Nitrogênio.</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_ANALISE`</span>: Análise de regressão linear de primeiro grau dos dados <span class="in">`REG_DATA`</span>.</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_DEL_DATA`</span>: dados com repetições do rendimento de grãos observados em diferentes doses de Nitrogênio.</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_DEL_ANALISE`</span>: Análise de regressão dos dados <span class="in">`REG_DEL_DATA`</span>.</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_PRATICA`</span>: dados referente a uma amostra de tamanho n = 11, na qual se aplicou CO2 em diferentes concentrações em folhas de trigo (X). A quantidade de C02 absorvida (Y) em cm3 / dm2 / hora foi avaliada. Esse exemplo foi apresentado por Ferreira (2009)<span class="sc">\[</span>\^1<span class="sc">\]</span>.</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_PRATICA_ANALISE`</span>: Análise de regressão dos dados <span class="in">`REG_PRATICA`</span>.</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`COR_DATA_DENSIDADE`</span>: Dois métodos de mensurar a densidade média da madeira (g /cm$^3$) em *Eucalyptus grandis* foram aplicados a uma amostra de n = 13 árvores. O primeiro método (X) é determinado utilizando um paquímetro e uma sonda Pressler de 0,5 cm na região da árvore determinada no diâmetro à altura do peito (DAP). A segunda, variável (Y) também foi mensurada no DAP utilizando cortes transversais no tronco. Esse exemplo foi apresentado por Ferreira (2009)<span class="sc">\[</span>\^1<span class="sc">\]</span>.</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`CORRELACAO_DATA`</span>: dados de altura de planta (AP) e altura da espiga (AE) observados em 10 plantas de milho.</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`CORRELACAO_ANALISE`</span>: Análise de correlação para os dados <span class="in">`CORRELACAO_DATA`</span>.</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>Os dados <span class="in">`COBERTURA_N_MASSA`</span> e <span class="in">`COBERTURA_N_SOJA`</span> foram obtidos em um trabalho conduzido em grupo no Centro Universitário Unideau, tendo como participantes os alunos Bernardo Pinheiro Busatta, Tiago Jonatan Fochesatto, Diogo Andre Ody, Gustavo Peretti e Paulo Sérgio Trevisol.</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`COBERTURA_N_MASSA`</span>: dados de um experimento bifatorial com dois níveis de nitrogênio (com e sem) e quatro níveis de plantas de cobertura (aveia preta, centeio, triticale e pousio), conduzido em um DBC com quatro repetições. Foram avaliados a matéria verde (MV) e matéria seca (MS) das plantas, bem como a matéria seca de raiz (MSR).</span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`COBERTURA_N_SOJA`</span>: Com os mesmos tratamentos apresentados em <span class="in">`COBERTURA_N_MASSA`</span>, o experimento avaliou caracteres morfológicos e o rendimento de grãos de soja cultivada na resteva das respectivas coberturas de solo. Foram avaliados o número de legumes por planta (NL), número de grãos por legume (NGL), massa de mil grãos (MMG) e o rendimento de grãos (RG).</span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`DIC-DBC`</span>: dados de área foliar (AF) e matéria seca de planta (MST) de plantas de chicória avaliadas em diferentes níveis de radiação solar (50%, 70% e 100%). O experimento foi conduzido em delineamento de blocos completos casualizados, com quatro repetições.</span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`EFEITOS`</span>: Os efeitos de tratamento e erro (delineamento inteiramente casualizado) para os dados da planilha <span class="in">`DIC-DBC`</span>.</span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`DIC-DBC-ANOVA`</span>: análise de variância nos delineamentos DIC e DBC, para efeitos de comparação, dos dados da planilha <span class="in">`DIC-DBC`</span>.</span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`QUALI`</span>: Dados do rendimento de grãos (RG) de 10 híbridos de milho avaliados em um delineamento de blocos completos casualizados, com quatro repetições.</span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`QUANTI_LINEAR`</span>: Dados do rendimento de grãos (RG) de um híbrido de milho sob diferentes doses de nitrogênio, avaliados em um delineamento de blocos completos casualizados, com quatro repetições. O conjunto apresenta um comportamento linear.</span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`QUANTI_LINEAR`</span>: Dados do rendimento de grãos (RG) de um híbrido de milho sob diferentes doses de nitrogênio, avaliados em um delineamento de blocos completos casualizados, com quatro repetições. O conjunto apresenta um comportamento linear.</span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`QUANTI_QUADRÁTICA`</span>: Dados do rendimento de grãos (RG) de um híbrido de milho sob diferentes doses de nitrogênio, avaliados em um delineamento de blocos completos casualizados, com quatro repetições. O conjunto apresenta um comportamento quadrático.</span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`maize`</span>: Dados de um ensaio multi-ambientes onde 13 híbridos de milho foram avaliados em quatro localidades, sendo que em cada localidade um delineamento de blocos completos casualizados com três repetições foi utilizado. São apresentados dados de sete caracteres quantitativos avaliados em cinco plantas aleatoriamente escolhidas em cada parcela.</span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>As seguintes planilhas contém dados de experimentos bifatoriais com diferentes combinações de fatores qualitativos e quantitativos na presença de interação significativa e não significativa. Em todos os exemplos, é utilizado o delineamento de blocos completos casualizados.</span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT1_SI`</span>: Fator 1 **qualitativo** (fontes de nitrogênio), com três níveis; Fator 2 **qualitativo** (híbridos), com três níveis, **com interação significativa**.</span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT1_CI`</span>: Fator 1 **qualitativo** (dias de avaliação), com três níveis; Fator 2 **qualitativo** (radiação solar), com três níveis, **sem interação significativa**.</span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT1_C2I`</span>^<span class="co">[</span><span class="ot">Olivoto, T., I.R. Carvalho, M. Nardino, M. Ferrari, A.J. de Pelegrin, et al. 2016. Sulfur and nitrogen effects on industrial quality and grain yield of wheat Efeitos. Rev. Ciências Agroveterinárias 15(1): 24--33. doi: 10.5965/223811711512016024.</span><span class="co">]</span>: Fator 1 **Qualitativo** (enxofre), com dois níveis; Fator 2 **qualitativo** (parcelamento de N), com três níveis, **com interação significativa**.</span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT2_SI`</span>: Fator 1 **qualitativo** (híbridos), com dois níveis; Fator 2 **quantitativo** (doses de N), com cinco níveis, **sem interação significativa**.</span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT2_CI`</span>: Fator 1 **qualitativo** (híbridos), com dois níveis; Fator 2 **quantitativo** (doses de N), com cinco níveis, **com interação significativa**.</span>
-<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT3`</span>: Fator 1 **quantitativo** (doses de N), com quatro níveis; Fator 2 **quantitativo** (doses de K), com cinco níveis, **com interação significativa**.</span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="fu"># Download dos dados</span></span>
-<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>Planilhas específicas podem ser baixadas diretamente no software R, utilizando o argumento <span class="in">`sheet`</span> da função <span class="in">`import()`</span> do pacote <span class="in">`rio`</span>.</span>
-<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
-<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>df_biostat <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"DIC-DBC"</span>)</span>
-<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_biostat)</span>
-<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>Para baixar o arquivo <span class="in">`.xlsx`</span>, utilize o botão abaixo.</span>
-<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;a</span> <span class="er">href</span><span class="ot">=</span><span class="st">"https://bit.ly/df_biostat"</span> <span class="er">target</span><span class="ot">=</span><span class="st">"_blank"</span> <span class="er">rel</span><span class="ot">=</span><span class="st">"noopener"</span><span class="kw">&gt;</span> <span class="kw">&lt;button</span> <span class="er">class</span><span class="ot">=</span><span class="st">"btn btn-success"</span><span class="kw">&gt;&lt;i</span> <span class="er">class</span><span class="ot">=</span><span class="st">"fa fa-save"</span><span class="kw">&gt;&lt;/i&gt;</span> Download dados_biost_exp.xlsx<span class="kw">&lt;/button&gt;</span> <span class="kw">&lt;/a&gt;</span></span>
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+
 </section>
+</section>
+
 
 <div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
@@ -437,8 +412,26 @@ $ MST   &lt;dbl&gt; 12.30785, 10.73315, 10.86140, 10.97850, 15.75180, 13.30495, 
 <li id="fn1" role="doc-endnote"><p>Olivoto, T., I.R. Carvalho, M. Nardino, M. Ferrari, A.J. de Pelegrin, et al.&nbsp;2016. Sulfur and nitrogen effects on industrial quality and grain yield of wheat Efeitos. Rev.&nbsp;Ciências Agroveterinárias 15(1): 24–33. doi: 10.5965/223811711512016024.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
-<script type="application/javascript">
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const disableStylesheet = (stylesheets) => {
     for (let i=0; i < stylesheets.length; i++) {
       const stylesheet = stylesheets[i];
@@ -468,8 +461,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     manageTransitions('#quarto-margin-sidebar .nav-link', false);
     if (alternate) {
       enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
     } else {
       disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
     }
     manageTransitions('#quarto-margin-sidebar .nav-link', true);
     // Switch the toggles
@@ -555,7 +554,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.blur();
     // flash "checked"
     button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
     setTimeout(function() {
+      button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
     // clear code selection
@@ -669,7 +671,97 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text">1. Estatística Descritiva</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "FIT5306 - Bioestatística e Experimentação Agrícola"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="al">![](figs/bem-vindo.png)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>Bem-vindo ao material de apoio da disciplina FIT5306 (Bioestatística e Experimentação Agrícola)! Esta página contém os dados e scripts R necessários para aplicação prática dos conteúdos vistos na disciplina.</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacotes necessários</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>Para começar, é sugerido que os seguintes pacotes sejam instalados (confira como fazer isso no vídeo abaixo).</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;iframe</span> <span class="er">width</span><span class="ot">=</span><span class="st">"780"</span> <span class="er">height</span><span class="ot">=</span><span class="st">"440"</span> <span class="er">src</span><span class="ot">=</span><span class="st">"https://www.youtube.com/embed/8B8QDZnDhtY"</span> <span class="er">title</span><span class="ot">=</span><span class="st">"YouTube video player"</span> <span class="er">frameborder</span><span class="ot">=</span><span class="st">"0"</span> <span class="er">allow</span><span class="ot">=</span><span class="st">"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"</span> <span class="er">allowfullscreen</span><span class="kw">&gt;&lt;/iframe&gt;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="in">```{r warning=FALSE, message = FALSE}</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># manipulação de dados</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)      <span class="co"># estatísticas descritivas</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)        <span class="co"># importação/exportação de dados</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)    <span class="co"># comparação de médias</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(AgroR)      <span class="co"># casualização e ANOVA</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggstatsplot)<span class="co"># Gráficos com inferência estatística</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="fu"># Dados de exemplo</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>O conjunto de dados <span class="in">`dados_biost.xlsx`</span> contém dados que podem ser utilizados para aplicação prática dos conteúdos trabalhados na disciplina. Para baixar o arquivo <span class="in">`.xlsx`</span>, utilize o botão abaixo.</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;a</span> <span class="er">href</span><span class="ot">=</span><span class="st">"https://bit.ly/df_biostat"</span> <span class="er">target</span><span class="ot">=</span><span class="st">"_blank"</span> <span class="er">rel</span><span class="ot">=</span><span class="st">"noopener"</span><span class="kw">&gt;</span> <span class="kw">&lt;button</span> <span class="er">class</span><span class="ot">=</span><span class="st">"btn btn-success"</span><span class="kw">&gt;&lt;i</span> <span class="er">class</span><span class="ot">=</span><span class="st">"fa fa-save"</span><span class="kw">&gt;&lt;/i&gt;</span> Download dados_biost_exp.xlsx<span class="kw">&lt;/button&gt;</span> <span class="kw">&lt;/a&gt;</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>Planilhas específicas podem ser baixadas diretamente no software R, utilizando o argumento <span class="in">`sheet`</span> da função <span class="in">`import()`</span> do pacote <span class="in">`rio`</span>.</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>df_biostat <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"DIC-DBC"</span>)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_biostat)</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>O arquivo contém as seguintes planilhas, que podem ser reunidas nas seguintes classes:</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Regressão</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_DATA`</span>: dados sem repetição (**hipotéticos**) do RG observados em diferentes doses de Nitrogênio.</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_ANALISE`</span>: Análise de regressão linear de primeiro grau dos dados <span class="in">`REG_DATA`</span>.</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_DEL_DATA`</span>: dados com repetições do rendimento de grãos observados em diferentes doses de Nitrogênio.</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_DEL_ANALISE`</span>: Análise de regressão dos dados <span class="in">`REG_DEL_DATA`</span>.</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_PRATICA`</span>: dados referente a uma amostra de tamanho n = 11, na qual se aplicou CO2 em diferentes concentrações em folhas de trigo (X). A quantidade de C02 absorvida (Y) em cm3 / dm2 / hora foi avaliada. Esse exemplo foi apresentado por Ferreira (2009)<span class="sc">\[</span>\^1<span class="sc">\]</span>.</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_PRATICA_ANALISE`</span>: Análise de regressão dos dados <span class="in">`REG_PRATICA`</span>.</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## Correlação</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`COR_DATA_DENSIDADE`</span>: Dois métodos de mensurar a densidade média da madeira (g /cm$^3$) em *Eucalyptus grandis* foram aplicados a uma amostra de n = 13 árvores. O primeiro método (X) é determinado utilizando um paquímetro e uma sonda Pressler de 0,5 cm na região da árvore determinada no diâmetro à altura do peito (DAP). A segunda, variável (Y) também foi mensurada no DAP utilizando cortes transversais no tronco. Esse exemplo foi apresentado por Ferreira (2009)<span class="sc">\[</span>\^1<span class="sc">\]</span>.</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`CORRELACAO_DATA`</span>: dados de altura de planta (AP) e altura da espiga (AE) observados em 10 plantas de milho.</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`CORRELACAO_ANALISE`</span>: Análise de correlação para os dados <span class="in">`CORRELACAO_DATA`</span>.</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Experimentos unifatoriais</span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>Os dados <span class="in">`COBERTURA_N_MASSA`</span> e <span class="in">`COBERTURA_N_SOJA`</span> foram obtidos em um trabalho conduzido em grupo no Centro Universitário Unideau, tendo como participantes os alunos Bernardo Pinheiro Busatta, Tiago Jonatan Fochesatto, Diogo Andre Ody, Gustavo Peretti e Paulo Sérgio Trevisol.</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`COBERTURA_N_MASSA`</span>: dados de um experimento bifatorial com dois níveis de nitrogênio (com e sem) e quatro níveis de plantas de cobertura (aveia preta, centeio, triticale e pousio), conduzido em um DBC com quatro repetições. Foram avaliados a matéria verde (MV) e matéria seca (MS) das plantas, bem como a matéria seca de raiz (MSR).</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`COBERTURA_N_SOJA`</span>: Com os mesmos tratamentos apresentados em <span class="in">`COBERTURA_N_MASSA`</span>, o experimento avaliou caracteres morfológicos e o rendimento de grãos de soja cultivada na resteva das respectivas coberturas de solo. Foram avaliados o número de legumes por planta (NL), número de grãos por legume (NGL), massa de mil grãos (MMG) e o rendimento de grãos (RG).</span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`DIC-DBC`</span>: dados de área foliar (AF) e matéria seca de planta (MST) de plantas de chicória avaliadas em diferentes níveis de radiação solar (50%, 70% e 100%). O experimento foi conduzido em delineamento de blocos completos casualizados, com quatro repetições.</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`EFEITOS`</span>: Os efeitos de tratamento e erro (delineamento inteiramente casualizado) para os dados da planilha <span class="in">`DIC-DBC`</span>.</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`DIC-DBC-ANOVA`</span>: análise de variância nos delineamentos DIC e DBC, para efeitos de comparação, dos dados da planilha <span class="in">`DIC-DBC`</span>.</span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`QUALI`</span>: Dados do rendimento de grãos (RG) de 10 híbridos de milho avaliados em um delineamento de blocos completos casualizados, com quatro repetições.</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`QUANTI_LINEAR`</span>: Dados do rendimento de grãos (RG) de um híbrido de milho sob diferentes doses de nitrogênio, avaliados em um delineamento de blocos completos casualizados, com quatro repetições. O conjunto apresenta um comportamento linear.</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`QUANTI_LINEAR`</span>: Dados do rendimento de grãos (RG) de um híbrido de milho sob diferentes doses de nitrogênio, avaliados em um delineamento de blocos completos casualizados, com quatro repetições. O conjunto apresenta um comportamento linear.</span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`QUANTI_QUADRÁTICA`</span>: Dados do rendimento de grãos (RG) de um híbrido de milho sob diferentes doses de nitrogênio, avaliados em um delineamento de blocos completos casualizados, com quatro repetições. O conjunto apresenta um comportamento quadrático.</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`maize`</span>: Dados de um ensaio multi-ambientes onde 13 híbridos de milho foram avaliados em quatro localidades, sendo que em cada localidade um delineamento de blocos completos casualizados com três repetições foi utilizado. São apresentados dados de sete caracteres quantitativos avaliados em cinco plantas aleatoriamente escolhidas em cada parcela.</span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## Experimentos bifatoriais</span></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>As seguintes planilhas contém dados de experimentos bifatoriais com diferentes combinações de fatores qualitativos e quantitativos na presença de interação significativa e não significativa. Em todos os exemplos, é utilizado o delineamento de blocos completos casualizados.</span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT1_SI`</span>: Fator 1 **qualitativo** (fontes de nitrogênio), com três níveis; Fator 2 **qualitativo** (híbridos), com três níveis, **com interação significativa**.</span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT1_CI`</span>: Fator 1 **qualitativo** (dias de avaliação), com três níveis; Fator 2 **qualitativo** (radiação solar), com três níveis, **sem interação significativa**.</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT1_C2I`</span><span class="ot">[^1]</span>: Fator 1 **Qualitativo** (enxofre), com dois níveis; Fator 2 **qualitativo** (parcelamento de N), com três níveis, **com interação significativa**.</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT2_SI`</span>: Fator 1 **qualitativo** (híbridos), com dois níveis; Fator 2 **quantitativo** (doses de N), com cinco níveis, **sem interação significativa**.</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT2_CI`</span>: Fator 1 **qualitativo** (híbridos), com dois níveis; Fator 2 **quantitativo** (doses de N), com cinco níveis, **com interação significativa**.</span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT3`</span>: Fator 1 **quantitativo** (doses de N), com quatro níveis; Fator 2 **quantitativo** (doses de K), com cinco níveis, **com interação significativa**.</span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>Olivoto, T., I.R. Carvalho, M. Nardino, M. Ferrari, A.J. de Pelegrin, et al. 2016. Sulfur and nitrogen effects on industrial quality and grain yield of wheat Efeitos. Rev. Ciências Agroveterinárias 15(1): 24--33. doi: 10.5965/223811711512016024.</span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -679,4 +771,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </footer>
 
 
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

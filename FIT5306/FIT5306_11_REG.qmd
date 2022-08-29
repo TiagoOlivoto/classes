@@ -1,5 +1,5 @@
 ---
-title: "11. Regressão linear"
+title: "11. Regressão e correlação"
 ---
 
 # Pacotes
@@ -476,80 +476,11 @@ p1 +
 
 ```
 
-# Correlação
-
-Conhecer o grau de associação linear entre caracteres é de fundamental importância em um programa de melhoramento genético vegetal. Esta importância aumenta, principalmente se algum caractere desejável é de difícil mensuração, ou apresenta baixa herdabilidade. O coeficiente de correlação produto-momento de (Pearson, 1920)[^2], *r*, vem sendo amplamente utilizado para este fim. Embora o mérito desta análise seja atribuído à Karl Pearson, o método foi originalmente concebido por Francis Galton, que definiu o termo correlação como como o seguinte: *duas variáveis são ditas correlacionadas quando a variação de uma é acompanhada na média, mais ou menos a variação da outra, e no mesmo sentido* (Galton, 1888)[^3].
-
-[^2]: PEARSON, K. Notes on the History of Correlation. Biometrika, v. 13, n. 1, p. 25--45, 1920
-
-[^3]: GALTON, F. Co-relations and their measurement, chiefly from anthropometric data. Proceedings of the Royal Society of London, v. 45, n. 273--279, p. 135--145, 1888
-
-## Cálculo do coeficiente de correlação
-
-Utilizando o método dos mínimos quadrados, a correlação entre duas variáveis (x e y) é dada por:
-
-$$
-r = \frac{SP_{xy}}{\sqrt{SQ_x\times SQ_y}}
-$$
-
-As definições de $SP_{xy}$, $SQ_{x}$ e $SQ_{y}$ foram apresentadas nas Equações @eq-spxy, @eq-sqx e @eq-sqy, respectivamente.
-
-A significância da correlação (r) é testada utilizando um teste *t* com $t_{\alpha(n-2)}$ graus liberdade. As hipóteses são:
-
-$$
-{H_0}:r = 0
-$$
-
-$$
-{H_1}:r \ne 0
-$$
-
-O valor de *t* calculado é dado por:
-
-$$
-{t_0} = r\sqrt {\frac{{n - 2}}{{1 - {r^2}}}}
-$$
-
-Por fim, compara-se o *t* calculado com o tabelado ao nível $\alpha$ de significância de erro (teste bilateral), com *n* menos dois graus liberdade.
-
-$$
-{t_0} > {t_{\alpha (n - 2)}} = r \ne 0
-$$
-
-## A função `cor()` do R
-
-Utilizando a função do R `cor()` é possível obter o coeficiente de correlação entre duas variáveis, por exemplo, `APLA` e `AIES` do seguinte conjunto de dados:
-
-```{r}
-url <- "https://bit.ly/df_biostat"
-df_mat <- 
-  import(url, sheet = "maize", setclass = "tbl") |> 
-  select(APLA:MGRA)
-
-# correlação de pearson (AP e A)
-cor(df_mat$APLA, df_mat$AIES)
 
 
 
-```
-
-Uma matriz de correlação também pode ser calculada informando um data frame de variáveis numéricas
-
-```{r}
-# Matriz gráfica de correlação
-cor(df_mat)
-```
-
-Usando a função `corr_plot()` do pacote metan, é possível obter uma matriz mista (gráfico e número), contendo a distribuição dos pontos e o coeficiente de correlação entre as variáveis.
-
-```{r}
-# Matriz gráfica de correlação
-corr_plot(df_mat)
-```
-
-
-# Exercício prático Regressão
-## Dados
+## Exercício
+### Dados
 > Neste exemplo, serão utilizados dados de produtividade de grãos de milho (Kg /ha) de acordo com diferentes doses de dejeto suíno (m3/ha) aplicadas na cultura do milho^[https://periodicos.uem.br/ojs/index.php/ActaSciTechnol/article/download/5312/5312/].
 
 ```{r}
@@ -559,7 +490,7 @@ reg_ex
 
 ```
 
-## Cálculo dos coeficientes (manual)
+### Cálculo dos coeficientes (manual)
 
 a) Ajuste o modelo de regressão linear da forma $y_i = \beta_0 + \beta_1x_i$, apresentando o valor dos parâmetros $\beta_0$ e $\beta_1$.
 
@@ -604,7 +535,7 @@ a) Ajuste o modelo de regressão linear da forma $y_i = \beta_0 + \beta_1x_i$, a
 b) Interprete o valor dos coeficientes, indicando sua aplicação prática.
 
 ::: callout-important
-## Interpretação dos coeficientes
+### Interpretação dos coeficientes
 
 O intercept indica ....
 
@@ -651,8 +582,12 @@ anova(reg)
 ```
 
 
-## Gráfico
+### Gráfico
 ```{r}
+#| code-fold: true
+#| code-summary: "Mostrar código"
+#| out-width: "100%"
+
 library(ggpmisc) # adiciona a equação no gráfico
 p1 <-
   ggplot(reg_ex, aes(DOSE, RG)) +
@@ -689,7 +624,7 @@ p1 + p2
 ```
 
 
-## Valores preditos
+### Valores preditos
 
 Para obter os valores preditos, precisamos considerar os parâmetros estimados da regressão linear, substituindo o *x* pelos valores observados de x. Felizmente, a vetorização proporcionada pelo R, nos facilita este procedimento, bastando realizar o seguinte comando
 
@@ -703,7 +638,7 @@ Os valores preditos também podem ser obtidos com a função `predict()`, inform
 (pred2 <- predict(reg))
 ```
 
-## Residuais
+### Residuais
 
 Os resíduos são obtidos pela diferença entre os valores observados e os preditos pelo modelo ajustado. Para isso, utilizamos o seguinte comando:
 
@@ -731,13 +666,83 @@ mutate(reg_ex,
 
 
 
+# Correlação
+
+Conhecer o grau de associação linear entre caracteres é de fundamental importância em um programa de melhoramento genético vegetal. Esta importância aumenta, principalmente se algum caractere desejável é de difícil mensuração, ou apresenta baixa herdabilidade. O coeficiente de correlação produto-momento de (Pearson, 1920)[^2], *r*, vem sendo amplamente utilizado para este fim. Embora o mérito desta análise seja atribuído à Karl Pearson, o método foi originalmente concebido por Francis Galton, que definiu o termo correlação como como o seguinte: *duas variáveis são ditas correlacionadas quando a variação de uma é acompanhada na média, mais ou menos a variação da outra, e no mesmo sentido* (Galton, 1888)[^3].
+
+[^2]: PEARSON, K. Notes on the History of Correlation. Biometrika, v. 13, n. 1, p. 25--45, 1920
+
+[^3]: GALTON, F. Co-relations and their measurement, chiefly from anthropometric data. Proceedings of the Royal Society of London, v. 45, n. 273--279, p. 135--145, 1888
+
+
+## Cálculo do coeficiente de correlação
+
+Utilizando o método dos mínimos quadrados, a correlação entre duas variáveis (x e y) é dada por:
+
+$$
+r = \frac{SP_{xy}}{\sqrt{SQ_x\times SQ_y}}
+$$
+
+As definições de $SP_{xy}$, $SQ_{x}$ e $SQ_{y}$ foram apresentadas nas Equações @eq-spxy, @eq-sqx e @eq-sqy, respectivamente.
+
+A significância da correlação (r) é testada utilizando um teste *t* com $t_{\alpha(n-2)}$ graus liberdade. As hipóteses são:
+
+$$
+{H_0}:r = 0
+$$
+
+$$
+{H_1}:r \ne 0
+$$
+
+O valor de *t* calculado é dado por:
+
+$$
+{t_0} = r\sqrt {\frac{{n - 2}}{{1 - {r^2}}}}
+$$
+
+Por fim, compara-se o *t* calculado com o tabelado ao nível $\alpha$ de significância de erro (teste bilateral), com *n* menos dois graus liberdade.
+
+$$
+{t_0} > {t_{\alpha (n - 2)}} = r \ne 0
+$$
+
+
+## A função `cor()` do R
+
+Utilizando a função do R `cor()` é possível obter o coeficiente de correlação entre duas variáveis, por exemplo, `APLA` e `AIES` do seguinte conjunto de dados:
+
+```{r}
+url <- "https://bit.ly/df_biostat"
+df_mat <- 
+  import(url, sheet = "maize", setclass = "tbl") |> 
+  select(APLA:MGRA)
+
+# correlação de pearson (APLA e AIES)
+cor(df_mat$APLA, df_mat$AIES)
+```
+
+Uma matriz de correlação também pode ser calculada informando um data frame de variáveis numéricas
+
+```{r}
+# Matriz gráfica de correlação
+cor(df_mat)
+```
+
+Usando a função `corr_plot()` do pacote metan, é possível obter uma matriz mista (gráfico e número), contendo a distribuição dos pontos e o coeficiente de correlação entre as variáveis.
+
+```{r}
+# Matriz gráfica de correlação
+corr_plot(df_mat)
+```
 
 
 
 
 
-# Exercício correlação
-## Dados
+
+## Exercício
+### Dados
 
 > Neste exemplo, serão utilizados dados referentes ao número de grãos (NGRA) e massa de grãos (MGRA) observados em 15 espigas de milho (n = 15).
 
@@ -750,7 +755,7 @@ cor_ex <- import(url, sheet = "COR_EXERCICIO", setclass = "tbl")
 (n <- length(x))
 ```
 
-## Método dos mínimos quadrados
+### Método dos mínimos quadrados
 
 ```{r}
 (xy <- x * y)
@@ -804,7 +809,7 @@ qt(0.025, df = 13, lower.tail = FALSE)
 
 ```
 
-## Função cor e cor.test()
+### Função cor e cor.test()
 
 ```{r}
 # somente calcula o r

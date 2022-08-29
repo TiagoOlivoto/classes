@@ -2,8 +2,9 @@ project:
   type: website
   output-dir: docs
   render:
-    - "*.qmd"
+    - "00_about.qmd"
     - "FIT5306/"
+    - "RGV410046/RGV410046_00_ABOUT.qmd"
 
 comments:
   hypothesis: 
@@ -39,6 +40,8 @@ website:
         icon: fa fa-home
       - text: "Bioestatística"
         file: FIT5306/FIT5306_00_ABOUT.qmd
+      - text: "Introdução ao R"
+        file: RGV410046/RGV410046_00_ABOUT.qmd
 
 
     right:
@@ -50,7 +53,6 @@ website:
         href: https://twitter.com/tolivoto
       - icon: "fab fa-mendeley fa"
         href: https://www.mendeley.com/profiles/tiago-olivoto/
-
 
 
   sidebar:
@@ -70,25 +72,31 @@ website:
         - FIT5306/FIT5306_09_DBC.qmd
         - FIT5306/FIT5306_10_FAT.qmd
         - FIT5306/FIT5306_11_REG.qmd
+    - title: "Intro R"
+      style: "docked"
+      background: light
+      contents:
+        - RGV410046/RGV410046_00_ABOUT.qmd
+
 
 format:
   html:
-    theme:
+    theme: 
        light: journal
        dark: darkly
     toc: true
-    df_print: paged
     toc-title: "Nesta página"
     toc-depth: 4
-    number-sections: true
+    number-sections: false
     number-depth: 3
     smooth-scroll: true
     code-fold: false
-    code-summary: "Mostrar código"
+    code-summary: "Mostrar script"
     code-tools: true
     code-block-bg: "#f5f2f2"
     highlight-style: tango
     code-block-border-left: "#31BAE9"
-
+    
 execute:
   collapse: true
+  out-width: "100%"

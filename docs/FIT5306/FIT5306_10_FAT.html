@@ -1,132 +1,139 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-  <meta charset="utf-8">
-  <meta name="generator" content="quarto-0.9.80">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Aulas - 9. Experimentos Fatoriais</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {   }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
 
-  <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-  <script src="../site_libs/quarto-nav/headroom.min.js"></script>
-  <script src="../site_libs/clipboard/clipboard.min.js"></script>
-  <meta name="quarto:offset" content="../">
-  <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-  <script src="../site_libs/quarto-search/fuse.min.js"></script>
-  <script src="../site_libs/quarto-search/quarto-search.js"></script>
-  <link href="../FIT5306/FIT5306_11_REG.html" rel="next">
-  <link href="../FIT5306/FIT5306_09_DBC.html" rel="prev">
-  <script src="../site_libs/quarto-html/quarto.js"></script>
-  <script src="../site_libs/quarto-html/popper.min.js"></script>
-  <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-  <script src="../site_libs/quarto-html/anchor.min.js"></script>
-  <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-  <link class="quarto-color-scheme" href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
-  <link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css">
-  <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-  <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-  <link class="quarto-color-scheme" href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
-  <link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="../site_libs/bootstrap/bootstrap-dark.min.css">
-  <script id="quarto-search-options" type="application/json">{
-    "location": "sidebar",
-    "copy-button": false,
-    "collapse-after": 2,
-    "panel-placement": "start",
-    "type": "textbox",
-    "limit": 20,
-    "language": {
-      "search-no-results-text": "No results",
-      "search-matching-documents-text": "matching documents",
-      "search-copy-link-title": "Copy link to search",
-      "search-hide-matches-text": "Hide additional matches",
-      "search-more-match-text": "more match in this document",
-      "search-more-matches-text": "more matches in this document",
-      "search-clear-button-title": "Clear",
-      "search-detached-cancel-button-title": "Cancel",
-      "search-submit-button-title": "Submit"
-    }
-  }</script>
-  <script type="application/json" class="js-hypothesis-config">
-  {
-    "theme": "clean"
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Aulas - 9. Experimentos Fatoriais</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
   }
-  </script>
-  <script async="" src="https://hypothes.is/embed.js"></script>
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../FIT5306/FIT5306_11_REG.html" rel="next">
+<link href="../FIT5306/FIT5306_09_DBC.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean"
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+
 </head>
-<body class="docked">
+
+<body class="nav-sidebar docked nav-fixed">
+
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
@@ -144,6 +151,9 @@
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../FIT5306/FIT5306_00_ABOUT.html" aria-current="page">Bioestatística</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../RGV410046/RGV410046_00_ABOUT.html">Introdução ao R</a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -177,7 +187,7 @@
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">9. Experimentos Fatoriais</h1>
-      <button type="button" class="quarto-btn-toggle btn">
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
@@ -251,7 +261,7 @@
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_11_REG.html" class="sidebar-item-text sidebar-link">11. Regressão linear</a>
+  <a href="../FIT5306/FIT5306_11_REG.html" class="sidebar-item-text sidebar-link">11. Regressão e correlação</a>
   </div>
 </li>
     </ul>
@@ -260,98 +270,112 @@
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc">
-<h2 id="toc-title">Nesta página</h2>
-<ul>
-<li><a href="#pacotes" class="nav-link active" data-scroll-target="#pacotes"> <span class="header-section-number">1</span> Pacotes</a></li>
-<li><a href="#sec-fats" class="nav-link" data-scroll-target="#sec-fats"> <span class="header-section-number">2</span> Experimentos fatoriais</a>
-<ul class="collapse">
-<li><a href="#casualização" class="nav-link" data-scroll-target="#casualização"> <span class="header-section-number">2.1</span> Casualização</a>
-<ul class="collapse">
-<li><a href="#delineamento-inteiramente-casualizado" class="nav-link" data-scroll-target="#delineamento-inteiramente-casualizado"> <span class="header-section-number">2.1.1</span> Delineamento Inteiramente Casualizado</a></li>
-<li><a href="#delineamento-de-blocos-casualizados" class="nav-link" data-scroll-target="#delineamento-de-blocos-casualizados"> <span class="header-section-number">2.1.2</span> Delineamento de Blocos Casualizados</a></li>
-</ul></li>
-<li><a href="#tipos-de-interação" class="nav-link" data-scroll-target="#tipos-de-interação"> <span class="header-section-number">2.2</span> Tipos de interação</a>
-<ul class="collapse">
-<li><a href="#ausência-de-interação" class="nav-link" data-scroll-target="#ausência-de-interação"> <span class="header-section-number">2.2.1</span> Ausência de interação</a></li>
-<li><a href="#interação-simples-quantitativa" class="nav-link" data-scroll-target="#interação-simples-quantitativa"> <span class="header-section-number">2.2.2</span> Interação simples (quantitativa)</a></li>
-<li><a href="#interação-complexa-qualitativa" class="nav-link" data-scroll-target="#interação-complexa-qualitativa"> <span class="header-section-number">2.2.3</span> Interação complexa (qualitativa)</a></li>
-</ul></li>
-<li><a href="#modelo-estatístico" class="nav-link" data-scroll-target="#modelo-estatístico"> <span class="header-section-number">2.3</span> Modelo estatístico</a></li>
-<li><a href="#conjunto-de-dados" class="nav-link" data-scroll-target="#conjunto-de-dados"> <span class="header-section-number">2.4</span> Conjunto de dados</a></li>
-<li><a href="#verificação-de-outliers" class="nav-link" data-scroll-target="#verificação-de-outliers"> <span class="header-section-number">2.5</span> Verificação de outliers</a></li>
-<li><a href="#estatística-descritiva" class="nav-link" data-scroll-target="#estatística-descritiva"> <span class="header-section-number">2.6</span> Estatística descritiva</a></li>
-<li><a href="#análise-de-variância" class="nav-link" data-scroll-target="#análise-de-variância"> <span class="header-section-number">2.7</span> Análise de variância</a>
-<ul class="collapse">
-<li><a href="#manual" class="nav-link" data-scroll-target="#manual"> <span class="header-section-number">2.7.1</span> Manual</a></li>
-</ul></li>
-<li><a href="#comparação-de-médias" class="nav-link" data-scroll-target="#comparação-de-médias"> <span class="header-section-number">2.8</span> Comparação de médias</a></li>
-<li><a href="#pacote-agror" class="nav-link" data-scroll-target="#pacote-agror"> <span class="header-section-number">2.9</span> Pacote AgroR</a></li>
-</ul></li>
-<li><a href="#parcelas-subdivididas" class="nav-link" data-scroll-target="#parcelas-subdivididas"> <span class="header-section-number">3</span> Parcelas subdivididas</a>
-<ul class="collapse">
-<li><a href="#casualização-1" class="nav-link" data-scroll-target="#casualização-1"> <span class="header-section-number">3.1</span> Casualização</a></li>
-<li><a href="#análise-de-variância-1" class="nav-link" data-scroll-target="#análise-de-variância-1"> <span class="header-section-number">3.2</span> Análise de variância</a></li>
-<li><a href="#pacote-agror-1" class="nav-link" data-scroll-target="#pacote-agror-1"> <span class="header-section-number">3.3</span> Pacote AgroR</a></li>
-</ul></li>
-<li><a href="#exemplos-de-experimentos-fatoriais" class="nav-link" data-scroll-target="#exemplos-de-experimentos-fatoriais"> <span class="header-section-number">4</span> Exemplos de experimentos fatoriais</a>
-<ul class="collapse">
-<li><a href="#experimento1" class="nav-link" data-scroll-target="#experimento1"> <span class="header-section-number">4.1</span> Coberturas de solo e doses de nitrogênio (efeito na massa de cobertura de inverno)</a>
-<ul class="collapse">
-<li><a href="#pacotes-e-dados" class="nav-link" data-scroll-target="#pacotes-e-dados"> <span class="header-section-number">4.1.1</span> Pacotes e dados</a></li>
-<li><a href="#estatistica-descritiva" class="nav-link" data-scroll-target="#estatistica-descritiva"> <span class="header-section-number">4.1.2</span> Estatistica descritiva</a></li>
-<li><a href="#modanova" class="nav-link" data-scroll-target="#modanova"> <span class="header-section-number">4.1.3</span> ANOVA</a>
-<ul class="collapse">
-<li><a href="#massa-verde-mv-por-ha" class="nav-link" data-scroll-target="#massa-verde-mv-por-ha">Massa verde (MV) por ha</a></li>
-<li><a href="#massa-seca-ms-por-ha" class="nav-link" data-scroll-target="#massa-seca-ms-por-ha">Massa seca (MS) por ha</a></li>
-<li><a href="#massa-seca-de-raiz-msr-por-ha" class="nav-link" data-scroll-target="#massa-seca-de-raiz-msr-por-ha">Massa seca de raiz (MSR) por ha</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#coberturas-de-solo-e-doses-de-nitrogênio-efeito-na-cultura-da-soja" class="nav-link" data-scroll-target="#coberturas-de-solo-e-doses-de-nitrogênio-efeito-na-cultura-da-soja"> <span class="header-section-number">4.2</span> Coberturas de solo e doses de nitrogênio (efeito na cultura da soja)</a>
-<ul class="collapse">
-<li><a href="#pacotes-e-dados-1" class="nav-link" data-scroll-target="#pacotes-e-dados-1"> <span class="header-section-number">4.2.1</span> Pacotes e dados</a></li>
-<li><a href="#estatistica-descritiva-1" class="nav-link" data-scroll-target="#estatistica-descritiva-1"> <span class="header-section-number">4.2.2</span> Estatistica descritiva</a></li>
-<li><a href="#anova" class="nav-link" data-scroll-target="#anova"> <span class="header-section-number">4.2.3</span> ANOVA</a>
-<ul class="collapse">
-<li><a href="#variável-número-de-legumes-por-planta-nl" class="nav-link" data-scroll-target="#variável-número-de-legumes-por-planta-nl">Variável número de legumes por planta (NL)</a></li>
-<li><a href="#variável-número-de-grãos-por-legume-ngl" class="nav-link" data-scroll-target="#variável-número-de-grãos-por-legume-ngl">Variável número de grãos por legume (NGL)</a></li>
-<li><a href="#variável-massa-de-mil-grãos-mmg" class="nav-link" data-scroll-target="#variável-massa-de-mil-grãos-mmg">Variável massa de mil grãos (MMG)</a></li>
-<li><a href="#variável-rg" class="nav-link" data-scroll-target="#variável-rg">Variável RG</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#doses-de-nitrogênio-x-híbridos-de-milho" class="nav-link" data-scroll-target="#doses-de-nitrogênio-x-híbridos-de-milho"> <span class="header-section-number">4.3</span> Doses de Nitrogênio x híbridos de milho</a>
-<ul class="collapse">
-<li><a href="#sem-interação-significativa" class="nav-link" data-scroll-target="#sem-interação-significativa"> <span class="header-section-number">4.3.1</span> Sem interação significativa</a></li>
-<li><a href="#com-interação-significativa" class="nav-link" data-scroll-target="#com-interação-significativa"> <span class="header-section-number">4.3.2</span> Com interação significativa</a></li>
-</ul></li>
-</ul></li>
-</ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306\FIT5306_10_FAT.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#pacotes" id="toc-pacotes" class="nav-link active" data-scroll-target="#pacotes">Pacotes</a></li>
+  <li><a href="#sec-fats" id="toc-sec-fats" class="nav-link" data-scroll-target="#sec-fats">Experimentos fatoriais</a>
+  <ul class="collapse">
+  <li><a href="#casualização" id="toc-casualização" class="nav-link" data-scroll-target="#casualização">Casualização</a>
+  <ul class="collapse">
+  <li><a href="#delineamento-inteiramente-casualizado" id="toc-delineamento-inteiramente-casualizado" class="nav-link" data-scroll-target="#delineamento-inteiramente-casualizado">Delineamento Inteiramente Casualizado</a></li>
+  <li><a href="#delineamento-de-blocos-casualizados" id="toc-delineamento-de-blocos-casualizados" class="nav-link" data-scroll-target="#delineamento-de-blocos-casualizados">Delineamento de Blocos Casualizados</a></li>
+  </ul></li>
+  <li><a href="#tipos-de-interação" id="toc-tipos-de-interação" class="nav-link" data-scroll-target="#tipos-de-interação">Tipos de interação</a>
+  <ul class="collapse">
+  <li><a href="#ausência-de-interação" id="toc-ausência-de-interação" class="nav-link" data-scroll-target="#ausência-de-interação">Ausência de interação</a></li>
+  <li><a href="#interação-simples-quantitativa" id="toc-interação-simples-quantitativa" class="nav-link" data-scroll-target="#interação-simples-quantitativa">Interação simples (quantitativa)</a></li>
+  <li><a href="#interação-complexa-qualitativa" id="toc-interação-complexa-qualitativa" class="nav-link" data-scroll-target="#interação-complexa-qualitativa">Interação complexa (qualitativa)</a></li>
+  </ul></li>
+  <li><a href="#modelo-estatístico" id="toc-modelo-estatístico" class="nav-link" data-scroll-target="#modelo-estatístico">Modelo estatístico</a></li>
+  <li><a href="#conjunto-de-dados" id="toc-conjunto-de-dados" class="nav-link" data-scroll-target="#conjunto-de-dados">Conjunto de dados</a></li>
+  <li><a href="#verificação-de-outliers" id="toc-verificação-de-outliers" class="nav-link" data-scroll-target="#verificação-de-outliers">Verificação de outliers</a></li>
+  <li><a href="#estatística-descritiva" id="toc-estatística-descritiva" class="nav-link" data-scroll-target="#estatística-descritiva">Estatística descritiva</a></li>
+  <li><a href="#análise-de-variância" id="toc-análise-de-variância" class="nav-link" data-scroll-target="#análise-de-variância">Análise de variância</a>
+  <ul class="collapse">
+  <li><a href="#manual" id="toc-manual" class="nav-link" data-scroll-target="#manual">Manual</a></li>
+  </ul></li>
+  <li><a href="#comparação-de-médias" id="toc-comparação-de-médias" class="nav-link" data-scroll-target="#comparação-de-médias">Comparação de médias</a></li>
+  <li><a href="#pacote-agror" id="toc-pacote-agror" class="nav-link" data-scroll-target="#pacote-agror">Pacote AgroR</a></li>
+  </ul></li>
+  <li><a href="#parcelas-subdivididas" id="toc-parcelas-subdivididas" class="nav-link" data-scroll-target="#parcelas-subdivididas">Parcelas subdivididas</a>
+  <ul class="collapse">
+  <li><a href="#casualização-1" id="toc-casualização-1" class="nav-link" data-scroll-target="#casualização-1">Casualização</a></li>
+  <li><a href="#análise-de-variância-1" id="toc-análise-de-variância-1" class="nav-link" data-scroll-target="#análise-de-variância-1">Análise de variância</a></li>
+  <li><a href="#pacote-agror-1" id="toc-pacote-agror-1" class="nav-link" data-scroll-target="#pacote-agror-1">Pacote AgroR</a></li>
+  </ul></li>
+  <li><a href="#exemplos-de-experimentos-fatoriais" id="toc-exemplos-de-experimentos-fatoriais" class="nav-link" data-scroll-target="#exemplos-de-experimentos-fatoriais">Exemplos de experimentos fatoriais</a>
+  <ul class="collapse">
+  <li><a href="#experimento1" id="toc-experimento1" class="nav-link" data-scroll-target="#experimento1">Coberturas de solo e doses de nitrogênio (efeito na massa de cobertura de inverno)</a>
+  <ul class="collapse">
+  <li><a href="#pacotes-e-dados" id="toc-pacotes-e-dados" class="nav-link" data-scroll-target="#pacotes-e-dados">Pacotes e dados</a></li>
+  <li><a href="#estatistica-descritiva" id="toc-estatistica-descritiva" class="nav-link" data-scroll-target="#estatistica-descritiva">Estatistica descritiva</a></li>
+  <li><a href="#modanova" id="toc-modanova" class="nav-link" data-scroll-target="#modanova">ANOVA</a>
+  <ul class="collapse">
+  <li><a href="#massa-verde-mv-por-ha" id="toc-massa-verde-mv-por-ha" class="nav-link" data-scroll-target="#massa-verde-mv-por-ha">Massa verde (MV) por ha</a></li>
+  <li><a href="#massa-seca-ms-por-ha" id="toc-massa-seca-ms-por-ha" class="nav-link" data-scroll-target="#massa-seca-ms-por-ha">Massa seca (MS) por ha</a></li>
+  <li><a href="#massa-seca-de-raiz-msr-por-ha" id="toc-massa-seca-de-raiz-msr-por-ha" class="nav-link" data-scroll-target="#massa-seca-de-raiz-msr-por-ha">Massa seca de raiz (MSR) por ha</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#coberturas-de-solo-e-doses-de-nitrogênio-efeito-na-cultura-da-soja" id="toc-coberturas-de-solo-e-doses-de-nitrogênio-efeito-na-cultura-da-soja" class="nav-link" data-scroll-target="#coberturas-de-solo-e-doses-de-nitrogênio-efeito-na-cultura-da-soja">Coberturas de solo e doses de nitrogênio (efeito na cultura da soja)</a>
+  <ul class="collapse">
+  <li><a href="#pacotes-e-dados-1" id="toc-pacotes-e-dados-1" class="nav-link" data-scroll-target="#pacotes-e-dados-1">Pacotes e dados</a></li>
+  <li><a href="#estatistica-descritiva-1" id="toc-estatistica-descritiva-1" class="nav-link" data-scroll-target="#estatistica-descritiva-1">Estatistica descritiva</a></li>
+  <li><a href="#anova" id="toc-anova" class="nav-link" data-scroll-target="#anova">ANOVA</a>
+  <ul class="collapse">
+  <li><a href="#variável-número-de-legumes-por-planta-nl" id="toc-variável-número-de-legumes-por-planta-nl" class="nav-link" data-scroll-target="#variável-número-de-legumes-por-planta-nl">Variável número de legumes por planta (NL)</a></li>
+  <li><a href="#variável-número-de-grãos-por-legume-ngl" id="toc-variável-número-de-grãos-por-legume-ngl" class="nav-link" data-scroll-target="#variável-número-de-grãos-por-legume-ngl">Variável número de grãos por legume (NGL)</a></li>
+  <li><a href="#variável-massa-de-mil-grãos-mmg" id="toc-variável-massa-de-mil-grãos-mmg" class="nav-link" data-scroll-target="#variável-massa-de-mil-grãos-mmg">Variável massa de mil grãos (MMG)</a></li>
+  <li><a href="#variável-rg" id="toc-variável-rg" class="nav-link" data-scroll-target="#variável-rg">Variável RG</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#doses-de-nitrogênio-x-híbridos-de-milho" id="toc-doses-de-nitrogênio-x-híbridos-de-milho" class="nav-link" data-scroll-target="#doses-de-nitrogênio-x-híbridos-de-milho">Doses de Nitrogênio x híbridos de milho</a>
+  <ul class="collapse">
+  <li><a href="#sem-interação-significativa" id="toc-sem-interação-significativa" class="nav-link" data-scroll-target="#sem-interação-significativa">Sem interação significativa</a></li>
+  <li><a href="#com-interação-significativa" id="toc-com-interação-significativa" class="nav-link" data-scroll-target="#com-interação-significativa">Com interação significativa</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306/FIT5306_10_FAT.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<div class="quarto-title"><h1 class="title d-none d-lg-block">9. Experimentos Fatoriais</h1></div></header>
 
-<section id="pacotes" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Pacotes</h1>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">9. Experimentos Fatoriais</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="pacotes" class="level1">
+<h1>Pacotes</h1>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)      <span class="co"># estatísticas descritivas</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)        <span class="co"># importação/exportação de dados</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)    <span class="co"># comparação de médias</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(AgroR)      <span class="co"># casualização e ANOVA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="sec-fats" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Experimentos fatoriais</h1>
+<section id="sec-fats" class="level1">
+<h1>Experimentos fatoriais</h1>
 <p>Experimentos fatoriais são muito comuns nas ciências agrárias, pois permitem o estudo de dois ou mais fatores em um mesmo experimento. Diversas são as vantagens em se conduzir um experimento deste tipo. Dentre elas, podemos citar a redução de custos, quando comparado à realizar um experimento para cada fator, a otimização da área experimental e dos tratos culturais, bem como a possibilidade de identificar o efeito de dois ou mais fatores sobre a magnitude da variável resposta. Esta é, talvez, a principal vantagem destes experimentos. Ao memo tempo, no entanto, é a fonte de um dos maiores desafios encontrados no meio acadêmico. O surgimento de uma terceira fonte de variação, conhecida por interação.</p>
-<section id="casualização" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="casualização"><span class="header-section-number">2.1</span> Casualização</h2>
-<section id="delineamento-inteiramente-casualizado" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="delineamento-inteiramente-casualizado"><span class="header-section-number">2.1.1</span> Delineamento Inteiramente Casualizado</h3>
+<section id="casualização" class="level2">
+<h2 class="anchored" data-anchor-id="casualização">Casualização</h2>
+<section id="delineamento-inteiramente-casualizado" class="level3">
+<h3 class="anchored" data-anchor-id="delineamento-inteiramente-casualizado">Delineamento Inteiramente Casualizado</h3>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sketch</span>(<span class="at">trat=</span> <span class="fu">c</span>(<span class="st">"A1"</span>, <span class="st">"A2"</span>),</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sketch</span>(<span class="at">trat=</span> <span class="fu">c</span>(<span class="st">"A1"</span>, <span class="st">"A2"</span>),</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">trat1 =</span> <span class="fu">c</span>(<span class="st">"B1"</span>, <span class="st">"B2"</span>, <span class="st">"B3"</span>),</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">design =</span> <span class="st">"FAT2DIC"</span>,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">r =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -360,10 +384,10 @@
 </div>
 </div>
 </section>
-<section id="delineamento-de-blocos-casualizados" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="delineamento-de-blocos-casualizados"><span class="header-section-number">2.1.2</span> Delineamento de Blocos Casualizados</h3>
+<section id="delineamento-de-blocos-casualizados" class="level3">
+<h3 class="anchored" data-anchor-id="delineamento-de-blocos-casualizados">Delineamento de Blocos Casualizados</h3>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sketch</span>(<span class="at">trat=</span> <span class="fu">c</span>(<span class="st">"A1"</span>, <span class="st">"A2"</span>),</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sketch</span>(<span class="at">trat=</span> <span class="fu">c</span>(<span class="st">"A1"</span>, <span class="st">"A2"</span>),</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">trat1 =</span> <span class="fu">c</span>(<span class="st">"B1"</span>, <span class="st">"B2"</span>, <span class="st">"B3"</span>),</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">design =</span> <span class="st">"FAT2DBC"</span>,</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">r =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -373,12 +397,12 @@
 </div>
 </section>
 </section>
-<section id="tipos-de-interação" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="tipos-de-interação"><span class="header-section-number">2.2</span> Tipos de interação</h2>
-<section id="ausência-de-interação" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="ausência-de-interação"><span class="header-section-number">2.2.1</span> Ausência de interação</h3>
+<section id="tipos-de-interação" class="level2">
+<h2 class="anchored" data-anchor-id="tipos-de-interação">Tipos de interação</h2>
+<section id="ausência-de-interação" class="level3">
+<h3 class="anchored" data-anchor-id="ausência-de-interação">Ausência de interação</h3>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sem interação</span></span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sem interação</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dfsi <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>GEN, <span class="sc">~</span>FONTEN, <span class="sc">~</span>RG,</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Híbrido 1"</span>,<span class="st">"Ureia"</span>,   <span class="fl">5.7</span>,</span>
@@ -396,7 +420,7 @@
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                <span class="at">xlab =</span> <span class="st">"Híbrido"</span>,</span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.89</span>)) <span class="sc">+</span></span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Ausência de interação"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stderr">
+<div class="cell-output cell-output-stderr">
 <pre><code>Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos
 
 Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos
@@ -405,47 +429,47 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos
 
 Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 </div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
 <p>De posse dos dados, vamos construir uma tabela dupla entrada com os valores totais e outra com os valores médios. Os efeitos da interação são calculados como…</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mat_dfsi <span class="ot">&lt;-</span> <span class="fu">make_mat</span>(dfsi, GEN, FONTEN, RG)</span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mat_dfsi <span class="ot">&lt;-</span> <span class="fu">make_mat</span>(dfsi, GEN, FONTEN, RG)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mat_dfsi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>          Nitrato Ureia
 Híbrido 1     6.8   5.7
 Híbrido 2     9.3   8.2</code></pre>
 </div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tabela dupla entrada (totais)</span></span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tabela dupla entrada (totais)</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mat_dfsi <span class="sc">|&gt;</span> </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_col_sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>          Nitrato Ureia row_sums
 Híbrido 1     6.8   5.7     12.5
 Híbrido 2     9.3   8.2     17.5
 col_sums     16.1  13.9     30.0</code></pre>
 </div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tabela dupla entrada (totais)</span></span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tabela dupla entrada (totais)</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mat_dfsi <span class="sc">|&gt;</span> </span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_col_mean</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>          Nitrato Ureia row_means
 Híbrido 1    6.80  5.70      6.25
 Híbrido 2    9.30  8.20      8.75
 col_means    8.05  6.95      7.50</code></pre>
 </div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados do fator GEN</span></span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados do fator GEN</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rowSums</span>(mat_dfsi) <span class="sc">^</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Híbrido 1 Híbrido 2 
    156.25    306.25 </code></pre>
 </div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>modsi <span class="ot">&lt;-</span> <span class="fu">aov</span>(RG <span class="sc">~</span> GEN <span class="sc">*</span> FONTEN, <span class="at">data =</span> dfsi)</span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>modsi <span class="ot">&lt;-</span> <span class="fu">aov</span>(RG <span class="sc">~</span> GEN <span class="sc">*</span> FONTEN, <span class="at">data =</span> dfsi)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modsi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>            Df Sum Sq Mean Sq
 GEN          1   6.25    6.25
 FONTEN       1   1.21    1.21
@@ -453,10 +477,10 @@ GEN:FONTEN   1   0.00    0.00</code></pre>
 </div>
 </div>
 </section>
-<section id="interação-simples-quantitativa" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="interação-simples-quantitativa"><span class="header-section-number">2.2.2</span> Interação simples (quantitativa)</h3>
+<section id="interação-simples-quantitativa" class="level3">
+<h3 class="anchored" data-anchor-id="interação-simples-quantitativa">Interação simples (quantitativa)</h3>
 <div class="cell">
-<div class="sourceCode" id="cb17"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># interação simples</span></span>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># interação simples</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df_is <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>GEN, <span class="sc">~</span>FONTEN, <span class="sc">~</span>RG,</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Híbrido 1"</span>,<span class="st">"Ureia"</span>,   <span class="fl">4.5</span>,</span>
@@ -475,7 +499,7 @@ GEN:FONTEN   1   0.00    0.00</code></pre>
 <span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>                <span class="at">xlab =</span> <span class="st">"Híbrido"</span>,</span>
 <span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>                <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.89</span>)) <span class="sc">+</span></span>
 <span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Interação simples"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stderr">
+<div class="cell-output cell-output-stderr">
 <pre><code>Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos
 
 Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos
@@ -484,16 +508,16 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos
 
 Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 </div>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
 </section>
-<section id="interação-complexa-qualitativa" class="level3" data-number="2.2.3">
-<h3 data-number="2.2.3" class="anchored" data-anchor-id="interação-complexa-qualitativa"><span class="header-section-number">2.2.3</span> Interação complexa (qualitativa)</h3>
+<section id="interação-complexa-qualitativa" class="level3">
+<h3 class="anchored" data-anchor-id="interação-complexa-qualitativa">Interação complexa (qualitativa)</h3>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># interação complexa</span></span>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># interação complexa</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>df_ic <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>GEN, <span class="sc">~</span>FONTEN, <span class="sc">~</span>RG,</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Híbrido 1"</span>,<span class="st">"Ureia"</span>,   <span class="fl">4.1</span>,</span>
@@ -511,7 +535,7 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 <span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>                <span class="at">xlab =</span> <span class="st">"Híbrido"</span>,</span>
 <span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>                <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.89</span>)) <span class="sc">+</span></span>
 <span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Interação complexa"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stderr">
+<div class="cell-output cell-output-stderr">
 <pre><code>Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos
 
 Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos
@@ -520,15 +544,15 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos
 
 Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 </div>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
 </section>
 </section>
-<section id="modelo-estatístico" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="modelo-estatístico"><span class="header-section-number">2.3</span> Modelo estatístico</h2>
+<section id="modelo-estatístico" class="level2">
+<h2 class="anchored" data-anchor-id="modelo-estatístico">Modelo estatístico</h2>
 <p>Vamos considerar como exemplo, um experimento que avaliou a influencia de dois fatores, digamos <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\tau\)</span>, em uma determinada variável resposta. O modelo estatístico considerado neste tipo de experimento é:</p>
 <p><span class="math display">\[
 {y_{ijk}} = {\rm{ }}\mu {\rm{ }} + {\rm{ }}\mathop \beta \nolimits_{k}  + \mathop \alpha \nolimits_i  + \mathop \tau \nolimits_j  + \mathop {(\alpha \tau )}\nolimits_{ij}  + {\rm{ }}\mathop \varepsilon \nolimits_{ijk}
@@ -536,8 +560,8 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 <p>onde <span class="math inline">\({y_{ijk}}\)</span> é o valor observado da combinação do <em>i</em>-ésimo nível do fator <span class="math inline">\(\alpha\)</span> com o <em>j</em>-ésimo nível do fator <span class="math inline">\(\tau\)</span> no <em>k</em>-ésimo bloco; <span class="math inline">\(\mu\)</span> é a média geral; <span class="math inline">\(\mathop \beta \nolimits_{k}\)</span> é o efeito do bloco <em>k</em>; <span class="math inline">\(\mathop \alpha \nolimits_i\)</span> é o efeito do <em>i</em>-ésimo nível de <span class="math inline">\(\alpha\)</span> ; <span class="math inline">\(\mathop \tau \nolimits_j\)</span> é o efeito do <em>j</em>-ésimo nível de <span class="math inline">\(\tau\)</span> ; <span class="math inline">\(\mathop {(\alpha \tau )}\nolimits_{ij}\)</span> é o efeito da interação do <em>i</em>-ésimo nível de <span class="math inline">\(\alpha\)</span> com o <em>j</em>-ésimo nível de <span class="math inline">\(\tau\)</span>; e <span class="math inline">\(\mathop \varepsilon \nolimits_{ijk}\)</span> é o erro aleatório associado a <span class="math inline">\({y_{ijk}}\)</span>, assumindo <span class="math inline">\(\mathop \varepsilon \nolimits_{ijk} \mathop \cap \limits^{iid} N(0,\mathop \sigma \nolimits^2 )\)</span>.</p>
 <p>Basicamente, estes fatores podem ser divididos em dois tipos: qualitativos e quantitativos. Um fator qualitativo é, como o nome já diz, relacionado a <em>qualidade</em>, ou seja, diferentes em tipo, mas não em quantidade. Como exemplo, podemos citar cultivares, defensivos agrícolas, práticas de manejo, etc. Um fator quantitativo, por outro lado, é caracterizado pela <em>quantidade</em> utilizada no experimento. Podemos citar, por exemplo, doses de adubação. Cabe ressaltar que o termo <em>fatorial</em> não indica um delineamento experimental, mas uma forma de arranjo de tratamentos na área parcela. Estes experimentos podem ser conduzidos tanto em DIC quanto DBC. Assim, em cada repetição/bloco, o tratamento a ser aplicado é a combinação dos níveis dos dois fatores.</p>
 </section>
-<section id="conjunto-de-dados" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="conjunto-de-dados"><span class="header-section-number">2.4</span> Conjunto de dados</h2>
+<section id="conjunto-de-dados" class="level2">
+<h2 class="anchored" data-anchor-id="conjunto-de-dados">Conjunto de dados</h2>
 <p>O conjunto de dados utilizado neste exemplo é adaptado de OLIVOTO et al.&nbsp;(2016) sendo oriundo de um experimento que testou o efeito de diferentes parcelamentos de nitrogênio (N) associado ao uso de enxofre (S) na produtividade, componentes do rendimento e qualidade reológica da farinha de trigo.</p>
 <blockquote class="blockquote">
 <p>OLIVOTO, T. et al.&nbsp;Sulfur and nitrogen effects on industrial quality and grain yield of wheat. <strong>Revista de Ciências Agroveterinárias</strong>, v. 15, n.&nbsp;1, p.&nbsp;24–33, 2016. Disponível em: <a href="https://doi.org/10.5965/223811711512016024">https://doi.org/10.5965/223811711512016024</a></p>
@@ -545,24 +569,24 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 <p>Os tratamentos consistiram da combinação de três níveis de parcelamento de N (DA: 100% no duplo anel; AF+DA: 50% no afilhamento + 50% no duplo anel; DA+ES: 50% no afilhamento + 50% no espigamento) e dois níveis de enxofre (S+: com enxofre; S-: sem enxofre).</p>
 <p>Para fins didáticos, a extensibilidade da massa (L, mm) é utilizada. Para importação, utiliza-se a função <code>import()</code> do pacote <code>rio</code>. A função <code>as_factor</code> converte as primeiras três colunas para fator.</p>
 <div class="cell">
-<div class="sourceCode" id="cb23"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df_fat <span class="ot">&lt;-</span> </span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"FAT1_CI2"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_factor</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>No seguinte gráfico, apresento as médias observadas da extensibilidade nos diferentes tratamentos.</p>
 <div class="cell">
-<div class="sourceCode" id="cb24"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_factbars</span>(df_fat, ENX, NIT, <span class="at">resp =</span> L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_factbars</span>(df_fat, ENX, NIT, <span class="at">resp =</span> L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
-<section id="verificação-de-outliers" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="verificação-de-outliers"><span class="header-section-number">2.5</span> Verificação de outliers</h2>
+<section id="verificação-de-outliers" class="level2">
+<h2 class="anchored" data-anchor-id="verificação-de-outliers">Verificação de outliers</h2>
 <p>A função <code>inspect</code> do pacote <code>metan</code> é utilizada para inspecionar o conjunto de dados. Com esta função, é possível identificar possíveis outliers, bem como valores faltantes.</p>
 <div class="cell">
-<div class="sourceCode" id="cb25"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(df_fat, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(df_fat, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 4 × 10</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   Variable Class   Missing Levels Valid_n   Min Median   Max Outlier Text </span></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;lgl&gt;</span></span>
@@ -575,30 +599,30 @@ Warning in qt(level/2 + 0.5, n() - 1): NaNs produzidos</code></pre>
 </div>
 </div>
 </section>
-<section id="estatística-descritiva" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="estatística-descritiva"><span class="header-section-number">2.6</span> Estatística descritiva</h2>
+<section id="estatística-descritiva" class="level2">
+<h2 class="anchored" data-anchor-id="estatística-descritiva">Estatística descritiva</h2>
 <p>A função <code>desc_stat()</code> do pacote <code>metan</code> computa estatísticas descritivas para a variável L.</p>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_stat</span>(df_fat)</span>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_stat</span>(df_fat)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 1 × 10</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   variable    cv   max  mean median   min sd.amo    se  ci.t n.valid</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;</span></span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 L         10.5    96  80.4   78.5    67   8.43  1.72  3.56      24</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="análise-de-variância" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="análise-de-variância"><span class="header-section-number">2.7</span> Análise de variância</h2>
-<section id="manual" class="level3" data-number="2.7.1">
-<h3 data-number="2.7.1" class="anchored" data-anchor-id="manual"><span class="header-section-number">2.7.1</span> Manual</h3>
+<section id="análise-de-variância" class="level2">
+<h2 class="anchored" data-anchor-id="análise-de-variância">Análise de variância</h2>
+<section id="manual" class="level3">
+<h3 class="anchored" data-anchor-id="manual">Manual</h3>
 <div class="cell">
-<div class="sourceCode" id="cb27"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>mat_df_fat <span class="ot">&lt;-</span> <span class="fu">make_mat</span>(df_fat, ENX, NIT, L, <span class="at">fun =</span> sum)</span>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>mat_df_fat <span class="ot">&lt;-</span> <span class="fu">make_mat</span>(df_fat, ENX, NIT, L, <span class="at">fun =</span> sum)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>mat_df_fat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>   AF+DA  DA DA+ES
 S-   297 316   310
 S+   286 373   347</code></pre>
 </div>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># total dos blocos</span></span>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># total dos blocos</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>tbloco <span class="ot">&lt;-</span> <span class="fu">sum_by</span>(df_fat, REP) <span class="sc">|&gt;</span> <span class="fu">pull</span>()</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>I <span class="ot">&lt;-</span> <span class="fu">nlevels</span>(df_fat<span class="sc">$</span>ENX)</span>
@@ -630,7 +654,7 @@ S+   286 373   347</code></pre>
 <span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>FC[<span class="dv">5</span><span class="sc">:</span><span class="dv">6</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
 <span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">FV =</span> FV, <span class="at">GL =</span> GL, <span class="at">SQ =</span> SQ, <span class="at">QM =</span> QM, <span class="at">FC =</span> FC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>       FV GL         SQ         QM         FC
 1   BLOCO  3   10.45833   3.486111  0.1779889
 2     ENX  1  287.04167 287.041667 14.6553680
@@ -642,7 +666,7 @@ S+   286 373   347</code></pre>
 </div>
 <p>A análise de variância é computada no software R utilizando a função <code>aov()</code>. Considerando o Delineamento de Blocos Casualizados (DBC), as três fontes de variação incluídas no modelo são a de enxofre (<code>ENX</code>), nitrogênio (<code>NIT</code>) e bloco (<code>REP</code>). Note que todos os termos (efeito principal e interação) podem ser declarados quando se utiliza <code>ENX*NIT</code>; também é possível indicar termos específicos no modelo.</p>
 <div class="cell">
-<div class="sourceCode" id="cb31"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># opção 1</span></span>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># opção 1</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(L <span class="sc">~</span> ENX<span class="sc">*</span>NIT <span class="sc">+</span> REP, <span class="at">data =</span> df_fat)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># modelo idêntico, indicando os termos explicitamente</span></span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(L <span class="sc">~</span> ENX <span class="sc">+</span> NIT <span class="sc">+</span> ENX<span class="sc">:</span>NIT <span class="sc">+</span> REP, <span class="at">data =</span> df_fat)</span>
@@ -658,11 +682,11 @@ S+   286 373   347</code></pre>
 </div>
 </section>
 </section>
-<section id="comparação-de-médias" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="comparação-de-médias"><span class="header-section-number">2.8</span> Comparação de médias</h2>
+<section id="comparação-de-médias" class="level2">
+<h2 class="anchored" data-anchor-id="comparação-de-médias">Comparação de médias</h2>
 <p>A análise de variância revelou efeito significativo da interação. Nesse caso, segue-se comparando as médias do fator nitrogênio dentro de cada nível do fator enxofre e do enxofre dentro de cada nível do fator nitrogênio. Para isso, utilizo o pacote <code>emmeans</code> (teste Tukey). Nesta abordagem, a avaliação da significância das médias de dois tratamentos é dada pela sobreposição das flechas de cada tratamento. Se dois tratamentos apresentam setas que se sobrepõem (considerando o eixo x), assume-se que estes tratamentos são estatisticamente diferentes um do outro.</p>
 <div class="cell">
-<div class="sourceCode" id="cb32"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>medias_fat <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(anova, <span class="sc">~</span> NIT <span class="sc">|</span> ENX)</span>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>medias_fat <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(anova, <span class="sc">~</span> NIT <span class="sc">|</span> ENX)</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(medias_fat,</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">CIs =</span> <span class="cn">FALSE</span>, <span class="co"># remove os intervalos de confiança das médias</span></span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">comparisons =</span> <span class="cn">TRUE</span>) <span class="co"># insere setas para comparação de médias (Tukey)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -671,11 +695,11 @@ S+   286 373   347</code></pre>
 </div>
 </div>
 </section>
-<section id="pacote-agror" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="pacote-agror"><span class="header-section-number">2.9</span> Pacote AgroR</h2>
+<section id="pacote-agror" class="level2">
+<h2 class="anchored" data-anchor-id="pacote-agror">Pacote AgroR</h2>
 <p>No pacote <a href="https://agronomiar.github.io/AgroR_Tutorial/delineamento-em-blocos-casualizados-1.html">agroR</a>, a análise de variância neste delineamento pode ser realizada com a função <code>FAT2DBC()</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb33"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_fat,</span>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_fat,</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">FAT2DBC</span>(ENX, NIT, REP, L))</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="do">## -----------------------------------------------------------------</span></span>
@@ -764,8 +788,8 @@ S+   286 373   347</code></pre>
 </div>
 </section>
 </section>
-<section id="parcelas-subdivididas" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Parcelas subdivididas</h1>
+<section id="parcelas-subdivididas" class="level1">
+<h1>Parcelas subdivididas</h1>
 <p>Experimentos fatoriais são úteis devido a possibilidade de se testar dois ou mais fatores em um mesmo experimento. Uma desvantagem deste tipo de experimento é que cada bloco deve receber todos os tratamentos, ou seja, todas as combinações dos níveis dos dois fatores. Assim, o número de parcelas no experimento e consequentemente o tamanho da área experimental crese drastricamente na medida em que são incluídos fatores ou níveis de fatores no experimento. Uma maneira de se contornar isto, é a condução de experimentos em parcelas subdivididas.</p>
 <p>Parcelas subdivididas são um caso especial de estrutura de tratamentos fatorial em que um fator é alocado na parcela principal e outro fator é alocado na subparcela. Este tipo de estrutura de tratamentos pode ser utilizada quando um fator é de dificil instalação em pequenas parcelas, como por exemplo, a semeadura mecanizada ou um sistema de irrigação, e o segundo fator pode ser alocado em parcelas mais pequenas, como um doses de nitrogênio, por exemplo.</p>
 <p>Diferentemente do modelo fatorial tradicional, o modelo estatístico para análise de experimentos em parcelas subdivididas conta com mais uma fonte de variação. Vamos considerar como exemplo, um experimento que avaliou a influência de dois fatores, digamos <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\tau\)</span>, em uma determinada variável resposta, agora, conduzido em parcelas subivididas, onde o fator <span class="math inline">\(\alpha\)</span> foi alocado na parcela principal e o fator <span class="math inline">\(\tau\)</span> alocado na subparcela. O modelo estatístico considerado neste tipo de experimento é:</p>
@@ -773,10 +797,10 @@ S+   286 373   347</code></pre>
 {y_{ijk}} = {\rm{ }}\mu {\rm{ }} + {\rm{ }}\mathop \alpha \nolimits_i + \mathop \beta \nolimits_{k} + \mathop \eta \nolimits_{ik}  +\mathop \tau \nolimits_j  + \mathop {(\alpha \tau )}\nolimits_{ij}  + {\rm{ }}\mathop \varepsilon \nolimits_{ijk}
 \]</span></p>
 <p>onde <span class="math inline">\({y_{ijk}}\)</span> é a variável resposta observada; <span class="math inline">\(\mu\)</span> é a média geral; <span class="math inline">\(\mathop \alpha \nolimits_i\)</span> é o efeito do <em>i</em>-ésimo nível de <span class="math inline">\(\alpha\)</span> ; <span class="math inline">\(\mathop \beta \nolimits_{k}\)</span> é o efeito do bloco <em>k</em>; <span class="math inline">\(\mathop \eta \nolimits_{ik}\)</span> é o erro de parcela, mais conhecido como erro a; assumido <span class="math inline">\(\mathop \varepsilon \nolimits_{ijk} \mathop \cap \limits^{iid} N(0,\mathop \sigma \nolimits_\eta^2 )\)</span>; <span class="math inline">\(\mathop \tau \nolimits_j\)</span> é o efeito do <em>j</em>-ésimo nível de <span class="math inline">\(\tau\)</span> ; <span class="math inline">\(\mathop {(\alpha \tau )}\nolimits_{ij}\)</span> é o efeito da interação do <em>i</em>-ésimo nível de <span class="math inline">\(\alpha\)</span> com o <em>j</em>-ésimo nível de <span class="math inline">\(\tau\)</span>; e <span class="math inline">\(\mathop \varepsilon \nolimits_{ijk}\)</span> é o erro da subparcela, mais conhecido como erro b, assumindo <span class="math inline">\(\mathop \varepsilon \nolimits_{ijk} \mathop \cap \limits^{iid} N(0,\mathop \sigma \nolimits^2 )\)</span>.</p>
-<section id="casualização-1" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="casualização-1"><span class="header-section-number">3.1</span> Casualização</h2>
+<section id="casualização-1" class="level2">
+<h2 class="anchored" data-anchor-id="casualização-1">Casualização</h2>
 <div class="cell">
-<div class="sourceCode" id="cb35"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sketch</span>(<span class="at">trat=</span> <span class="fu">c</span>(<span class="st">"A1"</span>, <span class="st">"A2"</span>),</span>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sketch</span>(<span class="at">trat=</span> <span class="fu">c</span>(<span class="st">"A1"</span>, <span class="st">"A2"</span>),</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">trat1 =</span> <span class="fu">c</span>(<span class="st">"B1"</span>, <span class="st">"B2"</span>, <span class="st">"B3"</span>),</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">design =</span> <span class="st">"PSUBDBC"</span>,</span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">r =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -785,12 +809,13 @@ S+   286 373   347</code></pre>
 </div>
 </div>
 </section>
-<section id="análise-de-variância-1" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="análise-de-variância-1"><span class="header-section-number">3.2</span> Análise de variância</h2>
-<p>Considerando o mesmo conjunto de dados do exemplo anterior e assumindo que o enxofre estava casualizado nas parcelas principais e o nitrogênio nas subparcelas, a análise de variância no software R é computada conforme segue ::: {.cell}</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>anova_psub <span class="ot">&lt;-</span> <span class="fu">aov</span>(L <span class="sc">~</span> ENX<span class="sc">*</span>NIT <span class="sc">+</span> <span class="fu">Error</span>(REP<span class="sc">/</span>ENX), <span class="at">data =</span> df_fat)</span>
+<section id="análise-de-variância-1" class="level2">
+<h2 class="anchored" data-anchor-id="análise-de-variância-1">Análise de variância</h2>
+<p>Considerando o mesmo conjunto de dados do exemplo anterior e assumindo que o enxofre estava casualizado nas parcelas principais e o nitrogênio nas subparcelas, a análise de variância no software R é computada conforme segue</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>anova_psub <span class="ot">&lt;-</span> <span class="fu">aov</span>(L <span class="sc">~</span> ENX<span class="sc">*</span>NIT <span class="sc">+</span> <span class="fu">Error</span>(REP<span class="sc">/</span>ENX), <span class="at">data =</span> df_fat)</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_psub)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>
 Error: REP
           Df Sum Sq Mean Sq F value Pr(&gt;F)
@@ -811,13 +836,13 @@ Residuals 12  248.3    20.7
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
-<p>:::</p>
+</div>
 </section>
-<section id="pacote-agror-1" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="pacote-agror-1"><span class="header-section-number">3.3</span> Pacote AgroR</h2>
+<section id="pacote-agror-1" class="level2">
+<h2 class="anchored" data-anchor-id="pacote-agror-1">Pacote AgroR</h2>
 <p>No pacote <a href="https://agronomiar.github.io/AgroR_Tutorial/delineamento-em-blocos-casualizados-1.html">agroR</a>, a análise de variância neste delineamento pode ser realizada com a função <code>PSUBDBC()</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb38"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_fat,</span>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_fat,</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">PSUBDBC</span>(ENX, NIT, REP, L))</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="do">## -----------------------------------------------------------------</span></span>
@@ -898,16 +923,16 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </section>
 </section>
-<section id="exemplos-de-experimentos-fatoriais" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Exemplos de experimentos fatoriais</h1>
-<section id="experimento1" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="experimento1"><span class="header-section-number">4.1</span> Coberturas de solo e doses de nitrogênio (efeito na massa de cobertura de inverno)</h2>
+<section id="exemplos-de-experimentos-fatoriais" class="level1">
+<h1>Exemplos de experimentos fatoriais</h1>
+<section id="experimento1" class="level2">
+<h2 class="anchored" data-anchor-id="experimento1">Coberturas de solo e doses de nitrogênio (efeito na massa de cobertura de inverno)</h2>
 <p>O delineamento experimental utilizado foi o delineamento de blocos casualizados com parcelas subdivididas em esquema fatorial 4x2 com quatro repetições. quatro espécies: aveia preta cv. BRS 139 (Neblina), com densidade de 120 kg ha<span class="math inline">\(^{-1}\)</span> de semente; triticale cv. BRS SATURNO, com densidade de 160 kg ha<span class="math inline">\(^{-1}\)</span> de semente e centeio cv. BRS PROGRESSO, com densidade de 160 kg ha<span class="math inline">\(^{-1}\)</span> de semente, além do pousio, com presença de diferentes plantas que se desenvolvem nesta época (três espécies de gramíneas); com dois manejos de nitrogênio (com ou sem N em cobertuta). Os tratamentos foram alocados na área experimental em formato de parcelas subdivididas. Na parcela principal foram alocadas as espécies nas subparcela o manejo de nitrogênio. Nas parcelas que receberam N utilizou-se como fonte a ureia (45% de N) na dose de 100 kg ha<span class="math inline">\(^{-1}\)</span>.</p>
-<section id="pacotes-e-dados" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="pacotes-e-dados"><span class="header-section-number">4.1.1</span> Pacotes e dados</h3>
+<section id="pacotes-e-dados" class="level3">
+<h3 class="anchored" data-anchor-id="pacotes-e-dados">Pacotes e dados</h3>
 <p>Assumindo que todos estão instalados, é só carregar com</p>
 <div class="cell">
-<div class="sourceCode" id="cb40"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio) <span class="co"># importar e exportar arquivos</span></span>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio) <span class="co"># importar e exportar arquivos</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ExpDes.pt) <span class="co"># fazer anova</span></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan) <span class="co"># gráficos</span></span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># manipulação de dados e gráficos</span></span>
@@ -919,7 +944,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Apenas para mostrar a estrutura dos dados</span></span>
 <span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>df_cobmassa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 32 × 6
    NITROGENIO ESPECIE     REP       MV    MS   MSR
    &lt;fct&gt;      &lt;fct&gt;       &lt;fct&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -933,15 +958,16 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
  8 Sem N      Centeio     4     15220. 3797. 213. 
  9 Sem N      Triticale   1     14700. 2989. 268. 
 10 Sem N      Triticale   2     19146. 3652. 399. 
-# … with 22 more rows</code></pre>
+# … with 22 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 </section>
-<section id="estatistica-descritiva" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="estatistica-descritiva"><span class="header-section-number">4.1.2</span> Estatistica descritiva</h3>
+<section id="estatistica-descritiva" class="level3">
+<h3 class="anchored" data-anchor-id="estatistica-descritiva">Estatistica descritiva</h3>
 <div class="cell">
-<div class="sourceCode" id="cb42"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_stat</span>(df_cobmassa, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"min, mean, max"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_stat</span>(df_cobmassa, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"min, mean, max"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   variable    min   mean    max
   &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -951,8 +977,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 </section>
-<section id="modanova" class="level3" data-number="4.1.3">
-<h3 data-number="4.1.3" class="anchored" data-anchor-id="modanova"><span class="header-section-number">4.1.3</span> ANOVA</h3>
+<section id="modanova" class="level3">
+<h3 class="anchored" data-anchor-id="modanova">ANOVA</h3>
 <p>O modelo considerado para este exemplo de parcela subdivididas é o seguinte</p>
 <p><span class="math display">\[
 {y_{ijk}} = {\rm{ }}\mu {\rm{ }} + {\rm{ }}\mathop \alpha \nolimits_i + \mathop \beta \nolimits_{k} + \mathop \eta \nolimits_{ik}  +\mathop \tau \nolimits_j  + \mathop {(\alpha \tau )}\nolimits_{ij}  + {\rm{ }}\mathop \varepsilon \nolimits_{ijk}
@@ -960,15 +986,16 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <p>onde <span class="math inline">\({y_{ijk}}\)</span> é a variável resposta observada; <span class="math inline">\(\mu\)</span> é a média geral; <span class="math inline">\(\mathop \alpha \nolimits_i\)</span> é o efeito do <span class="math inline">\(i\)</span>-ésimo nível do fator espécie de cobertura ; <span class="math inline">\(\mathop \beta \nolimits_{k}\)</span> é o efeito do bloco <span class="math inline">\(k\)</span>; <span class="math inline">\(\mathop \eta \nolimits_{ik}\)</span> é o erro de parcela, mais conhecido como erro a; <span class="math inline">\(\mathop \tau \nolimits_j\)</span> é o efeito do <span class="math inline">\(j\)</span>-ésimo nível do fator nitrogênio; <span class="math inline">\(\mathop {(\alpha \tau )}\nolimits_{ij}\)</span> é o efeito da interação do <span class="math inline">\(i\)</span>-ésimo nível do fator espécie com o <span class="math inline">\(j\)</span>-ésimo nível do fator nitrogênio; e <span class="math inline">\(\mathop \varepsilon \nolimits_{ijk}\)</span> é o erro da subparcela, mais conhecido como erro b.</p>
 <section id="massa-verde-mv-por-ha" class="level4">
 <h4 class="anchored" data-anchor-id="massa-verde-mv-por-ha">Massa verde (MV) por ha</h4>
-<p><strong>ANOVA</strong> ::: {.cell}</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_cobmassa,</span>
+<p><strong>ANOVA</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_cobmassa,</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">psub2.dbc</span>(<span class="at">fator1 =</span> ESPECIE,</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">fator2 =</span> NITROGENIO,</span>
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">bloco =</span> REP,</span>
 <span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">resp =</span> MV,</span>
 <span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">fac.names =</span> <span class="fu">c</span>(<span class="st">"ESPECIE"</span>, <span class="st">"NITROGENIO"</span>))</span>
 <span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>------------------------------------------------------------------------
 Legenda:
 FATOR 1 (parcela):  ESPECIE 
@@ -1011,11 +1038,11 @@ a    Com N   30030.17
  b   Sem N   20390.83 
 ------------------------------------------------------------------------</code></pre>
 </div>
-<p>:::</p>
+</div>
 <p><strong>GRÁFICO</strong></p>
 <p>Como somente foi observado efeito significativo para o fator nitrogênio, prossegue-se com a comparação de médias para o efeito de N, conforme resultado do Teste Tukey acima. Neste gráfico, as barras mostram a média e as barras de erro, o erro padrão da média. Apenas para apresentação, incluo também a média do fator cobertura de solo, sem as letras pois o seu efeito não foi significativo, segundo a ANOVA.</p>
 <div class="cell">
-<div class="sourceCode" id="cb46"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>pn_mv <span class="ot">&lt;-</span> </span>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>pn_mv <span class="ot">&lt;-</span> </span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_bars</span>(df_cobmassa,</span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">x =</span> NITROGENIO,</span>
 <span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> MV,</span>
@@ -1040,15 +1067,16 @@ a    Com N   30030.17
 </section>
 <section id="massa-seca-ms-por-ha" class="level4">
 <h4 class="anchored" data-anchor-id="massa-seca-ms-por-ha">Massa seca (MS) por ha</h4>
-<p><strong>ANOVA</strong> ::: {.cell}</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_cobmassa,</span>
+<p><strong>ANOVA</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_cobmassa,</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">psub2.dbc</span>(<span class="at">fator1 =</span> ESPECIE,</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">fator2 =</span> NITROGENIO,</span>
 <span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">bloco =</span> REP,</span>
 <span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">resp =</span> MS,</span>
 <span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">fac.names =</span> <span class="fu">c</span>(<span class="st">"ESPECIE"</span>, <span class="st">"NITROGENIO"</span>))</span>
 <span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>------------------------------------------------------------------------
 Legenda:
 FATOR 1 (parcela):  ESPECIE 
@@ -1091,11 +1119,11 @@ a    Com N   5717.6
  b   Sem N   4388.15 
 ------------------------------------------------------------------------</code></pre>
 </div>
-<p>:::</p>
+</div>
 <p><strong>GRÁFICO</strong></p>
 <p>Como somente foi observado efeito significativo para o fator nitrogênio, prossegue-se com a comparação de médias para o efeito de N, conforme resultado do Teste Tukey acima. Apenas para apresentação, incluo também a média do fator cobertura de solo, sem as letras pois o seu efeito não foi significativo, segundo a ANOVA.</p>
 <div class="cell">
-<div class="sourceCode" id="cb49"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>pn_ms <span class="ot">&lt;-</span> </span>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>pn_ms <span class="ot">&lt;-</span> </span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_bars</span>(df_cobmassa,</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">x =</span> NITROGENIO,</span>
 <span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> MS,</span>
@@ -1120,15 +1148,16 @@ a    Com N   5717.6
 </section>
 <section id="massa-seca-de-raiz-msr-por-ha" class="level4">
 <h4 class="anchored" data-anchor-id="massa-seca-de-raiz-msr-por-ha">Massa seca de raiz (MSR) por ha</h4>
-<p><strong>ANOVA</strong> ::: {.cell}</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_cobmassa,</span>
+<p><strong>ANOVA</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_cobmassa,</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">psub2.dbc</span>(<span class="at">fator1 =</span> ESPECIE,</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">fator2 =</span> NITROGENIO,</span>
 <span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">bloco =</span> REP,</span>
 <span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">resp =</span> MSR,</span>
 <span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">fac.names =</span> <span class="fu">c</span>(<span class="st">"ESPECIE"</span>, <span class="st">"NITROGENIO"</span>))</span>
 <span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>------------------------------------------------------------------------
 Legenda:
 FATOR 1 (parcela):  ESPECIE 
@@ -1171,11 +1200,11 @@ a    Com N   439.875
  b   Sem N   306.875 
 ------------------------------------------------------------------------</code></pre>
 </div>
-<p>:::</p>
+</div>
 <p><strong>GRÁFICO</strong></p>
 <p>Como somente foi observado efeito significativo para o fator nitrogênio, prossegue-se com a comparação de médias para o efeito de N, conforme resultado do Teste Tukey acima. Apenas para apresentação, incluo também a média do fator cobertura de solo, sem as letras pois o seu efeito não foi significativo, segundo a ANOVA.</p>
 <div class="cell">
-<div class="sourceCode" id="cb52"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>pn_msr <span class="ot">&lt;-</span> </span>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>pn_msr <span class="ot">&lt;-</span> </span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_bars</span>(df_cobmassa,</span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">x =</span> NITROGENIO,</span>
 <span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> MSR,</span>
@@ -1200,13 +1229,14 @@ a    Com N   439.875
 </section>
 </section>
 </section>
-<section id="coberturas-de-solo-e-doses-de-nitrogênio-efeito-na-cultura-da-soja" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="coberturas-de-solo-e-doses-de-nitrogênio-efeito-na-cultura-da-soja"><span class="header-section-number">4.2</span> Coberturas de solo e doses de nitrogênio (efeito na cultura da soja)</h2>
+<section id="coberturas-de-solo-e-doses-de-nitrogênio-efeito-na-cultura-da-soja" class="level2">
+<h2 class="anchored" data-anchor-id="coberturas-de-solo-e-doses-de-nitrogênio-efeito-na-cultura-da-soja">Coberturas de solo e doses de nitrogênio (efeito na cultura da soja)</h2>
 <p>Os tratamentos e delineamentos são descritos no <a href="#experimento1">exemplo anterior</a>. Aqui, são analisados os dados observados na cultura da soja, semeada na resteva de cada tratamento (combinação de N e espécies de cobertura)</p>
-<section id="pacotes-e-dados-1" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="pacotes-e-dados-1"><span class="header-section-number">4.2.1</span> Pacotes e dados</h3>
-<p>Assumindo que todos estão instalados, é só carregar com ::: {.cell}</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio) <span class="co"># importar e exportar arquivos</span></span>
+<section id="pacotes-e-dados-1" class="level3">
+<h3 class="anchored" data-anchor-id="pacotes-e-dados-1">Pacotes e dados</h3>
+<p>Assumindo que todos estão instalados, é só carregar com</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio) <span class="co"># importar e exportar arquivos</span></span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ExpDes.pt) <span class="co"># fazer anova</span></span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan) <span class="co"># gráficos</span></span>
 <span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># manipulação de dados e gráficos</span></span>
@@ -1218,7 +1248,7 @@ a    Com N   439.875
 <span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Apenas para mostrar a estrutura dos dados</span></span>
 <span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>df_cobsoja</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 32 × 7
    ESPECIE     NITROGENIO REP      NL   NGL   MMG    RG
    &lt;fct&gt;       &lt;fct&gt;      &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -1232,15 +1262,16 @@ a    Com N   439.875
  8 Centeio     Sem N      R4     38    2.39   150 3339.
  9 Triticale   Sem N      R1     35.6  2.46   210 4400 
 10 Triticale   Sem N      R2     32.2  2.42   200 4378.
-# … with 22 more rows</code></pre>
+# … with 22 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
-<p>:::</p>
+</div>
 </section>
-<section id="estatistica-descritiva-1" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="estatistica-descritiva-1"><span class="header-section-number">4.2.2</span> Estatistica descritiva</h3>
+<section id="estatistica-descritiva-1" class="level3">
+<h3 class="anchored" data-anchor-id="estatistica-descritiva-1">Estatistica descritiva</h3>
 <div class="cell">
-<div class="sourceCode" id="cb55"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_stat</span>(df_cobsoja, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"min, mean, max"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_stat</span>(df_cobsoja, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"min, mean, max"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 4
   variable    min    mean     max
   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -1251,20 +1282,21 @@ a    Com N   439.875
 </div>
 </div>
 </section>
-<section id="anova" class="level3" data-number="4.2.3">
-<h3 data-number="4.2.3" class="anchored" data-anchor-id="anova"><span class="header-section-number">4.2.3</span> ANOVA</h3>
+<section id="anova" class="level3">
+<h3 class="anchored" data-anchor-id="anova">ANOVA</h3>
 <p>O modelo considerado é descrito no <a href="#modanova">exemplo anterior</a>.</p>
 <section id="variável-número-de-legumes-por-planta-nl" class="level4">
 <h4 class="anchored" data-anchor-id="variável-número-de-legumes-por-planta-nl">Variável número de legumes por planta (NL)</h4>
-<p><strong>ANOVA</strong> ::: {.cell}</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_cobsoja,</span>
+<p><strong>ANOVA</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_cobsoja,</span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">fat2.dbc</span>(<span class="at">fator1 =</span> ESPECIE,</span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">fator2 =</span> NITROGENIO,</span>
 <span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">bloco =</span> REP,</span>
 <span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">resp =</span> NL,</span>
 <span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">fac.names =</span> <span class="fu">c</span>(<span class="st">"ESPECIE"</span>, <span class="st">"NITROGENIO"</span>))</span>
 <span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>------------------------------------------------------------------------
 Legenda:
 FATOR 1:  ESPECIE 
@@ -1393,11 +1425,11 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 2      2  37.30
 ------------------------------------------------------------------------</code></pre>
 </div>
-<p>:::</p>
+</div>
 <p><strong>GRÁFICO</strong></p>
 <p>Como não a houve diferença para os efeitos principais (ESPECIE E NITROGÊNIO) mas deu interação entre estes fatores, vamos apresentar um gráfico mostrando essa interação. No gráfico, letras maiúsculas comparam as espécies dentro de cada manejo de N e minúsculas comparam o manejo de N dentro de cada espécie. As barras mostram a média e as barras de erro, o erro padrão da média.</p>
 <div class="cell">
-<div class="sourceCode" id="cb59"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_factbars</span>(df_cobsoja, ESPECIE, NITROGENIO,</span>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_factbars</span>(df_cobsoja, ESPECIE, NITROGENIO,</span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">resp =</span> NL,</span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">lab.bar =</span> <span class="fu">c</span>(<span class="st">"Aa"</span>, <span class="st">"Aa"</span>, <span class="st">"Aa"</span>, <span class="st">"Aa"</span>, <span class="st">"Bb"</span>, <span class="st">"Aa"</span>, <span class="st">"ABa"</span>, <span class="st">"Aa"</span>),</span>
 <span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">y.expand =</span> <span class="fl">0.1</span>,</span>
@@ -1410,15 +1442,16 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 </section>
 <section id="variável-número-de-grãos-por-legume-ngl" class="level4">
 <h4 class="anchored" data-anchor-id="variável-número-de-grãos-por-legume-ngl">Variável número de grãos por legume (NGL)</h4>
-<p><strong>ANOVA</strong> ::: {.cell}</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_cobsoja,</span>
+<p><strong>ANOVA</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_cobsoja,</span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">fat2.dbc</span>(<span class="at">fator1 =</span> ESPECIE,</span>
 <span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">fator2 =</span> NITROGENIO,</span>
 <span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">bloco =</span> REP,</span>
 <span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">resp =</span> NGL,</span>
 <span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">fac.names =</span> <span class="fu">c</span>(<span class="st">"ESPECIE"</span>, <span class="st">"NITROGENIO"</span>))</span>
 <span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>------------------------------------------------------------------------
 Legenda:
 FATOR 1:  ESPECIE 
@@ -1463,12 +1496,12 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 2  Sem N 2.3775
 ------------------------------------------------------------------------</code></pre>
 </div>
-<p>:::</p>
+</div>
 <blockquote class="blockquote">
 <p>COMO NÃO DEU DIFERENÇA SIGNIFICATIVA PARA NENHUM FATOR, PODE-SE APENAS APRESENTAR O GRÁFICO, MAS SEM DISCUTIR DIFERENÇAS ENTRE OS TRATAMENTOS/N</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode" id="cb62"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_factbars</span>(df_cobsoja, ESPECIE, NITROGENIO,</span>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_factbars</span>(df_cobsoja, ESPECIE, NITROGENIO,</span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">resp =</span> NGL,</span>
 <span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">y.expand =</span> <span class="fl">0.1</span>,</span>
 <span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">xlab =</span> <span class="st">"Espécie"</span>,</span>
@@ -1480,15 +1513,16 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 </section>
 <section id="variável-massa-de-mil-grãos-mmg" class="level4">
 <h4 class="anchored" data-anchor-id="variável-massa-de-mil-grãos-mmg">Variável massa de mil grãos (MMG)</h4>
-<p><strong>ANOVA</strong> ::: {.cell}</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_cobsoja,</span>
+<p><strong>ANOVA</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_cobsoja,</span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">fat2.dbc</span>(<span class="at">fator1 =</span> ESPECIE,</span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">fator2 =</span> NITROGENIO,</span>
 <span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">bloco =</span> REP,</span>
 <span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">resp =</span> MMG,</span>
 <span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">fac.names =</span> <span class="fu">c</span>(<span class="st">"ESPECIE"</span>, <span class="st">"NITROGENIO"</span>))</span>
 <span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>------------------------------------------------------------------------
 Legenda:
 FATOR 1:  ESPECIE 
@@ -1533,12 +1567,12 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 2  Sem N 179.375
 ------------------------------------------------------------------------</code></pre>
 </div>
-<p>:::</p>
+</div>
 <blockquote class="blockquote">
 <p>COMO NÃO DEU DIFERENÇA SIGNIFICATIVA PARA NENHUM FATOR, PODE-SE APENAS APRESENTAR O GRÁFICO, MAS SEM DISCUTIR DIFERENÇAS ENTRE OS TRATAMENTOS/N</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode" id="cb65"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_factbars</span>(df_cobsoja, ESPECIE, NITROGENIO,</span>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_factbars</span>(df_cobsoja, ESPECIE, NITROGENIO,</span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">resp =</span> MMG,</span>
 <span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">y.expand =</span> <span class="fl">0.1</span>,</span>
 <span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">xlab =</span> <span class="st">"Espécie"</span>,</span>
@@ -1550,15 +1584,16 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 </section>
 <section id="variável-rg" class="level4">
 <h4 class="anchored" data-anchor-id="variável-rg">Variável RG</h4>
-<p><strong>ANOVA</strong> ::: {.cell}</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_cobsoja,</span>
+<p><strong>ANOVA</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(df_cobsoja,</span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">fat2.dbc</span>(<span class="at">fator1 =</span> ESPECIE,</span>
 <span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">fator2 =</span> NITROGENIO,</span>
 <span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">bloco =</span> REP,</span>
 <span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">resp =</span> RG,</span>
 <span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">fac.names =</span> <span class="fu">c</span>(<span class="st">"ESPECIE"</span>, <span class="st">"NITROGENIO"</span>))</span>
 <span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>------------------------------------------------------------------------
 Legenda:
 FATOR 1:  ESPECIE 
@@ -1603,12 +1638,12 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 2  Sem N 3407.986
 ------------------------------------------------------------------------</code></pre>
 </div>
-<p>:::</p>
+</div>
 <blockquote class="blockquote">
 <p>COMO NÃO DEU DIFERENÇA SIGNIFICATIVA PARA NENHUM FATOR, PODE-SE APENAS APRESENTAR O GRÁFICO, MAS SEM DISCUTIR DIFERENÇAS ENTRE OS TRATAMENTOS/N</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode" id="cb68"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_factbars</span>(df_cobsoja, ESPECIE, NITROGENIO,</span>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_factbars</span>(df_cobsoja, ESPECIE, NITROGENIO,</span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">resp =</span> RG,</span>
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">y.expand =</span> <span class="fl">0.1</span>,</span>
 <span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">xlab =</span> <span class="st">"Espécie"</span>,</span>
@@ -1620,13 +1655,13 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 </section>
 </section>
 </section>
-<section id="doses-de-nitrogênio-x-híbridos-de-milho" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="doses-de-nitrogênio-x-híbridos-de-milho"><span class="header-section-number">4.3</span> Doses de Nitrogênio x híbridos de milho</h2>
-<section id="sem-interação-significativa" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="sem-interação-significativa"><span class="header-section-number">4.3.1</span> Sem interação significativa</h3>
+<section id="doses-de-nitrogênio-x-híbridos-de-milho" class="level2">
+<h2 class="anchored" data-anchor-id="doses-de-nitrogênio-x-híbridos-de-milho">Doses de Nitrogênio x híbridos de milho</h2>
+<section id="sem-interação-significativa" class="level3">
+<h3 class="anchored" data-anchor-id="sem-interação-significativa">Sem interação significativa</h3>
 <p>O conjunto de dados utilizado neste exemplo será o <strong>FAT2_SI</strong>. Como já de conhecimento prévio, a interação não é significativa neste exemplo.</p>
 <div class="cell">
-<div class="sourceCode" id="cb69"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio) <span class="co"># importar e exportar arquivos</span></span>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio) <span class="co"># importar e exportar arquivos</span></span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ExpDes.pt) <span class="co"># fazer anova</span></span>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan) <span class="co"># gráficos</span></span>
 <span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># manipulação de dados e gráficos</span></span>
@@ -1635,7 +1670,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a>FAT2_SI <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"FAT2_SI"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
 <span id="cb69-9"><a href="#cb69-9" aria-hidden="true" tabindex="-1"></a>FAT2_SI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 40 × 4
    BLOCO HIBRIDO DOSEN    RG
    &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
@@ -1649,12 +1684,13 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
  8     1 NUPEC_2    50  7.26
  9     1 NUPEC_2    75  7.03
 10     1 NUPEC_2   100  6.69
-# … with 30 more rows</code></pre>
+# … with 30 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>A função <code>fat2.rdb()</code>é utilizada neste exemplo. Como o fator DOSEN é quantitativo, precisamos informar isto no argumento <code>quali</code> da função.</p>
 <div class="cell">
-<div class="sourceCode" id="cb71"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(FAT2_SI, </span>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(FAT2_SI, </span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">fat2.dbc</span>(<span class="at">fator1 =</span>  HIBRIDO,</span>
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">fator2 =</span>  DOSEN,</span>
 <span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">bloco =</span> BLOCO,</span>
@@ -1664,7 +1700,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 </div>
 <p>Como a interação não foi significativa, proceder-se-a a comparação de médias dos dois híbridos considerando a média de todas as doses de nitrogênio, e o ajuste de apenas uma regressão para os dois híbridos. Como o grau do polinômio significativo foi quadrático, declararmos <code>fit = 2</code> na função <code>plot_lines()</code> do pacote <code>metan</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb72"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">plot_bars</span>(FAT2_SI, HIBRIDO, RG,</span>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">plot_bars</span>(FAT2_SI, HIBRIDO, RG,</span>
 <span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">width.bar =</span> <span class="fl">0.5</span>,</span>
 <span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">lab.bar =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>))</span>
 <span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">plot_lines</span>(FAT2_SI, DOSEN, RG,</span>
@@ -1686,11 +1722,11 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 </div>
 </div>
 </section>
-<section id="com-interação-significativa" class="level3" data-number="4.3.2">
-<h3 data-number="4.3.2" class="anchored" data-anchor-id="com-interação-significativa"><span class="header-section-number">4.3.2</span> Com interação significativa</h3>
+<section id="com-interação-significativa" class="level3">
+<h3 class="anchored" data-anchor-id="com-interação-significativa">Com interação significativa</h3>
 <p>O conjunto de dados utilizado neste exemplo será o <strong>FAT2_CI</strong>. Neste exemplo já sabe-se que a interação híbrido x dose de N é significativa.</p>
 <div class="cell">
-<div class="sourceCode" id="cb73"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio) <span class="co"># importar e exportar arquivos</span></span>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio) <span class="co"># importar e exportar arquivos</span></span>
 <span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ExpDes.pt) <span class="co"># fazer anova</span></span>
 <span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan) <span class="co"># gráficos</span></span>
 <span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># manipulação de dados e gráficos</span></span>
@@ -1699,7 +1735,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
 <span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>FAT2_CI <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"FAT2_CI"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
 <span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a>FAT2_CI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 40 × 4
    BLOCO HIBRIDO DOSEN    RG
    &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
@@ -1713,11 +1749,12 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
  8     1 NUPEC_2    50 10.1 
  9     1 NUPEC_2    75 10.9 
 10     1 NUPEC_2   100 11.4 
-# … with 30 more rows</code></pre>
+# … with 30 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb75"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(FAT2_CI, </span>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(FAT2_CI, </span>
 <span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">fat2.dbc</span>(<span class="at">fator1 =</span>  HIBRIDO,</span>
 <span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">fator2 =</span>  DOSEN,</span>
 <span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">bloco =</span> BLOCO,</span>
@@ -2007,7 +2044,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 </ul>
 <p>As comparações de médias são apresentadas como saída da função <code>fat2.dbc()</code> após a análise de variância. Neste momento, utilizaremos a função <code>plot_factbars()</code> pacote <code>metan</code>** para plotar as médias dos híbridos em cada dose de nitrogênio. A apresentação gráfica de resultados, mesmo considerando médias, é uma alternativa interessante à tabela, pois permite uma interpretação mais clara e intuitiva dos resultados.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb76"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_factbars</span>(FAT2_CI, DOSEN, HIBRIDO,</span>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_factbars</span>(FAT2_CI, DOSEN, HIBRIDO,</span>
 <span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">resp =</span> RG,</span>
 <span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">xlab =</span> <span class="st">"Doses de nitrogênio"</span>,</span>
 <span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Rendimento de grãos (Mg ha"</span><span class="sc">^-</span><span class="dv">1</span>,<span class="st">")"</span>)),</span>
@@ -2021,7 +2058,7 @@ De acordo com o teste F, as medias desse fator sao estatisticamente iguais.
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="FIT5306_10_FAT_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Gráfico das médias dos híbridos em cada dose de nitrogênio.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Gráfico das médias dos híbridos em cada dose de nitrogênio.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -2042,15 +2079,15 @@ MET = \frac{{ - {\beta _1}}}{{2 \times {\beta _2}}}
 MET = \frac{{ - 0,05575}}{{2 \times  -0,0005574}} = 50
 \]</span></p>
 <div class="cell">
-<div class="sourceCode" id="cb77"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>x_met <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.05575</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> <span class="sc">-</span><span class="fl">0.0005574</span>)</span>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>x_met <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.05575</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> <span class="sc">-</span><span class="fl">0.0005574</span>)</span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>x_met</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>[1] 50.00897</code></pre>
 </div>
 </div>
 <p>Logo, a dose que proporciona a máxima produtividade para o híbrido <em>NUPEC_1</em> é aproximadamente 50 kg de N ha<span class="math inline">\(^{-1}\)</span>. Assim para sabermos qual é esta produtividade estimada, basta substituir o <em>x</em> da equação por 50, resultando em <span class="math inline">\(y_{máx}\)</span> = 12,949 Mg ha<span class="math inline">\(^{-1}\)</span>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb79"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>y_met <span class="ot">&lt;-</span> <span class="fl">11.555</span> <span class="sc">+</span> <span class="fl">0.05575</span> <span class="sc">*</span> <span class="dv">50</span> <span class="sc">-</span> <span class="fl">0.0005574</span> <span class="sc">*</span> <span class="dv">50</span><span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>y_met <span class="ot">&lt;-</span> <span class="fl">11.555</span> <span class="sc">+</span> <span class="fl">0.05575</span> <span class="sc">*</span> <span class="dv">50</span> <span class="sc">-</span> <span class="fl">0.0005574</span> <span class="sc">*</span> <span class="dv">50</span><span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Outro ponto importante que é possível de estimar utilizando uma equação de segundo grau, é a máxima eficiência econômica (MEE), ou seja, a dose máxima, neste caso de nitrogênio, em que é possível aplicar obtendo-se lucro. Este ponto é importante, pois a partir de uma certa dose, os incrementos em produtividade não compensariam o preço pago pelo nitrogênio aplicado. Este ponto pode ser facilmente estimado por:</p>
 <p><span class="math display">\[
@@ -2062,22 +2099,22 @@ MEE = 50 + \frac{{5}}{{2 \times (-0,0005574) \times 1300}} \approx 46
 \]</span></p>
 <p>Assim, a dose máxima de nitrogênio que em que os incrementos de produtividade são lucrativos é de <span class="math inline">\(\approx 48\)</span> Kg ha<span class="math inline">\(^{-1}\)</span>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb80"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>x_mee <span class="ot">&lt;-</span> x_met <span class="sc">+</span> (<span class="dv">5</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> <span class="sc">-</span><span class="fl">0.0005574</span> <span class="sc">*</span> <span class="dv">1300</span>))</span>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>x_mee <span class="ot">&lt;-</span> x_met <span class="sc">+</span> (<span class="dv">5</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> <span class="sc">-</span><span class="fl">0.0005574</span> <span class="sc">*</span> <span class="dv">1300</span>))</span>
 <span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>x_mee</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>[1] 46.55889</code></pre>
 </div>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># predito na mee</span></span>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># predito na mee</span></span>
 <span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>y_mee <span class="ot">&lt;-</span> <span class="fl">11.555</span> <span class="sc">+</span> <span class="fl">0.05575</span> <span class="sc">*</span> x_mee <span class="sc">-</span> <span class="fl">0.0005574</span> <span class="sc">*</span> x_mee<span class="sc">^</span><span class="dv">2</span></span>
 <span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a>y_mee</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>[1] 12.94237</code></pre>
 </div>
 </div>
 <p>Semelhante ao exemplo das médias nas doses de nitrogênio, utilizaremos a função <code>plot_factlines()</code> para plotar, agora, uma regressão ajustada para cada híbrido. Os argumentos a serem informados são os seguintes: <code>.data</code>, o conjunto de dados (neste caso <em>FAT2_CI</em>); <code>x</code> e <code>y</code>, as colunas dos dados correspondentes aos eixos x e y do gráfico, respectivamente; <code>group</code> a coluna que contém os níveis dos fatores em que as regressões serão ajustadas; <code>fit</code> um vetor de comprimento igual ao número de níveis da coluna informada em <code>group</code>. O número indicado em cada posição do vetor, corresponde ao grau do polinômio ajustado (máximo grau ajustado = 4). Em nosso exemplo, utilizaremos <code>fit = c(2, 1)</code> para ajustar uma regressão quadrática para o híbrido <em>NUPEC_1</em> e uma regressão linear para o híbrido <em>NUPEC_2</em>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb84"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_factlines</span>(FAT2_CI, DOSEN, RG,</span>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_factlines</span>(FAT2_CI, DOSEN, RG,</span>
 <span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">group =</span> HIBRIDO,</span>
 <span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">fit =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
 <span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Linhas e ponto da MET</span></span>
@@ -2139,7 +2176,275 @@ MEE = 50 + \frac{{5}}{{2 \times (-0,0005574) \times 1300}} \approx 46
 
 
 <!-- -->
-<div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title anchored" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../FIT5306/FIT5306_09_DBC.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">9. Delineamento de Blocos Completos Casualizados</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../FIT5306/FIT5306_11_REG.html" class="pagination-link">
+        <span class="nav-page-text">11. Regressão e correlação</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb85" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "9. Experimentos Fatoriais"</span></span>
 <span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
@@ -3038,246 +3343,6 @@ MEE = 50 + \frac{{5}}{{2 \times (-0,0005574) \times 1300}} \approx 46
 <span id="cb85-946"><a href="#cb85-946" aria-hidden="true" tabindex="-1"></a></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
-</section>
-</section>
-</section>
-</main> <!-- /main -->
-<script type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-    } else {
-      disableStylesheet(alternateStylesheets);
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  let localAlternateSentinel = 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } 
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
-    }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    setTimeout(function() {
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
-  function tippyHover(el, contentFn) {
-    const config = {
-      allowHTML: true,
-      content: contentFn,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start'
-    };
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
-    });
-  }
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
-      });
-      return popup.innerHTML;
-    });
-  }
-});
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../FIT5306/FIT5306_09_DBC.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">9. Delineamento de Blocos Completos Casualizados</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../FIT5306/FIT5306_11_REG.html" class="pagination-link">
-        <span class="nav-page-text">11. Regressão linear</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -3287,4 +3352,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </footer>
 
 
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

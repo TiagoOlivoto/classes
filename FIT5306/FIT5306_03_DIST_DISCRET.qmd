@@ -70,19 +70,19 @@ Assim, as probabilidades associadas ao número de nascimentos de bezzeras são d
 -   Nenhuma bezerra
 
 $$
-P(X = 0) = \left( \begin{array}{l}2\\\0\end{array} \right) \times {0,5^0} \times {0,5^{2 - 0}} = 0,25
+P(X = 0) = \left( \begin{array}{l}2\\0\end{array} \right) \times {0,5^0} \times {0,5^{2 - 0}} = 0,25
 $$
 
 -   Uma bezerra
 
 $$
-P(X = 1) = \left( \begin{array}{l}2\\\1\end{array} \right) \times {0,5^1} \times {0,5^{2 - 1}} = 0,50
+P(X = 1) = \left( \begin{array}{l}2\\1\end{array} \right) \times {0,5^1} \times {0,5^{2 - 1}} = 0,50
 $$
 
 -   Duas bezerras
 
 $$
-P(X = 2) = \left( \begin{array}{l}2\\\2\end{array} \right) \times {0,5^2} \times {0,5^{2 - 2}} = 0,25
+P(X = 2) = \left( \begin{array}{l}2\\2\end{array} \right) \times {0,5^2} \times {0,5^{2 - 2}} = 0,25
 $$
 
 No software R, a probabilidade de sucesso de um evento para uma variável que segue uma distribuição binomial é computada com a função `dbinom()`.
@@ -217,6 +217,8 @@ dbinom(x = 10, size = 10, prob = 0.2)
 ```
 
 ```{r fig.width=10, fig.height=6}
+#| code-fold: true
+#| code-summary: "Mostrar código"
 prova <- 
   tibble(nques = 0:10,
          prob = dbinom(x = 0:10, size = 10, prob = 0.2),
@@ -301,6 +303,8 @@ dbinom(x = 0:89, size = 120, prob = 0.85) |> sum()
 Abaixo, é possível identificar a distribuição de probabilidade para o exemplo dado.
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Mostrar código"
 bezerros <- 
   tibble(nbez = 0:120,
          prob = dbinom(x = 0:120, size = 120, prob = 0.85),
