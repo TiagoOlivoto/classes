@@ -301,10 +301,12 @@ Neste exemplo, mostro como as estatísticas descritivas para os dados coletados 
 library(rio)
 
 # link dos dados
-link <- "https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1216373680"
+link <- "https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=0"
 
 # função para importar os dados
-df <- import(link) 
+df <- 
+  import(link, dec = ",") |> 
+  as_character(1:2) 
 
 # estrutura dos dados 
 str(df)
@@ -313,27 +315,37 @@ str(df)
 head(df)
 ```
 
-Os dados foram organziados de maneira que cada fator (coloração e grupo) estivessem em uma coluna. Isto possibilita o cálculo das estatísticas para cada nível destes fatores. As duas variáveis quantitativas contínuas são: `comprimento` (o comprimento do grão em mm); e `diametro` (o diâmetro do grão em mm).
+Os dados foram organziados de maneira que cada fator/variável estivessem em uma coluna. Isto possibilita o cálculo das estatísticas para cada nível destes fatores. As duas variáveis quantitativas contínuas são: `comprimento` (o comprimento da folha em cm); e `largura`(largura da folha em mm).
 
 ### Estatísticas gerais
 
-Para saber as estatísticas descritivas gerais (sem estratificação por grupo), vamos utilizar a função `group_by()` para agrupar por `Coloracao`. Com isso, as estatísticas serão calculadas separadamente para `vermelho` e `verde`. Por padrão, a função calcula as estatísticas descritivas para todas as variáveis numéricas do conjunto de dados. Sendo assim, não há necessidade de informar qual variável analisar.
+Para saber as estatísticas descritivas gerais vamos utilizar a função `desc_stat9)`. Por padrão, a função calcula as estatísticas descritivas para todas as variáveis numéricas do conjunto de dados. Sendo assim, não há necessidade de informar qual variável analisar.
 
 ```{r}
 stats = c("mean, median, range, ave.dev, var.amo, sd.amo, cv, se, n")
 df |> 
-  group_by(Coloracao) |> 
   desc_stat(stats = stats)
 ```
 
-### Estatísticas por grupo e coloração
+### Estatísticas por ramo
 
-Para obter as estatística para cada grupo, basta adicionar o fator `Grupo` na função `group_by()` e realizar o mesmo comando mostrado acima.
+Para obter as estatística para cada ramo, basta vamos utilizar a função `group_by()` para agrupar por `ramo`. Com isso, as estatísticas serão calculadas separadamente para `ramo 1` e `ramo 2.`
 
 ```{r}
 df |> 
-  group_by(Grupo, Coloracao) |> 
+  group_by(ramo) |> 
   desc_stat(stats = stats)
+```
+
+### Boxplot (descritiva e teste *t*)
+
+```{r}
+library(ggstatsplot)
+ggbetweenstats(df,
+               x = ramo,
+               y = comprimento,
+               plot.type = "box",
+               ylab = "rendimento")
 ```
 
 # Simulação de dados com diferentes variâncias
@@ -381,7 +393,6 @@ desc_stat(dados,
 Isto fica mais facilmente notado ao criarmos um gráfico do tipo boxplot, contendo a dispersão dos dados.
 
 ```{r fig.width=8, fig.height=5}
-library(ggstatsplot)
 ggbetweenstats(dados,
                x = grupo,
                y = valor,
