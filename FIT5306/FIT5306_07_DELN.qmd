@@ -1,6 +1,8 @@
 ---
 title: "7. Análise de Variância"
 bibliography: references.bib
+execute:
+  out-width: maxwidth
 ---
 
 ::: callout-tip
@@ -9,7 +11,7 @@ bibliography: references.bib
 
 # Introdução
 
-As análises realizadas até agora tinham como objetivo verificar a existência de diferenças entre as médias de duas amostras. Porém, quando deseja-se estudar o efeito de "grupos de fatores" sobre determinado fenômeno, a análise da variância (ANOVA) é indicada. A ANOVA atribui a diversos fatores partes da variabilidade dos dados.
+As análises realizadas até agora tinham como objetivo verificar a existência de diferenças entre as médias de duas amostras. Porém, quando deseja-se estudar o efeito de "grupos de fatores" sobre determinado fenômeno, a análise da variância (ANOVA) é indicada. A ANOVA atribui a diversos fatores partes da variabilidade dos dados. Ela pode ser visualizada como uma técnica para examinar uma relação de dependência onde a variável de resposta (dependência) é quantitativa contínua e os fatores (variáveis independentes) são de natureza categórica com um número de categorias maior que dois.
 
 Fisher e Mackenzie [-@fisher1923a] estudando a variação de diferentes cultivares de batata, publicaram o primeiro trabalho demonstrando o uso da ANOVA para a avaliação de experimentos agrícolas. O método da ANOVA se tornaria popular e amplamente utilizado após Fisher estabelecer as bases teóricas e os pressupostos desta técnica [@Fisher1925; @Fisher1935].
 
@@ -17,7 +19,120 @@ Os delineamentos experimentais são partes importantes da ANOVA. Em seções pr�
 
 # Princípios básicos
 
-Os principios básicos da experimentação são a *casualisação* e a *repetição*. A repetição possibilita que o erro seja estimado; a casualisação que eles sejam independentes. Um terceiro princípio (não obrigatório) é o controle local (ou bloqueamento). O bloqueamento é utilizado no No DBC como objetivo isolar parte da variação residual do modelo DIC para uma fonte de variação conhecida (BLOCO). Com isso (principalmente quando há efeito de bloco), a precisão da análise é maior.
+Os principios básicos da experimentação são a **casualisação** e a **repetição**. A repetição possibilita que o erro seja estimado; a casualisação que eles sejam independentes. Um terceiro princípio (não obrigatório) é o **controle local** (ou bloqueamento). O bloqueamento é utilizado no no DBC como objetivo isolar parte da variação residual do modelo DIC para uma fonte de variação conhecida (BLOCO). Com isso (principalmente quando há efeito de bloco), a precisão da análise é maior.
+
+# Repetição
+
+Quando um tratamento é repetido, é possível estimar sua média e sua variância. Na ANOVA, então, o objetivo é testar se a variância entre os tratamentos é maior que a variância dentro dos tratamentos. No exemplo abaixo, dois cenários com médias semelhantes mas variâncias bem distintas são simulados. No primeiro, uma variância alta é utilizada.
+
+```{r}
+#| code-fold: true
+#| out-width: "100%"
+#| message: false
+#| warning: false
+library(tidyverse)
+
+set.seed(1)
+dados <- 
+  data.frame(g1 = rnorm(20, 10, 3),
+             g2 = rnorm(20, 13, 2),
+             g3 = rnorm(20, 18, 2)) |> 
+  pivot_longer(cols = everything())
+
+parms <- 
+  dados |> 
+  group_by(name) |> 
+  summarise(mu = mean(value),
+            sd = sd(value))
+
+
+ggplot(dados, aes(value, fill = name)) +
+   stat_function(fun=dnorm,
+                geom="line",
+                aes(color = "g1"),
+                size = 1.5,
+                n = 1000,
+                args = list(mean = parms$mu[1], sd = parms$sd[1])) +
+  stat_function(fun=dnorm,
+                geom="line",
+                aes(color = "g2"),
+                size = 1.5,
+                n = 1000,
+                args = list(mean = parms$mu[2], sd = parms$sd[2])) +
+  stat_function(fun=dnorm,
+                geom="line",
+                aes(color = "g3"),
+                size = 2,
+                n = 1000,
+                args = list(mean = parms$mu[3], sd = parms$sd[3])) +
+  stat_function(fun=dnorm,
+                geom="line",
+                color = "black",
+                size = 1.5,
+                args = list(mean = mean(dados$value), sd = sd(dados$value))) +
+  geom_vline(xintercept = mean(dados$value)) +
+  scale_color_manual(values = metan::ggplot_color(4)) +
+  scale_y_continuous(breaks = NULL, limits = (c(0.001, 0.25))) +
+  theme_bw() +
+  theme(panel.grid = element_blank())
+
+
+```
+
+No segundo exemplo, os dados simulados apresentam uma variação entre repetições do mesmo grupo substancialmente menor que o primeiro. Veja o que acontece.
+
+```{r}
+#| code-fold: true
+#| out-width: "100%"
+#| message: false
+#| warning: false
+
+
+# low variance
+set.seed(1)
+dados <- 
+  data.frame(g1 = rnorm(20, 10, 0.5),
+             g2 = rnorm(20, 13, 0.4),
+             g3 = rnorm(20, 18, 0.4)) |> 
+  pivot_longer(cols = everything())
+
+parms <- 
+  dados |> 
+  group_by(name) |> 
+  summarise(mu = mean(value),
+            sd = sd(value))
+
+
+ggplot(dados, aes(value, fill = name)) +
+  stat_function(fun=dnorm,
+                geom="line",
+                aes(color = "g1"),
+                size = 1.5,
+                n = 1000,
+                args = list(mean = parms$mu[1], sd = parms$sd[1])) +
+  stat_function(fun=dnorm,
+                geom="line",
+                aes(color = "g2"),
+                size = 1.5,
+                n = 1000,
+                args = list(mean = parms$mu[2], sd = parms$sd[2])) +
+  stat_function(fun=dnorm,
+                geom="line",
+                aes(color = "g3"),
+                size = 1.5,
+                n = 1000,
+                args = list(mean = parms$mu[3], sd = parms$sd[3])) +
+  stat_function(fun=dnorm,
+                geom="line",
+                color = "black",
+                size = 2,
+                args = list(mean = mean(dados$value), sd = sd(dados$value))) +
+  geom_vline(xintercept = mean(dados$value)) +
+  scale_color_manual(values = metan::ggplot_color(4)) +
+  scale_y_continuous(breaks = NULL, limits = (c(0.001, 1.5))) +
+  theme_bw() +
+  theme(panel.grid = element_blank())
+```
 
 # Casualização
 
@@ -26,6 +141,8 @@ Os principios básicos da experimentação são a *casualisação* e a *repetiç
 Para realizar a casualização em um experimento de delineamento inteiramente ao acaso, pode-se utilizar a função [`sketch`](https://agronomiar.github.io/AgroR_Tutorial/fun%C3%A7%C3%A3o-para-croqui-experimental.html#delineamento-inteiramente-casualizado) do pacote agroR. Neste exemplo, simulo a casualização de quatro tratamentos ("C1", "C2", "C3" e "C4") em um ensaio conduzido em delineamento inteiramente casualizado (DIC) com quatro repetições (`r`).
 
 ```{r}
+#| out-width: "100%"
+#| 
 library(AgroR)
 set.seed(1)
 trats <- c("C1", "C2", "C3", "C4")
@@ -37,6 +154,7 @@ sketch(trats, r = 4)
 Para casualização em DBC, a mesma função `sketch` é usada. No entanto, utiliza-se o argumento `design` para indicar que o delineamento é um DBC
 
 ```{r}
+#| out-width: "100%"
 set.seed(1)
 trats <- c("C1", "C2", "C3", "C4")
 # casualização em DBC
@@ -67,9 +185,10 @@ Esses pressupostos são necessários para que o teste F seja utilizado na análi
 Abaixo, é apresentada a distribuição F considerando 4 e 20 como graus liberdade do tratamento e erro, respectivamente. Note que o valor em x em que acumula à direita 0,05 é o conhecido F tabelado.
 
 ```{r}
-library(ggplot2)
+#| out-width: "100%"
 #| code-fold: true
 #| code-summary: "Mostrar código"
+library(ggplot2)
 
 
 df1 <- 4
@@ -109,6 +228,7 @@ ggplot() +
 Os dados utilizados neste exemplo estão na planilha `QUALI` do conjunto de dados `data_R.xlsx`. Os próximos códigos carregam o conjunto de dados e criam um gráfico do tipo boxplot para explorar o padrão dos dados.
 
 ```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}
+#| out-width: "100%"
 #| fig-width: 12
 #| fig-height: 4
 library(tidyverse)
@@ -136,7 +256,7 @@ p2 <-
   geom_hline(yintercept = mean(df$RG), linetype = "dashed")+
   geom_boxplot()+
   stat_summary(geom = "point", fun = mean, shape = 23) +
-    stat_summary(aes(label = round(after_stat(y), 2),
+  stat_summary(aes(label = round(after_stat(y), 2),
                    x = BLOCO), 
                fun=mean,
                geom="text",
