@@ -21,7 +21,6 @@ Para reprodução dos exemplos deste material, os softwares R e RStudio são nec
 
 </div>
 ```
-
 <a class="btn btn-success" href="https://cran.r-project.org/bin/windows/base/" target="_blank"><i class="fa fa-save"></i> Download do R</a>
 
 <a class="btn btn-success" href="https://www.rstudio.com/products/rstudio/download/" target="_blank"><i class="fa fa-save"></i> Download do RStudio</a>

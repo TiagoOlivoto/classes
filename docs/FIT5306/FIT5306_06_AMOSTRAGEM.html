@@ -527,16 +527,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   id         x
-1   1  9.174960
-2   2  5.922822
-3   3 10.239040
-4   4 12.545092
-5   5  9.331505
-6   6 10.297846
-7   7  8.108016
-8   8 16.059314
-9   9 12.988274
-10 10 10.953731</code></pre>
+1   1 12.972193
+2   2  9.142223
+3   3  8.880149
+4   4  8.782225
+5   5 13.250298
+6   6  9.871567
+7   7  7.899495
+8   8 10.874425
+9   9 12.354452
+10 10  7.707842</code></pre>
 </div>
 </div>
 <p>Considerando uma amostragem com <code>n = 3</code>, as 120 amostras possíveis são</p>
@@ -579,23 +579,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>df_medias <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(amostras) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">media =</span> medias)</span>
 <span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_medias)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  X1 X2 X3     media
-1  1  2  3  8.445607
-2  1  2  4  9.214291
-3  1  2  5  8.143096
-4  1  2  6  8.465210
-5  1  2  7  7.735266
-6  1  2  8 10.385699</code></pre>
+<pre><code>  X1 X2 X3    media
+1  1  2  3 10.33152
+2  1  2  4 10.29888
+3  1  2  5 11.78824
+4  1  2  6 10.66199
+5  1  2  7 10.00464
+6  1  2  8 10.99628</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(df_medias)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    X1 X2 X3    media
-115  6  8 10 12.43696
-116  6  9 10 11.41328
-117  7  8  9 12.38520
-118  7  8 10 11.70702
-119  7  9 10 10.68334
-120  8  9 10 13.33377</code></pre>
+<pre><code>    X1 X2 X3     media
+115  6  8 10  9.484611
+116  6  9 10  9.977954
+117  7  8  9 10.376124
+118  7  8 10  8.827254
+119  7  9 10  9.320597
+120  8  9 10 10.312240</code></pre>
 </div>
 </div>
 <p>Ao computar a média das medias amostrais, obtém-se a média populacional</p>
@@ -664,14 +664,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
 # Groups:   cromossomo [2]
-     id nome                      cromossomo `altura (cm)`
-  &lt;int&gt; &lt;chr&gt;                     &lt;chr&gt;              &lt;int&gt;
-1    11 Giulia Rosa               xx                   166
-2     6 Eloísa Vitória Cerezolli  xx                   170
-3    13 Jessica Soccol de Lara    xx                   169
-4    23 Matheus Ferreira Brascher xy                   169
-5    12 Jeronimo Osorio           xy                    NA
-6    16 João Theodoro Bentz       xy                   180</code></pre>
+     id nome                  cromossomo `altura (cm)`
+  &lt;int&gt; &lt;chr&gt;                 &lt;chr&gt;              &lt;int&gt;
+1     8 Flora dos Santos      xx                   164
+2     3 Ana Júlia Melzzi      xx                    NA
+3     2 Alice Maria Trois     xx                   158
+4    15 Joao Cleber de Faria  xy                    NA
+5    18 Kauai Schubert Lobato xy                   175
+6    19 Kenji da Cruz Konno   xy                   168</code></pre>
 </div>
 </div>
 </section>
@@ -684,16 +684,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 4
 # Groups:   cromossomo [2]
-     id nome                       cromossomo `altura (cm)`
-  &lt;int&gt; &lt;chr&gt;                      &lt;chr&gt;              &lt;int&gt;
-1    11 Giulia Rosa                xx                   166
-2     6 Eloísa Vitória Cerezolli   xx                   170
-3     1 Alexandre da Rocha Ramos   xy                    NA
-4    23 Matheus Ferreira Brascher  xy                   169
-5    17 Jonathan Jesus da Silva    xy                    NA
-6    26 Philippe Ludovic Boisson   xy                    NA
-7     9 Gabriel Aguiar Alamy       xy                    NA
-8     4 Arthur Pedro Ferreira Neto xy                   174</code></pre>
+     id nome                                 cromossomo `altura (cm)`
+  &lt;int&gt; &lt;chr&gt;                                &lt;chr&gt;              &lt;int&gt;
+1     3 Ana Júlia Melzzi                     xx                    NA
+2     8 Flora dos Santos                     xx                   164
+3    25 Pedro Saraiva Dalberto               xy                   187
+4    12 Jeronimo Osorio                      xy                    NA
+5    23 Matheus Ferreira Brascher            xy                   169
+6    14 João Antonio Reitz Santos            xy                    NA
+7    15 Joao Cleber de Faria                 xy                    NA
+8    21 Marcelo Augusto Nascimento dos Anjos xy                    NA</code></pre>
 </div>
 </div>
 </section>

@@ -1878,14 +1878,6 @@ ggbetweenstats(df,
                bf.message = FALSE,
                var.equal = TRUE)
 
-g1 <- rnorm(23, 22, 3)
-g2 <- rnorm(44, 19, 7)
-t.test(g1, g2, var.equal = TRUE)
-mean(g1)
-mean(g2)
-sd(g1)
-sd(g2)
-
 ```
 
 -   Variável NGRA
