@@ -10,7 +10,15 @@ Bem-vindo ao material de apoio da disciplina FIT5306 (Bioestatística e Experime
 
 Para começar, é sugerido que os seguintes pacotes sejam instalados (confira como fazer isso no vídeo abaixo).
 
-<iframe width="780" height="440" src="https://www.youtube.com/embed/8B8QDZnDhtY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```{=html}
+<div class="video-container">
+  
+<iframe src="https://www.youtube.com/embed/8B8QDZnDhtY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+</div>
+```
 
 ```{r warning=FALSE, message = FALSE}
 library(tidyverse)  # manipulação de dados
@@ -22,8 +30,6 @@ library(ggstatsplot)# Gráficos com inferência estatística
 ```
 
 # Dados de exemplo
-
-
 
 ------------------------------------------------------------------------
 
@@ -39,7 +45,6 @@ df_biostat <- import(url, sheet = "DIC-DBC")
 glimpse(df_biostat)
 ```
 
-
 O arquivo contém as seguintes planilhas, que podem ser reunidas nas seguintes classes:
 
 ## Regressão
@@ -52,11 +57,13 @@ O arquivo contém as seguintes planilhas, que podem ser reunidas nas seguintes c
 -   `REG_PRATICA_ANALISE`: Análise de regressão dos dados `REG_PRATICA`.
 
 ## Correlação
+
 -   `COR_DATA_DENSIDADE`: Dois métodos de mensurar a densidade média da madeira (g /cm$^3$) em *Eucalyptus grandis* foram aplicados a uma amostra de n = 13 árvores. O primeiro método (X) é determinado utilizando um paquímetro e uma sonda Pressler de 0,5 cm na região da árvore determinada no diâmetro à altura do peito (DAP). A segunda, variável (Y) também foi mensurada no DAP utilizando cortes transversais no tronco. Esse exemplo foi apresentado por Ferreira (2009)\[\^1\].
 -   `CORRELACAO_DATA`: dados de altura de planta (AP) e altura da espiga (AE) observados em 10 plantas de milho.
 -   `CORRELACAO_ANALISE`: Análise de correlação para os dados `CORRELACAO_DATA`.
 
 ## Experimentos unifatoriais
+
 ::: callout-note
 Os dados `COBERTURA_N_MASSA` e `COBERTURA_N_SOJA` foram obtidos em um trabalho conduzido em grupo no Centro Universitário Unideau, tendo como participantes os alunos Bernardo Pinheiro Busatta, Tiago Jonatan Fochesatto, Diogo Andre Ody, Gustavo Peretti e Paulo Sérgio Trevisol.
 :::
@@ -86,4 +93,3 @@ As seguintes planilhas contém dados de experimentos bifatoriais com diferentes 
 [^1]: Olivoto, T., I.R. Carvalho, M. Nardino, M. Ferrari, A.J. de Pelegrin, et al. 2016. Sulfur and nitrogen effects on industrial quality and grain yield of wheat Efeitos. Rev. Ciências Agroveterinárias 15(1): 24--33. doi: 10.5965/223811711512016024.
 
 ------------------------------------------------------------------------
-

@@ -2,7 +2,6 @@
 title: "2. Distribuição de frequências"
 ---
 
-
 Uma forma de lidar com grandes conjuntos de dados e identificar informações relevantes é agrupar estes dados. O agrupamento é feito em tabelas, denominadas de distribuições de frequências. A construção de distribuição de frequências é geralmente realizada de forma distinta para variáveis discretas (distribuição por pontos) e contínuas (distribuição por classes ou intervalos).
 
 Neste exemplo, vamos utilizar os dados coletados do comprimento, diâmetro e cor de grão de café.
@@ -92,7 +91,6 @@ O valor do limite superior não pertence a classe e será contabilizado para a p
 
 A função `freq_table()` está disponível no pacote metan e é mostrada explicitamente aqui. Ela automatiza o processo de construção de tabelas de frequências, tanto para variáveis qualitativas como quantitativas. Basta informar o conjunto de dados, a variável, e, opcionalmente, o número de classes a ser criado.
 
-
 ## Apresentação tabular
 
 ```{r}
@@ -137,10 +135,9 @@ knitr::kable(dist_altura$freqs)
 freq_hist(dist_altura)
 ```
 
-
 # Exercício
 
-1. Considerando os dados dos 5 grupos (classes), disponível na planilha ‘união’ (https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1453191616), construa e interprete a tabela de frequências, referente ao número de folhas avaliadas em cada grupo (quantitativa discreta). 
+1.  Considerando os dados dos 5 grupos (classes), disponível na planilha 'união' (https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1453191616), construa e interprete a tabela de frequências, referente ao número de folhas avaliadas em cada grupo (quantitativa discreta).
 
 ```{r}
 df_uniao <- 
@@ -157,31 +154,33 @@ knitr::kable(dist_numfolha$freqs)
 freq_hist(dist_numfolha)
 ```
 
+2.  Considerando as observações de todos os grupos para a variável quantitativa contínua largura da folha, calcule:
 
-2. Considerando as observações de todos os grupos para a variável quantitativa contínua largura da folha, calcule:
+    a.  O tamanho da amostra (n): 57
 
-   a. O tamanho da amostra (n): 57
-```{r}
-(n <- nrow(df_folha))
-```
-   
-   b. O número de classes (k):
-```{r}
-(k <- round(sqrt(n)))
-```
-   
-   c. A amplitude dos dados:
-```{r}
-(ampl <- range_data(df_folha, largura))
-```
-	
-   d. O tamanho da classe
-```{r}
-ampl / (k - 1)
-```
+    ```{r}
+    (n <- nrow(df_folha))
+    ```
 
-   e. A tabela de distribuição de frequências contendo as frequências relativas e absolutas de cada classe.
+    b.  O número de classes (k):
 
+    ```{r}
+    (k <- round(sqrt(n)))
+    ```
+
+    c.  A amplitude dos dados:
+
+    ```{r}
+    (ampl <- range_data(df_folha, largura))
+    ```
+
+    d.  O tamanho da classe
+
+    ```{r}
+    ampl / (k - 1)
+    ```
+
+    e.  A tabela de distribuição de frequências contendo as frequências relativas e absolutas de cada classe.
 
 ```{r}
 dist_largf <- 
@@ -191,4 +190,16 @@ knitr::kable(dist_largf$freqs)
 
 # Gráfico
 freq_hist(dist_largf)
+```
+
+# Tutorial R
+
+```{=html}
+<div class="video-container">
+  
+<iframe src="https://www.youtube.com/embed/SmaFbcB-OAI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+</div>
+
+
 ```

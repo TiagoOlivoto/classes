@@ -81,6 +81,7 @@ website:
 
 format:
   html:
+    css: style.css
     theme: 
        light: journal
        dark: darkly
