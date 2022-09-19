@@ -13,7 +13,7 @@ library(metan)
 
 
 # importar os dados do google sheet
-df <- import("https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=353032103",
+df <- import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=655855284",
              dec = ",")
 # mostrar os dados
 knitr::kable(df)
@@ -43,7 +43,6 @@ knitr::kable(tab_feq)
 
 Para apresentar estes dados graficamente, pode-se construir um gráfico de barras, mostrando a contagem em cada classe.
 
-# 
 
 ```{r}
 
@@ -59,11 +58,7 @@ ggplot(df, aes(cor_grao)) +
 
 Para o caso de variáveis quantitativas contínuas (ex. `X`), precisamos agrupar os valores observados em intervalos de classe. Por exemplo, quando medimos uma altura de uma planta (ex. 1,86 m), a altura real não está limitado a segunda casa decimal. Então, a melhor forma será criar regiões (intervalos), de modo que possamos contemplar um conjunto de valores.
 
-$$
-\sqrt{250 \times \frac{2}{3}}
-$$
-
-Um critério empírico, para definição do número de classes ($k$) a ser criado se baseia no número de elementos ($n$) na amostra. Caso ($n$) seja igual ou inferior a 100, calcula-se o número de classes com $k = \sqrt{n}$. Caso ($n$) seja maior que 100, calcula-se o número de classes com $k = 5 \log\_{10}(n)$.
+Um critério empírico, para definição do número de classes ($k$) a ser criado se baseia no número de elementos ($n$) na amostra. Caso ($n$) seja igual ou inferior a 100, calcula-se o número de classes com $k = \sqrt{n}$. Caso ($n$) seja maior que 100, calcula-se o número de classes com $k = 5 log_{10}(n)$.
 
 Após a determinação do número de classes, é necessário determinar a amplitude total ($A$), dada por:
 
@@ -89,7 +84,7 @@ $$
 
 O valor do limite superior não pertence a classe e será contabilizado para a próxima classe. Dizemos, então, que o conjunto é fechado a esquerda e aberto à direita. O limite inferior da segunda classe é dado pelo limite superior da primeira class ($LI_2 = LS_1$); o limite superior da segunda classe é dado por ($LS_2 = LI_2 + c$). Esta lógica segue até completar-se o número de classes do conjunto.
 
-A função `freq_table()` está disponível no pacote metan e é mostrada explicitamente aqui. Ela automatiza o processo de construção de tabelas de frequências, tanto para variáveis qualitativas como quantitativas. Basta informar o conjunto de dados, a variável, e, opcionalmente, o número de classes a ser criado.
+A função `freq_table()` está disponível no pacote `metan` e pode ser utilizada para automatizar o processo de construção de tabelas de frequências, tanto para variáveis qualitativas como quantitativas. Basta informar o conjunto de dados, a variável, e, opcionalmente, o número de classes a ser criado.
 
 ## Apresentação tabular
 
@@ -104,16 +99,15 @@ knitr::kable(frequencias$freqs)
 freq_hist(frequencias)
 ```
 
-# Exemplos discutidos em aula
+# Dados coletados em aula
 
-## Cor do grão do café (grupo 3)
+## Cor do grão do café
 
 ```{r}
-df_cor_grao <- import("https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=353032103",
+df_cor_grao <- import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=1550268554",
                       dec = ",")
 
-
-freq_cafe <- freq_table(df_cor_grao, var = cor_grao)
+freq_cafe <- freq_table(df_cor_grao, var = cor)
 knitr::kable(freq_cafe$freqs)
 
 
@@ -121,31 +115,31 @@ knitr::kable(freq_cafe$freqs)
 freq_hist(freq_cafe)
 ```
 
-## Altura da turma
+## Comprimento da folha do café
 
 ```{r}
-df_altura <- import("https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1992833755") |> 
-  as_numeric(Altura)
+comp_folha <- import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=0",
+                    dec = ",")
 
 # Tabela
-dist_altura <- freq_table(df_altura, var = Altura)
-knitr::kable(dist_altura$freqs)
+dist_comprimento <- freq_table(comp_folha, var = comprimento)
+knitr::kable(dist_comprimento$freqs)
 
 # Gráfico
-freq_hist(dist_altura)
+freq_hist(dist_comprimento)
 ```
 
-# Exercício
+# Exercícios
 
-1.  Considerando os dados dos 5 grupos (classes), disponível na planilha 'união' (https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1453191616), construa e interprete a tabela de frequências, referente ao número de folhas avaliadas em cada grupo (quantitativa discreta).
+1.  Considerando os dados disponível na planilha 'grupos' (https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=323183536), construa e interprete a tabela de frequências, referente ao número de folhas avaliadas em cada grupo (quantitativa discreta).
 
 ```{r}
-df_uniao <- 
-  import("https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1453191616",
+df_grupos <- 
+  import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=323183536",
          dec = ",")
 
 # filtrar somente folhas
-df_folha <- subset(df_uniao, tipo == "Folha")
+df_folha <- subset(df_grupos, tipo == "Folha")
 dist_numfolha <- freq_table(df_folha, var = grupo)
 knitr::kable(dist_numfolha$freqs)
 
@@ -154,7 +148,7 @@ knitr::kable(dist_numfolha$freqs)
 freq_hist(dist_numfolha)
 ```
 
-2.  Considerando as observações de todos os grupos para a variável quantitativa contínua largura da folha, calcule:
+2.  Considerando as observações de todos os grupos para a variável quantitativa contínua comprimento da folha, calcule:
 
     a.  O tamanho da amostra (n): 57
 
@@ -171,7 +165,7 @@ freq_hist(dist_numfolha)
     c.  A amplitude dos dados:
 
     ```{r}
-    (ampl <- range_data(df_folha, largura))
+    (ampl <- range_data(df_folha, comprimento))
     ```
 
     d.  O tamanho da classe
@@ -185,7 +179,7 @@ freq_hist(dist_numfolha)
 ```{r}
 dist_largf <- 
   freq_table(df_folha,
-             var = largura)
+             var = comprimento)
 knitr::kable(dist_largf$freqs)
 
 # Gráfico
@@ -200,6 +194,4 @@ freq_hist(dist_largf)
 <iframe src="https://www.youtube.com/embed/SmaFbcB-OAI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 </div>
-
-
 ```

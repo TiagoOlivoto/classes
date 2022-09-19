@@ -137,7 +137,7 @@
     "href": "FIT5306/FIT5306_02_FREQ.html#representação-gráfica",
     "title": "2. Distribuição de frequências",
     "section": "Representação gráfica",
-    "text": "Representação gráfica\nPara apresentar estes dados graficamente, pode-se construir um gráfico de barras, mostrando a contagem em cada classe."
+    "text": "Representação gráfica\nPara apresentar estes dados graficamente, pode-se construir um gráfico de barras, mostrando a contagem em cada classe.\n\nggplot(df, aes(cor_grao)) + \n  geom_histogram(stat=\"count\") +\n  scale_y_continuous(breaks = 0:15) + \n  labs(x = \"Cor do grão\",\n       y = \"Número de observações\") +\n  theme(panel.grid.minor = element_blank())\n\nWarning: Ignoring unknown parameters: binwidth, bins, pad"
   },
   {
     "objectID": "FIT5306/FIT5306_02_FREQ.html#apresentação-tabular",
@@ -852,5 +852,19 @@
     "title": "RGV410046 - Introdução à linguagem R de programação",
     "section": "02/12/2022 (13:30 às 15:00)",
     "text": "02/12/2022 (13:30 às 15:00)\n\no básico do ggplot2\nFechamento da disciplina"
+  },
+  {
+    "objectID": "FIT5306/FIT5306_02_FREQ.html#cor-do-grão-do-café",
+    "href": "FIT5306/FIT5306_02_FREQ.html#cor-do-grão-do-café",
+    "title": "2. Distribuição de frequências",
+    "section": "Cor do grão do café",
+    "text": "Cor do grão do café\n\ndf_cor_grao <- import(\"https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=1550268554\",\n                      dec = \",\")\n\nfreq_cafe <- freq_table(df_cor_grao, var = cor)\nknitr::kable(freq_cafe$freqs)\n\n\n\n\ncor\nabs_freq\nabs_freq_ac\nrel_freq\nrel_freq_ac\n\n\n\n\namarelo\n6\n6\n0.25\n0.25\n\n\nverde\n18\n24\n0.75\n1.00\n\n\nTotal\n24\n24\n1.00\n1.00\n\n\n\n\n# criar um histograma\nfreq_hist(freq_cafe)"
+  },
+  {
+    "objectID": "FIT5306/FIT5306_02_FREQ.html#comprimento-da-folha-do-café",
+    "href": "FIT5306/FIT5306_02_FREQ.html#comprimento-da-folha-do-café",
+    "title": "2. Distribuição de frequências",
+    "section": "Comprimento da folha do café",
+    "text": "Comprimento da folha do café\n\ncomp_folha <- import(\"https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=0\",\n                    dec = \",\")\n\n# Tabela\ndist_comprimento <- freq_table(comp_folha, var = comprimento)\nknitr::kable(dist_comprimento$freqs)\n\n\n\n\n\n\n\n\n\n\n\nclass\nabs_freq\nabs_freq_ac\nrel_freq\nrel_freq_ac\n\n\n\n\n6.375 |— 8.625\n2\n2\n0.095\n0.095\n\n\n8.625 |— 10.875\n3\n5\n0.143\n0.238\n\n\n10.875 |— 13.125\n3\n8\n0.143\n0.381\n\n\n13.125 |— 15.375\n8\n16\n0.381\n0.762\n\n\n15.375 |—| 17.625\n5\n21\n0.238\n1.000\n\n\nTotal\n21\n21\n1.000\n1.000\n\n\n\n\n# Gráfico\nfreq_hist(dist_comprimento)"
   }
 ]

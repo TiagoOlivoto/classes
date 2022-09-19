@@ -279,18 +279,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#representação-tabular" id="toc-representação-tabular" class="nav-link" data-scroll-target="#representação-tabular">Representação tabular</a></li>
   <li><a href="#representação-gráfica" id="toc-representação-gráfica" class="nav-link" data-scroll-target="#representação-gráfica">Representação gráfica</a></li>
   </ul></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   <li><a href="#variáveis-quantitativas" id="toc-variáveis-quantitativas" class="nav-link" data-scroll-target="#variáveis-quantitativas">Variáveis quantitativas</a>
   <ul class="collapse">
   <li><a href="#apresentação-tabular" id="toc-apresentação-tabular" class="nav-link" data-scroll-target="#apresentação-tabular">Apresentação tabular</a></li>
   <li><a href="#apresentação-gráfica" id="toc-apresentação-gráfica" class="nav-link" data-scroll-target="#apresentação-gráfica">Apresentação gráfica</a></li>
   </ul></li>
-  <li><a href="#exemplos-discutidos-em-aula" id="toc-exemplos-discutidos-em-aula" class="nav-link" data-scroll-target="#exemplos-discutidos-em-aula">Exemplos discutidos em aula</a>
+  <li><a href="#dados-coletados-em-aula" id="toc-dados-coletados-em-aula" class="nav-link" data-scroll-target="#dados-coletados-em-aula">Dados coletados em aula</a>
   <ul class="collapse">
-  <li><a href="#cor-do-grão-do-café-grupo-3" id="toc-cor-do-grão-do-café-grupo-3" class="nav-link" data-scroll-target="#cor-do-grão-do-café-grupo-3">Cor do grão do café (grupo 3)</a></li>
-  <li><a href="#altura-da-turma" id="toc-altura-da-turma" class="nav-link" data-scroll-target="#altura-da-turma">Altura da turma</a></li>
+  <li><a href="#cor-do-grão-do-café" id="toc-cor-do-grão-do-café" class="nav-link" data-scroll-target="#cor-do-grão-do-café">Cor do grão do café</a></li>
+  <li><a href="#comprimento-da-folha-do-café" id="toc-comprimento-da-folha-do-café" class="nav-link" data-scroll-target="#comprimento-da-folha-do-café">Comprimento da folha do café</a></li>
   </ul></li>
-  <li><a href="#exercício" id="toc-exercício" class="nav-link" data-scroll-target="#exercício">Exercício</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios">Exercícios</a></li>
   <li><a href="#tutorial-r" id="toc-tutorial-r" class="nav-link" data-scroll-target="#tutorial-r">Tutorial R</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306/FIT5306_02_FREQ.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -323,7 +322,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># importar os dados do google sheet</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=353032103"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=655855284"</span>,</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">dec =</span> <span class="st">","</span>)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># mostrar os dados</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -571,10 +570,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="representação-gráfica" class="level2">
 <h2 class="anchored" data-anchor-id="representação-gráfica">Representação gráfica</h2>
 <p>Para apresentar estes dados graficamente, pode-se construir um gráfico de barras, mostrando a contagem em cada classe.</p>
-</section>
-</section>
-<section id="section" class="level1">
-<h1></h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(cor_grao)) <span class="sc">+</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">stat=</span><span class="st">"count"</span>) <span class="sc">+</span></span>
@@ -590,13 +585,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
+</section>
 <section id="variáveis-quantitativas" class="level1">
 <h1>Variáveis quantitativas</h1>
 <p>Para o caso de variáveis quantitativas contínuas (ex. <code>X</code>), precisamos agrupar os valores observados em intervalos de classe. Por exemplo, quando medimos uma altura de uma planta (ex. 1,86 m), a altura real não está limitado a segunda casa decimal. Então, a melhor forma será criar regiões (intervalos), de modo que possamos contemplar um conjunto de valores.</p>
-<p><span class="math display">\[
-\sqrt{250 \times \frac{2}{3}}
-\]</span></p>
-<p>Um critério empírico, para definição do número de classes (<span class="math inline">\(k\)</span>) a ser criado se baseia no número de elementos (<span class="math inline">\(n\)</span>) na amostra. Caso (<span class="math inline">\(n\)</span>) seja igual ou inferior a 100, calcula-se o número de classes com <span class="math inline">\(k = \sqrt{n}\)</span>. Caso (<span class="math inline">\(n\)</span>) seja maior que 100, calcula-se o número de classes com <span class="math inline">\(k = 5 \log\_{10}(n)\)</span>.</p>
+<p>Um critério empírico, para definição do número de classes (<span class="math inline">\(k\)</span>) a ser criado se baseia no número de elementos (<span class="math inline">\(n\)</span>) na amostra. Caso (<span class="math inline">\(n\)</span>) seja igual ou inferior a 100, calcula-se o número de classes com <span class="math inline">\(k = \sqrt{n}\)</span>. Caso (<span class="math inline">\(n\)</span>) seja maior que 100, calcula-se o número de classes com <span class="math inline">\(k = 5 log_{10}(n)\)</span>.</p>
 <p>Após a determinação do número de classes, é necessário determinar a amplitude total (<span class="math inline">\(A\)</span>), dada por:</p>
 <p><span class="math display">\[
 A = \max(X) - \min(X)
@@ -613,7 +606,7 @@ LI_1 = min(X) - c/2\\\\
 LS_1 = LI_1 + c
 \]</span></p>
 <p>O valor do limite superior não pertence a classe e será contabilizado para a próxima classe. Dizemos, então, que o conjunto é fechado a esquerda e aberto à direita. O limite inferior da segunda classe é dado pelo limite superior da primeira class (<span class="math inline">\(LI_2 = LS_1\)</span>); o limite superior da segunda classe é dado por (<span class="math inline">\(LS_2 = LI_2 + c\)</span>). Esta lógica segue até completar-se o número de classes do conjunto.</p>
-<p>A função <code>freq_table()</code> está disponível no pacote metan e é mostrada explicitamente aqui. Ela automatiza o processo de construção de tabelas de frequências, tanto para variáveis qualitativas como quantitativas. Basta informar o conjunto de dados, a variável, e, opcionalmente, o número de classes a ser criado.</p>
+<p>A função <code>freq_table()</code> está disponível no pacote <code>metan</code> e pode ser utilizada para automatizar o processo de construção de tabelas de frequências, tanto para variáveis qualitativas como quantitativas. Basta informar o conjunto de dados, a variável, e, opcionalmente, o número de classes a ser criado.</p>
 <section id="apresentação-tabular" class="level2">
 <h2 class="anchored" data-anchor-id="apresentação-tabular">Apresentação tabular</h2>
 <div class="cell">
@@ -695,22 +688,21 @@ LS_1 = LI_1 + c
 </div>
 </section>
 </section>
-<section id="exemplos-discutidos-em-aula" class="level1">
-<h1>Exemplos discutidos em aula</h1>
-<section id="cor-do-grão-do-café-grupo-3" class="level2">
-<h2 class="anchored" data-anchor-id="cor-do-grão-do-café-grupo-3">Cor do grão do café (grupo 3)</h2>
+<section id="dados-coletados-em-aula" class="level1">
+<h1>Dados coletados em aula</h1>
+<section id="cor-do-grão-do-café" class="level2">
+<h2 class="anchored" data-anchor-id="cor-do-grão-do-café">Cor do grão do café</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_cor_grao <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=353032103"</span>,</span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_cor_grao <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=1550268554"</span>,</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">dec =</span> <span class="st">","</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>freq_cafe <span class="ot">&lt;-</span> <span class="fu">freq_table</span>(df_cor_grao, <span class="at">var =</span> cor_grao)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(freq_cafe<span class="sc">$</span>freqs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>freq_cafe <span class="ot">&lt;-</span> <span class="fu">freq_table</span>(df_cor_grao, <span class="at">var =</span> cor)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(freq_cafe<span class="sc">$</span>freqs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
 <thead>
 <tr class="header">
-<th style="text-align: left;">cor_grao</th>
+<th style="text-align: left;">cor</th>
 <th style="text-align: right;">abs_freq</th>
 <th style="text-align: right;">abs_freq_ac</th>
 <th style="text-align: right;">rel_freq</th>
@@ -722,29 +714,22 @@ LS_1 = LI_1 + c
 <td style="text-align: left;">amarelo</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">0.214</td>
-<td style="text-align: right;">0.214</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">0.25</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">verde</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">0.536</td>
-<td style="text-align: right;">0.750</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">1.00</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">vermelho</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">0.250</td>
-<td style="text-align: right;">1.000</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Total</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.00</td>
 </tr>
 </tbody>
 </table>
@@ -756,19 +741,19 @@ LS_1 = LI_1 + c
 </div>
 </div>
 </section>
-<section id="altura-da-turma" class="level2">
-<h2 class="anchored" data-anchor-id="altura-da-turma">Altura da turma</h2>
+<section id="comprimento-da-folha-do-café" class="level2">
+<h2 class="anchored" data-anchor-id="comprimento-da-folha-do-café">Comprimento da folha do café</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_altura <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1992833755"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_numeric</span>(Altura)</span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>comp_folha <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=0"</span>,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">dec =</span> <span class="st">","</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabela</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>dist_altura <span class="ot">&lt;-</span> <span class="fu">freq_table</span>(df_altura, <span class="at">var =</span> Altura)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(dist_altura<span class="sc">$</span>freqs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>dist_comprimento <span class="ot">&lt;-</span> <span class="fu">freq_table</span>(comp_folha, <span class="at">var =</span> comprimento)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(dist_comprimento<span class="sc">$</span>freqs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
 <colgroup>
-<col style="width: 43%">
+<col style="width: 41%">
 <col style="width: 12%">
 <col style="width: 16%">
 <col style="width: 12%">
@@ -785,63 +770,70 @@ LS_1 = LI_1 + c
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">154.333 |— 163.666</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0.15</td>
-<td style="text-align: right;">0.15</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">163.666 |— 172.999</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">0.35</td>
-<td style="text-align: right;">0.50</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">172.999 |— 182.332</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">0.40</td>
-<td style="text-align: right;">0.90</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">182.332 |—| 191.665</td>
+<td style="text-align: left;">6.375 |— 8.625</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">0.10</td>
-<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.095</td>
+<td style="text-align: right;">0.095</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.625 |— 10.875</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.143</td>
+<td style="text-align: right;">0.238</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">10.875 |— 13.125</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.143</td>
+<td style="text-align: right;">0.381</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">13.125 |— 15.375</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.381</td>
+<td style="text-align: right;">0.762</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15.375 |—| 17.625</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">0.238</td>
+<td style="text-align: right;">1.000</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">Total</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">1.000</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">freq_hist</span>(dist_altura)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">freq_hist</span>(dist_comprimento)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
 </section>
-<section id="exercício" class="level1">
-<h1>Exercício</h1>
+<section id="exercícios" class="level1">
+<h1>Exercícios</h1>
 <ol type="1">
-<li>Considerando os dados dos 5 grupos (classes), disponível na planilha ‘união’ (https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1453191616), construa e interprete a tabela de frequências, referente ao número de folhas avaliadas em cada grupo (quantitativa discreta).</li>
+<li>Considerando os dados disponível na planilha ‘grupos’ (https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=323183536), construa e interprete a tabela de frequências, referente ao número de folhas avaliadas em cada grupo (quantitativa discreta).</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_uniao <span class="ot">&lt;-</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1453191616"</span>,</span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_grupos <span class="ot">&lt;-</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(<span class="st">"https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=323183536"</span>,</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">dec =</span> <span class="st">","</span>)</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># filtrar somente folhas</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>df_folha <span class="ot">&lt;-</span> <span class="fu">subset</span>(df_uniao, tipo <span class="sc">==</span> <span class="st">"Folha"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>df_folha <span class="ot">&lt;-</span> <span class="fu">subset</span>(df_grupos, tipo <span class="sc">==</span> <span class="st">"Folha"</span>)</span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>dist_numfolha <span class="ot">&lt;-</span> <span class="fu">freq_table</span>(df_folha, <span class="at">var =</span> grupo)</span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(dist_numfolha<span class="sc">$</span>freqs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -908,7 +900,7 @@ LS_1 = LI_1 + c
 </div>
 </div>
 <ol start="2" type="1">
-<li><p>Considerando as observações de todos os grupos para a variável quantitativa contínua largura da folha, calcule:</p>
+<li><p>Considerando as observações de todos os grupos para a variável quantitativa contínua comprimento da folha, calcule:</p>
 <ol type="a">
 <li>O tamanho da amostra (n): 57</li>
 </ol>
@@ -931,10 +923,10 @@ LS_1 = LI_1 + c
 <li>A amplitude dos dados:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>(ampl <span class="ot">&lt;-</span> <span class="fu">range_data</span>(df_folha, largura))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>(ampl <span class="ot">&lt;-</span> <span class="fu">range_data</span>(df_folha, comprimento))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  largura
-1     5.9</code></pre>
+<pre><code>  comprimento
+1          13</code></pre>
 </div>
 </div>
 <ol start="4" type="a">
@@ -943,8 +935,8 @@ LS_1 = LI_1 + c
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ampl <span class="sc">/</span> (k <span class="sc">-</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    largura
-1 0.8428571</code></pre>
+<pre><code>  comprimento
+1    1.857143</code></pre>
 </div>
 </div>
 <ol start="5" type="a">
@@ -954,16 +946,16 @@ LS_1 = LI_1 + c
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>dist_largf <span class="ot">&lt;-</span> </span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">freq_table</span>(df_folha,</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">var =</span> largura)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">var =</span> comprimento)</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(dist_largf<span class="sc">$</span>freqs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
 <colgroup>
 <col style="width: 40%">
 <col style="width: 12%">
-<col style="width: 17%">
+<col style="width: 16%">
 <col style="width: 12%">
-<col style="width: 17%">
+<col style="width: 16%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -976,59 +968,59 @@ LS_1 = LI_1 + c
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">1.078 |— 1.922</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.018</td>
-<td style="text-align: right;">0.018</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">1.922 |— 2.764</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: left;">4.072 |— 5.929</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">0.018</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.035</td>
 <td style="text-align: right;">0.035</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">2.764 |— 3.607</td>
+<tr class="even">
+<td style="text-align: left;">5.929 |— 7.786</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">0.035</td>
 <td style="text-align: right;">0.070</td>
 </tr>
+<tr class="odd">
+<td style="text-align: left;">7.786 |— 9.642</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.123</td>
+<td style="text-align: right;">0.193</td>
+</tr>
 <tr class="even">
-<td style="text-align: left;">3.607 |— 4.45</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">0.088</td>
-<td style="text-align: right;">0.158</td>
+<td style="text-align: left;">9.642 |— 11.499</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">0.140</td>
+<td style="text-align: right;">0.333</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">4.45 |— 5.294</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">0.193</td>
-<td style="text-align: right;">0.351</td>
+<td style="text-align: left;">11.499 |— 13.356</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">0.316</td>
+<td style="text-align: right;">0.649</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">5.294 |— 6.136</td>
+<td style="text-align: left;">13.356 |— 15.213</td>
 <td style="text-align: right;">11</td>
-<td style="text-align: right;">31</td>
+<td style="text-align: right;">48</td>
 <td style="text-align: right;">0.193</td>
-<td style="text-align: right;">0.544</td>
+<td style="text-align: right;">0.842</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">6.136 |— 6.979</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">54</td>
-<td style="text-align: right;">0.404</td>
-<td style="text-align: right;">0.947</td>
+<td style="text-align: left;">15.213 |— 17.07</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">0.123</td>
+<td style="text-align: right;">0.965</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">6.979 |—| 7.822</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: left;">17.07 |—| 18.927</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">57</td>
-<td style="text-align: right;">0.053</td>
+<td style="text-align: right;">0.035</td>
 <td style="text-align: right;">1.000</td>
 </tr>
 <tr class="odd">
@@ -1055,8 +1047,6 @@ LS_1 = LI_1 + c
 <iframe src="https://www.youtube.com/embed/SmaFbcB-OAI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 
 </div>
-
-
 
 
 <!-- -->
@@ -1342,7 +1332,7 @@ library(metan)
 
 
 # importar os dados do google sheet
-df &lt;- import("https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=353032103",
+df &lt;- import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=655855284",
              dec = ",")
 # mostrar os dados
 knitr::kable(df)
@@ -1374,7 +1364,6 @@ knitr::kable(tab_feq)
 
 Para apresentar estes dados graficamente, pode-se construir um gráfico de barras, mostrando a contagem em cada classe.
 
-# 
 
 quarto-executable-code-5450563D
 
@@ -1391,11 +1380,7 @@ ggplot(df, aes(cor_grao)) +
 
 Para o caso de variáveis quantitativas contínuas (ex. `X`), precisamos agrupar os valores observados em intervalos de classe. Por exemplo, quando medimos uma altura de uma planta (ex. 1,86 m), a altura real não está limitado a segunda casa decimal. Então, a melhor forma será criar regiões (intervalos), de modo que possamos contemplar um conjunto de valores.
 
-$$
-\sqrt{250 \times \frac{2}{3}}
-$$
-
-Um critério empírico, para definição do número de classes ($k$) a ser criado se baseia no número de elementos ($n$) na amostra. Caso ($n$) seja igual ou inferior a 100, calcula-se o número de classes com $k = \sqrt{n}$. Caso ($n$) seja maior que 100, calcula-se o número de classes com $k = 5 \log\_{10}(n)$.
+Um critério empírico, para definição do número de classes ($k$) a ser criado se baseia no número de elementos ($n$) na amostra. Caso ($n$) seja igual ou inferior a 100, calcula-se o número de classes com $k = \sqrt{n}$. Caso ($n$) seja maior que 100, calcula-se o número de classes com $k = 5 log_{10}(n)$.
 
 Após a determinação do número de classes, é necessário determinar a amplitude total ($A$), dada por:
 
@@ -1421,7 +1406,7 @@ $$
 
 O valor do limite superior não pertence a classe e será contabilizado para a próxima classe. Dizemos, então, que o conjunto é fechado a esquerda e aberto à direita. O limite inferior da segunda classe é dado pelo limite superior da primeira class ($LI_2 = LS_1$); o limite superior da segunda classe é dado por ($LS_2 = LI_2 + c$). Esta lógica segue até completar-se o número de classes do conjunto.
 
-A função `freq_table()` está disponível no pacote metan e é mostrada explicitamente aqui. Ela automatiza o processo de construção de tabelas de frequências, tanto para variáveis qualitativas como quantitativas. Basta informar o conjunto de dados, a variável, e, opcionalmente, o número de classes a ser criado.
+A função `freq_table()` está disponível no pacote `metan` e pode ser utilizada para automatizar o processo de construção de tabelas de frequências, tanto para variáveis qualitativas como quantitativas. Basta informar o conjunto de dados, a variável, e, opcionalmente, o número de classes a ser criado.
 
 ## Apresentação tabular
 
@@ -1440,18 +1425,17 @@ quarto-executable-code-5450563D
 freq_hist(frequencias)
 ```
 
-# Exemplos discutidos em aula
+# Dados coletados em aula
 
-## Cor do grão do café (grupo 3)
+## Cor do grão do café
 
 quarto-executable-code-5450563D
 
 ```r
-df_cor_grao &lt;- import("https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=353032103",
+df_cor_grao &lt;- import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=1550268554",
                       dec = ",")
 
-
-freq_cafe &lt;- freq_table(df_cor_grao, var = cor_grao)
+freq_cafe &lt;- freq_table(df_cor_grao, var = cor)
 knitr::kable(freq_cafe$freqs)
 
 
@@ -1459,35 +1443,35 @@ knitr::kable(freq_cafe$freqs)
 freq_hist(freq_cafe)
 ```
 
-## Altura da turma
+## Comprimento da folha do café
 
 quarto-executable-code-5450563D
 
 ```r
-df_altura &lt;- import("https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1992833755") |&gt; 
-  as_numeric(Altura)
+comp_folha &lt;- import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=0",
+                    dec = ",")
 
 # Tabela
-dist_altura &lt;- freq_table(df_altura, var = Altura)
-knitr::kable(dist_altura$freqs)
+dist_comprimento &lt;- freq_table(comp_folha, var = comprimento)
+knitr::kable(dist_comprimento$freqs)
 
 # Gráfico
-freq_hist(dist_altura)
+freq_hist(dist_comprimento)
 ```
 
-# Exercício
+# Exercícios
 
-1.  Considerando os dados dos 5 grupos (classes), disponível na planilha 'união' (https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1453191616), construa e interprete a tabela de frequências, referente ao número de folhas avaliadas em cada grupo (quantitativa discreta).
+1.  Considerando os dados disponível na planilha 'grupos' (https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=323183536), construa e interprete a tabela de frequências, referente ao número de folhas avaliadas em cada grupo (quantitativa discreta).
 
 quarto-executable-code-5450563D
 
 ```r
-df_uniao &lt;- 
-  import("https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1453191616",
+df_grupos &lt;- 
+  import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=323183536",
          dec = ",")
 
 # filtrar somente folhas
-df_folha &lt;- subset(df_uniao, tipo == "Folha")
+df_folha &lt;- subset(df_grupos, tipo == "Folha")
 dist_numfolha &lt;- freq_table(df_folha, var = grupo)
 knitr::kable(dist_numfolha$freqs)
 
@@ -1496,7 +1480,7 @@ knitr::kable(dist_numfolha$freqs)
 freq_hist(dist_numfolha)
 ```
 
-2.  Considerando as observações de todos os grupos para a variável quantitativa contínua largura da folha, calcule:
+2.  Considerando as observações de todos os grupos para a variável quantitativa contínua comprimento da folha, calcule:
 
     a.  O tamanho da amostra (n): 57
 
@@ -1513,7 +1497,7 @@ freq_hist(dist_numfolha)
     c.  A amplitude dos dados:
 
     ```{r}
-    (ampl &lt;- range_data(df_folha, largura))
+    (ampl &lt;- range_data(df_folha, comprimento))
     ```
 
     d.  O tamanho da classe
@@ -1529,7 +1513,7 @@ quarto-executable-code-5450563D
 ```r
 dist_largf &lt;- 
   freq_table(df_folha,
-             var = largura)
+             var = comprimento)
 knitr::kable(dist_largf$freqs)
 
 # Gráfico
@@ -1544,8 +1528,6 @@ freq_hist(dist_largf)
 &lt;iframe src="https://www.youtube.com/embed/SmaFbcB-OAI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 
 &lt;/div&gt;
-
-
 ```</code></pre>
 </div></div></div></div></div>
 </div> <!-- /content -->
