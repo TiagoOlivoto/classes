@@ -581,7 +581,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>Warning: Ignoring unknown parameters: binwidth, bins, pad</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </section>
@@ -683,7 +683,7 @@ LS_1 = LI_1 + c
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">freq_hist</span>(frequencias)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </section>
@@ -737,7 +737,7 @@ LS_1 = LI_1 + c
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># criar um histograma</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">freq_hist</span>(freq_cafe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </section>
@@ -817,7 +817,7 @@ LS_1 = LI_1 + c
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">freq_hist</span>(dist_comprimento)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </section>
@@ -896,7 +896,7 @@ LS_1 = LI_1 + c
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">freq_hist</span>(dist_numfolha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <ol start="2" type="1">
@@ -1036,7 +1036,7 @@ LS_1 = LI_1 + c
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">freq_hist</span>(dist_largf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<p><img src="FIT5306_02_FREQ_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </section>
@@ -1368,6 +1368,7 @@ Para apresentar estes dados graficamente, pode-se construir um gráfico de barra
 quarto-executable-code-5450563D
 
 ```r
+#| out-width: "100%"
 ggplot(df, aes(cor_grao)) + 
   geom_histogram(stat="count") +
   scale_y_continuous(breaks = 0:15) + 
@@ -1422,6 +1423,7 @@ knitr::kable(frequencias$freqs)
 quarto-executable-code-5450563D
 
 ```r
+#| out-width: "100%"
 freq_hist(frequencias)
 ```
 
@@ -1432,6 +1434,7 @@ freq_hist(frequencias)
 quarto-executable-code-5450563D
 
 ```r
+#| out-width: "100%"
 df_cor_grao &lt;- import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=1550268554",
                       dec = ",")
 
@@ -1448,6 +1451,7 @@ freq_hist(freq_cafe)
 quarto-executable-code-5450563D
 
 ```r
+#| out-width: "100%"
 comp_folha &lt;- import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=0",
                     dec = ",")
 
@@ -1466,6 +1470,7 @@ freq_hist(dist_comprimento)
 quarto-executable-code-5450563D
 
 ```r
+#| out-width: "100%"
 df_grupos &lt;- 
   import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=323183536",
          dec = ",")
@@ -1511,6 +1516,7 @@ freq_hist(dist_numfolha)
 quarto-executable-code-5450563D
 
 ```r
+#| out-width: "100%"
 dist_largf &lt;- 
   freq_table(df_folha,
              var = comprimento)

@@ -45,7 +45,7 @@ Para apresentar estes dados graficamente, pode-se construir um gráfico de barra
 
 
 ```{r}
-
+#| out-width: "100%"
 ggplot(df, aes(cor_grao)) + 
   geom_histogram(stat="count") +
   scale_y_continuous(breaks = 0:15) + 
@@ -89,6 +89,7 @@ A função `freq_table()` está disponível no pacote `metan` e pode ser utiliza
 ## Apresentação tabular
 
 ```{r}
+
 frequencias <- freq_table(df, comp_grao)
 knitr::kable(frequencias$freqs)
 ```
@@ -96,6 +97,7 @@ knitr::kable(frequencias$freqs)
 ## Apresentação gráfica
 
 ```{r}
+#| out-width: "100%"
 freq_hist(frequencias)
 ```
 
@@ -104,6 +106,7 @@ freq_hist(frequencias)
 ## Cor do grão do café
 
 ```{r}
+#| out-width: "100%"
 df_cor_grao <- import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=1550268554",
                       dec = ",")
 
@@ -118,6 +121,7 @@ freq_hist(freq_cafe)
 ## Comprimento da folha do café
 
 ```{r}
+#| out-width: "100%"
 comp_folha <- import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=0",
                     dec = ",")
 
@@ -134,6 +138,7 @@ freq_hist(dist_comprimento)
 1.  Considerando os dados disponível na planilha 'grupos' (https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=323183536), construa e interprete a tabela de frequências, referente ao número de folhas avaliadas em cada grupo (quantitativa discreta).
 
 ```{r}
+#| out-width: "100%"
 df_grupos <- 
   import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=323183536",
          dec = ",")
@@ -177,6 +182,7 @@ freq_hist(dist_numfolha)
     e.  A tabela de distribuição de frequências contendo as frequências relativas e absolutas de cada classe.
 
 ```{r}
+#| out-width: "100%"
 dist_largf <- 
   freq_table(df_folha,
              var = comprimento)
