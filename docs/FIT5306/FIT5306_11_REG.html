@@ -256,7 +256,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_10_FAT.html" class="sidebar-item-text sidebar-link">9. Experimentos Fatoriais</a>
+  <a href="../FIT5306/FIT5306_10_FAT.html" class="sidebar-item-text sidebar-link">10. Experimentos Fatoriais</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -1523,6 +1523,7 @@ sample estimates:
 0.6768405 </code></pre>
 </div>
 </div>
+<div align="center"><a href="https://www.free-website-hit-counter.com"><img src="https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138601&amp;s=2" border="0" alt="Free Website Hit Counter"></a><br><small><a href="https://www.free-website-hit-counter.com" title="Free Website Hit Counter">Free website hit counter</a></small></div>
 
 
 <!-- -->
@@ -1795,7 +1796,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../FIT5306/FIT5306_10_FAT.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">9. Experimentos Fatoriais</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">10. Experimentos Fatoriais</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -2049,578 +2050,562 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb195-272"><a href="#cb195-272" aria-hidden="true" tabindex="-1"></a>Compare os valores obtidos no cálculo passo-a-passo com os valores dos coeficientes obtidos com a função <span class="in">`summary(mod)`</span> e <span class="in">`anova(mod)`</span>. Os valores conferem?</span>
 <span id="cb195-273"><a href="#cb195-273" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb195-274"><a href="#cb195-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-275"><a href="#cb195-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-276"><a href="#cb195-276" aria-hidden="true" tabindex="-1"></a>No código abaixo é criado um novo conjunto de dados, contendo os valores preditos e os resíduos.</span>
-<span id="cb195-277"><a href="#cb195-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-280"><a href="#cb195-280" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-281"><a href="#cb195-281" aria-hidden="true" tabindex="-1"></a><span class="co"># valores preditos</span></span>
-<span id="cb195-282"><a href="#cb195-282" aria-hidden="true" tabindex="-1"></a>pred <span class="ot">&lt;-</span> </span>
-<span id="cb195-283"><a href="#cb195-283" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">%&gt;%</span> </span>
-<span id="cb195-284"><a href="#cb195-284" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">predito =</span> <span class="fu">predict</span>(mod),</span>
-<span id="cb195-285"><a href="#cb195-285" aria-hidden="true" tabindex="-1"></a>         <span class="at">residual =</span> y <span class="sc">-</span> predito)</span>
-<span id="cb195-286"><a href="#cb195-286" aria-hidden="true" tabindex="-1"></a>pred</span>
+<span id="cb195-275"><a href="#cb195-275" aria-hidden="true" tabindex="-1"></a>No código abaixo é criado um novo conjunto de dados, contendo os valores preditos e os resíduos.</span>
+<span id="cb195-276"><a href="#cb195-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-279"><a href="#cb195-279" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-280"><a href="#cb195-280" aria-hidden="true" tabindex="-1"></a><span class="co"># valores preditos</span></span>
+<span id="cb195-281"><a href="#cb195-281" aria-hidden="true" tabindex="-1"></a>pred <span class="ot">&lt;-</span> </span>
+<span id="cb195-282"><a href="#cb195-282" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">%&gt;%</span> </span>
+<span id="cb195-283"><a href="#cb195-283" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">predito =</span> <span class="fu">predict</span>(mod),</span>
+<span id="cb195-284"><a href="#cb195-284" aria-hidden="true" tabindex="-1"></a>         <span class="at">residual =</span> y <span class="sc">-</span> predito)</span>
+<span id="cb195-285"><a href="#cb195-285" aria-hidden="true" tabindex="-1"></a>pred</span>
+<span id="cb195-286"><a href="#cb195-286" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb195-287"><a href="#cb195-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-288"><a href="#cb195-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-289"><a href="#cb195-289" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb195-290"><a href="#cb195-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-291"><a href="#cb195-291" aria-hidden="true" tabindex="-1"></a>Os valores preditos são obtidos ao substituir o *x* da equação pelo valor utilizado. Pode-se criar uma função para retornar os valores preditos utilizando um modelo ajustado e o valor de x desejado. No seguinte exemplo, o valor de *y* quando *x* é 75 é calculado e plotado no gráfico.</span>
-<span id="cb195-292"><a href="#cb195-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-295"><a href="#cb195-295" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-296"><a href="#cb195-296" aria-hidden="true" tabindex="-1"></a><span class="co"># modelo ajustado o valor predito para x = 75</span></span>
-<span id="cb195-297"><a href="#cb195-297" aria-hidden="true" tabindex="-1"></a><span class="co"># função auxiliar</span></span>
-<span id="cb195-298"><a href="#cb195-298" aria-hidden="true" tabindex="-1"></a>pred_linear <span class="ot">&lt;-</span> <span class="cf">function</span>(mod, x){</span>
-<span id="cb195-299"><a href="#cb195-299" aria-hidden="true" tabindex="-1"></a>  b0 <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod)[[<span class="dv">1</span>]]</span>
-<span id="cb195-300"><a href="#cb195-300" aria-hidden="true" tabindex="-1"></a>  b1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod)[[<span class="dv">2</span>]]</span>
-<span id="cb195-301"><a href="#cb195-301" aria-hidden="true" tabindex="-1"></a>  pred <span class="ot">&lt;-</span> b0 <span class="sc">+</span> b1 <span class="sc">*</span> x</span>
-<span id="cb195-302"><a href="#cb195-302" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(pred)</span>
-<span id="cb195-303"><a href="#cb195-303" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb195-304"><a href="#cb195-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-305"><a href="#cb195-305" aria-hidden="true" tabindex="-1"></a>pred_75 <span class="ot">&lt;-</span> <span class="fu">pred_linear</span>(mod, <span class="dv">75</span>)</span>
-<span id="cb195-306"><a href="#cb195-306" aria-hidden="true" tabindex="-1"></a>pred_75</span>
-<span id="cb195-307"><a href="#cb195-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-308"><a href="#cb195-308" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb195-309"><a href="#cb195-309" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb195-310"><a href="#cb195-310" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">75</span>, <span class="at">y =</span> <span class="fl">8.5</span>, <span class="at">xend =</span> <span class="dv">75</span>, <span class="at">yend =</span> pred_75)) <span class="sc">+</span></span>
-<span id="cb195-311"><a href="#cb195-311" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> pred_75, <span class="at">xend =</span> <span class="dv">75</span>, <span class="at">yend =</span> pred_75)) <span class="sc">+</span></span>
-<span id="cb195-312"><a href="#cb195-312" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">75</span>, <span class="at">y =</span> pred_75), <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb195-313"><a href="#cb195-313" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span> </span>
-<span id="cb195-314"><a href="#cb195-314" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> x) <span class="sc">+</span></span>
-<span id="cb195-315"><a href="#cb195-315" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Dose de N (Kg/ha)"</span>,</span>
-<span id="cb195-316"><a href="#cb195-316" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span> <span class="st">"Rendimento de grãos (t/ha)"</span>,</span>
-<span id="cb195-317"><a href="#cb195-317" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Reta predita para o modelo de regressão"</span>,</span>
-<span id="cb195-318"><a href="#cb195-318" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"O ponto azul representa o RG predito com 75 kg/ha de N"</span>)</span>
-<span id="cb195-319"><a href="#cb195-319" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb195-320"><a href="#cb195-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-288"><a href="#cb195-288" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-289"><a href="#cb195-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-290"><a href="#cb195-290" aria-hidden="true" tabindex="-1"></a>Os valores preditos são obtidos ao substituir o *x* da equação pelo valor utilizado. Pode-se criar uma função para retornar os valores preditos utilizando um modelo ajustado e o valor de x desejado. No seguinte exemplo, o valor de *y* quando *x* é 75 é calculado e plotado no gráfico.</span>
+<span id="cb195-291"><a href="#cb195-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-294"><a href="#cb195-294" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-295"><a href="#cb195-295" aria-hidden="true" tabindex="-1"></a><span class="co"># modelo ajustado o valor predito para x = 75</span></span>
+<span id="cb195-296"><a href="#cb195-296" aria-hidden="true" tabindex="-1"></a><span class="co"># função auxiliar</span></span>
+<span id="cb195-297"><a href="#cb195-297" aria-hidden="true" tabindex="-1"></a>pred_linear <span class="ot">&lt;-</span> <span class="cf">function</span>(mod, x){</span>
+<span id="cb195-298"><a href="#cb195-298" aria-hidden="true" tabindex="-1"></a>  b0 <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod)[[<span class="dv">1</span>]]</span>
+<span id="cb195-299"><a href="#cb195-299" aria-hidden="true" tabindex="-1"></a>  b1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod)[[<span class="dv">2</span>]]</span>
+<span id="cb195-300"><a href="#cb195-300" aria-hidden="true" tabindex="-1"></a>  pred <span class="ot">&lt;-</span> b0 <span class="sc">+</span> b1 <span class="sc">*</span> x</span>
+<span id="cb195-301"><a href="#cb195-301" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(pred)</span>
+<span id="cb195-302"><a href="#cb195-302" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb195-303"><a href="#cb195-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-304"><a href="#cb195-304" aria-hidden="true" tabindex="-1"></a>pred_75 <span class="ot">&lt;-</span> <span class="fu">pred_linear</span>(mod, <span class="dv">75</span>)</span>
+<span id="cb195-305"><a href="#cb195-305" aria-hidden="true" tabindex="-1"></a>pred_75</span>
+<span id="cb195-306"><a href="#cb195-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-307"><a href="#cb195-307" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb195-308"><a href="#cb195-308" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb195-309"><a href="#cb195-309" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">75</span>, <span class="at">y =</span> <span class="fl">8.5</span>, <span class="at">xend =</span> <span class="dv">75</span>, <span class="at">yend =</span> pred_75)) <span class="sc">+</span></span>
+<span id="cb195-310"><a href="#cb195-310" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> pred_75, <span class="at">xend =</span> <span class="dv">75</span>, <span class="at">yend =</span> pred_75)) <span class="sc">+</span></span>
+<span id="cb195-311"><a href="#cb195-311" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">75</span>, <span class="at">y =</span> pred_75), <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb195-312"><a href="#cb195-312" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span> </span>
+<span id="cb195-313"><a href="#cb195-313" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> x) <span class="sc">+</span></span>
+<span id="cb195-314"><a href="#cb195-314" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Dose de N (Kg/ha)"</span>,</span>
+<span id="cb195-315"><a href="#cb195-315" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span> <span class="st">"Rendimento de grãos (t/ha)"</span>,</span>
+<span id="cb195-316"><a href="#cb195-316" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Reta predita para o modelo de regressão"</span>,</span>
+<span id="cb195-317"><a href="#cb195-317" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"O ponto azul representa o RG predito com 75 kg/ha de N"</span>)</span>
+<span id="cb195-318"><a href="#cb195-318" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-319"><a href="#cb195-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-320"><a href="#cb195-320" aria-hidden="true" tabindex="-1"></a><span class="fu">## Regressão linear com repetições</span></span>
 <span id="cb195-321"><a href="#cb195-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-322"><a href="#cb195-322" aria-hidden="true" tabindex="-1"></a><span class="fu">## Regressão linear com repetições</span></span>
-<span id="cb195-323"><a href="#cb195-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-326"><a href="#cb195-326" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-327"><a href="#cb195-327" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
-<span id="cb195-328"><a href="#cb195-328" aria-hidden="true" tabindex="-1"></a>df_reg <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"REG_DEL_DATA"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
-<span id="cb195-329"><a href="#cb195-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-330"><a href="#cb195-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-331"><a href="#cb195-331" aria-hidden="true" tabindex="-1"></a><span class="co"># anova em DBC</span></span>
-<span id="cb195-332"><a href="#cb195-332" aria-hidden="true" tabindex="-1"></a>df_factors <span class="ot">&lt;-</span> df_reg <span class="sc">%&gt;%</span> <span class="fu">as_factor</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
-<span id="cb195-333"><a href="#cb195-333" aria-hidden="true" tabindex="-1"></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(RG <span class="sc">~</span> DOSEN <span class="sc">+</span> BLOCO, <span class="at">data =</span> df_factors)</span>
-<span id="cb195-334"><a href="#cb195-334" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(anova) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
-<span id="cb195-335"><a href="#cb195-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-336"><a href="#cb195-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-337"><a href="#cb195-337" aria-hidden="true" tabindex="-1"></a><span class="co"># regressão</span></span>
-<span id="cb195-338"><a href="#cb195-338" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(RG <span class="sc">~</span> DOSEN, <span class="at">data =</span> df_reg)</span>
-<span id="cb195-339"><a href="#cb195-339" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(reg) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
-<span id="cb195-340"><a href="#cb195-340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-341"><a href="#cb195-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-342"><a href="#cb195-342" aria-hidden="true" tabindex="-1"></a><span class="co"># anova da regressão</span></span>
-<span id="cb195-343"><a href="#cb195-343" aria-hidden="true" tabindex="-1"></a>anova_reg <span class="ot">&lt;-</span> <span class="fu">aov</span>(reg)</span>
-<span id="cb195-344"><a href="#cb195-344" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(anova_reg) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span>)</span>
+<span id="cb195-324"><a href="#cb195-324" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-325"><a href="#cb195-325" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
+<span id="cb195-326"><a href="#cb195-326" aria-hidden="true" tabindex="-1"></a>df_reg <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"REG_DEL_DATA"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
+<span id="cb195-327"><a href="#cb195-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-328"><a href="#cb195-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-329"><a href="#cb195-329" aria-hidden="true" tabindex="-1"></a><span class="co"># anova em DBC</span></span>
+<span id="cb195-330"><a href="#cb195-330" aria-hidden="true" tabindex="-1"></a>df_factors <span class="ot">&lt;-</span> df_reg <span class="sc">%&gt;%</span> <span class="fu">as_factor</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
+<span id="cb195-331"><a href="#cb195-331" aria-hidden="true" tabindex="-1"></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(RG <span class="sc">~</span> DOSEN <span class="sc">+</span> BLOCO, <span class="at">data =</span> df_factors)</span>
+<span id="cb195-332"><a href="#cb195-332" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(anova) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb195-333"><a href="#cb195-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-334"><a href="#cb195-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-335"><a href="#cb195-335" aria-hidden="true" tabindex="-1"></a><span class="co"># regressão</span></span>
+<span id="cb195-336"><a href="#cb195-336" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(RG <span class="sc">~</span> DOSEN, <span class="at">data =</span> df_reg)</span>
+<span id="cb195-337"><a href="#cb195-337" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(reg) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb195-338"><a href="#cb195-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-339"><a href="#cb195-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-340"><a href="#cb195-340" aria-hidden="true" tabindex="-1"></a><span class="co"># anova da regressão</span></span>
+<span id="cb195-341"><a href="#cb195-341" aria-hidden="true" tabindex="-1"></a>anova_reg <span class="ot">&lt;-</span> <span class="fu">aov</span>(reg)</span>
+<span id="cb195-342"><a href="#cb195-342" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(anova_reg) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span>)</span>
+<span id="cb195-343"><a href="#cb195-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-344"><a href="#cb195-344" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb195-345"><a href="#cb195-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-346"><a href="#cb195-346" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-347"><a href="#cb195-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-348"><a href="#cb195-348" aria-hidden="true" tabindex="-1"></a><span class="co"># pontos plotados</span></span>
-<span id="cb195-349"><a href="#cb195-349" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_reg, <span class="fu">aes</span>(DOSEN, RG)) <span class="sc">+</span></span>
-<span id="cb195-350"><a href="#cb195-350" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb195-351"><a href="#cb195-351" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"point"</span>,</span>
-<span id="cb195-352"><a href="#cb195-352" aria-hidden="true" tabindex="-1"></a>               <span class="at">fun =</span> mean,</span>
-<span id="cb195-353"><a href="#cb195-353" aria-hidden="true" tabindex="-1"></a>               <span class="at">shape =</span> <span class="dv">23</span>) <span class="sc">+</span></span>
-<span id="cb195-354"><a href="#cb195-354" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Dose de N (Kg/ha)"</span>,</span>
-<span id="cb195-355"><a href="#cb195-355" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Rendimento de grãos (t/ha)"</span>) <span class="sc">+</span></span>
-<span id="cb195-356"><a href="#cb195-356" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb195-346"><a href="#cb195-346" aria-hidden="true" tabindex="-1"></a><span class="co"># pontos plotados</span></span>
+<span id="cb195-347"><a href="#cb195-347" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_reg, <span class="fu">aes</span>(DOSEN, RG)) <span class="sc">+</span></span>
+<span id="cb195-348"><a href="#cb195-348" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb195-349"><a href="#cb195-349" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"point"</span>,</span>
+<span id="cb195-350"><a href="#cb195-350" aria-hidden="true" tabindex="-1"></a>               <span class="at">fun =</span> mean,</span>
+<span id="cb195-351"><a href="#cb195-351" aria-hidden="true" tabindex="-1"></a>               <span class="at">shape =</span> <span class="dv">23</span>) <span class="sc">+</span></span>
+<span id="cb195-352"><a href="#cb195-352" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Dose de N (Kg/ha)"</span>,</span>
+<span id="cb195-353"><a href="#cb195-353" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Rendimento de grãos (t/ha)"</span>) <span class="sc">+</span></span>
+<span id="cb195-354"><a href="#cb195-354" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb195-355"><a href="#cb195-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-356"><a href="#cb195-356" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb195-357"><a href="#cb195-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-358"><a href="#cb195-358" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-358"><a href="#cb195-358" aria-hidden="true" tabindex="-1"></a><span class="fu">## Polinômio de segundo grau</span></span>
 <span id="cb195-359"><a href="#cb195-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-360"><a href="#cb195-360" aria-hidden="true" tabindex="-1"></a><span class="fu">## Polinômio de segundo grau</span></span>
+<span id="cb195-360"><a href="#cb195-360" aria-hidden="true" tabindex="-1"></a>A regressão polinomial de segundo grau (que também é linear!) é uma outra opção muito útil para analisar dados que apresentem comportamento de parábola, por vezes observado em ensaios que testam dosagens de algum produto/fertilizante, etc. Neste tipo, um parâmetro a mais é adicionado ao modelo, ficando na forma:</span>
 <span id="cb195-361"><a href="#cb195-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-362"><a href="#cb195-362" aria-hidden="true" tabindex="-1"></a>A regressão polinomial de segundo grau (que também é linear!) é uma outra opção muito útil para analisar dados que apresentem comportamento de parábola, por vezes observado em ensaios que testam dosagens de algum produto/fertilizante, etc. Neste tipo, um parâmetro a mais é adicionado ao modelo, ficando na forma:</span>
-<span id="cb195-363"><a href="#cb195-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-362"><a href="#cb195-362" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb195-363"><a href="#cb195-363" aria-hidden="true" tabindex="-1"></a>Y_i = {\beta _0} + {\beta _1}x + {\beta _2}x^2 + \varepsilon_i  </span>
 <span id="cb195-364"><a href="#cb195-364" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb195-365"><a href="#cb195-365" aria-hidden="true" tabindex="-1"></a>Y_i = {\beta _0} + {\beta _1}x + {\beta _2}x^2 + \varepsilon_i  </span>
-<span id="cb195-366"><a href="#cb195-366" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb195-365"><a href="#cb195-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-366"><a href="#cb195-366" aria-hidden="true" tabindex="-1"></a>Como motivação, utilizaremos os dados abaixo. Para ajustar um modelo polinomial, utilizamos a função <span class="in">`poly()`</span> e informamos o grau do polinômio desejado. É válido lembrar, que o grau máximo possível de polinômio é dado pelo número de níveis da variável independente/preditora menos 1.</span>
 <span id="cb195-367"><a href="#cb195-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-368"><a href="#cb195-368" aria-hidden="true" tabindex="-1"></a>Como motivação, utilizaremos os dados abaixo. Para ajustar um modelo polinomial, utilizamos a função <span class="in">`poly()`</span> e informamos o grau do polinômio desejado. É válido lembrar, que o grau máximo possível de polinômio é dado pelo número de níveis da variável independente/preditora menos 1.</span>
-<span id="cb195-369"><a href="#cb195-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-372"><a href="#cb195-372" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-373"><a href="#cb195-373" aria-hidden="true" tabindex="-1"></a>DOSEN <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">150</span>, <span class="dv">200</span>, <span class="dv">250</span>)</span>
-<span id="cb195-374"><a href="#cb195-374" aria-hidden="true" tabindex="-1"></a>RG    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">7.1</span>, <span class="fl">7.3</span>, <span class="fl">7.66</span>, <span class="fl">7.71</span>, <span class="fl">7.62</span>, <span class="fl">7.6</span>)</span>
-<span id="cb195-375"><a href="#cb195-375" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">DOSEN =</span> DOSEN, <span class="at">RG =</span> RG)</span>
-<span id="cb195-376"><a href="#cb195-376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-377"><a href="#cb195-377" aria-hidden="true" tabindex="-1"></a><span class="co"># modelo de regressão</span></span>
-<span id="cb195-378"><a href="#cb195-378" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(RG <span class="sc">~</span> <span class="fu">poly</span>(DOSEN, <span class="dv">2</span>, <span class="at">raw =</span> <span class="cn">TRUE</span>), <span class="at">data =</span> df2)</span>
-<span id="cb195-379"><a href="#cb195-379" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod2)</span>
-<span id="cb195-380"><a href="#cb195-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-381"><a href="#cb195-381" aria-hidden="true" tabindex="-1"></a><span class="co"># valores preditos</span></span>
-<span id="cb195-382"><a href="#cb195-382" aria-hidden="true" tabindex="-1"></a>pred2 <span class="ot">&lt;-</span> </span>
-<span id="cb195-383"><a href="#cb195-383" aria-hidden="true" tabindex="-1"></a>  df2 <span class="sc">%&gt;%</span> </span>
-<span id="cb195-384"><a href="#cb195-384" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">predito =</span> <span class="fu">predict</span>(mod2),</span>
-<span id="cb195-385"><a href="#cb195-385" aria-hidden="true" tabindex="-1"></a>         <span class="at">residual =</span> RG <span class="sc">-</span> predito)</span>
-<span id="cb195-386"><a href="#cb195-386" aria-hidden="true" tabindex="-1"></a>pred2</span>
-<span id="cb195-387"><a href="#cb195-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-388"><a href="#cb195-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-389"><a href="#cb195-389" aria-hidden="true" tabindex="-1"></a><span class="co"># gráfico base</span></span>
-<span id="cb195-390"><a href="#cb195-390" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span></span>
-<span id="cb195-391"><a href="#cb195-391" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df2, <span class="fu">aes</span>(DOSEN, RG)) <span class="sc">+</span></span>
-<span id="cb195-392"><a href="#cb195-392" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span> </span>
-<span id="cb195-393"><a href="#cb195-393" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb195-394"><a href="#cb195-394" aria-hidden="true" tabindex="-1"></a>              <span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb195-395"><a href="#cb195-395" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>)) <span class="sc">+</span></span>
-<span id="cb195-396"><a href="#cb195-396" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> DOSEN) <span class="sc">+</span></span>
-<span id="cb195-397"><a href="#cb195-397" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Dose de N (Kg/ha)"</span>,</span>
-<span id="cb195-398"><a href="#cb195-398" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Rendimento de grãos (t/ha)"</span>)</span>
-<span id="cb195-399"><a href="#cb195-399" aria-hidden="true" tabindex="-1"></a>p1</span>
+<span id="cb195-370"><a href="#cb195-370" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-371"><a href="#cb195-371" aria-hidden="true" tabindex="-1"></a>DOSEN <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">150</span>, <span class="dv">200</span>, <span class="dv">250</span>)</span>
+<span id="cb195-372"><a href="#cb195-372" aria-hidden="true" tabindex="-1"></a>RG    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">7.1</span>, <span class="fl">7.3</span>, <span class="fl">7.66</span>, <span class="fl">7.71</span>, <span class="fl">7.62</span>, <span class="fl">7.6</span>)</span>
+<span id="cb195-373"><a href="#cb195-373" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">DOSEN =</span> DOSEN, <span class="at">RG =</span> RG)</span>
+<span id="cb195-374"><a href="#cb195-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-375"><a href="#cb195-375" aria-hidden="true" tabindex="-1"></a><span class="co"># modelo de regressão</span></span>
+<span id="cb195-376"><a href="#cb195-376" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(RG <span class="sc">~</span> <span class="fu">poly</span>(DOSEN, <span class="dv">2</span>, <span class="at">raw =</span> <span class="cn">TRUE</span>), <span class="at">data =</span> df2)</span>
+<span id="cb195-377"><a href="#cb195-377" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod2)</span>
+<span id="cb195-378"><a href="#cb195-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-379"><a href="#cb195-379" aria-hidden="true" tabindex="-1"></a><span class="co"># valores preditos</span></span>
+<span id="cb195-380"><a href="#cb195-380" aria-hidden="true" tabindex="-1"></a>pred2 <span class="ot">&lt;-</span> </span>
+<span id="cb195-381"><a href="#cb195-381" aria-hidden="true" tabindex="-1"></a>  df2 <span class="sc">%&gt;%</span> </span>
+<span id="cb195-382"><a href="#cb195-382" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">predito =</span> <span class="fu">predict</span>(mod2),</span>
+<span id="cb195-383"><a href="#cb195-383" aria-hidden="true" tabindex="-1"></a>         <span class="at">residual =</span> RG <span class="sc">-</span> predito)</span>
+<span id="cb195-384"><a href="#cb195-384" aria-hidden="true" tabindex="-1"></a>pred2</span>
+<span id="cb195-385"><a href="#cb195-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-386"><a href="#cb195-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-387"><a href="#cb195-387" aria-hidden="true" tabindex="-1"></a><span class="co"># gráfico base</span></span>
+<span id="cb195-388"><a href="#cb195-388" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span></span>
+<span id="cb195-389"><a href="#cb195-389" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df2, <span class="fu">aes</span>(DOSEN, RG)) <span class="sc">+</span></span>
+<span id="cb195-390"><a href="#cb195-390" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span> </span>
+<span id="cb195-391"><a href="#cb195-391" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb195-392"><a href="#cb195-392" aria-hidden="true" tabindex="-1"></a>              <span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb195-393"><a href="#cb195-393" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb195-394"><a href="#cb195-394" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> DOSEN) <span class="sc">+</span></span>
+<span id="cb195-395"><a href="#cb195-395" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Dose de N (Kg/ha)"</span>,</span>
+<span id="cb195-396"><a href="#cb195-396" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Rendimento de grãos (t/ha)"</span>)</span>
+<span id="cb195-397"><a href="#cb195-397" aria-hidden="true" tabindex="-1"></a>p1</span>
+<span id="cb195-398"><a href="#cb195-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-399"><a href="#cb195-399" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb195-400"><a href="#cb195-400" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-401"><a href="#cb195-401" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-401"><a href="#cb195-401" aria-hidden="true" tabindex="-1"></a>O ponto em X (dose de N) em que a produtividade é máxima é chamado de máxima eficiência técnica (MET) e pode ser estimado por:</span>
 <span id="cb195-402"><a href="#cb195-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-403"><a href="#cb195-403" aria-hidden="true" tabindex="-1"></a>O ponto em X (dose de N) em que a produtividade é máxima é chamado de máxima eficiência técnica (MET) e pode ser estimado por:</span>
-<span id="cb195-404"><a href="#cb195-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-403"><a href="#cb195-403" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb195-404"><a href="#cb195-404" aria-hidden="true" tabindex="-1"></a>MET = \frac{{ - {\beta _1}}}{{2 \times {\beta _2}}}</span>
 <span id="cb195-405"><a href="#cb195-405" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb195-406"><a href="#cb195-406" aria-hidden="true" tabindex="-1"></a>MET = \frac{{ - {\beta _1}}}{{2 \times {\beta _2}}}</span>
-<span id="cb195-407"><a href="#cb195-407" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb195-406"><a href="#cb195-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-407"><a href="#cb195-407" aria-hidden="true" tabindex="-1"></a>Substituindo com os parâmetros estimados, temos:</span>
 <span id="cb195-408"><a href="#cb195-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-409"><a href="#cb195-409" aria-hidden="true" tabindex="-1"></a>Substituindo com os parâmetros estimados, temos:</span>
-<span id="cb195-410"><a href="#cb195-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-409"><a href="#cb195-409" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb195-410"><a href="#cb195-410" aria-hidden="true" tabindex="-1"></a>MET = \frac{{ - 0,007184}}{{2 \times  -2,071^{-05}}} \approx 173,4</span>
 <span id="cb195-411"><a href="#cb195-411" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb195-412"><a href="#cb195-412" aria-hidden="true" tabindex="-1"></a>MET = \frac{{ - 0,007184}}{{2 \times  -2,071^{-05}}} \approx 173,4</span>
-<span id="cb195-413"><a href="#cb195-413" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb195-412"><a href="#cb195-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-413"><a href="#cb195-413" aria-hidden="true" tabindex="-1"></a>No R, podemos criar uma função auxiliar para calcular o ponto de MET.</span>
 <span id="cb195-414"><a href="#cb195-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-415"><a href="#cb195-415" aria-hidden="true" tabindex="-1"></a>No R, podemos criar uma função auxiliar para calcular o ponto de MET.</span>
-<span id="cb195-416"><a href="#cb195-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-419"><a href="#cb195-419" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-420"><a href="#cb195-420" aria-hidden="true" tabindex="-1"></a><span class="co"># máxima eficiência técnica</span></span>
-<span id="cb195-421"><a href="#cb195-421" aria-hidden="true" tabindex="-1"></a><span class="co"># mod é o modelo quadrático ajustado</span></span>
-<span id="cb195-422"><a href="#cb195-422" aria-hidden="true" tabindex="-1"></a>met <span class="ot">&lt;-</span> <span class="cf">function</span>(mod){</span>
-<span id="cb195-423"><a href="#cb195-423" aria-hidden="true" tabindex="-1"></a>  b1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod)[[<span class="dv">2</span>]]</span>
-<span id="cb195-424"><a href="#cb195-424" aria-hidden="true" tabindex="-1"></a>  b2 <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod)[[<span class="dv">3</span>]]</span>
-<span id="cb195-425"><a href="#cb195-425" aria-hidden="true" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="sc">-</span>b1 <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> b2)</span>
-<span id="cb195-426"><a href="#cb195-426" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
-<span id="cb195-427"><a href="#cb195-427" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb195-428"><a href="#cb195-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-429"><a href="#cb195-429" aria-hidden="true" tabindex="-1"></a>x_met <span class="ot">&lt;-</span> <span class="fu">met</span>(mod2)</span>
-<span id="cb195-430"><a href="#cb195-430" aria-hidden="true" tabindex="-1"></a>x_met</span>
-<span id="cb195-431"><a href="#cb195-431" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-417"><a href="#cb195-417" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-418"><a href="#cb195-418" aria-hidden="true" tabindex="-1"></a><span class="co"># máxima eficiência técnica</span></span>
+<span id="cb195-419"><a href="#cb195-419" aria-hidden="true" tabindex="-1"></a><span class="co"># mod é o modelo quadrático ajustado</span></span>
+<span id="cb195-420"><a href="#cb195-420" aria-hidden="true" tabindex="-1"></a>met <span class="ot">&lt;-</span> <span class="cf">function</span>(mod){</span>
+<span id="cb195-421"><a href="#cb195-421" aria-hidden="true" tabindex="-1"></a>  b1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod)[[<span class="dv">2</span>]]</span>
+<span id="cb195-422"><a href="#cb195-422" aria-hidden="true" tabindex="-1"></a>  b2 <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod)[[<span class="dv">3</span>]]</span>
+<span id="cb195-423"><a href="#cb195-423" aria-hidden="true" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="sc">-</span>b1 <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> b2)</span>
+<span id="cb195-424"><a href="#cb195-424" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb195-425"><a href="#cb195-425" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb195-426"><a href="#cb195-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-427"><a href="#cb195-427" aria-hidden="true" tabindex="-1"></a>x_met <span class="ot">&lt;-</span> <span class="fu">met</span>(mod2)</span>
+<span id="cb195-428"><a href="#cb195-428" aria-hidden="true" tabindex="-1"></a>x_met</span>
+<span id="cb195-429"><a href="#cb195-429" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-430"><a href="#cb195-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-431"><a href="#cb195-431" aria-hidden="true" tabindex="-1"></a>Em nosso exemplo, o ponto em x (dose de N) que proporciona o máximo rendimento predito é 173,413. Assim para sabermos qual é este rendimento estimado, basta substituir o *x* da equação por 173,4: $y = 7,075 + 0,007184\times 173,413 -2,071^{-05}\times 173,413^2 \approx 7,70$</span>
 <span id="cb195-432"><a href="#cb195-432" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-433"><a href="#cb195-433" aria-hidden="true" tabindex="-1"></a>Em nosso exemplo, o ponto em x (dose de N) que proporciona o máximo rendimento predito é 173,413. Assim para sabermos qual é este rendimento estimado, basta substituir o *x* da equação por 173,4: $y = 7,075 + 0,007184\times 173,413 -2,071^{-05}\times 173,413^2 \approx 7,70$</span>
+<span id="cb195-433"><a href="#cb195-433" aria-hidden="true" tabindex="-1"></a>Uma função auxiliar para predição de y em um determinado valor de x considerando um modelo quadrático ajustado é fornecida abaixo.</span>
 <span id="cb195-434"><a href="#cb195-434" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-435"><a href="#cb195-435" aria-hidden="true" tabindex="-1"></a>Uma função auxiliar para predição de y em um determinado valor de x considerando um modelo quadrático ajustado é fornecida abaixo.</span>
-<span id="cb195-436"><a href="#cb195-436" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-439"><a href="#cb195-439" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-440"><a href="#cb195-440" aria-hidden="true" tabindex="-1"></a><span class="co"># valor predito para x = MET</span></span>
-<span id="cb195-441"><a href="#cb195-441" aria-hidden="true" tabindex="-1"></a><span class="co"># função auxiliar</span></span>
-<span id="cb195-442"><a href="#cb195-442" aria-hidden="true" tabindex="-1"></a>pred_quad <span class="ot">&lt;-</span> <span class="cf">function</span>(mod, x){</span>
-<span id="cb195-443"><a href="#cb195-443" aria-hidden="true" tabindex="-1"></a>  b0 <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod)[[<span class="dv">1</span>]]</span>
-<span id="cb195-444"><a href="#cb195-444" aria-hidden="true" tabindex="-1"></a>  b1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod)[[<span class="dv">2</span>]]</span>
-<span id="cb195-445"><a href="#cb195-445" aria-hidden="true" tabindex="-1"></a>  b2 <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod)[[<span class="dv">3</span>]]</span>
-<span id="cb195-446"><a href="#cb195-446" aria-hidden="true" tabindex="-1"></a>  pred <span class="ot">&lt;-</span> b0 <span class="sc">+</span> b1 <span class="sc">*</span> x <span class="sc">+</span> b2 <span class="sc">*</span> x <span class="sc">^</span> <span class="dv">2</span></span>
-<span id="cb195-447"><a href="#cb195-447" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(pred)</span>
-<span id="cb195-448"><a href="#cb195-448" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb195-449"><a href="#cb195-449" aria-hidden="true" tabindex="-1"></a>pred_met <span class="ot">&lt;-</span> <span class="fu">pred_quad</span>(mod2, <span class="at">x =</span> x_met)</span>
-<span id="cb195-450"><a href="#cb195-450" aria-hidden="true" tabindex="-1"></a>pred_met</span>
-<span id="cb195-451"><a href="#cb195-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-437"><a href="#cb195-437" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-438"><a href="#cb195-438" aria-hidden="true" tabindex="-1"></a><span class="co"># valor predito para x = MET</span></span>
+<span id="cb195-439"><a href="#cb195-439" aria-hidden="true" tabindex="-1"></a><span class="co"># função auxiliar</span></span>
+<span id="cb195-440"><a href="#cb195-440" aria-hidden="true" tabindex="-1"></a>pred_quad <span class="ot">&lt;-</span> <span class="cf">function</span>(mod, x){</span>
+<span id="cb195-441"><a href="#cb195-441" aria-hidden="true" tabindex="-1"></a>  b0 <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod)[[<span class="dv">1</span>]]</span>
+<span id="cb195-442"><a href="#cb195-442" aria-hidden="true" tabindex="-1"></a>  b1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod)[[<span class="dv">2</span>]]</span>
+<span id="cb195-443"><a href="#cb195-443" aria-hidden="true" tabindex="-1"></a>  b2 <span class="ot">&lt;-</span> <span class="fu">coef</span>(mod)[[<span class="dv">3</span>]]</span>
+<span id="cb195-444"><a href="#cb195-444" aria-hidden="true" tabindex="-1"></a>  pred <span class="ot">&lt;-</span> b0 <span class="sc">+</span> b1 <span class="sc">*</span> x <span class="sc">+</span> b2 <span class="sc">*</span> x <span class="sc">^</span> <span class="dv">2</span></span>
+<span id="cb195-445"><a href="#cb195-445" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(pred)</span>
+<span id="cb195-446"><a href="#cb195-446" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb195-447"><a href="#cb195-447" aria-hidden="true" tabindex="-1"></a>pred_met <span class="ot">&lt;-</span> <span class="fu">pred_quad</span>(mod2, <span class="at">x =</span> x_met)</span>
+<span id="cb195-448"><a href="#cb195-448" aria-hidden="true" tabindex="-1"></a>pred_met</span>
+<span id="cb195-449"><a href="#cb195-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-450"><a href="#cb195-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-451"><a href="#cb195-451" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb195-452"><a href="#cb195-452" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-453"><a href="#cb195-453" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-453"><a href="#cb195-453" aria-hidden="true" tabindex="-1"></a>Outro ponto importante que é possível de estimar utilizando uma equação de segundo grau, é a máxima eficiência econômica (MEE), ou seja, a dose máxima, neste caso de nitrogênio, em que é possível aplicar obtendo-se lucro. Este ponto é importante, pois a partir de uma certa dose, os incrementos em produtividade não compensariam o preço pago pelo nitrogênio aplicado. Este ponto pode ser facilmente estimado por:</span>
 <span id="cb195-454"><a href="#cb195-454" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-455"><a href="#cb195-455" aria-hidden="true" tabindex="-1"></a>Outro ponto importante que é possível de estimar utilizando uma equação de segundo grau, é a máxima eficiência econômica (MEE), ou seja, a dose máxima, neste caso de nitrogênio, em que é possível aplicar obtendo-se lucro. Este ponto é importante, pois a partir de uma certa dose, os incrementos em produtividade não compensariam o preço pago pelo nitrogênio aplicado. Este ponto pode ser facilmente estimado por:</span>
-<span id="cb195-456"><a href="#cb195-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-455"><a href="#cb195-455" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb195-456"><a href="#cb195-456" aria-hidden="true" tabindex="-1"></a>MEE = MET + \frac{u}{{2 \times \beta_2 \times m}}</span>
 <span id="cb195-457"><a href="#cb195-457" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb195-458"><a href="#cb195-458" aria-hidden="true" tabindex="-1"></a>MEE = MET + \frac{u}{{2 \times \beta_2 \times m}}</span>
-<span id="cb195-459"><a href="#cb195-459" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb195-458"><a href="#cb195-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-459"><a href="#cb195-459" aria-hidden="true" tabindex="-1"></a>onde *u* e *m* são os preços do nitrogênio e do milho em grão, respectivamente, na mesma unidade utilizada para a estimativa da equação (neste caso, preço do nitrogênio por kg e preço do milho por tonelada). Considerando o preço de custo do nitrogênio como R 3 por kg e o preço de venda do milho a 1,300 por tonelada, substituindo-se na formula obtêm-se:</span>
 <span id="cb195-460"><a href="#cb195-460" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-461"><a href="#cb195-461" aria-hidden="true" tabindex="-1"></a>onde *u* e *m* são os preços do nitrogênio e do milho em grão, respectivamente, na mesma unidade utilizada para a estimativa da equação (neste caso, preço do nitrogênio por kg e preço do milho por tonelada). Considerando o preço de custo do nitrogênio como R 3 por kg e o preço de venda do milho a 1,300 por tonelada, substituindo-se na formula obtêm-se:</span>
-<span id="cb195-462"><a href="#cb195-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-461"><a href="#cb195-461" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb195-462"><a href="#cb195-462" aria-hidden="true" tabindex="-1"></a>MEE = 173,41 + \frac{{3,0}}{{2 \times (-2,071^{-05}) \times 1.300}} \approx 117</span>
 <span id="cb195-463"><a href="#cb195-463" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb195-464"><a href="#cb195-464" aria-hidden="true" tabindex="-1"></a>MEE = 173,41 + \frac{{3,0}}{{2 \times (-2,071^{-05}) \times 1.300}} \approx 117</span>
-<span id="cb195-465"><a href="#cb195-465" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb195-466"><a href="#cb195-466" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-469"><a href="#cb195-469" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-470"><a href="#cb195-470" aria-hidden="true" tabindex="-1"></a>mee <span class="ot">&lt;-</span> <span class="cf">function</span>(mod, px, py){</span>
-<span id="cb195-471"><a href="#cb195-471" aria-hidden="true" tabindex="-1"></a>  x_met <span class="ot">&lt;-</span> <span class="fu">met</span>(mod)</span>
-<span id="cb195-472"><a href="#cb195-472" aria-hidden="true" tabindex="-1"></a>  mee <span class="ot">&lt;-</span> x_met <span class="sc">+</span> px <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> <span class="fu">coef</span>(mod)[[<span class="dv">3</span>]] <span class="sc">*</span> py)</span>
-<span id="cb195-473"><a href="#cb195-473" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(mee)</span>
-<span id="cb195-474"><a href="#cb195-474" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb195-475"><a href="#cb195-475" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-476"><a href="#cb195-476" aria-hidden="true" tabindex="-1"></a>x_mee <span class="ot">&lt;-</span> <span class="fu">mee</span>(mod2, <span class="dv">3</span>, <span class="dv">1300</span>)</span>
-<span id="cb195-477"><a href="#cb195-477" aria-hidden="true" tabindex="-1"></a>x_mee</span>
-<span id="cb195-478"><a href="#cb195-478" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-464"><a href="#cb195-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-467"><a href="#cb195-467" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-468"><a href="#cb195-468" aria-hidden="true" tabindex="-1"></a>mee <span class="ot">&lt;-</span> <span class="cf">function</span>(mod, px, py){</span>
+<span id="cb195-469"><a href="#cb195-469" aria-hidden="true" tabindex="-1"></a>  x_met <span class="ot">&lt;-</span> <span class="fu">met</span>(mod)</span>
+<span id="cb195-470"><a href="#cb195-470" aria-hidden="true" tabindex="-1"></a>  mee <span class="ot">&lt;-</span> x_met <span class="sc">+</span> px <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> <span class="fu">coef</span>(mod)[[<span class="dv">3</span>]] <span class="sc">*</span> py)</span>
+<span id="cb195-471"><a href="#cb195-471" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(mee)</span>
+<span id="cb195-472"><a href="#cb195-472" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb195-473"><a href="#cb195-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-474"><a href="#cb195-474" aria-hidden="true" tabindex="-1"></a>x_mee <span class="ot">&lt;-</span> <span class="fu">mee</span>(mod2, <span class="dv">3</span>, <span class="dv">1300</span>)</span>
+<span id="cb195-475"><a href="#cb195-475" aria-hidden="true" tabindex="-1"></a>x_mee</span>
+<span id="cb195-476"><a href="#cb195-476" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-477"><a href="#cb195-477" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-478"><a href="#cb195-478" aria-hidden="true" tabindex="-1"></a>Assim, a dose máxima de nitrogênio que em que os incrementos de produtividade são lucrativos é de $\approx 117$ Kg ha$^{-1}$, em um rendimento estimado de $\approx$ 7,63 Mg ha$^{-1}$.</span>
 <span id="cb195-479"><a href="#cb195-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-480"><a href="#cb195-480" aria-hidden="true" tabindex="-1"></a>Assim, a dose máxima de nitrogênio que em que os incrementos de produtividade são lucrativos é de $\approx 117$ Kg ha$^{-1}$, em um rendimento estimado de $\approx$ 7,63 Mg ha$^{-1}$.</span>
-<span id="cb195-481"><a href="#cb195-481" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-484"><a href="#cb195-484" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-485"><a href="#cb195-485" aria-hidden="true" tabindex="-1"></a><span class="co"># Máxima eficiência econõmica (y)</span></span>
-<span id="cb195-486"><a href="#cb195-486" aria-hidden="true" tabindex="-1"></a>rg_mee <span class="ot">&lt;-</span> <span class="fu">pred_quad</span>(mod2, <span class="at">x =</span> x_mee)</span>
-<span id="cb195-487"><a href="#cb195-487" aria-hidden="true" tabindex="-1"></a>rg_mee</span>
+<span id="cb195-482"><a href="#cb195-482" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-483"><a href="#cb195-483" aria-hidden="true" tabindex="-1"></a><span class="co"># Máxima eficiência econõmica (y)</span></span>
+<span id="cb195-484"><a href="#cb195-484" aria-hidden="true" tabindex="-1"></a>rg_mee <span class="ot">&lt;-</span> <span class="fu">pred_quad</span>(mod2, <span class="at">x =</span> x_mee)</span>
+<span id="cb195-485"><a href="#cb195-485" aria-hidden="true" tabindex="-1"></a>rg_mee</span>
+<span id="cb195-486"><a href="#cb195-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-487"><a href="#cb195-487" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb195-488"><a href="#cb195-488" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-489"><a href="#cb195-489" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-489"><a href="#cb195-489" aria-hidden="true" tabindex="-1"></a>De posse das informações, um gráfico elaborado, que deveria ser apresentado em todo trabalho deste tipo pode ser confeccionado com a função <span class="in">`plot_lines()`</span> do pacote <span class="in">`metan`</span> combinado com algumas funções do pacote <span class="in">`ggplot2`</span>. Sugiro a leitura do <span class="co">[</span><span class="ot">capítulo 8 deste material</span><span class="co">](https://tiagoolivoto.github.io/e-bookr/graph.html)</span> para mais informações sobre confecção de gráficos no R.</span>
 <span id="cb195-490"><a href="#cb195-490" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-491"><a href="#cb195-491" aria-hidden="true" tabindex="-1"></a>De posse das informações, um gráfico elaborado, que deveria ser apresentado em todo trabalho deste tipo pode ser confeccionado com a função <span class="in">`plot_lines()`</span> do pacote <span class="in">`metan`</span> combinado com algumas funções do pacote <span class="in">`ggplot2`</span>. Sugiro a leitura do <span class="co">[</span><span class="ot">capítulo 8 deste material</span><span class="co">](https://tiagoolivoto.github.io/e-bookr/graph.html)</span> para mais informações sobre confecção de gráficos no R.</span>
-<span id="cb195-492"><a href="#cb195-492" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-495"><a href="#cb195-495" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-496"><a href="#cb195-496" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span></span>
-<span id="cb195-497"><a href="#cb195-497" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Equação quadrática"</span>,</span>
-<span id="cb195-498"><a href="#cb195-498" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Trigângulo e cículo representam os pontos de MME e MET, respectivamente"</span>,</span>
-<span id="cb195-499"><a href="#cb195-499" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"MME = Máxima eficiência econômica</span><span class="sc">\n</span><span class="st"> MET = máxima eficiência técnica"</span>) <span class="sc">+</span></span>
-<span id="cb195-500"><a href="#cb195-500" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Linhas e ponto da MET</span></span>
-<span id="cb195-501"><a href="#cb195-501" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> x_met, <span class="at">y =</span> pred_met, <span class="at">xend =</span> x_met, <span class="at">yend =</span> <span class="fl">6.7</span>)) <span class="sc">+</span></span>
-<span id="cb195-502"><a href="#cb195-502" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> pred_met, <span class="at">xend =</span> x_met, <span class="at">yend =</span> pred_met)) <span class="sc">+</span></span>
-<span id="cb195-503"><a href="#cb195-503" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> x_met, <span class="at">y =</span> pred_met), <span class="at">shape =</span> <span class="dv">19</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb195-504"><a href="#cb195-504" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Linhas e ponto da MEE</span></span>
-<span id="cb195-505"><a href="#cb195-505" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> x_mee, <span class="at">y =</span> rg_mee, <span class="at">xend =</span> x_mee, <span class="at">yend =</span> <span class="fl">6.7</span>), <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb195-506"><a href="#cb195-506" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> rg_mee, <span class="at">xend =</span> x_mee, <span class="at">yend =</span> rg_mee), <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb195-507"><a href="#cb195-507" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> x_mee, <span class="at">y =</span> rg_mee), <span class="at">shape =</span> <span class="dv">17</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb195-508"><a href="#cb195-508" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Equação no gráfico</span></span>
-<span id="cb195-509"><a href="#cb195-509" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="dv">0</span>, <span class="fl">7.9</span>,</span>
-<span id="cb195-510"><a href="#cb195-510" aria-hidden="true" tabindex="-1"></a>                <span class="at">label=</span>(</span>
-<span id="cb195-511"><a href="#cb195-511" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">paste</span>(</span>
-<span id="cb195-512"><a href="#cb195-512" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">expression</span>(<span class="st">"y = 7.075 + 0.007184x - 2,071e"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">5</span>}<span class="sc">*</span><span class="st">"x"</span><span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="st">"  R"</span> <span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="st">" = 0,938 "</span>))</span>
-<span id="cb195-513"><a href="#cb195-513" aria-hidden="true" tabindex="-1"></a>                )</span>
-<span id="cb195-514"><a href="#cb195-514" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb195-515"><a href="#cb195-515" aria-hidden="true" tabindex="-1"></a>  <span class="at">hjust =</span> <span class="dv">0</span>,</span>
-<span id="cb195-516"><a href="#cb195-516" aria-hidden="true" tabindex="-1"></a>  <span class="at">size =</span> <span class="dv">5</span>,</span>
-<span id="cb195-517"><a href="#cb195-517" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"black"</span>,</span>
-<span id="cb195-518"><a href="#cb195-518" aria-hidden="true" tabindex="-1"></a>  <span class="at">parse =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb195-493"><a href="#cb195-493" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-494"><a href="#cb195-494" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span></span>
+<span id="cb195-495"><a href="#cb195-495" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Equação quadrática"</span>,</span>
+<span id="cb195-496"><a href="#cb195-496" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Trigângulo e cículo representam os pontos de MME e MET, respectivamente"</span>,</span>
+<span id="cb195-497"><a href="#cb195-497" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"MME = Máxima eficiência econômica</span><span class="sc">\n</span><span class="st"> MET = máxima eficiência técnica"</span>) <span class="sc">+</span></span>
+<span id="cb195-498"><a href="#cb195-498" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Linhas e ponto da MET</span></span>
+<span id="cb195-499"><a href="#cb195-499" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> x_met, <span class="at">y =</span> pred_met, <span class="at">xend =</span> x_met, <span class="at">yend =</span> <span class="fl">6.7</span>)) <span class="sc">+</span></span>
+<span id="cb195-500"><a href="#cb195-500" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> pred_met, <span class="at">xend =</span> x_met, <span class="at">yend =</span> pred_met)) <span class="sc">+</span></span>
+<span id="cb195-501"><a href="#cb195-501" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> x_met, <span class="at">y =</span> pred_met), <span class="at">shape =</span> <span class="dv">19</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb195-502"><a href="#cb195-502" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Linhas e ponto da MEE</span></span>
+<span id="cb195-503"><a href="#cb195-503" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> x_mee, <span class="at">y =</span> rg_mee, <span class="at">xend =</span> x_mee, <span class="at">yend =</span> <span class="fl">6.7</span>), <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb195-504"><a href="#cb195-504" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> rg_mee, <span class="at">xend =</span> x_mee, <span class="at">yend =</span> rg_mee), <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb195-505"><a href="#cb195-505" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> x_mee, <span class="at">y =</span> rg_mee), <span class="at">shape =</span> <span class="dv">17</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb195-506"><a href="#cb195-506" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Equação no gráfico</span></span>
+<span id="cb195-507"><a href="#cb195-507" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="dv">0</span>, <span class="fl">7.9</span>,</span>
+<span id="cb195-508"><a href="#cb195-508" aria-hidden="true" tabindex="-1"></a>                <span class="at">label=</span>(</span>
+<span id="cb195-509"><a href="#cb195-509" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">paste</span>(</span>
+<span id="cb195-510"><a href="#cb195-510" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">expression</span>(<span class="st">"y = 7.075 + 0.007184x - 2,071e"</span><span class="sc">^</span>{<span class="sc">-</span><span class="dv">5</span>}<span class="sc">*</span><span class="st">"x"</span><span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="st">"  R"</span> <span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="st">" = 0,938 "</span>))</span>
+<span id="cb195-511"><a href="#cb195-511" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb195-512"><a href="#cb195-512" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb195-513"><a href="#cb195-513" aria-hidden="true" tabindex="-1"></a>  <span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb195-514"><a href="#cb195-514" aria-hidden="true" tabindex="-1"></a>  <span class="at">size =</span> <span class="dv">5</span>,</span>
+<span id="cb195-515"><a href="#cb195-515" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"black"</span>,</span>
+<span id="cb195-516"><a href="#cb195-516" aria-hidden="true" tabindex="-1"></a>  <span class="at">parse =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb195-517"><a href="#cb195-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-518"><a href="#cb195-518" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb195-519"><a href="#cb195-519" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-520"><a href="#cb195-520" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-520"><a href="#cb195-520" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercício</span></span>
 <span id="cb195-521"><a href="#cb195-521" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-522"><a href="#cb195-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-522"><a href="#cb195-522" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dados</span></span>
 <span id="cb195-523"><a href="#cb195-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-524"><a href="#cb195-524" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-525"><a href="#cb195-525" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercício</span></span>
-<span id="cb195-526"><a href="#cb195-526" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dados</span></span>
-<span id="cb195-527"><a href="#cb195-527" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Neste exemplo, serão utilizados dados de produtividade de grãos de milho (Kg /ha) de acordo com diferentes doses de dejeto suíno (m3/ha) aplicadas na cultura do milho^</span><span class="co">[</span><span class="ot">https://periodicos.uem.br/ojs/index.php/ActaSciTechnol/article/download/5312/5312/</span><span class="co">]</span><span class="at">.</span></span>
-<span id="cb195-528"><a href="#cb195-528" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-531"><a href="#cb195-531" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-532"><a href="#cb195-532" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
-<span id="cb195-533"><a href="#cb195-533" aria-hidden="true" tabindex="-1"></a>reg_ex <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"REG_EXERCICIO"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
-<span id="cb195-534"><a href="#cb195-534" aria-hidden="true" tabindex="-1"></a>reg_ex</span>
-<span id="cb195-535"><a href="#cb195-535" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-536"><a href="#cb195-536" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb195-537"><a href="#cb195-537" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-538"><a href="#cb195-538" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cálculo dos coeficientes (manual)</span></span>
-<span id="cb195-539"><a href="#cb195-539" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-540"><a href="#cb195-540" aria-hidden="true" tabindex="-1"></a>a) Ajuste o modelo de regressão linear da forma $y_i = \beta_0 + \beta_1x_i$, apresentando o valor dos parâmetros $\beta_0$ e $\beta_1$.</span>
-<span id="cb195-541"><a href="#cb195-541" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-542"><a href="#cb195-542" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-545"><a href="#cb195-545" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-546"><a href="#cb195-546" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> reg_ex<span class="sc">$</span>DOSE)</span>
-<span id="cb195-547"><a href="#cb195-547" aria-hidden="true" tabindex="-1"></a>(y <span class="ot">&lt;-</span> reg_ex<span class="sc">$</span>RG)</span>
-<span id="cb195-548"><a href="#cb195-548" aria-hidden="true" tabindex="-1"></a><span class="co"># número de pontos</span></span>
-<span id="cb195-549"><a href="#cb195-549" aria-hidden="true" tabindex="-1"></a>(n <span class="ot">&lt;-</span> <span class="fu">length</span>(x))</span>
-<span id="cb195-550"><a href="#cb195-550" aria-hidden="true" tabindex="-1"></a><span class="co"># médias</span></span>
-<span id="cb195-551"><a href="#cb195-551" aria-hidden="true" tabindex="-1"></a>(mx <span class="ot">&lt;-</span> <span class="fu">mean</span>(x))</span>
-<span id="cb195-552"><a href="#cb195-552" aria-hidden="true" tabindex="-1"></a>(my <span class="ot">&lt;-</span> <span class="fu">mean</span>(y))</span>
-<span id="cb195-553"><a href="#cb195-553" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de x</span></span>
-<span id="cb195-554"><a href="#cb195-554" aria-hidden="true" tabindex="-1"></a>(sumx <span class="ot">&lt;-</span> <span class="fu">sum</span>(x))</span>
-<span id="cb195-555"><a href="#cb195-555" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de y</span></span>
-<span id="cb195-556"><a href="#cb195-556" aria-hidden="true" tabindex="-1"></a>(sumy <span class="ot">&lt;-</span> <span class="fu">sum</span>(y))</span>
-<span id="cb195-557"><a href="#cb195-557" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de x * y</span></span>
-<span id="cb195-558"><a href="#cb195-558" aria-hidden="true" tabindex="-1"></a>(sumxy <span class="ot">&lt;-</span> <span class="fu">sum</span>(x <span class="sc">*</span> y))</span>
-<span id="cb195-559"><a href="#cb195-559" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de x ao quadrado</span></span>
-<span id="cb195-560"><a href="#cb195-560" aria-hidden="true" tabindex="-1"></a>(sumx2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(x <span class="sc">^</span> <span class="dv">2</span>))</span>
-<span id="cb195-561"><a href="#cb195-561" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de y ao quadrado</span></span>
-<span id="cb195-562"><a href="#cb195-562" aria-hidden="true" tabindex="-1"></a>(sumy2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(y <span class="sc">^</span> <span class="dv">2</span>))</span>
-<span id="cb195-563"><a href="#cb195-563" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-564"><a href="#cb195-564" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-565"><a href="#cb195-565" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de produtos xy (SPxy)</span></span>
-<span id="cb195-566"><a href="#cb195-566" aria-hidden="true" tabindex="-1"></a>(SPxy <span class="ot">&lt;-</span> sumxy <span class="sc">-</span> (sumx <span class="sc">*</span> sumy <span class="sc">/</span> n))</span>
-<span id="cb195-567"><a href="#cb195-567" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados de x SQx</span></span>
-<span id="cb195-568"><a href="#cb195-568" aria-hidden="true" tabindex="-1"></a>(SQx <span class="ot">&lt;-</span> sumx2 <span class="sc">-</span> sumx <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> n)</span>
-<span id="cb195-569"><a href="#cb195-569" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados de y</span></span>
-<span id="cb195-570"><a href="#cb195-570" aria-hidden="true" tabindex="-1"></a>(SQy <span class="ot">&lt;-</span> sumy2 <span class="sc">-</span> sumy <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> n)</span>
-<span id="cb195-571"><a href="#cb195-571" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-572"><a href="#cb195-572" aria-hidden="true" tabindex="-1"></a><span class="do">## coeficientes</span></span>
-<span id="cb195-573"><a href="#cb195-573" aria-hidden="true" tabindex="-1"></a><span class="co"># b1</span></span>
-<span id="cb195-574"><a href="#cb195-574" aria-hidden="true" tabindex="-1"></a>(b1 <span class="ot">&lt;-</span> SPxy <span class="sc">/</span> SQx)</span>
-<span id="cb195-575"><a href="#cb195-575" aria-hidden="true" tabindex="-1"></a><span class="co"># b0</span></span>
-<span id="cb195-576"><a href="#cb195-576" aria-hidden="true" tabindex="-1"></a>(b0 <span class="ot">&lt;-</span> my <span class="sc">-</span> mx <span class="sc">*</span> b1)</span>
-<span id="cb195-577"><a href="#cb195-577" aria-hidden="true" tabindex="-1"></a><span class="co"># equação: y = 6150 + 6,15x</span></span>
+<span id="cb195-524"><a href="#cb195-524" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Neste exemplo, serão utilizados dados de produtividade de grãos de milho (Kg /ha) de acordo com diferentes doses de dejeto suíno (m3/ha) aplicadas na cultura do milho</span><span class="ot">[^2]</span><span class="at">.</span></span>
+<span id="cb195-525"><a href="#cb195-525" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-526"><a href="#cb195-526" aria-hidden="true" tabindex="-1"></a><span class="ot">[^2]: https://periodicos.uem.br/ojs/index.php/ActaSciTechnol/article/download/5312/5312/</span></span>
+<span id="cb195-527"><a href="#cb195-527" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-530"><a href="#cb195-530" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-531"><a href="#cb195-531" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
+<span id="cb195-532"><a href="#cb195-532" aria-hidden="true" tabindex="-1"></a>reg_ex <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"REG_EXERCICIO"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
+<span id="cb195-533"><a href="#cb195-533" aria-hidden="true" tabindex="-1"></a>reg_ex</span>
+<span id="cb195-534"><a href="#cb195-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-535"><a href="#cb195-535" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-536"><a href="#cb195-536" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-537"><a href="#cb195-537" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cálculo dos coeficientes (manual)</span></span>
+<span id="cb195-538"><a href="#cb195-538" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-539"><a href="#cb195-539" aria-hidden="true" tabindex="-1"></a>a)  Ajuste o modelo de regressão linear da forma $y_i = \beta_0 + \beta_1x_i$, apresentando o valor dos parâmetros $\beta_0$ e $\beta_1$.</span>
+<span id="cb195-540"><a href="#cb195-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-543"><a href="#cb195-543" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-544"><a href="#cb195-544" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> reg_ex<span class="sc">$</span>DOSE)</span>
+<span id="cb195-545"><a href="#cb195-545" aria-hidden="true" tabindex="-1"></a>(y <span class="ot">&lt;-</span> reg_ex<span class="sc">$</span>RG)</span>
+<span id="cb195-546"><a href="#cb195-546" aria-hidden="true" tabindex="-1"></a><span class="co"># número de pontos</span></span>
+<span id="cb195-547"><a href="#cb195-547" aria-hidden="true" tabindex="-1"></a>(n <span class="ot">&lt;-</span> <span class="fu">length</span>(x))</span>
+<span id="cb195-548"><a href="#cb195-548" aria-hidden="true" tabindex="-1"></a><span class="co"># médias</span></span>
+<span id="cb195-549"><a href="#cb195-549" aria-hidden="true" tabindex="-1"></a>(mx <span class="ot">&lt;-</span> <span class="fu">mean</span>(x))</span>
+<span id="cb195-550"><a href="#cb195-550" aria-hidden="true" tabindex="-1"></a>(my <span class="ot">&lt;-</span> <span class="fu">mean</span>(y))</span>
+<span id="cb195-551"><a href="#cb195-551" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de x</span></span>
+<span id="cb195-552"><a href="#cb195-552" aria-hidden="true" tabindex="-1"></a>(sumx <span class="ot">&lt;-</span> <span class="fu">sum</span>(x))</span>
+<span id="cb195-553"><a href="#cb195-553" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de y</span></span>
+<span id="cb195-554"><a href="#cb195-554" aria-hidden="true" tabindex="-1"></a>(sumy <span class="ot">&lt;-</span> <span class="fu">sum</span>(y))</span>
+<span id="cb195-555"><a href="#cb195-555" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de x * y</span></span>
+<span id="cb195-556"><a href="#cb195-556" aria-hidden="true" tabindex="-1"></a>(sumxy <span class="ot">&lt;-</span> <span class="fu">sum</span>(x <span class="sc">*</span> y))</span>
+<span id="cb195-557"><a href="#cb195-557" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de x ao quadrado</span></span>
+<span id="cb195-558"><a href="#cb195-558" aria-hidden="true" tabindex="-1"></a>(sumx2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(x <span class="sc">^</span> <span class="dv">2</span>))</span>
+<span id="cb195-559"><a href="#cb195-559" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de y ao quadrado</span></span>
+<span id="cb195-560"><a href="#cb195-560" aria-hidden="true" tabindex="-1"></a>(sumy2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(y <span class="sc">^</span> <span class="dv">2</span>))</span>
+<span id="cb195-561"><a href="#cb195-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-562"><a href="#cb195-562" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-563"><a href="#cb195-563" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de produtos xy (SPxy)</span></span>
+<span id="cb195-564"><a href="#cb195-564" aria-hidden="true" tabindex="-1"></a>(SPxy <span class="ot">&lt;-</span> sumxy <span class="sc">-</span> (sumx <span class="sc">*</span> sumy <span class="sc">/</span> n))</span>
+<span id="cb195-565"><a href="#cb195-565" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados de x SQx</span></span>
+<span id="cb195-566"><a href="#cb195-566" aria-hidden="true" tabindex="-1"></a>(SQx <span class="ot">&lt;-</span> sumx2 <span class="sc">-</span> sumx <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> n)</span>
+<span id="cb195-567"><a href="#cb195-567" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados de y</span></span>
+<span id="cb195-568"><a href="#cb195-568" aria-hidden="true" tabindex="-1"></a>(SQy <span class="ot">&lt;-</span> sumy2 <span class="sc">-</span> sumy <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> n)</span>
+<span id="cb195-569"><a href="#cb195-569" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-570"><a href="#cb195-570" aria-hidden="true" tabindex="-1"></a><span class="do">## coeficientes</span></span>
+<span id="cb195-571"><a href="#cb195-571" aria-hidden="true" tabindex="-1"></a><span class="co"># b1</span></span>
+<span id="cb195-572"><a href="#cb195-572" aria-hidden="true" tabindex="-1"></a>(b1 <span class="ot">&lt;-</span> SPxy <span class="sc">/</span> SQx)</span>
+<span id="cb195-573"><a href="#cb195-573" aria-hidden="true" tabindex="-1"></a><span class="co"># b0</span></span>
+<span id="cb195-574"><a href="#cb195-574" aria-hidden="true" tabindex="-1"></a>(b0 <span class="ot">&lt;-</span> my <span class="sc">-</span> mx <span class="sc">*</span> b1)</span>
+<span id="cb195-575"><a href="#cb195-575" aria-hidden="true" tabindex="-1"></a><span class="co"># equação: y = 6150 + 6,15x</span></span>
+<span id="cb195-576"><a href="#cb195-576" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-577"><a href="#cb195-577" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb195-578"><a href="#cb195-578" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-579"><a href="#cb195-579" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-579"><a href="#cb195-579" aria-hidden="true" tabindex="-1"></a>b)  Interprete o valor dos coeficientes, indicando sua aplicação prática.</span>
 <span id="cb195-580"><a href="#cb195-580" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-581"><a href="#cb195-581" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-582"><a href="#cb195-582" aria-hidden="true" tabindex="-1"></a>b) Interprete o valor dos coeficientes, indicando sua aplicação prática.</span>
+<span id="cb195-581"><a href="#cb195-581" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb195-582"><a href="#cb195-582" aria-hidden="true" tabindex="-1"></a><span class="fu">### Interpretação dos coeficientes</span></span>
 <span id="cb195-583"><a href="#cb195-583" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-584"><a href="#cb195-584" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
-<span id="cb195-585"><a href="#cb195-585" aria-hidden="true" tabindex="-1"></a><span class="fu">### Interpretação dos coeficientes</span></span>
-<span id="cb195-586"><a href="#cb195-586" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-587"><a href="#cb195-587" aria-hidden="true" tabindex="-1"></a>O intercept indica ....</span>
+<span id="cb195-584"><a href="#cb195-584" aria-hidden="true" tabindex="-1"></a>O intercept indica ....</span>
+<span id="cb195-585"><a href="#cb195-585" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-586"><a href="#cb195-586" aria-hidden="true" tabindex="-1"></a>o coeficiente angular...</span>
+<span id="cb195-587"><a href="#cb195-587" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb195-588"><a href="#cb195-588" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-589"><a href="#cb195-589" aria-hidden="true" tabindex="-1"></a>o coeficiente angular...</span>
-<span id="cb195-590"><a href="#cb195-590" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb195-591"><a href="#cb195-591" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-592"><a href="#cb195-592" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-593"><a href="#cb195-593" aria-hidden="true" tabindex="-1"></a>c) Calcule o valor do coeficiente de determinação (R2) do modelo ajustado e interprete os resultados</span>
-<span id="cb195-594"><a href="#cb195-594" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-597"><a href="#cb195-597" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-598"><a href="#cb195-598" aria-hidden="true" tabindex="-1"></a><span class="do">################## SOMAS DE QUADRADOS DA REGRESSÃO E R2 ############</span></span>
-<span id="cb195-599"><a href="#cb195-599" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-600"><a href="#cb195-600" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrado total</span></span>
-<span id="cb195-601"><a href="#cb195-601" aria-hidden="true" tabindex="-1"></a>(SQtot <span class="ot">&lt;-</span> SQy)</span>
-<span id="cb195-602"><a href="#cb195-602" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados da regressão</span></span>
-<span id="cb195-603"><a href="#cb195-603" aria-hidden="true" tabindex="-1"></a>(SQreg <span class="ot">&lt;-</span> SPxy <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> (SQx))</span>
-<span id="cb195-604"><a href="#cb195-604" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados do resíduo</span></span>
-<span id="cb195-605"><a href="#cb195-605" aria-hidden="true" tabindex="-1"></a>(SQres <span class="ot">&lt;-</span> SQtot <span class="sc">-</span> SQreg)</span>
-<span id="cb195-606"><a href="#cb195-606" aria-hidden="true" tabindex="-1"></a><span class="co"># coeficiente de determinação</span></span>
-<span id="cb195-607"><a href="#cb195-607" aria-hidden="true" tabindex="-1"></a>(R2 <span class="ot">&lt;-</span> SQreg <span class="sc">/</span> SQtot)</span>
-<span id="cb195-608"><a href="#cb195-608" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb195-609"><a href="#cb195-609" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-610"><a href="#cb195-610" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-611"><a href="#cb195-611" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-612"><a href="#cb195-612" aria-hidden="true" tabindex="-1"></a>d) Realize a predição da produtividade para uma dose de dejeto aplicado de 35 metros cúbicos por ha.</span>
+<span id="cb195-589"><a href="#cb195-589" aria-hidden="true" tabindex="-1"></a>c)  Calcule o valor do coeficiente de determinação (R2) do modelo ajustado e interprete os resultados</span>
+<span id="cb195-590"><a href="#cb195-590" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-593"><a href="#cb195-593" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-594"><a href="#cb195-594" aria-hidden="true" tabindex="-1"></a><span class="do">################## SOMAS DE QUADRADOS DA REGRESSÃO E R2 ############</span></span>
+<span id="cb195-595"><a href="#cb195-595" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-596"><a href="#cb195-596" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrado total</span></span>
+<span id="cb195-597"><a href="#cb195-597" aria-hidden="true" tabindex="-1"></a>(SQtot <span class="ot">&lt;-</span> SQy)</span>
+<span id="cb195-598"><a href="#cb195-598" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados da regressão</span></span>
+<span id="cb195-599"><a href="#cb195-599" aria-hidden="true" tabindex="-1"></a>(SQreg <span class="ot">&lt;-</span> SPxy <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> (SQx))</span>
+<span id="cb195-600"><a href="#cb195-600" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados do resíduo</span></span>
+<span id="cb195-601"><a href="#cb195-601" aria-hidden="true" tabindex="-1"></a>(SQres <span class="ot">&lt;-</span> SQtot <span class="sc">-</span> SQreg)</span>
+<span id="cb195-602"><a href="#cb195-602" aria-hidden="true" tabindex="-1"></a><span class="co"># coeficiente de determinação</span></span>
+<span id="cb195-603"><a href="#cb195-603" aria-hidden="true" tabindex="-1"></a>(R2 <span class="ot">&lt;-</span> SQreg <span class="sc">/</span> SQtot)</span>
+<span id="cb195-604"><a href="#cb195-604" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-605"><a href="#cb195-605" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-606"><a href="#cb195-606" aria-hidden="true" tabindex="-1"></a>d)  Realize a predição da produtividade para uma dose de dejeto aplicado de 35 metros cúbicos por ha.</span>
+<span id="cb195-607"><a href="#cb195-607" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-610"><a href="#cb195-610" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-611"><a href="#cb195-611" aria-hidden="true" tabindex="-1"></a><span class="co"># y predito com x = 35</span></span>
+<span id="cb195-612"><a href="#cb195-612" aria-hidden="true" tabindex="-1"></a>(yx35 <span class="ot">&lt;-</span> b0 <span class="sc">+</span> b1 <span class="sc">*</span> <span class="dv">35</span>)</span>
 <span id="cb195-613"><a href="#cb195-613" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-616"><a href="#cb195-616" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-617"><a href="#cb195-617" aria-hidden="true" tabindex="-1"></a><span class="co"># y predito com x = 35</span></span>
-<span id="cb195-618"><a href="#cb195-618" aria-hidden="true" tabindex="-1"></a>(yx35 <span class="ot">&lt;-</span> b0 <span class="sc">+</span> b1 <span class="sc">*</span> <span class="dv">35</span>)</span>
-<span id="cb195-619"><a href="#cb195-619" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-620"><a href="#cb195-620" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb195-621"><a href="#cb195-621" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-622"><a href="#cb195-622" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-623"><a href="#cb195-623" aria-hidden="true" tabindex="-1"></a>e) Ajuste a regressão no software R utilizando a função lm(). Após, construa um gráfico de dispersão com a reta de predição do modelo.</span>
-<span id="cb195-624"><a href="#cb195-624" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-627"><a href="#cb195-627" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-628"><a href="#cb195-628" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(RG <span class="sc">~</span> DOSE, <span class="at">data =</span> reg_ex)</span>
-<span id="cb195-629"><a href="#cb195-629" aria-hidden="true" tabindex="-1"></a><span class="co"># coeficientes e R2</span></span>
-<span id="cb195-630"><a href="#cb195-630" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg)</span>
-<span id="cb195-631"><a href="#cb195-631" aria-hidden="true" tabindex="-1"></a><span class="co"># anova</span></span>
-<span id="cb195-632"><a href="#cb195-632" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(reg)</span>
-<span id="cb195-633"><a href="#cb195-633" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb195-634"><a href="#cb195-634" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-635"><a href="#cb195-635" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-636"><a href="#cb195-636" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gráfico</span></span>
-<span id="cb195-639"><a href="#cb195-639" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-640"><a href="#cb195-640" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb195-641"><a href="#cb195-641" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Mostrar código"</span></span>
-<span id="cb195-642"><a href="#cb195-642" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "100%"</span></span>
-<span id="cb195-643"><a href="#cb195-643" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-644"><a href="#cb195-644" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpmisc) <span class="co"># adiciona a equação no gráfico</span></span>
-<span id="cb195-645"><a href="#cb195-645" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span></span>
-<span id="cb195-646"><a href="#cb195-646" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(reg_ex, <span class="fu">aes</span>(DOSE, RG)) <span class="sc">+</span></span>
-<span id="cb195-647"><a href="#cb195-647" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb195-648"><a href="#cb195-648" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb195-649"><a href="#cb195-649" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="at">formula =</span> y <span class="sc">~</span> x,</span>
-<span id="cb195-650"><a href="#cb195-650" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(..eq.label.., ..rr.label.., <span class="at">sep =</span> <span class="st">"~~~~"</span>)),</span>
-<span id="cb195-651"><a href="#cb195-651" aria-hidden="true" tabindex="-1"></a>               <span class="at">coef.digits =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb195-652"><a href="#cb195-652" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(Doses<span class="sc">~</span>de<span class="sc">~</span>dejeto<span class="sc">~</span>(m<span class="sc">^</span><span class="dv">3</span><span class="sc">~</span>ha<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>})),</span>
-<span id="cb195-653"><a href="#cb195-653" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(Rendimento<span class="sc">~</span>de<span class="sc">~</span>grãos<span class="sc">~</span>(t<span class="sc">~</span>ha<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>})),</span>
-<span id="cb195-654"><a href="#cb195-654" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Rendimento de grãos em função da dose de dejeto"</span>)</span>
-<span id="cb195-655"><a href="#cb195-655" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-656"><a href="#cb195-656" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span></span>
-<span id="cb195-657"><a href="#cb195-657" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(reg_ex, <span class="fu">aes</span>(DOSE, RG)) <span class="sc">+</span></span>
-<span id="cb195-658"><a href="#cb195-658" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_abline</span>(<span class="at">intercept =</span> b0,</span>
-<span id="cb195-659"><a href="#cb195-659" aria-hidden="true" tabindex="-1"></a>              <span class="at">slope =</span> b1,</span>
-<span id="cb195-660"><a href="#cb195-660" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb195-661"><a href="#cb195-661" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb195-662"><a href="#cb195-662" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb195-663"><a href="#cb195-663" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="at">formula =</span> y <span class="sc">~</span> x,</span>
-<span id="cb195-664"><a href="#cb195-664" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(..eq.label.., ..rr.label.., <span class="at">sep =</span> <span class="st">"~~~~"</span>)),</span>
-<span id="cb195-665"><a href="#cb195-665" aria-hidden="true" tabindex="-1"></a>               <span class="at">coef.digits =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb195-666"><a href="#cb195-666" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(Doses<span class="sc">~</span>de<span class="sc">~</span>dejeto<span class="sc">~</span>(m<span class="sc">^</span><span class="dv">3</span><span class="sc">~</span>ha<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>})),</span>
-<span id="cb195-667"><a href="#cb195-667" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(Rendimento<span class="sc">~</span>de<span class="sc">~</span>grãos<span class="sc">~</span>(t<span class="sc">~</span>ha<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>})),</span>
-<span id="cb195-668"><a href="#cb195-668" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="fu">expression</span>(Compreendendo<span class="sc">~</span>o<span class="sc">~</span>intercept<span class="sc">~</span>(beta[<span class="dv">0</span>]))) <span class="sc">+</span></span>
-<span id="cb195-669"><a href="#cb195-669" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>),</span>
-<span id="cb195-670"><a href="#cb195-670" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.05</span>))) <span class="sc">+</span></span>
-<span id="cb195-671"><a href="#cb195-671" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">9</span>),</span>
-<span id="cb195-672"><a href="#cb195-672" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="fl">6.155</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>)) <span class="sc">+</span></span>
-<span id="cb195-673"><a href="#cb195-673" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span>
-<span id="cb195-674"><a href="#cb195-674" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-675"><a href="#cb195-675" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span>
-<span id="cb195-676"><a href="#cb195-676" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-677"><a href="#cb195-677" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb195-678"><a href="#cb195-678" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-679"><a href="#cb195-679" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-680"><a href="#cb195-680" aria-hidden="true" tabindex="-1"></a><span class="fu">### Valores preditos</span></span>
+<span id="cb195-614"><a href="#cb195-614" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-615"><a href="#cb195-615" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-616"><a href="#cb195-616" aria-hidden="true" tabindex="-1"></a>e)  Ajuste a regressão no software R utilizando a função lm(). Após, construa um gráfico de dispersão com a reta de predição do modelo.</span>
+<span id="cb195-617"><a href="#cb195-617" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-620"><a href="#cb195-620" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-621"><a href="#cb195-621" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(RG <span class="sc">~</span> DOSE, <span class="at">data =</span> reg_ex)</span>
+<span id="cb195-622"><a href="#cb195-622" aria-hidden="true" tabindex="-1"></a><span class="co"># coeficientes e R2</span></span>
+<span id="cb195-623"><a href="#cb195-623" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg)</span>
+<span id="cb195-624"><a href="#cb195-624" aria-hidden="true" tabindex="-1"></a><span class="co"># anova</span></span>
+<span id="cb195-625"><a href="#cb195-625" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(reg)</span>
+<span id="cb195-626"><a href="#cb195-626" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-627"><a href="#cb195-627" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-628"><a href="#cb195-628" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gráfico</span></span>
+<span id="cb195-629"><a href="#cb195-629" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-632"><a href="#cb195-632" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-633"><a href="#cb195-633" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb195-634"><a href="#cb195-634" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Mostrar código"</span></span>
+<span id="cb195-635"><a href="#cb195-635" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "100%"</span></span>
+<span id="cb195-636"><a href="#cb195-636" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-637"><a href="#cb195-637" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpmisc) <span class="co"># adiciona a equação no gráfico</span></span>
+<span id="cb195-638"><a href="#cb195-638" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span></span>
+<span id="cb195-639"><a href="#cb195-639" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(reg_ex, <span class="fu">aes</span>(DOSE, RG)) <span class="sc">+</span></span>
+<span id="cb195-640"><a href="#cb195-640" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb195-641"><a href="#cb195-641" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb195-642"><a href="#cb195-642" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="at">formula =</span> y <span class="sc">~</span> x,</span>
+<span id="cb195-643"><a href="#cb195-643" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(..eq.label.., ..rr.label.., <span class="at">sep =</span> <span class="st">"~~~~"</span>)),</span>
+<span id="cb195-644"><a href="#cb195-644" aria-hidden="true" tabindex="-1"></a>               <span class="at">coef.digits =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb195-645"><a href="#cb195-645" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(Doses<span class="sc">~</span>de<span class="sc">~</span>dejeto<span class="sc">~</span>(m<span class="sc">^</span><span class="dv">3</span><span class="sc">~</span>ha<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>})),</span>
+<span id="cb195-646"><a href="#cb195-646" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(Rendimento<span class="sc">~</span>de<span class="sc">~</span>grãos<span class="sc">~</span>(t<span class="sc">~</span>ha<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>})),</span>
+<span id="cb195-647"><a href="#cb195-647" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Rendimento de grãos em função da dose de dejeto"</span>)</span>
+<span id="cb195-648"><a href="#cb195-648" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-649"><a href="#cb195-649" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span></span>
+<span id="cb195-650"><a href="#cb195-650" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(reg_ex, <span class="fu">aes</span>(DOSE, RG)) <span class="sc">+</span></span>
+<span id="cb195-651"><a href="#cb195-651" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_abline</span>(<span class="at">intercept =</span> b0,</span>
+<span id="cb195-652"><a href="#cb195-652" aria-hidden="true" tabindex="-1"></a>              <span class="at">slope =</span> b1,</span>
+<span id="cb195-653"><a href="#cb195-653" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb195-654"><a href="#cb195-654" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb195-655"><a href="#cb195-655" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb195-656"><a href="#cb195-656" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="at">formula =</span> y <span class="sc">~</span> x,</span>
+<span id="cb195-657"><a href="#cb195-657" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(..eq.label.., ..rr.label.., <span class="at">sep =</span> <span class="st">"~~~~"</span>)),</span>
+<span id="cb195-658"><a href="#cb195-658" aria-hidden="true" tabindex="-1"></a>               <span class="at">coef.digits =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb195-659"><a href="#cb195-659" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(Doses<span class="sc">~</span>de<span class="sc">~</span>dejeto<span class="sc">~</span>(m<span class="sc">^</span><span class="dv">3</span><span class="sc">~</span>ha<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>})),</span>
+<span id="cb195-660"><a href="#cb195-660" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(Rendimento<span class="sc">~</span>de<span class="sc">~</span>grãos<span class="sc">~</span>(t<span class="sc">~</span>ha<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>})),</span>
+<span id="cb195-661"><a href="#cb195-661" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="fu">expression</span>(Compreendendo<span class="sc">~</span>o<span class="sc">~</span>intercept<span class="sc">~</span>(beta[<span class="dv">0</span>]))) <span class="sc">+</span></span>
+<span id="cb195-662"><a href="#cb195-662" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>),</span>
+<span id="cb195-663"><a href="#cb195-663" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.05</span>))) <span class="sc">+</span></span>
+<span id="cb195-664"><a href="#cb195-664" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">9</span>),</span>
+<span id="cb195-665"><a href="#cb195-665" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="fl">6.155</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>)) <span class="sc">+</span></span>
+<span id="cb195-666"><a href="#cb195-666" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb195-667"><a href="#cb195-667" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-668"><a href="#cb195-668" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span>
+<span id="cb195-669"><a href="#cb195-669" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-670"><a href="#cb195-670" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-671"><a href="#cb195-671" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-672"><a href="#cb195-672" aria-hidden="true" tabindex="-1"></a><span class="fu">### Valores preditos</span></span>
+<span id="cb195-673"><a href="#cb195-673" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-674"><a href="#cb195-674" aria-hidden="true" tabindex="-1"></a>Para obter os valores preditos, precisamos considerar os parâmetros estimados da regressão linear, substituindo o *x* pelos valores observados de x. Felizmente, a vetorização proporcionada pelo R, nos facilita este procedimento, bastando realizar o seguinte comando</span>
+<span id="cb195-675"><a href="#cb195-675" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-678"><a href="#cb195-678" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-679"><a href="#cb195-679" aria-hidden="true" tabindex="-1"></a>(pred <span class="ot">&lt;-</span> b0 <span class="sc">+</span> b1 <span class="sc">*</span> x)</span>
+<span id="cb195-680"><a href="#cb195-680" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb195-681"><a href="#cb195-681" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-682"><a href="#cb195-682" aria-hidden="true" tabindex="-1"></a>Para obter os valores preditos, precisamos considerar os parâmetros estimados da regressão linear, substituindo o *x* pelos valores observados de x. Felizmente, a vetorização proporcionada pelo R, nos facilita este procedimento, bastando realizar o seguinte comando</span>
+<span id="cb195-682"><a href="#cb195-682" aria-hidden="true" tabindex="-1"></a>Os valores preditos também podem ser obtidos com a função <span class="in">`predict()`</span>, informando o modelo ajustado</span>
 <span id="cb195-683"><a href="#cb195-683" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb195-686"><a href="#cb195-686" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-687"><a href="#cb195-687" aria-hidden="true" tabindex="-1"></a>(pred <span class="ot">&lt;-</span> b0 <span class="sc">+</span> b1 <span class="sc">*</span> x)</span>
+<span id="cb195-687"><a href="#cb195-687" aria-hidden="true" tabindex="-1"></a>(pred2 <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg))</span>
 <span id="cb195-688"><a href="#cb195-688" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb195-689"><a href="#cb195-689" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-690"><a href="#cb195-690" aria-hidden="true" tabindex="-1"></a>Os valores preditos também podem ser obtidos com a função <span class="in">`predict()`</span>, informando o modelo ajustado</span>
+<span id="cb195-690"><a href="#cb195-690" aria-hidden="true" tabindex="-1"></a><span class="fu">### Residuais</span></span>
 <span id="cb195-691"><a href="#cb195-691" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-694"><a href="#cb195-694" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-695"><a href="#cb195-695" aria-hidden="true" tabindex="-1"></a>(pred2 <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg))</span>
-<span id="cb195-696"><a href="#cb195-696" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb195-697"><a href="#cb195-697" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-698"><a href="#cb195-698" aria-hidden="true" tabindex="-1"></a><span class="fu">### Residuais</span></span>
-<span id="cb195-699"><a href="#cb195-699" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-700"><a href="#cb195-700" aria-hidden="true" tabindex="-1"></a>Os resíduos são obtidos pela diferença entre os valores observados e os preditos pelo modelo ajustado. Para isso, utilizamos o seguinte comando:</span>
+<span id="cb195-692"><a href="#cb195-692" aria-hidden="true" tabindex="-1"></a>Os resíduos são obtidos pela diferença entre os valores observados e os preditos pelo modelo ajustado. Para isso, utilizamos o seguinte comando:</span>
+<span id="cb195-693"><a href="#cb195-693" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-696"><a href="#cb195-696" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-697"><a href="#cb195-697" aria-hidden="true" tabindex="-1"></a>(res <span class="ot">&lt;-</span> y <span class="sc">-</span> pred)</span>
+<span id="cb195-698"><a href="#cb195-698" aria-hidden="true" tabindex="-1"></a><span class="co"># o mesmo com a função residuals()</span></span>
+<span id="cb195-699"><a href="#cb195-699" aria-hidden="true" tabindex="-1"></a>(res2 <span class="ot">&lt;-</span> <span class="fu">residuals</span>(reg))</span>
+<span id="cb195-700"><a href="#cb195-700" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb195-701"><a href="#cb195-701" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-704"><a href="#cb195-704" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-705"><a href="#cb195-705" aria-hidden="true" tabindex="-1"></a>(res <span class="ot">&lt;-</span> y <span class="sc">-</span> pred)</span>
-<span id="cb195-706"><a href="#cb195-706" aria-hidden="true" tabindex="-1"></a><span class="co"># o mesmo com a função residuals()</span></span>
-<span id="cb195-707"><a href="#cb195-707" aria-hidden="true" tabindex="-1"></a>(res2 <span class="ot">&lt;-</span> <span class="fu">residuals</span>(reg))</span>
+<span id="cb195-702"><a href="#cb195-702" aria-hidden="true" tabindex="-1"></a>Apenas para fins de comprovação, observe que a soma de quadrado do resíduo obtida anteriormente pode ser calculada agora como:</span>
+<span id="cb195-703"><a href="#cb195-703" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-706"><a href="#cb195-706" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-707"><a href="#cb195-707" aria-hidden="true" tabindex="-1"></a>(sqres2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(res <span class="sc">^</span> <span class="dv">2</span>))</span>
 <span id="cb195-708"><a href="#cb195-708" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb195-709"><a href="#cb195-709" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-710"><a href="#cb195-710" aria-hidden="true" tabindex="-1"></a>Apenas para fins de comprovação, observe que a soma de quadrado do resíduo obtida anteriormente pode ser calculada agora como:</span>
+<span id="cb195-710"><a href="#cb195-710" aria-hidden="true" tabindex="-1"></a>Por fim, é possível mutar o conjunto de dados incluindo os valores preditos e residuais.</span>
 <span id="cb195-711"><a href="#cb195-711" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb195-714"><a href="#cb195-714" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-715"><a href="#cb195-715" aria-hidden="true" tabindex="-1"></a>(sqres2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(res <span class="sc">^</span> <span class="dv">2</span>))</span>
-<span id="cb195-716"><a href="#cb195-716" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb195-717"><a href="#cb195-717" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-718"><a href="#cb195-718" aria-hidden="true" tabindex="-1"></a>Por fim, é possível mutar o conjunto de dados incluindo os valores preditos e residuais.</span>
-<span id="cb195-721"><a href="#cb195-721" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-722"><a href="#cb195-722" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(reg_ex,</span>
-<span id="cb195-723"><a href="#cb195-723" aria-hidden="true" tabindex="-1"></a>       <span class="at">predito =</span> pred,</span>
-<span id="cb195-724"><a href="#cb195-724" aria-hidden="true" tabindex="-1"></a>       <span class="at">residual =</span> res)</span>
-<span id="cb195-725"><a href="#cb195-725" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb195-726"><a href="#cb195-726" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-715"><a href="#cb195-715" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(reg_ex,</span>
+<span id="cb195-716"><a href="#cb195-716" aria-hidden="true" tabindex="-1"></a>       <span class="at">predito =</span> pred,</span>
+<span id="cb195-717"><a href="#cb195-717" aria-hidden="true" tabindex="-1"></a>       <span class="at">residual =</span> res)</span>
+<span id="cb195-718"><a href="#cb195-718" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-719"><a href="#cb195-719" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-720"><a href="#cb195-720" aria-hidden="true" tabindex="-1"></a><span class="fu"># Correlação</span></span>
+<span id="cb195-721"><a href="#cb195-721" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-722"><a href="#cb195-722" aria-hidden="true" tabindex="-1"></a>Conhecer o grau de associação linear entre caracteres é de fundamental importância em um programa de melhoramento genético vegetal. Esta importância aumenta, principalmente se algum caractere desejável é de difícil mensuração, ou apresenta baixa herdabilidade. O coeficiente de correlação produto-momento de (Pearson, 1920)<span class="ot">[^3]</span>, *r*, vem sendo amplamente utilizado para este fim. Embora o mérito desta análise seja atribuído à Karl Pearson, o método foi originalmente concebido por Francis Galton, que definiu o termo correlação como como o seguinte: *duas variáveis são ditas correlacionadas quando a variação de uma é acompanhada na média, mais ou menos a variação da outra, e no mesmo sentido* (Galton, 1888)<span class="ot">[^4]</span>.</span>
+<span id="cb195-723"><a href="#cb195-723" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-724"><a href="#cb195-724" aria-hidden="true" tabindex="-1"></a><span class="ot">[^3]: </span>PEARSON, K. Notes on the History of Correlation. Biometrika, v. 13, n. 1, p. 25--45, 1920</span>
+<span id="cb195-725"><a href="#cb195-725" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-726"><a href="#cb195-726" aria-hidden="true" tabindex="-1"></a><span class="ot">[^4]: </span>GALTON, F. Co-relations and their measurement, chiefly from anthropometric data. Proceedings of the Royal Society of London, v. 45, n. 273--279, p. 135--145, 1888</span>
 <span id="cb195-727"><a href="#cb195-727" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-728"><a href="#cb195-728" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-728"><a href="#cb195-728" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cálculo do coeficiente de correlação</span></span>
 <span id="cb195-729"><a href="#cb195-729" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-730"><a href="#cb195-730" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-730"><a href="#cb195-730" aria-hidden="true" tabindex="-1"></a>Utilizando o método dos mínimos quadrados, a correlação entre duas variáveis (x e y) é dada por:</span>
 <span id="cb195-731"><a href="#cb195-731" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-732"><a href="#cb195-732" aria-hidden="true" tabindex="-1"></a><span class="fu"># Correlação</span></span>
-<span id="cb195-733"><a href="#cb195-733" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-734"><a href="#cb195-734" aria-hidden="true" tabindex="-1"></a>Conhecer o grau de associação linear entre caracteres é de fundamental importância em um programa de melhoramento genético vegetal. Esta importância aumenta, principalmente se algum caractere desejável é de difícil mensuração, ou apresenta baixa herdabilidade. O coeficiente de correlação produto-momento de (Pearson, 1920)<span class="ot">[^2]</span>, *r*, vem sendo amplamente utilizado para este fim. Embora o mérito desta análise seja atribuído à Karl Pearson, o método foi originalmente concebido por Francis Galton, que definiu o termo correlação como como o seguinte: *duas variáveis são ditas correlacionadas quando a variação de uma é acompanhada na média, mais ou menos a variação da outra, e no mesmo sentido* (Galton, 1888)<span class="ot">[^3]</span>.</span>
+<span id="cb195-732"><a href="#cb195-732" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb195-733"><a href="#cb195-733" aria-hidden="true" tabindex="-1"></a>r = \frac{SP_{xy}}{\sqrt{SQ_x\times SQ_y}}</span>
+<span id="cb195-734"><a href="#cb195-734" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb195-735"><a href="#cb195-735" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-736"><a href="#cb195-736" aria-hidden="true" tabindex="-1"></a><span class="ot">[^2]: </span>PEARSON, K. Notes on the History of Correlation. Biometrika, v. 13, n. 1, p. 25--45, 1920</span>
+<span id="cb195-736"><a href="#cb195-736" aria-hidden="true" tabindex="-1"></a>As definições de $SP_{xy}$, $SQ_{x}$ e $SQ_{y}$ foram apresentadas nas Equações @eq-spxy, @eq-sqx e @eq-sqy, respectivamente.</span>
 <span id="cb195-737"><a href="#cb195-737" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-738"><a href="#cb195-738" aria-hidden="true" tabindex="-1"></a><span class="ot">[^3]: </span>GALTON, F. Co-relations and their measurement, chiefly from anthropometric data. Proceedings of the Royal Society of London, v. 45, n. 273--279, p. 135--145, 1888</span>
+<span id="cb195-738"><a href="#cb195-738" aria-hidden="true" tabindex="-1"></a>A significância da correlação (r) é testada utilizando um teste *t* com $t_{\alpha(n-2)}$ graus liberdade. As hipóteses são:</span>
 <span id="cb195-739"><a href="#cb195-739" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-740"><a href="#cb195-740" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-741"><a href="#cb195-741" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cálculo do coeficiente de correlação</span></span>
-<span id="cb195-742"><a href="#cb195-742" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-743"><a href="#cb195-743" aria-hidden="true" tabindex="-1"></a>Utilizando o método dos mínimos quadrados, a correlação entre duas variáveis (x e y) é dada por:</span>
-<span id="cb195-744"><a href="#cb195-744" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-745"><a href="#cb195-745" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb195-746"><a href="#cb195-746" aria-hidden="true" tabindex="-1"></a>r = \frac{SP_{xy}}{\sqrt{SQ_x\times SQ_y}}</span>
-<span id="cb195-747"><a href="#cb195-747" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb195-748"><a href="#cb195-748" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-749"><a href="#cb195-749" aria-hidden="true" tabindex="-1"></a>As definições de $SP_{xy}$, $SQ_{x}$ e $SQ_{y}$ foram apresentadas nas Equações @eq-spxy, @eq-sqx e @eq-sqy, respectivamente.</span>
-<span id="cb195-750"><a href="#cb195-750" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-751"><a href="#cb195-751" aria-hidden="true" tabindex="-1"></a>A significância da correlação (r) é testada utilizando um teste *t* com $t_{\alpha(n-2)}$ graus liberdade. As hipóteses são:</span>
-<span id="cb195-752"><a href="#cb195-752" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-753"><a href="#cb195-753" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb195-754"><a href="#cb195-754" aria-hidden="true" tabindex="-1"></a>{H_0}:r = 0</span>
-<span id="cb195-755"><a href="#cb195-755" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb195-756"><a href="#cb195-756" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-757"><a href="#cb195-757" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb195-758"><a href="#cb195-758" aria-hidden="true" tabindex="-1"></a>{H_1}:r \ne 0</span>
-<span id="cb195-759"><a href="#cb195-759" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb195-760"><a href="#cb195-760" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-761"><a href="#cb195-761" aria-hidden="true" tabindex="-1"></a>O valor de *t* calculado é dado por:</span>
-<span id="cb195-762"><a href="#cb195-762" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-763"><a href="#cb195-763" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb195-764"><a href="#cb195-764" aria-hidden="true" tabindex="-1"></a>{t_0} = r\sqrt {\frac{{n - 2}}{{1 - {r^2}}}}</span>
-<span id="cb195-765"><a href="#cb195-765" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb195-766"><a href="#cb195-766" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-767"><a href="#cb195-767" aria-hidden="true" tabindex="-1"></a>Por fim, compara-se o *t* calculado com o tabelado ao nível $\alpha$ de significância de erro (teste bilateral), com *n* menos dois graus liberdade.</span>
-<span id="cb195-768"><a href="#cb195-768" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-769"><a href="#cb195-769" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb195-770"><a href="#cb195-770" aria-hidden="true" tabindex="-1"></a>{t_0} &gt; {t_{\alpha (n - 2)}} = r \ne 0</span>
-<span id="cb195-771"><a href="#cb195-771" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb195-772"><a href="#cb195-772" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-773"><a href="#cb195-773" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-774"><a href="#cb195-774" aria-hidden="true" tabindex="-1"></a><span class="fu">## A função `cor()` do R</span></span>
+<span id="cb195-740"><a href="#cb195-740" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb195-741"><a href="#cb195-741" aria-hidden="true" tabindex="-1"></a>{H_0}:r = 0</span>
+<span id="cb195-742"><a href="#cb195-742" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb195-743"><a href="#cb195-743" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-744"><a href="#cb195-744" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb195-745"><a href="#cb195-745" aria-hidden="true" tabindex="-1"></a>{H_1}:r \ne 0</span>
+<span id="cb195-746"><a href="#cb195-746" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb195-747"><a href="#cb195-747" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-748"><a href="#cb195-748" aria-hidden="true" tabindex="-1"></a>O valor de *t* calculado é dado por:</span>
+<span id="cb195-749"><a href="#cb195-749" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-750"><a href="#cb195-750" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb195-751"><a href="#cb195-751" aria-hidden="true" tabindex="-1"></a>{t_0} = r\sqrt {\frac{{n - 2}}{{1 - {r^2}}}}</span>
+<span id="cb195-752"><a href="#cb195-752" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb195-753"><a href="#cb195-753" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-754"><a href="#cb195-754" aria-hidden="true" tabindex="-1"></a>Por fim, compara-se o *t* calculado com o tabelado ao nível $\alpha$ de significância de erro (teste bilateral), com *n* menos dois graus liberdade.</span>
+<span id="cb195-755"><a href="#cb195-755" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-756"><a href="#cb195-756" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb195-757"><a href="#cb195-757" aria-hidden="true" tabindex="-1"></a>{t_0} &gt; {t_{\alpha (n - 2)}} = r \ne 0</span>
+<span id="cb195-758"><a href="#cb195-758" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb195-759"><a href="#cb195-759" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-760"><a href="#cb195-760" aria-hidden="true" tabindex="-1"></a><span class="fu">## A função `cor()` do R</span></span>
+<span id="cb195-761"><a href="#cb195-761" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-762"><a href="#cb195-762" aria-hidden="true" tabindex="-1"></a>Utilizando a função do R <span class="in">`cor()`</span> é possível obter o coeficiente de correlação entre duas variáveis, por exemplo, <span class="in">`APLA`</span> e <span class="in">`AIES`</span> do seguinte conjunto de dados:</span>
+<span id="cb195-763"><a href="#cb195-763" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-766"><a href="#cb195-766" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-767"><a href="#cb195-767" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
+<span id="cb195-768"><a href="#cb195-768" aria-hidden="true" tabindex="-1"></a>df_mat <span class="ot">&lt;-</span> </span>
+<span id="cb195-769"><a href="#cb195-769" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"maize"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb195-770"><a href="#cb195-770" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(APLA<span class="sc">:</span>MGRA)</span>
+<span id="cb195-771"><a href="#cb195-771" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-772"><a href="#cb195-772" aria-hidden="true" tabindex="-1"></a><span class="co"># correlação de pearson (APLA e AIES)</span></span>
+<span id="cb195-773"><a href="#cb195-773" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df_mat<span class="sc">$</span>APLA, df_mat<span class="sc">$</span>AIES)</span>
+<span id="cb195-774"><a href="#cb195-774" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb195-775"><a href="#cb195-775" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-776"><a href="#cb195-776" aria-hidden="true" tabindex="-1"></a>Utilizando a função do R <span class="in">`cor()`</span> é possível obter o coeficiente de correlação entre duas variáveis, por exemplo, <span class="in">`APLA`</span> e <span class="in">`AIES`</span> do seguinte conjunto de dados:</span>
+<span id="cb195-776"><a href="#cb195-776" aria-hidden="true" tabindex="-1"></a>Uma matriz de correlação também pode ser calculada informando um data frame de variáveis numéricas</span>
 <span id="cb195-777"><a href="#cb195-777" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb195-780"><a href="#cb195-780" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-781"><a href="#cb195-781" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
-<span id="cb195-782"><a href="#cb195-782" aria-hidden="true" tabindex="-1"></a>df_mat <span class="ot">&lt;-</span> </span>
-<span id="cb195-783"><a href="#cb195-783" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"maize"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb195-784"><a href="#cb195-784" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(APLA<span class="sc">:</span>MGRA)</span>
-<span id="cb195-785"><a href="#cb195-785" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-786"><a href="#cb195-786" aria-hidden="true" tabindex="-1"></a><span class="co"># correlação de pearson (APLA e AIES)</span></span>
-<span id="cb195-787"><a href="#cb195-787" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df_mat<span class="sc">$</span>APLA, df_mat<span class="sc">$</span>AIES)</span>
-<span id="cb195-788"><a href="#cb195-788" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb195-789"><a href="#cb195-789" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-790"><a href="#cb195-790" aria-hidden="true" tabindex="-1"></a>Uma matriz de correlação também pode ser calculada informando um data frame de variáveis numéricas</span>
-<span id="cb195-791"><a href="#cb195-791" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-794"><a href="#cb195-794" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-795"><a href="#cb195-795" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz gráfica de correlação</span></span>
-<span id="cb195-796"><a href="#cb195-796" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df_mat)</span>
-<span id="cb195-797"><a href="#cb195-797" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb195-798"><a href="#cb195-798" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-799"><a href="#cb195-799" aria-hidden="true" tabindex="-1"></a>Usando a função <span class="in">`corr_plot()`</span> do pacote metan, é possível obter uma matriz mista (gráfico e número), contendo a distribuição dos pontos e o coeficiente de correlação entre as variáveis.</span>
-<span id="cb195-800"><a href="#cb195-800" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-803"><a href="#cb195-803" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-804"><a href="#cb195-804" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz gráfica de correlação</span></span>
-<span id="cb195-805"><a href="#cb195-805" aria-hidden="true" tabindex="-1"></a><span class="fu">corr_plot</span>(df_mat)</span>
-<span id="cb195-806"><a href="#cb195-806" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb195-807"><a href="#cb195-807" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-808"><a href="#cb195-808" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-809"><a href="#cb195-809" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-781"><a href="#cb195-781" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz gráfica de correlação</span></span>
+<span id="cb195-782"><a href="#cb195-782" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df_mat)</span>
+<span id="cb195-783"><a href="#cb195-783" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-784"><a href="#cb195-784" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-785"><a href="#cb195-785" aria-hidden="true" tabindex="-1"></a>Usando a função <span class="in">`corr_plot()`</span> do pacote metan, é possível obter uma matriz mista (gráfico e número), contendo a distribuição dos pontos e o coeficiente de correlação entre as variáveis.</span>
+<span id="cb195-786"><a href="#cb195-786" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-789"><a href="#cb195-789" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-790"><a href="#cb195-790" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz gráfica de correlação</span></span>
+<span id="cb195-791"><a href="#cb195-791" aria-hidden="true" tabindex="-1"></a><span class="fu">corr_plot</span>(df_mat)</span>
+<span id="cb195-792"><a href="#cb195-792" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-793"><a href="#cb195-793" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-794"><a href="#cb195-794" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercício</span></span>
+<span id="cb195-795"><a href="#cb195-795" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-796"><a href="#cb195-796" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dados</span></span>
+<span id="cb195-797"><a href="#cb195-797" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-798"><a href="#cb195-798" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Neste exemplo, serão utilizados dados referentes ao número de grãos (NGRA) e massa de grãos (MGRA) observados em 15 espigas de milho (n = 15).</span></span>
+<span id="cb195-799"><a href="#cb195-799" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-802"><a href="#cb195-802" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-803"><a href="#cb195-803" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
+<span id="cb195-804"><a href="#cb195-804" aria-hidden="true" tabindex="-1"></a>cor_ex <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"COR_EXERCICIO"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
+<span id="cb195-805"><a href="#cb195-805" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-806"><a href="#cb195-806" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> cor_ex<span class="sc">$</span>NGRA)</span>
+<span id="cb195-807"><a href="#cb195-807" aria-hidden="true" tabindex="-1"></a>(y <span class="ot">&lt;-</span> cor_ex<span class="sc">$</span>MGRA)</span>
+<span id="cb195-808"><a href="#cb195-808" aria-hidden="true" tabindex="-1"></a>(n <span class="ot">&lt;-</span> <span class="fu">length</span>(x))</span>
+<span id="cb195-809"><a href="#cb195-809" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb195-810"><a href="#cb195-810" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-811"><a href="#cb195-811" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-811"><a href="#cb195-811" aria-hidden="true" tabindex="-1"></a><span class="fu">### Método dos mínimos quadrados</span></span>
 <span id="cb195-812"><a href="#cb195-812" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-813"><a href="#cb195-813" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercício</span></span>
-<span id="cb195-814"><a href="#cb195-814" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dados</span></span>
-<span id="cb195-815"><a href="#cb195-815" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-816"><a href="#cb195-816" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Neste exemplo, serão utilizados dados referentes ao número de grãos (NGRA) e massa de grãos (MGRA) observados em 15 espigas de milho (n = 15).</span></span>
-<span id="cb195-817"><a href="#cb195-817" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-820"><a href="#cb195-820" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-821"><a href="#cb195-821" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
-<span id="cb195-822"><a href="#cb195-822" aria-hidden="true" tabindex="-1"></a>cor_ex <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"COR_EXERCICIO"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
-<span id="cb195-823"><a href="#cb195-823" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-824"><a href="#cb195-824" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> cor_ex<span class="sc">$</span>NGRA)</span>
-<span id="cb195-825"><a href="#cb195-825" aria-hidden="true" tabindex="-1"></a>(y <span class="ot">&lt;-</span> cor_ex<span class="sc">$</span>MGRA)</span>
-<span id="cb195-826"><a href="#cb195-826" aria-hidden="true" tabindex="-1"></a>(n <span class="ot">&lt;-</span> <span class="fu">length</span>(x))</span>
-<span id="cb195-827"><a href="#cb195-827" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-815"><a href="#cb195-815" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-816"><a href="#cb195-816" aria-hidden="true" tabindex="-1"></a>(xy <span class="ot">&lt;-</span> x <span class="sc">*</span> y)</span>
+<span id="cb195-817"><a href="#cb195-817" aria-hidden="true" tabindex="-1"></a>(x2 <span class="ot">&lt;-</span> x <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb195-818"><a href="#cb195-818" aria-hidden="true" tabindex="-1"></a>(y2 <span class="ot">&lt;-</span> y <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb195-819"><a href="#cb195-819" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-820"><a href="#cb195-820" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de xy</span></span>
+<span id="cb195-821"><a href="#cb195-821" aria-hidden="true" tabindex="-1"></a>(somxy <span class="ot">&lt;-</span> <span class="fu">sum</span>(xy))</span>
+<span id="cb195-822"><a href="#cb195-822" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-823"><a href="#cb195-823" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de x</span></span>
+<span id="cb195-824"><a href="#cb195-824" aria-hidden="true" tabindex="-1"></a>(somx <span class="ot">&lt;-</span> <span class="fu">sum</span>(x))</span>
+<span id="cb195-825"><a href="#cb195-825" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-826"><a href="#cb195-826" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de y</span></span>
+<span id="cb195-827"><a href="#cb195-827" aria-hidden="true" tabindex="-1"></a>(somy <span class="ot">&lt;-</span> <span class="fu">sum</span>(y))</span>
 <span id="cb195-828"><a href="#cb195-828" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-829"><a href="#cb195-829" aria-hidden="true" tabindex="-1"></a><span class="fu">### Método dos mínimos quadrados</span></span>
-<span id="cb195-830"><a href="#cb195-830" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-833"><a href="#cb195-833" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-834"><a href="#cb195-834" aria-hidden="true" tabindex="-1"></a>(xy <span class="ot">&lt;-</span> x <span class="sc">*</span> y)</span>
-<span id="cb195-835"><a href="#cb195-835" aria-hidden="true" tabindex="-1"></a>(x2 <span class="ot">&lt;-</span> x <span class="sc">^</span> <span class="dv">2</span>)</span>
-<span id="cb195-836"><a href="#cb195-836" aria-hidden="true" tabindex="-1"></a>(y2 <span class="ot">&lt;-</span> y <span class="sc">^</span> <span class="dv">2</span>)</span>
-<span id="cb195-837"><a href="#cb195-837" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-838"><a href="#cb195-838" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de xy</span></span>
-<span id="cb195-839"><a href="#cb195-839" aria-hidden="true" tabindex="-1"></a>(somxy <span class="ot">&lt;-</span> <span class="fu">sum</span>(xy))</span>
-<span id="cb195-840"><a href="#cb195-840" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-841"><a href="#cb195-841" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de x</span></span>
-<span id="cb195-842"><a href="#cb195-842" aria-hidden="true" tabindex="-1"></a>(somx <span class="ot">&lt;-</span> <span class="fu">sum</span>(x))</span>
+<span id="cb195-829"><a href="#cb195-829" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de x2</span></span>
+<span id="cb195-830"><a href="#cb195-830" aria-hidden="true" tabindex="-1"></a>(somx2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(x2))</span>
+<span id="cb195-831"><a href="#cb195-831" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-832"><a href="#cb195-832" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de y2</span></span>
+<span id="cb195-833"><a href="#cb195-833" aria-hidden="true" tabindex="-1"></a>(somy2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(y2))</span>
+<span id="cb195-834"><a href="#cb195-834" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-835"><a href="#cb195-835" aria-hidden="true" tabindex="-1"></a><span class="co"># adiciona as colunas nos dados originais usando mutate()</span></span>
+<span id="cb195-836"><a href="#cb195-836" aria-hidden="true" tabindex="-1"></a>cor_ex <span class="ot">&lt;-</span></span>
+<span id="cb195-837"><a href="#cb195-837" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(cor_ex,</span>
+<span id="cb195-838"><a href="#cb195-838" aria-hidden="true" tabindex="-1"></a>         <span class="at">xy =</span> xy,</span>
+<span id="cb195-839"><a href="#cb195-839" aria-hidden="true" tabindex="-1"></a>         <span class="at">x2 =</span> x2,</span>
+<span id="cb195-840"><a href="#cb195-840" aria-hidden="true" tabindex="-1"></a>         <span class="at">y2 =</span> y2)</span>
+<span id="cb195-841"><a href="#cb195-841" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(cor_ex)</span>
+<span id="cb195-842"><a href="#cb195-842" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb195-843"><a href="#cb195-843" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-844"><a href="#cb195-844" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de y</span></span>
-<span id="cb195-845"><a href="#cb195-845" aria-hidden="true" tabindex="-1"></a>(somy <span class="ot">&lt;-</span> <span class="fu">sum</span>(y))</span>
+<span id="cb195-844"><a href="#cb195-844" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de produtos xy</span></span>
+<span id="cb195-845"><a href="#cb195-845" aria-hidden="true" tabindex="-1"></a>(sxy <span class="ot">&lt;-</span> somxy <span class="sc">-</span> (somx <span class="sc">*</span> somy <span class="sc">/</span> n))</span>
 <span id="cb195-846"><a href="#cb195-846" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-847"><a href="#cb195-847" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de x2</span></span>
-<span id="cb195-848"><a href="#cb195-848" aria-hidden="true" tabindex="-1"></a>(somx2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(x2))</span>
+<span id="cb195-847"><a href="#cb195-847" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados de x</span></span>
+<span id="cb195-848"><a href="#cb195-848" aria-hidden="true" tabindex="-1"></a>(sx <span class="ot">&lt;-</span> somx2 <span class="sc">-</span> somx <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> n)</span>
 <span id="cb195-849"><a href="#cb195-849" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-850"><a href="#cb195-850" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de y2</span></span>
-<span id="cb195-851"><a href="#cb195-851" aria-hidden="true" tabindex="-1"></a>(somy2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(y2))</span>
+<span id="cb195-850"><a href="#cb195-850" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados de y</span></span>
+<span id="cb195-851"><a href="#cb195-851" aria-hidden="true" tabindex="-1"></a>(sy <span class="ot">&lt;-</span> somy2 <span class="sc">-</span> somy <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> n)</span>
 <span id="cb195-852"><a href="#cb195-852" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-853"><a href="#cb195-853" aria-hidden="true" tabindex="-1"></a><span class="co"># adiciona as colunas nos dados originais usando mutate()</span></span>
-<span id="cb195-854"><a href="#cb195-854" aria-hidden="true" tabindex="-1"></a>cor_ex <span class="ot">&lt;-</span></span>
-<span id="cb195-855"><a href="#cb195-855" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(cor_ex,</span>
-<span id="cb195-856"><a href="#cb195-856" aria-hidden="true" tabindex="-1"></a>         <span class="at">xy =</span> xy,</span>
-<span id="cb195-857"><a href="#cb195-857" aria-hidden="true" tabindex="-1"></a>         <span class="at">x2 =</span> x2,</span>
-<span id="cb195-858"><a href="#cb195-858" aria-hidden="true" tabindex="-1"></a>         <span class="at">y2 =</span> y2)</span>
-<span id="cb195-859"><a href="#cb195-859" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(cor_ex)</span>
-<span id="cb195-860"><a href="#cb195-860" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-861"><a href="#cb195-861" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-862"><a href="#cb195-862" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de produtos xy</span></span>
-<span id="cb195-863"><a href="#cb195-863" aria-hidden="true" tabindex="-1"></a>(sxy <span class="ot">&lt;-</span> somxy <span class="sc">-</span> (somx <span class="sc">*</span> somy <span class="sc">/</span> n))</span>
+<span id="cb195-853"><a href="#cb195-853" aria-hidden="true" tabindex="-1"></a><span class="co"># coeficiente de correlaçao</span></span>
+<span id="cb195-854"><a href="#cb195-854" aria-hidden="true" tabindex="-1"></a>(r <span class="ot">&lt;-</span> sxy <span class="sc">/</span> (<span class="fu">sqrt</span>(sx <span class="sc">*</span> sy)))</span>
+<span id="cb195-855"><a href="#cb195-855" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-856"><a href="#cb195-856" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-857"><a href="#cb195-857" aria-hidden="true" tabindex="-1"></a><span class="co"># t calculado</span></span>
+<span id="cb195-858"><a href="#cb195-858" aria-hidden="true" tabindex="-1"></a>(tc <span class="ot">&lt;-</span> r <span class="sc">*</span> <span class="fu">sqrt</span>((n <span class="sc">-</span> <span class="dv">2</span>) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> r <span class="sc">^</span> <span class="dv">2</span>)))</span>
+<span id="cb195-859"><a href="#cb195-859" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-860"><a href="#cb195-860" aria-hidden="true" tabindex="-1"></a><span class="co"># t tabelado (cauda direita) = 2.16</span></span>
+<span id="cb195-861"><a href="#cb195-861" aria-hidden="true" tabindex="-1"></a><span class="co"># como é bicaudal, considera-se 0.05 / 2</span></span>
+<span id="cb195-862"><a href="#cb195-862" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.025</span>, <span class="at">df =</span> <span class="dv">13</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb195-863"><a href="#cb195-863" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb195-864"><a href="#cb195-864" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-865"><a href="#cb195-865" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados de x</span></span>
-<span id="cb195-866"><a href="#cb195-866" aria-hidden="true" tabindex="-1"></a>(sx <span class="ot">&lt;-</span> somx2 <span class="sc">-</span> somx <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> n)</span>
-<span id="cb195-867"><a href="#cb195-867" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-868"><a href="#cb195-868" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados de y</span></span>
-<span id="cb195-869"><a href="#cb195-869" aria-hidden="true" tabindex="-1"></a>(sy <span class="ot">&lt;-</span> somy2 <span class="sc">-</span> somy <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> n)</span>
-<span id="cb195-870"><a href="#cb195-870" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-871"><a href="#cb195-871" aria-hidden="true" tabindex="-1"></a><span class="co"># coeficiente de correlaçao</span></span>
-<span id="cb195-872"><a href="#cb195-872" aria-hidden="true" tabindex="-1"></a>(r <span class="ot">&lt;-</span> sxy <span class="sc">/</span> (<span class="fu">sqrt</span>(sx <span class="sc">*</span> sy)))</span>
-<span id="cb195-873"><a href="#cb195-873" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-865"><a href="#cb195-865" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-866"><a href="#cb195-866" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-867"><a href="#cb195-867" aria-hidden="true" tabindex="-1"></a><span class="fu">### Função cor e cor.test()</span></span>
+<span id="cb195-868"><a href="#cb195-868" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-871"><a href="#cb195-871" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb195-872"><a href="#cb195-872" aria-hidden="true" tabindex="-1"></a><span class="co"># somente calcula o r</span></span>
+<span id="cb195-873"><a href="#cb195-873" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x, y)</span>
 <span id="cb195-874"><a href="#cb195-874" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-875"><a href="#cb195-875" aria-hidden="true" tabindex="-1"></a><span class="co"># t calculado</span></span>
-<span id="cb195-876"><a href="#cb195-876" aria-hidden="true" tabindex="-1"></a>(tc <span class="ot">&lt;-</span> r <span class="sc">*</span> <span class="fu">sqrt</span>((n <span class="sc">-</span> <span class="dv">2</span>) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> r <span class="sc">^</span> <span class="dv">2</span>)))</span>
-<span id="cb195-877"><a href="#cb195-877" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-878"><a href="#cb195-878" aria-hidden="true" tabindex="-1"></a><span class="co"># t tabelado (cauda direita) = 2.16</span></span>
-<span id="cb195-879"><a href="#cb195-879" aria-hidden="true" tabindex="-1"></a><span class="co"># como é bicaudal, considera-se 0.05 / 2</span></span>
-<span id="cb195-880"><a href="#cb195-880" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.025</span>, <span class="at">df =</span> <span class="dv">13</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb195-881"><a href="#cb195-881" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-882"><a href="#cb195-882" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-883"><a href="#cb195-883" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb195-884"><a href="#cb195-884" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-885"><a href="#cb195-885" aria-hidden="true" tabindex="-1"></a><span class="fu">### Função cor e cor.test()</span></span>
-<span id="cb195-886"><a href="#cb195-886" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-889"><a href="#cb195-889" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb195-890"><a href="#cb195-890" aria-hidden="true" tabindex="-1"></a><span class="co"># somente calcula o r</span></span>
-<span id="cb195-891"><a href="#cb195-891" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x, y)</span>
-<span id="cb195-892"><a href="#cb195-892" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-893"><a href="#cb195-893" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-894"><a href="#cb195-894" aria-hidden="true" tabindex="-1"></a><span class="co"># computa o r e realiza o teste de hipótese</span></span>
-<span id="cb195-895"><a href="#cb195-895" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(x, y)</span>
-<span id="cb195-896"><a href="#cb195-896" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb195-897"><a href="#cb195-897" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-898"><a href="#cb195-898" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-875"><a href="#cb195-875" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-876"><a href="#cb195-876" aria-hidden="true" tabindex="-1"></a><span class="co"># computa o r e realiza o teste de hipótese</span></span>
+<span id="cb195-877"><a href="#cb195-877" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(x, y)</span>
+<span id="cb195-878"><a href="#cb195-878" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb195-879"><a href="#cb195-879" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-880"><a href="#cb195-880" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb195-881"><a href="#cb195-881" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138601&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
+<span id="cb195-882"><a href="#cb195-882" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

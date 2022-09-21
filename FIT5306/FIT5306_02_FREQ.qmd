@@ -43,7 +43,6 @@ knitr::kable(tab_feq)
 
 Para apresentar estes dados graficamente, pode-se construir um gráfico de barras, mostrando a contagem em cada classe.
 
-
 ```{r}
 #| out-width: "100%"
 ggplot(df, aes(cor_grao)) + 
@@ -200,4 +199,7 @@ freq_hist(dist_largf)
 <iframe src="https://www.youtube.com/embed/SmaFbcB-OAI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 </div>
+```
+```{=html}
+<div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=138592&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
 ```

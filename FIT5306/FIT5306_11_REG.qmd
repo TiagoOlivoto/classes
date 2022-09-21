@@ -246,7 +246,6 @@ anova(mod)
 Compare os valores obtidos no cálculo passo-a-passo com os valores dos coeficientes obtidos com a função `summary(mod)` e `anova(mod)`. Os valores conferem?
 :::
 
-
 No código abaixo é criado um novo conjunto de dados, contendo os valores preditos e os resíduos.
 
 ```{r}
@@ -288,7 +287,6 @@ ggplot(df, aes(x, y)) +
        title = "Reta predita para o modelo de regressão",
        subtitle = "O ponto azul representa o RG predito com 75 kg/ha de N")
 ```
-
 
 ## Regressão linear com repetições
 
@@ -476,12 +474,13 @@ p1 +
 
 ```
 
-
-
-
 ## Exercício
+
 ### Dados
-> Neste exemplo, serão utilizados dados de produtividade de grãos de milho (Kg /ha) de acordo com diferentes doses de dejeto suíno (m3/ha) aplicadas na cultura do milho^[https://periodicos.uem.br/ojs/index.php/ActaSciTechnol/article/download/5312/5312/].
+
+> Neste exemplo, serão utilizados dados de produtividade de grãos de milho (Kg /ha) de acordo com diferentes doses de dejeto suíno (m3/ha) aplicadas na cultura do milho[^2].
+
+[^2]: https://periodicos.uem.br/ojs/index.php/ActaSciTechnol/article/download/5312/5312/
 
 ```{r}
 url <- "https://bit.ly/df_biostat"
@@ -492,8 +491,7 @@ reg_ex
 
 ### Cálculo dos coeficientes (manual)
 
-a) Ajuste o modelo de regressão linear da forma $y_i = \beta_0 + \beta_1x_i$, apresentando o valor dos parâmetros $\beta_0$ e $\beta_1$.
-
+a)  Ajuste o modelo de regressão linear da forma $y_i = \beta_0 + \beta_1x_i$, apresentando o valor dos parâmetros $\beta_0$ e $\beta_1$.
 
 ```{r}
 (x <- reg_ex$DOSE)
@@ -531,8 +529,7 @@ a) Ajuste o modelo de regressão linear da forma $y_i = \beta_0 + \beta_1x_i$, a
 
 ```
 
-
-b) Interprete o valor dos coeficientes, indicando sua aplicação prática.
+b)  Interprete o valor dos coeficientes, indicando sua aplicação prática.
 
 ::: callout-important
 ### Interpretação dos coeficientes
@@ -542,8 +539,7 @@ O intercept indica ....
 o coeficiente angular...
 :::
 
-
-c) Calcule o valor do coeficiente de determinação (R2) do modelo ajustado e interprete os resultados
+c)  Calcule o valor do coeficiente de determinação (R2) do modelo ajustado e interprete os resultados
 
 ```{r}
 
@@ -559,9 +555,7 @@ c) Calcule o valor do coeficiente de determinação (R2) do modelo ajustado e in
 (R2 <- SQreg / SQtot)
 ```
 
-
-
-d) Realize a predição da produtividade para uma dose de dejeto aplicado de 35 metros cúbicos por ha.
+d)  Realize a predição da produtividade para uma dose de dejeto aplicado de 35 metros cúbicos por ha.
 
 ```{r}
 
@@ -570,8 +564,7 @@ d) Realize a predição da produtividade para uma dose de dejeto aplicado de 35 
 
 ```
 
-
-e) Ajuste a regressão no software R utilizando a função lm(). Após, construa um gráfico de dispersão com a reta de predição do modelo.
+e)  Ajuste a regressão no software R utilizando a função lm(). Após, construa um gráfico de dispersão com a reta de predição do modelo.
 
 ```{r}
 reg <- lm(RG ~ DOSE, data = reg_ex)
@@ -581,8 +574,8 @@ summary(reg)
 anova(reg)
 ```
 
-
 ### Gráfico
+
 ```{r}
 #| code-fold: true
 #| code-summary: "Mostrar código"
@@ -623,7 +616,6 @@ p1 + p2
 
 ```
 
-
 ### Valores preditos
 
 Para obter os valores preditos, precisamos considerar os parâmetros estimados da regressão linear, substituindo o *x* pelos valores observados de x. Felizmente, a vetorização proporcionada pelo R, nos facilita este procedimento, bastando realizar o seguinte comando
@@ -655,25 +647,20 @@ Apenas para fins de comprovação, observe que a soma de quadrado do resíduo ob
 ```
 
 Por fim, é possível mutar o conjunto de dados incluindo os valores preditos e residuais.
+
 ```{r}
 mutate(reg_ex,
        predito = pred,
        residual = res)
 ```
 
-
-
-
-
-
 # Correlação
 
-Conhecer o grau de associação linear entre caracteres é de fundamental importância em um programa de melhoramento genético vegetal. Esta importância aumenta, principalmente se algum caractere desejável é de difícil mensuração, ou apresenta baixa herdabilidade. O coeficiente de correlação produto-momento de (Pearson, 1920)[^2], *r*, vem sendo amplamente utilizado para este fim. Embora o mérito desta análise seja atribuído à Karl Pearson, o método foi originalmente concebido por Francis Galton, que definiu o termo correlação como como o seguinte: *duas variáveis são ditas correlacionadas quando a variação de uma é acompanhada na média, mais ou menos a variação da outra, e no mesmo sentido* (Galton, 1888)[^3].
+Conhecer o grau de associação linear entre caracteres é de fundamental importância em um programa de melhoramento genético vegetal. Esta importância aumenta, principalmente se algum caractere desejável é de difícil mensuração, ou apresenta baixa herdabilidade. O coeficiente de correlação produto-momento de (Pearson, 1920)[^3], *r*, vem sendo amplamente utilizado para este fim. Embora o mérito desta análise seja atribuído à Karl Pearson, o método foi originalmente concebido por Francis Galton, que definiu o termo correlação como como o seguinte: *duas variáveis são ditas correlacionadas quando a variação de uma é acompanhada na média, mais ou menos a variação da outra, e no mesmo sentido* (Galton, 1888)[^4].
 
-[^2]: PEARSON, K. Notes on the History of Correlation. Biometrika, v. 13, n. 1, p. 25--45, 1920
+[^3]: PEARSON, K. Notes on the History of Correlation. Biometrika, v. 13, n. 1, p. 25--45, 1920
 
-[^3]: GALTON, F. Co-relations and their measurement, chiefly from anthropometric data. Proceedings of the Royal Society of London, v. 45, n. 273--279, p. 135--145, 1888
-
+[^4]: GALTON, F. Co-relations and their measurement, chiefly from anthropometric data. Proceedings of the Royal Society of London, v. 45, n. 273--279, p. 135--145, 1888
 
 ## Cálculo do coeficiente de correlação
 
@@ -707,7 +694,6 @@ $$
 {t_0} > {t_{\alpha (n - 2)}} = r \ne 0
 $$
 
-
 ## A função `cor()` do R
 
 Utilizando a função do R `cor()` é possível obter o coeficiente de correlação entre duas variáveis, por exemplo, `APLA` e `AIES` do seguinte conjunto de dados:
@@ -736,12 +722,8 @@ Usando a função `corr_plot()` do pacote metan, é possível obter uma matriz m
 corr_plot(df_mat)
 ```
 
-
-
-
-
-
 ## Exercício
+
 ### Dados
 
 > Neste exemplo, serão utilizados dados referentes ao número de grãos (NGRA) e massa de grãos (MGRA) observados em 15 espigas de milho (n = 15).
@@ -820,5 +802,6 @@ cor(x, y)
 cor.test(x, y)
 ```
 
-
-
+```{=html}
+<div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=138601&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
+```

@@ -2,8 +2,8 @@
 title: "9. Delineamento de Blocos Completos Casualizados"
 ---
 
-
 # Pacotes
+
 ```{r collapse = TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)  # manipulação de dados
 library(metan)      # estatísticas descritivas
@@ -13,34 +13,30 @@ library(AgroR)      # casualização e ANOVA
 library(ExpDes.pt)
 ```
 
-
 # Delineamento de Blocos Completos Casualizados (DBC) {#sec-dbc}
 
-No Delineamento de Blocos Completos Casualizados uma restrição na casualização é imposta visando agrupar unidades experimentais uniformes dentro de um bloco, de maneira que a heterogeneidade da área experimental fique entre os blocos. O bloqueamento tem como objetivo reduzir o erro experimental, *"transferindo"* parte do erro experimental para efeito de bloco. 
+No Delineamento de Blocos Completos Casualizados uma restrição na casualização é imposta visando agrupar unidades experimentais uniformes dentro de um bloco, de maneira que a heterogeneidade da área experimental fique entre os blocos. O bloqueamento tem como objetivo reduzir o erro experimental, *"transferindo"* parte do erro experimental para efeito de bloco.
 
 ## Características
 
-* Utiliza apenas os princípios de repetição e casualização;
-* Os tratamentos são alocados nas parcelas de forma inteiramente casual, sem nenhum tipo de bloqueamento.
-* Exige que o material experimental e a área experimental sejam uniformes.
-Ele geralmente é mais utilizado em experimentos nos quais as condições experimentais podem ser bastante controladas (por exemplo em laboratórios);
-
+-   Utiliza apenas os princípios de repetição e casualização;
+-   Os tratamentos são alocados nas parcelas de forma inteiramente casual, sem nenhum tipo de bloqueamento.
+-   Exige que o material experimental e a área experimental sejam uniformes. Ele geralmente é mais utilizado em experimentos nos quais as condições experimentais podem ser bastante controladas (por exemplo em laboratórios);
 
 ## Vantagens
-* Controla as diferenças que ocorrem nas condições ambientais, de um bloco para outro;
-* Pode haver heterogeneidade conhecida na área, desde que a alocação dos blocos seja feita de forma correta
-* A variação entre blocos é isolada, logo, reduzindo a variância residual
 
+-   Controla as diferenças que ocorrem nas condições ambientais, de um bloco para outro;
+-   Pode haver heterogeneidade conhecida na área, desde que a alocação dos blocos seja feita de forma correta
+-   A variação entre blocos é isolada, logo, reduzindo a variância residual
 
 ## Desvantagens
-* Devido a inclusão de mais uma fonte de variação no modelo, há uma redução nos graus de liberdade do erro.
 
-* Como exige-se homogeneidade dentro dos blocos, o número de tratamentos pode ficar limitado, visto que quanto maior é o bloco, mais difícil manter a sua homogeneidade.
+-   Devido a inclusão de mais uma fonte de variação no modelo, há uma redução nos graus de liberdade do erro.
 
-
-
+-   Como exige-se homogeneidade dentro dos blocos, o número de tratamentos pode ficar limitado, visto que quanto maior é o bloco, mais difícil manter a sua homogeneidade.
 
 ## Casualização
+
 Para realizar a casualização em um experimento em DBC, pode-se utilizar a função [`sketch`](https://agronomiar.github.io/AgroR_Tutorial/fun%C3%A7%C3%A3o-para-croqui-experimental.html#delineamento-inteiramente-casualizado) do pacote agroR. Neste exemplo, simulo a casualização de três tratamentos em um ensaio conduzido em delineamento de blocos completos casualizados com quatro repetições (`r`). Apenas para fins didáticos, é apresentada também a casualização em DIC.
 
 ```{r}
@@ -53,18 +49,15 @@ sketch(trats, r = 4, pos = "line")
 sketch(trats, r = 4, design = "DBC", pos = "line")
 ```
 
-
-
 # Conjunto de dados
 
 O conjunto de dados utilizado neste exemplo é oriundo de um experimento que avaliou caracteres qualitativos e quantitativos de chicória sob diferentes níveis de sombreamento
 
->OLIVOTO, T.; ELLI, E. F.; SCHMIDT, D.; CARON, B. O.; DE SOUZA, V. Q. Photosynthetic photon flux density levels affect morphology and bromatology in *Cichorium endivia* L. var. *latifolia* grown in a hydroponic system. **Scientia Horticulturae**, v. 230, p. 178–185, 2018. Disponível em: https://doi.org/10.1016/j.scienta.2017.11.031
+> OLIVOTO, T.; ELLI, E. F.; SCHMIDT, D.; CARON, B. O.; DE SOUZA, V. Q. Photosynthetic photon flux density levels affect morphology and bromatology in *Cichorium endivia* L. var. *latifolia* grown in a hydroponic system. **Scientia Horticulturae**, v. 230, p. 178--185, 2018. Disponível em: https://doi.org/10.1016/j.scienta.2017.11.031
 
 Para fins didáticos, a área foliar (AF, cm$^2$) e a matéria seca por planta (MST, g planta$^{-1}$) mensuradas aos 35 dias após a implantação são apresentadas aqui.
 
 Para importação, utiliza-se a função `import()` do pacote `rio`. A função `as_factor` converte as primeiras duas colunas para fator.
-
 
 ```{r collapse = TRUE, message=FALSE, warning=FALSE}
 url <- "https://bit.ly/df_biostat"
@@ -81,8 +74,8 @@ bloco <- plot_bars(df_dbc, REP, MST)
 arrange_ggplot(trat, bloco)
 ```
 
-
 # Verificação de outliers
+
 A função `inspect` do pacote `metan` é utilizada para inspecionar o conjunto de dados. Com esta função, é possível identificar possíveis outliers, bem como valores faltantes.
 
 ```{r collapse = TRUE, message=FALSE, warning=FALSE}
@@ -90,8 +83,7 @@ inspect(df_dbc, plot = TRUE)
 
 ```
 
-
-# Estatística descritiva 
+# Estatística descritiva
 
 A função `desc_stat()` do pacote `metan` computa estatísticas descritivas para os dois caracteres numéricos (AF e MST).
 
@@ -99,11 +91,9 @@ A função `desc_stat()` do pacote `metan` computa estatísticas descritivas par
 desc_stat(df_dbc)
 ```
 
-
-
 # Análise de variância
-## Modelo estatístico
 
+## Modelo estatístico
 
 O modelo do DBC é dado por
 
@@ -114,8 +104,8 @@ $$
 Onde $m$ é a média geral do experimento, $b_j$ é o efeito de bloco, $t_i$ é o efeito de tratamentos e $\epsilon_{ij}$ é o erro experimental.
 
 ## Análise de variância
-A análise de variância é computada no software R utilizando a função `aov()`. Considerando o Delineamento de Blocos Casualizados (DBC), as duas fontes de variação incluídas no modelo são a de tratamento (`RAD`) e bloco (`REP`).
 
+A análise de variância é computada no software R utilizando a função `aov()`. Considerando o Delineamento de Blocos Casualizados (DBC), as duas fontes de variação incluídas no modelo são a de tratamento (`RAD`) e bloco (`REP`).
 
 ```{r collapse = TRUE, message=FALSE, warning=FALSE}
 anova <- aov(MST ~ RAD + REP, data = df_dbc)
@@ -123,15 +113,14 @@ summary(anova)
 
 ```
 
-
 ## Comparação de médias
+
 A análise de variância revelou efeito de tratamento significativo. Nesse caso, segue-se realizando uma análise de comparação múltipla de médias. Podemos realizar a comparação par-a-par utilizando a função `pwpm()` do pacote `emmeans`. Neste exemplo, o teste Tukey é utilizado.
 
 ```{r}
 medias_dbc <- emmeans(anova, ~ RAD)
 pwpm(medias_dbc)
 ```
-
 
 Neste exemplo, utilizaremos a função `emmeans` para realizar a comparação de médias pelo teste Tukey. Nesta abordagem, a avaliação da significância das médias de dois tratamentos é dada pela sobreposição das flechas de cada tratamento. Se dois tratamentos apresentam setas que se sobrepõem (considerando o eixo x), assume-se que estes tratamentos são estatisticamente diferentes um do outro.
 
@@ -164,6 +153,7 @@ arrange_ggplot(plot_dic,
 ```
 
 ## Criação de gráficos
+
 ```{r}
 
 medias <- 
@@ -181,7 +171,6 @@ arrange_ggplot(medias, medias2, tag_levels = "a")
 
 ```
 
-
 ## Pacote AgroR
 
 No pacote [agroR](https://agronomiar.github.io/AgroR_Tutorial/delineamento-em-blocos-casualizados-1.html), a análise de variância neste delineamento pode ser realizada com a função `DBC()`.
@@ -193,11 +182,10 @@ with(df_dbc,
 
 ```
 
-
-
 # Exemplo 2: híbridos de milho
 
 ## Dados
+
 ```{r}
 url <- "https://docs.google.com/spreadsheets/d/1vpVGdIkggRxmdnwrkllHbVA0TIHN85UK/edit#gid=1486281449"
 df_maize <-  import(url, dec = ",")
@@ -220,6 +208,7 @@ plot(med_hib, comparisons = TRUE, CIs = FALSE)
 ```
 
 ## AgroR
+
 ```{r}
 
 with(df_maize,
@@ -227,3 +216,6 @@ with(df_maize,
 
 ```
 
+```{=html}
+<div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=138599&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
+```

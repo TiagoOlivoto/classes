@@ -256,7 +256,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_10_FAT.html" class="sidebar-item-text sidebar-link">9. Experimentos Fatoriais</a>
+  <a href="../FIT5306/FIT5306_10_FAT.html" class="sidebar-item-text sidebar-link">10. Experimentos Fatoriais</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -1259,6 +1259,7 @@ replace the existing scale.</code></pre>
 </section>
 <section id="referências" class="level1">
 <h1>Referências</h1>
+<div align="center"><a href="https://www.free-website-hit-counter.com"><img src="https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138595&amp;s=2" border="0" alt="Free Website Hit Counter"></a><br><small><a href="https://www.free-website-hit-counter.com" title="Free Website Hit Counter">Free website hit counter</a></small></div>
 
 
 <!-- -->
@@ -1271,8 +1272,8 @@ replace the existing scale.</code></pre>
 <ol>
 <li id="fn1" role="doc-endnote"><p>WICKHAM, H. <strong>Ggplot2 : elegant graphics for data analysis</strong>: Springer, 2009.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2" role="doc-endnote"><p>https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>OLIVOTO, T. et al.&nbsp;Photosynthetic photon flux density levels affect morphology and bromatology in <em>Cichorium endivia</em> L. var. <em>latifolia</em> grown in a hydroponic system. <strong>Scientia Horticulturae</strong>, v. 230, p.&nbsp;178–185, 7 jan. 2018. <a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4" role="doc-endnote"><p>WICKHAM, H. ggplot2: Elegant Graphics for Data Analysis. New York: Springer, 2016. <a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>OLIVOTO, T. et al.&nbsp;Photosynthetic photon flux density levels affect morphology and bromatology in <em>Cichorium endivia</em> L. var. <em>latifolia</em> grown in a hydroponic system. <strong>Scientia Horticulturae</strong>, v. 230, p.&nbsp;178–185, 7 jan. 2018.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>WICKHAM, H. ggplot2: Elegant Graphics for Data Analysis. New York: Springer, 2016.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5" role="doc-endnote"><p>OLIVOTO, T.; LÚCIO, A. D. metan: An R package for multi‐environment trial analysis. Methods in Ecology and Evolution, v. 11, n.&nbsp;6, p.&nbsp;783–789, 2020<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn6" role="doc-endnote"><p>O pacote ggthemes (https://mran.microsoft.com/snapshot/2015-04-01/web/packages/ggthemes/vignettes/ggthemes.html) pode ser utilizado para aumentar o leque de possibilidades.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
@@ -1544,8 +1545,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "5. Visualização de dados"</span></span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacotes</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacotes</span></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>Para reprodução destes exemplos, os seguintes pacotes precisam ser instalados do github</span>
 <span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
@@ -1569,43 +1570,43 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb46-27"><a href="#cb46-27" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-28"><a href="#cb46-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-29"><a href="#cb46-29" aria-hidden="true" tabindex="-1"></a><span class="fu"># Dados</span></span>
-<span id="cb46-30"><a href="#cb46-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Grãos de café</span></span>
-<span id="cb46-31"><a href="#cb46-31" aria-hidden="true" tabindex="-1"></a>Os dados contidos na aba <span class="in">`graos`</span> do arquivo <span class="co">[</span><span class="ot">`Atividade caracteres qualitativos e quantitativos`</span><span class="co">](https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=2073179916)</span> serão utilizados. Este arquivo contém dados do comprimento e largura de grãos e folhas de café, amostrados na primeira aula de Bioestatística da turma 2022/01. Para carregar estes dados, utilizamos o seguinte comando.</span>
+<span id="cb46-30"><a href="#cb46-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-31"><a href="#cb46-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## Grãos de café</span></span>
 <span id="cb46-32"><a href="#cb46-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-33"><a href="#cb46-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-34"><a href="#cb46-34" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb46-35"><a href="#cb46-35" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=2073179916"</span></span>
-<span id="cb46-36"><a href="#cb46-36" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> </span>
-<span id="cb46-37"><a href="#cb46-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(url, <span class="at">dec =</span> <span class="st">","</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb46-38"><a href="#cb46-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_factor</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb46-39"><a href="#cb46-39" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span>
-<span id="cb46-40"><a href="#cb46-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-41"><a href="#cb46-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-42"><a href="#cb46-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dados da estação meteorológica</span></span>
-<span id="cb46-43"><a href="#cb46-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-46"><a href="#cb46-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb46-47"><a href="#cb46-47" aria-hidden="true" tabindex="-1"></a>url2 <span class="ot">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=764890920"</span></span>
-<span id="cb46-48"><a href="#cb46-48" aria-hidden="true" tabindex="-1"></a>df_estacao <span class="ot">&lt;-</span>  </span>
-<span id="cb46-49"><a href="#cb46-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(url2, <span class="at">setclass =</span> <span class="st">"tbl"</span>, <span class="at">dec =</span> <span class="st">","</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb46-50"><a href="#cb46-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_character</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb46-51"><a href="#cb46-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dia =</span> <span class="fu">dmy</span>(dia))</span>
-<span id="cb46-52"><a href="#cb46-52" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_estacao)</span>
-<span id="cb46-53"><a href="#cb46-53" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-54"><a href="#cb46-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-55"><a href="#cb46-55" aria-hidden="true" tabindex="-1"></a><span class="fu"># Gráficos</span></span>
-<span id="cb46-56"><a href="#cb46-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-57"><a href="#cb46-57" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; "O gráfico simples trouxe mais informações à mente do analista de dados do que qualquer outro dispositivo." --- John Tukey</span></span>
-<span id="cb46-58"><a href="#cb46-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-33"><a href="#cb46-33" aria-hidden="true" tabindex="-1"></a>Os dados contidos na aba <span class="in">`graos`</span> do arquivo <span class="co">[</span><span class="ot">`Atividade caracteres qualitativos e quantitativos`</span><span class="co">](https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=2073179916)</span> serão utilizados. Este arquivo contém dados do comprimento e largura de grãos e folhas de café, amostrados na primeira aula de Bioestatística da turma 2022/01. Para carregar estes dados, utilizamos o seguinte comando.</span>
+<span id="cb46-34"><a href="#cb46-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-35"><a href="#cb46-35" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb46-36"><a href="#cb46-36" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=2073179916"</span></span>
+<span id="cb46-37"><a href="#cb46-37" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> </span>
+<span id="cb46-38"><a href="#cb46-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(url, <span class="at">dec =</span> <span class="st">","</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb46-39"><a href="#cb46-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_factor</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb46-40"><a href="#cb46-40" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span>
+<span id="cb46-41"><a href="#cb46-41" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-42"><a href="#cb46-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-43"><a href="#cb46-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dados da estação meteorológica</span></span>
+<span id="cb46-44"><a href="#cb46-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-47"><a href="#cb46-47" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-48"><a href="#cb46-48" aria-hidden="true" tabindex="-1"></a>url2 <span class="ot">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=764890920"</span></span>
+<span id="cb46-49"><a href="#cb46-49" aria-hidden="true" tabindex="-1"></a>df_estacao <span class="ot">&lt;-</span>  </span>
+<span id="cb46-50"><a href="#cb46-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(url2, <span class="at">setclass =</span> <span class="st">"tbl"</span>, <span class="at">dec =</span> <span class="st">","</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb46-51"><a href="#cb46-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_character</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb46-52"><a href="#cb46-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dia =</span> <span class="fu">dmy</span>(dia))</span>
+<span id="cb46-53"><a href="#cb46-53" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_estacao)</span>
+<span id="cb46-54"><a href="#cb46-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-55"><a href="#cb46-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-56"><a href="#cb46-56" aria-hidden="true" tabindex="-1"></a><span class="fu"># Gráficos</span></span>
+<span id="cb46-57"><a href="#cb46-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-58"><a href="#cb46-58" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; "O gráfico simples trouxe mais informações à mente do analista de dados do que qualquer outro dispositivo." --- John Tukey</span></span>
 <span id="cb46-59"><a href="#cb46-59" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-60"><a href="#cb46-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## O pacote `ggplot2`</span></span>
 <span id="cb46-61"><a href="#cb46-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-62"><a href="#cb46-62" aria-hidden="true" tabindex="-1"></a>O <span class="in">`ggplot2`</span> é um pacote R para produção de gráficos que diferentemente da maioria dos outros pacotes, apresenta uma profunda gramática baseada no livro *The grammar of graphics* (Wilkinson 2005)^[WICKHAM, H. **Ggplot2 : elegant graphics for data analysis**: Springer, 2009.]. Os gráficos originados em `ggplot2` são baseados em camadas, e cada gráfico tem três componentes chave: `data`, os dados de onde o gráfico será criado; `aes()` (*aesthetic mappings*), que controla o mapeamento estético e as propriedades visuais do gráfico; e ao menos uma camada que irá descrever como cada observação será renderizada. Camadas são usualmente criadas utilizando uma função <span class="in">`geom_()`</span>.</span>
+<span id="cb46-62"><a href="#cb46-62" aria-hidden="true" tabindex="-1"></a>O <span class="in">`ggplot2`</span> é um pacote R para produção de gráficos que diferentemente da maioria dos outros pacotes, apresenta uma profunda gramática baseada no livro *The grammar of graphics* (Wilkinson 2005)[^1]. Os gráficos originados em `ggplot2` são baseados em camadas, e cada gráfico tem três componentes chave: `data`, os dados de onde o gráfico será criado; `aes()` (*aesthetic mappings*), que controla o mapeamento estético e as propriedades visuais do gráfico; e ao menos uma camada que irá descrever como cada observação será renderizada. Camadas são usualmente criadas utilizando uma função <span class="in">`geom_()`</span>.</span>
 <span id="cb46-63"><a href="#cb46-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-64"><a href="#cb46-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-65"><a href="#cb46-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## Meu primeiro gráfico em `ggplot2`</span></span>
-<span id="cb46-66"><a href="#cb46-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-67"><a href="#cb46-67" aria-hidden="true" tabindex="-1"></a>A seguir, vamos discutir os aspcetos básicos para a construção de gráficos utilizando o pacote <span class="in">`ggplot2`</span>. A função <span class="in">`arrange_ggplot()`</span> do pacote <span class="in">`metan`</span> foi utilizada aqui para organizar os gráficos em forma de painéis.</span>
-<span id="cb46-68"><a href="#cb46-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-64"><a href="#cb46-64" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>WICKHAM, H. **Ggplot2 : elegant graphics for data analysis**: Springer, 2009.</span>
+<span id="cb46-65"><a href="#cb46-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-66"><a href="#cb46-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## Meu primeiro gráfico em `ggplot2`</span></span>
+<span id="cb46-67"><a href="#cb46-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-68"><a href="#cb46-68" aria-hidden="true" tabindex="-1"></a>A seguir, vamos discutir os aspcetos básicos para a construção de gráficos utilizando o pacote <span class="in">`ggplot2`</span>. A função <span class="in">`arrange_ggplot()`</span> do pacote <span class="in">`metan`</span> foi utilizada aqui para organizar os gráficos em forma de painéis.</span>
 <span id="cb46-69"><a href="#cb46-69" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-70"><a href="#cb46-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## As camadas de um gráfico `ggplot2`</span></span>
 <span id="cb46-71"><a href="#cb46-71" aria-hidden="true" tabindex="-1"></a></span>
@@ -1654,8 +1655,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb46-114"><a href="#cb46-114" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-115"><a href="#cb46-115" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-116"><a href="#cb46-116" aria-hidden="true" tabindex="-1"></a><span class="fu">## Salvar gráficos</span></span>
-<span id="cb46-117"><a href="#cb46-117" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`ggsave()`</span> é uma função conveniente para salvar um gráfico. O padrão é salvar a última plotagem exibida, usando o tamanho do dispositivo gráfico atual. Também é possível informar a altura (<span class="in">`height`</span>) e largura (<span class="in">`width`</span>). Ele também adivinha o tipo de dispositivo gráfico da extensão. No seguinte exemplo, o gráfico acima é salvo no diretório de trabalho atual com o nome <span class="in">`pontos.png`</span>, com 5 polegadas de altura e 10 de largura.</span>
-<span id="cb46-118"><a href="#cb46-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-117"><a href="#cb46-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-118"><a href="#cb46-118" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`ggsave()`</span> é uma função conveniente para salvar um gráfico. O padrão é salvar a última plotagem exibida, usando o tamanho do dispositivo gráfico atual. Também é possível informar a altura (<span class="in">`height`</span>) e largura (<span class="in">`width`</span>). Ele também adivinha o tipo de dispositivo gráfico da extensão. No seguinte exemplo, o gráfico acima é salvo no diretório de trabalho atual com o nome <span class="in">`pontos.png`</span>, com 5 polegadas de altura e 10 de largura.</span>
 <span id="cb46-119"><a href="#cb46-119" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-120"><a href="#cb46-120" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
 <span id="cb46-121"><a href="#cb46-121" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"pontos.png"</span>,</span>
@@ -1750,60 +1751,60 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb46-210"><a href="#cb46-210" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-211"><a href="#cb46-211" aria-hidden="true" tabindex="-1"></a>Três importantes geometrias são apresentadas a seguir:</span>
 <span id="cb46-212"><a href="#cb46-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-213"><a href="#cb46-213" aria-hidden="true" tabindex="-1"></a><span class="ss">1.   </span><span class="in">`geom_hline()`</span> adiciona uma linha horizontal definida por um intercepto em <span class="in">`y`</span></span>
+<span id="cb46-213"><a href="#cb46-213" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span><span class="in">`geom_hline()`</span> adiciona uma linha horizontal definida por um intercepto em <span class="in">`y`</span></span>
 <span id="cb46-214"><a href="#cb46-214" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-215"><a href="#cb46-215" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span><span class="in">`geom_vline()`</span> adiciona uma linha vertical definida por um intercepto em <span class="in">`x`</span>.</span>
 <span id="cb46-216"><a href="#cb46-216" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-217"><a href="#cb46-217" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span><span class="in">`geom_abline()`</span> adiciona uma linha diagonal definida por um intercepto e uma inclinação.</span>
 <span id="cb46-218"><a href="#cb46-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-219"><a href="#cb46-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-220"><a href="#cb46-220" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.width=8, fig.height=10}</span></span>
-<span id="cb46-221"><a href="#cb46-221" aria-hidden="true" tabindex="-1"></a>g1 <span class="ot">&lt;-</span> </span>
-<span id="cb46-222"><a href="#cb46-222" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(comprimento, largura)) <span class="sc">+</span></span>
-<span id="cb46-223"><a href="#cb46-223" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb46-219"><a href="#cb46-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.width=8, fig.height=10}</span></span>
+<span id="cb46-220"><a href="#cb46-220" aria-hidden="true" tabindex="-1"></a>g1 <span class="ot">&lt;-</span> </span>
+<span id="cb46-221"><a href="#cb46-221" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(comprimento, largura)) <span class="sc">+</span></span>
+<span id="cb46-222"><a href="#cb46-222" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb46-223"><a href="#cb46-223" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-224"><a href="#cb46-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-225"><a href="#cb46-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-226"><a href="#cb46-226" aria-hidden="true" tabindex="-1"></a><span class="co"># adiciona linhas horizontais e verticais</span></span>
-<span id="cb46-227"><a href="#cb46-227" aria-hidden="true" tabindex="-1"></a>g2 <span class="ot">&lt;-</span> </span>
-<span id="cb46-228"><a href="#cb46-228" aria-hidden="true" tabindex="-1"></a>  g1 <span class="sc">+</span></span>
-<span id="cb46-229"><a href="#cb46-229" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">mean</span>(df<span class="sc">$</span>largura), <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb46-230"><a href="#cb46-230" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(df<span class="sc">$</span>comprimento), <span class="at">color =</span> <span class="st">"red"</span>)</span>
-<span id="cb46-231"><a href="#cb46-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-232"><a href="#cb46-232" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange_ggplot</span>(g1, g2,</span>
-<span id="cb46-233"><a href="#cb46-233" aria-hidden="true" tabindex="-1"></a>               <span class="at">ncol =</span> <span class="dv">1</span>,</span>
-<span id="cb46-234"><a href="#cb46-234" aria-hidden="true" tabindex="-1"></a>               <span class="at">tag_levels =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"g1"</span>, <span class="st">"g2"</span>)))</span>
-<span id="cb46-235"><a href="#cb46-235" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-236"><a href="#cb46-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-237"><a href="#cb46-237" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gráficos do tipo boxplot</span></span>
-<span id="cb46-238"><a href="#cb46-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-239"><a href="#cb46-239" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message = FALSE, warning = FALSE, fig.width = 9, fig.height = 8, fig.align = "center", fig.cap = "Gráfico do tipo boxplot combinando mapeamentos estéticos."}</span></span>
-<span id="cb46-240"><a href="#cb46-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-241"><a href="#cb46-241" aria-hidden="true" tabindex="-1"></a>box1 <span class="ot">&lt;-</span> </span>
-<span id="cb46-242"><a href="#cb46-242" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(grupo, comprimento)) <span class="sc">+</span></span>
-<span id="cb46-243"><a href="#cb46-243" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
-<span id="cb46-244"><a href="#cb46-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-245"><a href="#cb46-245" aria-hidden="true" tabindex="-1"></a>box2 <span class="ot">&lt;-</span> </span>
-<span id="cb46-246"><a href="#cb46-246" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(grupo, comprimento)) <span class="sc">+</span></span>
-<span id="cb46-247"><a href="#cb46-247" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb46-248"><a href="#cb46-248" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">color =</span> <span class="st">"salmon"</span>)</span>
-<span id="cb46-249"><a href="#cb46-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-250"><a href="#cb46-250" aria-hidden="true" tabindex="-1"></a>box3 <span class="ot">&lt;-</span> </span>
-<span id="cb46-251"><a href="#cb46-251" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(grupo, comprimento, <span class="at">fill =</span> cor)) <span class="sc">+</span></span>
-<span id="cb46-252"><a href="#cb46-252" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span> </span>
-<span id="cb46-253"><a href="#cb46-253" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Grupo"</span>,</span>
-<span id="cb46-254"><a href="#cb46-254" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Comprimento do grão (mm)"</span>) <span class="sc">+</span></span>
-<span id="cb46-255"><a href="#cb46-255" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
-<span id="cb46-256"><a href="#cb46-256" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"green"</span>, <span class="st">"red"</span>))</span>
-<span id="cb46-257"><a href="#cb46-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-258"><a href="#cb46-258" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange_ggplot</span>((box1 <span class="sc">+</span> box2) <span class="sc">/</span> box3,</span>
-<span id="cb46-259"><a href="#cb46-259" aria-hidden="true" tabindex="-1"></a>               <span class="at">tag_levels =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"b1"</span>, <span class="st">"b2"</span>, <span class="st">"b3"</span>)))</span>
-<span id="cb46-260"><a href="#cb46-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-261"><a href="#cb46-261" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-262"><a href="#cb46-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-263"><a href="#cb46-263" aria-hidden="true" tabindex="-1"></a>Cinco estatísticas são mostradas neste boxplot. A mediana (linha horizontal), as caixas inferior e superior (primeiro e terceiro quartil (percentis 25 e 75, respectivamente)). A linha vertical superior se estende da caixa até o maior valor, não maior que \$1,5 \times {IQR}\$ (onde IQR é a amplitude interquartílica). A linha vertical inferior se estende da caixa até o menor valor, de no máximo, \$1,5 \times {IQR}\$. Dados além das linhas horizontais podem ser considerados *outliers*.</span>
-<span id="cb46-264"><a href="#cb46-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-265"><a href="#cb46-265" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gráficos do tipo histograma</span></span>
-<span id="cb46-266"><a href="#cb46-266" aria-hidden="true" tabindex="-1"></a>Neste exemplo, utilizaremos os dados de temperatura mínima da estação meteorológica, disponível no data frame <span class="in">`df_estacao`</span>. O primeiro histograma (p1) mostra os dados gerais desde 01/01/2022. No segundo,  um histograma é gerado para cada mês.</span>
+<span id="cb46-225"><a href="#cb46-225" aria-hidden="true" tabindex="-1"></a><span class="co"># adiciona linhas horizontais e verticais</span></span>
+<span id="cb46-226"><a href="#cb46-226" aria-hidden="true" tabindex="-1"></a>g2 <span class="ot">&lt;-</span> </span>
+<span id="cb46-227"><a href="#cb46-227" aria-hidden="true" tabindex="-1"></a>  g1 <span class="sc">+</span></span>
+<span id="cb46-228"><a href="#cb46-228" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">mean</span>(df<span class="sc">$</span>largura), <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb46-229"><a href="#cb46-229" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(df<span class="sc">$</span>comprimento), <span class="at">color =</span> <span class="st">"red"</span>)</span>
+<span id="cb46-230"><a href="#cb46-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-231"><a href="#cb46-231" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange_ggplot</span>(g1, g2,</span>
+<span id="cb46-232"><a href="#cb46-232" aria-hidden="true" tabindex="-1"></a>               <span class="at">ncol =</span> <span class="dv">1</span>,</span>
+<span id="cb46-233"><a href="#cb46-233" aria-hidden="true" tabindex="-1"></a>               <span class="at">tag_levels =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"g1"</span>, <span class="st">"g2"</span>)))</span>
+<span id="cb46-234"><a href="#cb46-234" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-235"><a href="#cb46-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-236"><a href="#cb46-236" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gráficos do tipo boxplot</span></span>
+<span id="cb46-237"><a href="#cb46-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-238"><a href="#cb46-238" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message = FALSE, warning = FALSE, fig.width = 9, fig.height = 8, fig.align = "center", fig.cap = "Gráfico do tipo boxplot combinando mapeamentos estéticos."}</span></span>
+<span id="cb46-239"><a href="#cb46-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-240"><a href="#cb46-240" aria-hidden="true" tabindex="-1"></a>box1 <span class="ot">&lt;-</span> </span>
+<span id="cb46-241"><a href="#cb46-241" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(grupo, comprimento)) <span class="sc">+</span></span>
+<span id="cb46-242"><a href="#cb46-242" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb46-243"><a href="#cb46-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-244"><a href="#cb46-244" aria-hidden="true" tabindex="-1"></a>box2 <span class="ot">&lt;-</span> </span>
+<span id="cb46-245"><a href="#cb46-245" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(grupo, comprimento)) <span class="sc">+</span></span>
+<span id="cb46-246"><a href="#cb46-246" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb46-247"><a href="#cb46-247" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">color =</span> <span class="st">"salmon"</span>)</span>
+<span id="cb46-248"><a href="#cb46-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-249"><a href="#cb46-249" aria-hidden="true" tabindex="-1"></a>box3 <span class="ot">&lt;-</span> </span>
+<span id="cb46-250"><a href="#cb46-250" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(grupo, comprimento, <span class="at">fill =</span> cor)) <span class="sc">+</span></span>
+<span id="cb46-251"><a href="#cb46-251" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span> </span>
+<span id="cb46-252"><a href="#cb46-252" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Grupo"</span>,</span>
+<span id="cb46-253"><a href="#cb46-253" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Comprimento do grão (mm)"</span>) <span class="sc">+</span></span>
+<span id="cb46-254"><a href="#cb46-254" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
+<span id="cb46-255"><a href="#cb46-255" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"green"</span>, <span class="st">"red"</span>))</span>
+<span id="cb46-256"><a href="#cb46-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-257"><a href="#cb46-257" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange_ggplot</span>((box1 <span class="sc">+</span> box2) <span class="sc">/</span> box3,</span>
+<span id="cb46-258"><a href="#cb46-258" aria-hidden="true" tabindex="-1"></a>               <span class="at">tag_levels =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"b1"</span>, <span class="st">"b2"</span>, <span class="st">"b3"</span>)))</span>
+<span id="cb46-259"><a href="#cb46-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-260"><a href="#cb46-260" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-261"><a href="#cb46-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-262"><a href="#cb46-262" aria-hidden="true" tabindex="-1"></a>Cinco estatísticas são mostradas neste boxplot. A mediana (linha horizontal), as caixas inferior e superior (primeiro e terceiro quartil (percentis 25 e 75, respectivamente)). A linha vertical superior se estende da caixa até o maior valor, não maior que \$1,5 \times {IQR}\$ (onde IQR é a amplitude interquartílica). A linha vertical inferior se estende da caixa até o menor valor, de no máximo, \$1,5 \times {IQR}\$. Dados além das linhas horizontais podem ser considerados *outliers*.</span>
+<span id="cb46-263"><a href="#cb46-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-264"><a href="#cb46-264" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gráficos do tipo histograma</span></span>
+<span id="cb46-265"><a href="#cb46-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-266"><a href="#cb46-266" aria-hidden="true" tabindex="-1"></a>Neste exemplo, utilizaremos os dados de temperatura mínima da estação meteorológica, disponível no data frame <span class="in">`df_estacao`</span>. O primeiro histograma (p1) mostra os dados gerais desde 01/01/2022. No segundo, um histograma é gerado para cada mês.</span>
 <span id="cb46-267"><a href="#cb46-267" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-268"><a href="#cb46-268" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message = FALSE, warning = FALSE, fig.width = 10, fig.height = 5, fig.align = "center", fig.cap = "Gráfico do tipo histograma "}</span></span>
 <span id="cb46-269"><a href="#cb46-269" aria-hidden="true" tabindex="-1"></a></span>
@@ -1826,58 +1827,58 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb46-286"><a href="#cb46-286" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-287"><a href="#cb46-287" aria-hidden="true" tabindex="-1"></a>No histograma (h2), a linha vermelha representa a estimativa da função de probabilidade normal. Para isto, a escala do eixo <span class="in">`y`</span> foi mudada de contagem para densidade.</span>
 <span id="cb46-288"><a href="#cb46-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-289"><a href="#cb46-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-290"><a href="#cb46-290" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gráficos de Densidade</span></span>
+<span id="cb46-289"><a href="#cb46-289" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gráficos de Densidade</span></span>
+<span id="cb46-290"><a href="#cb46-290" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-291"><a href="#cb46-291" aria-hidden="true" tabindex="-1"></a>Os gráficos de densidade, têm a mesma interpretação que histogramas, no então são esteticamente mais atraente. Os primeiros dois exemplos nada mais são que a versão densidade dos histogramas apresentados anteriormente.</span>
 <span id="cb46-292"><a href="#cb46-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-293"><a href="#cb46-293" aria-hidden="true" tabindex="-1"></a>No terceiro exemplo (d3), eu mostro como é possível construir um gráfico de densidade <span class="in">`ridges`</span>. Gráficos <span class="in">`ridges`</span> são gráficos de linha parcialmente sobrepostos que criam a impressão de uma cordilheira. Eles podem ser bastante úteis para visualizar mudanças nas distribuições ao longo do tempo ou espaço^<span class="co">[</span><span class="ot">https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html</span><span class="co">]</span>.</span>
+<span id="cb46-293"><a href="#cb46-293" aria-hidden="true" tabindex="-1"></a>No terceiro exemplo (d3), eu mostro como é possível construir um gráfico de densidade <span class="in">`ridges`</span>. Gráficos <span class="in">`ridges`</span> são gráficos de linha parcialmente sobrepostos que criam a impressão de uma cordilheira. Eles podem ser bastante úteis para visualizar mudanças nas distribuições ao longo do tempo ou espaço<span class="ot">[^2]</span>.</span>
 <span id="cb46-294"><a href="#cb46-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-295"><a href="#cb46-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-296"><a href="#cb46-296" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message = FALSE, warning = FALSE, fig.width = 10, fig.height = 8, fig.align = "center", fig.cap = "Gráfico do tipo densidade "}</span></span>
-<span id="cb46-297"><a href="#cb46-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-298"><a href="#cb46-298" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> </span>
-<span id="cb46-299"><a href="#cb46-299" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df_estacao, <span class="fu">aes</span>(<span class="at">x =</span> tmed)) <span class="sc">+</span></span>
-<span id="cb46-300"><a href="#cb46-300" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span>
-<span id="cb46-301"><a href="#cb46-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-302"><a href="#cb46-302" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> </span>
-<span id="cb46-303"><a href="#cb46-303" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df_estacao, <span class="fu">aes</span>(<span class="at">x =</span> tmed)) <span class="sc">+</span></span>
-<span id="cb46-304"><a href="#cb46-304" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"black"</span>,</span>
-<span id="cb46-305"><a href="#cb46-305" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span></span>
-<span id="cb46-306"><a href="#cb46-306" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>m) <span class="sc">+</span></span>
-<span id="cb46-307"><a href="#cb46-307" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Temperatura média (ºC)"</span>,</span>
-<span id="cb46-308"><a href="#cb46-308" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Horas"</span>)</span>
-<span id="cb46-309"><a href="#cb46-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-310"><a href="#cb46-310" aria-hidden="true" tabindex="-1"></a>d3 <span class="ot">&lt;-</span> </span>
-<span id="cb46-311"><a href="#cb46-311" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df_estacao, <span class="fu">aes</span>(<span class="at">x =</span> tmed, <span class="at">y =</span> m, <span class="at">fill =</span> <span class="fu">stat</span>(x))) <span class="sc">+</span></span>
-<span id="cb46-312"><a href="#cb46-312" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density_ridges_gradient</span>() <span class="sc">+</span></span>
-<span id="cb46-313"><a href="#cb46-313" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
-<span id="cb46-314"><a href="#cb46-314" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Temperatura média (ºC)"</span>,</span>
-<span id="cb46-315"><a href="#cb46-315" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Meses do ano"</span>,</span>
-<span id="cb46-316"><a href="#cb46-316" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Temperatura</span><span class="sc">\n</span><span class="st">média (ºC)"</span>)</span>
-<span id="cb46-317"><a href="#cb46-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-318"><a href="#cb46-318" aria-hidden="true" tabindex="-1"></a><span class="co"># agrupa os gráficos</span></span>
-<span id="cb46-319"><a href="#cb46-319" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange_ggplot</span>((d1 <span class="sc">+</span> d2) <span class="sc">/</span> d3,</span>
-<span id="cb46-320"><a href="#cb46-320" aria-hidden="true" tabindex="-1"></a>               <span class="at">tag_levels =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"d1"</span>, <span class="st">"d2"</span>, <span class="st">"d3"</span>)))</span>
-<span id="cb46-321"><a href="#cb46-321" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-322"><a href="#cb46-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-323"><a href="#cb46-323" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gráficos de linhas</span></span>
-<span id="cb46-324"><a href="#cb46-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-325"><a href="#cb46-325" aria-hidden="true" tabindex="-1"></a>O seguinte exemplo mostra a temperatura mínima, média e máxima ao longo dos dias desde 01/01/2022.</span>
-<span id="cb46-326"><a href="#cb46-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-327"><a href="#cb46-327" aria-hidden="true" tabindex="-1"></a>Primeiro, é preciso obter as temperaturas mínimas, máximas e médias de cada dia. Fazemos isso com a função <span class="in">`summarise()`</span>.</span>
-<span id="cb46-328"><a href="#cb46-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-331"><a href="#cb46-331" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb46-332"><a href="#cb46-332" aria-hidden="true" tabindex="-1"></a>clima_max_min <span class="ot">&lt;-</span></span>
-<span id="cb46-333"><a href="#cb46-333" aria-hidden="true" tabindex="-1"></a>  df_estacao <span class="sc">%&gt;%</span></span>
-<span id="cb46-334"><a href="#cb46-334" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dia) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-335"><a href="#cb46-335" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">max =</span> <span class="fu">max</span>(tmax),</span>
-<span id="cb46-336"><a href="#cb46-336" aria-hidden="true" tabindex="-1"></a>            <span class="at">min =</span> <span class="fu">min</span>(tmin),</span>
-<span id="cb46-337"><a href="#cb46-337" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean =</span> <span class="fu">mean</span>(tmed),</span>
-<span id="cb46-338"><a href="#cb46-338" aria-hidden="true" tabindex="-1"></a>            <span class="at">precip =</span> <span class="fu">sum</span>(prec)) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-339"><a href="#cb46-339" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>dia)</span>
-<span id="cb46-340"><a href="#cb46-340" aria-hidden="true" tabindex="-1"></a>clima_max_min</span>
-<span id="cb46-341"><a href="#cb46-341" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-342"><a href="#cb46-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-295"><a href="#cb46-295" aria-hidden="true" tabindex="-1"></a><span class="ot">[^2]: https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html</span></span>
+<span id="cb46-296"><a href="#cb46-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-297"><a href="#cb46-297" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message = FALSE, warning = FALSE, fig.width = 10, fig.height = 8, fig.align = "center", fig.cap = "Gráfico do tipo densidade "}</span></span>
+<span id="cb46-298"><a href="#cb46-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-299"><a href="#cb46-299" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> </span>
+<span id="cb46-300"><a href="#cb46-300" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df_estacao, <span class="fu">aes</span>(<span class="at">x =</span> tmed)) <span class="sc">+</span></span>
+<span id="cb46-301"><a href="#cb46-301" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span>
+<span id="cb46-302"><a href="#cb46-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-303"><a href="#cb46-303" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> </span>
+<span id="cb46-304"><a href="#cb46-304" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df_estacao, <span class="fu">aes</span>(<span class="at">x =</span> tmed)) <span class="sc">+</span></span>
+<span id="cb46-305"><a href="#cb46-305" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb46-306"><a href="#cb46-306" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span></span>
+<span id="cb46-307"><a href="#cb46-307" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>m) <span class="sc">+</span></span>
+<span id="cb46-308"><a href="#cb46-308" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Temperatura média (ºC)"</span>,</span>
+<span id="cb46-309"><a href="#cb46-309" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Horas"</span>)</span>
+<span id="cb46-310"><a href="#cb46-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-311"><a href="#cb46-311" aria-hidden="true" tabindex="-1"></a>d3 <span class="ot">&lt;-</span> </span>
+<span id="cb46-312"><a href="#cb46-312" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df_estacao, <span class="fu">aes</span>(<span class="at">x =</span> tmed, <span class="at">y =</span> m, <span class="at">fill =</span> <span class="fu">stat</span>(x))) <span class="sc">+</span></span>
+<span id="cb46-313"><a href="#cb46-313" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density_ridges_gradient</span>() <span class="sc">+</span></span>
+<span id="cb46-314"><a href="#cb46-314" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb46-315"><a href="#cb46-315" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Temperatura média (ºC)"</span>,</span>
+<span id="cb46-316"><a href="#cb46-316" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Meses do ano"</span>,</span>
+<span id="cb46-317"><a href="#cb46-317" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Temperatura</span><span class="sc">\n</span><span class="st">média (ºC)"</span>)</span>
+<span id="cb46-318"><a href="#cb46-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-319"><a href="#cb46-319" aria-hidden="true" tabindex="-1"></a><span class="co"># agrupa os gráficos</span></span>
+<span id="cb46-320"><a href="#cb46-320" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange_ggplot</span>((d1 <span class="sc">+</span> d2) <span class="sc">/</span> d3,</span>
+<span id="cb46-321"><a href="#cb46-321" aria-hidden="true" tabindex="-1"></a>               <span class="at">tag_levels =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"d1"</span>, <span class="st">"d2"</span>, <span class="st">"d3"</span>)))</span>
+<span id="cb46-322"><a href="#cb46-322" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-323"><a href="#cb46-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-324"><a href="#cb46-324" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gráficos de linhas</span></span>
+<span id="cb46-325"><a href="#cb46-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-326"><a href="#cb46-326" aria-hidden="true" tabindex="-1"></a>O seguinte exemplo mostra a temperatura mínima, média e máxima ao longo dos dias desde 01/01/2022.</span>
+<span id="cb46-327"><a href="#cb46-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-328"><a href="#cb46-328" aria-hidden="true" tabindex="-1"></a>Primeiro, é preciso obter as temperaturas mínimas, máximas e médias de cada dia. Fazemos isso com a função <span class="in">`summarise()`</span>.</span>
+<span id="cb46-329"><a href="#cb46-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-332"><a href="#cb46-332" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-333"><a href="#cb46-333" aria-hidden="true" tabindex="-1"></a>clima_max_min <span class="ot">&lt;-</span></span>
+<span id="cb46-334"><a href="#cb46-334" aria-hidden="true" tabindex="-1"></a>  df_estacao <span class="sc">%&gt;%</span></span>
+<span id="cb46-335"><a href="#cb46-335" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dia) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-336"><a href="#cb46-336" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">max =</span> <span class="fu">max</span>(tmax),</span>
+<span id="cb46-337"><a href="#cb46-337" aria-hidden="true" tabindex="-1"></a>            <span class="at">min =</span> <span class="fu">min</span>(tmin),</span>
+<span id="cb46-338"><a href="#cb46-338" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean =</span> <span class="fu">mean</span>(tmed),</span>
+<span id="cb46-339"><a href="#cb46-339" aria-hidden="true" tabindex="-1"></a>            <span class="at">precip =</span> <span class="fu">sum</span>(prec)) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-340"><a href="#cb46-340" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>dia)</span>
+<span id="cb46-341"><a href="#cb46-341" aria-hidden="true" tabindex="-1"></a>clima_max_min</span>
+<span id="cb46-342"><a href="#cb46-342" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-343"><a href="#cb46-343" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-346"><a href="#cb46-346" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb46-347"><a href="#cb46-347" aria-hidden="true" tabindex="-1"></a><span class="co"># realiza um subset para remover a precipitação</span></span>
@@ -1907,441 +1908,475 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb46-371"><a href="#cb46-371" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-372"><a href="#cb46-372" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-373"><a href="#cb46-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-374"><a href="#cb46-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-375"><a href="#cb46-375" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gráficos do tipo barra</span></span>
+<span id="cb46-374"><a href="#cb46-374" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gráficos do tipo barra</span></span>
+<span id="cb46-375"><a href="#cb46-375" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-376"><a href="#cb46-376" aria-hidden="true" tabindex="-1"></a>No seguinte exemplo, os dados do comprimento do grão de café disponíveis em <span class="in">`df`</span> são utilizados.</span>
-<span id="cb46-377"><a href="#cb46-377" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message = FALSE, warning = FALSE, fig.width = 10, fig.height = 3, fig.align = "center", fig.cap = "Gráfico do tipo barras, com mapeamento estético e barras de erro."}</span></span>
-<span id="cb46-378"><a href="#cb46-378" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-379"><a href="#cb46-379" aria-hidden="true" tabindex="-1"></a>bar1 <span class="ot">&lt;-</span> </span>
-<span id="cb46-380"><a href="#cb46-380" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> grupo, <span class="at">y =</span> comprimento)) <span class="sc">+</span></span>
-<span id="cb46-381"><a href="#cb46-381" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>, <span class="at">fun =</span> <span class="st">"mean"</span>)</span>
-<span id="cb46-382"><a href="#cb46-382" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-383"><a href="#cb46-383" aria-hidden="true" tabindex="-1"></a>bar2 <span class="ot">&lt;-</span> </span>
-<span id="cb46-384"><a href="#cb46-384" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> grupo, <span class="at">y =</span> comprimento, <span class="at">fill =</span> cor)) <span class="sc">+</span></span>
-<span id="cb46-385"><a href="#cb46-385" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean,</span>
-<span id="cb46-386"><a href="#cb46-386" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">"bar"</span>,</span>
-<span id="cb46-387"><a href="#cb46-387" aria-hidden="true" tabindex="-1"></a>               <span class="at">col =</span> <span class="st">"black"</span>,</span>
-<span id="cb46-388"><a href="#cb46-388" aria-hidden="true" tabindex="-1"></a>               <span class="at">width =</span> <span class="fl">0.8</span>,</span>
-<span id="cb46-389"><a href="#cb46-389" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.8</span>)) <span class="sc">+</span> </span>
-<span id="cb46-390"><a href="#cb46-390" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se,</span>
-<span id="cb46-391"><a href="#cb46-391" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">"errorbar"</span>,</span>
-<span id="cb46-392"><a href="#cb46-392" aria-hidden="true" tabindex="-1"></a>               <span class="at">width =</span> <span class="fl">0.2</span>,</span>
-<span id="cb46-393"><a href="#cb46-393" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.8</span>))</span>
-<span id="cb46-394"><a href="#cb46-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-377"><a href="#cb46-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-378"><a href="#cb46-378" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message = FALSE, warning = FALSE, fig.width = 10, fig.height = 3, fig.align = "center", fig.cap = "Gráfico do tipo barras, com mapeamento estético e barras de erro."}</span></span>
+<span id="cb46-379"><a href="#cb46-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-380"><a href="#cb46-380" aria-hidden="true" tabindex="-1"></a>bar1 <span class="ot">&lt;-</span> </span>
+<span id="cb46-381"><a href="#cb46-381" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> grupo, <span class="at">y =</span> comprimento)) <span class="sc">+</span></span>
+<span id="cb46-382"><a href="#cb46-382" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>, <span class="at">fun =</span> <span class="st">"mean"</span>)</span>
+<span id="cb46-383"><a href="#cb46-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-384"><a href="#cb46-384" aria-hidden="true" tabindex="-1"></a>bar2 <span class="ot">&lt;-</span> </span>
+<span id="cb46-385"><a href="#cb46-385" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> grupo, <span class="at">y =</span> comprimento, <span class="at">fill =</span> cor)) <span class="sc">+</span></span>
+<span id="cb46-386"><a href="#cb46-386" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean,</span>
+<span id="cb46-387"><a href="#cb46-387" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">"bar"</span>,</span>
+<span id="cb46-388"><a href="#cb46-388" aria-hidden="true" tabindex="-1"></a>               <span class="at">col =</span> <span class="st">"black"</span>,</span>
+<span id="cb46-389"><a href="#cb46-389" aria-hidden="true" tabindex="-1"></a>               <span class="at">width =</span> <span class="fl">0.8</span>,</span>
+<span id="cb46-390"><a href="#cb46-390" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.8</span>)) <span class="sc">+</span> </span>
+<span id="cb46-391"><a href="#cb46-391" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se,</span>
+<span id="cb46-392"><a href="#cb46-392" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">"errorbar"</span>,</span>
+<span id="cb46-393"><a href="#cb46-393" aria-hidden="true" tabindex="-1"></a>               <span class="at">width =</span> <span class="fl">0.2</span>,</span>
+<span id="cb46-394"><a href="#cb46-394" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.8</span>))</span>
 <span id="cb46-395"><a href="#cb46-395" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-396"><a href="#cb46-396" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange_ggplot</span>(bar1, bar2,</span>
-<span id="cb46-397"><a href="#cb46-397" aria-hidden="true" tabindex="-1"></a>               <span class="at">widths =</span> <span class="fu">c</span>(<span class="fl">0.6</span>, <span class="fl">1.2</span>),</span>
-<span id="cb46-398"><a href="#cb46-398" aria-hidden="true" tabindex="-1"></a>               <span class="at">tag_levels =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"bar1"</span>, <span class="st">"bar2"</span>)))</span>
-<span id="cb46-399"><a href="#cb46-399" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-400"><a href="#cb46-400" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-401"><a href="#cb46-401" aria-hidden="true" tabindex="-1"></a>A afirmação de que um gráfico <span class="in">`ggplot2`</span> é feito em camadas fica mais evidente aqui. No gráfico <span class="in">`bar1`</span>, as barras representam as médias geral do <span class="in">`comprimento`</span> para cada grupo. No segundo gráfico, ao usar <span class="in">`fill = cor`</span> informamos que as barras devem ser coloridas para cada nível do fator <span class="in">`cor`</span>. A função <span class="in">`stat_summary()`</span>, é vista pela primeira vez aqui, foi utilizada no segundo gráfico para substituir a função <span class="in">`geom_bar()`</span>. Com isto, foi possível incluir as médias (<span class="in">`fun = mean`</span> e <span class="in">`geom = "bar`</span>), bem como as barras de erro (<span class="in">`fun.data = mean_se`</span> e <span class="in">`geom = "errorbar"`</span>).</span>
-<span id="cb46-402"><a href="#cb46-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-403"><a href="#cb46-403" aria-hidden="true" tabindex="-1"></a>Utilizando a função <span class="in">`plot_factbars()`</span> do pacote metan, um gráfico semelhante pode ser criado com as funções <span class="in">`plot_bars()`</span> e <span class="in">`plot_factbars()`</span></span>
-<span id="cb46-404"><a href="#cb46-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-405"><a href="#cb46-405" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.height=4, fig.width=10}</span></span>
-<span id="cb46-406"><a href="#cb46-406" aria-hidden="true" tabindex="-1"></a>metan1 <span class="ot">&lt;-</span> </span>
-<span id="cb46-407"><a href="#cb46-407" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_bars</span>(df,</span>
-<span id="cb46-408"><a href="#cb46-408" aria-hidden="true" tabindex="-1"></a>            <span class="at">x =</span> grupo,</span>
-<span id="cb46-409"><a href="#cb46-409" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> comprimento)</span>
-<span id="cb46-410"><a href="#cb46-410" aria-hidden="true" tabindex="-1"></a>metan2 <span class="ot">&lt;-</span> </span>
-<span id="cb46-411"><a href="#cb46-411" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_factbars</span>(df, <span class="co"># dados</span></span>
-<span id="cb46-412"><a href="#cb46-412" aria-hidden="true" tabindex="-1"></a>                grupo, cor, <span class="co"># dois fatores</span></span>
-<span id="cb46-413"><a href="#cb46-413" aria-hidden="true" tabindex="-1"></a>                <span class="at">resp =</span> comprimento) <span class="co"># eixo y</span></span>
-<span id="cb46-414"><a href="#cb46-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-415"><a href="#cb46-415" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange_ggplot</span>(metan1, metan2,</span>
-<span id="cb46-416"><a href="#cb46-416" aria-hidden="true" tabindex="-1"></a>               <span class="at">widths =</span> <span class="fu">c</span>(<span class="fl">0.6</span>, <span class="fl">1.2</span>),</span>
-<span id="cb46-417"><a href="#cb46-417" aria-hidden="true" tabindex="-1"></a>               <span class="at">tag_levels =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"metan1"</span>, <span class="st">"metan2"</span>)))</span>
-<span id="cb46-418"><a href="#cb46-418" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-419"><a href="#cb46-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-396"><a href="#cb46-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-397"><a href="#cb46-397" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange_ggplot</span>(bar1, bar2,</span>
+<span id="cb46-398"><a href="#cb46-398" aria-hidden="true" tabindex="-1"></a>               <span class="at">widths =</span> <span class="fu">c</span>(<span class="fl">0.6</span>, <span class="fl">1.2</span>),</span>
+<span id="cb46-399"><a href="#cb46-399" aria-hidden="true" tabindex="-1"></a>               <span class="at">tag_levels =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"bar1"</span>, <span class="st">"bar2"</span>)))</span>
+<span id="cb46-400"><a href="#cb46-400" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-401"><a href="#cb46-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-402"><a href="#cb46-402" aria-hidden="true" tabindex="-1"></a>A afirmação de que um gráfico <span class="in">`ggplot2`</span> é feito em camadas fica mais evidente aqui. No gráfico <span class="in">`bar1`</span>, as barras representam as médias geral do <span class="in">`comprimento`</span> para cada grupo. No segundo gráfico, ao usar <span class="in">`fill = cor`</span> informamos que as barras devem ser coloridas para cada nível do fator <span class="in">`cor`</span>. A função <span class="in">`stat_summary()`</span>, é vista pela primeira vez aqui, foi utilizada no segundo gráfico para substituir a função <span class="in">`geom_bar()`</span>. Com isto, foi possível incluir as médias (<span class="in">`fun = mean`</span> e <span class="in">`geom = "bar`</span>), bem como as barras de erro (<span class="in">`fun.data = mean_se`</span> e <span class="in">`geom = "errorbar"`</span>).</span>
+<span id="cb46-403"><a href="#cb46-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-404"><a href="#cb46-404" aria-hidden="true" tabindex="-1"></a>Utilizando a função <span class="in">`plot_factbars()`</span> do pacote metan, um gráfico semelhante pode ser criado com as funções <span class="in">`plot_bars()`</span> e <span class="in">`plot_factbars()`</span></span>
+<span id="cb46-405"><a href="#cb46-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-406"><a href="#cb46-406" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.height=4, fig.width=10}</span></span>
+<span id="cb46-407"><a href="#cb46-407" aria-hidden="true" tabindex="-1"></a>metan1 <span class="ot">&lt;-</span> </span>
+<span id="cb46-408"><a href="#cb46-408" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_bars</span>(df,</span>
+<span id="cb46-409"><a href="#cb46-409" aria-hidden="true" tabindex="-1"></a>            <span class="at">x =</span> grupo,</span>
+<span id="cb46-410"><a href="#cb46-410" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> comprimento)</span>
+<span id="cb46-411"><a href="#cb46-411" aria-hidden="true" tabindex="-1"></a>metan2 <span class="ot">&lt;-</span> </span>
+<span id="cb46-412"><a href="#cb46-412" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_factbars</span>(df, <span class="co"># dados</span></span>
+<span id="cb46-413"><a href="#cb46-413" aria-hidden="true" tabindex="-1"></a>                grupo, cor, <span class="co"># dois fatores</span></span>
+<span id="cb46-414"><a href="#cb46-414" aria-hidden="true" tabindex="-1"></a>                <span class="at">resp =</span> comprimento) <span class="co"># eixo y</span></span>
+<span id="cb46-415"><a href="#cb46-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-416"><a href="#cb46-416" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange_ggplot</span>(metan1, metan2,</span>
+<span id="cb46-417"><a href="#cb46-417" aria-hidden="true" tabindex="-1"></a>               <span class="at">widths =</span> <span class="fu">c</span>(<span class="fl">0.6</span>, <span class="fl">1.2</span>),</span>
+<span id="cb46-418"><a href="#cb46-418" aria-hidden="true" tabindex="-1"></a>               <span class="at">tag_levels =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"metan1"</span>, <span class="st">"metan2"</span>)))</span>
+<span id="cb46-419"><a href="#cb46-419" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-420"><a href="#cb46-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-421"><a href="#cb46-421" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-422"><a href="#cb46-422" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- </span><span class="al">###</span><span class="co"> Regressão linear de primeiro grau --&gt;</span></span>
-<span id="cb46-423"><a href="#cb46-423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-424"><a href="#cb46-424" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ```{r message = FALSE, warning = FALSE, fig.width = 10, fig.height = 4, fig.align = "center", fig.cap = "Gráfico de dispersão, combinando pontos e linhas de regressão."} --&gt;</span></span>
-<span id="cb46-425"><a href="#cb46-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-426"><a href="#cb46-426" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- l1 &lt;-  --&gt;</span></span>
+<span id="cb46-421"><a href="#cb46-421" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- </span><span class="al">###</span><span class="co"> Regressão linear de primeiro grau --&gt;</span></span>
+<span id="cb46-422"><a href="#cb46-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-423"><a href="#cb46-423" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ```{r message = FALSE, warning = FALSE, fig.width = 10, fig.height = 4, fig.align = "center", fig.cap = "Gráfico de dispersão, combinando pontos e linhas de regressão."} --&gt;</span></span>
+<span id="cb46-424"><a href="#cb46-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-425"><a href="#cb46-425" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- l1 &lt;-  --&gt;</span></span>
+<span id="cb46-426"><a href="#cb46-426" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-427"><a href="#cb46-427" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   ggplot(df, aes(x = MST, y = AF)) + --&gt;</span></span>
-<span id="cb46-428"><a href="#cb46-428" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   geom_point() + --&gt;</span></span>
-<span id="cb46-429"><a href="#cb46-429" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   geom_smooth(method = "lm", se = FALSE) + # estima uma regressão linear --&gt;</span></span>
-<span id="cb46-430"><a href="#cb46-430" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   labs(x = "Matéria seca total (g)", --&gt;</span></span>
-<span id="cb46-431"><a href="#cb46-431" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--        y = "Área foliar (cm2)") --&gt;</span></span>
+<span id="cb46-428"><a href="#cb46-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-429"><a href="#cb46-429" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   geom_point() + --&gt;</span></span>
+<span id="cb46-430"><a href="#cb46-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-431"><a href="#cb46-431" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   geom_smooth(method = "lm", se = FALSE) + # estima uma regressão linear --&gt;</span></span>
 <span id="cb46-432"><a href="#cb46-432" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-433"><a href="#cb46-433" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- l2 &lt;-  --&gt;</span></span>
-<span id="cb46-434"><a href="#cb46-434" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   ggplot(df, aes(x = MST, y = AF, colour = DAP)) + --&gt;</span></span>
-<span id="cb46-435"><a href="#cb46-435" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   geom_point() + --&gt;</span></span>
-<span id="cb46-436"><a href="#cb46-436" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   geom_smooth(method = "lm", se = F)+ --&gt;</span></span>
-<span id="cb46-437"><a href="#cb46-437" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   labs(x = "Matéria seca total (g)", --&gt;</span></span>
-<span id="cb46-438"><a href="#cb46-438" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--        y = "Área foliar (cm2)") --&gt;</span></span>
-<span id="cb46-439"><a href="#cb46-439" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-440"><a href="#cb46-440" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- arrange_ggplot(l1, l2, --&gt;</span></span>
-<span id="cb46-441"><a href="#cb46-441" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--                tag_levels = list(c("s1", "s2")), --&gt;</span></span>
-<span id="cb46-442"><a href="#cb46-442" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--                widths = c(1, 1.2)) --&gt;</span></span>
-<span id="cb46-443"><a href="#cb46-443" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-444"><a href="#cb46-444" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ``` --&gt;</span></span>
-<span id="cb46-445"><a href="#cb46-445" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-446"><a href="#cb46-446" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- </span><span class="al">###</span><span class="co"> Regressão linear polinomial --&gt;</span></span>
-<span id="cb46-447"><a href="#cb46-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-448"><a href="#cb46-448" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Para confeccionar um gráfico de regressão polinomial, além do argumento `method = "lm"` (linear model), precisa-se incluir no argumento `formula` a formula utilizada, neste caso, definida utilizando `poly()` (polinomial). --&gt;</span></span>
-<span id="cb46-449"><a href="#cb46-449" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ```{r message = FALSE, warning = FALSE, fig.width = 7, fig.height = 3, fig.align = "center", fig.cap = "Gráfico de dispersão combinado com inclusão de curvas ajustadas."} --&gt;</span></span>
-<span id="cb46-450"><a href="#cb46-450" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #### Polinômio de segundo grau --&gt;</span></span>
-<span id="cb46-451"><a href="#cb46-451" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- dado_reg = tibble(dose = c(15,20,25,30,35,40), --&gt;</span></span>
-<span id="cb46-452"><a href="#cb46-452" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--                   prod = c(65,70,73,75,69,62)) --&gt;</span></span>
-<span id="cb46-453"><a href="#cb46-453" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- q1 &lt;-  --&gt;</span></span>
-<span id="cb46-454"><a href="#cb46-454" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   ggplot(dado_reg, aes(dose, prod))+ --&gt;</span></span>
-<span id="cb46-455"><a href="#cb46-455" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   geom_point()+ --&gt;</span></span>
-<span id="cb46-456"><a href="#cb46-456" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   stat_smooth(method = "lm", --&gt;</span></span>
-<span id="cb46-457"><a href="#cb46-457" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--               formula = "y ~ poly(x, 1)", --&gt;</span></span>
-<span id="cb46-458"><a href="#cb46-458" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--               se = FALSE) --&gt;</span></span>
-<span id="cb46-459"><a href="#cb46-459" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- q2 &lt;-   --&gt;</span></span>
-<span id="cb46-460"><a href="#cb46-460" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   q1 +  --&gt;</span></span>
-<span id="cb46-461"><a href="#cb46-461" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   stat_smooth(method = "lm", --&gt;</span></span>
-<span id="cb46-462"><a href="#cb46-462" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--               formula = "y ~ poly(x, 2)", --&gt;</span></span>
-<span id="cb46-463"><a href="#cb46-463" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--               linetype = "dashed", --&gt;</span></span>
-<span id="cb46-464"><a href="#cb46-464" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--               color = "red", --&gt;</span></span>
-<span id="cb46-465"><a href="#cb46-465" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--               se = FALSE) --&gt;</span></span>
+<span id="cb46-433"><a href="#cb46-433" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   labs(x = "Matéria seca total (g)", --&gt;</span></span>
+<span id="cb46-434"><a href="#cb46-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-435"><a href="#cb46-435" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--        y = "Área foliar (cm2)") --&gt;</span></span>
+<span id="cb46-436"><a href="#cb46-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-437"><a href="#cb46-437" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- l2 &lt;-  --&gt;</span></span>
+<span id="cb46-438"><a href="#cb46-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-439"><a href="#cb46-439" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   ggplot(df, aes(x = MST, y = AF, colour = DAP)) + --&gt;</span></span>
+<span id="cb46-440"><a href="#cb46-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-441"><a href="#cb46-441" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   geom_point() + --&gt;</span></span>
+<span id="cb46-442"><a href="#cb46-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-443"><a href="#cb46-443" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   geom_smooth(method = "lm", se = F)+ --&gt;</span></span>
+<span id="cb46-444"><a href="#cb46-444" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-445"><a href="#cb46-445" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   labs(x = "Matéria seca total (g)", --&gt;</span></span>
+<span id="cb46-446"><a href="#cb46-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-447"><a href="#cb46-447" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--        y = "Área foliar (cm2)") --&gt;</span></span>
+<span id="cb46-448"><a href="#cb46-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-449"><a href="#cb46-449" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- arrange_ggplot(l1, l2, --&gt;</span></span>
+<span id="cb46-450"><a href="#cb46-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-451"><a href="#cb46-451" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--                tag_levels = list(c("s1", "s2")), --&gt;</span></span>
+<span id="cb46-452"><a href="#cb46-452" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-453"><a href="#cb46-453" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--                widths = c(1, 1.2)) --&gt;</span></span>
+<span id="cb46-454"><a href="#cb46-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-455"><a href="#cb46-455" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ``` --&gt;</span></span>
+<span id="cb46-456"><a href="#cb46-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-457"><a href="#cb46-457" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- </span><span class="al">###</span><span class="co"> Regressão linear polinomial --&gt;</span></span>
+<span id="cb46-458"><a href="#cb46-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-459"><a href="#cb46-459" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Para confeccionar um gráfico de regressão polinomial, além do argumento `method = "lm"` (linear model), precisa-se incluir no argumento `formula` a formula utilizada, neste caso, definida utilizando `poly()` (polinomial). --&gt;</span></span>
+<span id="cb46-460"><a href="#cb46-460" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-461"><a href="#cb46-461" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ```{r message = FALSE, warning = FALSE, fig.width = 7, fig.height = 3, fig.align = "center", fig.cap = "Gráfico de dispersão combinado com inclusão de curvas ajustadas."} --&gt;</span></span>
+<span id="cb46-462"><a href="#cb46-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-463"><a href="#cb46-463" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- #### Polinômio de segundo grau --&gt;</span></span>
+<span id="cb46-464"><a href="#cb46-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-465"><a href="#cb46-465" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- dado_reg = tibble(dose = c(15,20,25,30,35,40), --&gt;</span></span>
 <span id="cb46-466"><a href="#cb46-466" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-467"><a href="#cb46-467" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- arrange_ggplot(q1, q2, tag_levels = list(c("l1", "l2"))) --&gt;</span></span>
-<span id="cb46-468"><a href="#cb46-468" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ``` --&gt;</span></span>
-<span id="cb46-469"><a href="#cb46-469" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-470"><a href="#cb46-470" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Utilizando a função `plot_lines()` do pacote metan, um gráfico semelhante pode ser criado com --&gt;</span></span>
-<span id="cb46-471"><a href="#cb46-471" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-472"><a href="#cb46-472" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ```{r} --&gt;</span></span>
-<span id="cb46-473"><a href="#cb46-473" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- plot_lines(dado_reg,  --&gt;</span></span>
-<span id="cb46-474"><a href="#cb46-474" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--            x = dose, --&gt;</span></span>
-<span id="cb46-475"><a href="#cb46-475" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--            y = prod, --&gt;</span></span>
-<span id="cb46-476"><a href="#cb46-476" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--            fit = 2) --&gt;</span></span>
-<span id="cb46-477"><a href="#cb46-477" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ``` --&gt;</span></span>
+<span id="cb46-467"><a href="#cb46-467" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--                   prod = c(65,70,73,75,69,62)) --&gt;</span></span>
+<span id="cb46-468"><a href="#cb46-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-469"><a href="#cb46-469" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- q1 &lt;-  --&gt;</span></span>
+<span id="cb46-470"><a href="#cb46-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-471"><a href="#cb46-471" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   ggplot(dado_reg, aes(dose, prod))+ --&gt;</span></span>
+<span id="cb46-472"><a href="#cb46-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-473"><a href="#cb46-473" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   geom_point()+ --&gt;</span></span>
+<span id="cb46-474"><a href="#cb46-474" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-475"><a href="#cb46-475" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   stat_smooth(method = "lm", --&gt;</span></span>
+<span id="cb46-476"><a href="#cb46-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-477"><a href="#cb46-477" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--               formula = "y ~ poly(x, 1)", --&gt;</span></span>
 <span id="cb46-478"><a href="#cb46-478" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-479"><a href="#cb46-479" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dados da estação</span></span>
-<span id="cb46-480"><a href="#cb46-480" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gráfico da precipitação e temperatura</span></span>
-<span id="cb46-481"><a href="#cb46-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-479"><a href="#cb46-479" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--               se = FALSE) --&gt;</span></span>
+<span id="cb46-480"><a href="#cb46-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-481"><a href="#cb46-481" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- q2 &lt;-   --&gt;</span></span>
 <span id="cb46-482"><a href="#cb46-482" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-483"><a href="#cb46-483" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.width=10, fig.cap="Temperaturas máximas e mínimas e precipitação observada ao longo dos dias."}</span></span>
-<span id="cb46-484"><a href="#cb46-484" aria-hidden="true" tabindex="-1"></a>df_prec <span class="ot">&lt;-</span> </span>
-<span id="cb46-485"><a href="#cb46-485" aria-hidden="true" tabindex="-1"></a>  clima_max_min <span class="sc">|&gt;</span> </span>
-<span id="cb46-486"><a href="#cb46-486" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"name"</span>,</span>
-<span id="cb46-487"><a href="#cb46-487" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> <span class="st">"value"</span>)</span>
+<span id="cb46-483"><a href="#cb46-483" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   q1 +  --&gt;</span></span>
+<span id="cb46-484"><a href="#cb46-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-485"><a href="#cb46-485" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--   stat_smooth(method = "lm", --&gt;</span></span>
+<span id="cb46-486"><a href="#cb46-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-487"><a href="#cb46-487" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--               formula = "y ~ poly(x, 2)", --&gt;</span></span>
 <span id="cb46-488"><a href="#cb46-488" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-489"><a href="#cb46-489" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb46-490"><a href="#cb46-490" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(df_prec,</span>
-<span id="cb46-491"><a href="#cb46-491" aria-hidden="true" tabindex="-1"></a>           <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> dia, <span class="at">y =</span> precip <span class="sc">*</span> <span class="dv">30</span> <span class="sc">/</span> <span class="dv">100</span>),</span>
-<span id="cb46-492"><a href="#cb46-492" aria-hidden="true" tabindex="-1"></a>           <span class="at">stat =</span> <span class="st">"identity"</span>,</span>
-<span id="cb46-493"><a href="#cb46-493" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span></span>
-<span id="cb46-494"><a href="#cb46-494" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(df_prec,</span>
-<span id="cb46-495"><a href="#cb46-495" aria-hidden="true" tabindex="-1"></a>            <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> dia, <span class="at">y =</span> max, <span class="at">colour =</span> <span class="st">"red"</span>),</span>
-<span id="cb46-496"><a href="#cb46-496" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb46-497"><a href="#cb46-497" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(df_prec, </span>
-<span id="cb46-498"><a href="#cb46-498" aria-hidden="true" tabindex="-1"></a>            <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> dia, <span class="at">y =</span> min, <span class="at">colour =</span> <span class="st">"blue"</span>),</span>
-<span id="cb46-499"><a href="#cb46-499" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb46-500"><a href="#cb46-500" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"15 days"</span>, <span class="at">date_labels =</span>  <span class="st">"%d/%m"</span>,</span>
-<span id="cb46-501"><a href="#cb46-501" aria-hidden="true" tabindex="-1"></a>               <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)))<span class="sc">+</span></span>
-<span id="cb46-502"><a href="#cb46-502" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="fu">expression</span>(<span class="st">"Temperatura ("</span><span class="sc">~</span>degree<span class="sc">~</span><span class="st">"C)"</span>),</span>
-<span id="cb46-503"><a href="#cb46-503" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span> . <span class="sc">*</span> <span class="dv">100</span> <span class="sc">/</span> <span class="dv">30</span> , <span class="at">name =</span> <span class="st">"Precipitação (mm)"</span>)) <span class="sc">+</span></span>
-<span id="cb46-504"><a href="#cb46-504" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
-<span id="cb46-505"><a href="#cb46-505" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb46-506"><a href="#cb46-506" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb46-507"><a href="#cb46-507" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_identity</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>),</span>
-<span id="cb46-508"><a href="#cb46-508" aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Temperatura máxima (ºC)"</span>,</span>
-<span id="cb46-509"><a href="#cb46-509" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Temperatura mínima (ºC)"</span>),</span>
-<span id="cb46-510"><a href="#cb46-510" aria-hidden="true" tabindex="-1"></a>                       <span class="at">guide =</span> <span class="st">"legend"</span>) <span class="sc">+</span></span>
-<span id="cb46-511"><a href="#cb46-511" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Dia do ano"</span>)</span>
-<span id="cb46-512"><a href="#cb46-512" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-513"><a href="#cb46-513" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-514"><a href="#cb46-514" aria-hidden="true" tabindex="-1"></a><span class="fu">### Velocidade média do vento </span></span>
-<span id="cb46-515"><a href="#cb46-515" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-516"><a href="#cb46-516" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
-<span id="cb46-517"><a href="#cb46-517" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-518"><a href="#cb46-518" aria-hidden="true" tabindex="-1"></a>vento_long <span class="ot">&lt;-</span></span>
-<span id="cb46-519"><a href="#cb46-519" aria-hidden="true" tabindex="-1"></a>  df_estacao <span class="sc">%&gt;%</span></span>
-<span id="cb46-520"><a href="#cb46-520" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(m, hora, velvent) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-521"><a href="#cb46-521" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(m, hora))</span>
-<span id="cb46-522"><a href="#cb46-522" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(vento_long)</span>
-<span id="cb46-523"><a href="#cb46-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-524"><a href="#cb46-524" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-525"><a href="#cb46-525" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-526"><a href="#cb46-526" aria-hidden="true" tabindex="-1"></a><span class="co"># confeccionar gráfico</span></span>
-<span id="cb46-527"><a href="#cb46-527" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(vento_long, <span class="fu">aes</span>(m, value, <span class="at">color =</span> name, <span class="at">group =</span> name )) <span class="sc">+</span></span>
-<span id="cb46-528"><a href="#cb46-528" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"point"</span>, </span>
-<span id="cb46-529"><a href="#cb46-529" aria-hidden="true" tabindex="-1"></a>               <span class="at">fun =</span> mean) <span class="sc">+</span></span>
-<span id="cb46-530"><a href="#cb46-530" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"line"</span>) <span class="sc">+</span> </span>
-<span id="cb46-531"><a href="#cb46-531" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"errorbar"</span>, <span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb46-532"><a href="#cb46-532" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>),</span>
-<span id="cb46-533"><a href="#cb46-533" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Rajada (m/s)"</span>,</span>
-<span id="cb46-534"><a href="#cb46-534" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"Velocidade do vento (m/s)"</span>),</span>
-<span id="cb46-535"><a href="#cb46-535" aria-hidden="true" tabindex="-1"></a>                     <span class="at">guide =</span> <span class="st">"legend"</span>) <span class="sc">+</span></span>
-<span id="cb46-536"><a href="#cb46-536" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb46-537"><a href="#cb46-537" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
-<span id="cb46-538"><a href="#cb46-538" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb46-539"><a href="#cb46-539" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb46-540"><a href="#cb46-540" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>)) <span class="sc">+</span> </span>
-<span id="cb46-541"><a href="#cb46-541" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Velocidade média mensal do vento em 2022"</span>,</span>
-<span id="cb46-542"><a href="#cb46-542" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Estação UFSC - Ressacada"</span>,</span>
-<span id="cb46-543"><a href="#cb46-543" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Elaboração: Prof. Tiago Olivoto"</span>,</span>
-<span id="cb46-544"><a href="#cb46-544" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Mês do ano"</span>,</span>
-<span id="cb46-545"><a href="#cb46-545" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Velocidade (m/s)"</span>)</span>
-<span id="cb46-546"><a href="#cb46-546" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-489"><a href="#cb46-489" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--               linetype = "dashed", --&gt;</span></span>
+<span id="cb46-490"><a href="#cb46-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-491"><a href="#cb46-491" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--               color = "red", --&gt;</span></span>
+<span id="cb46-492"><a href="#cb46-492" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-493"><a href="#cb46-493" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--               se = FALSE) --&gt;</span></span>
+<span id="cb46-494"><a href="#cb46-494" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-495"><a href="#cb46-495" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- arrange_ggplot(q1, q2, tag_levels = list(c("l1", "l2"))) --&gt;</span></span>
+<span id="cb46-496"><a href="#cb46-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-497"><a href="#cb46-497" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ``` --&gt;</span></span>
+<span id="cb46-498"><a href="#cb46-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-499"><a href="#cb46-499" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Utilizando a função `plot_lines()` do pacote metan, um gráfico semelhante pode ser criado com --&gt;</span></span>
+<span id="cb46-500"><a href="#cb46-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-501"><a href="#cb46-501" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ```{r} --&gt;</span></span>
+<span id="cb46-502"><a href="#cb46-502" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-503"><a href="#cb46-503" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- plot_lines(dado_reg,  --&gt;</span></span>
+<span id="cb46-504"><a href="#cb46-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-505"><a href="#cb46-505" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--            x = dose, --&gt;</span></span>
+<span id="cb46-506"><a href="#cb46-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-507"><a href="#cb46-507" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--            y = prod, --&gt;</span></span>
+<span id="cb46-508"><a href="#cb46-508" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-509"><a href="#cb46-509" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--            fit = 2) --&gt;</span></span>
+<span id="cb46-510"><a href="#cb46-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-511"><a href="#cb46-511" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- ``` --&gt;</span></span>
+<span id="cb46-512"><a href="#cb46-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-513"><a href="#cb46-513" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dados da estação</span></span>
+<span id="cb46-514"><a href="#cb46-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-515"><a href="#cb46-515" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gráfico da precipitação e temperatura</span></span>
+<span id="cb46-516"><a href="#cb46-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-517"><a href="#cb46-517" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.width=10, fig.cap="Temperaturas máximas e mínimas e precipitação observada ao longo dos dias."}</span></span>
+<span id="cb46-518"><a href="#cb46-518" aria-hidden="true" tabindex="-1"></a>df_prec <span class="ot">&lt;-</span> </span>
+<span id="cb46-519"><a href="#cb46-519" aria-hidden="true" tabindex="-1"></a>  clima_max_min <span class="sc">|&gt;</span> </span>
+<span id="cb46-520"><a href="#cb46-520" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"name"</span>,</span>
+<span id="cb46-521"><a href="#cb46-521" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> <span class="st">"value"</span>)</span>
+<span id="cb46-522"><a href="#cb46-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-523"><a href="#cb46-523" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb46-524"><a href="#cb46-524" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(df_prec,</span>
+<span id="cb46-525"><a href="#cb46-525" aria-hidden="true" tabindex="-1"></a>           <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> dia, <span class="at">y =</span> precip <span class="sc">*</span> <span class="dv">30</span> <span class="sc">/</span> <span class="dv">100</span>),</span>
+<span id="cb46-526"><a href="#cb46-526" aria-hidden="true" tabindex="-1"></a>           <span class="at">stat =</span> <span class="st">"identity"</span>,</span>
+<span id="cb46-527"><a href="#cb46-527" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span></span>
+<span id="cb46-528"><a href="#cb46-528" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(df_prec,</span>
+<span id="cb46-529"><a href="#cb46-529" aria-hidden="true" tabindex="-1"></a>            <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> dia, <span class="at">y =</span> max, <span class="at">colour =</span> <span class="st">"red"</span>),</span>
+<span id="cb46-530"><a href="#cb46-530" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb46-531"><a href="#cb46-531" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(df_prec, </span>
+<span id="cb46-532"><a href="#cb46-532" aria-hidden="true" tabindex="-1"></a>            <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> dia, <span class="at">y =</span> min, <span class="at">colour =</span> <span class="st">"blue"</span>),</span>
+<span id="cb46-533"><a href="#cb46-533" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb46-534"><a href="#cb46-534" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"15 days"</span>, <span class="at">date_labels =</span>  <span class="st">"%d/%m"</span>,</span>
+<span id="cb46-535"><a href="#cb46-535" aria-hidden="true" tabindex="-1"></a>               <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)))<span class="sc">+</span></span>
+<span id="cb46-536"><a href="#cb46-536" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="fu">expression</span>(<span class="st">"Temperatura ("</span><span class="sc">~</span>degree<span class="sc">~</span><span class="st">"C)"</span>),</span>
+<span id="cb46-537"><a href="#cb46-537" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span> . <span class="sc">*</span> <span class="dv">100</span> <span class="sc">/</span> <span class="dv">30</span> , <span class="at">name =</span> <span class="st">"Precipitação (mm)"</span>)) <span class="sc">+</span></span>
+<span id="cb46-538"><a href="#cb46-538" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb46-539"><a href="#cb46-539" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb46-540"><a href="#cb46-540" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb46-541"><a href="#cb46-541" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_identity</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>),</span>
+<span id="cb46-542"><a href="#cb46-542" aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Temperatura máxima (ºC)"</span>,</span>
+<span id="cb46-543"><a href="#cb46-543" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Temperatura mínima (ºC)"</span>),</span>
+<span id="cb46-544"><a href="#cb46-544" aria-hidden="true" tabindex="-1"></a>                       <span class="at">guide =</span> <span class="st">"legend"</span>) <span class="sc">+</span></span>
+<span id="cb46-545"><a href="#cb46-545" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Dia do ano"</span>)</span>
+<span id="cb46-546"><a href="#cb46-546" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-547"><a href="#cb46-547" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-548"><a href="#cb46-548" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-548"><a href="#cb46-548" aria-hidden="true" tabindex="-1"></a><span class="fu">### Velocidade média do vento</span></span>
 <span id="cb46-549"><a href="#cb46-549" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-550"><a href="#cb46-550" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-550"><a href="#cb46-550" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
 <span id="cb46-551"><a href="#cb46-551" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-552"><a href="#cb46-552" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-553"><a href="#cb46-553" aria-hidden="true" tabindex="-1"></a><span class="fu">### Direção do vento</span></span>
-<span id="cb46-554"><a href="#cb46-554" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
-<span id="cb46-555"><a href="#cb46-555" aria-hidden="true" tabindex="-1"></a><span class="co"># cria uma tabela de frequência transformando a variável quantitativa direção do vento</span></span>
-<span id="cb46-556"><a href="#cb46-556" aria-hidden="true" tabindex="-1"></a><span class="co"># em uma qualitativa </span></span>
-<span id="cb46-557"><a href="#cb46-557" aria-hidden="true" tabindex="-1"></a>freq <span class="ot">&lt;-</span> </span>
-<span id="cb46-558"><a href="#cb46-558" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cut</span>(df_estacao<span class="sc">$</span>dirvent, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="at">by =</span> <span class="dv">45</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb46-559"><a href="#cb46-559" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb46-560"><a href="#cb46-560" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb46-561"><a href="#cb46-561" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_names</span>(<span class="st">"Direção"</span>, <span class="st">"Dias"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-562"><a href="#cb46-562" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(Direção <span class="ot">=</span> <span class="fu">paste0</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">315</span>, <span class="at">by =</span> <span class="dv">45</span>)),</span>
-<span id="cb46-563"><a href="#cb46-563" aria-hidden="true" tabindex="-1"></a>         <span class="at">Percent =</span> Dias <span class="sc">/</span> <span class="dv">3428</span> <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-564"><a href="#cb46-564" aria-hidden="true" tabindex="-1"></a>  <span class="fu">remove_cols</span>(Dias)</span>
-<span id="cb46-565"><a href="#cb46-565" aria-hidden="true" tabindex="-1"></a>freq</span>
-<span id="cb46-566"><a href="#cb46-566" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-567"><a href="#cb46-567" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-568"><a href="#cb46-568" aria-hidden="true" tabindex="-1"></a><span class="co"># criar um radar plot para mostrar a direção predominante</span></span>
-<span id="cb46-569"><a href="#cb46-569" aria-hidden="true" tabindex="-1"></a><span class="co"># do vento</span></span>
-<span id="cb46-570"><a href="#cb46-570" aria-hidden="true" tabindex="-1"></a><span class="fu">ggradar</span>(freq <span class="sc">%&gt;%</span> <span class="fu">transpose_df</span>(),</span>
-<span id="cb46-571"><a href="#cb46-571" aria-hidden="true" tabindex="-1"></a>        <span class="at">values.radar =</span> <span class="fu">c</span>(<span class="st">"0%"</span>,  <span class="st">"25.8%"</span>),</span>
-<span id="cb46-572"><a href="#cb46-572" aria-hidden="true" tabindex="-1"></a>        <span class="at">grid.max =</span> <span class="fu">max</span>(freq<span class="sc">$</span>Percent))</span>
-<span id="cb46-573"><a href="#cb46-573" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-574"><a href="#cb46-574" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-575"><a href="#cb46-575" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-576"><a href="#cb46-576" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-577"><a href="#cb46-577" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-578"><a href="#cb46-578" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-579"><a href="#cb46-579" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mapas</span></span>
-<span id="cb46-580"><a href="#cb46-580" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mapa da américa do sul e Brasil</span></span>
-<span id="cb46-581"><a href="#cb46-581" aria-hidden="true" tabindex="-1"></a>O pacote <span class="in">`rnaturalearth`</span> é uma excelente ferramenta para manter e facilitar a interação com os dados do mapa <span class="co">[</span><span class="ot">Natural Earth</span><span class="co">](https://www.naturalearthdata.com/)</span>. Para produção de mapas com o <span class="in">`ggplot2`</span>, os seguintes pacotes são necessários.</span>
-<span id="cb46-582"><a href="#cb46-582" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-552"><a href="#cb46-552" aria-hidden="true" tabindex="-1"></a>vento_long <span class="ot">&lt;-</span></span>
+<span id="cb46-553"><a href="#cb46-553" aria-hidden="true" tabindex="-1"></a>  df_estacao <span class="sc">%&gt;%</span></span>
+<span id="cb46-554"><a href="#cb46-554" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(m, hora, velvent) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-555"><a href="#cb46-555" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(m, hora))</span>
+<span id="cb46-556"><a href="#cb46-556" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(vento_long)</span>
+<span id="cb46-557"><a href="#cb46-557" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-558"><a href="#cb46-558" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-559"><a href="#cb46-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-560"><a href="#cb46-560" aria-hidden="true" tabindex="-1"></a><span class="co"># confeccionar gráfico</span></span>
+<span id="cb46-561"><a href="#cb46-561" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(vento_long, <span class="fu">aes</span>(m, value, <span class="at">color =</span> name, <span class="at">group =</span> name )) <span class="sc">+</span></span>
+<span id="cb46-562"><a href="#cb46-562" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"point"</span>, </span>
+<span id="cb46-563"><a href="#cb46-563" aria-hidden="true" tabindex="-1"></a>               <span class="at">fun =</span> mean) <span class="sc">+</span></span>
+<span id="cb46-564"><a href="#cb46-564" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"line"</span>) <span class="sc">+</span> </span>
+<span id="cb46-565"><a href="#cb46-565" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"errorbar"</span>, <span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb46-566"><a href="#cb46-566" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>),</span>
+<span id="cb46-567"><a href="#cb46-567" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Rajada (m/s)"</span>,</span>
+<span id="cb46-568"><a href="#cb46-568" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"Velocidade do vento (m/s)"</span>),</span>
+<span id="cb46-569"><a href="#cb46-569" aria-hidden="true" tabindex="-1"></a>                     <span class="at">guide =</span> <span class="st">"legend"</span>) <span class="sc">+</span></span>
+<span id="cb46-570"><a href="#cb46-570" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb46-571"><a href="#cb46-571" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb46-572"><a href="#cb46-572" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb46-573"><a href="#cb46-573" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb46-574"><a href="#cb46-574" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>)) <span class="sc">+</span> </span>
+<span id="cb46-575"><a href="#cb46-575" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Velocidade média mensal do vento em 2022"</span>,</span>
+<span id="cb46-576"><a href="#cb46-576" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Estação UFSC - Ressacada"</span>,</span>
+<span id="cb46-577"><a href="#cb46-577" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Elaboração: Prof. Tiago Olivoto"</span>,</span>
+<span id="cb46-578"><a href="#cb46-578" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Mês do ano"</span>,</span>
+<span id="cb46-579"><a href="#cb46-579" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Velocidade (m/s)"</span>)</span>
+<span id="cb46-580"><a href="#cb46-580" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-581"><a href="#cb46-581" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-582"><a href="#cb46-582" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-583"><a href="#cb46-583" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-584"><a href="#cb46-584" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-585"><a href="#cb46-585" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.width=8, fig.height=10}</span></span>
-<span id="cb46-586"><a href="#cb46-586" aria-hidden="true" tabindex="-1"></a><span class="co"># américa do sul</span></span>
-<span id="cb46-587"><a href="#cb46-587" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
-<span id="cb46-588"><a href="#cb46-588" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb46-589"><a href="#cb46-589" aria-hidden="true" tabindex="-1"></a>sam <span class="ot">&lt;-</span></span>
-<span id="cb46-590"><a href="#cb46-590" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ne_countries</span>(<span class="at">continent =</span> <span class="st">"south america"</span>,</span>
-<span id="cb46-591"><a href="#cb46-591" aria-hidden="true" tabindex="-1"></a>               <span class="at">returnclass =</span> <span class="st">"sf"</span>,</span>
-<span id="cb46-592"><a href="#cb46-592" aria-hidden="true" tabindex="-1"></a>               <span class="at">scale =</span> <span class="dv">50</span>)</span>
-<span id="cb46-593"><a href="#cb46-593" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-594"><a href="#cb46-594" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> </span>
-<span id="cb46-595"><a href="#cb46-595" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb46-596"><a href="#cb46-596" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> sam, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb46-597"><a href="#cb46-597" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
-<span id="cb46-598"><a href="#cb46-598" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">90</span>, <span class="sc">-</span><span class="dv">35</span>))</span>
+<span id="cb46-584"><a href="#cb46-584" aria-hidden="true" tabindex="-1"></a><span class="fu">### Direção do vento</span></span>
+<span id="cb46-585"><a href="#cb46-585" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-586"><a href="#cb46-586" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb46-587"><a href="#cb46-587" aria-hidden="true" tabindex="-1"></a><span class="co"># cria uma tabela de frequência transformando a variável quantitativa direção do vento</span></span>
+<span id="cb46-588"><a href="#cb46-588" aria-hidden="true" tabindex="-1"></a><span class="co"># em uma qualitativa </span></span>
+<span id="cb46-589"><a href="#cb46-589" aria-hidden="true" tabindex="-1"></a>freq <span class="ot">&lt;-</span> </span>
+<span id="cb46-590"><a href="#cb46-590" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cut</span>(df_estacao<span class="sc">$</span>dirvent, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="at">by =</span> <span class="dv">45</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb46-591"><a href="#cb46-591" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb46-592"><a href="#cb46-592" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb46-593"><a href="#cb46-593" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_names</span>(<span class="st">"Direção"</span>, <span class="st">"Dias"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-594"><a href="#cb46-594" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(Direção <span class="ot">=</span> <span class="fu">paste0</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">315</span>, <span class="at">by =</span> <span class="dv">45</span>)),</span>
+<span id="cb46-595"><a href="#cb46-595" aria-hidden="true" tabindex="-1"></a>         <span class="at">Percent =</span> Dias <span class="sc">/</span> <span class="dv">3428</span> <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-596"><a href="#cb46-596" aria-hidden="true" tabindex="-1"></a>  <span class="fu">remove_cols</span>(Dias)</span>
+<span id="cb46-597"><a href="#cb46-597" aria-hidden="true" tabindex="-1"></a>freq</span>
+<span id="cb46-598"><a href="#cb46-598" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-599"><a href="#cb46-599" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-600"><a href="#cb46-600" aria-hidden="true" tabindex="-1"></a><span class="co"># plotar o brasil e destacar santa catarina</span></span>
-<span id="cb46-601"><a href="#cb46-601" aria-hidden="true" tabindex="-1"></a>brazil <span class="ot">&lt;-</span> </span>
-<span id="cb46-602"><a href="#cb46-602" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ne_states</span>(<span class="at">country =</span> <span class="st">"brazil"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb46-603"><a href="#cb46-603" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">scat =</span> <span class="fu">ifelse</span>(postal <span class="sc">==</span> <span class="st">"SC"</span>, <span class="st">"SC"</span>, <span class="st">"Outros"</span>))</span>
-<span id="cb46-604"><a href="#cb46-604" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-605"><a href="#cb46-605" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> </span>
-<span id="cb46-606"><a href="#cb46-606" aria-hidden="true" tabindex="-1"></a>  p1 <span class="sc">+</span> </span>
-<span id="cb46-607"><a href="#cb46-607" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> brazil, <span class="fu">aes</span>(<span class="at">fill =</span> scat))</span>
-<span id="cb46-608"><a href="#cb46-608" aria-hidden="true" tabindex="-1"></a>p2</span>
-<span id="cb46-609"><a href="#cb46-609" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-610"><a href="#cb46-610" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-611"><a href="#cb46-611" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mapa do Brasil e SC, com municípios</span></span>
-<span id="cb46-612"><a href="#cb46-612" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-615"><a href="#cb46-615" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb46-616"><a href="#cb46-616" aria-hidden="true" tabindex="-1"></a>sc <span class="ot">&lt;-</span> </span>
-<span id="cb46-617"><a href="#cb46-617" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_municipality</span>(<span class="at">code_muni =</span> <span class="st">"SC"</span>,</span>
-<span id="cb46-618"><a href="#cb46-618" aria-hidden="true" tabindex="-1"></a>                    <span class="at">simplified =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb46-619"><a href="#cb46-619" aria-hidden="true" tabindex="-1"></a>                    <span class="at">showProgress =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb46-620"><a href="#cb46-620" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">floripa =</span> <span class="fu">ifelse</span>(name_muni <span class="sc">==</span> <span class="st">"Florianópolis"</span>,</span>
-<span id="cb46-621"><a href="#cb46-621" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"Florianópolis"</span>,</span>
-<span id="cb46-622"><a href="#cb46-622" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"Outro"</span>))</span>
-<span id="cb46-623"><a href="#cb46-623" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span></span>
-<span id="cb46-624"><a href="#cb46-624" aria-hidden="true" tabindex="-1"></a>  p1 <span class="sc">+</span> </span>
-<span id="cb46-625"><a href="#cb46-625" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> brazil) <span class="sc">+</span></span>
-<span id="cb46-626"><a href="#cb46-626" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> sc, <span class="fu">aes</span>(<span class="at">fill =</span> floripa)) <span class="sc">+</span></span>
-<span id="cb46-627"><a href="#cb46-627" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">55</span>, <span class="sc">-</span><span class="dv">47</span>)) <span class="sc">+</span></span>
-<span id="cb46-628"><a href="#cb46-628" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">30</span>, <span class="sc">-</span><span class="dv">25</span>)) <span class="sc">+</span></span>
-<span id="cb46-629"><a href="#cb46-629" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mapa do brasil destacando o estado de SC"</span>,</span>
-<span id="cb46-630"><a href="#cb46-630" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Produzido com os pkgs geobr e rnaturalearth"</span>,</span>
-<span id="cb46-631"><a href="#cb46-631" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">""</span>) <span class="sc">+</span></span>
-<span id="cb46-632"><a href="#cb46-632" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
-<span id="cb46-633"><a href="#cb46-633" aria-hidden="true" tabindex="-1"></a>p3</span>
-<span id="cb46-634"><a href="#cb46-634" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-635"><a href="#cb46-635" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-636"><a href="#cb46-636" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-637"><a href="#cb46-637" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-638"><a href="#cb46-638" aria-hidden="true" tabindex="-1"></a><span class="fu"># Exercício</span></span>
-<span id="cb46-639"><a href="#cb46-639" aria-hidden="true" tabindex="-1"></a><span class="fu">## Motivação</span></span>
-<span id="cb46-640"><a href="#cb46-640" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-641"><a href="#cb46-641" aria-hidden="true" tabindex="-1"></a>A densidade de fluxo de fótons fotossintéticos (PPFD) em níveis subótimos ou superótimos pode modificar o acúmulo de biomassa, composição bromatológica e aparência das culturas. Para isso, Olivoto et al. (2018)^<span class="co">[</span><span class="ot">OLIVOTO, T. et al. Photosynthetic photon flux density levels affect morphology and bromatology in *Cichorium endivia* L. var. *latifolia* grown in a hydroponic system. **Scientia Horticulturae**, v. 230, p. 178–185, 7 jan. 2018. </span><span class="co">]</span> investigaram o efeito de níveis de radiação no crescimento da chicória (*Cichorium endivia* L. var. *latifolia*). Os dados disponíveis na aba <span class="in">`FAT_CI`</span> (https://docs.google.com/spreadsheets/d/1vpVGdIkggRxmdnwrkllHbVA0TIHN85UK/edit#gid=2056145155) são relativos a duas variáveis, à saber, matéria seca total (MST) e área foliar (AF) de plantas de chicória cultivadas em diferentes níveis de sombreamento (50, 70, e 100), e avaliados aos 21, 28 e 35 dias após o plantio.</span>
-<span id="cb46-642"><a href="#cb46-642" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-643"><a href="#cb46-643" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Considerando o link disponível, importe os dados para o software R, salvando-os em um objeto chamado <span class="in">`df`</span> (preste atenção com o separador decimal!).</span>
-<span id="cb46-644"><a href="#cb46-644" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-645"><a href="#cb46-645" aria-hidden="true" tabindex="-1"></a><span class="in">```{r warning=FALSE, message=FALSE}</span></span>
-<span id="cb46-646"><a href="#cb46-646" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb46-647"><a href="#cb46-647" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb46-648"><a href="#cb46-648" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span>
-<span id="cb46-649"><a href="#cb46-649" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/1vpVGdIkggRxmdnwrkllHbVA0TIHN85UK/edit#gid=2056145155"</span></span>
-<span id="cb46-650"><a href="#cb46-650" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span>  <span class="fu">import</span>(url, <span class="at">dec =</span> <span class="st">","</span>)</span>
-<span id="cb46-651"><a href="#cb46-651" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-652"><a href="#cb46-652" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-653"><a href="#cb46-653" aria-hidden="true" tabindex="-1"></a>Para lapidar os conhecimentos na construção de gráficos, utilize o pacote <span class="in">`ggplot2`</span>^<span class="co">[</span><span class="ot">WICKHAM, H. ggplot2: Elegant Graphics for Data Analysis. New York: Springer, 2016. </span><span class="co">]</span> e metan^<span class="co">[</span><span class="ot">OLIVOTO, T.; LÚCIO, A. D. metan: An R package for multi‐environment trial analysis. Methods in Ecology and Evolution, v. 11, n. 6, p. 783–789, 2020</span><span class="co">]</span> para solução dos seguintes problemas.</span>
-<span id="cb46-654"><a href="#cb46-654" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-655"><a href="#cb46-655" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problema 1 - Associação entre variáveis</span></span>
-<span id="cb46-656"><a href="#cb46-656" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-657"><a href="#cb46-657" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Considerando os dados, construa um gráfico de dispersão com a variável <span class="in">`AF`</span> no eixo x e a variável <span class="in">`MST`</span> no eixo y, salve o gráfico em um objeto chamado <span class="in">`p1`</span>.</span>
-<span id="cb46-658"><a href="#cb46-658" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-661"><a href="#cb46-661" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb46-662"><a href="#cb46-662" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> </span>
-<span id="cb46-663"><a href="#cb46-663" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(AF, MST)) <span class="sc">+</span></span>
-<span id="cb46-664"><a href="#cb46-664" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb46-665"><a href="#cb46-665" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-600"><a href="#cb46-600" aria-hidden="true" tabindex="-1"></a><span class="co"># criar um radar plot para mostrar a direção predominante</span></span>
+<span id="cb46-601"><a href="#cb46-601" aria-hidden="true" tabindex="-1"></a><span class="co"># do vento</span></span>
+<span id="cb46-602"><a href="#cb46-602" aria-hidden="true" tabindex="-1"></a><span class="fu">ggradar</span>(freq <span class="sc">%&gt;%</span> <span class="fu">transpose_df</span>(),</span>
+<span id="cb46-603"><a href="#cb46-603" aria-hidden="true" tabindex="-1"></a>        <span class="at">values.radar =</span> <span class="fu">c</span>(<span class="st">"0%"</span>,  <span class="st">"25.8%"</span>),</span>
+<span id="cb46-604"><a href="#cb46-604" aria-hidden="true" tabindex="-1"></a>        <span class="at">grid.max =</span> <span class="fu">max</span>(freq<span class="sc">$</span>Percent))</span>
+<span id="cb46-605"><a href="#cb46-605" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-606"><a href="#cb46-606" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-607"><a href="#cb46-607" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-608"><a href="#cb46-608" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mapas</span></span>
+<span id="cb46-609"><a href="#cb46-609" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-610"><a href="#cb46-610" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mapa da américa do sul e Brasil</span></span>
+<span id="cb46-611"><a href="#cb46-611" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-612"><a href="#cb46-612" aria-hidden="true" tabindex="-1"></a>O pacote <span class="in">`rnaturalearth`</span> é uma excelente ferramenta para manter e facilitar a interação com os dados do mapa <span class="co">[</span><span class="ot">Natural Earth</span><span class="co">](https://www.naturalearthdata.com/)</span>. Para produção de mapas com o <span class="in">`ggplot2`</span>, os seguintes pacotes são necessários.</span>
+<span id="cb46-613"><a href="#cb46-613" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-614"><a href="#cb46-614" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.width=8, fig.height=10}</span></span>
+<span id="cb46-615"><a href="#cb46-615" aria-hidden="true" tabindex="-1"></a><span class="co"># américa do sul</span></span>
+<span id="cb46-616"><a href="#cb46-616" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
+<span id="cb46-617"><a href="#cb46-617" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb46-618"><a href="#cb46-618" aria-hidden="true" tabindex="-1"></a>sam <span class="ot">&lt;-</span></span>
+<span id="cb46-619"><a href="#cb46-619" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ne_countries</span>(<span class="at">continent =</span> <span class="st">"south america"</span>,</span>
+<span id="cb46-620"><a href="#cb46-620" aria-hidden="true" tabindex="-1"></a>               <span class="at">returnclass =</span> <span class="st">"sf"</span>,</span>
+<span id="cb46-621"><a href="#cb46-621" aria-hidden="true" tabindex="-1"></a>               <span class="at">scale =</span> <span class="dv">50</span>)</span>
+<span id="cb46-622"><a href="#cb46-622" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-623"><a href="#cb46-623" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> </span>
+<span id="cb46-624"><a href="#cb46-624" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb46-625"><a href="#cb46-625" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> sam, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb46-626"><a href="#cb46-626" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
+<span id="cb46-627"><a href="#cb46-627" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">90</span>, <span class="sc">-</span><span class="dv">35</span>))</span>
+<span id="cb46-628"><a href="#cb46-628" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-629"><a href="#cb46-629" aria-hidden="true" tabindex="-1"></a><span class="co"># plotar o brasil e destacar santa catarina</span></span>
+<span id="cb46-630"><a href="#cb46-630" aria-hidden="true" tabindex="-1"></a>brazil <span class="ot">&lt;-</span> </span>
+<span id="cb46-631"><a href="#cb46-631" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ne_states</span>(<span class="at">country =</span> <span class="st">"brazil"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb46-632"><a href="#cb46-632" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">scat =</span> <span class="fu">ifelse</span>(postal <span class="sc">==</span> <span class="st">"SC"</span>, <span class="st">"SC"</span>, <span class="st">"Outros"</span>))</span>
+<span id="cb46-633"><a href="#cb46-633" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-634"><a href="#cb46-634" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> </span>
+<span id="cb46-635"><a href="#cb46-635" aria-hidden="true" tabindex="-1"></a>  p1 <span class="sc">+</span> </span>
+<span id="cb46-636"><a href="#cb46-636" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> brazil, <span class="fu">aes</span>(<span class="at">fill =</span> scat))</span>
+<span id="cb46-637"><a href="#cb46-637" aria-hidden="true" tabindex="-1"></a>p2</span>
+<span id="cb46-638"><a href="#cb46-638" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-639"><a href="#cb46-639" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-640"><a href="#cb46-640" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mapa do Brasil e SC, com municípios</span></span>
+<span id="cb46-641"><a href="#cb46-641" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-644"><a href="#cb46-644" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-645"><a href="#cb46-645" aria-hidden="true" tabindex="-1"></a>sc <span class="ot">&lt;-</span> </span>
+<span id="cb46-646"><a href="#cb46-646" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_municipality</span>(<span class="at">code_muni =</span> <span class="st">"SC"</span>,</span>
+<span id="cb46-647"><a href="#cb46-647" aria-hidden="true" tabindex="-1"></a>                    <span class="at">simplified =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb46-648"><a href="#cb46-648" aria-hidden="true" tabindex="-1"></a>                    <span class="at">showProgress =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb46-649"><a href="#cb46-649" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">floripa =</span> <span class="fu">ifelse</span>(name_muni <span class="sc">==</span> <span class="st">"Florianópolis"</span>,</span>
+<span id="cb46-650"><a href="#cb46-650" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"Florianópolis"</span>,</span>
+<span id="cb46-651"><a href="#cb46-651" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"Outro"</span>))</span>
+<span id="cb46-652"><a href="#cb46-652" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span></span>
+<span id="cb46-653"><a href="#cb46-653" aria-hidden="true" tabindex="-1"></a>  p1 <span class="sc">+</span> </span>
+<span id="cb46-654"><a href="#cb46-654" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> brazil) <span class="sc">+</span></span>
+<span id="cb46-655"><a href="#cb46-655" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> sc, <span class="fu">aes</span>(<span class="at">fill =</span> floripa)) <span class="sc">+</span></span>
+<span id="cb46-656"><a href="#cb46-656" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">55</span>, <span class="sc">-</span><span class="dv">47</span>)) <span class="sc">+</span></span>
+<span id="cb46-657"><a href="#cb46-657" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">30</span>, <span class="sc">-</span><span class="dv">25</span>)) <span class="sc">+</span></span>
+<span id="cb46-658"><a href="#cb46-658" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mapa do brasil destacando o estado de SC"</span>,</span>
+<span id="cb46-659"><a href="#cb46-659" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Produzido com os pkgs geobr e rnaturalearth"</span>,</span>
+<span id="cb46-660"><a href="#cb46-660" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb46-661"><a href="#cb46-661" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb46-662"><a href="#cb46-662" aria-hidden="true" tabindex="-1"></a>p3</span>
+<span id="cb46-663"><a href="#cb46-663" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-664"><a href="#cb46-664" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-665"><a href="#cb46-665" aria-hidden="true" tabindex="-1"></a><span class="fu"># Exercício</span></span>
 <span id="cb46-666"><a href="#cb46-666" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-667"><a href="#cb46-667" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Para melhor compreender a distribuição dos pontos, realize o mapeamento da variável <span class="in">`DAP`</span> com diferentes cores.</span>
-<span id="cb46-668"><a href="#cb46-668" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Altere a legenda do eixo x e y para 'Área foliar (cm2)' e 'Matéria seca (g)', respectivamente.</span>
-<span id="cb46-669"><a href="#cb46-669" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Aplique um tema de sua preferência ao tema utilizando qualquer tema definido por <span class="in">`theme_*()`</span>^<span class="co">[</span><span class="ot">O pacote ggthemes (https://mran.microsoft.com/snapshot/2015-04-01/web/packages/ggthemes/vignettes/ggthemes.html) pode ser utilizado para aumentar o leque de possibilidades.</span><span class="co">]</span>.</span>
-<span id="cb46-670"><a href="#cb46-670" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Armazene o gráfico em um objeto chamado <span class="in">`p2`</span>.</span>
-<span id="cb46-671"><a href="#cb46-671" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-674"><a href="#cb46-674" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb46-675"><a href="#cb46-675" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> </span>
-<span id="cb46-676"><a href="#cb46-676" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(AF, MST, <span class="at">color =</span> DAP)) <span class="sc">+</span></span>
-<span id="cb46-677"><a href="#cb46-677" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb46-678"><a href="#cb46-678" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Área foliar (cm2)"</span>,</span>
-<span id="cb46-679"><a href="#cb46-679" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Matéria seca (g)"</span>)</span>
-<span id="cb46-680"><a href="#cb46-680" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-667"><a href="#cb46-667" aria-hidden="true" tabindex="-1"></a><span class="fu">## Motivação</span></span>
+<span id="cb46-668"><a href="#cb46-668" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-669"><a href="#cb46-669" aria-hidden="true" tabindex="-1"></a>A densidade de fluxo de fótons fotossintéticos (PPFD) em níveis subótimos ou superótimos pode modificar o acúmulo de biomassa, composição bromatológica e aparência das culturas. Para isso, Olivoto et al. (2018)<span class="ot">[^3]</span> investigaram o efeito de níveis de radiação no crescimento da chicória (*Cichorium endivia* L. var. *latifolia*). Os dados disponíveis na aba <span class="in">`FAT_CI`</span> (https://docs.google.com/spreadsheets/d/1vpVGdIkggRxmdnwrkllHbVA0TIHN85UK/edit#gid=2056145155) são relativos a duas variáveis, à saber, matéria seca total (MST) e área foliar (AF) de plantas de chicória cultivadas em diferentes níveis de sombreamento (50, 70, e 100), e avaliados aos 21, 28 e 35 dias após o plantio.</span>
+<span id="cb46-670"><a href="#cb46-670" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-671"><a href="#cb46-671" aria-hidden="true" tabindex="-1"></a><span class="ot">[^3]: </span>OLIVOTO, T. et al. Photosynthetic photon flux density levels affect morphology and bromatology in *Cichorium endivia* L. var. *latifolia* grown in a hydroponic system. **Scientia Horticulturae**, v. 230, p. 178--185, 7 jan. 2018.</span>
+<span id="cb46-672"><a href="#cb46-672" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-673"><a href="#cb46-673" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Considerando o link disponível, importe os dados para o software R, salvando-os em um objeto chamado <span class="in">`df`</span> (preste atenção com o separador decimal!).</span>
+<span id="cb46-674"><a href="#cb46-674" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-675"><a href="#cb46-675" aria-hidden="true" tabindex="-1"></a><span class="in">```{r warning=FALSE, message=FALSE}</span></span>
+<span id="cb46-676"><a href="#cb46-676" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb46-677"><a href="#cb46-677" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb46-678"><a href="#cb46-678" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span>
+<span id="cb46-679"><a href="#cb46-679" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/1vpVGdIkggRxmdnwrkllHbVA0TIHN85UK/edit#gid=2056145155"</span></span>
+<span id="cb46-680"><a href="#cb46-680" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span>  <span class="fu">import</span>(url, <span class="at">dec =</span> <span class="st">","</span>)</span>
 <span id="cb46-681"><a href="#cb46-681" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-682"><a href="#cb46-682" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-683"><a href="#cb46-683" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Organize os gráficos <span class="in">`p1`</span> e <span class="in">`p2`</span> em um mesmo painel, um ao lado do outro.</span>
-<span id="cb46-686"><a href="#cb46-686" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb46-687"><a href="#cb46-687" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange_ggplot</span>(p1, p2)</span>
-<span id="cb46-688"><a href="#cb46-688" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-689"><a href="#cb46-689" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-690"><a href="#cb46-690" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Realize a interpretação do gráfico com relação à associação entre AF e MST.</span>
-<span id="cb46-691"><a href="#cb46-691" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-692"><a href="#cb46-692" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; A área foliar e a matéria seca estão positivamente relacionadas, ou seja, há a tendêncida de que o aumento na área foliar venha acompanhado do aumento na matéria seca. No segundo gráfico, é possível identificar que os maiores valores de matéria seca e área foliar foram observados nos 35DAP, e o menores, aos 21DAP.</span></span>
-<span id="cb46-693"><a href="#cb46-693" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-694"><a href="#cb46-694" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Salve os gráficos em um arquivo chamado <span class="in">`dispersão.png`</span>, com 3 polegadas de altura e 8 de largura</span>
-<span id="cb46-695"><a href="#cb46-695" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-696"><a href="#cb46-696" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb46-697"><a href="#cb46-697" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"dispersão.png"</span>, <span class="at">width =</span> <span class="dv">8</span>, <span class="at">height =</span> <span class="dv">3</span>)</span>
-<span id="cb46-698"><a href="#cb46-698" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-699"><a href="#cb46-699" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-683"><a href="#cb46-683" aria-hidden="true" tabindex="-1"></a>Para lapidar os conhecimentos na construção de gráficos, utilize o pacote <span class="in">`ggplot2`</span><span class="ot">[^4]</span> e metan<span class="ot">[^5]</span> para solução dos seguintes problemas.</span>
+<span id="cb46-684"><a href="#cb46-684" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-685"><a href="#cb46-685" aria-hidden="true" tabindex="-1"></a><span class="ot">[^4]: </span>WICKHAM, H. ggplot2: Elegant Graphics for Data Analysis. New York: Springer, 2016.</span>
+<span id="cb46-686"><a href="#cb46-686" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-687"><a href="#cb46-687" aria-hidden="true" tabindex="-1"></a><span class="ot">[^5]: </span>OLIVOTO, T.; LÚCIO, A. D. metan: An R package for multi‐environment trial analysis. Methods in Ecology and Evolution, v. 11, n. 6, p. 783--789, 2020</span>
+<span id="cb46-688"><a href="#cb46-688" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-689"><a href="#cb46-689" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problema 1 - Associação entre variáveis</span></span>
+<span id="cb46-690"><a href="#cb46-690" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-691"><a href="#cb46-691" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Considerando os dados, construa um gráfico de dispersão com a variável <span class="in">`AF`</span> no eixo x e a variável <span class="in">`MST`</span> no eixo y, salve o gráfico em um objeto chamado <span class="in">`p1`</span>.</span>
+<span id="cb46-692"><a href="#cb46-692" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-695"><a href="#cb46-695" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-696"><a href="#cb46-696" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> </span>
+<span id="cb46-697"><a href="#cb46-697" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(AF, MST)) <span class="sc">+</span></span>
+<span id="cb46-698"><a href="#cb46-698" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb46-699"><a href="#cb46-699" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-700"><a href="#cb46-700" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-701"><a href="#cb46-701" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-702"><a href="#cb46-702" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problema 2 - Variação dos dados</span></span>
-<span id="cb46-703"><a href="#cb46-703" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-704"><a href="#cb46-704" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Confeccione um gráfico do tipo boxplot contendo a variável <span class="in">`DAP`</span> no eixo x e <span class="in">`MST`</span> no eixo y. Salve o gráfico em um objeto chamado <span class="in">`p3`</span>.</span>
+<span id="cb46-701"><a href="#cb46-701" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Para melhor compreender a distribuição dos pontos, realize o mapeamento da variável <span class="in">`DAP`</span> com diferentes cores.</span>
+<span id="cb46-702"><a href="#cb46-702" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Altere a legenda do eixo x e y para 'Área foliar (cm2)' e 'Matéria seca (g)', respectivamente.</span>
+<span id="cb46-703"><a href="#cb46-703" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Aplique um tema de sua preferência ao tema utilizando qualquer tema definido por <span class="in">`theme_*()`</span><span class="ot">[^6]</span>.</span>
+<span id="cb46-704"><a href="#cb46-704" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Armazene o gráfico em um objeto chamado <span class="in">`p2`</span>.</span>
 <span id="cb46-705"><a href="#cb46-705" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-708"><a href="#cb46-708" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb46-709"><a href="#cb46-709" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> </span>
-<span id="cb46-710"><a href="#cb46-710" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(DAP, MST)) <span class="sc">+</span></span>
-<span id="cb46-711"><a href="#cb46-711" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
-<span id="cb46-712"><a href="#cb46-712" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-713"><a href="#cb46-713" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-714"><a href="#cb46-714" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-715"><a href="#cb46-715" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Para fazer inferências sobre o fator sombreamento, construa um boxplot semelhante, mas agora mapeando a variável <span class="in">`SOM`</span> com diferentes cores de preenchimento do boxplot. * Inclua uma linha horizontal que represente a média geral da matéria seca.</span>
-<span id="cb46-716"><a href="#cb46-716" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Salve o gráfico em um objeto chamado <span class="in">`p4`</span>.</span>
-<span id="cb46-717"><a href="#cb46-717" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-720"><a href="#cb46-720" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb46-721"><a href="#cb46-721" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> </span>
-<span id="cb46-722"><a href="#cb46-722" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(DAP, MST, <span class="at">fill =</span> SOM)) <span class="sc">+</span></span>
-<span id="cb46-723"><a href="#cb46-723" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb46-724"><a href="#cb46-724" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">mean</span>(df<span class="sc">$</span>MST))</span>
+<span id="cb46-706"><a href="#cb46-706" aria-hidden="true" tabindex="-1"></a><span class="ot">[^6]: </span>O pacote ggthemes (https://mran.microsoft.com/snapshot/2015-04-01/web/packages/ggthemes/vignettes/ggthemes.html) pode ser utilizado para aumentar o leque de possibilidades.</span>
+<span id="cb46-707"><a href="#cb46-707" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-710"><a href="#cb46-710" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-711"><a href="#cb46-711" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> </span>
+<span id="cb46-712"><a href="#cb46-712" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(AF, MST, <span class="at">color =</span> DAP)) <span class="sc">+</span></span>
+<span id="cb46-713"><a href="#cb46-713" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb46-714"><a href="#cb46-714" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Área foliar (cm2)"</span>,</span>
+<span id="cb46-715"><a href="#cb46-715" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Matéria seca (g)"</span>)</span>
+<span id="cb46-716"><a href="#cb46-716" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-717"><a href="#cb46-717" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-718"><a href="#cb46-718" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-719"><a href="#cb46-719" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Organize os gráficos <span class="in">`p1`</span> e <span class="in">`p2`</span> em um mesmo painel, um ao lado do outro.</span>
+<span id="cb46-720"><a href="#cb46-720" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-723"><a href="#cb46-723" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-724"><a href="#cb46-724" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange_ggplot</span>(p1, p2)</span>
 <span id="cb46-725"><a href="#cb46-725" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-726"><a href="#cb46-726" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-727"><a href="#cb46-727" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-728"><a href="#cb46-728" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Organize os gráficos <span class="in">`p3`</span> e <span class="in">`p4`</span> em um mesmo painel, um ao lado do outro.</span>
-<span id="cb46-731"><a href="#cb46-731" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb46-732"><a href="#cb46-732" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange_ggplot</span>(p3, p4)</span>
-<span id="cb46-733"><a href="#cb46-733" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-734"><a href="#cb46-734" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-735"><a href="#cb46-735" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Realize a interpretação do gráfico com relação à variação da matéria seca total entre os diferentes níveis de radiação dentro de cada dia após o plantio.</span>
+<span id="cb46-727"><a href="#cb46-727" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Realize a interpretação do gráfico com relação à associação entre AF e MST.</span>
+<span id="cb46-728"><a href="#cb46-728" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-729"><a href="#cb46-729" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; A área foliar e a matéria seca estão positivamente relacionadas, ou seja, há a tendêncida de que o aumento na área foliar venha acompanhado do aumento na matéria seca. No segundo gráfico, é possível identificar que os maiores valores de matéria seca e área foliar foram observados nos 35DAP, e o menores, aos 21DAP.</span></span>
+<span id="cb46-730"><a href="#cb46-730" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-731"><a href="#cb46-731" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Salve os gráficos em um arquivo chamado <span class="in">`dispersão.png`</span>, com 3 polegadas de altura e 8 de largura</span>
+<span id="cb46-732"><a href="#cb46-732" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-733"><a href="#cb46-733" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb46-734"><a href="#cb46-734" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"dispersão.png"</span>, <span class="at">width =</span> <span class="dv">8</span>, <span class="at">height =</span> <span class="dv">3</span>)</span>
+<span id="cb46-735"><a href="#cb46-735" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-736"><a href="#cb46-736" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-737"><a href="#cb46-737" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Aos 21DAP foi observada a menor variação entre os níveis de SOM. Aos 28DAP, a diferença entre os níveis de SOM foi mais evidente, onde plantas crescendo em 100R apresentaram um valor mediano de MST maior, mas também a maior variação entre as repetições (comprimento da caixa). Aos 35DAP, a diferença entre as radiações torna-se mais evidente. Também, pode-se observar que as variações entre as repetições do 100R e 50R foram menores se comparado aos 28DAP (menor comprimento da caixa).</span></span>
+<span id="cb46-737"><a href="#cb46-737" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problema 2 - Variação dos dados</span></span>
 <span id="cb46-738"><a href="#cb46-738" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-739"><a href="#cb46-739" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-740"><a href="#cb46-740" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Salve os boxplots em um arquivo chamado <span class="in">`boxplot.png`</span>.</span>
-<span id="cb46-741"><a href="#cb46-741" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-742"><a href="#cb46-742" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb46-743"><a href="#cb46-743" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"boxplot.png"</span>)</span>
-<span id="cb46-744"><a href="#cb46-744" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-745"><a href="#cb46-745" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-746"><a href="#cb46-746" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-739"><a href="#cb46-739" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Confeccione um gráfico do tipo boxplot contendo a variável <span class="in">`DAP`</span> no eixo x e <span class="in">`MST`</span> no eixo y. Salve o gráfico em um objeto chamado <span class="in">`p3`</span>.</span>
+<span id="cb46-740"><a href="#cb46-740" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-743"><a href="#cb46-743" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-744"><a href="#cb46-744" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> </span>
+<span id="cb46-745"><a href="#cb46-745" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(DAP, MST)) <span class="sc">+</span></span>
+<span id="cb46-746"><a href="#cb46-746" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
 <span id="cb46-747"><a href="#cb46-747" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-748"><a href="#cb46-748" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problema 3 - Médias</span></span>
-<span id="cb46-749"><a href="#cb46-749" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Confeccione um gráfico de barras mostrando a média da variável <span class="in">`AF`</span> no eixo y para cada dia após o plantio (<span class="in">`DAP`</span>) no eixo x.</span>
-<span id="cb46-750"><a href="#cb46-750" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Defina os limites do eixo y de 0 até 6000.</span>
-<span id="cb46-751"><a href="#cb46-751" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Salve o gráfico em um objeto chamado <span class="in">`p5`</span>. </span>
+<span id="cb46-748"><a href="#cb46-748" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-749"><a href="#cb46-749" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-750"><a href="#cb46-750" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Para fazer inferências sobre o fator sombreamento, construa um boxplot semelhante, mas agora mapeando a variável <span class="in">`SOM`</span> com diferentes cores de preenchimento do boxplot. <span class="sc">\*</span> Inclua uma linha horizontal que represente a média geral da matéria seca.</span>
+<span id="cb46-751"><a href="#cb46-751" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Salve o gráfico em um objeto chamado <span class="in">`p4`</span>.</span>
 <span id="cb46-752"><a href="#cb46-752" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-753"><a href="#cb46-753" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Dica: a função plot_bars() do pacote metan pode ser útil.</span></span>
-<span id="cb46-754"><a href="#cb46-754" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-757"><a href="#cb46-757" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb46-758"><a href="#cb46-758" aria-hidden="true" tabindex="-1"></a>p5 <span class="ot">&lt;-</span> </span>
-<span id="cb46-759"><a href="#cb46-759" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_bars</span>(df,</span>
-<span id="cb46-760"><a href="#cb46-760" aria-hidden="true" tabindex="-1"></a>            <span class="at">x =</span> DAP,</span>
-<span id="cb46-761"><a href="#cb46-761" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> AF,</span>
-<span id="cb46-762"><a href="#cb46-762" aria-hidden="true" tabindex="-1"></a>            <span class="at">y.lim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6000</span>))</span>
+<span id="cb46-755"><a href="#cb46-755" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-756"><a href="#cb46-756" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> </span>
+<span id="cb46-757"><a href="#cb46-757" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(DAP, MST, <span class="at">fill =</span> SOM)) <span class="sc">+</span></span>
+<span id="cb46-758"><a href="#cb46-758" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb46-759"><a href="#cb46-759" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">mean</span>(df<span class="sc">$</span>MST))</span>
+<span id="cb46-760"><a href="#cb46-760" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-761"><a href="#cb46-761" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-762"><a href="#cb46-762" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Organize os gráficos <span class="in">`p3`</span> e <span class="in">`p4`</span> em um mesmo painel, um ao lado do outro.</span>
 <span id="cb46-763"><a href="#cb46-763" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-764"><a href="#cb46-764" aria-hidden="true" tabindex="-1"></a><span class="co"># versão ggplot2</span></span>
-<span id="cb46-765"><a href="#cb46-765" aria-hidden="true" tabindex="-1"></a>p5<span class="fl">.2</span> <span class="ot">&lt;-</span> </span>
-<span id="cb46-766"><a href="#cb46-766" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(DAP, AF)) <span class="sc">+</span></span>
-<span id="cb46-767"><a href="#cb46-767" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>) <span class="sc">+</span></span>
-<span id="cb46-768"><a href="#cb46-768" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6000</span>))</span>
+<span id="cb46-766"><a href="#cb46-766" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-767"><a href="#cb46-767" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange_ggplot</span>(p3, p4)</span>
+<span id="cb46-768"><a href="#cb46-768" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-769"><a href="#cb46-769" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-770"><a href="#cb46-770" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-770"><a href="#cb46-770" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Realize a interpretação do gráfico com relação à variação da matéria seca total entre os diferentes níveis de radiação dentro de cada dia após o plantio.</span>
 <span id="cb46-771"><a href="#cb46-771" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-772"><a href="#cb46-772" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Assumindo que as médias da AF precisam ser apresentadas para cada combinação de DAP e SOM, mapeie a variável <span class="in">`SOM`</span> com diferentes cores de preenchimento no gráfico de barras.</span>
-<span id="cb46-773"><a href="#cb46-773" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Mude os títulos dos eixos x e y para "Dias após o plantio (DAP)" e "Área foliar (cm2)", respectivamente.</span>
-<span id="cb46-774"><a href="#cb46-774" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Defina os limites do eixo y de 0 até 6000.</span>
-<span id="cb46-775"><a href="#cb46-775" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Armazene o gráfico em um objeto chamado <span class="in">`p6`</span>.</span>
-<span id="cb46-776"><a href="#cb46-776" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Organize os gráficos <span class="in">`p5`</span> e <span class="in">`p6`</span> em um único painel</span>
-<span id="cb46-777"><a href="#cb46-777" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Salve os gráficos de barra em uma imagem chamada <span class="in">`barras.png`</span>.</span>
-<span id="cb46-778"><a href="#cb46-778" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-779"><a href="#cb46-779" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Dica: a função plot_factbars() do pacote metan pode ser útil.</span></span>
-<span id="cb46-780"><a href="#cb46-780" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-783"><a href="#cb46-783" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb46-784"><a href="#cb46-784" aria-hidden="true" tabindex="-1"></a>p6 <span class="ot">&lt;-</span> </span>
-<span id="cb46-785"><a href="#cb46-785" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_factbars</span>(df, DAP, SOM,</span>
-<span id="cb46-786"><a href="#cb46-786" aria-hidden="true" tabindex="-1"></a>                <span class="at">resp =</span> AF,</span>
-<span id="cb46-787"><a href="#cb46-787" aria-hidden="true" tabindex="-1"></a>                <span class="at">y.lim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6000</span>),</span>
-<span id="cb46-788"><a href="#cb46-788" aria-hidden="true" tabindex="-1"></a>                <span class="at">xlab =</span> <span class="st">"Dias após o plantio (DAP)"</span>,</span>
-<span id="cb46-789"><a href="#cb46-789" aria-hidden="true" tabindex="-1"></a>                <span class="at">ylab =</span> <span class="st">"Área foliar (cm2)"</span>)</span>
-<span id="cb46-790"><a href="#cb46-790" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-791"><a href="#cb46-791" aria-hidden="true" tabindex="-1"></a><span class="co"># versão ggplot2</span></span>
-<span id="cb46-792"><a href="#cb46-792" aria-hidden="true" tabindex="-1"></a>p6<span class="fl">.2</span> <span class="ot">&lt;-</span> </span>
-<span id="cb46-793"><a href="#cb46-793" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(DAP, AF, <span class="at">fill =</span> SOM)) <span class="sc">+</span></span>
-<span id="cb46-794"><a href="#cb46-794" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>,</span>
-<span id="cb46-795"><a href="#cb46-795" aria-hidden="true" tabindex="-1"></a>           <span class="at">fun =</span> <span class="st">"mean"</span>,</span>
-<span id="cb46-796"><a href="#cb46-796" aria-hidden="true" tabindex="-1"></a>           <span class="at">width =</span> <span class="fl">0.7</span>,</span>
-<span id="cb46-797"><a href="#cb46-797" aria-hidden="true" tabindex="-1"></a>           <span class="at">position =</span> <span class="fu">position_dodge</span>()) <span class="sc">+</span></span>
-<span id="cb46-798"><a href="#cb46-798" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se,</span>
-<span id="cb46-799"><a href="#cb46-799" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">"errorbar"</span>,</span>
-<span id="cb46-800"><a href="#cb46-800" aria-hidden="true" tabindex="-1"></a>               <span class="at">width =</span> <span class="fl">0.2</span>,</span>
-<span id="cb46-801"><a href="#cb46-801" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> <span class="fu">position_dodge</span>( <span class="at">width =</span> <span class="fl">0.7</span>)) <span class="sc">+</span></span>
-<span id="cb46-802"><a href="#cb46-802" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Dias após o plantio (DAP)"</span>,</span>
-<span id="cb46-803"><a href="#cb46-803" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Área foliar (cm2)"</span>) <span class="sc">+</span></span>
-<span id="cb46-804"><a href="#cb46-804" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6000</span>))</span>
-<span id="cb46-805"><a href="#cb46-805" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-806"><a href="#cb46-806" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-807"><a href="#cb46-807" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-808"><a href="#cb46-808" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Organize os gráficos <span class="in">`p5`</span> e <span class="in">`p6`</span> em um mesmo painel, um ao lado do outro.</span>
-<span id="cb46-811"><a href="#cb46-811" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb46-812"><a href="#cb46-812" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange_ggplot</span>(p5, p6)</span>
-<span id="cb46-813"><a href="#cb46-813" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-814"><a href="#cb46-814" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-815"><a href="#cb46-815" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Realize a interpretação do gráfico com relação à área foliar nos diferentes níveis de radiação ao longo dos dias após o plantio.</span>
-<span id="cb46-816"><a href="#cb46-816" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-817"><a href="#cb46-817" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; A média da área foliar foi mais semelhante entre os níveis de radiação aos 21DAP. Considerando o erro padrão da média como uma medida de significância, pode-se afirmar que aos 21DAP as médias do 50R e 70R foram estatisticamente iguais. Aos 35DAP, a área foliar das plantas crescendo com 50% de radiação foi menor que àquelas crescendo em pleno sol (100R) e com 70% de radiação (70R).</span></span>
-<span id="cb46-818"><a href="#cb46-818" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-819"><a href="#cb46-819" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Salve os boxplots em um arquivo chamado <span class="in">`barras.png`</span>.</span>
-<span id="cb46-820"><a href="#cb46-820" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-821"><a href="#cb46-821" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb46-822"><a href="#cb46-822" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"barras.png"</span>)</span>
-<span id="cb46-823"><a href="#cb46-823" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb46-824"><a href="#cb46-824" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-825"><a href="#cb46-825" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-826"><a href="#cb46-826" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-827"><a href="#cb46-827" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-828"><a href="#cb46-828" aria-hidden="true" tabindex="-1"></a><span class="fu"># Referências</span></span>
+<span id="cb46-772"><a href="#cb46-772" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Aos 21DAP foi observada a menor variação entre os níveis de SOM. Aos 28DAP, a diferença entre os níveis de SOM foi mais evidente, onde plantas crescendo em 100R apresentaram um valor mediano de MST maior, mas também a maior variação entre as repetições (comprimento da caixa). Aos 35DAP, a diferença entre as radiações torna-se mais evidente. Também, pode-se observar que as variações entre as repetições do 100R e 50R foram menores se comparado aos 28DAP (menor comprimento da caixa).</span></span>
+<span id="cb46-773"><a href="#cb46-773" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-774"><a href="#cb46-774" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Salve os boxplots em um arquivo chamado <span class="in">`boxplot.png`</span>.</span>
+<span id="cb46-775"><a href="#cb46-775" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-776"><a href="#cb46-776" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb46-777"><a href="#cb46-777" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"boxplot.png"</span>)</span>
+<span id="cb46-778"><a href="#cb46-778" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-779"><a href="#cb46-779" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-780"><a href="#cb46-780" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problema 3 - Médias</span></span>
+<span id="cb46-781"><a href="#cb46-781" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-782"><a href="#cb46-782" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Confeccione um gráfico de barras mostrando a média da variável <span class="in">`AF`</span> no eixo y para cada dia após o plantio (<span class="in">`DAP`</span>) no eixo x.</span>
+<span id="cb46-783"><a href="#cb46-783" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Defina os limites do eixo y de 0 até 6000.</span>
+<span id="cb46-784"><a href="#cb46-784" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Salve o gráfico em um objeto chamado <span class="in">`p5`</span>.</span>
+<span id="cb46-785"><a href="#cb46-785" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-786"><a href="#cb46-786" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Dica: a função plot_bars() do pacote metan pode ser útil.</span></span>
+<span id="cb46-787"><a href="#cb46-787" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-790"><a href="#cb46-790" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-791"><a href="#cb46-791" aria-hidden="true" tabindex="-1"></a>p5 <span class="ot">&lt;-</span> </span>
+<span id="cb46-792"><a href="#cb46-792" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_bars</span>(df,</span>
+<span id="cb46-793"><a href="#cb46-793" aria-hidden="true" tabindex="-1"></a>            <span class="at">x =</span> DAP,</span>
+<span id="cb46-794"><a href="#cb46-794" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> AF,</span>
+<span id="cb46-795"><a href="#cb46-795" aria-hidden="true" tabindex="-1"></a>            <span class="at">y.lim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6000</span>))</span>
+<span id="cb46-796"><a href="#cb46-796" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-797"><a href="#cb46-797" aria-hidden="true" tabindex="-1"></a><span class="co"># versão ggplot2</span></span>
+<span id="cb46-798"><a href="#cb46-798" aria-hidden="true" tabindex="-1"></a>p5<span class="fl">.2</span> <span class="ot">&lt;-</span> </span>
+<span id="cb46-799"><a href="#cb46-799" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(DAP, AF)) <span class="sc">+</span></span>
+<span id="cb46-800"><a href="#cb46-800" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>) <span class="sc">+</span></span>
+<span id="cb46-801"><a href="#cb46-801" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6000</span>))</span>
+<span id="cb46-802"><a href="#cb46-802" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-803"><a href="#cb46-803" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-804"><a href="#cb46-804" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-805"><a href="#cb46-805" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Assumindo que as médias da AF precisam ser apresentadas para cada combinação de DAP e SOM, mapeie a variável <span class="in">`SOM`</span> com diferentes cores de preenchimento no gráfico de barras.</span>
+<span id="cb46-806"><a href="#cb46-806" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Mude os títulos dos eixos x e y para "Dias após o plantio (DAP)" e "Área foliar (cm2)", respectivamente.</span>
+<span id="cb46-807"><a href="#cb46-807" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Defina os limites do eixo y de 0 até 6000.</span>
+<span id="cb46-808"><a href="#cb46-808" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Armazene o gráfico em um objeto chamado <span class="in">`p6`</span>.</span>
+<span id="cb46-809"><a href="#cb46-809" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Organize os gráficos <span class="in">`p5`</span> e <span class="in">`p6`</span> em um único painel</span>
+<span id="cb46-810"><a href="#cb46-810" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Salve os gráficos de barra em uma imagem chamada <span class="in">`barras.png`</span>.</span>
+<span id="cb46-811"><a href="#cb46-811" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-812"><a href="#cb46-812" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Dica: a função plot_factbars() do pacote metan pode ser útil.</span></span>
+<span id="cb46-813"><a href="#cb46-813" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-816"><a href="#cb46-816" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-817"><a href="#cb46-817" aria-hidden="true" tabindex="-1"></a>p6 <span class="ot">&lt;-</span> </span>
+<span id="cb46-818"><a href="#cb46-818" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_factbars</span>(df, DAP, SOM,</span>
+<span id="cb46-819"><a href="#cb46-819" aria-hidden="true" tabindex="-1"></a>                <span class="at">resp =</span> AF,</span>
+<span id="cb46-820"><a href="#cb46-820" aria-hidden="true" tabindex="-1"></a>                <span class="at">y.lim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6000</span>),</span>
+<span id="cb46-821"><a href="#cb46-821" aria-hidden="true" tabindex="-1"></a>                <span class="at">xlab =</span> <span class="st">"Dias após o plantio (DAP)"</span>,</span>
+<span id="cb46-822"><a href="#cb46-822" aria-hidden="true" tabindex="-1"></a>                <span class="at">ylab =</span> <span class="st">"Área foliar (cm2)"</span>)</span>
+<span id="cb46-823"><a href="#cb46-823" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-824"><a href="#cb46-824" aria-hidden="true" tabindex="-1"></a><span class="co"># versão ggplot2</span></span>
+<span id="cb46-825"><a href="#cb46-825" aria-hidden="true" tabindex="-1"></a>p6<span class="fl">.2</span> <span class="ot">&lt;-</span> </span>
+<span id="cb46-826"><a href="#cb46-826" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(DAP, AF, <span class="at">fill =</span> SOM)) <span class="sc">+</span></span>
+<span id="cb46-827"><a href="#cb46-827" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>,</span>
+<span id="cb46-828"><a href="#cb46-828" aria-hidden="true" tabindex="-1"></a>           <span class="at">fun =</span> <span class="st">"mean"</span>,</span>
+<span id="cb46-829"><a href="#cb46-829" aria-hidden="true" tabindex="-1"></a>           <span class="at">width =</span> <span class="fl">0.7</span>,</span>
+<span id="cb46-830"><a href="#cb46-830" aria-hidden="true" tabindex="-1"></a>           <span class="at">position =</span> <span class="fu">position_dodge</span>()) <span class="sc">+</span></span>
+<span id="cb46-831"><a href="#cb46-831" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se,</span>
+<span id="cb46-832"><a href="#cb46-832" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">"errorbar"</span>,</span>
+<span id="cb46-833"><a href="#cb46-833" aria-hidden="true" tabindex="-1"></a>               <span class="at">width =</span> <span class="fl">0.2</span>,</span>
+<span id="cb46-834"><a href="#cb46-834" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> <span class="fu">position_dodge</span>( <span class="at">width =</span> <span class="fl">0.7</span>)) <span class="sc">+</span></span>
+<span id="cb46-835"><a href="#cb46-835" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Dias após o plantio (DAP)"</span>,</span>
+<span id="cb46-836"><a href="#cb46-836" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Área foliar (cm2)"</span>) <span class="sc">+</span></span>
+<span id="cb46-837"><a href="#cb46-837" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6000</span>))</span>
+<span id="cb46-838"><a href="#cb46-838" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-839"><a href="#cb46-839" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-840"><a href="#cb46-840" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Organize os gráficos <span class="in">`p5`</span> e <span class="in">`p6`</span> em um mesmo painel, um ao lado do outro.</span>
+<span id="cb46-841"><a href="#cb46-841" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-844"><a href="#cb46-844" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-845"><a href="#cb46-845" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange_ggplot</span>(p5, p6)</span>
+<span id="cb46-846"><a href="#cb46-846" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-847"><a href="#cb46-847" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-848"><a href="#cb46-848" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Realize a interpretação do gráfico com relação à área foliar nos diferentes níveis de radiação ao longo dos dias após o plantio.</span>
+<span id="cb46-849"><a href="#cb46-849" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-850"><a href="#cb46-850" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; A média da área foliar foi mais semelhante entre os níveis de radiação aos 21DAP. Considerando o erro padrão da média como uma medida de significância, pode-se afirmar que aos 21DAP as médias do 50R e 70R foram estatisticamente iguais. Aos 35DAP, a área foliar das plantas crescendo com 50% de radiação foi menor que àquelas crescendo em pleno sol (100R) e com 70% de radiação (70R).</span></span>
+<span id="cb46-851"><a href="#cb46-851" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-852"><a href="#cb46-852" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Salve os boxplots em um arquivo chamado <span class="in">`barras.png`</span>.</span>
+<span id="cb46-853"><a href="#cb46-853" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-854"><a href="#cb46-854" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb46-855"><a href="#cb46-855" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"barras.png"</span>)</span>
+<span id="cb46-856"><a href="#cb46-856" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb46-857"><a href="#cb46-857" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-858"><a href="#cb46-858" aria-hidden="true" tabindex="-1"></a><span class="fu"># Referências</span></span>
+<span id="cb46-859"><a href="#cb46-859" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-860"><a href="#cb46-860" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb46-861"><a href="#cb46-861" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138595&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
+<span id="cb46-862"><a href="#cb46-862" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

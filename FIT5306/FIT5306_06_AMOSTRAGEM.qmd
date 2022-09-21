@@ -2,7 +2,6 @@
 title: "6. Amostragem"
 ---
 
-
 ```{r}
 library(tidyverse)
 library(rio)
@@ -22,8 +21,8 @@ sample_random <- function(data, n, prop, strata = NULL){
 }
 ```
 
-
 # Amostragem aleatória simples
+
 A amostragem aleatória simples é o método mais básico de amostragem que tanto pode ser utilizado diretamente na seleção de uma amostra, quando se conhece os indivíduos da população, como ser parte de outros planos amostrais como, por exemplo, da Amostragem Estratificada.
 
 O número possíveis de amostras com `n` indivíduos de uma população com `N` elementos, é dado por:
@@ -41,10 +40,9 @@ d <- combn(N, n)
 t(d)
 ```
 
-
-
 ## Aplicação
-Vamos considerar uma variável `x`, distribuida normalmente  com média $\bar X = 10$ e desvio padrão $S = 2$, avaliada em população com N = 10.
+
+Vamos considerar uma variável `x`, distribuida normalmente com média $\bar X = 10$ e desvio padrão $S = 2$, avaliada em população com N = 10.
 
 ```{r}
 N <- 10
@@ -55,7 +53,6 @@ df2
 
 Considerando uma amostragem com `n = 3`, as 120 amostras possíveis são
 
-
 ```{r}
 n <- 3
 amostras <- combn(N, n) |> t()
@@ -64,6 +61,7 @@ amostras |> tail()
 ```
 
 A seguinte função, computa a média das 120 amostras. Assim, obtém-se a distribuição das médias amostrais.
+
 ```{r}
 library(tidyverse)
 medias <- NULL
@@ -80,7 +78,6 @@ head(df_medias)
 tail(df_medias)
 ```
 
-
 Ao computar a média das medias amostrais, obtém-se a média populacional
 
 ```{r}
@@ -95,6 +92,7 @@ ggplot(df_medias, aes(x = media)) +
 ```
 
 ## Abordagem paralela
+
 Quando o número de amostras cresce bastante, a abordagem for-loop não é computacionalmente eficiente. Assim, uma abordagem utilizando `sapply()` é mais eficiente. Quando paraleliza-se a função, a eficiência aumenta mais ainda.
 
 ```{r eval = FALSE}
@@ -134,24 +132,24 @@ stopCluster(clust)
 
 ```
 
-
 # Amostragem Aleatória Estratificada
+
 ## Número igual dentro de cada estrato
+
 ```{r}
 sample_random(df, n = 3, strata = cromossomo)
 ```
 
-
 ## Proporção da população em cada estrato
+
 ```{r}
 sample_random(df,
               prop = 0.3,
               strata = cromossomo)
 ```
 
-
-
 # Amostragem aleatória sistemática
+
 ```{r}
 sample_sist <- function(data, n, r = NULL){
   k <- ceiling(nrow(data) / n)
@@ -165,3 +163,6 @@ sample_sist <- function(data, n, r = NULL){
 sample_sist(df, n = 4, r = 1)
 ```
 
+```{=html}
+<div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=138596&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
+```

@@ -257,7 +257,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../FIT5306/FIT5306_10_FAT.html" class="sidebar-item-text sidebar-link">9. Experimentos Fatoriais</a>
+  <a href="../FIT5306/FIT5306_10_FAT.html" class="sidebar-item-text sidebar-link">10. Experimentos Fatoriais</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -810,6 +810,10 @@ S_{\bar{X}}  = \frac{S}{\sqrt{n}}
 <div class="cell">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calcular a média por grupo</span></span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">means_by</span>(dados, grupo) <span class="sc">|&gt;</span> <span class="fu">as.data.frame</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: `means_by()` is deprecated as of metan 1.17.0
+Please use `mean_by()` instead</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  grupo    valor
 1     A 9.018686
@@ -819,9 +823,9 @@ S_{\bar{X}}  = \frac{S}{\sqrt{n}}
 </div>
 <p>Dessa forma, poderíamos concluir que os grupos de dados são iguais? A resposta é não. Isso significa, que essa medida de posição apenas não consegue caracterizar completamente os grupos de dados. Para isto, medidas de dispersão são necessárias. Note no exemplo abaixo, como as medidas de dispersão diferem consideravelmente entre os grupos!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_stat</span>(dados,</span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> grupo,</span>
-<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"mean, median, range, ave.dev, var.amo, sd.amo, cv, se"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_stat</span>(dados,</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> grupo,</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"mean, median, range, ave.dev, var.amo, sd.amo, cv, se"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 10
   grupo variable  mean median range ave.dev var.amo sd.amo    cv    se
@@ -833,14 +837,14 @@ S_{\bar{X}}  = \frac{S}{\sqrt{n}}
 </div>
 <p>Isto fica mais facilmente notado ao criarmos um gráfico do tipo boxplot, contendo a dispersão dos dados.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbetweenstats</span>(dados,</span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">x =</span> grupo,</span>
-<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> valor,</span>
-<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">plot.type =</span> <span class="st">"box"</span>,</span>
-<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">pairwise.comparisons =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">results.subtitle =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb71-7"><a href="#cb71-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">ylab =</span> <span class="st">"rendimento"</span>,</span>
-<span id="cb71-8"><a href="#cb71-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">k =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbetweenstats</span>(dados,</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">x =</span> grupo,</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> valor,</span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">plot.type =</span> <span class="st">"box"</span>,</span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">pairwise.comparisons =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">results.subtitle =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">ylab =</span> <span class="st">"rendimento"</span>,</span>
+<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">k =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="FIT5306_01_DESC_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="768"></p>
 </div>
@@ -855,9 +859,7 @@ S_{\bar{X}}  = \frac{S}{\sqrt{n}}
 
 </div>
 
-
-
-
+<div align="center"><a href="https://www.free-website-hit-counter.com"><img src="https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138591&amp;s=2" border="0" alt="Free Website Hit Counter"></a><br><small><a href="https://www.free-website-hit-counter.com" title="Free Website Hit Counter">Free website hit counter</a></small></div>
 
 
 <!-- -->
@@ -1135,425 +1137,425 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb72" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "1. Estatística Descritiva"</span></span>
-<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacotes</span></span>
-<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{r warning=FALSE, message=FALSE}</span></span>
-<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb72-9"><a href="#cb72-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)   </span>
-<span id="cb72-10"><a href="#cb72-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-11"><a href="#cb72-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-12"><a href="#cb72-12" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introdução</span></span>
-<span id="cb72-13"><a href="#cb72-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-14"><a href="#cb72-14" aria-hidden="true" tabindex="-1"></a>A estatística descritiva é um ramo da estatística que aplica várias técnicas para descrever e sumarizar um conjunto de dados<span class="ot">[^1]</span>. Nesse material trataremos das medidas de posição e medidas de dispersão mais utilizadas para descrever um conjunto de dados (ou grupos de dados).</span>
-<span id="cb72-15"><a href="#cb72-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-16"><a href="#cb72-16" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: https://pt.wikipedia.org/wiki/Estat%C3%ADstica_descritiva</span></span>
-<span id="cb72-17"><a href="#cb72-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-18"><a href="#cb72-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># Medidas de posição</span></span>
-<span id="cb72-19"><a href="#cb72-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-20"><a href="#cb72-20" aria-hidden="true" tabindex="-1"></a>As medidas de posição (também conhecidas como medidas de tendência central) indicam um valor que melhor representa todo o conjunto de dados, ou seja, dão a tendência da concentração dos valores observados. É necessário, no entanto, cautela na interpretação de medidas de posição utilizadas de forma isolada, pois elas não nos dão a ideia da dispersão dos dados. As principais medidas de posição são: a média, a mediana e a moda.</span>
-<span id="cb72-21"><a href="#cb72-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-22"><a href="#cb72-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Média</span></span>
-<span id="cb72-23"><a href="#cb72-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-24"><a href="#cb72-24" aria-hidden="true" tabindex="-1"></a><span class="fu">### Média aritmética</span></span>
-<span id="cb72-25"><a href="#cb72-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-26"><a href="#cb72-26" aria-hidden="true" tabindex="-1"></a>Seja uma amostra $X_1$, $X_2$, $X_n$, de uma população $X_1$, $X_2$, $X_N$ de tamanho $n$ e $N$, definimos a média aritmética por</span>
-<span id="cb72-27"><a href="#cb72-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-28"><a href="#cb72-28" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-29"><a href="#cb72-29" aria-hidden="true" tabindex="-1"></a>\mu  = \frac{\displaystyle\sum_{i=1}^{N}X_i}{N}, \quad \textrm{(População)}</span>
-<span id="cb72-30"><a href="#cb72-30" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-31"><a href="#cb72-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-32"><a href="#cb72-32" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-33"><a href="#cb72-33" aria-hidden="true" tabindex="-1"></a>\bar{X} = \frac{\displaystyle\sum_{i=1}^{n}X_i}{n}. \quad \textrm{(Amostra)}</span>
-<span id="cb72-34"><a href="#cb72-34" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-35"><a href="#cb72-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-36"><a href="#cb72-36" aria-hidden="true" tabindex="-1"></a>Considere a altura (em cm) de cinco plantas de milho, armazenada no objeto <span class="in">`altura`</span>. Para calcular a média aritmética destas alturas, utilziamos a função <span class="in">`mean()`</span>.</span>
-<span id="cb72-37"><a href="#cb72-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-40"><a href="#cb72-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-41"><a href="#cb72-41" aria-hidden="true" tabindex="-1"></a>altura <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">245</span>, <span class="dv">250</span>, <span class="dv">269</span>, <span class="dv">280</span>, <span class="dv">262</span>)</span>
-<span id="cb72-42"><a href="#cb72-42" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(altura)</span>
-<span id="cb72-43"><a href="#cb72-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-44"><a href="#cb72-44" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-45"><a href="#cb72-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-46"><a href="#cb72-46" aria-hidden="true" tabindex="-1"></a><span class="fu">### Média geométrica</span></span>
-<span id="cb72-47"><a href="#cb72-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-48"><a href="#cb72-48" aria-hidden="true" tabindex="-1"></a>A média geométrica ($m_g$) entre um conjunto de <span class="in">`n`</span> dados é a <span class="in">`n`</span>-ésima raíz do produto desses dados.</span>
-<span id="cb72-49"><a href="#cb72-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-50"><a href="#cb72-50" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-51"><a href="#cb72-51" aria-hidden="true" tabindex="-1"></a>m_g = \sqrt<span class="co">[</span><span class="ot">n</span><span class="co">]</span>{\prod\limits_{i = 1}^n {{x_i}} }</span>
-<span id="cb72-52"><a href="#cb72-52" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-53"><a href="#cb72-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-54"><a href="#cb72-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### Média harmônica</span></span>
-<span id="cb72-55"><a href="#cb72-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-56"><a href="#cb72-56" aria-hidden="true" tabindex="-1"></a>A média harmônica ($m_h$) é definida como sendo o inverso da média aritmética dos inversos, representada como segue</span>
-<span id="cb72-57"><a href="#cb72-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-58"><a href="#cb72-58" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-59"><a href="#cb72-59" aria-hidden="true" tabindex="-1"></a>m_h = \frac{n}{{\sum\limits_{i = 1}^n {\frac{1}{{{x_i}}}} }}</span>
-<span id="cb72-60"><a href="#cb72-60" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-61"><a href="#cb72-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-62"><a href="#cb72-62" aria-hidden="true" tabindex="-1"></a>A escolha pelo uso da média harmônica para representação da média de um conjunto está ligada a situações que envolvem grandezas inversamente proporcionais, por exemplo a velocidade média.</span>
-<span id="cb72-63"><a href="#cb72-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-64"><a href="#cb72-64" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb72-65"><a href="#cb72-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exemplo de aplicação</span></span>
-<span id="cb72-66"><a href="#cb72-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-67"><a href="#cb72-67" aria-hidden="true" tabindex="-1"></a>Um carro percorre um percurso de mesma distância duas vezes. No primeira, ele faz o percurso com uma velocidade V1 = 80 km/h. No segunda, ele realiza o mesmo percurso com velocidade de V2 = 120 km/h. Pede-se: qual foi a velocidade média dos dois percursos?</span>
-<span id="cb72-68"><a href="#cb72-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-69"><a href="#cb72-69" aria-hidden="true" tabindex="-1"></a>Intuitivamente (e erroneamente) computaríamos a média aritmética ($(80 + 120) / 2 = 100$). Note que a distância é a mesma, para os dois percursos, o que muda é a velocidade e, consequentemente, o tempo. A resolução correta do problema é a seguinte:</span>
-<span id="cb72-70"><a href="#cb72-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-71"><a href="#cb72-71" aria-hidden="true" tabindex="-1"></a>Sejam,</span>
-<span id="cb72-72"><a href="#cb72-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-73"><a href="#cb72-73" aria-hidden="true" tabindex="-1"></a>$d$, a distância do percurso $v_1$, a velocidade média do percurso $t_i$, o tempo de viagem do percurso</span>
-<span id="cb72-74"><a href="#cb72-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-75"><a href="#cb72-75" aria-hidden="true" tabindex="-1"></a>Então, temos que $d = v_1t_1=v_2t_2$. Se $v$ é a velocidad média nos dois trajetos, então $2d=v(t_1+t_2)$, ou $2d=v(d/v_1+d/v_2)$. Moral da história: a velocidade média no percurso todo é a média harmônica das velocidades dos dois percursos:</span>
-<span id="cb72-76"><a href="#cb72-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-77"><a href="#cb72-77" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-78"><a href="#cb72-78" aria-hidden="true" tabindex="-1"></a>m_h = \frac{2}{{{\frac{1}{{{80}}} + \frac{1}{{{120}}}} }} = 96</span>
-<span id="cb72-79"><a href="#cb72-79" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-80"><a href="#cb72-80" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb72-81"><a href="#cb72-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-82"><a href="#cb72-82" aria-hidden="true" tabindex="-1"></a>No R base, não existe uma função específica para a média harmônica. Pode-se utilizar, então, a função <span class="in">`hmean()`</span> do pacote <span class="in">`metan`</span><span class="ot">[^2]</span>.</span>
-<span id="cb72-83"><a href="#cb72-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-84"><a href="#cb72-84" aria-hidden="true" tabindex="-1"></a><span class="ot">[^2]: https://tiagoolivoto.github.io/metan/</span></span>
-<span id="cb72-85"><a href="#cb72-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-88"><a href="#cb72-88" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-89"><a href="#cb72-89" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span>
-<span id="cb72-90"><a href="#cb72-90" aria-hidden="true" tabindex="-1"></a><span class="fu">hmean</span>(<span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">120</span>))</span>
-<span id="cb72-91"><a href="#cb72-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-92"><a href="#cb72-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-93"><a href="#cb72-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-94"><a href="#cb72-94" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mediana</span></span>
-<span id="cb72-95"><a href="#cb72-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-96"><a href="#cb72-96" aria-hidden="true" tabindex="-1"></a>A mediana é calculada com a função <span class="in">`median()`</span>.</span>
-<span id="cb72-97"><a href="#cb72-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-100"><a href="#cb72-100" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-101"><a href="#cb72-101" aria-hidden="true" tabindex="-1"></a>altura <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">245</span>, <span class="dv">250</span>, <span class="dv">269</span>, <span class="dv">280</span>, <span class="dv">262</span>)</span>
-<span id="cb72-102"><a href="#cb72-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-103"><a href="#cb72-103" aria-hidden="true" tabindex="-1"></a><span class="co"># Média</span></span>
-<span id="cb72-104"><a href="#cb72-104" aria-hidden="true" tabindex="-1"></a>(media <span class="ot">&lt;-</span> <span class="fu">mean</span>(altura))</span>
-<span id="cb72-105"><a href="#cb72-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-106"><a href="#cb72-106" aria-hidden="true" tabindex="-1"></a><span class="co"># Mediana</span></span>
-<span id="cb72-107"><a href="#cb72-107" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenar os dados</span></span>
-<span id="cb72-108"><a href="#cb72-108" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(altura)</span>
-<span id="cb72-109"><a href="#cb72-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-110"><a href="#cb72-110" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular a mediana</span></span>
-<span id="cb72-111"><a href="#cb72-111" aria-hidden="true" tabindex="-1"></a>(mediana <span class="ot">&lt;-</span> <span class="fu">median</span>(altura))</span>
-<span id="cb72-112"><a href="#cb72-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-113"><a href="#cb72-113" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-114"><a href="#cb72-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-115"><a href="#cb72-115" aria-hidden="true" tabindex="-1"></a><span class="fu"># Medidas de dispersão</span></span>
-<span id="cb72-116"><a href="#cb72-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-117"><a href="#cb72-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## Amplitude</span></span>
-<span id="cb72-118"><a href="#cb72-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-119"><a href="#cb72-119" aria-hidden="true" tabindex="-1"></a>A primeira medida de dispersão que definiremos é a amplitude ou amplitude total, denotada por $A_p = X_{(max)} - X_{(min)}$, onde $X_{(max)}$ e $X_{(min)}$ são os valores máximos e mínimos do conjunto de dados, respectivamente. Os valores extremos podem ser encontrados com a função <span class="in">`range()`</span>.</span>
-<span id="cb72-120"><a href="#cb72-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-123"><a href="#cb72-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-124"><a href="#cb72-124" aria-hidden="true" tabindex="-1"></a>(extremos <span class="ot">&lt;-</span> <span class="fu">range</span>(altura))</span>
-<span id="cb72-125"><a href="#cb72-125" aria-hidden="true" tabindex="-1"></a>(amplitude <span class="ot">&lt;-</span> extremos[<span class="dv">2</span>] <span class="sc">-</span> extremos[<span class="dv">1</span>])</span>
-<span id="cb72-126"><a href="#cb72-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-127"><a href="#cb72-127" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-128"><a href="#cb72-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-129"><a href="#cb72-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## Desvios médios</span></span>
-<span id="cb72-130"><a href="#cb72-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-131"><a href="#cb72-131" aria-hidden="true" tabindex="-1"></a>Considerando uma amostra $X_1$, $X_2$, $X_n$, de uma população $X_1$, $X_2$, $X_N$ de tamanho $n$ e $N$, a soma dos desvios é dada por</span>
-<span id="cb72-132"><a href="#cb72-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-133"><a href="#cb72-133" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-134"><a href="#cb72-134" aria-hidden="true" tabindex="-1"></a>DM  = \sum_{i = 1}^{n} \left(X_i - \bar{X} \right)</span>
-<span id="cb72-135"><a href="#cb72-135" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-136"><a href="#cb72-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-137"><a href="#cb72-137" aria-hidden="true" tabindex="-1"></a>Para calcularmos os desvios, basta utilizar o operador <span class="in">`-`</span> no R.</span>
-<span id="cb72-138"><a href="#cb72-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-141"><a href="#cb72-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-142"><a href="#cb72-142" aria-hidden="true" tabindex="-1"></a>(desvios <span class="ot">&lt;-</span> altura <span class="sc">-</span> media)</span>
-<span id="cb72-143"><a href="#cb72-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-144"><a href="#cb72-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-145"><a href="#cb72-145" aria-hidden="true" tabindex="-1"></a>Para expressar estes desvios, vamos construir um gráfico utilizando o pacote <span class="in">`ggplot2`</span>.</span>
-<span id="cb72-146"><a href="#cb72-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-147"><a href="#cb72-147" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.height=3, fig.width=10}</span></span>
-<span id="cb72-148"><a href="#cb72-148" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">pessoa =</span> <span class="fu">paste</span>(<span class="st">"Planta"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>),</span>
-<span id="cb72-149"><a href="#cb72-149" aria-hidden="true" tabindex="-1"></a>                 <span class="at">altura =</span> altura,</span>
-<span id="cb72-150"><a href="#cb72-150" aria-hidden="true" tabindex="-1"></a>                 <span class="at">altura_media =</span> media,</span>
-<span id="cb72-151"><a href="#cb72-151" aria-hidden="true" tabindex="-1"></a>                 <span class="at">desvio =</span> desvios)</span>
-<span id="cb72-152"><a href="#cb72-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-153"><a href="#cb72-153" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> altura, <span class="at">y =</span> pessoa)) <span class="sc">+</span></span>
-<span id="cb72-154"><a href="#cb72-154" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"blue"</span>,</span>
-<span id="cb72-155"><a href="#cb72-155" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb72-156"><a href="#cb72-156" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> media,</span>
-<span id="cb72-157"><a href="#cb72-157" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xend =</span> altura,</span>
-<span id="cb72-158"><a href="#cb72-158" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> pessoa,</span>
-<span id="cb72-159"><a href="#cb72-159" aria-hidden="true" tabindex="-1"></a>                   <span class="at">yend =</span> pessoa)) <span class="sc">+</span></span>
-<span id="cb72-160"><a href="#cb72-160" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> media, <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb72-161"><a href="#cb72-161" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> altura, <span class="at">y =</span> pessoa, <span class="at">label =</span> <span class="fu">round</span>(desvio, <span class="at">digits =</span> <span class="dv">3</span>),</span>
-<span id="cb72-162"><a href="#cb72-162" aria-hidden="true" tabindex="-1"></a>                <span class="at">hjust =</span> <span class="fu">ifelse</span>(desvio <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="fl">1.5</span>, <span class="sc">-</span><span class="fl">0.5</span>))) <span class="sc">+</span></span>
-<span id="cb72-163"><a href="#cb72-163" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">230</span>, <span class="dv">300</span>)) <span class="sc">+</span> </span>
-<span id="cb72-164"><a href="#cb72-164" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
-<span id="cb72-165"><a href="#cb72-165" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Altura da planta (cm)"</span>,</span>
-<span id="cb72-166"><a href="#cb72-166" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Planta"</span>)</span>
-<span id="cb72-167"><a href="#cb72-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-168"><a href="#cb72-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-169"><a href="#cb72-169" aria-hidden="true" tabindex="-1"></a>A expressão anterior resulta em</span>
-<span id="cb72-170"><a href="#cb72-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-171"><a href="#cb72-171" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-172"><a href="#cb72-172" aria-hidden="true" tabindex="-1"></a>DM  = \sum_{i = 1}^{n} \left(X_i - \bar{X} \right) = 0</span>
-<span id="cb72-173"><a href="#cb72-173" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-174"><a href="#cb72-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-177"><a href="#cb72-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-178"><a href="#cb72-178" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(desvios) <span class="sc">|&gt;</span> <span class="fu">round</span>()</span>
-<span id="cb72-179"><a href="#cb72-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-180"><a href="#cb72-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-181"><a href="#cb72-181" aria-hidden="true" tabindex="-1"></a>Isso significa que essa medida não traz ganho algum a descrição dos dados, porque os desvios positivos anulam-se com os desvios negativos no somatório. Para isso, podemos contornar essa situação inserindo uma função modular nessa medida anterior, e criar o módulo do desvio. Assim, o desvio médio é dado por:</span>
-<span id="cb72-182"><a href="#cb72-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-183"><a href="#cb72-183" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-184"><a href="#cb72-184" aria-hidden="true" tabindex="-1"></a>S_{|\bar{X}|} = \frac{\sum_{i = 1}^{n} \left|X_i - \bar{X} \right|}{n}</span>
-<span id="cb72-185"><a href="#cb72-185" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-186"><a href="#cb72-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-189"><a href="#cb72-189" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-190"><a href="#cb72-190" aria-hidden="true" tabindex="-1"></a><span class="co"># soma dos desvios em módulo</span></span>
-<span id="cb72-191"><a href="#cb72-191" aria-hidden="true" tabindex="-1"></a>(somadesv <span class="ot">&lt;-</span> desvios <span class="sc">|&gt;</span> <span class="fu">abs</span>() <span class="sc">|&gt;</span> <span class="fu">sum</span>())</span>
-<span id="cb72-192"><a href="#cb72-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-193"><a href="#cb72-193" aria-hidden="true" tabindex="-1"></a><span class="co"># desvio médio</span></span>
-<span id="cb72-194"><a href="#cb72-194" aria-hidden="true" tabindex="-1"></a>somadesv <span class="sc">/</span> <span class="dv">5</span></span>
-<span id="cb72-195"><a href="#cb72-195" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-196"><a href="#cb72-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-197"><a href="#cb72-197" aria-hidden="true" tabindex="-1"></a><span class="fu">## Variância</span></span>
-<span id="cb72-198"><a href="#cb72-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-199"><a href="#cb72-199" aria-hidden="true" tabindex="-1"></a>Utilizando uma função quadrática na medida surge uma outra medida de variabilidade que é a soma de quadrados. A soma de quadrados apresenta uma outra informação interessante que é penalizar as observações quanto mais estiver distante do valor central. Assim, quando elevamos ao quadrado um alto desvio, esse valor se torna maior ainda, mas quando elevamos ao quadrado um desvio pequeno, esse valor não cresce tanto. Com isso, conseguimos compreender quais os dados que estão mais dispersos em torno da média. Ao dividir a soma de quadrados por $n-1$ temos o estimador da variância amostral ($S^2$), dado por:</span>
-<span id="cb72-200"><a href="#cb72-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-201"><a href="#cb72-201" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-202"><a href="#cb72-202" aria-hidden="true" tabindex="-1"></a>S^2 = \frac{\sum_{i = 1}^{n} \left(X_i - \bar X_i \right)^2}{n-1}</span>
-<span id="cb72-203"><a href="#cb72-203" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-204"><a href="#cb72-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-207"><a href="#cb72-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-208"><a href="#cb72-208" aria-hidden="true" tabindex="-1"></a><span class="co"># Desvios ao quadrado</span></span>
-<span id="cb72-209"><a href="#cb72-209" aria-hidden="true" tabindex="-1"></a>(desvq <span class="ot">&lt;-</span> desvios <span class="sc">^</span> <span class="dv">2</span>)</span>
-<span id="cb72-210"><a href="#cb72-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-211"><a href="#cb72-211" aria-hidden="true" tabindex="-1"></a><span class="co"># soma dos desvios ao quadrado</span></span>
-<span id="cb72-212"><a href="#cb72-212" aria-hidden="true" tabindex="-1"></a>(somadesvq <span class="ot">&lt;-</span> <span class="fu">sum</span>(desvq))</span>
-<span id="cb72-213"><a href="#cb72-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-214"><a href="#cb72-214" aria-hidden="true" tabindex="-1"></a><span class="co"># divisão por n - 1</span></span>
-<span id="cb72-215"><a href="#cb72-215" aria-hidden="true" tabindex="-1"></a>(var_altura <span class="ot">&lt;-</span> somadesvq <span class="sc">/</span> <span class="dv">4</span>)</span>
-<span id="cb72-216"><a href="#cb72-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-217"><a href="#cb72-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-218"><a href="#cb72-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-219"><a href="#cb72-219" aria-hidden="true" tabindex="-1"></a>Anteriormente, vimos o passo a passo para o cálculo da variância amostral. No R, a função <span class="in">`var()`</span> pode ser utilizada para este fim.</span>
-<span id="cb72-220"><a href="#cb72-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-223"><a href="#cb72-223" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-224"><a href="#cb72-224" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(altura)</span>
-<span id="cb72-225"><a href="#cb72-225" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-226"><a href="#cb72-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-227"><a href="#cb72-227" aria-hidden="true" tabindex="-1"></a><span class="fu">## Desvio padrão</span></span>
-<span id="cb72-228"><a href="#cb72-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-229"><a href="#cb72-229" aria-hidden="true" tabindex="-1"></a>A variância, como medida de dispersão, apresenta sua unidade ao quadrado da unidade da variável em estudo. Em outras palavras, que se tivermos usando uma variável na escala de centímetros (ex., algura), a dispersão dada pela variância estará na escala de área (cm$^2$). Isso se torna difícil a percepção de dispersão quando observamos os dados. Para contornar isso, utilizamos o desvio padrão, que é a raíz quadrada da variância, dado por</span>
-<span id="cb72-230"><a href="#cb72-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-231"><a href="#cb72-231" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-232"><a href="#cb72-232" aria-hidden="true" tabindex="-1"></a>S = \sqrt{S^2}</span>
-<span id="cb72-233"><a href="#cb72-233" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-234"><a href="#cb72-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-235"><a href="#cb72-235" aria-hidden="true" tabindex="-1"></a>Para o exemplo acima, computamos o desvio padrão extraíndo a raíz de <span class="in">`var_altura`</span>, ou, como para a variância, utilizando uma função específica do R para isso: <span class="in">`sd()`</span> (de <span class="in">`s`</span>tandard <span class="in">`d`</span>eviation).</span>
-<span id="cb72-236"><a href="#cb72-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-239"><a href="#cb72-239" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-240"><a href="#cb72-240" aria-hidden="true" tabindex="-1"></a>(desv_altura <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(var_altura))</span>
-<span id="cb72-241"><a href="#cb72-241" aria-hidden="true" tabindex="-1"></a><span class="co"># utilizando a função sd()</span></span>
-<span id="cb72-242"><a href="#cb72-242" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(altura)</span>
-<span id="cb72-243"><a href="#cb72-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-244"><a href="#cb72-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-245"><a href="#cb72-245" aria-hidden="true" tabindex="-1"></a><span class="fu">## Coeficiente de variação</span></span>
-<span id="cb72-246"><a href="#cb72-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-247"><a href="#cb72-247" aria-hidden="true" tabindex="-1"></a>As medidas de variabilidade tais como a variância e desvio padrão, são conhecidas como medidas de dispersão absoluta. Isto significa que elas serão diretamente influenciadas pela magnitude da variável. Vamos tomar como motivação, os valores em <span class="in">`altura`</span>, tomados em cm. Consideremos que estes dados são transformados para metros, por tanto, cada observação será dividida por 100. Observe abaixo o resultado do desvio padrão da mesma variável, mas com escala diferente.</span>
-<span id="cb72-248"><a href="#cb72-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-251"><a href="#cb72-251" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-252"><a href="#cb72-252" aria-hidden="true" tabindex="-1"></a>(altura_m <span class="ot">&lt;-</span> altura <span class="sc">/</span> <span class="dv">100</span>)</span>
-<span id="cb72-253"><a href="#cb72-253" aria-hidden="true" tabindex="-1"></a>(desv_altura_m <span class="ot">&lt;-</span> <span class="fu">sd</span>(altura_m))</span>
-<span id="cb72-254"><a href="#cb72-254" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-255"><a href="#cb72-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-256"><a href="#cb72-256" aria-hidden="true" tabindex="-1"></a>Para contornar este problema, podemos utilizar uma medida relativa de variabilidade chamada de Coeficiente de Variação (CV). Este pode ser usada para comparar a variabilidade entre quaisquer grupo de dados, independentemente da sua escala. O coeficiente de variação é definido por:</span>
-<span id="cb72-257"><a href="#cb72-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-258"><a href="#cb72-258" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-259"><a href="#cb72-259" aria-hidden="true" tabindex="-1"></a>CV = \frac{S}{\bar{X}} \times 100</span>
-<span id="cb72-260"><a href="#cb72-260" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-261"><a href="#cb72-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-264"><a href="#cb72-264" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-265"><a href="#cb72-265" aria-hidden="true" tabindex="-1"></a><span class="co"># coeficiente de variação da variável em centímetros</span></span>
-<span id="cb72-266"><a href="#cb72-266" aria-hidden="true" tabindex="-1"></a>(cv_altura <span class="ot">&lt;-</span> desv_altura <span class="sc">/</span> media <span class="sc">*</span> <span class="dv">100</span>)</span>
-<span id="cb72-267"><a href="#cb72-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-268"><a href="#cb72-268" aria-hidden="true" tabindex="-1"></a><span class="co"># coeficiente de variação da variável em metros</span></span>
-<span id="cb72-269"><a href="#cb72-269" aria-hidden="true" tabindex="-1"></a>(cv_altura2 <span class="ot">&lt;-</span> desv_altura_m <span class="sc">/</span> <span class="fu">mean</span>(altura_m) <span class="sc">*</span> <span class="dv">100</span>)</span>
-<span id="cb72-270"><a href="#cb72-270" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-271"><a href="#cb72-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-272"><a href="#cb72-272" aria-hidden="true" tabindex="-1"></a>Não existe no R base uma função para computar o coeficiente de variação, então vamos criá-la utilizando a abordagem <span class="in">`function()`</span>.</span>
-<span id="cb72-273"><a href="#cb72-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-276"><a href="#cb72-276" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-277"><a href="#cb72-277" aria-hidden="true" tabindex="-1"></a>CV <span class="ot">&lt;-</span> <span class="cf">function</span>(dados){</span>
-<span id="cb72-278"><a href="#cb72-278" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">class</span>(dados) <span class="sc">==</span> <span class="st">"numeric"</span>){</span>
-<span id="cb72-279"><a href="#cb72-279" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Os dados precisam ser numéricos"</span>)</span>
-<span id="cb72-280"><a href="#cb72-280" aria-hidden="true" tabindex="-1"></a>  } <span class="co">#Indica que os dados devem ser numéricos</span></span>
-<span id="cb72-281"><a href="#cb72-281" aria-hidden="true" tabindex="-1"></a>  media <span class="ot">&lt;-</span> <span class="fu">mean</span>(dados)</span>
-<span id="cb72-282"><a href="#cb72-282" aria-hidden="true" tabindex="-1"></a>  sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(dados)</span>
-<span id="cb72-283"><a href="#cb72-283" aria-hidden="true" tabindex="-1"></a>  CV <span class="ot">&lt;-</span> (sd<span class="sc">/</span>media) <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb72-284"><a href="#cb72-284" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(CV) <span class="co"># Valor que será retornado pela função</span></span>
-<span id="cb72-285"><a href="#cb72-285" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb72-286"><a href="#cb72-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-287"><a href="#cb72-287" aria-hidden="true" tabindex="-1"></a><span class="fu">CV</span>(altura)</span>
-<span id="cb72-288"><a href="#cb72-288" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-289"><a href="#cb72-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-290"><a href="#cb72-290" aria-hidden="true" tabindex="-1"></a><span class="fu">## Erro padrão da média</span></span>
-<span id="cb72-291"><a href="#cb72-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-292"><a href="#cb72-292" aria-hidden="true" tabindex="-1"></a>O erro padrão da média é a estimativa do desvio padrão de sua distribuição amostral. O desvio padrão visto anteriormente reflete a variabilidade de cada observação em torno da média amostral. Já o erro padrão da média, representa a variabilidade de cada média amostral de todas amostra possíveis, em relação a média populacional. Sua estimativa é dada por:</span>
-<span id="cb72-293"><a href="#cb72-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-294"><a href="#cb72-294" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-295"><a href="#cb72-295" aria-hidden="true" tabindex="-1"></a>S_{\bar{X}}  = \frac{S}{\sqrt{n}}</span>
-<span id="cb72-296"><a href="#cb72-296" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb72-297"><a href="#cb72-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-298"><a href="#cb72-298" aria-hidden="true" tabindex="-1"></a>É fácil observar que à medida que $n \to N$, isto é, à medida que\</span>
-<span id="cb72-299"><a href="#cb72-299" aria-hidden="true" tabindex="-1"></a>$n$ aumenta, a média amostral ($\bar X$) tende a média populacional ($\mu$). Isso significa que a média amostral é mais precisa porque se aproxima cada vez mais da média populacional. Para os dados em <span class="in">`altura`</span>, o erro padrão da média é calculado com:</span>
-<span id="cb72-300"><a href="#cb72-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-303"><a href="#cb72-303" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-304"><a href="#cb72-304" aria-hidden="true" tabindex="-1"></a>(epm <span class="ot">&lt;-</span> desv_altura <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">5</span>))</span>
-<span id="cb72-305"><a href="#cb72-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-306"><a href="#cb72-306" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-307"><a href="#cb72-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-308"><a href="#cb72-308" aria-hidden="true" tabindex="-1"></a><span class="fu"># Aplicação utilizando o pacote metan</span></span>
-<span id="cb72-309"><a href="#cb72-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-310"><a href="#cb72-310" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exemplo da altura de planta</span></span>
-<span id="cb72-311"><a href="#cb72-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-312"><a href="#cb72-312" aria-hidden="true" tabindex="-1"></a>Para calcular todas as estatísticas de uma só vez, podemos usar <span class="in">`desc_stat()`</span> do pacote metan. Esta função pode ser usada para calcular medidas de tendência central, posição e dispersão. Por padrão (<span class="in">`stats = "main"`</span>), sete estatísticas (coeficiente de variação, máximo, média, mediana, mínimo, desvio padrão da amostra, erro padrão e intervalo de confiança da média) são calculadas. Outros valores permitidos são <span class="in">`"all"`</span> para mostrar todas as estatísticas, <span class="in">`"robust"`</span> para mostrar estatísticas robustas, <span class="in">`"quantile"`</span> para mostrar estatísticas quantílicas ou escolher uma (ou mais) estatísticas usando um vetor separado por vírgula com os nomes das estatísticas, por exemplo, <span class="in">`stats = c("mean, cv")`</span>. Também podemos usar <span class="in">`hist = TRUE`</span> para criar um histograma para cada variável. Para mais detalhes consulte <span class="co">[</span><span class="ot">este material</span><span class="co">](https://tiagoolivoto.github.io/e-bookr/analdata.html#ebasic)</span>.</span>
-<span id="cb72-313"><a href="#cb72-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-316"><a href="#cb72-316" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-317"><a href="#cb72-317" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span>
-<span id="cb72-318"><a href="#cb72-318" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_stat</span>(altura, <span class="at">stats =</span> <span class="st">"all"</span>) <span class="sc">|&gt;</span> <span class="fu">as.data.frame</span>()</span>
-<span id="cb72-319"><a href="#cb72-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-320"><a href="#cb72-320" aria-hidden="true" tabindex="-1"></a><span class="co"># estatísticas vistas neste material</span></span>
-<span id="cb72-321"><a href="#cb72-321" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_stat</span>(altura,</span>
-<span id="cb72-322"><a href="#cb72-322" aria-hidden="true" tabindex="-1"></a>          <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"mean, median, range, ave.dev, var.amo, sd.amo, cv, se"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb72-323"><a href="#cb72-323" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
-<span id="cb72-324"><a href="#cb72-324" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-325"><a href="#cb72-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-326"><a href="#cb72-326" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exemplo com os dados coletados em aula</span></span>
-<span id="cb72-327"><a href="#cb72-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-328"><a href="#cb72-328" aria-hidden="true" tabindex="-1"></a>Neste exemplo, mostro como as estatísticas descritivas para os dados coletados em aula podem ser calculadas utilizando o pacote <span class="in">`metan`</span>. Os dados são importados diretamente da planilha armazenada no drive, utilizando a função <span class="in">`import()`</span> do pacote <span class="in">`rio`</span>.</span>
-<span id="cb72-329"><a href="#cb72-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-332"><a href="#cb72-332" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-333"><a href="#cb72-333" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb72-334"><a href="#cb72-334" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-335"><a href="#cb72-335" aria-hidden="true" tabindex="-1"></a><span class="co"># link dos dados</span></span>
-<span id="cb72-336"><a href="#cb72-336" aria-hidden="true" tabindex="-1"></a>link <span class="ot">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=0"</span></span>
-<span id="cb72-337"><a href="#cb72-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-338"><a href="#cb72-338" aria-hidden="true" tabindex="-1"></a><span class="co"># função para importar os dados</span></span>
-<span id="cb72-339"><a href="#cb72-339" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> </span>
-<span id="cb72-340"><a href="#cb72-340" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(link, <span class="at">dec =</span> <span class="st">","</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb72-341"><a href="#cb72-341" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_character</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) </span>
-<span id="cb72-342"><a href="#cb72-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-343"><a href="#cb72-343" aria-hidden="true" tabindex="-1"></a><span class="co"># estrutura dos dados </span></span>
-<span id="cb72-344"><a href="#cb72-344" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span>
-<span id="cb72-345"><a href="#cb72-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-346"><a href="#cb72-346" aria-hidden="true" tabindex="-1"></a><span class="co"># primeiras linhas</span></span>
-<span id="cb72-347"><a href="#cb72-347" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span>
-<span id="cb72-348"><a href="#cb72-348" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-349"><a href="#cb72-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-350"><a href="#cb72-350" aria-hidden="true" tabindex="-1"></a>Os dados foram organziados de maneira que cada fator/variável estivessem em uma coluna. Isto possibilita o cálculo das estatísticas para cada nível destes fatores. As duas variáveis quantitativas contínuas são: <span class="in">`comprimento`</span> (o comprimento da folha em cm); e <span class="in">`largura`</span>(largura da folha em mm).</span>
-<span id="cb72-351"><a href="#cb72-351" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-352"><a href="#cb72-352" aria-hidden="true" tabindex="-1"></a><span class="fu">### Estatísticas gerais</span></span>
-<span id="cb72-353"><a href="#cb72-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-354"><a href="#cb72-354" aria-hidden="true" tabindex="-1"></a>Para saber as estatísticas descritivas gerais vamos utilizar a função <span class="in">`desc_stat9)`</span>. Por padrão, a função calcula as estatísticas descritivas para todas as variáveis numéricas do conjunto de dados. Sendo assim, não há necessidade de informar qual variável analisar.</span>
-<span id="cb72-355"><a href="#cb72-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-358"><a href="#cb72-358" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-359"><a href="#cb72-359" aria-hidden="true" tabindex="-1"></a>stats <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"mean, median, range, ave.dev, var.amo, sd.amo, cv, se, n"</span>)</span>
-<span id="cb72-360"><a href="#cb72-360" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
-<span id="cb72-361"><a href="#cb72-361" aria-hidden="true" tabindex="-1"></a>  <span class="fu">desc_stat</span>(<span class="at">stats =</span> stats)</span>
-<span id="cb72-362"><a href="#cb72-362" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-363"><a href="#cb72-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-364"><a href="#cb72-364" aria-hidden="true" tabindex="-1"></a><span class="fu">### Estatísticas por ramo</span></span>
-<span id="cb72-365"><a href="#cb72-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-366"><a href="#cb72-366" aria-hidden="true" tabindex="-1"></a>Para obter as estatística para cada ramo, basta vamos utilizar a função <span class="in">`group_by()`</span> para agrupar por <span class="in">`ramo`</span>. Com isso, as estatísticas serão calculadas separadamente para <span class="in">`ramo 1`</span> e <span class="in">`ramo 2.`</span></span>
-<span id="cb72-367"><a href="#cb72-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-370"><a href="#cb72-370" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-371"><a href="#cb72-371" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
-<span id="cb72-372"><a href="#cb72-372" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ramo) <span class="sc">|&gt;</span> </span>
-<span id="cb72-373"><a href="#cb72-373" aria-hidden="true" tabindex="-1"></a>  <span class="fu">desc_stat</span>(<span class="at">stats =</span> stats)</span>
-<span id="cb72-374"><a href="#cb72-374" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-375"><a href="#cb72-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-376"><a href="#cb72-376" aria-hidden="true" tabindex="-1"></a><span class="fu">### Boxplot (descritiva e teste *t*)</span></span>
-<span id="cb72-377"><a href="#cb72-377" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-380"><a href="#cb72-380" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-381"><a href="#cb72-381" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggstatsplot)</span>
-<span id="cb72-382"><a href="#cb72-382" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbetweenstats</span>(df,</span>
-<span id="cb72-383"><a href="#cb72-383" aria-hidden="true" tabindex="-1"></a>               <span class="at">x =</span> ramo,</span>
-<span id="cb72-384"><a href="#cb72-384" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> comprimento,</span>
-<span id="cb72-385"><a href="#cb72-385" aria-hidden="true" tabindex="-1"></a>               <span class="at">plot.type =</span> <span class="st">"box"</span>,</span>
-<span id="cb72-386"><a href="#cb72-386" aria-hidden="true" tabindex="-1"></a>               <span class="at">ylab =</span> <span class="st">"rendimento"</span>)</span>
-<span id="cb72-387"><a href="#cb72-387" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-388"><a href="#cb72-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-389"><a href="#cb72-389" aria-hidden="true" tabindex="-1"></a><span class="fu"># Simulação de dados com diferentes variâncias</span></span>
-<span id="cb72-390"><a href="#cb72-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-391"><a href="#cb72-391" aria-hidden="true" tabindex="-1"></a>O código a seguir apresenta uma simulação de três grupos com 10 observações cada um. Os grupos formados são A, B e C, todos com média <span class="in">`9,018686`</span>.</span>
-<span id="cb72-392"><a href="#cb72-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-395"><a href="#cb72-395" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-396"><a href="#cb72-396" aria-hidden="true" tabindex="-1"></a><span class="co"># Dados dos grupos gerados</span></span>
-<span id="cb72-397"><a href="#cb72-397" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>) <span class="co"># assegura a reprodutibilidade</span></span>
-<span id="cb72-398"><a href="#cb72-398" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
-<span id="cb72-399"><a href="#cb72-399" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
-<span id="cb72-400"><a href="#cb72-400" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">9</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">4</span>)</span>
-<span id="cb72-401"><a href="#cb72-401" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
-<span id="cb72-402"><a href="#cb72-402" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">9</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">6</span>)</span>
-<span id="cb72-403"><a href="#cb72-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-404"><a href="#cb72-404" aria-hidden="true" tabindex="-1"></a><span class="co"># gerando B[10]</span></span>
-<span id="cb72-405"><a href="#cb72-405" aria-hidden="true" tabindex="-1"></a>B[<span class="dv">10</span>] <span class="ot">&lt;-</span>  <span class="fu">length</span>(A) <span class="sc">*</span> <span class="fu">mean</span>(A) <span class="sc">-</span> <span class="fu">sum</span>(B)</span>
-<span id="cb72-406"><a href="#cb72-406" aria-hidden="true" tabindex="-1"></a><span class="co"># gerando C[10]</span></span>
-<span id="cb72-407"><a href="#cb72-407" aria-hidden="true" tabindex="-1"></a>C[<span class="dv">10</span>] <span class="ot">&lt;-</span> <span class="fu">length</span>(A) <span class="sc">*</span> <span class="fu">mean</span>(A) <span class="sc">-</span> <span class="fu">sum</span>(C)</span>
-<span id="cb72-408"><a href="#cb72-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-409"><a href="#cb72-409" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> </span>
-<span id="cb72-410"><a href="#cb72-410" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">grupo =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"A"</span>, <span class="dv">10</span>),</span>
-<span id="cb72-411"><a href="#cb72-411" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">rep</span>(<span class="st">"B"</span>, <span class="dv">10</span>),</span>
-<span id="cb72-412"><a href="#cb72-412" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">rep</span>(<span class="st">"C"</span>, <span class="dv">10</span>)),</span>
-<span id="cb72-413"><a href="#cb72-413" aria-hidden="true" tabindex="-1"></a>             <span class="at">valor =</span> <span class="fu">c</span>(A, B, C))</span>
-<span id="cb72-414"><a href="#cb72-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-415"><a href="#cb72-415" aria-hidden="true" tabindex="-1"></a>dados</span>
-<span id="cb72-416"><a href="#cb72-416" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-417"><a href="#cb72-417" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-418"><a href="#cb72-418" aria-hidden="true" tabindex="-1"></a>Utilizando a função <span class="in">`means_by()`</span> do pacote metan é possível computar médias por grupos.</span>
-<span id="cb72-419"><a href="#cb72-419" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-422"><a href="#cb72-422" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-423"><a href="#cb72-423" aria-hidden="true" tabindex="-1"></a><span class="co"># calcular a média por grupo</span></span>
-<span id="cb72-424"><a href="#cb72-424" aria-hidden="true" tabindex="-1"></a><span class="fu">means_by</span>(dados, grupo) <span class="sc">|&gt;</span> <span class="fu">as.data.frame</span>()</span>
-<span id="cb72-425"><a href="#cb72-425" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-426"><a href="#cb72-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-427"><a href="#cb72-427" aria-hidden="true" tabindex="-1"></a>Dessa forma, poderíamos concluir que os grupos de dados são iguais? A resposta é não. Isso significa, que essa medida de posição apenas não consegue caracterizar completamente os grupos de dados. Para isto, medidas de dispersão são necessárias. Note no exemplo abaixo, como as medidas de dispersão diferem consideravelmente entre os grupos!</span>
-<span id="cb72-428"><a href="#cb72-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-431"><a href="#cb72-431" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb72-432"><a href="#cb72-432" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_stat</span>(dados,</span>
-<span id="cb72-433"><a href="#cb72-433" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> grupo,</span>
-<span id="cb72-434"><a href="#cb72-434" aria-hidden="true" tabindex="-1"></a>          <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"mean, median, range, ave.dev, var.amo, sd.amo, cv, se"</span>))</span>
-<span id="cb72-435"><a href="#cb72-435" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-436"><a href="#cb72-436" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-437"><a href="#cb72-437" aria-hidden="true" tabindex="-1"></a>Isto fica mais facilmente notado ao criarmos um gráfico do tipo boxplot, contendo a dispersão dos dados.</span>
-<span id="cb72-438"><a href="#cb72-438" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-439"><a href="#cb72-439" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.width=8, fig.height=5}</span></span>
-<span id="cb72-440"><a href="#cb72-440" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbetweenstats</span>(dados,</span>
-<span id="cb72-441"><a href="#cb72-441" aria-hidden="true" tabindex="-1"></a>               <span class="at">x =</span> grupo,</span>
-<span id="cb72-442"><a href="#cb72-442" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> valor,</span>
-<span id="cb72-443"><a href="#cb72-443" aria-hidden="true" tabindex="-1"></a>               <span class="at">plot.type =</span> <span class="st">"box"</span>,</span>
-<span id="cb72-444"><a href="#cb72-444" aria-hidden="true" tabindex="-1"></a>               <span class="at">pairwise.comparisons =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb72-445"><a href="#cb72-445" aria-hidden="true" tabindex="-1"></a>               <span class="at">results.subtitle =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb72-446"><a href="#cb72-446" aria-hidden="true" tabindex="-1"></a>               <span class="at">ylab =</span> <span class="st">"rendimento"</span>,</span>
-<span id="cb72-447"><a href="#cb72-447" aria-hidden="true" tabindex="-1"></a>               <span class="at">k =</span> <span class="dv">0</span>)</span>
-<span id="cb72-448"><a href="#cb72-448" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb72-449"><a href="#cb72-449" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-450"><a href="#cb72-450" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tutorial R</span></span>
-<span id="cb72-451"><a href="#cb72-451" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-452"><a href="#cb72-452" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb72-453"><a href="#cb72-453" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-454"><a href="#cb72-454" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="video-container"&gt;</span></span>
-<span id="cb72-455"><a href="#cb72-455" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
-<span id="cb72-456"><a href="#cb72-456" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="https://www.youtube.com/embed/YmB4BZT5Q_o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;</span></span>
-<span id="cb72-457"><a href="#cb72-457" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-458"><a href="#cb72-458" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
-<span id="cb72-459"><a href="#cb72-459" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-460"><a href="#cb72-460" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-461"><a href="#cb72-461" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-462"><a href="#cb72-462" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-463"><a href="#cb72-463" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb73" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "1. Estatística Descritiva"</span></span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacotes</span></span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{r warning=FALSE, message=FALSE}</span></span>
+<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)   </span>
+<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-11"><a href="#cb73-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-12"><a href="#cb73-12" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introdução</span></span>
+<span id="cb73-13"><a href="#cb73-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-14"><a href="#cb73-14" aria-hidden="true" tabindex="-1"></a>A estatística descritiva é um ramo da estatística que aplica várias técnicas para descrever e sumarizar um conjunto de dados<span class="ot">[^1]</span>. Nesse material trataremos das medidas de posição e medidas de dispersão mais utilizadas para descrever um conjunto de dados (ou grupos de dados).</span>
+<span id="cb73-15"><a href="#cb73-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-16"><a href="#cb73-16" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: https://pt.wikipedia.org/wiki/Estat%C3%ADstica_descritiva</span></span>
+<span id="cb73-17"><a href="#cb73-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-18"><a href="#cb73-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># Medidas de posição</span></span>
+<span id="cb73-19"><a href="#cb73-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-20"><a href="#cb73-20" aria-hidden="true" tabindex="-1"></a>As medidas de posição (também conhecidas como medidas de tendência central) indicam um valor que melhor representa todo o conjunto de dados, ou seja, dão a tendência da concentração dos valores observados. É necessário, no entanto, cautela na interpretação de medidas de posição utilizadas de forma isolada, pois elas não nos dão a ideia da dispersão dos dados. As principais medidas de posição são: a média, a mediana e a moda.</span>
+<span id="cb73-21"><a href="#cb73-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-22"><a href="#cb73-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Média</span></span>
+<span id="cb73-23"><a href="#cb73-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-24"><a href="#cb73-24" aria-hidden="true" tabindex="-1"></a><span class="fu">### Média aritmética</span></span>
+<span id="cb73-25"><a href="#cb73-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-26"><a href="#cb73-26" aria-hidden="true" tabindex="-1"></a>Seja uma amostra $X_1$, $X_2$, $X_n$, de uma população $X_1$, $X_2$, $X_N$ de tamanho $n$ e $N$, definimos a média aritmética por</span>
+<span id="cb73-27"><a href="#cb73-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-28"><a href="#cb73-28" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-29"><a href="#cb73-29" aria-hidden="true" tabindex="-1"></a>\mu  = \frac{\displaystyle\sum_{i=1}^{N}X_i}{N}, \quad \textrm{(População)}</span>
+<span id="cb73-30"><a href="#cb73-30" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-31"><a href="#cb73-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-32"><a href="#cb73-32" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-33"><a href="#cb73-33" aria-hidden="true" tabindex="-1"></a>\bar{X} = \frac{\displaystyle\sum_{i=1}^{n}X_i}{n}. \quad \textrm{(Amostra)}</span>
+<span id="cb73-34"><a href="#cb73-34" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-35"><a href="#cb73-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-36"><a href="#cb73-36" aria-hidden="true" tabindex="-1"></a>Considere a altura (em cm) de cinco plantas de milho, armazenada no objeto <span class="in">`altura`</span>. Para calcular a média aritmética destas alturas, utilziamos a função <span class="in">`mean()`</span>.</span>
+<span id="cb73-37"><a href="#cb73-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-40"><a href="#cb73-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-41"><a href="#cb73-41" aria-hidden="true" tabindex="-1"></a>altura <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">245</span>, <span class="dv">250</span>, <span class="dv">269</span>, <span class="dv">280</span>, <span class="dv">262</span>)</span>
+<span id="cb73-42"><a href="#cb73-42" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(altura)</span>
+<span id="cb73-43"><a href="#cb73-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-44"><a href="#cb73-44" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-45"><a href="#cb73-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-46"><a href="#cb73-46" aria-hidden="true" tabindex="-1"></a><span class="fu">### Média geométrica</span></span>
+<span id="cb73-47"><a href="#cb73-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-48"><a href="#cb73-48" aria-hidden="true" tabindex="-1"></a>A média geométrica ($m_g$) entre um conjunto de <span class="in">`n`</span> dados é a <span class="in">`n`</span>-ésima raíz do produto desses dados.</span>
+<span id="cb73-49"><a href="#cb73-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-50"><a href="#cb73-50" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-51"><a href="#cb73-51" aria-hidden="true" tabindex="-1"></a>m_g = \sqrt<span class="co">[</span><span class="ot">n</span><span class="co">]</span>{\prod\limits_{i = 1}^n {{x_i}} }</span>
+<span id="cb73-52"><a href="#cb73-52" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-53"><a href="#cb73-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-54"><a href="#cb73-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### Média harmônica</span></span>
+<span id="cb73-55"><a href="#cb73-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-56"><a href="#cb73-56" aria-hidden="true" tabindex="-1"></a>A média harmônica ($m_h$) é definida como sendo o inverso da média aritmética dos inversos, representada como segue</span>
+<span id="cb73-57"><a href="#cb73-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-58"><a href="#cb73-58" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-59"><a href="#cb73-59" aria-hidden="true" tabindex="-1"></a>m_h = \frac{n}{{\sum\limits_{i = 1}^n {\frac{1}{{{x_i}}}} }}</span>
+<span id="cb73-60"><a href="#cb73-60" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-61"><a href="#cb73-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-62"><a href="#cb73-62" aria-hidden="true" tabindex="-1"></a>A escolha pelo uso da média harmônica para representação da média de um conjunto está ligada a situações que envolvem grandezas inversamente proporcionais, por exemplo a velocidade média.</span>
+<span id="cb73-63"><a href="#cb73-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-64"><a href="#cb73-64" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb73-65"><a href="#cb73-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exemplo de aplicação</span></span>
+<span id="cb73-66"><a href="#cb73-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-67"><a href="#cb73-67" aria-hidden="true" tabindex="-1"></a>Um carro percorre um percurso de mesma distância duas vezes. No primeira, ele faz o percurso com uma velocidade V1 = 80 km/h. No segunda, ele realiza o mesmo percurso com velocidade de V2 = 120 km/h. Pede-se: qual foi a velocidade média dos dois percursos?</span>
+<span id="cb73-68"><a href="#cb73-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-69"><a href="#cb73-69" aria-hidden="true" tabindex="-1"></a>Intuitivamente (e erroneamente) computaríamos a média aritmética ($(80 + 120) / 2 = 100$). Note que a distância é a mesma, para os dois percursos, o que muda é a velocidade e, consequentemente, o tempo. A resolução correta do problema é a seguinte:</span>
+<span id="cb73-70"><a href="#cb73-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-71"><a href="#cb73-71" aria-hidden="true" tabindex="-1"></a>Sejam,</span>
+<span id="cb73-72"><a href="#cb73-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-73"><a href="#cb73-73" aria-hidden="true" tabindex="-1"></a>$d$, a distância do percurso $v_1$, a velocidade média do percurso $t_i$, o tempo de viagem do percurso</span>
+<span id="cb73-74"><a href="#cb73-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-75"><a href="#cb73-75" aria-hidden="true" tabindex="-1"></a>Então, temos que $d = v_1t_1=v_2t_2$. Se $v$ é a velocidad média nos dois trajetos, então $2d=v(t_1+t_2)$, ou $2d=v(d/v_1+d/v_2)$. Moral da história: a velocidade média no percurso todo é a média harmônica das velocidades dos dois percursos:</span>
+<span id="cb73-76"><a href="#cb73-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-77"><a href="#cb73-77" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-78"><a href="#cb73-78" aria-hidden="true" tabindex="-1"></a>m_h = \frac{2}{{{\frac{1}{{{80}}} + \frac{1}{{{120}}}} }} = 96</span>
+<span id="cb73-79"><a href="#cb73-79" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-80"><a href="#cb73-80" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb73-81"><a href="#cb73-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-82"><a href="#cb73-82" aria-hidden="true" tabindex="-1"></a>No R base, não existe uma função específica para a média harmônica. Pode-se utilizar, então, a função <span class="in">`hmean()`</span> do pacote <span class="in">`metan`</span><span class="ot">[^2]</span>.</span>
+<span id="cb73-83"><a href="#cb73-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-84"><a href="#cb73-84" aria-hidden="true" tabindex="-1"></a><span class="ot">[^2]: https://tiagoolivoto.github.io/metan/</span></span>
+<span id="cb73-85"><a href="#cb73-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-88"><a href="#cb73-88" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-89"><a href="#cb73-89" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span>
+<span id="cb73-90"><a href="#cb73-90" aria-hidden="true" tabindex="-1"></a><span class="fu">hmean</span>(<span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">120</span>))</span>
+<span id="cb73-91"><a href="#cb73-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-92"><a href="#cb73-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-93"><a href="#cb73-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-94"><a href="#cb73-94" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mediana</span></span>
+<span id="cb73-95"><a href="#cb73-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-96"><a href="#cb73-96" aria-hidden="true" tabindex="-1"></a>A mediana é calculada com a função <span class="in">`median()`</span>.</span>
+<span id="cb73-97"><a href="#cb73-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-100"><a href="#cb73-100" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-101"><a href="#cb73-101" aria-hidden="true" tabindex="-1"></a>altura <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">245</span>, <span class="dv">250</span>, <span class="dv">269</span>, <span class="dv">280</span>, <span class="dv">262</span>)</span>
+<span id="cb73-102"><a href="#cb73-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-103"><a href="#cb73-103" aria-hidden="true" tabindex="-1"></a><span class="co"># Média</span></span>
+<span id="cb73-104"><a href="#cb73-104" aria-hidden="true" tabindex="-1"></a>(media <span class="ot">&lt;-</span> <span class="fu">mean</span>(altura))</span>
+<span id="cb73-105"><a href="#cb73-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-106"><a href="#cb73-106" aria-hidden="true" tabindex="-1"></a><span class="co"># Mediana</span></span>
+<span id="cb73-107"><a href="#cb73-107" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenar os dados</span></span>
+<span id="cb73-108"><a href="#cb73-108" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(altura)</span>
+<span id="cb73-109"><a href="#cb73-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-110"><a href="#cb73-110" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular a mediana</span></span>
+<span id="cb73-111"><a href="#cb73-111" aria-hidden="true" tabindex="-1"></a>(mediana <span class="ot">&lt;-</span> <span class="fu">median</span>(altura))</span>
+<span id="cb73-112"><a href="#cb73-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-113"><a href="#cb73-113" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-114"><a href="#cb73-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-115"><a href="#cb73-115" aria-hidden="true" tabindex="-1"></a><span class="fu"># Medidas de dispersão</span></span>
+<span id="cb73-116"><a href="#cb73-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-117"><a href="#cb73-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## Amplitude</span></span>
+<span id="cb73-118"><a href="#cb73-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-119"><a href="#cb73-119" aria-hidden="true" tabindex="-1"></a>A primeira medida de dispersão que definiremos é a amplitude ou amplitude total, denotada por $A_p = X_{(max)} - X_{(min)}$, onde $X_{(max)}$ e $X_{(min)}$ são os valores máximos e mínimos do conjunto de dados, respectivamente. Os valores extremos podem ser encontrados com a função <span class="in">`range()`</span>.</span>
+<span id="cb73-120"><a href="#cb73-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-123"><a href="#cb73-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-124"><a href="#cb73-124" aria-hidden="true" tabindex="-1"></a>(extremos <span class="ot">&lt;-</span> <span class="fu">range</span>(altura))</span>
+<span id="cb73-125"><a href="#cb73-125" aria-hidden="true" tabindex="-1"></a>(amplitude <span class="ot">&lt;-</span> extremos[<span class="dv">2</span>] <span class="sc">-</span> extremos[<span class="dv">1</span>])</span>
+<span id="cb73-126"><a href="#cb73-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-127"><a href="#cb73-127" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-128"><a href="#cb73-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-129"><a href="#cb73-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## Desvios médios</span></span>
+<span id="cb73-130"><a href="#cb73-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-131"><a href="#cb73-131" aria-hidden="true" tabindex="-1"></a>Considerando uma amostra $X_1$, $X_2$, $X_n$, de uma população $X_1$, $X_2$, $X_N$ de tamanho $n$ e $N$, a soma dos desvios é dada por</span>
+<span id="cb73-132"><a href="#cb73-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-133"><a href="#cb73-133" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-134"><a href="#cb73-134" aria-hidden="true" tabindex="-1"></a>DM  = \sum_{i = 1}^{n} \left(X_i - \bar{X} \right)</span>
+<span id="cb73-135"><a href="#cb73-135" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-136"><a href="#cb73-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-137"><a href="#cb73-137" aria-hidden="true" tabindex="-1"></a>Para calcularmos os desvios, basta utilizar o operador <span class="in">`-`</span> no R.</span>
+<span id="cb73-138"><a href="#cb73-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-141"><a href="#cb73-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-142"><a href="#cb73-142" aria-hidden="true" tabindex="-1"></a>(desvios <span class="ot">&lt;-</span> altura <span class="sc">-</span> media)</span>
+<span id="cb73-143"><a href="#cb73-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-144"><a href="#cb73-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-145"><a href="#cb73-145" aria-hidden="true" tabindex="-1"></a>Para expressar estes desvios, vamos construir um gráfico utilizando o pacote <span class="in">`ggplot2`</span>.</span>
+<span id="cb73-146"><a href="#cb73-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-147"><a href="#cb73-147" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.height=3, fig.width=10}</span></span>
+<span id="cb73-148"><a href="#cb73-148" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">pessoa =</span> <span class="fu">paste</span>(<span class="st">"Planta"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>),</span>
+<span id="cb73-149"><a href="#cb73-149" aria-hidden="true" tabindex="-1"></a>                 <span class="at">altura =</span> altura,</span>
+<span id="cb73-150"><a href="#cb73-150" aria-hidden="true" tabindex="-1"></a>                 <span class="at">altura_media =</span> media,</span>
+<span id="cb73-151"><a href="#cb73-151" aria-hidden="true" tabindex="-1"></a>                 <span class="at">desvio =</span> desvios)</span>
+<span id="cb73-152"><a href="#cb73-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-153"><a href="#cb73-153" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> altura, <span class="at">y =</span> pessoa)) <span class="sc">+</span></span>
+<span id="cb73-154"><a href="#cb73-154" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"blue"</span>,</span>
+<span id="cb73-155"><a href="#cb73-155" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb73-156"><a href="#cb73-156" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> media,</span>
+<span id="cb73-157"><a href="#cb73-157" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xend =</span> altura,</span>
+<span id="cb73-158"><a href="#cb73-158" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> pessoa,</span>
+<span id="cb73-159"><a href="#cb73-159" aria-hidden="true" tabindex="-1"></a>                   <span class="at">yend =</span> pessoa)) <span class="sc">+</span></span>
+<span id="cb73-160"><a href="#cb73-160" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> media, <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb73-161"><a href="#cb73-161" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> altura, <span class="at">y =</span> pessoa, <span class="at">label =</span> <span class="fu">round</span>(desvio, <span class="at">digits =</span> <span class="dv">3</span>),</span>
+<span id="cb73-162"><a href="#cb73-162" aria-hidden="true" tabindex="-1"></a>                <span class="at">hjust =</span> <span class="fu">ifelse</span>(desvio <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="fl">1.5</span>, <span class="sc">-</span><span class="fl">0.5</span>))) <span class="sc">+</span></span>
+<span id="cb73-163"><a href="#cb73-163" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">230</span>, <span class="dv">300</span>)) <span class="sc">+</span> </span>
+<span id="cb73-164"><a href="#cb73-164" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb73-165"><a href="#cb73-165" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Altura da planta (cm)"</span>,</span>
+<span id="cb73-166"><a href="#cb73-166" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Planta"</span>)</span>
+<span id="cb73-167"><a href="#cb73-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-168"><a href="#cb73-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-169"><a href="#cb73-169" aria-hidden="true" tabindex="-1"></a>A expressão anterior resulta em</span>
+<span id="cb73-170"><a href="#cb73-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-171"><a href="#cb73-171" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-172"><a href="#cb73-172" aria-hidden="true" tabindex="-1"></a>DM  = \sum_{i = 1}^{n} \left(X_i - \bar{X} \right) = 0</span>
+<span id="cb73-173"><a href="#cb73-173" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-174"><a href="#cb73-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-177"><a href="#cb73-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-178"><a href="#cb73-178" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(desvios) <span class="sc">|&gt;</span> <span class="fu">round</span>()</span>
+<span id="cb73-179"><a href="#cb73-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-180"><a href="#cb73-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-181"><a href="#cb73-181" aria-hidden="true" tabindex="-1"></a>Isso significa que essa medida não traz ganho algum a descrição dos dados, porque os desvios positivos anulam-se com os desvios negativos no somatório. Para isso, podemos contornar essa situação inserindo uma função modular nessa medida anterior, e criar o módulo do desvio. Assim, o desvio médio é dado por:</span>
+<span id="cb73-182"><a href="#cb73-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-183"><a href="#cb73-183" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-184"><a href="#cb73-184" aria-hidden="true" tabindex="-1"></a>S_{|\bar{X}|} = \frac{\sum_{i = 1}^{n} \left|X_i - \bar{X} \right|}{n}</span>
+<span id="cb73-185"><a href="#cb73-185" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-186"><a href="#cb73-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-189"><a href="#cb73-189" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-190"><a href="#cb73-190" aria-hidden="true" tabindex="-1"></a><span class="co"># soma dos desvios em módulo</span></span>
+<span id="cb73-191"><a href="#cb73-191" aria-hidden="true" tabindex="-1"></a>(somadesv <span class="ot">&lt;-</span> desvios <span class="sc">|&gt;</span> <span class="fu">abs</span>() <span class="sc">|&gt;</span> <span class="fu">sum</span>())</span>
+<span id="cb73-192"><a href="#cb73-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-193"><a href="#cb73-193" aria-hidden="true" tabindex="-1"></a><span class="co"># desvio médio</span></span>
+<span id="cb73-194"><a href="#cb73-194" aria-hidden="true" tabindex="-1"></a>somadesv <span class="sc">/</span> <span class="dv">5</span></span>
+<span id="cb73-195"><a href="#cb73-195" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-196"><a href="#cb73-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-197"><a href="#cb73-197" aria-hidden="true" tabindex="-1"></a><span class="fu">## Variância</span></span>
+<span id="cb73-198"><a href="#cb73-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-199"><a href="#cb73-199" aria-hidden="true" tabindex="-1"></a>Utilizando uma função quadrática na medida surge uma outra medida de variabilidade que é a soma de quadrados. A soma de quadrados apresenta uma outra informação interessante que é penalizar as observações quanto mais estiver distante do valor central. Assim, quando elevamos ao quadrado um alto desvio, esse valor se torna maior ainda, mas quando elevamos ao quadrado um desvio pequeno, esse valor não cresce tanto. Com isso, conseguimos compreender quais os dados que estão mais dispersos em torno da média. Ao dividir a soma de quadrados por $n-1$ temos o estimador da variância amostral ($S^2$), dado por:</span>
+<span id="cb73-200"><a href="#cb73-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-201"><a href="#cb73-201" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-202"><a href="#cb73-202" aria-hidden="true" tabindex="-1"></a>S^2 = \frac{\sum_{i = 1}^{n} \left(X_i - \bar X_i \right)^2}{n-1}</span>
+<span id="cb73-203"><a href="#cb73-203" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-204"><a href="#cb73-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-207"><a href="#cb73-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-208"><a href="#cb73-208" aria-hidden="true" tabindex="-1"></a><span class="co"># Desvios ao quadrado</span></span>
+<span id="cb73-209"><a href="#cb73-209" aria-hidden="true" tabindex="-1"></a>(desvq <span class="ot">&lt;-</span> desvios <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb73-210"><a href="#cb73-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-211"><a href="#cb73-211" aria-hidden="true" tabindex="-1"></a><span class="co"># soma dos desvios ao quadrado</span></span>
+<span id="cb73-212"><a href="#cb73-212" aria-hidden="true" tabindex="-1"></a>(somadesvq <span class="ot">&lt;-</span> <span class="fu">sum</span>(desvq))</span>
+<span id="cb73-213"><a href="#cb73-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-214"><a href="#cb73-214" aria-hidden="true" tabindex="-1"></a><span class="co"># divisão por n - 1</span></span>
+<span id="cb73-215"><a href="#cb73-215" aria-hidden="true" tabindex="-1"></a>(var_altura <span class="ot">&lt;-</span> somadesvq <span class="sc">/</span> <span class="dv">4</span>)</span>
+<span id="cb73-216"><a href="#cb73-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-217"><a href="#cb73-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-218"><a href="#cb73-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-219"><a href="#cb73-219" aria-hidden="true" tabindex="-1"></a>Anteriormente, vimos o passo a passo para o cálculo da variância amostral. No R, a função <span class="in">`var()`</span> pode ser utilizada para este fim.</span>
+<span id="cb73-220"><a href="#cb73-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-223"><a href="#cb73-223" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-224"><a href="#cb73-224" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(altura)</span>
+<span id="cb73-225"><a href="#cb73-225" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-226"><a href="#cb73-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-227"><a href="#cb73-227" aria-hidden="true" tabindex="-1"></a><span class="fu">## Desvio padrão</span></span>
+<span id="cb73-228"><a href="#cb73-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-229"><a href="#cb73-229" aria-hidden="true" tabindex="-1"></a>A variância, como medida de dispersão, apresenta sua unidade ao quadrado da unidade da variável em estudo. Em outras palavras, que se tivermos usando uma variável na escala de centímetros (ex., algura), a dispersão dada pela variância estará na escala de área (cm$^2$). Isso se torna difícil a percepção de dispersão quando observamos os dados. Para contornar isso, utilizamos o desvio padrão, que é a raíz quadrada da variância, dado por</span>
+<span id="cb73-230"><a href="#cb73-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-231"><a href="#cb73-231" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-232"><a href="#cb73-232" aria-hidden="true" tabindex="-1"></a>S = \sqrt{S^2}</span>
+<span id="cb73-233"><a href="#cb73-233" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-234"><a href="#cb73-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-235"><a href="#cb73-235" aria-hidden="true" tabindex="-1"></a>Para o exemplo acima, computamos o desvio padrão extraíndo a raíz de <span class="in">`var_altura`</span>, ou, como para a variância, utilizando uma função específica do R para isso: <span class="in">`sd()`</span> (de <span class="in">`s`</span>tandard <span class="in">`d`</span>eviation).</span>
+<span id="cb73-236"><a href="#cb73-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-239"><a href="#cb73-239" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-240"><a href="#cb73-240" aria-hidden="true" tabindex="-1"></a>(desv_altura <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(var_altura))</span>
+<span id="cb73-241"><a href="#cb73-241" aria-hidden="true" tabindex="-1"></a><span class="co"># utilizando a função sd()</span></span>
+<span id="cb73-242"><a href="#cb73-242" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(altura)</span>
+<span id="cb73-243"><a href="#cb73-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-244"><a href="#cb73-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-245"><a href="#cb73-245" aria-hidden="true" tabindex="-1"></a><span class="fu">## Coeficiente de variação</span></span>
+<span id="cb73-246"><a href="#cb73-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-247"><a href="#cb73-247" aria-hidden="true" tabindex="-1"></a>As medidas de variabilidade tais como a variância e desvio padrão, são conhecidas como medidas de dispersão absoluta. Isto significa que elas serão diretamente influenciadas pela magnitude da variável. Vamos tomar como motivação, os valores em <span class="in">`altura`</span>, tomados em cm. Consideremos que estes dados são transformados para metros, por tanto, cada observação será dividida por 100. Observe abaixo o resultado do desvio padrão da mesma variável, mas com escala diferente.</span>
+<span id="cb73-248"><a href="#cb73-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-251"><a href="#cb73-251" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-252"><a href="#cb73-252" aria-hidden="true" tabindex="-1"></a>(altura_m <span class="ot">&lt;-</span> altura <span class="sc">/</span> <span class="dv">100</span>)</span>
+<span id="cb73-253"><a href="#cb73-253" aria-hidden="true" tabindex="-1"></a>(desv_altura_m <span class="ot">&lt;-</span> <span class="fu">sd</span>(altura_m))</span>
+<span id="cb73-254"><a href="#cb73-254" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-255"><a href="#cb73-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-256"><a href="#cb73-256" aria-hidden="true" tabindex="-1"></a>Para contornar este problema, podemos utilizar uma medida relativa de variabilidade chamada de Coeficiente de Variação (CV). Este pode ser usada para comparar a variabilidade entre quaisquer grupo de dados, independentemente da sua escala. O coeficiente de variação é definido por:</span>
+<span id="cb73-257"><a href="#cb73-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-258"><a href="#cb73-258" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-259"><a href="#cb73-259" aria-hidden="true" tabindex="-1"></a>CV = \frac{S}{\bar{X}} \times 100</span>
+<span id="cb73-260"><a href="#cb73-260" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-261"><a href="#cb73-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-264"><a href="#cb73-264" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-265"><a href="#cb73-265" aria-hidden="true" tabindex="-1"></a><span class="co"># coeficiente de variação da variável em centímetros</span></span>
+<span id="cb73-266"><a href="#cb73-266" aria-hidden="true" tabindex="-1"></a>(cv_altura <span class="ot">&lt;-</span> desv_altura <span class="sc">/</span> media <span class="sc">*</span> <span class="dv">100</span>)</span>
+<span id="cb73-267"><a href="#cb73-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-268"><a href="#cb73-268" aria-hidden="true" tabindex="-1"></a><span class="co"># coeficiente de variação da variável em metros</span></span>
+<span id="cb73-269"><a href="#cb73-269" aria-hidden="true" tabindex="-1"></a>(cv_altura2 <span class="ot">&lt;-</span> desv_altura_m <span class="sc">/</span> <span class="fu">mean</span>(altura_m) <span class="sc">*</span> <span class="dv">100</span>)</span>
+<span id="cb73-270"><a href="#cb73-270" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-271"><a href="#cb73-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-272"><a href="#cb73-272" aria-hidden="true" tabindex="-1"></a>Não existe no R base uma função para computar o coeficiente de variação, então vamos criá-la utilizando a abordagem <span class="in">`function()`</span>.</span>
+<span id="cb73-273"><a href="#cb73-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-276"><a href="#cb73-276" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-277"><a href="#cb73-277" aria-hidden="true" tabindex="-1"></a>CV <span class="ot">&lt;-</span> <span class="cf">function</span>(dados){</span>
+<span id="cb73-278"><a href="#cb73-278" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">class</span>(dados) <span class="sc">==</span> <span class="st">"numeric"</span>){</span>
+<span id="cb73-279"><a href="#cb73-279" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Os dados precisam ser numéricos"</span>)</span>
+<span id="cb73-280"><a href="#cb73-280" aria-hidden="true" tabindex="-1"></a>  } <span class="co">#Indica que os dados devem ser numéricos</span></span>
+<span id="cb73-281"><a href="#cb73-281" aria-hidden="true" tabindex="-1"></a>  media <span class="ot">&lt;-</span> <span class="fu">mean</span>(dados)</span>
+<span id="cb73-282"><a href="#cb73-282" aria-hidden="true" tabindex="-1"></a>  sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(dados)</span>
+<span id="cb73-283"><a href="#cb73-283" aria-hidden="true" tabindex="-1"></a>  CV <span class="ot">&lt;-</span> (sd<span class="sc">/</span>media) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb73-284"><a href="#cb73-284" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(CV) <span class="co"># Valor que será retornado pela função</span></span>
+<span id="cb73-285"><a href="#cb73-285" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb73-286"><a href="#cb73-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-287"><a href="#cb73-287" aria-hidden="true" tabindex="-1"></a><span class="fu">CV</span>(altura)</span>
+<span id="cb73-288"><a href="#cb73-288" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-289"><a href="#cb73-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-290"><a href="#cb73-290" aria-hidden="true" tabindex="-1"></a><span class="fu">## Erro padrão da média</span></span>
+<span id="cb73-291"><a href="#cb73-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-292"><a href="#cb73-292" aria-hidden="true" tabindex="-1"></a>O erro padrão da média é a estimativa do desvio padrão de sua distribuição amostral. O desvio padrão visto anteriormente reflete a variabilidade de cada observação em torno da média amostral. Já o erro padrão da média, representa a variabilidade de cada média amostral de todas amostra possíveis, em relação a média populacional. Sua estimativa é dada por:</span>
+<span id="cb73-293"><a href="#cb73-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-294"><a href="#cb73-294" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-295"><a href="#cb73-295" aria-hidden="true" tabindex="-1"></a>S_{\bar{X}}  = \frac{S}{\sqrt{n}}</span>
+<span id="cb73-296"><a href="#cb73-296" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb73-297"><a href="#cb73-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-298"><a href="#cb73-298" aria-hidden="true" tabindex="-1"></a>É fácil observar que à medida que $n \to N$, isto é, à medida que\</span>
+<span id="cb73-299"><a href="#cb73-299" aria-hidden="true" tabindex="-1"></a>$n$ aumenta, a média amostral ($\bar X$) tende a média populacional ($\mu$). Isso significa que a média amostral é mais precisa porque se aproxima cada vez mais da média populacional. Para os dados em <span class="in">`altura`</span>, o erro padrão da média é calculado com:</span>
+<span id="cb73-300"><a href="#cb73-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-303"><a href="#cb73-303" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-304"><a href="#cb73-304" aria-hidden="true" tabindex="-1"></a>(epm <span class="ot">&lt;-</span> desv_altura <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">5</span>))</span>
+<span id="cb73-305"><a href="#cb73-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-306"><a href="#cb73-306" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-307"><a href="#cb73-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-308"><a href="#cb73-308" aria-hidden="true" tabindex="-1"></a><span class="fu"># Aplicação utilizando o pacote metan</span></span>
+<span id="cb73-309"><a href="#cb73-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-310"><a href="#cb73-310" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exemplo da altura de planta</span></span>
+<span id="cb73-311"><a href="#cb73-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-312"><a href="#cb73-312" aria-hidden="true" tabindex="-1"></a>Para calcular todas as estatísticas de uma só vez, podemos usar <span class="in">`desc_stat()`</span> do pacote metan. Esta função pode ser usada para calcular medidas de tendência central, posição e dispersão. Por padrão (<span class="in">`stats = "main"`</span>), sete estatísticas (coeficiente de variação, máximo, média, mediana, mínimo, desvio padrão da amostra, erro padrão e intervalo de confiança da média) são calculadas. Outros valores permitidos são <span class="in">`"all"`</span> para mostrar todas as estatísticas, <span class="in">`"robust"`</span> para mostrar estatísticas robustas, <span class="in">`"quantile"`</span> para mostrar estatísticas quantílicas ou escolher uma (ou mais) estatísticas usando um vetor separado por vírgula com os nomes das estatísticas, por exemplo, <span class="in">`stats = c("mean, cv")`</span>. Também podemos usar <span class="in">`hist = TRUE`</span> para criar um histograma para cada variável. Para mais detalhes consulte <span class="co">[</span><span class="ot">este material</span><span class="co">](https://tiagoolivoto.github.io/e-bookr/analdata.html#ebasic)</span>.</span>
+<span id="cb73-313"><a href="#cb73-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-316"><a href="#cb73-316" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-317"><a href="#cb73-317" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span>
+<span id="cb73-318"><a href="#cb73-318" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_stat</span>(altura, <span class="at">stats =</span> <span class="st">"all"</span>) <span class="sc">|&gt;</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb73-319"><a href="#cb73-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-320"><a href="#cb73-320" aria-hidden="true" tabindex="-1"></a><span class="co"># estatísticas vistas neste material</span></span>
+<span id="cb73-321"><a href="#cb73-321" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_stat</span>(altura,</span>
+<span id="cb73-322"><a href="#cb73-322" aria-hidden="true" tabindex="-1"></a>          <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"mean, median, range, ave.dev, var.amo, sd.amo, cv, se"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb73-323"><a href="#cb73-323" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb73-324"><a href="#cb73-324" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-325"><a href="#cb73-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-326"><a href="#cb73-326" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exemplo com os dados coletados em aula</span></span>
+<span id="cb73-327"><a href="#cb73-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-328"><a href="#cb73-328" aria-hidden="true" tabindex="-1"></a>Neste exemplo, mostro como as estatísticas descritivas para os dados coletados em aula podem ser calculadas utilizando o pacote <span class="in">`metan`</span>. Os dados são importados diretamente da planilha armazenada no drive, utilizando a função <span class="in">`import()`</span> do pacote <span class="in">`rio`</span>.</span>
+<span id="cb73-329"><a href="#cb73-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-332"><a href="#cb73-332" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-333"><a href="#cb73-333" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb73-334"><a href="#cb73-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-335"><a href="#cb73-335" aria-hidden="true" tabindex="-1"></a><span class="co"># link dos dados</span></span>
+<span id="cb73-336"><a href="#cb73-336" aria-hidden="true" tabindex="-1"></a>link <span class="ot">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=0"</span></span>
+<span id="cb73-337"><a href="#cb73-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-338"><a href="#cb73-338" aria-hidden="true" tabindex="-1"></a><span class="co"># função para importar os dados</span></span>
+<span id="cb73-339"><a href="#cb73-339" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> </span>
+<span id="cb73-340"><a href="#cb73-340" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(link, <span class="at">dec =</span> <span class="st">","</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb73-341"><a href="#cb73-341" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_character</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) </span>
+<span id="cb73-342"><a href="#cb73-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-343"><a href="#cb73-343" aria-hidden="true" tabindex="-1"></a><span class="co"># estrutura dos dados </span></span>
+<span id="cb73-344"><a href="#cb73-344" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span>
+<span id="cb73-345"><a href="#cb73-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-346"><a href="#cb73-346" aria-hidden="true" tabindex="-1"></a><span class="co"># primeiras linhas</span></span>
+<span id="cb73-347"><a href="#cb73-347" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span>
+<span id="cb73-348"><a href="#cb73-348" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-349"><a href="#cb73-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-350"><a href="#cb73-350" aria-hidden="true" tabindex="-1"></a>Os dados foram organziados de maneira que cada fator/variável estivessem em uma coluna. Isto possibilita o cálculo das estatísticas para cada nível destes fatores. As duas variáveis quantitativas contínuas são: <span class="in">`comprimento`</span> (o comprimento da folha em cm); e <span class="in">`largura`</span>(largura da folha em mm).</span>
+<span id="cb73-351"><a href="#cb73-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-352"><a href="#cb73-352" aria-hidden="true" tabindex="-1"></a><span class="fu">### Estatísticas gerais</span></span>
+<span id="cb73-353"><a href="#cb73-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-354"><a href="#cb73-354" aria-hidden="true" tabindex="-1"></a>Para saber as estatísticas descritivas gerais vamos utilizar a função <span class="in">`desc_stat9)`</span>. Por padrão, a função calcula as estatísticas descritivas para todas as variáveis numéricas do conjunto de dados. Sendo assim, não há necessidade de informar qual variável analisar.</span>
+<span id="cb73-355"><a href="#cb73-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-358"><a href="#cb73-358" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-359"><a href="#cb73-359" aria-hidden="true" tabindex="-1"></a>stats <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"mean, median, range, ave.dev, var.amo, sd.amo, cv, se, n"</span>)</span>
+<span id="cb73-360"><a href="#cb73-360" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb73-361"><a href="#cb73-361" aria-hidden="true" tabindex="-1"></a>  <span class="fu">desc_stat</span>(<span class="at">stats =</span> stats)</span>
+<span id="cb73-362"><a href="#cb73-362" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-363"><a href="#cb73-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-364"><a href="#cb73-364" aria-hidden="true" tabindex="-1"></a><span class="fu">### Estatísticas por ramo</span></span>
+<span id="cb73-365"><a href="#cb73-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-366"><a href="#cb73-366" aria-hidden="true" tabindex="-1"></a>Para obter as estatística para cada ramo, basta vamos utilizar a função <span class="in">`group_by()`</span> para agrupar por <span class="in">`ramo`</span>. Com isso, as estatísticas serão calculadas separadamente para <span class="in">`ramo 1`</span> e <span class="in">`ramo 2.`</span></span>
+<span id="cb73-367"><a href="#cb73-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-370"><a href="#cb73-370" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-371"><a href="#cb73-371" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb73-372"><a href="#cb73-372" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ramo) <span class="sc">|&gt;</span> </span>
+<span id="cb73-373"><a href="#cb73-373" aria-hidden="true" tabindex="-1"></a>  <span class="fu">desc_stat</span>(<span class="at">stats =</span> stats)</span>
+<span id="cb73-374"><a href="#cb73-374" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-375"><a href="#cb73-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-376"><a href="#cb73-376" aria-hidden="true" tabindex="-1"></a><span class="fu">### Boxplot (descritiva e teste *t*)</span></span>
+<span id="cb73-377"><a href="#cb73-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-380"><a href="#cb73-380" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-381"><a href="#cb73-381" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggstatsplot)</span>
+<span id="cb73-382"><a href="#cb73-382" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbetweenstats</span>(df,</span>
+<span id="cb73-383"><a href="#cb73-383" aria-hidden="true" tabindex="-1"></a>               <span class="at">x =</span> ramo,</span>
+<span id="cb73-384"><a href="#cb73-384" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> comprimento,</span>
+<span id="cb73-385"><a href="#cb73-385" aria-hidden="true" tabindex="-1"></a>               <span class="at">plot.type =</span> <span class="st">"box"</span>,</span>
+<span id="cb73-386"><a href="#cb73-386" aria-hidden="true" tabindex="-1"></a>               <span class="at">ylab =</span> <span class="st">"rendimento"</span>)</span>
+<span id="cb73-387"><a href="#cb73-387" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-388"><a href="#cb73-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-389"><a href="#cb73-389" aria-hidden="true" tabindex="-1"></a><span class="fu"># Simulação de dados com diferentes variâncias</span></span>
+<span id="cb73-390"><a href="#cb73-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-391"><a href="#cb73-391" aria-hidden="true" tabindex="-1"></a>O código a seguir apresenta uma simulação de três grupos com 10 observações cada um. Os grupos formados são A, B e C, todos com média <span class="in">`9,018686`</span>.</span>
+<span id="cb73-392"><a href="#cb73-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-395"><a href="#cb73-395" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-396"><a href="#cb73-396" aria-hidden="true" tabindex="-1"></a><span class="co"># Dados dos grupos gerados</span></span>
+<span id="cb73-397"><a href="#cb73-397" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>) <span class="co"># assegura a reprodutibilidade</span></span>
+<span id="cb73-398"><a href="#cb73-398" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb73-399"><a href="#cb73-399" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb73-400"><a href="#cb73-400" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">9</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">4</span>)</span>
+<span id="cb73-401"><a href="#cb73-401" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb73-402"><a href="#cb73-402" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">9</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">6</span>)</span>
+<span id="cb73-403"><a href="#cb73-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-404"><a href="#cb73-404" aria-hidden="true" tabindex="-1"></a><span class="co"># gerando B[10]</span></span>
+<span id="cb73-405"><a href="#cb73-405" aria-hidden="true" tabindex="-1"></a>B[<span class="dv">10</span>] <span class="ot">&lt;-</span>  <span class="fu">length</span>(A) <span class="sc">*</span> <span class="fu">mean</span>(A) <span class="sc">-</span> <span class="fu">sum</span>(B)</span>
+<span id="cb73-406"><a href="#cb73-406" aria-hidden="true" tabindex="-1"></a><span class="co"># gerando C[10]</span></span>
+<span id="cb73-407"><a href="#cb73-407" aria-hidden="true" tabindex="-1"></a>C[<span class="dv">10</span>] <span class="ot">&lt;-</span> <span class="fu">length</span>(A) <span class="sc">*</span> <span class="fu">mean</span>(A) <span class="sc">-</span> <span class="fu">sum</span>(C)</span>
+<span id="cb73-408"><a href="#cb73-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-409"><a href="#cb73-409" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> </span>
+<span id="cb73-410"><a href="#cb73-410" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">grupo =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"A"</span>, <span class="dv">10</span>),</span>
+<span id="cb73-411"><a href="#cb73-411" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">rep</span>(<span class="st">"B"</span>, <span class="dv">10</span>),</span>
+<span id="cb73-412"><a href="#cb73-412" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">rep</span>(<span class="st">"C"</span>, <span class="dv">10</span>)),</span>
+<span id="cb73-413"><a href="#cb73-413" aria-hidden="true" tabindex="-1"></a>             <span class="at">valor =</span> <span class="fu">c</span>(A, B, C))</span>
+<span id="cb73-414"><a href="#cb73-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-415"><a href="#cb73-415" aria-hidden="true" tabindex="-1"></a>dados</span>
+<span id="cb73-416"><a href="#cb73-416" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-417"><a href="#cb73-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-418"><a href="#cb73-418" aria-hidden="true" tabindex="-1"></a>Utilizando a função <span class="in">`means_by()`</span> do pacote metan é possível computar médias por grupos.</span>
+<span id="cb73-419"><a href="#cb73-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-422"><a href="#cb73-422" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-423"><a href="#cb73-423" aria-hidden="true" tabindex="-1"></a><span class="co"># calcular a média por grupo</span></span>
+<span id="cb73-424"><a href="#cb73-424" aria-hidden="true" tabindex="-1"></a><span class="fu">means_by</span>(dados, grupo) <span class="sc">|&gt;</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb73-425"><a href="#cb73-425" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-426"><a href="#cb73-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-427"><a href="#cb73-427" aria-hidden="true" tabindex="-1"></a>Dessa forma, poderíamos concluir que os grupos de dados são iguais? A resposta é não. Isso significa, que essa medida de posição apenas não consegue caracterizar completamente os grupos de dados. Para isto, medidas de dispersão são necessárias. Note no exemplo abaixo, como as medidas de dispersão diferem consideravelmente entre os grupos!</span>
+<span id="cb73-428"><a href="#cb73-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-431"><a href="#cb73-431" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb73-432"><a href="#cb73-432" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_stat</span>(dados,</span>
+<span id="cb73-433"><a href="#cb73-433" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> grupo,</span>
+<span id="cb73-434"><a href="#cb73-434" aria-hidden="true" tabindex="-1"></a>          <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"mean, median, range, ave.dev, var.amo, sd.amo, cv, se"</span>))</span>
+<span id="cb73-435"><a href="#cb73-435" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-436"><a href="#cb73-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-437"><a href="#cb73-437" aria-hidden="true" tabindex="-1"></a>Isto fica mais facilmente notado ao criarmos um gráfico do tipo boxplot, contendo a dispersão dos dados.</span>
+<span id="cb73-438"><a href="#cb73-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-439"><a href="#cb73-439" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.width=8, fig.height=5}</span></span>
+<span id="cb73-440"><a href="#cb73-440" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbetweenstats</span>(dados,</span>
+<span id="cb73-441"><a href="#cb73-441" aria-hidden="true" tabindex="-1"></a>               <span class="at">x =</span> grupo,</span>
+<span id="cb73-442"><a href="#cb73-442" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> valor,</span>
+<span id="cb73-443"><a href="#cb73-443" aria-hidden="true" tabindex="-1"></a>               <span class="at">plot.type =</span> <span class="st">"box"</span>,</span>
+<span id="cb73-444"><a href="#cb73-444" aria-hidden="true" tabindex="-1"></a>               <span class="at">pairwise.comparisons =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb73-445"><a href="#cb73-445" aria-hidden="true" tabindex="-1"></a>               <span class="at">results.subtitle =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb73-446"><a href="#cb73-446" aria-hidden="true" tabindex="-1"></a>               <span class="at">ylab =</span> <span class="st">"rendimento"</span>,</span>
+<span id="cb73-447"><a href="#cb73-447" aria-hidden="true" tabindex="-1"></a>               <span class="at">k =</span> <span class="dv">0</span>)</span>
+<span id="cb73-448"><a href="#cb73-448" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-449"><a href="#cb73-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-450"><a href="#cb73-450" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tutorial R</span></span>
+<span id="cb73-451"><a href="#cb73-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-452"><a href="#cb73-452" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb73-453"><a href="#cb73-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-454"><a href="#cb73-454" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="video-container"&gt;</span></span>
+<span id="cb73-455"><a href="#cb73-455" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb73-456"><a href="#cb73-456" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="https://www.youtube.com/embed/YmB4BZT5Q_o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;</span></span>
+<span id="cb73-457"><a href="#cb73-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-458"><a href="#cb73-458" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb73-459"><a href="#cb73-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-460"><a href="#cb73-460" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb73-461"><a href="#cb73-461" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb73-462"><a href="#cb73-462" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138591&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
+<span id="cb73-463"><a href="#cb73-463" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

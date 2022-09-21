@@ -2,7 +2,6 @@
 title: "3. Distribuições discretas"
 ---
 
-
 # Introdução à probabilidade
 
 Um modelo probabilístico é um modelo em que, à priori, não é possível definir um resultado particular. Este modelo é especificado por meio de uma distribuição de probabilidade. Geralmente, modelos probabilísticos são utilizados quando se tem um grande número de variáveis influenciando o resultado e estas variáveis não podem ser controladas. Como exemplo, pode-se citar a observação da germinação de uma semente, o lançamento de um dado, onde tenta-se prever o número da face que irá sair, etc.
@@ -10,7 +9,6 @@ Um modelo probabilístico é um modelo em que, à priori, não é possível defi
 # Distribuição binomial
 
 Seja $E$ um experimento aleatório e $\Omega$ um espaço amostra associado, onde $n$ é o número de vezes que o experimento $E$ é repetido, $p$ é a probabilidade de $\Omega$ ocorrer em cada uma das $n$ repetições de $E$. Como existem apenas duas situações ($\Omega$ ocorre ou $\Omega$ não ocorre), pode-se determinar a probabilidade de $\Omega$ não ocorrer como sendo $q = 1 - p$.
-
 
 Algumas condições devem ser respeitadas
 
@@ -31,7 +29,6 @@ Onde:
 -   $q$ é probabilidade de fracasso;
 -   $k$ é número de sucessos;
 -   $n$ é tamanho amostral (número de experimentos).
-
 
 ## Um exemplo simples
 
@@ -91,10 +88,9 @@ No software R, a probabilidade de sucesso de um evento para uma variável que se
 args(dbinom)
 ```
 
-* `x` é o vetor de quantiles (sucesso);
-* `size` é o número de experimentos (repetições);
-* `prob` é a probabilidade de sucesso em cada experimento aleatório.
-
+-   `x` é o vetor de quantiles (sucesso);
+-   `size` é o número de experimentos (repetições);
+-   `prob` é a probabilidade de sucesso em cada experimento aleatório.
 
 ```{r}
 library(tibble)
@@ -167,9 +163,6 @@ ggplot(bezerros, aes(nbez, prob))+
   theme(panel.grid.minor = element_blank())
 
 ```
-
-
-
 
 ## Exercício questões prova
 
@@ -264,8 +257,9 @@ dbinom(0:17, size = 20, prob = 0.92) |> sum()
 
 ## Exercício nascimento de bezerros
 
-> A inseminação artificial (IA) é uma das biotecnias da reprodução bovina mais importante e utilizada visando o melhoramento genético do rebanho. O uso de sêmem sexado é uma tecnologia em que os espermatozoides que vão resultar na escolha do sexo que o criador deseja, são separados daqueles que resultariam em machos após a fecundação do óvulo. Ou seja, ao final do processo obtêm-se uma paleta de sêmen com predominância de espermatozoides "fêmeas" ou "Machos", dependendo da escolha. Portanto, a sexagem de espermatozoides permite maximizar a produção animal, possibilitando maior progresso genético entre as gerações^[https://cooperativa.coop.br/semen-sexado-entenda-o-que-e/].
+> A inseminação artificial (IA) é uma das biotecnias da reprodução bovina mais importante e utilizada visando o melhoramento genético do rebanho. O uso de sêmem sexado é uma tecnologia em que os espermatozoides que vão resultar na escolha do sexo que o criador deseja, são separados daqueles que resultariam em machos após a fecundação do óvulo. Ou seja, ao final do processo obtêm-se uma paleta de sêmen com predominância de espermatozoides "fêmeas" ou "Machos", dependendo da escolha. Portanto, a sexagem de espermatozoides permite maximizar a produção animal, possibilitando maior progresso genético entre as gerações[^1].
 
+[^1]: https://cooperativa.coop.br/semen-sexado-entenda-o-que-e/
 
 Considere um lote de 120 vacas inseminadas com sêmem sexado que contenha a probabilidade de 85% de nascimento de fêmeas. Assumindo um nascimento por fêmea, calcule a probabilidade de:
 
@@ -291,7 +285,7 @@ x
 
 ### Multa por ineficiência
 
-O vendedor do sêmen se comprometeu em pagar uma multa de R$10,00 para cada bezerro macho nascido se a taxa de parição de fêmeas fosse menor que 75%. Qual a probabilidade do produtor receber alguma indenização?
+O vendedor do sêmen se comprometeu em pagar uma multa de R\$10,00 para cada bezerro macho nascido se a taxa de parição de fêmeas fosse menor que 75%. Qual a probabilidade do produtor receber alguma indenização?
 
 O produtor somente será indenizado se nascerem 89 ou menos bezerras. Assim, a probabilidade é dada pela soma das probabilidades individuais de 0 até 89
 
@@ -336,4 +330,8 @@ ggplot(bezerros, aes(nbez, prob_ac))+
   # scale_x_continuous(breaks = c(0:10)) +
   theme_grey(base_size = 14) +
   theme(panel.grid.minor = element_blank())
+```
+
+```{=html}
+<div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=138593&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
 ```

@@ -2,8 +2,8 @@
 title: "5. Visualização de dados"
 ---
 
-
 # Pacotes
+
 Para reprodução destes exemplos, os seguintes pacotes precisam ser instalados do github
 
 ```{r eval=FALSE}
@@ -27,9 +27,10 @@ library(geobr)
 ```
 
 # Dados
-## Grãos de café
-Os dados contidos na aba `graos` do arquivo [`Atividade caracteres qualitativos e quantitativos`](https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=2073179916) serão utilizados. Este arquivo contém dados do comprimento e largura de grãos e folhas de café, amostrados na primeira aula de Bioestatística da turma 2022/01. Para carregar estes dados, utilizamos o seguinte comando.
 
+## Grãos de café
+
+Os dados contidos na aba `graos` do arquivo [`Atividade caracteres qualitativos e quantitativos`](https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=2073179916) serão utilizados. Este arquivo contém dados do comprimento e largura de grãos e folhas de café, amostrados na primeira aula de Bioestatística da turma 2022/01. Para carregar estes dados, utilizamos o seguinte comando.
 
 ```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}
 url <- "https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=2073179916"
@@ -54,16 +55,15 @@ head(df_estacao)
 
 > "O gráfico simples trouxe mais informações à mente do analista de dados do que qualquer outro dispositivo." --- John Tukey
 
-
 ## O pacote `ggplot2`
 
-O `ggplot2` é um pacote R para produção de gráficos que diferentemente da maioria dos outros pacotes, apresenta uma profunda gramática baseada no livro *The grammar of graphics* (Wilkinson 2005)^[WICKHAM, H. **Ggplot2 : elegant graphics for data analysis**: Springer, 2009.]. Os gráficos originados em `ggplot2` são baseados em camadas, e cada gráfico tem três componentes chave: `data`, os dados de onde o gráfico será criado; `aes()` (*aesthetic mappings*), que controla o mapeamento estético e as propriedades visuais do gráfico; e ao menos uma camada que irá descrever como cada observação será renderizada. Camadas são usualmente criadas utilizando uma função `geom_()`.
+O `ggplot2` é um pacote R para produção de gráficos que diferentemente da maioria dos outros pacotes, apresenta uma profunda gramática baseada no livro *The grammar of graphics* (Wilkinson 2005)[^1]. Os gráficos originados em `ggplot2` são baseados em camadas, e cada gráfico tem três componentes chave: `data`, os dados de onde o gráfico será criado; `aes()` (*aesthetic mappings*), que controla o mapeamento estético e as propriedades visuais do gráfico; e ao menos uma camada que irá descrever como cada observação será renderizada. Camadas são usualmente criadas utilizando uma função `geom_()`.
 
+[^1]: WICKHAM, H. **Ggplot2 : elegant graphics for data analysis**: Springer, 2009.
 
 ## Meu primeiro gráfico em `ggplot2`
 
 A seguir, vamos discutir os aspcetos básicos para a construção de gráficos utilizando o pacote `ggplot2`. A função `arrange_ggplot()` do pacote `metan` foi utilizada aqui para organizar os gráficos em forma de painéis.
-
 
 ## As camadas de um gráfico `ggplot2`
 
@@ -112,8 +112,8 @@ arrange_ggplot(p1, p2, p3,
 ```
 
 ## Salvar gráficos
-A função `ggsave()` é uma função conveniente para salvar um gráfico. O padrão é salvar a última plotagem exibida, usando o tamanho do dispositivo gráfico atual. Também é possível informar a altura (`height`) e largura (`width`). Ele também adivinha o tipo de dispositivo gráfico da extensão. No seguinte exemplo, o gráfico acima é salvo no diretório de trabalho atual com o nome `pontos.png`, com 5 polegadas de altura e 10 de largura.
 
+A função `ggsave()` é uma função conveniente para salvar um gráfico. O padrão é salvar a última plotagem exibida, usando o tamanho do dispositivo gráfico atual. Também é possível informar a altura (`height`) e largura (`width`). Ele também adivinha o tipo de dispositivo gráfico da extensão. No seguinte exemplo, o gráfico acima é salvo no diretório de trabalho atual com o nome `pontos.png`, com 5 polegadas de altura e 10 de largura.
 
 ```{r eval=FALSE}
 ggsave("pontos.png",
@@ -208,12 +208,11 @@ Deste ponto em diante, vamos confeccionar alguns exemplos utilizando algumas des
 
 Três importantes geometrias são apresentadas a seguir:
 
-1.   `geom_hline()` adiciona uma linha horizontal definida por um intercepto em `y`
+1.  `geom_hline()` adiciona uma linha horizontal definida por um intercepto em `y`
 
 2.  `geom_vline()` adiciona uma linha vertical definida por um intercepto em `x`.
 
 3.  `geom_abline()` adiciona uma linha diagonal definida por um intercepto e uma inclinação.
-
 
 ```{r fig.width=8, fig.height=10}
 g1 <- 
@@ -261,7 +260,8 @@ arrange_ggplot((box1 + box2) / box3,
 Cinco estatísticas são mostradas neste boxplot. A mediana (linha horizontal), as caixas inferior e superior (primeiro e terceiro quartil (percentis 25 e 75, respectivamente)). A linha vertical superior se estende da caixa até o maior valor, não maior que \$1,5 \times {IQR}\$ (onde IQR é a amplitude interquartílica). A linha vertical inferior se estende da caixa até o menor valor, de no máximo, \$1,5 \times {IQR}\$. Dados além das linhas horizontais podem ser considerados *outliers*.
 
 ### Gráficos do tipo histograma
-Neste exemplo, utilizaremos os dados de temperatura mínima da estação meteorológica, disponível no data frame `df_estacao`. O primeiro histograma (p1) mostra os dados gerais desde 01/01/2022. No segundo,  um histograma é gerado para cada mês.
+
+Neste exemplo, utilizaremos os dados de temperatura mínima da estação meteorológica, disponível no data frame `df_estacao`. O primeiro histograma (p1) mostra os dados gerais desde 01/01/2022. No segundo, um histograma é gerado para cada mês.
 
 ```{r message = FALSE, warning = FALSE, fig.width = 10, fig.height = 5, fig.align = "center", fig.cap = "Gráfico do tipo histograma "}
 
@@ -284,12 +284,13 @@ arrange_ggplot(h1, h2,
 
 No histograma (h2), a linha vermelha representa a estimativa da função de probabilidade normal. Para isto, a escala do eixo `y` foi mudada de contagem para densidade.
 
-
 ### Gráficos de Densidade
+
 Os gráficos de densidade, têm a mesma interpretação que histogramas, no então são esteticamente mais atraente. Os primeiros dois exemplos nada mais são que a versão densidade dos histogramas apresentados anteriormente.
 
-No terceiro exemplo (d3), eu mostro como é possível construir um gráfico de densidade `ridges`. Gráficos `ridges` são gráficos de linha parcialmente sobrepostos que criam a impressão de uma cordilheira. Eles podem ser bastante úteis para visualizar mudanças nas distribuições ao longo do tempo ou espaço^[https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html].
+No terceiro exemplo (d3), eu mostro como é possível construir um gráfico de densidade `ridges`. Gráficos `ridges` são gráficos de linha parcialmente sobrepostos que criam a impressão de uma cordilheira. Eles podem ser bastante úteis para visualizar mudanças nas distribuições ao longo do tempo ou espaço[^2].
 
+[^2]: https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html
 
 ```{r message = FALSE, warning = FALSE, fig.width = 10, fig.height = 8, fig.align = "center", fig.cap = "Gráfico do tipo densidade "}
 
@@ -336,7 +337,6 @@ clima_max_min <-
 clima_max_min
 ```
 
-
 ```{r}
 # realiza um subset para remover a precipitação
 df_temp <-  
@@ -365,9 +365,10 @@ ggplot(df_temp, aes(dia, value, color = name)) +
 
 ```
 
-
 ### Gráficos do tipo barra
+
 No seguinte exemplo, os dados do comprimento do grão de café disponíveis em `df` são utilizados.
+
 ```{r message = FALSE, warning = FALSE, fig.width = 10, fig.height = 3, fig.align = "center", fig.cap = "Gráfico do tipo barras, com mapeamento estético e barras de erro."}
 
 bar1 <- 
@@ -411,28 +412,38 @@ arrange_ggplot(metan1, metan2,
                tag_levels = list(c("metan1", "metan2")))
 ```
 
-
-
 <!-- ### Regressão linear de primeiro grau -->
 
 <!-- ```{r message = FALSE, warning = FALSE, fig.width = 10, fig.height = 4, fig.align = "center", fig.cap = "Gráfico de dispersão, combinando pontos e linhas de regressão."} -->
 
 <!-- l1 <-  -->
+
 <!--   ggplot(df, aes(x = MST, y = AF)) + -->
+
 <!--   geom_point() + -->
+
 <!--   geom_smooth(method = "lm", se = FALSE) + # estima uma regressão linear -->
+
 <!--   labs(x = "Matéria seca total (g)", -->
+
 <!--        y = "Área foliar (cm2)") -->
 
 <!-- l2 <-  -->
+
 <!--   ggplot(df, aes(x = MST, y = AF, colour = DAP)) + -->
+
 <!--   geom_point() + -->
+
 <!--   geom_smooth(method = "lm", se = F)+ -->
+
 <!--   labs(x = "Matéria seca total (g)", -->
+
 <!--        y = "Área foliar (cm2)") -->
 
 <!-- arrange_ggplot(l1, l2, -->
+
 <!--                tag_levels = list(c("s1", "s2")), -->
+
 <!--                widths = c(1, 1.2)) -->
 
 <!-- ``` -->
@@ -440,39 +451,62 @@ arrange_ggplot(metan1, metan2,
 <!-- ### Regressão linear polinomial -->
 
 <!-- Para confeccionar um gráfico de regressão polinomial, além do argumento `method = "lm"` (linear model), precisa-se incluir no argumento `formula` a formula utilizada, neste caso, definida utilizando `poly()` (polinomial). -->
+
 <!-- ```{r message = FALSE, warning = FALSE, fig.width = 7, fig.height = 3, fig.align = "center", fig.cap = "Gráfico de dispersão combinado com inclusão de curvas ajustadas."} -->
+
 <!-- #### Polinômio de segundo grau -->
+
 <!-- dado_reg = tibble(dose = c(15,20,25,30,35,40), -->
+
 <!--                   prod = c(65,70,73,75,69,62)) -->
+
 <!-- q1 <-  -->
+
 <!--   ggplot(dado_reg, aes(dose, prod))+ -->
+
 <!--   geom_point()+ -->
+
 <!--   stat_smooth(method = "lm", -->
+
 <!--               formula = "y ~ poly(x, 1)", -->
+
 <!--               se = FALSE) -->
+
 <!-- q2 <-   -->
+
 <!--   q1 +  -->
+
 <!--   stat_smooth(method = "lm", -->
+
 <!--               formula = "y ~ poly(x, 2)", -->
+
 <!--               linetype = "dashed", -->
+
 <!--               color = "red", -->
+
 <!--               se = FALSE) -->
 
 <!-- arrange_ggplot(q1, q2, tag_levels = list(c("l1", "l2"))) -->
+
 <!-- ``` -->
 
 <!-- Utilizando a função `plot_lines()` do pacote metan, um gráfico semelhante pode ser criado com -->
 
 <!-- ```{r} -->
+
 <!-- plot_lines(dado_reg,  -->
+
 <!--            x = dose, -->
+
 <!--            y = prod, -->
+
 <!--            fit = 2) -->
+
 <!-- ``` -->
 
 ## Dados da estação
-### Gráfico da precipitação e temperatura
 
+### Gráfico da precipitação e temperatura
 
 ```{r fig.width=10, fig.cap="Temperaturas máximas e mínimas e precipitação observada ao longo dos dias."}
 df_prec <- 
@@ -505,7 +539,7 @@ ggplot() +
   labs(x = "Dia do ano")
 ```
 
-### Velocidade média do vento 
+### Velocidade média do vento
 
 ```{r collapse = TRUE, message=FALSE, warning=FALSE}
 
@@ -541,10 +575,8 @@ ggplot(vento_long, aes(m, value, color = name, group = name )) +
 
 ```
 
-
-
-
 ### Direção do vento
+
 ```{r collapse = TRUE, message=FALSE, warning=FALSE}
 # cria uma tabela de frequência transformando a variável quantitativa direção do vento
 # em uma qualitativa 
@@ -567,14 +599,11 @@ ggradar(freq %>% transpose_df(),
 
 ```
 
-
-
-
 ## Mapas
+
 ### Mapa da américa do sul e Brasil
+
 O pacote `rnaturalearth` é uma excelente ferramenta para manter e facilitar a interação com os dados do mapa [Natural Earth](https://www.naturalearthdata.com/). Para produção de mapas com o `ggplot2`, os seguintes pacotes são necessários.
-
-
 
 ```{r fig.width=8, fig.height=10}
 # américa do sul
@@ -625,14 +654,15 @@ p3 <-
 p3
 ```
 
-
-
 # Exercício
+
 ## Motivação
 
-A densidade de fluxo de fótons fotossintéticos (PPFD) em níveis subótimos ou superótimos pode modificar o acúmulo de biomassa, composição bromatológica e aparência das culturas. Para isso, Olivoto et al. (2018)^[OLIVOTO, T. et al. Photosynthetic photon flux density levels affect morphology and bromatology in *Cichorium endivia* L. var. *latifolia* grown in a hydroponic system. **Scientia Horticulturae**, v. 230, p. 178–185, 7 jan. 2018. ] investigaram o efeito de níveis de radiação no crescimento da chicória (*Cichorium endivia* L. var. *latifolia*). Os dados disponíveis na aba `FAT_CI` (https://docs.google.com/spreadsheets/d/1vpVGdIkggRxmdnwrkllHbVA0TIHN85UK/edit#gid=2056145155) são relativos a duas variáveis, à saber, matéria seca total (MST) e área foliar (AF) de plantas de chicória cultivadas em diferentes níveis de sombreamento (50, 70, e 100), e avaliados aos 21, 28 e 35 dias após o plantio.
+A densidade de fluxo de fótons fotossintéticos (PPFD) em níveis subótimos ou superótimos pode modificar o acúmulo de biomassa, composição bromatológica e aparência das culturas. Para isso, Olivoto et al. (2018)[^3] investigaram o efeito de níveis de radiação no crescimento da chicória (*Cichorium endivia* L. var. *latifolia*). Os dados disponíveis na aba `FAT_CI` (https://docs.google.com/spreadsheets/d/1vpVGdIkggRxmdnwrkllHbVA0TIHN85UK/edit#gid=2056145155) são relativos a duas variáveis, à saber, matéria seca total (MST) e área foliar (AF) de plantas de chicória cultivadas em diferentes níveis de sombreamento (50, 70, e 100), e avaliados aos 21, 28 e 35 dias após o plantio.
 
-* Considerando o link disponível, importe os dados para o software R, salvando-os em um objeto chamado `df` (preste atenção com o separador decimal!).
+[^3]: OLIVOTO, T. et al. Photosynthetic photon flux density levels affect morphology and bromatology in *Cichorium endivia* L. var. *latifolia* grown in a hydroponic system. **Scientia Horticulturae**, v. 230, p. 178--185, 7 jan. 2018.
+
+-   Considerando o link disponível, importe os dados para o software R, salvando-os em um objeto chamado `df` (preste atenção com o separador decimal!).
 
 ```{r warning=FALSE, message=FALSE}
 library(rio)
@@ -642,11 +672,15 @@ url <- "https://docs.google.com/spreadsheets/d/1vpVGdIkggRxmdnwrkllHbVA0TIHN85UK
 df <-  import(url, dec = ",")
 ```
 
-Para lapidar os conhecimentos na construção de gráficos, utilize o pacote `ggplot2`^[WICKHAM, H. ggplot2: Elegant Graphics for Data Analysis. New York: Springer, 2016. ] e metan^[OLIVOTO, T.; LÚCIO, A. D. metan: An R package for multi‐environment trial analysis. Methods in Ecology and Evolution, v. 11, n. 6, p. 783–789, 2020] para solução dos seguintes problemas.
+Para lapidar os conhecimentos na construção de gráficos, utilize o pacote `ggplot2`[^4] e metan[^5] para solução dos seguintes problemas.
+
+[^4]: WICKHAM, H. ggplot2: Elegant Graphics for Data Analysis. New York: Springer, 2016.
+
+[^5]: OLIVOTO, T.; LÚCIO, A. D. metan: An R package for multi‐environment trial analysis. Methods in Ecology and Evolution, v. 11, n. 6, p. 783--789, 2020
 
 ## Problema 1 - Associação entre variáveis
 
-* Considerando os dados, construa um gráfico de dispersão com a variável `AF` no eixo x e a variável `MST` no eixo y, salve o gráfico em um objeto chamado `p1`.
+-   Considerando os dados, construa um gráfico de dispersão com a variável `AF` no eixo x e a variável `MST` no eixo y, salve o gráfico em um objeto chamado `p1`.
 
 ```{r}
 p1 <- 
@@ -654,10 +688,12 @@ p1 <-
   geom_point()
 ```
 
-* Para melhor compreender a distribuição dos pontos, realize o mapeamento da variável `DAP` com diferentes cores.
-* Altere a legenda do eixo x e y para 'Área foliar (cm2)' e 'Matéria seca (g)', respectivamente.
-* Aplique um tema de sua preferência ao tema utilizando qualquer tema definido por `theme_*()`^[O pacote ggthemes (https://mran.microsoft.com/snapshot/2015-04-01/web/packages/ggthemes/vignettes/ggthemes.html) pode ser utilizado para aumentar o leque de possibilidades.].
-* Armazene o gráfico em um objeto chamado `p2`.
+-   Para melhor compreender a distribuição dos pontos, realize o mapeamento da variável `DAP` com diferentes cores.
+-   Altere a legenda do eixo x e y para 'Área foliar (cm2)' e 'Matéria seca (g)', respectivamente.
+-   Aplique um tema de sua preferência ao tema utilizando qualquer tema definido por `theme_*()`[^6].
+-   Armazene o gráfico em um objeto chamado `p2`.
+
+[^6]: O pacote ggthemes (https://mran.microsoft.com/snapshot/2015-04-01/web/packages/ggthemes/vignettes/ggthemes.html) pode ser utilizado para aumentar o leque de possibilidades.
 
 ```{r}
 p2 <- 
@@ -668,26 +704,25 @@ p2 <-
 
 ```
 
-* Organize os gráficos `p1` e `p2` em um mesmo painel, um ao lado do outro.
+-   Organize os gráficos `p1` e `p2` em um mesmo painel, um ao lado do outro.
+
 ```{r}
 arrange_ggplot(p1, p2)
 ```
 
-* Realize a interpretação do gráfico com relação à associação entre AF e MST.
+-   Realize a interpretação do gráfico com relação à associação entre AF e MST.
 
 > A área foliar e a matéria seca estão positivamente relacionadas, ou seja, há a tendêncida de que o aumento na área foliar venha acompanhado do aumento na matéria seca. No segundo gráfico, é possível identificar que os maiores valores de matéria seca e área foliar foram observados nos 35DAP, e o menores, aos 21DAP.
 
-* Salve os gráficos em um arquivo chamado `dispersão.png`, com 3 polegadas de altura e 8 de largura
+-   Salve os gráficos em um arquivo chamado `dispersão.png`, com 3 polegadas de altura e 8 de largura
 
 ```{r eval=FALSE}
 ggsave("dispersão.png", width = 8, height = 3)
 ```
 
-
-
 ## Problema 2 - Variação dos dados
 
-* Confeccione um gráfico do tipo boxplot contendo a variável `DAP` no eixo x e `MST` no eixo y. Salve o gráfico em um objeto chamado `p3`.
+-   Confeccione um gráfico do tipo boxplot contendo a variável `DAP` no eixo x e `MST` no eixo y. Salve o gráfico em um objeto chamado `p3`.
 
 ```{r}
 p3 <- 
@@ -696,8 +731,8 @@ p3 <-
 
 ```
 
-* Para fazer inferências sobre o fator sombreamento, construa um boxplot semelhante, mas agora mapeando a variável `SOM` com diferentes cores de preenchimento do boxplot. * Inclua uma linha horizontal que represente a média geral da matéria seca.
-* Salve o gráfico em um objeto chamado `p4`.
+-   Para fazer inferências sobre o fator sombreamento, construa um boxplot semelhante, mas agora mapeando a variável `SOM` com diferentes cores de preenchimento do boxplot. \* Inclua uma linha horizontal que represente a média geral da matéria seca.
+-   Salve o gráfico em um objeto chamado `p4`.
 
 ```{r}
 p4 <- 
@@ -706,29 +741,27 @@ p4 <-
   geom_hline(yintercept = mean(df$MST))
 ```
 
+-   Organize os gráficos `p3` e `p4` em um mesmo painel, um ao lado do outro.
 
-* Organize os gráficos `p3` e `p4` em um mesmo painel, um ao lado do outro.
 ```{r}
 arrange_ggplot(p3, p4)
 ```
 
-* Realize a interpretação do gráfico com relação à variação da matéria seca total entre os diferentes níveis de radiação dentro de cada dia após o plantio.
+-   Realize a interpretação do gráfico com relação à variação da matéria seca total entre os diferentes níveis de radiação dentro de cada dia após o plantio.
 
 > Aos 21DAP foi observada a menor variação entre os níveis de SOM. Aos 28DAP, a diferença entre os níveis de SOM foi mais evidente, onde plantas crescendo em 100R apresentaram um valor mediano de MST maior, mas também a maior variação entre as repetições (comprimento da caixa). Aos 35DAP, a diferença entre as radiações torna-se mais evidente. Também, pode-se observar que as variações entre as repetições do 100R e 50R foram menores se comparado aos 28DAP (menor comprimento da caixa).
 
-
-* Salve os boxplots em um arquivo chamado `boxplot.png`.
+-   Salve os boxplots em um arquivo chamado `boxplot.png`.
 
 ```{r eval=FALSE}
 ggsave("boxplot.png")
 ```
 
-
-
 ## Problema 3 - Médias
-* Confeccione um gráfico de barras mostrando a média da variável `AF` no eixo y para cada dia após o plantio (`DAP`) no eixo x.
-* Defina os limites do eixo y de 0 até 6000.
-* Salve o gráfico em um objeto chamado `p5`. 
+
+-   Confeccione um gráfico de barras mostrando a média da variável `AF` no eixo y para cada dia após o plantio (`DAP`) no eixo x.
+-   Defina os limites do eixo y de 0 até 6000.
+-   Salve o gráfico em um objeto chamado `p5`.
 
 > Dica: a função plot_bars() do pacote metan pode ser útil.
 
@@ -747,12 +780,12 @@ p5.2 <-
 
 ```
 
-* Assumindo que as médias da AF precisam ser apresentadas para cada combinação de DAP e SOM, mapeie a variável `SOM` com diferentes cores de preenchimento no gráfico de barras.
-* Mude os títulos dos eixos x e y para "Dias após o plantio (DAP)" e "Área foliar (cm2)", respectivamente.
-* Defina os limites do eixo y de 0 até 6000.
-* Armazene o gráfico em um objeto chamado `p6`.
-* Organize os gráficos `p5` e `p6` em um único painel
-* Salve os gráficos de barra em uma imagem chamada `barras.png`.
+-   Assumindo que as médias da AF precisam ser apresentadas para cada combinação de DAP e SOM, mapeie a variável `SOM` com diferentes cores de preenchimento no gráfico de barras.
+-   Mude os títulos dos eixos x e y para "Dias após o plantio (DAP)" e "Área foliar (cm2)", respectivamente.
+-   Defina os limites do eixo y de 0 até 6000.
+-   Armazene o gráfico em um objeto chamado `p6`.
+-   Organize os gráficos `p5` e `p6` em um único painel
+-   Salve os gráficos de barra em uma imagem chamada `barras.png`.
 
 > Dica: a função plot_factbars() do pacote metan pode ser útil.
 
@@ -780,23 +813,24 @@ p6.2 <-
   ylim(c(0, 6000))
 ```
 
+-   Organize os gráficos `p5` e `p6` em um mesmo painel, um ao lado do outro.
 
-* Organize os gráficos `p5` e `p6` em um mesmo painel, um ao lado do outro.
 ```{r}
 arrange_ggplot(p5, p6)
 ```
 
-* Realize a interpretação do gráfico com relação à área foliar nos diferentes níveis de radiação ao longo dos dias após o plantio.
+-   Realize a interpretação do gráfico com relação à área foliar nos diferentes níveis de radiação ao longo dos dias após o plantio.
 
 > A média da área foliar foi mais semelhante entre os níveis de radiação aos 21DAP. Considerando o erro padrão da média como uma medida de significância, pode-se afirmar que aos 21DAP as médias do 50R e 70R foram estatisticamente iguais. Aos 35DAP, a área foliar das plantas crescendo com 50% de radiação foi menor que àquelas crescendo em pleno sol (100R) e com 70% de radiação (70R).
 
-* Salve os boxplots em um arquivo chamado `barras.png`.
+-   Salve os boxplots em um arquivo chamado `barras.png`.
 
 ```{r eval=FALSE}
 ggsave("barras.png")
 ```
 
-
-
-
 # Referências
+
+```{=html}
+<div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=138595&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
+```

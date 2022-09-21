@@ -123,3 +123,10 @@ Por fim, para citar os pacotes \indt{pacotes}, recomenda-se verificar a referên
 ```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE, error = FALSE}
 citation("metan")
 ```
+
+
+
+
+```{=html}
+<div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=138588&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
+```

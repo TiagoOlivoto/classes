@@ -19,7 +19,6 @@ Para começar, é sugerido que os seguintes pacotes sejam instalados (confira co
 
 </div>
 ```
-
 ```{r warning=FALSE, message = FALSE}
 library(tidyverse)  # manipulação de dados
 library(metan)      # estatísticas descritivas
@@ -93,3 +92,7 @@ As seguintes planilhas contém dados de experimentos bifatoriais com diferentes 
 [^1]: Olivoto, T., I.R. Carvalho, M. Nardino, M. Ferrari, A.J. de Pelegrin, et al. 2016. Sulfur and nitrogen effects on industrial quality and grain yield of wheat Efeitos. Rev. Ciências Agroveterinárias 15(1): 24--33. doi: 10.5965/223811711512016024.
 
 ------------------------------------------------------------------------
+
+```{=html}
+<div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=138590&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
+```
