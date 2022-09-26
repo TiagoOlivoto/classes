@@ -277,6 +277,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#amostragem-aleatória-simples" id="toc-amostragem-aleatória-simples" class="nav-link active" data-scroll-target="#amostragem-aleatória-simples">Amostragem aleatória simples</a>
   <ul class="collapse">
   <li><a href="#aplicação" id="toc-aplicação" class="nav-link" data-scroll-target="#aplicação">Aplicação</a></li>
+  <li><a href="#médias-amostrais" id="toc-médias-amostrais" class="nav-link" data-scroll-target="#médias-amostrais">Médias amostrais</a></li>
+  <li><a href="#tamanho-da-amostra-vs-acurácia" id="toc-tamanho-da-amostra-vs-acurácia" class="nav-link" data-scroll-target="#tamanho-da-amostra-vs-acurácia">Tamanho da amostra vs acurácia</a></li>
   <li><a href="#abordagem-paralela" id="toc-abordagem-paralela" class="nav-link" data-scroll-target="#abordagem-paralela">Abordagem paralela</a></li>
   </ul></li>
   <li><a href="#amostragem-aleatória-estratificada" id="toc-amostragem-aleatória-estratificada" class="nav-link" data-scroll-target="#amostragem-aleatória-estratificada">Amostragem Aleatória Estratificada</a>
@@ -337,48 +339,67 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ✖ dplyr::lag()    masks stats::lag()</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1461701268"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=1590128876"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   id                                 nome cromossomo altura (cm)
-1   1             Alexandre da Rocha Ramos         xy          NA
-2   2                    Alice Maria Trois         xx         158
-3   3                     Ana Júlia Melzzi         xx          NA
-4   4           Arthur Pedro Ferreira Neto         xy         174
-5   5    Christiano Lohan Caldeira Correia         xy         173
-6   6             Eloísa Vitória Cerezolli         xx         170
-7   7                   Eric Orací Martins         xy          NA
-8   8                     Flora dos Santos         xx         164
-9   9                 Gabriel Aguiar Alamy         xy          NA
-10 10             Giovanni Jansen Odorizzi         xy          NA
-11 11                          Giulia Rosa         xx         166
-12 12                      Jeronimo Osorio         xy          NA
-13 13               Jessica Soccol de Lara         xx         169
-14 14            João Antonio Reitz Santos         xy          NA
-15 15                 Joao Cleber de Faria         xy          NA
-16 16                  João Theodoro Bentz         xy         180
-17 17              Jonathan Jesus da Silva         xy          NA
-18 18                Kauai Schubert Lobato         xy         175
-19 19                  Kenji da Cruz Konno         xy         168
-20 20                 Lucca de Souza Speck         xy          NA
-21 21 Marcelo Augusto Nascimento dos Anjos         xy          NA
-22 22            Matheus de Oliveira Mussi         xy          NA
-23 23            Matheus Ferreira Brascher         xy         169
-24 24          Paulo Romero Oliveira Sousa         xy         176
-25 25               Pedro Saraiva Dalberto         xy         187
-26 26             Philippe Ludovic Boisson         xy          NA
-27 27                      Rafaela Seidler         xx         160</code></pre>
+<pre><code>   id                                 aluno crm altura
+1   1                Aline Kliauga Ferrante  xx     NA
+2   2                     André Cuneo Sagaz  xy     NA
+3   3              Beatriz Haensel Teixeira  xx     NA
+4   4                        Bruna Waltrich  xx     NA
+5   5       Carlos Eduardo Forcelini Assoni  xy     NA
+6   6              Daniel Schmechel Affeldt  xy    169
+7   7                Danielli Zangalli Kern  xx    169
+8   8                 Felipe Ricci Westphal  xy     NA
+9   9                 Gabriel Loche Lopasso  xy    188
+10 10                   Gabriel Sbardelotto  xy     NA
+11 11                 Gabriela Araujo Catto  xx    162
+12 12            Guilherme Antonio Ferreira  xy    173
+13 13         Helena dos Santos Vanderlinde  xx     NA
+14 14               Isabela Martins Ghizoni  xx    166
+15 15        João Pedro dos Santos Angulski  xy     NA
+16 16          Joao Pedro Lantyer Marcelino  xy     NA
+17 17                    João Vitor Germano  xy     NA
+18 18           João Vitor Zeferino Madeira  xy    168
+19 19         José Eduardo Pimentel e Silva  xy    169
+20 20        Juliana Eduarda Oliveira Gomes  xx     NA
+21 21        Kamilly Vitoria Siqueira Tonet  xx     NA
+22 22                  Leticia Herbert Post  xx     NA
+23 23                   Lucas Lopes Ribeiro  xy     NA
+24 24                    Lucas Paz Claudino  xy    178
+25 25               Lucas Sodre de Oliveira  xy     NA
+26 26                Luis Bortoluzzi Sobral  xy     NA
+27 27                   Luiz Paulo da Silva  xy     NA
+28 28              Magalhães Antonio Saxico  xy     NA
+29 29          Maria Eduarda Wendt Coutinho  xx    170
+30 30         Maria Laura Faustino Monteiro  xx    164
+31 31               Mateus Zunino Espindola  xy     NA
+32 32             Matheus de Oliveira Mussi  xy     NA
+33 33 Natacha Micheline de Oliveira da Rosa  xx     NA
+34 34           Pierre Marcel Bruno Boisson  xy     NA
+35 35          Rafaela Rodrigues dos Santos  xx     NA
+36 36              Renan Guilherme da Silva  xy     NA
+37 37                        Tassie Turcato  xx     NA
+38 38         Thalita Maria Gomes Rodrigues  xx    163
+39 39        Wanessa Pedrinha do Nascimento  xx     NA
+40 40                 Wesley Castilhos Drun  xy     NA
+41 41                      Wilson Rosa Neto  xy     NA</code></pre>
 </div>
 </div>
-<p>A função <code>sample_random()</code> pode ser utilizada para amostrar <code>n</code> linhas aleatoriamente do conjunto de dados <code>data</code>. Utilizando <code>prop</code>, uma proporção dos dados é amostrada. Este último é útil ao realizar amostragens estratificadas informando o argumento <code>strata</code>, onde cada estrato possui diferentes tamanhos de amostra.</p>
+<p>A função <code>sample_random()</code> retirada do pacote <a href="https://github.com/TiagoOlivoto/metan/blob/master/R/utils_sample.R">metan</a> pode ser utilizada para amostrar <code>n</code> linhas aleatoriamente do conjunto de dados <code>data</code>. Utilizando <code>prop</code>, uma proporção dos dados é amostrada. Este último é útil ao realizar amostragens estratificadas informando o argumento <code>by</code>, onde cada estrato possui diferentes tamanhos de amostra.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Função auxiliar</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sample_random <span class="ot">&lt;-</span> <span class="cf">function</span>(data, n, prop, <span class="at">strata =</span> <span class="cn">NULL</span>){</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">missing</span>(strata)){</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">group_by</span>({{strata}})</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(data, <span class="at">n =</span> n, <span class="at">prop =</span> prop)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sample_random <span class="ot">&lt;-</span> <span class="cf">function</span>(data,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                          n,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                          prop,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">by =</span> <span class="cn">NULL</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                          <span class="at">weight =</span> <span class="cn">NULL</span>){</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">missing</span>(by)){</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">group_by</span>({{by}})</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">slice_sample</span>(data, <span class="at">n =</span> n, <span class="at">prop =</span> prop, <span class="at">weight_by =</span> weight) <span class="sc">|&gt;</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="amostragem-aleatória-simples" class="level1">
 <h1>Amostragem aleatória simples</h1>
@@ -521,22 +542,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="aplicação">Aplicação</h2>
 <p>Vamos considerar uma variável <code>x</code>, distribuida normalmente com média <span class="math inline">\(\bar X = 10\)</span> e desvio padrão <span class="math inline">\(S = 2\)</span>, avaliada em população com N = 10.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>N,</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> N, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>))</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>N,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> N, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   id         x
-1   1 11.756768
-2   2  7.994907
-3   3  9.678796
-4   4  6.781403
-5   5 11.329430
-6   6  8.776694
-7   7 12.244748
-8   8  7.422314
-9   9 11.115532
-10 10  8.694864</code></pre>
+1   1  8.747092
+2   2 10.367287
+3   3  8.328743
+4   4 13.190562
+5   5 10.659016
+6   6  8.359063
+7   7 10.974858
+8   8 11.476649
+9   9 11.151563
+10 10  9.389223</code></pre>
 </div>
 </div>
 <p>Considerando uma amostragem com <code>n = 3</code>, as 120 amostras possíveis são</p>
@@ -564,38 +586,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 [120,]    8    9   10</code></pre>
 </div>
 </div>
+</section>
+<section id="médias-amostrais" class="level2">
+<h2 class="anchored" data-anchor-id="médias-amostrais">Médias amostrais</h2>
 <p>A seguinte função, computa a média das 120 amostras. Assim, obtém-se a distribuição das médias amostrais.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>medias <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># abordagem com for-loop</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(amostras)) {</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  individ <span class="ot">&lt;-</span> amostras[i,]</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  valores <span class="ot">&lt;-</span> df2<span class="sc">$</span>x[individ]</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  medias <span class="ot">&lt;-</span> <span class="fu">append</span>(medias, <span class="fu">mean</span>(valores))</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># criar um data frame com as médias</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>df_medias <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(amostras) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">media =</span> medias)</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_medias)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>medias <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># abordagem com for-loop</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(amostras)) {</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  individ <span class="ot">&lt;-</span> amostras[i,]</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  valores <span class="ot">&lt;-</span> df2<span class="sc">$</span>x[individ]</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  medias <span class="ot">&lt;-</span> <span class="fu">append</span>(medias, <span class="fu">mean</span>(valores))</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># criar um data frame com as médias</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>df_medias <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(amostras) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">media =</span> medias)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_medias)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  X1 X2 X3     media
-1  1  2  3  9.810157
-2  1  2  4  8.844360
-3  1  2  5 10.360368
-4  1  2  6  9.509456
-5  1  2  7 10.665474
-6  1  2  8  9.057996</code></pre>
+1  1  2  3  9.147707
+2  1  2  4 10.768314
+3  1  2  5  9.924465
+4  1  2  6  9.157814
+5  1  2  7 10.029746
+6  1  2  8 10.197009</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(df_medias)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    X1 X2 X3     media
-115  6  8 10  8.297957
-116  6  9 10  9.529030
-117  7  8  9 10.260865
-118  7  8 10  9.453976
-119  7  9 10 10.685048
-120  8  9 10  9.077570</code></pre>
+115  6  8 10  9.741645
+116  6  9 10  9.633283
+117  7  8  9 11.201023
+118  7  8 10 10.613577
+119  7  9 10 10.505215
+120  8  9 10 10.672478</code></pre>
 </div>
 </div>
 <p>Ao computar a média das medias amostrais, obtém-se a média populacional</p>
@@ -615,43 +639,97 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
+<section id="tamanho-da-amostra-vs-acurácia" class="level2">
+<h2 class="anchored" data-anchor-id="tamanho-da-amostra-vs-acurácia">Tamanho da amostra vs acurácia</h2>
+<p>No seguinte exemplo, vamos investigar o impacto do tamanho da amostra na acurácia da média. Para isso, serão amostradas aleatoriamente 1:120 médias amostrais do conjunto <code>df_medias</code> e calculado o desvio em relação a média populacional. O processo é repetido <code>nboot</code> vezes utilizando a técnica bootstrap.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>nboot <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nboot){</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> </span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df_medias), <span class="cf">function</span>(x){</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>      rows <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df_medias), x)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mean</span>(df_medias[rows,]<span class="sc">$</span>media)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  samples[[j]] <span class="ot">&lt;-</span> tmp</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="co"># cada coluna contém as médias amostrais de um procedimento bootstrap</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">do.call</span>(cbind, <span class="fu">lapply</span>(samples, data.frame))</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(samples) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"v"</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(samples))</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="co"># criar dados longo</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>samples_long <span class="ot">&lt;-</span> </span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>  samples <span class="sc">|&gt;</span> </span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">desvio  =</span> value <span class="sc">-</span>  <span class="fu">mean</span>(df2<span class="sc">$</span>x),</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df_medias), <span class="at">each =</span> nboot))</span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a><span class="co"># média dos procedimentos bootstrap</span></span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>samples_mean <span class="ot">&lt;-</span> </span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>  samples_long <span class="sc">|&gt;</span> </span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(x) <span class="sc">|&gt;</span> </span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mu =</span> <span class="fu">mean</span>(desvio))</span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a><span class="co"># criar o gráfico</span></span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(samples_long, <span class="fu">aes</span>(<span class="at">x =</span> x,</span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>                         <span class="at">y =</span> desvio,</span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>                         <span class="at">group =</span> name)) <span class="sc">+</span></span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> mu, <span class="at">group =</span> <span class="dv">1</span>),</span>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> samples_mean,</span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">120</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span></span>
+<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Número de médias amostrais incluídas"</span>,</span>
+<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Desvio em relação a média populacional"</span>,</span>
+<span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Resultado de 200 procedimentos bootstrap"</span>,</span>
+<span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"Média: {round(mean(df2$x), 3)}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="FIT5306_06_AMOSTRAGEM_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
 <section id="abordagem-paralela" class="level2">
 <h2 class="anchored" data-anchor-id="abordagem-paralela">Abordagem paralela</h2>
 <p>Quando o número de amostras cresce bastante, a abordagem for-loop não é computacionalmente eficiente. Assim, uma abordagem utilizando <code>sapply()</code> é mais eficiente. Quando paraleliza-se a função, a eficiência aumenta mais ainda.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># criando uma função para obter a média de um id</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>get_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(df, var, amostras, id){</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  individ <span class="ot">&lt;-</span> amostras[id,]</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(df[[var]][individ])</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">30</span></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>N,</span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>                  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> N, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>))</span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>amostras2 <span class="ot">&lt;-</span> <span class="fu">combn</span>(N, n) <span class="sc">|&gt;</span> <span class="fu">t</span>()</span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>  medias2 <span class="ot">&lt;-</span></span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(amostras2), <span class="cf">function</span>(i){</span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_mean</span>(df, <span class="st">"x"</span>, amostras2, <span class="at">id =</span> i)</span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(parallel)</span>
-<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>clust <span class="ot">&lt;-</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a><span class="fu">clusterExport</span>(clust,</span>
-<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>              <span class="at">varlist =</span> <span class="fu">c</span>(<span class="st">"df"</span>, <span class="st">"amostras2"</span>, <span class="st">"get_mean"</span>))</span>
-<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
-<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>  medias3 <span class="ot">&lt;-</span></span>
-<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">parLapply</span>(clust, <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(amostras2), <span class="cf">function</span>(i){</span>
-<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_mean</span>(df, <span class="st">"x"</span>, amostras2, <span class="at">id =</span> i)</span>
-<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(clust)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># criando uma função para obter a média de um id</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>get_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(df, var, amostras, id){</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  individ <span class="ot">&lt;-</span> amostras[id,]</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(df[[var]][individ])</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>N,</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>                  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> N, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>))</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>amostras2 <span class="ot">&lt;-</span> <span class="fu">combn</span>(N, n) <span class="sc">|&gt;</span> <span class="fu">t</span>()</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>  medias2 <span class="ot">&lt;-</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(amostras2), <span class="cf">function</span>(i){</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_mean</span>(df2, <span class="st">"x"</span>, amostras2, <span class="at">id =</span> i)</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(parallel)</span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>clust <span class="ot">&lt;-</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a><span class="fu">clusterExport</span>(clust,</span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>              <span class="at">varlist =</span> <span class="fu">c</span>(<span class="st">"df2"</span>, <span class="st">"amostras2"</span>, <span class="st">"get_mean"</span>))</span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>  medias3 <span class="ot">&lt;-</span></span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">parLapply</span>(clust, <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(amostras2), <span class="cf">function</span>(i){</span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_mean</span>(df2, <span class="st">"x"</span>, amostras2, <span class="at">id =</span> i)</span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(clust)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -660,40 +738,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="número-igual-dentro-de-cada-estrato" class="level2">
 <h2 class="anchored" data-anchor-id="número-igual-dentro-de-cada-estrato">Número igual dentro de cada estrato</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_random</span>(df, <span class="at">n =</span> <span class="dv">3</span>, <span class="at">strata =</span> cromossomo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_random</span>(df, <span class="at">n =</span> <span class="dv">3</span>, <span class="at">by =</span> crm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
-# Groups:   cromossomo [2]
-     id nome                                 cromossomo `altura (cm)`
-  &lt;int&gt; &lt;chr&gt;                                &lt;chr&gt;              &lt;int&gt;
-1     8 Flora dos Santos                     xx                   164
-2    27 Rafaela Seidler                      xx                   160
-3    11 Giulia Rosa                          xx                   166
-4     7 Eric Orací Martins                   xy                    NA
-5    21 Marcelo Augusto Nascimento dos Anjos xy                    NA
-6    12 Jeronimo Osorio                      xy                    NA</code></pre>
+     id aluno                          crm   altura
+  &lt;int&gt; &lt;chr&gt;                          &lt;chr&gt;  &lt;int&gt;
+1    38 Thalita Maria Gomes Rodrigues  xx       163
+2    30 Maria Laura Faustino Monteiro  xx       164
+3     7 Danielli Zangalli Kern         xx       169
+4    40 Wesley Castilhos Drun          xy        NA
+5    41 Wilson Rosa Neto               xy        NA
+6    15 João Pedro dos Santos Angulski xy        NA</code></pre>
 </div>
 </div>
 </section>
 <section id="proporção-da-população-em-cada-estrato" class="level2">
 <h2 class="anchored" data-anchor-id="proporção-da-população-em-cada-estrato">Proporção da população em cada estrato</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_random</span>(df,</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">prop =</span> <span class="fl">0.3</span>,</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">strata =</span> cromossomo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_random</span>(df,</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">prop =</span> <span class="fl">0.3</span>,</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">by =</span> crm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 8 × 4
-# Groups:   cromossomo [2]
-     id nome                       cromossomo `altura (cm)`
-  &lt;int&gt; &lt;chr&gt;                      &lt;chr&gt;              &lt;int&gt;
-1    27 Rafaela Seidler            xx                   160
-2     8 Flora dos Santos           xx                   164
-3    20 Lucca de Souza Speck       xy                    NA
-4    10 Giovanni Jansen Odorizzi   xy                    NA
-5     4 Arthur Pedro Ferreira Neto xy                   174
-6    15 Joao Cleber de Faria       xy                    NA
-7    26 Philippe Ludovic Boisson   xy                    NA
-8     7 Eric Orací Martins         xy                    NA</code></pre>
+<pre><code># A tibble: 12 × 4
+      id aluno                          crm   altura
+   &lt;int&gt; &lt;chr&gt;                          &lt;chr&gt;  &lt;int&gt;
+ 1    20 Juliana Eduarda Oliveira Gomes xx        NA
+ 2    30 Maria Laura Faustino Monteiro  xx       164
+ 3    14 Isabela Martins Ghizoni        xx       166
+ 4    38 Thalita Maria Gomes Rodrigues  xx       163
+ 5     3 Beatriz Haensel Teixeira       xx        NA
+ 6     9 Gabriel Loche Lopasso          xy       188
+ 7    10 Gabriel Sbardelotto            xy        NA
+ 8    26 Luis Bortoluzzi Sobral         xy        NA
+ 9    41 Wilson Rosa Neto               xy        NA
+10    16 Joao Pedro Lantyer Marcelino   xy        NA
+11    36 Renan Guilherme da Silva       xy        NA
+12    12 Guilherme Antonio Ferreira     xy       173</code></pre>
 </div>
 </div>
 </section>
@@ -701,22 +781,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="amostragem-aleatória-sistemática" class="level1">
 <h1>Amostragem aleatória sistemática</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>sample_sist <span class="ot">&lt;-</span> <span class="cf">function</span>(data, n, <span class="at">r =</span> <span class="cn">NULL</span>){</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(<span class="fu">nrow</span>(data) <span class="sc">/</span> n)</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.null</span>(r)){</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    r <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>k, <span class="dv">1</span>)</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  rows <span class="ot">&lt;-</span> <span class="fu">seq</span>(r, r <span class="sc">+</span> k<span class="sc">*</span>(n<span class="dv">-1</span>), k)</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(data, rows)</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_sist</span>(df, <span class="at">n =</span> <span class="dv">4</span>, <span class="at">r =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>sample_systematic <span class="ot">&lt;-</span> <span class="cf">function</span>(data,</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>                              n,</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">r =</span> <span class="cn">NULL</span>,</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">by =</span>  <span class="cn">NULL</span>){</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  aux <span class="ot">&lt;-</span> <span class="cf">function</span>(data, n, <span class="at">r =</span> <span class="cn">NULL</span>){</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    k <span class="ot">&lt;-</span> <span class="fu">floor</span>(<span class="fu">nrow</span>(data) <span class="sc">/</span> n)</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"k = "</span>, k)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">is.null</span>(r)){</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>      r <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>k, <span class="dv">1</span>)</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(r <span class="sc">==</span> <span class="dv">1</span>){</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>      rows <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data), n)</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span>{</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>      rows <span class="ot">&lt;-</span> <span class="fu">seq</span>(r, r <span class="sc">+</span> k<span class="sc">*</span>(n<span class="dv">-1</span>), k)</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice</span>(data, rows) <span class="sc">|&gt;</span></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">.id =</span> rows, <span class="at">.before =</span> <span class="dv">1</span>)</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">missing</span>(by)){</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>    data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">group_by</span>({{by}})</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.grouped_df</span>(data)){</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>    groups <span class="ot">&lt;-</span> <span class="fu">group_vars</span>(data)</span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>    data <span class="sc">|&gt;</span></span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>      <span class="fu">nest</span>(<span class="at">data =</span> <span class="sc">-</span><span class="fu">c</span>(<span class="sc">!!!</span><span class="fu">syms</span>(groups))) <span class="sc">|&gt;</span></span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">sample =</span> <span class="fu">map</span>(data, <span class="sc">~</span>.x <span class="sc">|&gt;</span>  <span class="fu">aux</span>(<span class="at">n =</span> n, <span class="at">r =</span> r))) <span class="sc">|&gt;</span></span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(<span class="sc">-</span>data) <span class="sc">|&gt;</span></span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>      <span class="fu">unnest</span>(sample)</span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span>{</span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aux</span>(data, <span class="at">n =</span> n, <span class="at">r =</span> r)</span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_systematic</span>(df, <span class="at">n =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>k = 10</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  id                      nome cromossomo altura (cm)
-1  1  Alexandre da Rocha Ramos         xy          NA
-2  8          Flora dos Santos         xx         164
-3 15      Joao Cleber de Faria         xy          NA
-4 22 Matheus de Oliveira Mussi         xy          NA</code></pre>
+<pre><code>  .id id                          aluno crm altura
+1   9  9          Gabriel Loche Lopasso  xy    188
+2  19 19  José Eduardo Pimentel e Silva  xy    169
+3  29 29   Maria Eduarda Wendt Coutinho  xx    170
+4  39 39 Wanessa Pedrinha do Nascimento  xx     NA</code></pre>
 </div>
 </div>
 <div align="center"><a href="https://www.free-website-hit-counter.com"><img src="https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138596&amp;s=2" border="0" alt="Free Website Hit Counter"></a><br><small><a href="https://www.free-website-hit-counter.com" title="Free Website Hit Counter">Free website hit counter</a></small></div>
@@ -990,174 +1098,260 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb34" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "6. Amostragem"</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1461701268"</span>)</span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>df</span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`sample_random()`</span> pode ser utilizada para amostrar <span class="in">`n`</span> linhas aleatoriamente do conjunto de dados <span class="in">`data`</span>. Utilizando <span class="in">`prop`</span>, uma proporção dos dados é amostrada. Este último é útil ao realizar amostragens estratificadas informando o argumento <span class="in">`strata`</span>, onde cada estrato possui diferentes tamanhos de amostra.</span>
-<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Função auxiliar</span></span>
-<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>sample_random <span class="ot">&lt;-</span> <span class="cf">function</span>(data, n, prop, <span class="at">strata =</span> <span class="cn">NULL</span>){</span>
-<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">missing</span>(strata)){</span>
-<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>    data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">group_by</span>({{strata}})</span>
-<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(data, <span class="at">n =</span> n, <span class="at">prop =</span> prop)</span>
-<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a><span class="fu"># Amostragem aleatória simples</span></span>
-<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>A amostragem aleatória simples é o método mais básico de amostragem que tanto pode ser utilizado diretamente na seleção de uma amostra, quando se conhece os indivíduos da população, como ser parte de outros planos amostrais como, por exemplo, da Amostragem Estratificada.</span>
-<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>O número possíveis de amostras com <span class="in">`n`</span> indivíduos de uma população com <span class="in">`N`</span> elementos, é dado por:</span>
-<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a>\mathop C\nolimits_N^n = \frac{N!}{n!(N-n)!}</span>
-<span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a>No próximo exemplo, veremos as possíveis amostras (120) com 3 indivíduos, tomadas de uma população com 10 indivíduos.</span>
-<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-42"><a href="#cb34-42" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb34-43"><a href="#cb34-43" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb34-44"><a href="#cb34-44" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb34-45"><a href="#cb34-45" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">combn</span>(N, n)</span>
-<span id="cb34-46"><a href="#cb34-46" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(d)</span>
-<span id="cb34-47"><a href="#cb34-47" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb34-48"><a href="#cb34-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-49"><a href="#cb34-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aplicação</span></span>
-<span id="cb34-50"><a href="#cb34-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-51"><a href="#cb34-51" aria-hidden="true" tabindex="-1"></a>Vamos considerar uma variável <span class="in">`x`</span>, distribuida normalmente com média $\bar X = 10$ e desvio padrão $S = 2$, avaliada em população com N = 10.</span>
-<span id="cb34-52"><a href="#cb34-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-55"><a href="#cb34-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb34-56"><a href="#cb34-56" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb34-57"><a href="#cb34-57" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>N,</span>
-<span id="cb34-58"><a href="#cb34-58" aria-hidden="true" tabindex="-1"></a>                 <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> N, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>))</span>
-<span id="cb34-59"><a href="#cb34-59" aria-hidden="true" tabindex="-1"></a>df2</span>
-<span id="cb34-60"><a href="#cb34-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb34-61"><a href="#cb34-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-62"><a href="#cb34-62" aria-hidden="true" tabindex="-1"></a>Considerando uma amostragem com <span class="in">`n = 3`</span>, as 120 amostras possíveis são</span>
-<span id="cb34-63"><a href="#cb34-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-66"><a href="#cb34-66" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb34-67"><a href="#cb34-67" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb34-68"><a href="#cb34-68" aria-hidden="true" tabindex="-1"></a>amostras <span class="ot">&lt;-</span> <span class="fu">combn</span>(N, n) <span class="sc">|&gt;</span> <span class="fu">t</span>()</span>
-<span id="cb34-69"><a href="#cb34-69" aria-hidden="true" tabindex="-1"></a>amostras <span class="sc">|&gt;</span> <span class="fu">head</span>()</span>
-<span id="cb34-70"><a href="#cb34-70" aria-hidden="true" tabindex="-1"></a>amostras <span class="sc">|&gt;</span> <span class="fu">tail</span>()</span>
-<span id="cb34-71"><a href="#cb34-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb34-72"><a href="#cb34-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-73"><a href="#cb34-73" aria-hidden="true" tabindex="-1"></a>A seguinte função, computa a média das 120 amostras. Assim, obtém-se a distribuição das médias amostrais.</span>
-<span id="cb34-74"><a href="#cb34-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-77"><a href="#cb34-77" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb34-78"><a href="#cb34-78" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb34-79"><a href="#cb34-79" aria-hidden="true" tabindex="-1"></a>medias <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb34-80"><a href="#cb34-80" aria-hidden="true" tabindex="-1"></a><span class="co"># abordagem com for-loop</span></span>
-<span id="cb34-81"><a href="#cb34-81" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(amostras)) {</span>
-<span id="cb34-82"><a href="#cb34-82" aria-hidden="true" tabindex="-1"></a>  individ <span class="ot">&lt;-</span> amostras[i,]</span>
-<span id="cb34-83"><a href="#cb34-83" aria-hidden="true" tabindex="-1"></a>  valores <span class="ot">&lt;-</span> df2<span class="sc">$</span>x[individ]</span>
-<span id="cb34-84"><a href="#cb34-84" aria-hidden="true" tabindex="-1"></a>  medias <span class="ot">&lt;-</span> <span class="fu">append</span>(medias, <span class="fu">mean</span>(valores))</span>
-<span id="cb34-85"><a href="#cb34-85" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb34-86"><a href="#cb34-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-87"><a href="#cb34-87" aria-hidden="true" tabindex="-1"></a><span class="co"># criar um data frame com as médias</span></span>
-<span id="cb34-88"><a href="#cb34-88" aria-hidden="true" tabindex="-1"></a>df_medias <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(amostras) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">media =</span> medias)</span>
-<span id="cb34-89"><a href="#cb34-89" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_medias)</span>
-<span id="cb34-90"><a href="#cb34-90" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(df_medias)</span>
-<span id="cb34-91"><a href="#cb34-91" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb34-92"><a href="#cb34-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-93"><a href="#cb34-93" aria-hidden="true" tabindex="-1"></a>Ao computar a média das medias amostrais, obtém-se a média populacional</span>
-<span id="cb34-94"><a href="#cb34-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-97"><a href="#cb34-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb34-98"><a href="#cb34-98" aria-hidden="true" tabindex="-1"></a>med_amostral <span class="ot">&lt;-</span> <span class="fu">mean</span>(df_medias<span class="sc">$</span>media)</span>
-<span id="cb34-99"><a href="#cb34-99" aria-hidden="true" tabindex="-1"></a>med_pop <span class="ot">&lt;-</span>  <span class="fu">mean</span>(df2<span class="sc">$</span>x)</span>
-<span id="cb34-100"><a href="#cb34-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-101"><a href="#cb34-101" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(med_amostral, med_pop)</span>
-<span id="cb34-102"><a href="#cb34-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-103"><a href="#cb34-103" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_medias, <span class="fu">aes</span>(<span class="at">x =</span> media)) <span class="sc">+</span></span>
-<span id="cb34-104"><a href="#cb34-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"gray"</span>) <span class="sc">+</span></span>
-<span id="cb34-105"><a href="#cb34-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> med_pop, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>)</span>
-<span id="cb34-106"><a href="#cb34-106" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb34-107"><a href="#cb34-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-108"><a href="#cb34-108" aria-hidden="true" tabindex="-1"></a><span class="fu">## Abordagem paralela</span></span>
-<span id="cb34-109"><a href="#cb34-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-110"><a href="#cb34-110" aria-hidden="true" tabindex="-1"></a>Quando o número de amostras cresce bastante, a abordagem for-loop não é computacionalmente eficiente. Assim, uma abordagem utilizando <span class="in">`sapply()`</span> é mais eficiente. Quando paraleliza-se a função, a eficiência aumenta mais ainda.</span>
-<span id="cb34-111"><a href="#cb34-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-112"><a href="#cb34-112" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval = FALSE}</span></span>
-<span id="cb34-113"><a href="#cb34-113" aria-hidden="true" tabindex="-1"></a><span class="co"># criando uma função para obter a média de um id</span></span>
-<span id="cb34-114"><a href="#cb34-114" aria-hidden="true" tabindex="-1"></a>get_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(df, var, amostras, id){</span>
-<span id="cb34-115"><a href="#cb34-115" aria-hidden="true" tabindex="-1"></a>  individ <span class="ot">&lt;-</span> amostras[id,]</span>
-<span id="cb34-116"><a href="#cb34-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(df[[var]][individ])</span>
-<span id="cb34-117"><a href="#cb34-117" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb34-118"><a href="#cb34-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-119"><a href="#cb34-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-120"><a href="#cb34-120" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">30</span></span>
-<span id="cb34-121"><a href="#cb34-121" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb34-122"><a href="#cb34-122" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>N,</span>
-<span id="cb34-123"><a href="#cb34-123" aria-hidden="true" tabindex="-1"></a>                  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> N, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>))</span>
-<span id="cb34-124"><a href="#cb34-124" aria-hidden="true" tabindex="-1"></a>amostras2 <span class="ot">&lt;-</span> <span class="fu">combn</span>(N, n) <span class="sc">|&gt;</span> <span class="fu">t</span>()</span>
-<span id="cb34-125"><a href="#cb34-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-126"><a href="#cb34-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-127"><a href="#cb34-127" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
-<span id="cb34-128"><a href="#cb34-128" aria-hidden="true" tabindex="-1"></a>  medias2 <span class="ot">&lt;-</span></span>
-<span id="cb34-129"><a href="#cb34-129" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(amostras2), <span class="cf">function</span>(i){</span>
-<span id="cb34-130"><a href="#cb34-130" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_mean</span>(df, <span class="st">"x"</span>, amostras2, <span class="at">id =</span> i)</span>
-<span id="cb34-131"><a href="#cb34-131" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb34-132"><a href="#cb34-132" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb34-133"><a href="#cb34-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-134"><a href="#cb34-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-135"><a href="#cb34-135" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(parallel)</span>
-<span id="cb34-136"><a href="#cb34-136" aria-hidden="true" tabindex="-1"></a>clust <span class="ot">&lt;-</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
-<span id="cb34-137"><a href="#cb34-137" aria-hidden="true" tabindex="-1"></a><span class="fu">clusterExport</span>(clust,</span>
-<span id="cb34-138"><a href="#cb34-138" aria-hidden="true" tabindex="-1"></a>              <span class="at">varlist =</span> <span class="fu">c</span>(<span class="st">"df"</span>, <span class="st">"amostras2"</span>, <span class="st">"get_mean"</span>))</span>
-<span id="cb34-139"><a href="#cb34-139" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
-<span id="cb34-140"><a href="#cb34-140" aria-hidden="true" tabindex="-1"></a>  medias3 <span class="ot">&lt;-</span></span>
-<span id="cb34-141"><a href="#cb34-141" aria-hidden="true" tabindex="-1"></a>    <span class="fu">parLapply</span>(clust, <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(amostras2), <span class="cf">function</span>(i){</span>
-<span id="cb34-142"><a href="#cb34-142" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_mean</span>(df, <span class="st">"x"</span>, amostras2, <span class="at">id =</span> i)</span>
-<span id="cb34-143"><a href="#cb34-143" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb34-144"><a href="#cb34-144" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb34-145"><a href="#cb34-145" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(clust)</span>
-<span id="cb34-146"><a href="#cb34-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-147"><a href="#cb34-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb34-148"><a href="#cb34-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-149"><a href="#cb34-149" aria-hidden="true" tabindex="-1"></a><span class="fu"># Amostragem Aleatória Estratificada</span></span>
-<span id="cb34-150"><a href="#cb34-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-151"><a href="#cb34-151" aria-hidden="true" tabindex="-1"></a><span class="fu">## Número igual dentro de cada estrato</span></span>
-<span id="cb34-152"><a href="#cb34-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-155"><a href="#cb34-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb34-156"><a href="#cb34-156" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_random</span>(df, <span class="at">n =</span> <span class="dv">3</span>, <span class="at">strata =</span> cromossomo)</span>
-<span id="cb34-157"><a href="#cb34-157" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb34-158"><a href="#cb34-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-159"><a href="#cb34-159" aria-hidden="true" tabindex="-1"></a><span class="fu">## Proporção da população em cada estrato</span></span>
-<span id="cb34-160"><a href="#cb34-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-163"><a href="#cb34-163" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb34-164"><a href="#cb34-164" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_random</span>(df,</span>
-<span id="cb34-165"><a href="#cb34-165" aria-hidden="true" tabindex="-1"></a>              <span class="at">prop =</span> <span class="fl">0.3</span>,</span>
-<span id="cb34-166"><a href="#cb34-166" aria-hidden="true" tabindex="-1"></a>              <span class="at">strata =</span> cromossomo)</span>
-<span id="cb34-167"><a href="#cb34-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb34-168"><a href="#cb34-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-169"><a href="#cb34-169" aria-hidden="true" tabindex="-1"></a><span class="fu"># Amostragem aleatória sistemática</span></span>
-<span id="cb34-170"><a href="#cb34-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-173"><a href="#cb34-173" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb34-174"><a href="#cb34-174" aria-hidden="true" tabindex="-1"></a>sample_sist <span class="ot">&lt;-</span> <span class="cf">function</span>(data, n, <span class="at">r =</span> <span class="cn">NULL</span>){</span>
-<span id="cb34-175"><a href="#cb34-175" aria-hidden="true" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(<span class="fu">nrow</span>(data) <span class="sc">/</span> n)</span>
-<span id="cb34-176"><a href="#cb34-176" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.null</span>(r)){</span>
-<span id="cb34-177"><a href="#cb34-177" aria-hidden="true" tabindex="-1"></a>    r <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>k, <span class="dv">1</span>)</span>
-<span id="cb34-178"><a href="#cb34-178" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb34-179"><a href="#cb34-179" aria-hidden="true" tabindex="-1"></a>  rows <span class="ot">&lt;-</span> <span class="fu">seq</span>(r, r <span class="sc">+</span> k<span class="sc">*</span>(n<span class="dv">-1</span>), k)</span>
-<span id="cb34-180"><a href="#cb34-180" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(data, rows)</span>
-<span id="cb34-181"><a href="#cb34-181" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb34-182"><a href="#cb34-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-183"><a href="#cb34-183" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_sist</span>(df, <span class="at">n =</span> <span class="dv">4</span>, <span class="at">r =</span> <span class="dv">1</span>)</span>
-<span id="cb34-184"><a href="#cb34-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb34-185"><a href="#cb34-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-186"><a href="#cb34-186" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb34-187"><a href="#cb34-187" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138596&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
-<span id="cb34-188"><a href="#cb34-188" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb36" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "6. Amostragem"</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=1590128876"</span>)</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>df</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`sample_random()`</span> retirada do pacote <span class="co">[</span><span class="ot">metan</span><span class="co">](https://github.com/TiagoOlivoto/metan/blob/master/R/utils_sample.R)</span> pode ser utilizada para amostrar <span class="in">`n`</span> linhas aleatoriamente do conjunto de dados <span class="in">`data`</span>. Utilizando <span class="in">`prop`</span>, uma proporção dos dados é amostrada. Este último é útil ao realizar amostragens estratificadas informando o argumento <span class="in">`by`</span>, onde cada estrato possui diferentes tamanhos de amostra.</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Função auxiliar</span></span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>sample_random <span class="ot">&lt;-</span> <span class="cf">function</span>(data,</span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>                          n,</span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a>                          prop,</span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>                          <span class="at">by =</span> <span class="cn">NULL</span>,</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>                          <span class="at">weight =</span> <span class="cn">NULL</span>){</span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">missing</span>(by)){</span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a>    data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">group_by</span>({{by}})</span>
+<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb36-28"><a href="#cb36-28" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">slice_sample</span>(data, <span class="at">n =</span> n, <span class="at">prop =</span> prop, <span class="at">weight_by =</span> weight) <span class="sc">|&gt;</span></span>
+<span id="cb36-29"><a href="#cb36-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
+<span id="cb36-30"><a href="#cb36-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-31"><a href="#cb36-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb36-32"><a href="#cb36-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-33"><a href="#cb36-33" aria-hidden="true" tabindex="-1"></a><span class="fu"># Amostragem aleatória simples</span></span>
+<span id="cb36-34"><a href="#cb36-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-35"><a href="#cb36-35" aria-hidden="true" tabindex="-1"></a>A amostragem aleatória simples é o método mais básico de amostragem que tanto pode ser utilizado diretamente na seleção de uma amostra, quando se conhece os indivíduos da população, como ser parte de outros planos amostrais como, por exemplo, da Amostragem Estratificada.</span>
+<span id="cb36-36"><a href="#cb36-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-37"><a href="#cb36-37" aria-hidden="true" tabindex="-1"></a>O número possíveis de amostras com <span class="in">`n`</span> indivíduos de uma população com <span class="in">`N`</span> elementos, é dado por:</span>
+<span id="cb36-38"><a href="#cb36-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-39"><a href="#cb36-39" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb36-40"><a href="#cb36-40" aria-hidden="true" tabindex="-1"></a>\mathop C\nolimits_N^n = \frac{N!}{n!(N-n)!}</span>
+<span id="cb36-41"><a href="#cb36-41" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb36-42"><a href="#cb36-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-43"><a href="#cb36-43" aria-hidden="true" tabindex="-1"></a>No próximo exemplo, veremos as possíveis amostras (120) com 3 indivíduos, tomadas de uma população com 10 indivíduos.</span>
+<span id="cb36-44"><a href="#cb36-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-47"><a href="#cb36-47" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-48"><a href="#cb36-48" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb36-49"><a href="#cb36-49" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb36-50"><a href="#cb36-50" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">combn</span>(N, n)</span>
+<span id="cb36-51"><a href="#cb36-51" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(d)</span>
+<span id="cb36-52"><a href="#cb36-52" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb36-53"><a href="#cb36-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-54"><a href="#cb36-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aplicação</span></span>
+<span id="cb36-55"><a href="#cb36-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-56"><a href="#cb36-56" aria-hidden="true" tabindex="-1"></a>Vamos considerar uma variável <span class="in">`x`</span>, distribuida normalmente com média $\bar X = 10$ e desvio padrão $S = 2$, avaliada em população com N = 10.</span>
+<span id="cb36-57"><a href="#cb36-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-60"><a href="#cb36-60" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-61"><a href="#cb36-61" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb36-62"><a href="#cb36-62" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb36-63"><a href="#cb36-63" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>N,</span>
+<span id="cb36-64"><a href="#cb36-64" aria-hidden="true" tabindex="-1"></a>                  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> N, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>))</span>
+<span id="cb36-65"><a href="#cb36-65" aria-hidden="true" tabindex="-1"></a>df2</span>
+<span id="cb36-66"><a href="#cb36-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb36-67"><a href="#cb36-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-68"><a href="#cb36-68" aria-hidden="true" tabindex="-1"></a>Considerando uma amostragem com <span class="in">`n = 3`</span>, as 120 amostras possíveis são</span>
+<span id="cb36-69"><a href="#cb36-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-72"><a href="#cb36-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-73"><a href="#cb36-73" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb36-74"><a href="#cb36-74" aria-hidden="true" tabindex="-1"></a>amostras <span class="ot">&lt;-</span> <span class="fu">combn</span>(N, n) <span class="sc">|&gt;</span> <span class="fu">t</span>()</span>
+<span id="cb36-75"><a href="#cb36-75" aria-hidden="true" tabindex="-1"></a>amostras <span class="sc">|&gt;</span> <span class="fu">head</span>()</span>
+<span id="cb36-76"><a href="#cb36-76" aria-hidden="true" tabindex="-1"></a>amostras <span class="sc">|&gt;</span> <span class="fu">tail</span>()</span>
+<span id="cb36-77"><a href="#cb36-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb36-78"><a href="#cb36-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-79"><a href="#cb36-79" aria-hidden="true" tabindex="-1"></a><span class="fu">## Médias amostrais</span></span>
+<span id="cb36-80"><a href="#cb36-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-81"><a href="#cb36-81" aria-hidden="true" tabindex="-1"></a>A seguinte função, computa a média das 120 amostras. Assim, obtém-se a distribuição das médias amostrais.</span>
+<span id="cb36-82"><a href="#cb36-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-85"><a href="#cb36-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-86"><a href="#cb36-86" aria-hidden="true" tabindex="-1"></a>medias <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb36-87"><a href="#cb36-87" aria-hidden="true" tabindex="-1"></a><span class="co"># abordagem com for-loop</span></span>
+<span id="cb36-88"><a href="#cb36-88" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(amostras)) {</span>
+<span id="cb36-89"><a href="#cb36-89" aria-hidden="true" tabindex="-1"></a>  individ <span class="ot">&lt;-</span> amostras[i,]</span>
+<span id="cb36-90"><a href="#cb36-90" aria-hidden="true" tabindex="-1"></a>  valores <span class="ot">&lt;-</span> df2<span class="sc">$</span>x[individ]</span>
+<span id="cb36-91"><a href="#cb36-91" aria-hidden="true" tabindex="-1"></a>  medias <span class="ot">&lt;-</span> <span class="fu">append</span>(medias, <span class="fu">mean</span>(valores))</span>
+<span id="cb36-92"><a href="#cb36-92" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-93"><a href="#cb36-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-94"><a href="#cb36-94" aria-hidden="true" tabindex="-1"></a><span class="co"># criar um data frame com as médias</span></span>
+<span id="cb36-95"><a href="#cb36-95" aria-hidden="true" tabindex="-1"></a>df_medias <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(amostras) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">media =</span> medias)</span>
+<span id="cb36-96"><a href="#cb36-96" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_medias)</span>
+<span id="cb36-97"><a href="#cb36-97" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(df_medias)</span>
+<span id="cb36-98"><a href="#cb36-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb36-99"><a href="#cb36-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-100"><a href="#cb36-100" aria-hidden="true" tabindex="-1"></a>Ao computar a média das medias amostrais, obtém-se a média populacional</span>
+<span id="cb36-101"><a href="#cb36-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-104"><a href="#cb36-104" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-105"><a href="#cb36-105" aria-hidden="true" tabindex="-1"></a>med_amostral <span class="ot">&lt;-</span> <span class="fu">mean</span>(df_medias<span class="sc">$</span>media)</span>
+<span id="cb36-106"><a href="#cb36-106" aria-hidden="true" tabindex="-1"></a>med_pop <span class="ot">&lt;-</span>  <span class="fu">mean</span>(df2<span class="sc">$</span>x)</span>
+<span id="cb36-107"><a href="#cb36-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-108"><a href="#cb36-108" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(med_amostral, med_pop)</span>
+<span id="cb36-109"><a href="#cb36-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-110"><a href="#cb36-110" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_medias, <span class="fu">aes</span>(<span class="at">x =</span> media)) <span class="sc">+</span></span>
+<span id="cb36-111"><a href="#cb36-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"gray"</span>) <span class="sc">+</span></span>
+<span id="cb36-112"><a href="#cb36-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> med_pop, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>)</span>
+<span id="cb36-113"><a href="#cb36-113" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb36-114"><a href="#cb36-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-115"><a href="#cb36-115" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tamanho da amostra vs acurácia</span></span>
+<span id="cb36-116"><a href="#cb36-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-117"><a href="#cb36-117" aria-hidden="true" tabindex="-1"></a>No seguinte exemplo, vamos investigar o impacto do tamanho da amostra na acurácia da média. Para isso, serão amostradas aleatoriamente 1:120 médias amostrais do conjunto <span class="in">`df_medias`</span> e calculado o desvio em relação a média populacional. O processo é repetido <span class="in">`nboot`</span> vezes utilizando a técnica bootstrap.</span>
+<span id="cb36-118"><a href="#cb36-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-121"><a href="#cb36-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-122"><a href="#cb36-122" aria-hidden="true" tabindex="-1"></a>nboot <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb36-123"><a href="#cb36-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-124"><a href="#cb36-124" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb36-125"><a href="#cb36-125" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nboot){</span>
+<span id="cb36-126"><a href="#cb36-126" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span> </span>
+<span id="cb36-127"><a href="#cb36-127" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df_medias), <span class="cf">function</span>(x){</span>
+<span id="cb36-128"><a href="#cb36-128" aria-hidden="true" tabindex="-1"></a>      rows <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df_medias), x)</span>
+<span id="cb36-129"><a href="#cb36-129" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mean</span>(df_medias[rows,]<span class="sc">$</span>media)</span>
+<span id="cb36-130"><a href="#cb36-130" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb36-131"><a href="#cb36-131" aria-hidden="true" tabindex="-1"></a>  samples[[j]] <span class="ot">&lt;-</span> tmp</span>
+<span id="cb36-132"><a href="#cb36-132" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-133"><a href="#cb36-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-134"><a href="#cb36-134" aria-hidden="true" tabindex="-1"></a><span class="co"># cada coluna contém as médias amostrais de um procedimento bootstrap</span></span>
+<span id="cb36-135"><a href="#cb36-135" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">do.call</span>(cbind, <span class="fu">lapply</span>(samples, data.frame))</span>
+<span id="cb36-136"><a href="#cb36-136" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(samples) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"v"</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(samples))</span>
+<span id="cb36-137"><a href="#cb36-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-138"><a href="#cb36-138" aria-hidden="true" tabindex="-1"></a><span class="co"># criar dados longo</span></span>
+<span id="cb36-139"><a href="#cb36-139" aria-hidden="true" tabindex="-1"></a>samples_long <span class="ot">&lt;-</span> </span>
+<span id="cb36-140"><a href="#cb36-140" aria-hidden="true" tabindex="-1"></a>  samples <span class="sc">|&gt;</span> </span>
+<span id="cb36-141"><a href="#cb36-141" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb36-142"><a href="#cb36-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">desvio  =</span> value <span class="sc">-</span>  <span class="fu">mean</span>(df2<span class="sc">$</span>x),</span>
+<span id="cb36-143"><a href="#cb36-143" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df_medias), <span class="at">each =</span> nboot))</span>
+<span id="cb36-144"><a href="#cb36-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-145"><a href="#cb36-145" aria-hidden="true" tabindex="-1"></a><span class="co"># média dos procedimentos bootstrap</span></span>
+<span id="cb36-146"><a href="#cb36-146" aria-hidden="true" tabindex="-1"></a>samples_mean <span class="ot">&lt;-</span> </span>
+<span id="cb36-147"><a href="#cb36-147" aria-hidden="true" tabindex="-1"></a>  samples_long <span class="sc">|&gt;</span> </span>
+<span id="cb36-148"><a href="#cb36-148" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(x) <span class="sc">|&gt;</span> </span>
+<span id="cb36-149"><a href="#cb36-149" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mu =</span> <span class="fu">mean</span>(desvio))</span>
+<span id="cb36-150"><a href="#cb36-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-151"><a href="#cb36-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-152"><a href="#cb36-152" aria-hidden="true" tabindex="-1"></a><span class="co"># criar o gráfico</span></span>
+<span id="cb36-153"><a href="#cb36-153" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(samples_long, <span class="fu">aes</span>(<span class="at">x =</span> x,</span>
+<span id="cb36-154"><a href="#cb36-154" aria-hidden="true" tabindex="-1"></a>                         <span class="at">y =</span> desvio,</span>
+<span id="cb36-155"><a href="#cb36-155" aria-hidden="true" tabindex="-1"></a>                         <span class="at">group =</span> name)) <span class="sc">+</span></span>
+<span id="cb36-156"><a href="#cb36-156" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb36-157"><a href="#cb36-157" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> mu, <span class="at">group =</span> <span class="dv">1</span>),</span>
+<span id="cb36-158"><a href="#cb36-158" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> samples_mean,</span>
+<span id="cb36-159"><a href="#cb36-159" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb36-160"><a href="#cb36-160" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">120</span>, <span class="at">by =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb36-161"><a href="#cb36-161" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span></span>
+<span id="cb36-162"><a href="#cb36-162" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb36-163"><a href="#cb36-163" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Número de médias amostrais incluídas"</span>,</span>
+<span id="cb36-164"><a href="#cb36-164" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Desvio em relação a média populacional"</span>,</span>
+<span id="cb36-165"><a href="#cb36-165" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Resultado de 200 procedimentos bootstrap"</span>,</span>
+<span id="cb36-166"><a href="#cb36-166" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"Média: {round(mean(df2$x), 3)}"</span>))</span>
+<span id="cb36-167"><a href="#cb36-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-168"><a href="#cb36-168" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb36-169"><a href="#cb36-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-170"><a href="#cb36-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-171"><a href="#cb36-171" aria-hidden="true" tabindex="-1"></a><span class="fu">## Abordagem paralela</span></span>
+<span id="cb36-172"><a href="#cb36-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-173"><a href="#cb36-173" aria-hidden="true" tabindex="-1"></a>Quando o número de amostras cresce bastante, a abordagem for-loop não é computacionalmente eficiente. Assim, uma abordagem utilizando <span class="in">`sapply()`</span> é mais eficiente. Quando paraleliza-se a função, a eficiência aumenta mais ainda.</span>
+<span id="cb36-174"><a href="#cb36-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-175"><a href="#cb36-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval = FALSE}</span></span>
+<span id="cb36-176"><a href="#cb36-176" aria-hidden="true" tabindex="-1"></a><span class="co"># criando uma função para obter a média de um id</span></span>
+<span id="cb36-177"><a href="#cb36-177" aria-hidden="true" tabindex="-1"></a>get_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(df, var, amostras, id){</span>
+<span id="cb36-178"><a href="#cb36-178" aria-hidden="true" tabindex="-1"></a>  individ <span class="ot">&lt;-</span> amostras[id,]</span>
+<span id="cb36-179"><a href="#cb36-179" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(df[[var]][individ])</span>
+<span id="cb36-180"><a href="#cb36-180" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-181"><a href="#cb36-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-182"><a href="#cb36-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-183"><a href="#cb36-183" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb36-184"><a href="#cb36-184" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb36-185"><a href="#cb36-185" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>N,</span>
+<span id="cb36-186"><a href="#cb36-186" aria-hidden="true" tabindex="-1"></a>                  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> N, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>))</span>
+<span id="cb36-187"><a href="#cb36-187" aria-hidden="true" tabindex="-1"></a>amostras2 <span class="ot">&lt;-</span> <span class="fu">combn</span>(N, n) <span class="sc">|&gt;</span> <span class="fu">t</span>()</span>
+<span id="cb36-188"><a href="#cb36-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-189"><a href="#cb36-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-190"><a href="#cb36-190" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
+<span id="cb36-191"><a href="#cb36-191" aria-hidden="true" tabindex="-1"></a>  medias2 <span class="ot">&lt;-</span></span>
+<span id="cb36-192"><a href="#cb36-192" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(amostras2), <span class="cf">function</span>(i){</span>
+<span id="cb36-193"><a href="#cb36-193" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_mean</span>(df2, <span class="st">"x"</span>, amostras2, <span class="at">id =</span> i)</span>
+<span id="cb36-194"><a href="#cb36-194" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb36-195"><a href="#cb36-195" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-196"><a href="#cb36-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-197"><a href="#cb36-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-198"><a href="#cb36-198" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(parallel)</span>
+<span id="cb36-199"><a href="#cb36-199" aria-hidden="true" tabindex="-1"></a>clust <span class="ot">&lt;-</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
+<span id="cb36-200"><a href="#cb36-200" aria-hidden="true" tabindex="-1"></a><span class="fu">clusterExport</span>(clust,</span>
+<span id="cb36-201"><a href="#cb36-201" aria-hidden="true" tabindex="-1"></a>              <span class="at">varlist =</span> <span class="fu">c</span>(<span class="st">"df2"</span>, <span class="st">"amostras2"</span>, <span class="st">"get_mean"</span>))</span>
+<span id="cb36-202"><a href="#cb36-202" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
+<span id="cb36-203"><a href="#cb36-203" aria-hidden="true" tabindex="-1"></a>  medias3 <span class="ot">&lt;-</span></span>
+<span id="cb36-204"><a href="#cb36-204" aria-hidden="true" tabindex="-1"></a>    <span class="fu">parLapply</span>(clust, <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(amostras2), <span class="cf">function</span>(i){</span>
+<span id="cb36-205"><a href="#cb36-205" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_mean</span>(df2, <span class="st">"x"</span>, amostras2, <span class="at">id =</span> i)</span>
+<span id="cb36-206"><a href="#cb36-206" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb36-207"><a href="#cb36-207" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-208"><a href="#cb36-208" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(clust)</span>
+<span id="cb36-209"><a href="#cb36-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-210"><a href="#cb36-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb36-211"><a href="#cb36-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-212"><a href="#cb36-212" aria-hidden="true" tabindex="-1"></a><span class="fu"># Amostragem Aleatória Estratificada</span></span>
+<span id="cb36-213"><a href="#cb36-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-214"><a href="#cb36-214" aria-hidden="true" tabindex="-1"></a><span class="fu">## Número igual dentro de cada estrato</span></span>
+<span id="cb36-215"><a href="#cb36-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-218"><a href="#cb36-218" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-219"><a href="#cb36-219" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_random</span>(df, <span class="at">n =</span> <span class="dv">3</span>, <span class="at">by =</span> crm)</span>
+<span id="cb36-220"><a href="#cb36-220" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb36-221"><a href="#cb36-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-222"><a href="#cb36-222" aria-hidden="true" tabindex="-1"></a><span class="fu">## Proporção da população em cada estrato</span></span>
+<span id="cb36-223"><a href="#cb36-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-226"><a href="#cb36-226" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-227"><a href="#cb36-227" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_random</span>(df,</span>
+<span id="cb36-228"><a href="#cb36-228" aria-hidden="true" tabindex="-1"></a>              <span class="at">prop =</span> <span class="fl">0.3</span>,</span>
+<span id="cb36-229"><a href="#cb36-229" aria-hidden="true" tabindex="-1"></a>              <span class="at">by =</span> crm)</span>
+<span id="cb36-230"><a href="#cb36-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb36-231"><a href="#cb36-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-232"><a href="#cb36-232" aria-hidden="true" tabindex="-1"></a><span class="fu"># Amostragem aleatória sistemática</span></span>
+<span id="cb36-233"><a href="#cb36-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-236"><a href="#cb36-236" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb36-237"><a href="#cb36-237" aria-hidden="true" tabindex="-1"></a>sample_systematic <span class="ot">&lt;-</span> <span class="cf">function</span>(data,</span>
+<span id="cb36-238"><a href="#cb36-238" aria-hidden="true" tabindex="-1"></a>                              n,</span>
+<span id="cb36-239"><a href="#cb36-239" aria-hidden="true" tabindex="-1"></a>                              <span class="at">r =</span> <span class="cn">NULL</span>,</span>
+<span id="cb36-240"><a href="#cb36-240" aria-hidden="true" tabindex="-1"></a>                              <span class="at">by =</span>  <span class="cn">NULL</span>){</span>
+<span id="cb36-241"><a href="#cb36-241" aria-hidden="true" tabindex="-1"></a>  aux <span class="ot">&lt;-</span> <span class="cf">function</span>(data, n, <span class="at">r =</span> <span class="cn">NULL</span>){</span>
+<span id="cb36-242"><a href="#cb36-242" aria-hidden="true" tabindex="-1"></a>    k <span class="ot">&lt;-</span> <span class="fu">floor</span>(<span class="fu">nrow</span>(data) <span class="sc">/</span> n)</span>
+<span id="cb36-243"><a href="#cb36-243" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"k = "</span>, k)</span>
+<span id="cb36-244"><a href="#cb36-244" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">is.null</span>(r)){</span>
+<span id="cb36-245"><a href="#cb36-245" aria-hidden="true" tabindex="-1"></a>      r <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>k, <span class="dv">1</span>)</span>
+<span id="cb36-246"><a href="#cb36-246" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb36-247"><a href="#cb36-247" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(r <span class="sc">==</span> <span class="dv">1</span>){</span>
+<span id="cb36-248"><a href="#cb36-248" aria-hidden="true" tabindex="-1"></a>      rows <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data), n)</span>
+<span id="cb36-249"><a href="#cb36-249" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span>{</span>
+<span id="cb36-250"><a href="#cb36-250" aria-hidden="true" tabindex="-1"></a>      rows <span class="ot">&lt;-</span> <span class="fu">seq</span>(r, r <span class="sc">+</span> k<span class="sc">*</span>(n<span class="dv">-1</span>), k)</span>
+<span id="cb36-251"><a href="#cb36-251" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb36-252"><a href="#cb36-252" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice</span>(data, rows) <span class="sc">|&gt;</span></span>
+<span id="cb36-253"><a href="#cb36-253" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">.id =</span> rows, <span class="at">.before =</span> <span class="dv">1</span>)</span>
+<span id="cb36-254"><a href="#cb36-254" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb36-255"><a href="#cb36-255" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">missing</span>(by)){</span>
+<span id="cb36-256"><a href="#cb36-256" aria-hidden="true" tabindex="-1"></a>    data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">group_by</span>({{by}})</span>
+<span id="cb36-257"><a href="#cb36-257" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb36-258"><a href="#cb36-258" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.grouped_df</span>(data)){</span>
+<span id="cb36-259"><a href="#cb36-259" aria-hidden="true" tabindex="-1"></a>    groups <span class="ot">&lt;-</span> <span class="fu">group_vars</span>(data)</span>
+<span id="cb36-260"><a href="#cb36-260" aria-hidden="true" tabindex="-1"></a>    data <span class="sc">|&gt;</span></span>
+<span id="cb36-261"><a href="#cb36-261" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb36-262"><a href="#cb36-262" aria-hidden="true" tabindex="-1"></a>      <span class="fu">nest</span>(<span class="at">data =</span> <span class="sc">-</span><span class="fu">c</span>(<span class="sc">!!!</span><span class="fu">syms</span>(groups))) <span class="sc">|&gt;</span></span>
+<span id="cb36-263"><a href="#cb36-263" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">sample =</span> <span class="fu">map</span>(data, <span class="sc">~</span>.x <span class="sc">|&gt;</span>  <span class="fu">aux</span>(<span class="at">n =</span> n, <span class="at">r =</span> r))) <span class="sc">|&gt;</span></span>
+<span id="cb36-264"><a href="#cb36-264" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(<span class="sc">-</span>data) <span class="sc">|&gt;</span></span>
+<span id="cb36-265"><a href="#cb36-265" aria-hidden="true" tabindex="-1"></a>      <span class="fu">unnest</span>(sample)</span>
+<span id="cb36-266"><a href="#cb36-266" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span>{</span>
+<span id="cb36-267"><a href="#cb36-267" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aux</span>(data, <span class="at">n =</span> n, <span class="at">r =</span> r)</span>
+<span id="cb36-268"><a href="#cb36-268" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb36-269"><a href="#cb36-269" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-270"><a href="#cb36-270" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb36-271"><a href="#cb36-271" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_systematic</span>(df, <span class="at">n =</span> <span class="dv">4</span>)</span>
+<span id="cb36-272"><a href="#cb36-272" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb36-273"><a href="#cb36-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-274"><a href="#cb36-274" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb36-275"><a href="#cb36-275" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138596&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
+<span id="cb36-276"><a href="#cb36-276" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

@@ -5,19 +5,24 @@ title: "6. Amostragem"
 ```{r}
 library(tidyverse)
 library(rio)
-df <- import("https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1461701268")
+df <- import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=1590128876")
 df
 ```
 
-A função `sample_random()` pode ser utilizada para amostrar `n` linhas aleatoriamente do conjunto de dados `data`. Utilizando `prop`, uma proporção dos dados é amostrada. Este último é útil ao realizar amostragens estratificadas informando o argumento `strata`, onde cada estrato possui diferentes tamanhos de amostra.
+A função `sample_random()` retirada do pacote [metan](https://github.com/TiagoOlivoto/metan/blob/master/R/utils_sample.R) pode ser utilizada para amostrar `n` linhas aleatoriamente do conjunto de dados `data`. Utilizando `prop`, uma proporção dos dados é amostrada. Este último é útil ao realizar amostragens estratificadas informando o argumento `by`, onde cada estrato possui diferentes tamanhos de amostra.
 
 ```{r}
 # Função auxiliar
-sample_random <- function(data, n, prop, strata = NULL){
-  if(!missing(strata)){
-    data <- data |> group_by({{strata}})
+sample_random <- function(data,
+                          n,
+                          prop,
+                          by = NULL,
+                          weight = NULL){
+  if(!missing(by)){
+    data <- data |> group_by({{by}})
   }
-  slice_sample(data, n = n, prop = prop)
+  dplyr::slice_sample(data, n = n, prop = prop, weight_by = weight) |>
+    ungroup()
 }
 ```
 
@@ -40,14 +45,16 @@ d <- combn(N, n)
 t(d)
 ```
 
+
 ## Aplicação
 
 Vamos considerar uma variável `x`, distribuida normalmente com média $\bar X = 10$ e desvio padrão $S = 2$, avaliada em população com N = 10.
 
 ```{r}
+set.seed(1)
 N <- 10
 df2 <- data.frame(id = 1:N,
-                 x = rnorm(n = N, mean = 10, sd = 2))
+                  x = rnorm(n = N, mean = 10, sd = 2))
 df2
 ```
 
@@ -60,10 +67,11 @@ amostras |> head()
 amostras |> tail()
 ```
 
+## Médias amostrais
+
 A seguinte função, computa a média das 120 amostras. Assim, obtém-se a distribuição das médias amostrais.
 
 ```{r}
-library(tidyverse)
 medias <- NULL
 # abordagem com for-loop
 for (i in 1:nrow(amostras)) {
@@ -91,6 +99,61 @@ ggplot(df_medias, aes(x = media)) +
   geom_vline(xintercept = med_pop, color = "red", size = 1)
 ```
 
+## Tamanho da amostra vs acurácia
+
+No seguinte exemplo, vamos investigar o impacto do tamanho da amostra na acurácia da média. Para isso, serão amostradas aleatoriamente 1:120 médias amostrais do conjunto `df_medias` e calculado o desvio em relação a média populacional. O processo é repetido `nboot` vezes utilizando a técnica bootstrap.
+
+```{r}
+#| out-width: "100%"
+nboot <- 200
+
+samples <- list()
+for(j in 1:nboot){
+  tmp <- 
+    map_dbl(1:nrow(df_medias), function(x){
+      rows <- sample(1:nrow(df_medias), x)
+      mean(df_medias[rows,]$media)
+    })
+  samples[[j]] <- tmp
+}
+
+# cada coluna contém as médias amostrais de um procedimento bootstrap
+samples <- do.call(cbind, lapply(samples, data.frame))
+colnames(samples) <- paste0("v", 1:ncol(samples))
+
+# criar dados longo
+samples_long <- 
+  samples |> 
+  pivot_longer(everything()) |> 
+  mutate(desvio  = value -  mean(df2$x),
+         x = rep(1:nrow(df_medias), each = nboot))
+
+# média dos procedimentos bootstrap
+samples_mean <- 
+  samples_long |> 
+  group_by(x) |> 
+  summarise(mu = mean(desvio))
+
+
+# criar o gráfico
+ggplot(samples_long, aes(x = x,
+                         y = desvio,
+                         group = name)) +
+  geom_line(alpha = 0.1) +
+  geom_line(aes(x = x, y = mu, group = 1),
+            data = samples_mean,
+            color = "red") +
+  scale_x_continuous(breaks = seq(0, 120, by = 10)) +
+  theme_bw(base_size = 16) +
+  theme(panel.grid.minor = element_blank()) +
+  labs(x = "Número de médias amostrais incluídas",
+       y = "Desvio em relação a média populacional",
+       title = "Resultado de 200 procedimentos bootstrap",
+       caption = glue::glue("Média: {round(mean(df2$x), 3)}"))
+
+```
+
+
 ## Abordagem paralela
 
 Quando o número de amostras cresce bastante, a abordagem for-loop não é computacionalmente eficiente. Assim, uma abordagem utilizando `sapply()` é mais eficiente. Quando paraleliza-se a função, a eficiência aumenta mais ainda.
@@ -112,8 +175,8 @@ amostras2 <- combn(N, n) |> t()
 
 system.time(
   medias2 <-
-    sapply(1:nrow(amostras2), function(i){
-      get_mean(df, "x", amostras2, id = i)
+    map_dbl(1:nrow(amostras2), function(i){
+      get_mean(df2, "x", amostras2, id = i)
     })
 )
 
@@ -121,11 +184,11 @@ system.time(
 library(parallel)
 clust <- makeCluster(5)
 clusterExport(clust,
-              varlist = c("df", "amostras2", "get_mean"))
+              varlist = c("df2", "amostras2", "get_mean"))
 system.time(
   medias3 <-
     parLapply(clust, 1:nrow(amostras2), function(i){
-      get_mean(df, "x", amostras2, id = i)
+      get_mean(df2, "x", amostras2, id = i)
     })
 )
 stopCluster(clust)
@@ -137,7 +200,7 @@ stopCluster(clust)
 ## Número igual dentro de cada estrato
 
 ```{r}
-sample_random(df, n = 3, strata = cromossomo)
+sample_random(df, n = 3, by = crm)
 ```
 
 ## Proporção da população em cada estrato
@@ -145,22 +208,47 @@ sample_random(df, n = 3, strata = cromossomo)
 ```{r}
 sample_random(df,
               prop = 0.3,
-              strata = cromossomo)
+              by = crm)
 ```
 
 # Amostragem aleatória sistemática
 
 ```{r}
-sample_sist <- function(data, n, r = NULL){
-  k <- ceiling(nrow(data) / n)
-  if(is.null(r)){
-    r <- sample(1:k, 1)
+sample_systematic <- function(data,
+                              n,
+                              r = NULL,
+                              by =  NULL){
+  aux <- function(data, n, r = NULL){
+    k <- floor(nrow(data) / n)
+    message("k = ", k)
+    if(is.null(r)){
+      r <- sample(1:k, 1)
+    }
+    if(r == 1){
+      rows <- sample(1:nrow(data), n)
+    } else{
+      rows <- seq(r, r + k*(n-1), k)
+    }
+    slice(data, rows) |>
+      mutate(.id = rows, .before = 1)
   }
-  rows <- seq(r, r + k*(n-1), k)
-  slice(data, rows)
+  if(!missing(by)){
+    data <- data |> group_by({{by}})
+  }
+  if(is.grouped_df(data)){
+    groups <- group_vars(data)
+    data |>
+      ungroup() |>
+      nest(data = -c(!!!syms(groups))) |>
+      mutate(sample = map(data, ~.x |>  aux(n = n, r = r))) |>
+      select(-data) |>
+      unnest(sample)
+  } else{
+    aux(data, n = n, r = r)
+  }
 }
-
-sample_sist(df, n = 4, r = 1)
+set.seed(1)
+sample_systematic(df, n = 4)
 ```
 
 ```{=html}
