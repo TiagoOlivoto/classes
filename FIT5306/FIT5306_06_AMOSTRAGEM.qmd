@@ -153,6 +153,64 @@ ggplot(samples_long, aes(x = x,
 
 ```
 
+## Exemplo da altura da turma
+```{r}
+df_turma <- 
+  import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=1590128876") |> 
+  metan::remove_rows_na()
+
+
+
+
+
+#| out-width: "100%"
+nboot <- 200
+
+samples <- list()
+for(j in 1:nboot){
+  tmp <- 
+    map_dbl(1:nrow(df_turma), function(x){
+      rows <- sample(1:nrow(df_turma), x)
+      mean(df_turma[rows,]$altura)
+    })
+  samples[[j]] <- tmp
+}
+
+# cada coluna contém as médias amostrais de um procedimento bootstrap
+samples <- do.call(cbind, lapply(samples, data.frame))
+colnames(samples) <- paste0("v", 1:ncol(samples))
+
+# criar dados longo
+samples_long <- 
+  samples |> 
+  pivot_longer(everything()) |> 
+  mutate(desvio  = value -  mean(df_turma$altura),
+         x = rep(1:nrow(df_turma), each = nboot))
+
+# média dos procedimentos bootstrap
+samples_mean <- 
+  samples_long |> 
+  group_by(x) |> 
+  summarise(mu = mean(desvio))
+
+
+# criar o gráfico
+ggplot(samples_long, aes(x = x,
+                         y = desvio,
+                         group = name)) +
+  geom_line(alpha = 0.1) +
+  geom_line(aes(x = x, y = mu, group = 1),
+            data = samples_mean,
+            color = "red") +
+  scale_x_continuous(breaks = seq(1, nrow(df_turma), by = 1)) +
+  theme_bw(base_size = 16) +
+  theme(panel.grid.minor = element_blank()) +
+  labs(x = "Número de alunos incluídos na amostra",
+       y = "Desvio em relação a média populacional",
+       title = "Resultado de 200 procedimentos bootstrap",
+       caption = glue::glue("Média: {round(mean(df_turma$altura), 3)}"))
+
+```
 
 ## Abordagem paralela
 
