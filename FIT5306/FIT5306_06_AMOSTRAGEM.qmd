@@ -24,6 +24,7 @@ sample_random <- function(data,
   dplyr::slice_sample(data, n = n, prop = prop, weight_by = weight) |>
     ungroup()
 }
+
 ```
 
 # Amostragem aleatória simples
@@ -155,16 +156,18 @@ ggplot(samples_long, aes(x = x,
 
 ## Exemplo da altura da turma
 ```{r}
+#| out-width: "100%"
+
 df_turma <- 
   import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=1590128876") |> 
   metan::remove_rows_na()
 
+linhas <- sample(1:25, 4)
+df_turma[linhas,]
 
+set.seed(4)
 
-
-
-#| out-width: "100%"
-nboot <- 200
+nboot <- 1000
 
 samples <- list()
 for(j in 1:nboot){
@@ -208,7 +211,8 @@ ggplot(samples_long, aes(x = x,
   labs(x = "Número de alunos incluídos na amostra",
        y = "Desvio em relação a média populacional",
        title = "Resultado de 200 procedimentos bootstrap",
-       caption = glue::glue("Média: {round(mean(df_turma$altura), 3)}"))
+       caption = glue::glue("Média: {round(mean(df_turma$altura), 3)}; N = {nrow(df_turma)}"))
+
 
 ```
 

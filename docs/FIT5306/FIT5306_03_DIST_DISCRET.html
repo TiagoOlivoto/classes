@@ -303,6 +303,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#multa-por-ineficiência" id="toc-multa-por-ineficiência" class="nav-link" data-scroll-target="#multa-por-ineficiência">Multa por ineficiência</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#tutorial-r" id="toc-tutorial-r" class="nav-link" data-scroll-target="#tutorial-r">Tutorial R</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/FIT5306/FIT5306_03_DIST_DISCRET.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -361,8 +362,8 @@ P(X = k) = \left( \begin{array}{l}n\\k\end{array} \right) \times {p^k} \times {q
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">    Start --&gt;|0,5|B(0)</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-4f1f60058dbba79111cb" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4f1f60058dbba79111cb">{"x":{"diagram":"\n   graph TB\n    Start -->|0,5|A(1)\n    Start -->|0,5|B(0)\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-23bd63eeac293f2f6d8f" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-23bd63eeac293f2f6d8f">{"x":{"diagram":"\n   graph TB\n    Start -->|0,5|A(1)\n    Start -->|0,5|B(0)\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Considerando duas vacas prenhas, com a mesma probabilidade de nascimento de fêmeas, temos então o seguinte cenário.</p>
@@ -381,8 +382,8 @@ P(X = k) = \left( \begin{array}{l}n\\k\end{array} \right) \times {p^k} \times {q
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">    F --&gt; J(00 = qq)</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-2d969521ea89e757a334" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2d969521ea89e757a334">{"x":{"diagram":"\n   graph TB\n    Start --> |0,5|A(1)\n    Start --> |0,5|B(0)\n    A --> |0,5|C(1)\n    A --> |0,5|D(0)\n    B --> |0,5|E(1)\n    B --> |0,5|F(0)\n    C --> G(11 = pp)\n    D --> H(10 = pq)\n    E --> I(01 = qp)\n    F --> J(00 = qq)\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-81a5f5b757e05410fc1b" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-81a5f5b757e05410fc1b">{"x":{"diagram":"\n   graph TB\n    Start --> |0,5|A(1)\n    Start --> |0,5|B(0)\n    A --> |0,5|C(1)\n    A --> |0,5|D(0)\n    B --> |0,5|E(1)\n    B --> |0,5|F(0)\n    C --> G(11 = pp)\n    D --> H(10 = pq)\n    E --> I(01 = qp)\n    F --> J(00 = qq)\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Assim, as probabilidades associadas ao número de nascimentos de bezzeras são dadas por</p>
@@ -459,8 +460,8 @@ NULL</code></pre>
 <span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="st">    N --&gt; V(000 = qqq)</span></span>
 <span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-92ed546ab40eb31c84e4" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-92ed546ab40eb31c84e4">{"x":{"diagram":"\n   graph TB\n    Start --> |0,5|A(1)\n    Start --> |0,5|B(0)\n    A --> |0,5|C(1)\n    A --> |0,5|D(0)\n    B --> |0,5|E(1)\n    B --> |0,5|F(0)\n    C --> |0,5|G(1)\n    C --> |0,5|H(0)\n    D --> |0,5|I(1)\n    D --> |0,5|J(0)\n    E --> |0,5|K(1)\n    E --> |0,5|L(0)\n    F --> |0,5|M(1)\n    F --> |0,5|N(0)\n    G --> O(111 = ppp)\n    H --> P(110 = ppq)\n    I --> Q(101 = pqp)\n    J --> R(100 = pqq)\n    K --> S(011 = qpp)\n    L --> T(010 = qpq)\n    M --> U(001 = qqp)\n    N --> V(000 = qqq)\n"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-98217a0ba5c6945ceb42" style="width:100%;height:464px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-98217a0ba5c6945ceb42">{"x":{"diagram":"\n   graph TB\n    Start --> |0,5|A(1)\n    Start --> |0,5|B(0)\n    A --> |0,5|C(1)\n    A --> |0,5|D(0)\n    B --> |0,5|E(1)\n    B --> |0,5|F(0)\n    C --> |0,5|G(1)\n    C --> |0,5|H(0)\n    D --> |0,5|I(1)\n    D --> |0,5|J(0)\n    E --> |0,5|K(1)\n    E --> |0,5|L(0)\n    F --> |0,5|M(1)\n    F --> |0,5|N(0)\n    G --> O(111 = ppp)\n    H --> P(110 = ppq)\n    I --> Q(101 = pqp)\n    J --> R(100 = pqq)\n    K --> S(011 = qpp)\n    L --> T(010 = qpq)\n    M --> U(001 = qqp)\n    N --> V(000 = qqq)\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
@@ -722,13 +723,21 @@ NULL</code></pre>
 <p><img src="FIT5306_03_DIST_DISCRET_files/figure-html/unnamed-chunk-18-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section>
+</section>
+</section>
+<section id="tutorial-r" class="level1">
+<h1>Tutorial R</h1>
+<div class="video-container">
+  
+<iframe src="https://www.youtube.com/embed/ENl8axnEQqA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+</div>
 <div align="center"><a href="https://www.free-website-hit-counter.com"><img src="https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138593&amp;s=2" border="0" alt="Free Website Hit Counter"></a><br><small><a href="https://www.free-website-hit-counter.com" title="Free Website Hit Counter">Free website hit counter</a></small></div>
 
 
 <!-- -->
 
-</section>
-</section>
 </section>
 
 
@@ -1332,9 +1341,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb39-361"><a href="#cb39-361" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span>
 <span id="cb39-362"><a href="#cb39-362" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb39-363"><a href="#cb39-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-364"><a href="#cb39-364" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb39-365"><a href="#cb39-365" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138593&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
-<span id="cb39-366"><a href="#cb39-366" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-364"><a href="#cb39-364" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tutorial R</span></span>
+<span id="cb39-365"><a href="#cb39-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-366"><a href="#cb39-366" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb39-367"><a href="#cb39-367" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="video-container"&gt;</span></span>
+<span id="cb39-368"><a href="#cb39-368" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb39-369"><a href="#cb39-369" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="https://www.youtube.com/embed/ENl8axnEQqA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;</span></span>
+<span id="cb39-370"><a href="#cb39-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-371"><a href="#cb39-371" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb39-372"><a href="#cb39-372" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb39-373"><a href="#cb39-373" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb39-374"><a href="#cb39-374" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138593&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
+<span id="cb39-375"><a href="#cb39-375" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
