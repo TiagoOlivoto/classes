@@ -139,7 +139,7 @@ data.frame(n_femeas = 0:3,
 Um produtor possui quatro vacas prenhas de monta natural. Como está cursando a disciplina de Bioestatística, ele gostaria de calcular probabilidades associadas ao nascimento de bezerras fêmeas.
 
 ```{r warning=FALSE, message=FALSE}
-
+#| out-width: "100%"
 library(tibble)
 bezerros <- 
   tibble(nbez = 0:4,
@@ -273,7 +273,7 @@ dbinom(x = 120, size = 120, prob = 0.85)
 
 ### Pelo menos 90% dos bezerros nascidos sejam fêmeas
 
-Neste caso, precisaríamos de, pelo menos, 108 (120 $\times$ 0,9) bezerros fêmeas. Então, a probabilidade dessa ocorrência é $P(X \>= 108) = P(X = 109) + P(X = 109) + ... + P(X = 120)$
+Neste caso, precisaríamos de, pelo menos, 108 (120 $\times$ 0,9) bezerros fêmeas. Então, a probabilidade dessa ocorrência é $P(X \>= 108) + P(X = 109) + ... + P(X = 120)$
 
 ```{r}
 x <- 
@@ -290,8 +290,9 @@ O vendedor do sêmen se comprometeu em pagar uma multa de R\$10,00 para cada bez
 O produtor somente será indenizado se nascerem 89 ou menos bezerras. Assim, a probabilidade é dada pela soma das probabilidades individuais de 0 até 89
 
 ```{r}
-
 dbinom(x = 0:89, size = 120, prob = 0.85) |> sum()
+# ou pbinom() que retorna a fdp acumulada
+pbinom(q = 89, size = 120, prob = 0.85)
 ```
 
 Abaixo, é possível identificar a distribuição de probabilidade para o exemplo dado.
@@ -299,6 +300,7 @@ Abaixo, é possível identificar a distribuição de probabilidade para o exempl
 ```{r}
 #| code-fold: true
 #| code-summary: "Mostrar código"
+#| out-width: "100%"
 bezerros <- 
   tibble(nbez = 0:120,
          prob = dbinom(x = 0:120, size = 120, prob = 0.85),
