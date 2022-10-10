@@ -1741,7 +1741,7 @@ Note
 <section id="distribuição-t" class="level1">
 <h1>Distribuição t</h1>
 <p>A distribuição <em>t</em> de Student é uma distribuição de probabilidade contínua, publicada por William Sealy Gosset sob o pseudônimo <em>Student</em> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
-<p>A distribuição <em>t</em> possui como único parâmetro o Grau Liberdade (GL). Esta distribuição detém caudas mais pesadas que a distribuição normal quando o tamanho da amostra é pequeno e a medida que <span class="math inline">\(n \\to N\)</span>, a distribuição <em>t</em> de Student se aproxima da normal. Note abaixo as diferenças nas curvas quando se compara a distribuição Normal com a distribuição <em>t</em> com diferentes GLs.</p>
+<p>A distribuição <em>t</em> possui como único parâmetro o Grau Liberdade (GL). Esta distribuição detém caudas mais pesadas que a distribuição normal quando o tamanho da amostra é pequeno e a medida que <span class="math inline">\(n \to N\)</span>, a distribuição <em>t</em> de Student se aproxima da normal. Note abaixo as diferenças nas curvas quando se compara a distribuição Normal com a distribuição <em>t</em> com diferentes GLs.</p>
 <div class="cell">
 <details>
 <summary>Mostrar script</summary>
@@ -1807,7 +1807,7 @@ Note
 </div>
 <section id="intervalo-de-confiança" class="level2">
 <h2 class="anchored" data-anchor-id="intervalo-de-confiança">Intervalo de confiança</h2>
-<p>A estimação por pontos (ex., média) não nos fornece a ideia da margem de erro cometida ao estimar um determinado parâmetro. Por isso, para verificar se uma dada hipótese <span class="math inline">\(H_0\)</span> (de igualdade) é ou não verdadeira, deve-se utilizar intervalos de confiança ou testes de hipóteses. A construção destes intervalos, e as particularidades dos testes de hipóteses para amostras independentes e dependentes, serão discutidos a seguir. Recomendo como literatura o livro <a href="http://www.editoraufv.com.br/produto/1595058/estatistica-basica">Estatística Básica</a>^analdata-2 escrito pelo Prof.&nbsp;Daniel Furtado Ferreira.</p>
+<p>A estimação por pontos (ex., média) não nos fornece a ideia da margem de erro cometida ao estimar um determinado parâmetro. Por isso, para verificar se uma dada hipótese <span class="math inline">\(H_0\)</span> (de igualdade) é ou não verdadeira, deve-se utilizar intervalos de confiança ou testes de hipóteses. A construção destes intervalos, e as particularidades dos testes de hipóteses para amostras independentes e dependentes, serão discutidos a seguir. Recomendo como literatura o livro <a href="http://www.editoraufv.com.br/produto/1595058/estatistica-basica">Estatística Básica</a> escrito pelo Prof.&nbsp;Daniel Furtado Ferreira.</p>
 <p>O intervalo de confiança de uma média amostral assumindo uma taxa de erro <span class="math inline">\(\alpha\)</span> é dado por:</p>
 <p><span class="math display">\[
 P\left[ {\bar X - {t_{\alpha /2}}\frac{S}{{\sqrt n }} \le \mu  \le \bar X + {t_{\alpha /2}}\frac{S}{{\sqrt n }}} \right] = 1 - \alpha
@@ -1847,10 +1847,10 @@ P\left[ {\bar X - {t_{\alpha /2}}\frac{S}{{\sqrt n }} \le \mu  \le \bar X + {t_{
 20     20    171</code></pre>
 </div>
 </div>
-<p>Como n = 20, o grau liberdade para encontrar o quantil da distribuição <em>t</em> é 19. O quantil associado a este Grau Liberdade, considerando <span class="math inline">\(\alpha = 0,05\)</span> é encontrado na tabela da distribuição <em>t</em>. Nesta tabela, o valor de</p>
+<p>Como n = 20, o grau liberdade para encontrar o quantil da distribuição <em>t</em> é 19. O quantil associado a este Grau Liberdade, considerando <span class="math inline">\(\alpha = 0,05\)</span> é encontrado na tabela da distribuição <em>t</em>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://github.com/TiagoOlivoto/tiagoolivoto/blob/master/static/classes/experimentacao/tabela_t.pdf"><img src="../classes/experimentacao/04_dist_cont_files/dist_t.png" class="img-fluid figure-img"></a></p>
+<p><a href="https://github.com/TiagoOlivoto/classes/blob/master/FIT5306/data/tabela_t.pdf"><img src="figs/tabela_t.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
 <p>Tamém podemos encontrar este quantil utilizando a função <code>qt()</code>. No próximo código, o quantil (2.5% e 97.5%), a média e o desvio padrão são calculados. Note que</p>
@@ -4254,7 +4254,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb114-1536"><a href="#cb114-1536" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb114-1537"><a href="#cb114-1537" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: &lt;http://www.swlearning.com/quant/kohler/stat/biographical_sketches/bio12.1.html&gt;</span></span>
 <span id="cb114-1538"><a href="#cb114-1538" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb114-1539"><a href="#cb114-1539" aria-hidden="true" tabindex="-1"></a>A distribuição *t* possui como único parâmetro o Grau Liberdade (GL). Esta distribuição detém caudas mais pesadas que a distribuição normal quando o tamanho da amostra é pequeno e a medida que $n \\to N$, a distribuição *t* de Student se aproxima da normal. Note abaixo as diferenças nas curvas quando se compara a distribuição Normal com a distribuição *t* com diferentes GLs.</span>
+<span id="cb114-1539"><a href="#cb114-1539" aria-hidden="true" tabindex="-1"></a>A distribuição *t* possui como único parâmetro o Grau Liberdade (GL). Esta distribuição detém caudas mais pesadas que a distribuição normal quando o tamanho da amostra é pequeno e a medida que $n \to N$, a distribuição *t* de Student se aproxima da normal. Note abaixo as diferenças nas curvas quando se compara a distribuição Normal com a distribuição *t* com diferentes GLs.</span>
 <span id="cb114-1540"><a href="#cb114-1540" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb114-1543"><a href="#cb114-1543" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb114-1544"><a href="#cb114-1544" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
@@ -4318,7 +4318,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb114-1604"><a href="#cb114-1604" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb114-1605"><a href="#cb114-1605" aria-hidden="true" tabindex="-1"></a><span class="fu">## Intervalo de confiança</span></span>
 <span id="cb114-1606"><a href="#cb114-1606" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb114-1607"><a href="#cb114-1607" aria-hidden="true" tabindex="-1"></a>A estimação por pontos (ex., média) não nos fornece a ideia da margem de erro cometida ao estimar um determinado parâmetro. Por isso, para verificar se uma dada hipótese $H_0$ (de igualdade) é ou não verdadeira, deve-se utilizar intervalos de confiança ou testes de hipóteses. A construção destes intervalos, e as particularidades dos testes de hipóteses para amostras independentes e dependentes, serão discutidos a seguir. Recomendo como literatura o livro <span class="co">[</span><span class="ot">Estatística Básica</span><span class="co">](http://www.editoraufv.com.br/produto/1595058/estatistica-basica)</span>\^analdata-2 escrito pelo Prof. Daniel Furtado Ferreira.</span>
+<span id="cb114-1607"><a href="#cb114-1607" aria-hidden="true" tabindex="-1"></a>A estimação por pontos (ex., média) não nos fornece a ideia da margem de erro cometida ao estimar um determinado parâmetro. Por isso, para verificar se uma dada hipótese $H_0$ (de igualdade) é ou não verdadeira, deve-se utilizar intervalos de confiança ou testes de hipóteses. A construção destes intervalos, e as particularidades dos testes de hipóteses para amostras independentes e dependentes, serão discutidos a seguir. Recomendo como literatura o livro <span class="co">[</span><span class="ot">Estatística Básica</span><span class="co">](http://www.editoraufv.com.br/produto/1595058/estatistica-basica)</span> escrito pelo Prof. Daniel Furtado Ferreira.</span>
 <span id="cb114-1608"><a href="#cb114-1608" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb114-1609"><a href="#cb114-1609" aria-hidden="true" tabindex="-1"></a>O intervalo de confiança de uma média amostral assumindo uma taxa de erro $\alpha$ é dado por:</span>
 <span id="cb114-1610"><a href="#cb114-1610" aria-hidden="true" tabindex="-1"></a></span>
@@ -4342,9 +4342,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb114-1628"><a href="#cb114-1628" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb114-1629"><a href="#cb114-1629" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb114-1630"><a href="#cb114-1630" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb114-1631"><a href="#cb114-1631" aria-hidden="true" tabindex="-1"></a>Como n = 20, o grau liberdade para encontrar o quantil da distribuição *t* é 19. O quantil associado a este Grau Liberdade, considerando $\alpha = 0,05$ é encontrado na tabela da distribuição *t*. Nesta tabela, o valor de</span>
+<span id="cb114-1631"><a href="#cb114-1631" aria-hidden="true" tabindex="-1"></a>Como n = 20, o grau liberdade para encontrar o quantil da distribuição *t* é 19. O quantil associado a este Grau Liberdade, considerando $\alpha = 0,05$ é encontrado na tabela da distribuição *t*.</span>
 <span id="cb114-1632"><a href="#cb114-1632" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb114-1633"><a href="#cb114-1633" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![](/classes/experimentacao/04_dist_cont_files/dist_t.png)</span><span class="co">](https://github.com/TiagoOlivoto/tiagoolivoto/blob/master/static/classes/experimentacao/tabela_t.pdf)</span></span>
+<span id="cb114-1633"><a href="#cb114-1633" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![](figs/tabela_t.png)</span><span class="co">](https://github.com/TiagoOlivoto/classes/blob/master/FIT5306/data/tabela_t.pdf)</span></span>
 <span id="cb114-1634"><a href="#cb114-1634" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb114-1635"><a href="#cb114-1635" aria-hidden="true" tabindex="-1"></a>Tamém podemos encontrar este quantil utilizando a função <span class="in">`qt()`</span>. No próximo código, o quantil (2.5% e 97.5%), a média e o desvio padrão são calculados. Note que</span>
 <span id="cb114-1636"><a href="#cb114-1636" aria-hidden="true" tabindex="-1"></a></span>

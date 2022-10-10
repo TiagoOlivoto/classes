@@ -1504,7 +1504,7 @@ A distribuição *t* de Student é uma distribuição de probabilidade contínua
 
 [^1]: <http://www.swlearning.com/quant/kohler/stat/biographical_sketches/bio12.1.html>
 
-A distribuição *t* possui como único parâmetro o Grau Liberdade (GL). Esta distribuição detém caudas mais pesadas que a distribuição normal quando o tamanho da amostra é pequeno e a medida que $n \\to N$, a distribuição *t* de Student se aproxima da normal. Note abaixo as diferenças nas curvas quando se compara a distribuição Normal com a distribuição *t* com diferentes GLs.
+A distribuição *t* possui como único parâmetro o Grau Liberdade (GL). Esta distribuição detém caudas mais pesadas que a distribuição normal quando o tamanho da amostra é pequeno e a medida que $n \to N$, a distribuição *t* de Student se aproxima da normal. Note abaixo as diferenças nas curvas quando se compara a distribuição Normal com a distribuição *t* com diferentes GLs.
 
 ```{r}
 #| code-fold: true
@@ -1568,7 +1568,7 @@ ggplot() +
 
 ## Intervalo de confiança
 
-A estimação por pontos (ex., média) não nos fornece a ideia da margem de erro cometida ao estimar um determinado parâmetro. Por isso, para verificar se uma dada hipótese $H_0$ (de igualdade) é ou não verdadeira, deve-se utilizar intervalos de confiança ou testes de hipóteses. A construção destes intervalos, e as particularidades dos testes de hipóteses para amostras independentes e dependentes, serão discutidos a seguir. Recomendo como literatura o livro [Estatística Básica](http://www.editoraufv.com.br/produto/1595058/estatistica-basica)\^analdata-2 escrito pelo Prof. Daniel Furtado Ferreira.
+A estimação por pontos (ex., média) não nos fornece a ideia da margem de erro cometida ao estimar um determinado parâmetro. Por isso, para verificar se uma dada hipótese $H_0$ (de igualdade) é ou não verdadeira, deve-se utilizar intervalos de confiança ou testes de hipóteses. A construção destes intervalos, e as particularidades dos testes de hipóteses para amostras independentes e dependentes, serão discutidos a seguir. Recomendo como literatura o livro [Estatística Básica](http://www.editoraufv.com.br/produto/1595058/estatistica-basica) escrito pelo Prof. Daniel Furtado Ferreira.
 
 O intervalo de confiança de uma média amostral assumindo uma taxa de erro $\alpha$ é dado por:
 
@@ -1592,9 +1592,9 @@ df_altura
 
 ```
 
-Como n = 20, o grau liberdade para encontrar o quantil da distribuição *t* é 19. O quantil associado a este Grau Liberdade, considerando $\alpha = 0,05$ é encontrado na tabela da distribuição *t*. Nesta tabela, o valor de
+Como n = 20, o grau liberdade para encontrar o quantil da distribuição *t* é 19. O quantil associado a este Grau Liberdade, considerando $\alpha = 0,05$ é encontrado na tabela da distribuição *t*.
 
-[![](/classes/experimentacao/04_dist_cont_files/dist_t.png)](https://github.com/TiagoOlivoto/tiagoolivoto/blob/master/static/classes/experimentacao/tabela_t.pdf)
+[![](figs/tabela_t.png)](https://github.com/TiagoOlivoto/classes/blob/master/FIT5306/data/tabela_t.pdf)
 
 Tamém podemos encontrar este quantil utilizando a função `qt()`. No próximo código, o quantil (2.5% e 97.5%), a média e o desvio padrão são calculados. Note que
 
