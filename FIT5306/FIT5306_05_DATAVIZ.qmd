@@ -24,6 +24,8 @@ library(rnaturalearth)
 library(ggradar)
 library(lubridate)
 library(geobr)
+library(esquisse)
+library(DataExplorer)
 ```
 
 # Dados
@@ -47,8 +49,10 @@ url2 <- "https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjx
 df_estacao <-  
   import(url2, setclass = "tbl", dec = ",") |> 
   as_character(1:4) |> 
-  mutate(dia = dmy(dia))
-head(df_estacao)
+  mutate(dia = dmy(dia),
+         m = fct_relevel(factor(m), paste0(1:10)))
+
+
 ```
 
 # Gráficos
@@ -61,19 +65,38 @@ O `ggplot2` é um pacote R para produção de gráficos que diferentemente da ma
 
 [^1]: WICKHAM, H. **Ggplot2 : elegant graphics for data analysis**: Springer, 2009.
 
+## Galerias
+
+-   https://www.r-graph-gallery.com/portfolio/ggplot2-package/
+-   http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html
+-   https://r4stats.com/examples/graphics-ggplot2/
+-   http://girke.bioinformatics.ucr.edu/GEN242/pages/mydoc/Rgraphics.html
+
+## Extensões do `ggplot2`
+
+-   http://www.ggplot2-exts.org/gallery/
+-   https://mode.com/blog/r-ggplot-extension-packages
+
+## Tutoriais em português
+
+-   https://rpubs.com/mnunes/ggplot2
+-   https://analisereal.com/2015/09/19/introducao-ao-ggplot2/
+-   https://timogrossenbacher.ch/2016/12/beautiful-thematic-maps-with-ggplot2-only/
+-   http://recologia.com.br/tag/graficos/
+-   http://rstudio-pubs-static.s3.amazonaws.com/24563_3b7b0a6414824e3b91769a95309380f1.html
+-   http://eduardogutierres.com/inteligencia-geografica-gerando-mapas-em-r/
+-   https://pt.stackoverflow.com/questions/332053/r-mapa-de-cidades-brasileiras
+
 ## Meu primeiro gráfico em `ggplot2`
 
-A seguir, vamos discutir os aspcetos básicos para a construção de gráficos utilizando o pacote `ggplot2`. A função `arrange_ggplot()` do pacote `metan` foi utilizada aqui para organizar os gráficos em forma de painéis.
+A seguir, vamos discutir os aspcetos básicos para a construção de gráficos utilizando o pacote `ggplot2`. A função `arrange_ggplot()` do pacote `metan` é utilizada aqui para organizar os gráficos em forma de painéis.
 
 ## As camadas de um gráfico `ggplot2`
 
 No `ggplot2`, os gráficos são construídos camada por camada (ou, *layers*, em inglês). Neste exemplo, vamos confeccionar um gráfico mostrando a distribuição do comprimento da folha (eixo `x`) e largura da folha (eixo `y`).
 
-```{r message = FALSE, warning = FALSE, fig.width = 5, fig.height = 5, fig.align = "center", fig.cap = "Gráfico de dispersão (x e y) padrão. "}
-ggplot(df, aes(comprimento, largura)) +
-  geom_point()
-
-
+```{r message = FALSE, warning = FALSE}
+#| out-width: "100%"
 
 p1 <- 
   ggplot(df, aes(x = comprimento, y = largura)) +
@@ -89,7 +112,8 @@ Este comando criou um gráfico e armazenou no objeto `p1`, que será plotado pos
 
 Alterar a estética dos gráficos `ggplot2` é uma tarefa relativamente simples. No gráfico anterior, os valores do `comprimento` e `largura` foram plotados sem nenhum tipo de mapeamento estético. Digamos que marcadores com diferentes cores para cada nível do fator `cor` poderia nos ajudar a compreender melhor o padrão presente em nossos dados. Vamos confeccionar este gráfico.
 
-```{r message = FALSE, warning = FALSE, fig.width = 10, fig.height = 6, fig.align = "center"}
+```{r message = FALSE, warning = FALSE}
+#| out-width: "100%"
 p2 <- 
   ggplot(df, aes(x = comprimento,
                  y = largura,
@@ -100,7 +124,10 @@ p2
 
 Ao incluirmos `colour = cor` dentro da função `aes`, dizemos ao `ggplot` que os pontos devem ser mapeados esteticamente (neste caso utilizando cores) para cada nível do fator `cor` presente em nossos dados. Digamos que em vez de utilizar diferentes cores, a cor do grão do café deveria ser representada por diferentes tipos de marcadores (quadrados, triângulo, etc.) Neste caso, o argumento `colour = cor` é substituído por `shape = cor`.
 
-```{r message = FALSE, warning = FALSE, fig.width = 8, fig.height = 3.3, fig.align = "center", fig.cap = "Gráfico de dispersão padrão (p1) e com pontos mapeados por cores (p2) e marcadores (p3) para cada nível do fator 'cor'."}
+```{r message = FALSE, warning = FALSE}
+
+#| out-width: "100%"
+#| 
 p3 <- 
   ggplot(df, aes(x = comprimento, y = largura, shape = cor, color = cor)) +
   geom_point()
@@ -126,6 +153,8 @@ ggsave("pontos.png",
 Mapeando os diferentes níveis de `cor` para diferentes cores, incluímos em um único gráfico os dados de todos osgrupos. Mas, e se nosso objetivo fosse realizar um gráfico para cada grupo? O `ggplot2` tem uma poderosa ferramenta para isto: as funções `facet_`. Ao utilizar estas funções, o conjunto de dados é subdividido e um gráfico é construído para cada um destes subconjuntos. Vamos ver como elas podem nos ajudar em nosso problema.
 
 ```{r message = FALSE, warning = FALSE,fig.width=10, fig.height=4, fig.cap = "Um painel para cada nível da variável grupo."}
+#| out-width: "100%"
+#| 
 fac1 <- 
   ggplot(df, aes(x = comprimento,
                  y = largura,
@@ -141,7 +170,9 @@ Neste exemplo, um gráfico completamente diferente do anterior é gerado com ape
 
 Cada gráfico criado com a função `ggplot()` tem um tema padrão. *Tema*, aqui, é toda propriedade relacionada ao aspecto visual do gráfico, que não foi definida na função `aes()` e que pode ser modificada utilizando a função `theme()` (veja `?theme`). O `ggplot2` já conta com alguns temas personalizados para facilitar nosso trabalho. Considerando o exemplo anterior, vamos utilizar a função `theme_bw()` (preto e branco) e a função `theme()` para modificar as propriedades visuais do gráfico.
 
-```{r message = FALSE, warning = FALSE, fig.width = 8, fig.height = 8, fig.align = "center", fig.cap = "Gráfico de dispersão considerando a confecção de um gráfico para cada nível de um fator(f1) e modificações na propriedades do tema de um gráfico ggplot2 (f2) "}
+```{r message = FALSE, warning = FALSE, fig.cap = "Gráfico de dispersão considerando a confecção de um gráfico para cada nível de um fator(f1) e modificações na propriedades do tema de um gráfico ggplot2 (f2) "}
+#| out-width: "100%"
+#| 
 fac2 <- 
   ggplot(df, aes(x = comprimento, y = largura, color = cor)) +
   geom_point() +
@@ -174,6 +205,8 @@ arrange_ggplot(fac1, fac2,
 Os argumentos inseridos dentro das função `theme()` modificaram a aparência do nosso gráfico. Inúmeros outros argumentos são disponíveis, fazendo com que os gráficos originados sejam completamente personalizáveis. Digamos que precisamos confeccionar diversos gráficos e gostaríamos de manter o mesmo tema do gráfico acima. Seria exaustivo e desinteressante informar cada vez estes argumentos para cada gráfico, não? Felizmente, outra poderosa ferramenta proporcionada pelo `ggplot2` é a possibilidade de confeccionarmos nossos próprios temas. Para isto, vamos executar o seguinte comando para criar um tema personalizado (`my_theme()`). Este tema pode então ser aplicado como uma camada adicional a cada gráfico que confecionarmos. Para evitar a necessidade da inclusão deste tema em cada gráfico gerado, iremos definir este tema como padrão utilizando a função `theme_set()`.
 
 ```{r message = FALSE, warning = FALSE, fig.width = 5, fig.height = 4.5, fig.align = "center"}
+#| out-width: "100%"
+#| 
 my_theme <- function () {
   theme_light() %+replace% # permite que os valores informados possam ser sobescritos
     theme(axis.ticks.length = unit(.2, "cm"),
@@ -215,6 +248,8 @@ Três importantes geometrias são apresentadas a seguir:
 3.  `geom_abline()` adiciona uma linha diagonal definida por um intercepto e uma inclinação.
 
 ```{r fig.width=8, fig.height=10}
+#| out-width: "100%"
+#| 
 g1 <- 
   ggplot(df, aes(comprimento, largura)) +
   geom_point()
@@ -234,7 +269,8 @@ arrange_ggplot(g1, g2,
 ### Gráficos do tipo boxplot
 
 ```{r message = FALSE, warning = FALSE, fig.width = 9, fig.height = 8, fig.align = "center", fig.cap = "Gráfico do tipo boxplot combinando mapeamentos estéticos."}
-
+#| out-width: "100%"
+#| 
 box1 <- 
   ggplot(df, aes(grupo, comprimento)) +
   geom_boxplot()
@@ -264,7 +300,8 @@ Cinco estatísticas são mostradas neste boxplot. A mediana (linha horizontal), 
 Neste exemplo, utilizaremos os dados de temperatura mínima da estação meteorológica, disponível no data frame `df_estacao`. O primeiro histograma (p1) mostra os dados gerais desde 01/01/2022. No segundo, um histograma é gerado para cada mês.
 
 ```{r message = FALSE, warning = FALSE, fig.width = 10, fig.height = 5, fig.align = "center", fig.cap = "Gráfico do tipo histograma "}
-
+#| out-width: "100%"
+#| 
 h1 <- 
   ggplot(df_estacao, aes(x = tmed)) +
   geom_histogram()
@@ -292,8 +329,9 @@ No terceiro exemplo (d3), eu mostro como é possível construir um gráfico de d
 
 [^2]: https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html
 
-```{r message = FALSE, warning = FALSE, fig.width = 10, fig.height = 8, fig.align = "center", fig.cap = "Gráfico do tipo densidade "}
-
+```{r message = FALSE, warning = FALSE, fig.width = 12, fig.height = 10, fig.align = "center", fig.cap = "Gráfico do tipo densidade "}
+#| out-width: "100%"
+#| 
 d1 <- 
   ggplot(df_estacao, aes(x = tmed)) +
   geom_density()
@@ -302,9 +340,9 @@ d2 <-
   ggplot(df_estacao, aes(x = tmed)) +
   geom_density(color = "black",
                fill = "skyblue") +
-  facet_wrap(~m) +
+  facet_wrap(~m, ncol = 5) +
   labs(x = "Temperatura média (ºC)",
-       y = "Horas")
+       y = "Densidade")
 
 d3 <- 
   ggplot(df_estacao, aes(x = tmed, y = m, fill = stat(x))) +
@@ -338,6 +376,9 @@ clima_max_min
 ```
 
 ```{r}
+#| out-width: "100%"
+
+
 # realiza um subset para remover a precipitação
 df_temp <-  
   clima_max_min |>  
@@ -370,6 +411,8 @@ ggplot(df_temp, aes(dia, value, color = name)) +
 No seguinte exemplo, os dados do comprimento do grão de café disponíveis em `df` são utilizados.
 
 ```{r message = FALSE, warning = FALSE, fig.width = 10, fig.height = 3, fig.align = "center", fig.cap = "Gráfico do tipo barras, com mapeamento estético e barras de erro."}
+#| out-width: "100%"
+
 
 bar1 <- 
   ggplot(df, aes(x = grupo, y = comprimento)) +
@@ -398,6 +441,9 @@ A afirmação de que um gráfico `ggplot2` é feito em camadas fica mais evident
 Utilizando a função `plot_factbars()` do pacote metan, um gráfico semelhante pode ser criado com as funções `plot_bars()` e `plot_factbars()`
 
 ```{r fig.height=4, fig.width=10}
+#| out-width: "100%"
+
+
 metan1 <- 
   plot_bars(df,
             x = grupo,
@@ -412,103 +458,94 @@ arrange_ggplot(metan1, metan2,
                tag_levels = list(c("metan1", "metan2")))
 ```
 
-<!-- ### Regressão linear de primeiro grau -->
+### Linha de regressão (linear)
 
-<!-- ```{r message = FALSE, warning = FALSE, fig.width = 10, fig.height = 4, fig.align = "center", fig.cap = "Gráfico de dispersão, combinando pontos e linhas de regressão."} -->
+```{r message = FALSE, warning = FALSE, fig.width = 10, fig.height = 4, fig.align = "center", fig.cap = "Gráfico de dispersão, combinando pontos e linhas de regressão."}
+#| out-width: "100%"
 
-<!-- l1 <-  -->
 
-<!--   ggplot(df, aes(x = MST, y = AF)) + -->
+l1 <-
+  ggplot(df, aes(x = comprimento, y = largura)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) + # estima uma regressão linear
+  labs(x = "Comprimento do grão",
+       y = "Largura do grão")
 
-<!--   geom_point() + -->
+l2 <-
+  ggplot(df, aes(x = comprimento, y = largura, color = grupo)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = F)+
+  labs(x = "Comprimento do grão",
+       y = "Largura do grão")
 
-<!--   geom_smooth(method = "lm", se = FALSE) + # estima uma regressão linear -->
+arrange_ggplot(l1, l2,
+               tag_levels = list(c("s1", "s2")),
+               widths = c(1, 1.2))
 
-<!--   labs(x = "Matéria seca total (g)", -->
+```
 
-<!--        y = "Área foliar (cm2)") -->
+### Linha de regressão (polinomial)
 
-<!-- l2 <-  -->
+Para confeccionar um gráfico de regressão polinomial, além do argumento `method = "lm"` (linear model), precisa-se incluir no argumento `formula` a formula utilizada, neste caso, definida utilizando `poly()` (polinomial).
 
-<!--   ggplot(df, aes(x = MST, y = AF, colour = DAP)) + -->
+```{r message = FALSE, warning = FALSE, fig.width = 7, fig.height = 3, fig.align = "center", fig.cap = "Gráfico de dispersão combinado com inclusão de curvas ajustadas."}
+#| out-width: "100%"
 
-<!--   geom_point() + -->
+#### Polinômio de segundo grau
 
-<!--   geom_smooth(method = "lm", se = F)+ -->
+dado_reg <- tibble(dose = c(15,20,25,30,35,40),
+                   prod = c(65,70,73,75,69,62))
 
-<!--   labs(x = "Matéria seca total (g)", -->
+q1 <-
+  ggplot(dado_reg, aes(dose, prod))+
+  geom_point()+
+  stat_smooth(method = "lm",
+              formula = "y ~ poly(x, 1)",
+              se = FALSE)
 
-<!--        y = "Área foliar (cm2)") -->
+q2 <-
+  q1 +
+  stat_smooth(method = "lm",
+              formula = "y ~ poly(x, 2)",
+              linetype = "dashed",
+              color = "red",
+              se = FALSE)
 
-<!-- arrange_ggplot(l1, l2, -->
+arrange_ggplot(q1, q2, tag_levels = list(c("l1", "l2")))
 
-<!--                tag_levels = list(c("s1", "s2")), -->
+```
 
-<!--                widths = c(1, 1.2)) -->
+Utilizando a função `plot_lines()` do pacote metan, um gráfico semelhante pode ser criado com
 
-<!-- ``` -->
+```{r}
+#| out-width: "100%"
+plot_lines(dado_reg,
+           x = dose,
+           y = prod,
+           fit = 2)
 
-<!-- ### Regressão linear polinomial -->
-
-<!-- Para confeccionar um gráfico de regressão polinomial, além do argumento `method = "lm"` (linear model), precisa-se incluir no argumento `formula` a formula utilizada, neste caso, definida utilizando `poly()` (polinomial). -->
-
-<!-- ```{r message = FALSE, warning = FALSE, fig.width = 7, fig.height = 3, fig.align = "center", fig.cap = "Gráfico de dispersão combinado com inclusão de curvas ajustadas."} -->
-
-<!-- #### Polinômio de segundo grau -->
-
-<!-- dado_reg = tibble(dose = c(15,20,25,30,35,40), -->
-
-<!--                   prod = c(65,70,73,75,69,62)) -->
-
-<!-- q1 <-  -->
-
-<!--   ggplot(dado_reg, aes(dose, prod))+ -->
-
-<!--   geom_point()+ -->
-
-<!--   stat_smooth(method = "lm", -->
-
-<!--               formula = "y ~ poly(x, 1)", -->
-
-<!--               se = FALSE) -->
-
-<!-- q2 <-   -->
-
-<!--   q1 +  -->
-
-<!--   stat_smooth(method = "lm", -->
-
-<!--               formula = "y ~ poly(x, 2)", -->
-
-<!--               linetype = "dashed", -->
-
-<!--               color = "red", -->
-
-<!--               se = FALSE) -->
-
-<!-- arrange_ggplot(q1, q2, tag_levels = list(c("l1", "l2"))) -->
-
-<!-- ``` -->
-
-<!-- Utilizando a função `plot_lines()` do pacote metan, um gráfico semelhante pode ser criado com -->
-
-<!-- ```{r} -->
-
-<!-- plot_lines(dado_reg,  -->
-
-<!--            x = dose, -->
-
-<!--            y = prod, -->
-
-<!--            fit = 2) -->
-
-<!-- ``` -->
+```
 
 ## Dados da estação
+
+### Exploração dos dados
+
+```{r}
+#| out-width: "100%"
+plot_intro(df_estacao)
+
+# Colunas numéricas
+plot_histogram(df_estacao, ncol = 5)
+
+```
 
 ### Gráfico da precipitação e temperatura
 
 ```{r fig.width=10, fig.cap="Temperaturas máximas e mínimas e precipitação observada ao longo dos dias."}
+
+#| out-width: "100%"
+
+
 df_prec <- 
   clima_max_min |> 
   pivot_wider(names_from = "name",
@@ -542,6 +579,8 @@ ggplot() +
 ### Velocidade média do vento
 
 ```{r collapse = TRUE, message=FALSE, warning=FALSE}
+#| out-width: "100%"
+
 
 vento_long <-
   df_estacao %>%
@@ -578,6 +617,9 @@ ggplot(vento_long, aes(m, value, color = name, group = name )) +
 ### Direção do vento
 
 ```{r collapse = TRUE, message=FALSE, warning=FALSE}
+#| out-width: "100%"
+
+
 # cria uma tabela de frequência transformando a variável quantitativa direção do vento
 # em uma qualitativa 
 freq <- 
@@ -605,7 +647,11 @@ ggradar(freq %>% transpose_df(),
 
 O pacote `rnaturalearth` é uma excelente ferramenta para manter e facilitar a interação com os dados do mapa [Natural Earth](https://www.naturalearthdata.com/). Para produção de mapas com o `ggplot2`, os seguintes pacotes são necessários.
 
-```{r fig.width=8, fig.height=10}
+```{r}
+
+#| out-width: "100%"
+
+
 # américa do sul
 library(rnaturalearth)
 library(tidyverse)
@@ -634,6 +680,10 @@ p2
 ### Mapa do Brasil e SC, com municípios
 
 ```{r}
+#| out-width: "100%"
+
+
+
 sc <- 
   read_municipality(code_muni = "SC",
                     simplified = FALSE,
@@ -653,6 +703,22 @@ p3 <-
   theme(legend.position = "bottom")
 p3
 ```
+
+## O pacote esquisse
+
+O pacote [`esquisse`](https://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html) ajuda a explorar e visualizar dados de forma interativa. Ele é uma interface [Shiny](https://shiny.rstudio.com/) para criar gráficos ggplot interativamente usando "arrastar e soltar" para mapear suas variáveis. Pode-se visualizar rapidamente os dados de acordo com seu tipo, exportar para formatos raster (ex., .png, .jpg) ou vetor (ex., .pdf, .eps) e recuperar o código para reproduzir o gráfico.
+
+Para inciar a criação do gráfico, basta carregar o pacote e executar o comando `esquisser()`. Uma janela aparecerá, onde será possível importar um conjunto de dados, ou utilizar um conjunto de dados existente no ambiente R.
+
+```{r eval=FALSE}
+esquisser()
+```
+
+![](figs/esquisse_import.png)
+
+Após selecionar o conjunto de dados, as variáveis existentes ficarão disponíveis para serem mapeadas. Basta clicar e arrastar! Para ter uma maior área de trabalho do pacote, sugere-se definir a opção para que a interface gráfica do pacote seja aberta no navegador. Para isso, rode `options("esquisse.viewer" = "browser")`.
+
+![](figs/esquisse.png)
 
 # Exercício
 
@@ -706,7 +772,10 @@ p2 <-
 
 -   Organize os gráficos `p1` e `p2` em um mesmo painel, um ao lado do outro.
 
-```{r}
+```{r fig.height=4}
+#| out-width: "100%"
+
+
 arrange_ggplot(p1, p2)
 ```
 
@@ -743,7 +812,10 @@ p4 <-
 
 -   Organize os gráficos `p3` e `p4` em um mesmo painel, um ao lado do outro.
 
-```{r}
+```{r fig.height=4}
+#| out-width: "100%"
+
+
 arrange_ggplot(p3, p4)
 ```
 
@@ -815,7 +887,10 @@ p6.2 <-
 
 -   Organize os gráficos `p5` e `p6` em um mesmo painel, um ao lado do outro.
 
-```{r}
+```{r fig.height=4}
+#| out-width: "100%"
+
+
 arrange_ggplot(p5, p6)
 ```
 
