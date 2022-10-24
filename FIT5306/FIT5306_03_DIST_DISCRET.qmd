@@ -46,9 +46,8 @@ mermaid("
 
 Considerando duas vacas prenhas, com a mesma probabilidade de nascimento de fêmeas, temos então o seguinte cenário.
 
-```{r}
-mermaid("
-   graph TB
+```{mermaid}
+flowchart
     Start --> |0,5|A(1)
     Start --> |0,5|B(0)
     A --> |0,5|C(1)
@@ -59,7 +58,6 @@ mermaid("
     D --> H(10 = pq)
     E --> I(01 = qp)
     F --> J(00 = qq)
-")
 ```
 
 Assim, as probabilidades associadas ao número de nascimentos de bezzeras são dadas por

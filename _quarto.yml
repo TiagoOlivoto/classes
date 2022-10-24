@@ -4,7 +4,8 @@ project:
   render:
     - "00_about.qmd"
     - "FIT5306/"
-    - "RGV410046/RGV410046_00_ABOUT.qmd"
+    # - "RGV410046/RGV410046_00_ABOUT.qmd"
+    # - "RGV410046/RGV410046_01_INTRO.qmd"
 
 comments:
   hypothesis: 
@@ -20,11 +21,6 @@ website:
   search:
     location: sidebar
   title: "Aulas"
-  crossref:
-    fig-title: Fig     # (default is "Figure")
-    tbl-title: Tbl     # (default is "Table")
-    title-delim: —     # (default is ":")
-  page-layout: custom
   page-footer:
     border: true
     background: light
@@ -72,11 +68,12 @@ website:
         - FIT5306/FIT5306_09_DBC.qmd
         - FIT5306/FIT5306_10_FAT.qmd
         - FIT5306/FIT5306_11_REG.qmd
-    - title: "Intro R"
-      style: "docked"
-      background: light
-      contents:
-        - RGV410046/RGV410046_00_ABOUT.qmd
+    # - title: "Intro R"
+    #   style: "docked"
+    #   background: light
+    #   contents:
+    #     - RGV410046/RGV410046_00_ABOUT.qmd
+    #     - RGV410046/RGV410046_01_INTRO.qmd
 
 
 format:

@@ -44,25 +44,39 @@ Quem ja é usuário de softwares por linhas de comando, como o SAS, provavelment
 
 Nesta seção serão abordados alguns aspectos básicos para que o usuário do R possa desenvolver as suas análises. Será dado enfoque para áreas básicas da interface, cujo conhecimento é necessário para que um usuário inicante possa realizar sua primeira análisee. A figura abaixo mostra as principais janelas do **Rstudio**, incluindo o *script*, o *console*, a *"área de trabalho"* e o *output* para gráficos.
 
-![Interface do RStudio](figures/Console.png)
+![Interface do RStudio](figs/Console.png)
 
-Antes de iniciar as análises, recomenda-se escolher um diretório \indt{diretório} onde devem estar os *inputs* (dados) e para onde serão enviados os *outputs* (gráficos, arquivos .txt, .xlsx, etc) \indt{imputs}\indt{outputs}. Para selecionar o diretório, basta seguir o caminho *Session \> Set Working Directory \> Choosing diretory* ou utilizar as teclas de atalho *Ctrl+Shift+H*.
+No canto inferior direito, além de servir como *output* para gráficos (*Plots*), também é o local onde os pacotes utilizados nas análises (*Packages*) são instalados e maiores informações sobre as funções podem ser encontradas (*Help*).
 
-![Selecionando um diretório](figures/Diretory.png)
+## Meu primeiro script
 
-Posteriormente, um *R Script* é iniciado conforme a figura abaixo ou pelas teclas de atalho *Ctrl+Shift+N*. No canto inferior direito, além de servir como *output* para gráficos (*Plots*), também é o local onde os pacotes utilizados nas análises (*Packages*) são instalados e maiores informações sobre as funções podem ser encontradas (*Help*).
+O primero passo é criar um novo script, seguindo os seguintes passos: *File \> New File \> R script* ou utilizando o atalho *Ctrl+Shift+N*. Para salvar um script, devemos clicar no botão com o símbolo de disquete (R/RStudio), escolher o nome do arquivo e o diretório onde o arquivo será armazenado no seu computador. Algumas importantes dicas:
 
-# Meu primeiro script
+-   Escolha sempre um nome sem caracteres especiais (ex., ç, ã, é, etc.)
 
-Se você realizou o download do software R pela primeira vez e achou um tanto quanto "estranho" o pequeno tamanho do arquivo (\~80 Mb), provalemente deve ter se perguntado como um software estatistico tão poderoso pode ser comprimido em um arquivo tão pequeno (pequeno em comparação com os +20 GB do SAS). A resposta é simples, somente os pacote básicos do R são baixados com o arquivo de instalação. Na medida em que o usuário necessita realizar uma análise específica, a instalação de um pacote que contém uma função específica para realizar tal análise é necessária.
+-   Escolha sempre um nome curto ou abreviado, que identifique a finalidade das linhas de comando escritas (ex., dftese)
 
-A instalação dos pacotes pode ser realizada conforme a figura abaixo, ou através da função `install.packages()`. Após a instalação do pacote, o usuário deve utilizar as funções `require()` ou `library()` \indt{require} \indt{library}para que o pacote seja carregado e as suas funções possam ser utilizadas. Quando o usuário tenta utilizar uma função pertencente a um determinado pacote e este pacote não está instalado (ou carregado), um erro é exibido.
+-   Evite espaços se o nome do arquivo for composto. Para isso, use um uderscore '\_'(ex., df_tese)
 
-![Instalando pacotes](figures/Install.png)
+## Diretório de trabalho
 
-![Ajuda para a função `nls()`](figures/Help.png)
+Antes de iniciar as análises, recomenda-se escolher um diretório onde devem estar os *inputs* (dados) e para onde serão enviados os *outputs* (gráficos, arquivos .txt, .xlsx, etc). Para selecionar o diretório, basta seguir o caminho *Session \> Set Working Directory \> Choosing diretory* ou utilizar as teclas de atalho *Ctrl+Shift+H*.
 
-Como exemplo inicial, vamos tentar selecionar a variável *Sepal.Length* do conjunto de dados base `iris` utilizando a função abaixo. **Cuidado, spoilers do pacote dplyr!** O primero passo é criar um novo script, seguindo os seguintes passos: *File \> New File \> R script* ou utilizando o atalho `Ctrl+Shift+N`. Posteriormente, o seguinte código é digitado e executado ao se selecionar a linha do código e clicar no botão *run* ou utilizando o atalho `Ctrl+Enter`).
+![Selecionando um diretório](figs/Diretory.png)
+
+# Pacotes
+
+Se você realizou o download do software R pela primeira vez e achou um tanto quanto "estranho" o pequeno tamanho do arquivo (\~80 Mb), provalemente deve ter se perguntado como um software estatistico tão poderoso pode ser comprimido em um arquivo tão pequeno (pequeno em comparação com os +20 GB do SAS). A resposta é simples: somente os pacote básicos do R são baixados com o arquivo de instalação. Na medida em que o usuário necessita realizar uma análise específica, a instalação de um pacote que contém uma função específica para realizar tal análise é necessária.
+
+A instalação dos pacotes pode ser realizada conforme a figura abaixo, ou utilizando o comando `install.packages()`. Após a instalação do pacote, o usuário deve utilizar a função `library()` para que o pacote seja carregado e as suas funções possam ser utilizadas. Quando o usuário tenta utilizar uma função pertencente a um determinado pacote e este pacote não está instalado (ou carregado), um erro é exibido.
+
+![Instalando pacotes](figs/Install.png)
+
+![Ajuda para a função `nls()`](figs/Help.png)
+
+Como exemplo inicial, vamos tentar selecionar a variável *Sepal.Length* do conjunto de dados base `iris` utilizando a função abaixo. **Cuidado, spoilers do pacote dplyr!**
+
+Posteriormente, o seguinte código é digitado e executado ao se selecionar a linha do código e clicar no botão *run* ou utilizando o atalho `Ctrl+Enter`).
 
 ```{r error=TRUE}
 SL <- select(iris, Sepal.Length)
@@ -84,12 +98,6 @@ install.packages("tidyverse", dependencies = TRUE)
 library(tidyverse)
 ```
 
-```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
-library(tidyverse)
-select <- dplyr::select
-
-```
-
 O **tidyverse** é uma coleção de pacotes R projetados para a ciência de dados, contendo, dentre outros, seguintes pacotes que serão utilizados neste material.
 
 -   **ggplot2**, para criação de gráficos.
@@ -97,34 +105,164 @@ O **tidyverse** é uma coleção de pacotes R projetados para a ciência de dado
 -   **tidyr**, para organização de dados.
 -   **tibble**, para criação de tibbles.
 
-# Pacotes necessários
+Praticamente todas as rotinas realizadas no R são baseadas em bibliotecas de códigos. Para instalar os pacotes necessários para reprodução deste material, o seguinte código é utilizado.
 
-Praticamente todas as rotinas realizadas no R são baseadas em bibliotecas de códigos. Com a manipulaçao de pacotes não seria diferente. O pacote [pacman](https://github.com/trinker/pacman)[^9] é uma ferramenta de gerenciamento de pacotes R que combina a funcionalidade das funções relacionadas à biblioteca base em funções intuitivamente nomeadas, reduzindo o código para executar simultaneamente várias ações. Uma das funções mais úteis do pacote pacman é a `p_load()`\indf{p\_load} (*package load*). Esta função checa se um pacote está instalado e em caso afirmativo, carrega-o como se a função `library()` tivesse sido usada. Caso o pacote não esteja instalado, ela primeiro o instala-rá antes de carregá-lo. Vamos, agora, instalar (para quem está utilizando o R pela primeira vez) ou carregar (para quem já tem instalado) os pacotes utilizados neste material.
+```{r, message=FALSE, warning=FALSE, eval=FALSE}
+pacotes <- c("tidyverse", "esquisse", "metan", "rio")
 
-[^9]: https://github.com/trinker/pacman
-
-```{r, message=FALSE, warning=FALSE}
-if (!require("pacman")){
-install.packages("pacman")
-}
-library(pacman)
-p_load(hnp, asbio, car, DT, dplyr, devtools, emmeans, effects, multcomp,
-       lme4, rio, ExpDes.pt, qqplotr, manipulate, metan, MASS, olsrr,
-       tidyverse, tibble, agricolae, psych, corrplot, pvclust, factoextra, ggfortify)
+# instalar os pacotes
+install.packages(pacotes)
 
 ```
 
-Os pacotes disponibilizados no software *R* estão em constante atualização. Utilizando a função `packageStatus()` e `summary(packageStatus())` é possível verificar se os pacotes estão atualizados. Outra forma é ir em *Packages \> Update* que se encontra no canto inferior direito conforme demonstrado na Figura 5.
+É provável que a primeira instalação seja um pouco demorada, pois todas as dependências serão instaladas. Após finalizada a instalação, basta carregar o pacote que será utilizado com `library()`.
 
-![Verificando se há atualizações disponíveis](figures/Update.png)
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+```
 
-Por fim, para citar os pacotes \indt{pacotes}, recomenda-se verificar a referência através da função `citation()`. \indt{citação de pacotes} \indt{atualização} Para o pacote `metan`, por exemplo, a referência oficial é encontrada no artigo que descreve o pacote [@Olivoto2020a]
+Os pacotes disponibilizados no software *R* estão em constante atualização. Para verificar novas versões de pacotes é possível ir em *Packages \> Update* que se encontra no canto inferior direito conforme demonstrado na Figura 5.
+
+![Verificando se há atualizações disponíveis](figs/Update.png)
+
+Por fim, para citar os pacotes, recomenda-se verificar a referência através da função `citation()`. Para o pacote `metan`, por exemplo, a referência oficial é encontrada no [artigo](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13384) que descreve o pacote
 
 ```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE, error = FALSE}
 citation("metan")
 ```
 
+# Comandos elementares
 
+## Atribuições
+
+Os **comandos elementares** podem ser divididos em **expressões** e **atribuições**. Por exemplo, podemos estar interessados em resolver a seguinte expressão $10+15=25$.
+
+```{r}
+
+10 + 15
+```
+
+No console quando passamos pelo comando, o R avalia a função e retorna o resultado. Caso queiramos armazenar este resultado em algum objeto, usamos a atribuição `<-` (Alt + -) que é utilizada no formato `objeto <- operacao`. Considerano o mesmo caso anterior, um objeto `soma` é criado com
+
+```{r}
+soma <- 10 + 15
+```
+
+## Operadores matemáticos
+
+Conhecendo estes comandos elementares, podemos passar para as operações matemáticas mais utilizadas e que são cruciais na linguagem de programação. No R, estas operações são baseadas em símbolos ou funções que se assemelham à maioria dos outros softwares estatísticos.
+
+```{r, echo = TRUE, message = FALSE, warning = FALSE}
+1 + 1 # Soma
+2 - 1 # Subtração
+2 * 2 # Multiplicação
+1 + 2 * 2 ^ 2 # Eleva ao quadrado, multiplica e soma
+((1 + 2) * 2) ^ 2 # Soma, multiplica e eleva ao quadrado
+sqrt(4) # Raiz quadrada
+4^2 # Potência
+log(10) # Por default, o logarítimo é de base e (logarítimo natural)
+log(100, 10) # Logarítimo de base 10
+exp(100) # exponencial
+
+```
+
+## Álgebra de matrizes
+
+Para multiplicação de matrizes utiliza-se `%*%` ao envéz de `*`. Note a diferença no exemplo abaixo.
+
+```{r, message = FALSE, warning = FALSE}
+(x <- matrix(1:4, ncol = 2))
+(y <- matrix(5:8, ncol = 2))
+```
+
+O resultado da multiplicação da matriz `x` e `y` é dado por:
+
+$$
+    \left( {\begin{array}{*{20}{c}}{1 \cdot 5 + 3 \cdot 6}&{1 \cdot 7 + 3 \cdot 8}\\{2 \cdot 5 + 4 \cdot 6}&{2 \cdot 7 + 4 \cdot 8}\end{array}} \right) = \left( {\begin{array}{*{20}{c}}{23}&{31}\\{34}&{46}\end{array}} \right)
+$$
+
+```{r, message = FALSE, warning = FALSE}
+x * y # Errado
+x %*% y # Certo
+```
+
+A função `t()` é utilizada para transposição de matrizes e `solve()` para inversão de matrizes. Vamos resolver o seguinte sistema de equações utilizando estes operadores.
+
+$$
+\begin{array}{l}{x_1} + 2{x_2} = 4\\{x_1} - {x_2} = 1\end{array}
+$$
+
+Matricialmente o sistema acima é dado por:
+
+$$
+\left[ {\begin{array}{*{20}{c}}{\begin{array}{*{20}{l}}1\\1\end{array}}&{\begin{array}{*{20}{c}}2\\{ - 1}\end{array}}\end{array}} \right]\left[ {\begin{array}{*{20}{c}}{{x_1}}\\{{x_2}}\end{array}} \right] = \left[ {\begin{array}{*{20}{c}}4\\1\end{array}} \right]
+$$
+
+Esse sistema de equações é representado por ${\bf{AX}} = {\bf{c}}$ e tem como solução ${\bf{X = }}{{\bf{A}}^{{\bf{ - 1}}}}{\bf{c}}$
+
+```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}
+
+(A <- matrix(c(1, 1, 2, -1), ncol = 2))
+# Transposta de A
+t(A)
+
+# resolução do sistema de equações
+(Ainv <- solve(A)) # Obtém a inversa generalizada de A
+(c <- c(4, 1)) # Vetor C
+(X <- Ainv %*% c)
+
+
+```
+
+::: callout-tip
+Note que o mesmo resultado anterior pode ser obtido sem a necessidade de atribuição, ao declarar todas as operações em um único comando
+
+```{r}
+solve(matrix(c(1, 1, 2, -1), ncol = 2)) %*% c(4, 1)
+
+```
+:::
+
+A função `det()` é utilizada para calcular o determinante de uma matriz e função `eigen()` para calcular calcular autovalores e autovetores
+
+```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}
+(X <- matrix(c(1, 2, 5, 3, 4, 5, 6, 1, 9), ncol = 3))
+(detX <- det(X))
+
+```
+
+```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}
+(av <- eigen(X))
+av$values # Extrai os autovalores
+```
+
+```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}
+av$vectors # Extrai os autovetores
+```
+
+A função `diag()` extrai a diagonal de uma matriz ou cria uma matriz onde a diagonal são os elementos declarados. Os próximos comandos extraem a diagonal de X e criam uma matriz identidade, com 3 linhas e 3 colunas.
+
+```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}
+diag(X)
+diag(x = 1, nrow = 3, ncol = 3)
+```
+
+
+
+# Fóruns e materiais de apoio
+
+
+::: {layout-ncol="3"}
+[![Playlist R Quick Tips](figs/rqt.png)](https://www.youtube.com/watch?v=e89kyYJgWqc&list=PLJG9aEbqLtMiHWzBMBuakz33LtehOaUTD)
+
+[![Série do Prof. Ben Dêivid](figs/rapidinhasdor.png)](https://github.com/bendeivide/rapidinhasdor)
+
+[![Canal do Prof. Alcinei](figs/alcinei.jpg)](https://www.youtube.com/channel/UCDGyvLCJnv9RtTY1YMBMVNQ)
+:::
+
+
+
+# Exercício (encontrar pacotes)
 
 
 ```{=html}
