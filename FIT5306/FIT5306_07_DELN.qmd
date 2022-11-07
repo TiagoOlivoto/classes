@@ -30,24 +30,16 @@ Quando um tratamento é repetido, é possível estimar sua média e sua variânc
 #| out-width: "100%"
 #| message: false
 #| warning: false
+#| fig-height: 2
 library(tidyverse)
 
-set.seed(1)
-dados <- 
-  data.frame(g1 = rnorm(20, 10, 3),
-             g2 = rnorm(20, 13, 2),
-             g3 = rnorm(20, 18, 2)) |> 
-  pivot_longer(cols = everything())
-
 parms <- 
-  dados |> 
-  group_by(name) |> 
-  summarise(mu = mean(value),
-            sd = sd(value))
+  data.frame(name = c("g1", "g2", "g3"),
+             mu = c(10, 13, 18),
+             sd = c(1.5, 1.2, 1.8))
 
-
-ggplot(dados, aes(value, fill = name)) +
-   stat_function(fun=dnorm,
+ggplot() +
+  stat_function(fun=dnorm,
                 geom="line",
                 aes(color = "g1"),
                 size = 1.5,
@@ -62,17 +54,17 @@ ggplot(dados, aes(value, fill = name)) +
   stat_function(fun=dnorm,
                 geom="line",
                 aes(color = "g3"),
-                size = 2,
+                size = 1.5,
                 n = 1000,
                 args = list(mean = parms$mu[3], sd = parms$sd[3])) +
-  stat_function(fun=dnorm,
-                geom="line",
-                color = "black",
-                size = 1.5,
-                args = list(mean = mean(dados$value), sd = sd(dados$value))) +
-  geom_vline(xintercept = mean(dados$value)) +
+  geom_vline(aes(xintercept = mu, color = name), 
+             data = parms,
+             size = 1.5) +
+  geom_vline(xintercept = mean(parms$mu)) +
   scale_color_manual(values = metan::ggplot_color(4)) +
-  scale_y_continuous(breaks = NULL, limits = (c(0.001, 0.25))) +
+  scale_y_continuous(breaks = NULL,
+                     expand = expansion(c(0, 0.1))) +
+  xlim(c(5, 25)) +
   theme_bw() +
   theme(panel.grid = element_blank())
 
@@ -86,24 +78,15 @@ No segundo exemplo, os dados simulados apresentam uma variação entre repetiç�
 #| out-width: "100%"
 #| message: false
 #| warning: false
-
+#| fig-height: 2
 
 # low variance
-set.seed(1)
-dados <- 
-  data.frame(g1 = rnorm(20, 10, 0.5),
-             g2 = rnorm(20, 13, 0.4),
-             g3 = rnorm(20, 18, 0.4)) |> 
-  pivot_longer(cols = everything())
-
 parms <- 
-  dados |> 
-  group_by(name) |> 
-  summarise(mu = mean(value),
-            sd = sd(value))
+  data.frame(name = c("g1", "g2", "g3"),
+             mu = c(10, 13, 18),
+             sd = c(0.6, 0.7, 0.6))
 
-
-ggplot(dados, aes(value, fill = name)) +
+ggplot() +
   stat_function(fun=dnorm,
                 geom="line",
                 aes(color = "g1"),
@@ -122,14 +105,14 @@ ggplot(dados, aes(value, fill = name)) +
                 size = 1.5,
                 n = 1000,
                 args = list(mean = parms$mu[3], sd = parms$sd[3])) +
-  stat_function(fun=dnorm,
-                geom="line",
-                color = "black",
-                size = 2,
-                args = list(mean = mean(dados$value), sd = sd(dados$value))) +
-  geom_vline(xintercept = mean(dados$value)) +
+  geom_vline(aes(xintercept = mu, color = name), 
+             data = parms,
+             size = 1.5) +
+  geom_vline(xintercept = mean(parms$mu)) +
   scale_color_manual(values = metan::ggplot_color(4)) +
-  scale_y_continuous(breaks = NULL, limits = (c(0.001, 1.5))) +
+  scale_y_continuous(breaks = NULL,
+                     expand = expansion(c(0, 0.1))) +
+  xlim(c(5, 25)) +
   theme_bw() +
   theme(panel.grid = element_blank())
 ```

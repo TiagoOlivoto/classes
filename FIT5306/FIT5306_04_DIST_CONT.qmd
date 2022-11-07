@@ -2314,7 +2314,7 @@ Como temos dois grupos (xx e xy) o intervalo de confiança para a média pode se
 #| out-width: "100%"
 #| fig-height: 2
 
-
+library(tidyverse)
 # média por cromossomo
 df2 <- 
   df_altura |> 

@@ -4,8 +4,12 @@ project:
   render:
     - "00_about.qmd"
     - "FIT5306/"
-    # - "RGV410046/RGV410046_00_ABOUT.qmd"
-    # - "RGV410046/RGV410046_01_INTRO.qmd"
+    - "RGV410046/RGV410046_00_ABOUT.qmd"
+    - "RGV410046/RGV410046_01_INTRO.qmd"
+    - "RGV410046/RGV410046_02_PROGRAMACAO.qmd"
+    - "RGV410046/RGV410046_03_DADOS.qmd"
+    - "RGV410046/RGV410046_04_MANIPULACAO.qmd"
+    - "RGV410046/RGV410046_05_MUTACAO.qmd"
 
 comments:
   hypothesis: 
@@ -68,12 +72,16 @@ website:
         - FIT5306/FIT5306_09_DBC.qmd
         - FIT5306/FIT5306_10_FAT.qmd
         - FIT5306/FIT5306_11_REG.qmd
-    # - title: "Intro R"
-    #   style: "docked"
-    #   background: light
-    #   contents:
-    #     - RGV410046/RGV410046_00_ABOUT.qmd
-    #     - RGV410046/RGV410046_01_INTRO.qmd
+    - title: "Intro R"
+      style: "docked"
+      background: light
+      contents:
+        - RGV410046/RGV410046_00_ABOUT.qmd
+        - RGV410046/RGV410046_01_INTRO.qmd
+        - RGV410046/RGV410046_02_PROGRAMACAO.qmd
+        - RGV410046/RGV410046_03_DADOS.qmd
+        - RGV410046/RGV410046_04_MANIPULACAO.qmd
+        - RGV410046/RGV410046_05_MUTACAO.qmd
 
 
 format:

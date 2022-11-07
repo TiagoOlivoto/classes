@@ -164,7 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  <span class="menu-text">Bioestatística</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../RGV410046/RGV410046_00_ABOUT.qmd">
+    <a class="nav-link" href="../RGV410046/RGV410046_00_ABOUT.html">
  <span class="menu-text">Introdução ao R</span></a>
   </li>  
 </ul>
@@ -1972,15 +1972,16 @@ attr(,"conf.level")
 <div class="cell">
 <details>
 <summary>Mostrar script</summary>
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># média por cromossomo</span></span>
-<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> </span>
-<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>  df_altura <span class="sc">|&gt;</span> </span>
-<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(crm) <span class="sc">|&gt;</span> </span>
-<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(altura),</span>
-<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">desvpad =</span> <span class="fu">sd</span>(altura),</span>
-<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> </span>
-<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">LI =</span> media <span class="sc">-</span> <span class="fu">get_ci_t</span>(media, desvpad, n),</span>
-<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">LS =</span> media <span class="sc">+</span> <span class="fu">get_ci_t</span>(media, desvpad, n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="co"># média por cromossomo</span></span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> </span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>  df_altura <span class="sc">|&gt;</span> </span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(crm) <span class="sc">|&gt;</span> </span>
+<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(altura),</span>
+<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">desvpad =</span> <span class="fu">sd</span>(altura),</span>
+<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">LI =</span> media <span class="sc">-</span> <span class="fu">get_ci_t</span>(media, desvpad, n),</span>
+<span id="cb79-10"><a href="#cb79-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">LS =</span> media <span class="sc">+</span> <span class="fu">get_ci_t</span>(media, desvpad, n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>[162.02170.36 &lt;= mu &lt;= 170.134179.974]
@@ -5176,7 +5177,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb123-2358"><a href="#cb123-2358" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "100%"</span></span>
 <span id="cb123-2359"><a href="#cb123-2359" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 2</span></span>
 <span id="cb123-2360"><a href="#cb123-2360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-2361"><a href="#cb123-2361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-2361"><a href="#cb123-2361" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb123-2362"><a href="#cb123-2362" aria-hidden="true" tabindex="-1"></a><span class="co"># média por cromossomo</span></span>
 <span id="cb123-2363"><a href="#cb123-2363" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> </span>
 <span id="cb123-2364"><a href="#cb123-2364" aria-hidden="true" tabindex="-1"></a>  df_altura <span class="sc">|&gt;</span> </span>
