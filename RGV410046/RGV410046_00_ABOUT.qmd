@@ -112,7 +112,11 @@ library(rio)        # importação/exportação de dados
 
 {{< video https://www.youtube.com/embed/8B8QDZnDhtY >}}
 
-# Dados de exemplo
+# Dados e scripts
+
+
+<a href="https://downgit.github.io/#/home?url=https://github.com/TiagoOlivoto/classes/tree/master/RGV410046" target="_blank" rel="noopener"> <button class="btn btn-success"><i class="fa fa-save"></i> Download dados e scripts</button> </a>
+
 
 ```{r echo=FALSE}
 fs::dir_tree("E:/Desktop/UFSC/aulas/classes/RGV410046/data", recurse = 1)

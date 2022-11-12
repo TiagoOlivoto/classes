@@ -19,6 +19,7 @@ setwd("E:/Desktop/UFSC/aulas/classes/RGV410046/data")
 library(rio)
 library(tidyverse)
 library(metan)
+library(DataExplorer)
 ```
 
 # Importação
@@ -260,6 +261,22 @@ A função `fill()` do pacote `tidyr` pode ser utilizada para preencher valores 
 ```{r}
 (preenchido <- fill(mesclado, AMB, HIBRIDO))
 ```
+
+
+
+# Inspeção
+```{r}
+maize <- df$maize
+plot_intro(maize)
+plot_histogram(maize)
+plot_missing(maize)
+
+# pacote metan
+inspect(maize)
+
+```
+
+
 
 # Homework
 
