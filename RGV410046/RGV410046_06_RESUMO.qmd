@@ -1,0 +1,248 @@
+---
+title: "6. Resumo"
+---
+
+# Diretório
+
+```{r include = FALSE}
+knitr::opts_knit$set(root.dir = "E:/Desktop/UFSC/aulas/classes/RGV410046/data")
+```
+
+```{r eval=FALSE}
+# meu computador (mudar de acordo)
+setwd("E:/Desktop/UFSC/aulas/classes/RGV410046/data")
+```
+
+# Pacotes e dados
+
+```{r warning=FALSE, message=FALSE}
+library(rio)
+library(tidyverse)
+library(metan)
+
+# dados
+maize <- 
+  import("examples_data.xlsx",
+         sheet = "maize",
+         setclass = "tbl")
+
+```
+
+# Mutação
+
+## Geral
+
+![Fonte: https://dplyr.tidyverse.org/index.html](figs/mutate.png){alt="Fonte: https://dplyr.tidyverse.org/index.html"}
+
+A função [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) é utilizada quando se deseja adicionar novas variáveis no conjunto de dados. Estas variáveis são funções de variáveis existentes. Como exemplo, vamos criar uma nova variável chamada `CD` no conjunto de dados `maize`, qual será a razão entre `CESP` e `DIES`. Note que a função adiciona a nova variável após a última variável origina e mantém todas as demais. Você pode controlar a posição da nova variável criada utilizando os argumentos `.before` e `.after` (assim como na função `relocate()`) e quais variáveis são mantidas utilizando o argumento `.keep`.
+
+```{r}
+# padrão: nova variável inserida na última posição
+maize %>% mutate(CD = CESP/DIES)
+# posição da nova variável
+maize %>% mutate(CD = CESP/DIES, 
+                 .after = DIES)
+# mantém somente as utilizadas no cálculo
+maize %>% mutate(CD = CESP/DIES,
+                 .keep = "used")
+# mantém as não utilizadas
+maize %>% mutate(CD = CESP/DIES,
+                 .keep = "unused")
+# mantém somente a variável criada
+maize %>% mutate(CD = CESP/DIES,
+                 .keep = "none")
+
+```
+
+## Mutação por grupos
+
+[![](figs/group_by.png){fig-alt="Fonte: https://dplyr.tidyverse.org/index.html"}](https://dplyr.tidyverse.org/index.html)
+
+A função `group_by()` pode ser utilizada para realizar mutação dentro de cada nível de uma ou mais variáveis categóricas. Para este exemplo, vamos criar uma variável (rank) que será o rankeamento das observações dentro de cada híbrido com base na MGRA (em ordem decrescente).
+
+```{r}
+maize |> 
+  group_by(HIB) |> 
+  mutate(rank = rank(desc(MGRA)))
+
+```
+
+::: callout-tip
+O ranqueamento acima foi obtido com base no ranqueamento, utilizando a função `slice_min()`. Execute o código abaixo e veja o que acontece.
+
+```{r eval=FALSE}
+maize |> 
+  group_by(HIB) |> 
+  slice_max(MGRA, n = 2)
+```
+:::
+
+Em alguns casos, um agrupamento específico onde cada linha é considerada um grupo pode ser útil. Isto pode ser realizado com a função `rowwise()`. Como `group_by()`, `rowwise()` não faz nada sozinha; apenas muda a forma como os outros verbos (ex., mutate, summarise funcionam). Por exemplo, compare os resultados de mutate() no código a seguir:
+
+```{r}
+df <- tibble(x = 1:2, y = 3:4, z = 5:6)
+# sem rowise()
+df |> mutate(m = sum(c(x, y, z)))
+# com rowise()
+df |>
+  rowwise() |> 
+  mutate(soma = sum(c(x, y, z)))
+
+# mesmo resultado
+# utilizando semântica tidyselect 
+df |>
+  rowwise() |> 
+  mutate(soma = sum(c_across(x:z)))
+
+```
+
+## Mutação de várias variáveis
+
+![Fonte: https://dplyr.tidyverse.org/reference/across.html](figs/across.png){alt="Fonte: https://dplyr.tidyverse.org/reference/across.html"}
+
+Em alguns casos, deseja-se aplicar a mesma função de mutação (ou resumo) à várias variáveis. A função [`across()`](https://dplyr.tidyverse.org/reference/across.html) facilita a aplicação da mesma transformação a várias colunas, permitindo que você use a semântica `select()` dentro de funções como `summarise()` e `mutate()`. Como exemplo de aplicação, vamos criar uma função para rescalar uma variável para uma amplitude 0-1 e aplicar essa função à todas as colunas numéricas do conjunto `maize`.
+
+```{r}
+# função para rescalar
+rescale <- function(x) {
+  rng <- range(x, na.rm = TRUE)
+  (x - rng[1]) / (rng[2] - rng[1])
+}
+
+# aplica a função rescale() a todas as colunas numéricas
+maize %>% mutate(across(where(is.numeric), rescale))
+
+# aplica a função rescale() para algumas colunas
+maize %>% mutate(across(MGRA:NGRA, rescale))
+
+
+```
+
+Também é possível utilizar a semântica `select()` dentro de `across()`. Isso significa que *select helpers* podem ser utilizados. No exemplo abaixo apenas as variáveis que contém `"_PLANT"` são mutadas, sendo que os valores destas variáveis são divididos por 2.
+
+```{r}
+# usando select helpers
+# divide o valor da variável pela metade
+# atribui um sufixo para as novas variáveis
+# seleciona apenas as utilizadas
+maize %>%
+  mutate(across(contains("_PLANT"), ~.x / 2,
+                .names = "{.col}_metade"),
+         .after = AIES_PLANT,
+         .keep = "used")
+```
+
+## Mutação condicional
+
+É muito comum comum que condicionantes sejam necessárias quando alguma nova variável for criada. Neste exemplo, será mostrado como uma variável qualitativa nominal pode ser criada utilizando a função `case_when()`. `case_when()` é particularmente útil dentro da função `mutate()` quando você quer criar uma nova variável que depende de uma combinação complexa de variáveis existentes. No exemplo abaixo, uma nova variável será criada dependendo dos valores de `APLA`, `AIES` ou `CESP`. Ao agrupar pela nova variável categórica criada e utilizar a função `slice_sample()`, um exemplo de cada nível é amostrado aleatoriamente.
+
+```{r}
+
+maize %>% 
+  mutate(
+    CASO = case_when(
+      MGRA > 280 | APLA_PLANT < 1.3 | NGRA > 820 ~  "Selecionar",
+      APLA_PLANT > 2.3 ~ "Alto",
+      MGRA < 130 ~ "Pouco produtivo",
+      TRUE ~ "Outro"
+    )
+  ) |> 
+  group_by(CASO) |> 
+  slice_sample(n = 1)
+
+```
+
+# Sintetização
+
+Após a organização e mutação dos dados, o cientista precisa resumi-los utilizando alguma métrica de interesse. A média, a mediana, a variância, a frequência, a proporção, por exemplo, são tipos de sumarização que trazem diferentes informações sobre uma variável. No R, a função [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) cria um novo data frame. Ele terá uma (ou mais) linhas para cada combinação de variáveis de agrupamento; se não houver variáveis de agrupamento, a saída terá uma única linha resumindo todas as observações na entrada. Ele conterá uma coluna para cada variável de agrupamento e uma coluna para cada uma das estatísticas de resumo que você especificou.
+
+[![Fonte: https://dplyr.tidyverse.org/index.html](figs/summarize.png)](https://dplyr.tidyverse.org/index.html)
+
+## Uma variável, uma estatística
+
+Diversos verbos do pacote `dplyr` podem ser utilizados para resumir conjuntos de dados. Iniciaremos com a função `count()` para contar valores que se repetem em uma determinada variável. Por exemplo, é possível identificar qual é o valor de `NGRA` que mais se repete utilizando
+
+```{r}
+maize |> count(NGRA, sort = TRUE)
+```
+
+Para identificar quais os valores distintos de `NGRA` foram observados a função `distinct()` é usada.
+
+```{r}
+maize |> distinct(NGRA)
+```
+
+## Uma variável, diversas estatísticas
+
+Utilizando a função `summarise()` é possível criar uma ou mais variáveis escalares resumindo as variáveis de um data frame existente. Como resultado, uma linha e várias colunas é retornada. O seguinte código calcula a média global e o desvio padrão amostral da variável `MGRA` eretorna o *n* utilizado na estimativa.
+
+```{r}
+maize %>% 
+  summarise(MGRA_mean = mean(MGRA),
+            MGRA_sd = sd(MGRA),
+            n = n())
+```
+
+Muitas vezes é necessário computar uma determinada função (como a média) para cada nível de uma variável categórica. Continuamos no mesmo exemplo anterior, mas agora neste caso, o objetivo é calcular a média da `MGRA` para cada híbrido. Utilizando a função `group_by()` antes da função `summarise()` uma linha de resultado para cada nível do fator híbrido é retornado.
+
+```{r}
+maize %>% 
+  group_by(HIB) %>%
+  summarise(MGRA_mean = mean(MGRA),
+            MGRA_sd = sd(MGRA),
+            n = n())
+
+
+```
+
+## Diversas variáveis, uma estatística
+
+Até aqui vimos como a média (global ou para cada híbrido) da MGRA pode ser calculada. Quase sempre, no entanto, quando calculamos a média (ou qualquer outra medida) em um conjunto de dados, queremos fazê-la para todas (ou algumas) variáveis numéricas dos dados. Implementar isto com `dplyr` é relativamente fácil. Para isto, é utilizada a função `across()` que aplica uma função (ou um conjunto de funções) a um conjunto de colunas. Veremos como `across()` pode ser utilizada para calcular a média para as variáveis numéricas do conjunto `maize`. No exemplo abaixo, `where()` aplica uma função (neste caso `is.numeric()`) a todas as variáveis e seleciona aquelas para as quais a função retorna `TRUE`. Assim, a média somente é calculada para as variáveis numéricas.
+
+```{r}
+maize %>% 
+  summarise(across(where(is.numeric), mean, na.rm = TRUE))
+```
+
+Funções próprias podem ser aplicadas dentro da função `summarise()` para computar uma estatística personalizada. Como exemplo, vamos criar uma função chamada `se` que retornará o erro padrão da média e aplicá-la a todas as variáveis que iniciam `"M"`, para cada nível do fator AMB.
+
+```{r}
+se <- function(x){
+  return(sd(x, na.rm = TRUE) / sqrt(length(x)))
+}
+
+maize %>% 
+  group_by(AMB) %>%
+  summarise(across(starts_with("M"), se, .names = "{.col}_se"))
+```
+
+## Diversas variáveis, diversas estatísticas
+
+Se desejamos computar mais de uma estatística para variáveis específicas, então o próximo código nos ajudará. Note que para aplicar mais de uma função é necessário criar uma lista com o nome das funções. Neste caso, os sufixos `_m` e `_sd` representam a média e o desvio padrão, respectivamente. Faremos isso para cada nível da variável `HIB`.
+
+```{r}
+maize %>%
+  group_by(HIB) |> 
+  summarise(across(starts_with("M"), list(m = mean, sd = sd)))
+```
+
+## Quick tips
+
+```{r}
+
+my_quantile <- function(x, probs) {
+  tibble::tibble(x = quantile(x, probs), probs = probs)
+}
+mtcars %>%
+  group_by(cyl) %>%
+  summarise(my_quantile(disp, c(0.25, 0.75)))
+
+
+maize %>%
+   group_by(HIB) %>%
+  summarise(my_quantile(MGRA, c(0.25, 0.75)))
+```
+
+```{=html}
+<div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=138588&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
+```

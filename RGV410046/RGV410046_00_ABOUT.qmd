@@ -9,14 +9,12 @@ Bem-vindo ao material de apoio da disciplina RGV410046 (Introdução à linguage
 # Docentes
 
 ::: {layout-ncol="2"}
-[![Prof. Dra. Ana Catarina Conte Jakovac](figs/catarina1.jpg)](http://lattes.cnpq.br/6851033339458776)
+[![Prof. Dr. Tiago Olivoto](figs/olivoto.png)](https://olivoto.netlify.app/)
 
-[![Prof. Dra. Ana Catarina Conte Jakovac](figs/catarina2.jpg)](http://lattes.cnpq.br/6851033339458776)
+[![Prof. Dra. Ana Catarina Conte Jakovac](figs/catarina.jpg)](http://lattes.cnpq.br/6851033339458776)
 :::
 
 # Conteúdo programático
-
--   21/11/2022 a 02/12/2022
 
 ## 21/11/2022 (08:20 às 11:50)
 
@@ -56,28 +54,32 @@ Bem-vindo ao material de apoio da disciplina RGV410046 (Introdução à linguage
 
 ## 25/11/2022 (13:30 às 16:00)
 
--   Mutação de dados
-    -   select
-    -   filter
-    -   arrange
-    -   mutate
-    -   group_by
--   (dados próprios para o dia 1)
-
-## 28/11/2022 (08:20 às 11:50)
-
--   Sintetização de dados
-    -   summarise
-    -   across
-
-## 30/11/2022 (13:30 às 16:00)
-
 -   Manipulação de dados
     -   Longer (dados errados, para arrumar)
     -   Wider
-    -   rename
     -   Separate
     -   Unite
+    -   rename
+
+## 28/11/2022 (08:20 às 11:50)
+
+-   Mutação de dados
+    -   select
+    -   filter
+    -   slice
+    -   arrange
+-   (dados próprios para o dia 1)
+
+## 30/11/2022 (13:30 às 16:00)
+
+-   Sintetização de dados
+    -   mutate
+
+    -   group_by
+
+    -   summarise
+
+    -   across
 
 ## 01/12/2022 (13:30 às 16:00)
 
@@ -94,7 +96,6 @@ Para reprodução dos exemplos deste material, os softwares R e RStudio são nec
 
 {{< video https://www.youtube.com/embed/e89kyYJgWqc >}}
 
-
 <a class="btn btn-success" href="https://cran.r-project.org/bin/windows/base/" target="_blank"><i class="fa fa-save"></i> Download do R</a>
 
 <a class="btn btn-success" href="https://www.rstudio.com/products/rstudio/download/" target="_blank"><i class="fa fa-save"></i> Download do RStudio</a>
@@ -109,18 +110,7 @@ library(metan)      # estatísticas descritivas
 library(rio)        # importação/exportação de dados
 ```
 
-```{=html}
-<div class="video-container">
-  
-<iframe src="https://www.youtube.com/embed/8B8QDZnDhtY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-
-</iframe>
-
-</div>
-```
-
 {{< video https://www.youtube.com/embed/8B8QDZnDhtY >}}
-
 
 # Dados de exemplo
 
@@ -130,10 +120,12 @@ fs::dir_tree("E:/Desktop/UFSC/aulas/classes/RGV410046/data", recurse = 1)
 
 # Referências
 
-::: {layout-ncol="2"}
+::: {layout-ncol="3"}
 [![](figs/eambr.png)](https://bendeivide.github.io/book-eambr01/)
 
 [![](figs/book_olivoto.png)](https://tiagoolivoto.github.io/e-bookr/index.html)
+
+[![](figs/r4ds.png)](https://r4ds.had.co.nz/)
 :::
 
 ```{=html}

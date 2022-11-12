@@ -1,15 +1,16 @@
 project:
   type: website
   output-dir: docs
-  render:
-    - "00_about.qmd"
-    - "FIT5306/"
-    - "RGV410046/RGV410046_00_ABOUT.qmd"
-    - "RGV410046/RGV410046_01_INTRO.qmd"
-    - "RGV410046/RGV410046_02_PROGRAMACAO.qmd"
-    - "RGV410046/RGV410046_03_DADOS.qmd"
-    - "RGV410046/RGV410046_04_MANIPULACAO.qmd"
-    - "RGV410046/RGV410046_05_MUTACAO.qmd"
+  # render:
+  #   - "00_about.qmd"
+  #   - "FIT5306/"
+  #   - "RGV410046/RGV410046_00_ABOUT.qmd"
+  #   - "RGV410046/RGV410046_01_INTRO.qmd"
+  #   - "RGV410046/RGV410046_02_PROGRAMACAO.qmd"
+  #   - "RGV410046/RGV410046_03_DADOS.qmd"
+  #   - "RGV410046/RGV410046_04_MANIPULACAO.qmd"
+  #   - "RGV410046/RGV410046_05_MUTACAO.qmd"
+  #   - "RGV410046/RGV410046_05_MUTACAO.qmd"
 
 comments:
   hypothesis: 
@@ -82,6 +83,7 @@ website:
         - RGV410046/RGV410046_03_DADOS.qmd
         - RGV410046/RGV410046_04_MANIPULACAO.qmd
         - RGV410046/RGV410046_05_MUTACAO.qmd
+        - RGV410046/RGV410046_06_RESUMO.qmd
 
 
 format:
