@@ -871,11 +871,11 @@ retornando NA</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>    AMB HIBRIDO BLOCO ALT_PLANT
 1    A1      H1     I     3.002
-2  &lt;NA&gt;    &lt;NA&gt;    II     2.974
-3  &lt;NA&gt;    &lt;NA&gt;   III     2.814
-4  &lt;NA&gt;      H2     I     2.104
-5  &lt;NA&gt;    &lt;NA&gt;    II     2.120
-6  &lt;NA&gt;    &lt;NA&gt;   III     1.924
+2    A1    &lt;NA&gt;    II     2.974
+3    A1    &lt;NA&gt;   III     2.814
+4    A1      H2     I     2.104
+5    A1    &lt;NA&gt;    II     2.120
+6    A1    &lt;NA&gt;   III     1.924
 7    A2      H1     I     3.002
 8  &lt;NA&gt;    &lt;NA&gt;    II     2.974
 9  &lt;NA&gt;    &lt;NA&gt;   III     2.814
@@ -927,7 +927,7 @@ retornando NA</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 10
    Variable   Class     Missing Levels Valid_n   Min Median    Max Outlier Text 
-   &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;int&gt; &lt;chr&gt;
+   &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;
  1 AMB        character No      0          780  NA    NA     NA         NA Line…
  2 HIB        character No      0          780  NA    NA     NA         NA Line…
  3 REP        character No      0          780  NA    NA     NA         NA Line…
@@ -935,7 +935,7 @@ retornando NA</code></pre>
  5 AIES_PLANT numeric   No      -          780   0.5   1.38   2.39       1 &lt;NA&gt; 
  6 CESP       numeric   Yes     -          776   0.8  15.4   20.4       16 &lt;NA&gt; 
  7 DIES       numeric   Yes     -          779  36.4  50.0   59.7        1 &lt;NA&gt; 
- 8 MGRA       character No      0          780  NA    NA     NA         NA Line…
+ 8 MGRA       numeric   No      -          780  58.5 174.   291.         0 &lt;NA&gt; 
  9 MMG        numeric   No      -          780 123.  344.   546.         6 &lt;NA&gt; 
 10 NGRA       numeric   Yes     -          779 147   517    903         10 &lt;NA&gt; </code></pre>
 </div>
@@ -950,7 +950,7 @@ retornando NA</code></pre>
 <pre><code>Warning: Missing values in variable(s) APLA_PLANT, CESP, DIES, NGRA.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Possible text fragments in variable(s) AMB, HIB, REP, MGRA.</code></pre>
+<pre><code>Warning: Possible text fragments in variable(s) AMB, HIB, REP.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Possible outliers in variable(s) APLA_PLANT, AIES_PLANT, CESP, DIES,

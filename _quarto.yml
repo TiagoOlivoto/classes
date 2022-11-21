@@ -20,6 +20,7 @@ theme:
   light: flatly
   dark: darkly
 
+
 website:
   repo-url: https://github.com/TiagoOlivoto/classes
   repo-actions: [edit, issue]
