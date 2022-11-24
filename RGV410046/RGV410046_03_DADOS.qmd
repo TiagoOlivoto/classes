@@ -150,6 +150,11 @@ export(
 )
 ```
 
+# Tutorial Importação e Exportação
+
+{{< video https://www.youtube.com/embed/fVJfL4LFLAM >}}
+
+
 # Dados *tidy*
 
 > Conjuntos de dados organizados são fáceis de manipular, modelar e visualizar, e possuem uma estrutura específica: cada variável é uma coluna, cada observação é uma linha e cada tipo de unidade observacional é uma tabela (Wickham, 2014)[^1]

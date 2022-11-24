@@ -536,7 +536,7 @@ hist(pop, nclass = 20)
 teor_lim <- function(n, pop){
   data.frame(mean = 
                sapply(1:n, function(x){
-                 mean(rweibull(200, 1.5, 3))
+                 mean(rweibull(2000, 1.5, 3))
                }),
              size = n)
 }
@@ -551,7 +551,7 @@ dist_amo <- map_dfr(sizes, teor_lim, pop)
 
 
 ggplot(dist_amo, aes(mean)) +
-  geom_histogram(bins = 50,
+  geom_histogram(bins = 100,
                  aes(y = ..density..)) +
   geom_density(size = 1, color = "red") + 
   facet_wrap(~size, scales = "free")

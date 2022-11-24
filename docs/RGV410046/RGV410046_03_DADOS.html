@@ -282,6 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#rdata" id="toc-rdata" class="nav-link" data-scroll-target="#rdata">Rdata</a></li>
   </ul></li>
   <li><a href="#exportar" id="toc-exportar" class="nav-link" data-scroll-target="#exportar">Exportar</a></li>
+  <li><a href="#tutorial-importação-e-exportação" id="toc-tutorial-importação-e-exportação" class="nav-link" data-scroll-target="#tutorial-importação-e-exportação">Tutorial Importação e Exportação</a></li>
   <li><a href="#dados-tidy" id="toc-dados-tidy" class="nav-link" data-scroll-target="#dados-tidy">Dados <em>tidy</em></a>
   <ul>
   <li><a href="#mesmos-dados-diferentes-formas" id="toc-mesmos-dados-diferentes-formas" class="nav-link" data-scroll-target="#mesmos-dados-diferentes-formas">Mesmos dados, diferentes formas</a></li>
@@ -683,6 +684,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"minha_lista.xlsx"</span></span>
 <span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="tutorial-importação-e-exportação" class="level1">
+<h1>Tutorial Importação e Exportação</h1>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/fVJfL4LFLAM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="dados-tidy" class="level1">
 <h1>Dados <em>tidy</em></h1>
@@ -1454,143 +1459,148 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb75-170"><a href="#cb75-170" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb75-171"><a href="#cb75-171" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-172"><a href="#cb75-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-173"><a href="#cb75-173" aria-hidden="true" tabindex="-1"></a><span class="fu"># Dados *tidy*</span></span>
+<span id="cb75-173"><a href="#cb75-173" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tutorial Importação e Exportação</span></span>
 <span id="cb75-174"><a href="#cb75-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-175"><a href="#cb75-175" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Conjuntos de dados organizados são fáceis de manipular, modelar e visualizar, e possuem uma estrutura específica: cada variável é uma coluna, cada observação é uma linha e cada tipo de unidade observacional é uma tabela (Wickham, 2014)</span><span class="ot">[^1]</span></span>
+<span id="cb75-175"><a href="#cb75-175" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/fVJfL4LFLAM &gt;}}</span>
 <span id="cb75-176"><a href="#cb75-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-177"><a href="#cb75-177" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>Wickham, Hadley. 2014. "Tidy Data". Journal of Statistical Software 59: 1--23.</span>
-<span id="cb75-178"><a href="#cb75-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-179"><a href="#cb75-179" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mesmos dados, diferentes formas</span></span>
-<span id="cb75-180"><a href="#cb75-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-181"><a href="#cb75-181" aria-hidden="true" tabindex="-1"></a>Nesta seção você aprenderá organizar dados no R no formato *tidy*. Colocar seus dados nesse formato requer algum trabalho inicial, mas esse trabalho compensa a longo prazo. Aqui, um foco especial será dado nas funções do pacote `tidyr` e do pacote `metan`. Se você quiser saber mais sobre a teoria por tras dos dados *tidy*, poderá apreciar o artigo <span class="co">[</span><span class="ot">Tidy Data</span><span class="co">](https://www.jstatsoft.org/article/view/v059i10)</span>.</span>
-<span id="cb75-182"><a href="#cb75-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-183"><a href="#cb75-183" aria-hidden="true" tabindex="-1"></a>Você pode representar os mesmos dados várias maneiras. O exemplo abaixo mostra os mesmos dados organizados de quatro maneiras diferentes. Cada conjunto de dados mostra os mesmos valores de duas variáveis (ALT_ESP, ALT_PLANT) mensuradas em três híbridos (HIBRIDO), considerando três repetições (BLOCOS).</span>
-<span id="cb75-184"><a href="#cb75-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-185"><a href="#cb75-185" aria-hidden="true" tabindex="-1"></a><span class="in">```{r warning=FALSE, message=FALSE}</span></span>
-<span id="cb75-186"><a href="#cb75-186" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">import_list</span>(<span class="st">"examples_data.xlsx"</span>)</span>
-<span id="cb75-187"><a href="#cb75-187" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>df1</span>
-<span id="cb75-188"><a href="#cb75-188" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>df2</span>
-<span id="cb75-189"><a href="#cb75-189" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>df3</span>
-<span id="cb75-190"><a href="#cb75-190" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>df4</span>
-<span id="cb75-191"><a href="#cb75-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-192"><a href="#cb75-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-193"><a href="#cb75-193" aria-hidden="true" tabindex="-1"></a>Essas são todas representações dos mesmos dados, mas são completamente diferentes do ponto de vista de uso.</span>
-<span id="cb75-194"><a href="#cb75-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-195"><a href="#cb75-195" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
-<span id="cb75-196"><a href="#cb75-196" aria-hidden="true" tabindex="-1"></a><span class="fu">## O que não fazer</span></span>
+<span id="cb75-177"><a href="#cb75-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-178"><a href="#cb75-178" aria-hidden="true" tabindex="-1"></a><span class="fu"># Dados *tidy*</span></span>
+<span id="cb75-179"><a href="#cb75-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-180"><a href="#cb75-180" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Conjuntos de dados organizados são fáceis de manipular, modelar e visualizar, e possuem uma estrutura específica: cada variável é uma coluna, cada observação é uma linha e cada tipo de unidade observacional é uma tabela (Wickham, 2014)</span><span class="ot">[^1]</span></span>
+<span id="cb75-181"><a href="#cb75-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-182"><a href="#cb75-182" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>Wickham, Hadley. 2014. "Tidy Data". Journal of Statistical Software 59: 1--23.</span>
+<span id="cb75-183"><a href="#cb75-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-184"><a href="#cb75-184" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mesmos dados, diferentes formas</span></span>
+<span id="cb75-185"><a href="#cb75-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-186"><a href="#cb75-186" aria-hidden="true" tabindex="-1"></a>Nesta seção você aprenderá organizar dados no R no formato *tidy*. Colocar seus dados nesse formato requer algum trabalho inicial, mas esse trabalho compensa a longo prazo. Aqui, um foco especial será dado nas funções do pacote `tidyr` e do pacote `metan`. Se você quiser saber mais sobre a teoria por tras dos dados *tidy*, poderá apreciar o artigo <span class="co">[</span><span class="ot">Tidy Data</span><span class="co">](https://www.jstatsoft.org/article/view/v059i10)</span>.</span>
+<span id="cb75-187"><a href="#cb75-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-188"><a href="#cb75-188" aria-hidden="true" tabindex="-1"></a>Você pode representar os mesmos dados várias maneiras. O exemplo abaixo mostra os mesmos dados organizados de quatro maneiras diferentes. Cada conjunto de dados mostra os mesmos valores de duas variáveis (ALT_ESP, ALT_PLANT) mensuradas em três híbridos (HIBRIDO), considerando três repetições (BLOCOS).</span>
+<span id="cb75-189"><a href="#cb75-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-190"><a href="#cb75-190" aria-hidden="true" tabindex="-1"></a><span class="in">```{r warning=FALSE, message=FALSE}</span></span>
+<span id="cb75-191"><a href="#cb75-191" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">import_list</span>(<span class="st">"examples_data.xlsx"</span>)</span>
+<span id="cb75-192"><a href="#cb75-192" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>df1</span>
+<span id="cb75-193"><a href="#cb75-193" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>df2</span>
+<span id="cb75-194"><a href="#cb75-194" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>df3</span>
+<span id="cb75-195"><a href="#cb75-195" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>df4</span>
+<span id="cb75-196"><a href="#cb75-196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-197"><a href="#cb75-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-198"><a href="#cb75-198" aria-hidden="true" tabindex="-1"></a>Vamos assumir que queiramos computar a média da variável <span class="in">`ALT_PLANT`</span>. Observe os quatro exemplos abaixo e veja qual está correto.</span>
+<span id="cb75-198"><a href="#cb75-198" aria-hidden="true" tabindex="-1"></a>Essas são todas representações dos mesmos dados, mas são completamente diferentes do ponto de vista de uso.</span>
 <span id="cb75-199"><a href="#cb75-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-200"><a href="#cb75-200" aria-hidden="true" tabindex="-1"></a><span class="in">```{r error=TRUE}</span></span>
-<span id="cb75-201"><a href="#cb75-201" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>df1<span class="sc">$</span>ALT_PLANT)</span>
-<span id="cb75-202"><a href="#cb75-202" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>df2<span class="sc">$</span>value)</span>
-<span id="cb75-203"><a href="#cb75-203" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>df3<span class="sc">$</span>ALT_PLANT_I)</span>
-<span id="cb75-204"><a href="#cb75-204" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>df4<span class="sc">$</span>I)</span>
-<span id="cb75-205"><a href="#cb75-205" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-206"><a href="#cb75-206" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb75-207"><a href="#cb75-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-208"><a href="#cb75-208" aria-hidden="true" tabindex="-1"></a>Um conjunto de dados *tidy* é um conjunto de dados onde as três regras à seguir são respeitadas:</span>
-<span id="cb75-209"><a href="#cb75-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-210"><a href="#cb75-210" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Cada variável deve ter sua própria coluna.</span>
-<span id="cb75-211"><a href="#cb75-211" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Cada observação deve ter sua própria linha.</span>
-<span id="cb75-212"><a href="#cb75-212" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Cada valor deve ter sua própria célula.</span>
-<span id="cb75-213"><a href="#cb75-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-214"><a href="#cb75-214" aria-hidden="true" tabindex="-1"></a>A Figura à seguir mostra as regras visualmente.</span>
-<span id="cb75-215"><a href="#cb75-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-216"><a href="#cb75-216" aria-hidden="true" tabindex="-1"></a><span class="al">![Adaptado de https://r4ds.had.co.nz/tidy-data.html#tidy-data-1](figs/tidy.png)</span></span>
-<span id="cb75-217"><a href="#cb75-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-218"><a href="#cb75-218" aria-hidden="true" tabindex="-1"></a>Após vermos estas regras, percebemos que dos quatro conjuntos apresentados anteriormente, apenas <span class="in">`df`</span> é *tidy*. Ao usarmos conjuntos de dados *tidy* vamos poder aproveitar uma das belezas do R: a possibilidade de aplicar funções à vetores, que neste caso nada mais são do que os valores presentes em cada coluna.</span>
-<span id="cb75-219"><a href="#cb75-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-220"><a href="#cb75-220" aria-hidden="true" tabindex="-1"></a><span class="fu">## Padão, padrão, padrão!</span></span>
-<span id="cb75-221"><a href="#cb75-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-222"><a href="#cb75-222" aria-hidden="true" tabindex="-1"></a><span class="fu">### Formatar strings</span></span>
-<span id="cb75-223"><a href="#cb75-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-224"><a href="#cb75-224" aria-hidden="true" tabindex="-1"></a>Um dos maiores equívocos cometidos ao trabalhar com conjuntos de dados e que pode impactar significativamente análises posteriores é a falta de padrão de nomenclatura, tanto em variáveis como string de caracteres. Por exemplo, suponha que tenhamos uma string de caracteres <span class="in">`str = c("Env1", "env 1", "env.1")`</span>, para representar três observações do ambiente "env 1". Por definição, <span class="in">`str`</span> deve representar um nível único, mas na verdade tem três níveis.</span>
-<span id="cb75-225"><a href="#cb75-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-228"><a href="#cb75-228" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-229"><a href="#cb75-229" aria-hidden="true" tabindex="-1"></a>str <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Env1"</span>, <span class="st">"env 1"</span>, <span class="st">"env.1"</span>)</span>
-<span id="cb75-230"><a href="#cb75-230" aria-hidden="true" tabindex="-1"></a>str <span class="sc">|&gt;</span> <span class="fu">factor</span>() <span class="sc">|&gt;</span> <span class="fu">levels</span>()</span>
-<span id="cb75-231"><a href="#cb75-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-232"><a href="#cb75-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-233"><a href="#cb75-233" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`tidy_strings()`</span> do pacote <span class="in">`metan`</span> pode ser usada para organizar strings de caracteres colocando todas as palavras em maiúsculas, substituindo qualquer espaço, tabulação, caracteres de pontuação por <span class="in">`_`</span> e colocando <span class="in">`_`</span> entre maiúsculas e minúsculas.</span>
-<span id="cb75-234"><a href="#cb75-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-237"><a href="#cb75-237" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-238"><a href="#cb75-238" aria-hidden="true" tabindex="-1"></a>(tidy_str <span class="ot">&lt;-</span> <span class="fu">tidy_strings</span>(str))</span>
-<span id="cb75-239"><a href="#cb75-239" aria-hidden="true" tabindex="-1"></a>tidy_str <span class="sc">|&gt;</span> <span class="fu">factor</span>() <span class="sc">|&gt;</span> <span class="fu">levels</span>()</span>
-<span id="cb75-240"><a href="#cb75-240" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-241"><a href="#cb75-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-242"><a href="#cb75-242" aria-hidden="true" tabindex="-1"></a>Excelente! Agora temos o nível único que deveríamos ter antes.</span>
-<span id="cb75-243"><a href="#cb75-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-244"><a href="#cb75-244" aria-hidden="true" tabindex="-1"></a><span class="fu">### Formatar nomes de colunas</span></span>
-<span id="cb75-245"><a href="#cb75-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-246"><a href="#cb75-246" aria-hidden="true" tabindex="-1"></a>O mesmo princípio visto anteriormente se aplica aos nomes das colunas. Como exemplo motivador, vamos utilziar o conjunto de dados <span class="in">`messy`</span>.</span>
-<span id="cb75-247"><a href="#cb75-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-248"><a href="#cb75-248" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message = FALSE, warning=FALSE}</span></span>
-<span id="cb75-249"><a href="#cb75-249" aria-hidden="true" tabindex="-1"></a>messy <span class="ot">&lt;-</span> df<span class="sc">$</span>messy</span>
-<span id="cb75-250"><a href="#cb75-250" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(messy)</span>
-<span id="cb75-251"><a href="#cb75-251" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-200"><a href="#cb75-200" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
+<span id="cb75-201"><a href="#cb75-201" aria-hidden="true" tabindex="-1"></a><span class="fu">## O que não fazer</span></span>
+<span id="cb75-202"><a href="#cb75-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-203"><a href="#cb75-203" aria-hidden="true" tabindex="-1"></a>Vamos assumir que queiramos computar a média da variável <span class="in">`ALT_PLANT`</span>. Observe os quatro exemplos abaixo e veja qual está correto.</span>
+<span id="cb75-204"><a href="#cb75-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-205"><a href="#cb75-205" aria-hidden="true" tabindex="-1"></a><span class="in">```{r error=TRUE}</span></span>
+<span id="cb75-206"><a href="#cb75-206" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>df1<span class="sc">$</span>ALT_PLANT)</span>
+<span id="cb75-207"><a href="#cb75-207" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>df2<span class="sc">$</span>value)</span>
+<span id="cb75-208"><a href="#cb75-208" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>df3<span class="sc">$</span>ALT_PLANT_I)</span>
+<span id="cb75-209"><a href="#cb75-209" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>df4<span class="sc">$</span>I)</span>
+<span id="cb75-210"><a href="#cb75-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-211"><a href="#cb75-211" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb75-212"><a href="#cb75-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-213"><a href="#cb75-213" aria-hidden="true" tabindex="-1"></a>Um conjunto de dados *tidy* é um conjunto de dados onde as três regras à seguir são respeitadas:</span>
+<span id="cb75-214"><a href="#cb75-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-215"><a href="#cb75-215" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Cada variável deve ter sua própria coluna.</span>
+<span id="cb75-216"><a href="#cb75-216" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Cada observação deve ter sua própria linha.</span>
+<span id="cb75-217"><a href="#cb75-217" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Cada valor deve ter sua própria célula.</span>
+<span id="cb75-218"><a href="#cb75-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-219"><a href="#cb75-219" aria-hidden="true" tabindex="-1"></a>A Figura à seguir mostra as regras visualmente.</span>
+<span id="cb75-220"><a href="#cb75-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-221"><a href="#cb75-221" aria-hidden="true" tabindex="-1"></a><span class="al">![Adaptado de https://r4ds.had.co.nz/tidy-data.html#tidy-data-1](figs/tidy.png)</span></span>
+<span id="cb75-222"><a href="#cb75-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-223"><a href="#cb75-223" aria-hidden="true" tabindex="-1"></a>Após vermos estas regras, percebemos que dos quatro conjuntos apresentados anteriormente, apenas <span class="in">`df`</span> é *tidy*. Ao usarmos conjuntos de dados *tidy* vamos poder aproveitar uma das belezas do R: a possibilidade de aplicar funções à vetores, que neste caso nada mais são do que os valores presentes em cada coluna.</span>
+<span id="cb75-224"><a href="#cb75-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-225"><a href="#cb75-225" aria-hidden="true" tabindex="-1"></a><span class="fu">## Padão, padrão, padrão!</span></span>
+<span id="cb75-226"><a href="#cb75-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-227"><a href="#cb75-227" aria-hidden="true" tabindex="-1"></a><span class="fu">### Formatar strings</span></span>
+<span id="cb75-228"><a href="#cb75-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-229"><a href="#cb75-229" aria-hidden="true" tabindex="-1"></a>Um dos maiores equívocos cometidos ao trabalhar com conjuntos de dados e que pode impactar significativamente análises posteriores é a falta de padrão de nomenclatura, tanto em variáveis como string de caracteres. Por exemplo, suponha que tenhamos uma string de caracteres <span class="in">`str = c("Env1", "env 1", "env.1")`</span>, para representar três observações do ambiente "env 1". Por definição, <span class="in">`str`</span> deve representar um nível único, mas na verdade tem três níveis.</span>
+<span id="cb75-230"><a href="#cb75-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-233"><a href="#cb75-233" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-234"><a href="#cb75-234" aria-hidden="true" tabindex="-1"></a>str <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Env1"</span>, <span class="st">"env 1"</span>, <span class="st">"env.1"</span>)</span>
+<span id="cb75-235"><a href="#cb75-235" aria-hidden="true" tabindex="-1"></a>str <span class="sc">|&gt;</span> <span class="fu">factor</span>() <span class="sc">|&gt;</span> <span class="fu">levels</span>()</span>
+<span id="cb75-236"><a href="#cb75-236" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-237"><a href="#cb75-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-238"><a href="#cb75-238" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`tidy_strings()`</span> do pacote <span class="in">`metan`</span> pode ser usada para organizar strings de caracteres colocando todas as palavras em maiúsculas, substituindo qualquer espaço, tabulação, caracteres de pontuação por <span class="in">`_`</span> e colocando <span class="in">`_`</span> entre maiúsculas e minúsculas.</span>
+<span id="cb75-239"><a href="#cb75-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-242"><a href="#cb75-242" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-243"><a href="#cb75-243" aria-hidden="true" tabindex="-1"></a>(tidy_str <span class="ot">&lt;-</span> <span class="fu">tidy_strings</span>(str))</span>
+<span id="cb75-244"><a href="#cb75-244" aria-hidden="true" tabindex="-1"></a>tidy_str <span class="sc">|&gt;</span> <span class="fu">factor</span>() <span class="sc">|&gt;</span> <span class="fu">levels</span>()</span>
+<span id="cb75-245"><a href="#cb75-245" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-246"><a href="#cb75-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-247"><a href="#cb75-247" aria-hidden="true" tabindex="-1"></a>Excelente! Agora temos o nível único que deveríamos ter antes.</span>
+<span id="cb75-248"><a href="#cb75-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-249"><a href="#cb75-249" aria-hidden="true" tabindex="-1"></a><span class="fu">### Formatar nomes de colunas</span></span>
+<span id="cb75-250"><a href="#cb75-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-251"><a href="#cb75-251" aria-hidden="true" tabindex="-1"></a>O mesmo princípio visto anteriormente se aplica aos nomes das colunas. Como exemplo motivador, vamos utilziar o conjunto de dados <span class="in">`messy`</span>.</span>
 <span id="cb75-252"><a href="#cb75-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-253"><a href="#cb75-253" aria-hidden="true" tabindex="-1"></a>Observe que o nome das colunas do conjunto de dados <span class="in">`messy`</span> não segue nenhum padrão. São observados letras minúsculas e maiúsculas, espaços e pontuações. Note o que a presença de espaços resulta na seleção de variáveis.</span>
-<span id="cb75-254"><a href="#cb75-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-255"><a href="#cb75-255" aria-hidden="true" tabindex="-1"></a><span class="in">```{r error=TRUE}</span></span>
-<span id="cb75-256"><a href="#cb75-256" aria-hidden="true" tabindex="-1"></a>messy<span class="sc">$</span>env</span>
-<span id="cb75-257"><a href="#cb75-257" aria-hidden="true" tabindex="-1"></a>messy<span class="sc">$</span>b <span class="dv">1</span></span>
-<span id="cb75-258"><a href="#cb75-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-259"><a href="#cb75-259" aria-hidden="true" tabindex="-1"></a><span class="co"># espaços requerem código adicional</span></span>
-<span id="cb75-260"><a href="#cb75-260" aria-hidden="true" tabindex="-1"></a>messy<span class="sc">$</span><span class="st">`</span><span class="at">b 1</span><span class="st">`</span></span>
-<span id="cb75-261"><a href="#cb75-261" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-262"><a href="#cb75-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-263"><a href="#cb75-263" aria-hidden="true" tabindex="-1"></a>Para formatar os nomes de colunas, podemos utilizar a função <span class="in">`tidy_colnames()`</span> do pacote <span class="in">`metan`</span>.</span>
-<span id="cb75-264"><a href="#cb75-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-267"><a href="#cb75-267" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-268"><a href="#cb75-268" aria-hidden="true" tabindex="-1"></a>messy <span class="ot">&lt;-</span> <span class="fu">tidy_colnames</span>(messy)</span>
-<span id="cb75-269"><a href="#cb75-269" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(messy)</span>
-<span id="cb75-270"><a href="#cb75-270" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-271"><a href="#cb75-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-272"><a href="#cb75-272" aria-hidden="true" tabindex="-1"></a><span class="fu">### Preencher valores</span></span>
-<span id="cb75-273"><a href="#cb75-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-274"><a href="#cb75-274" aria-hidden="true" tabindex="-1"></a>Observe o seguinte conjunto de dados</span>
-<span id="cb75-275"><a href="#cb75-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-276"><a href="#cb75-276" aria-hidden="true" tabindex="-1"></a><span class="al">![](figs/fill.png)</span></span>
-<span id="cb75-277"><a href="#cb75-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-278"><a href="#cb75-278" aria-hidden="true" tabindex="-1"></a>Na hora da coleta de dados é muito comum observar células mescladas em conjuntos de dados. Observe o que acontece quando estes dados são importados para o software R.</span>
-<span id="cb75-279"><a href="#cb75-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-282"><a href="#cb75-282" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-283"><a href="#cb75-283" aria-hidden="true" tabindex="-1"></a>(mesclado <span class="ot">&lt;-</span> df<span class="sc">$</span>fill)</span>
+<span id="cb75-253"><a href="#cb75-253" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message = FALSE, warning=FALSE}</span></span>
+<span id="cb75-254"><a href="#cb75-254" aria-hidden="true" tabindex="-1"></a>messy <span class="ot">&lt;-</span> df<span class="sc">$</span>messy</span>
+<span id="cb75-255"><a href="#cb75-255" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(messy)</span>
+<span id="cb75-256"><a href="#cb75-256" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-257"><a href="#cb75-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-258"><a href="#cb75-258" aria-hidden="true" tabindex="-1"></a>Observe que o nome das colunas do conjunto de dados <span class="in">`messy`</span> não segue nenhum padrão. São observados letras minúsculas e maiúsculas, espaços e pontuações. Note o que a presença de espaços resulta na seleção de variáveis.</span>
+<span id="cb75-259"><a href="#cb75-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-260"><a href="#cb75-260" aria-hidden="true" tabindex="-1"></a><span class="in">```{r error=TRUE}</span></span>
+<span id="cb75-261"><a href="#cb75-261" aria-hidden="true" tabindex="-1"></a>messy<span class="sc">$</span>env</span>
+<span id="cb75-262"><a href="#cb75-262" aria-hidden="true" tabindex="-1"></a>messy<span class="sc">$</span>b <span class="dv">1</span></span>
+<span id="cb75-263"><a href="#cb75-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-264"><a href="#cb75-264" aria-hidden="true" tabindex="-1"></a><span class="co"># espaços requerem código adicional</span></span>
+<span id="cb75-265"><a href="#cb75-265" aria-hidden="true" tabindex="-1"></a>messy<span class="sc">$</span><span class="st">`</span><span class="at">b 1</span><span class="st">`</span></span>
+<span id="cb75-266"><a href="#cb75-266" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-267"><a href="#cb75-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-268"><a href="#cb75-268" aria-hidden="true" tabindex="-1"></a>Para formatar os nomes de colunas, podemos utilizar a função <span class="in">`tidy_colnames()`</span> do pacote <span class="in">`metan`</span>.</span>
+<span id="cb75-269"><a href="#cb75-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-272"><a href="#cb75-272" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-273"><a href="#cb75-273" aria-hidden="true" tabindex="-1"></a>messy <span class="ot">&lt;-</span> <span class="fu">tidy_colnames</span>(messy)</span>
+<span id="cb75-274"><a href="#cb75-274" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(messy)</span>
+<span id="cb75-275"><a href="#cb75-275" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-276"><a href="#cb75-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-277"><a href="#cb75-277" aria-hidden="true" tabindex="-1"></a><span class="fu">### Preencher valores</span></span>
+<span id="cb75-278"><a href="#cb75-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-279"><a href="#cb75-279" aria-hidden="true" tabindex="-1"></a>Observe o seguinte conjunto de dados</span>
+<span id="cb75-280"><a href="#cb75-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-281"><a href="#cb75-281" aria-hidden="true" tabindex="-1"></a><span class="al">![](figs/fill.png)</span></span>
+<span id="cb75-282"><a href="#cb75-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-283"><a href="#cb75-283" aria-hidden="true" tabindex="-1"></a>Na hora da coleta de dados é muito comum observar células mescladas em conjuntos de dados. Observe o que acontece quando estes dados são importados para o software R.</span>
 <span id="cb75-284"><a href="#cb75-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-285"><a href="#cb75-285" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-286"><a href="#cb75-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-287"><a href="#cb75-287" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`fill()`</span> do pacote <span class="in">`tidyr`</span> pode ser utilizada para preencher valores faltantes. Ela preenche os valores ausentes nas colunas selecionadas. Isso é útil no formato de saída comum em que os valores não são repetidos e são registrados apenas quando são alterados. Par</span>
-<span id="cb75-288"><a href="#cb75-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-291"><a href="#cb75-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-292"><a href="#cb75-292" aria-hidden="true" tabindex="-1"></a>(preenchido <span class="ot">&lt;-</span> <span class="fu">fill</span>(mesclado, AMB, HIBRIDO))</span>
-<span id="cb75-293"><a href="#cb75-293" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-294"><a href="#cb75-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-295"><a href="#cb75-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-296"><a href="#cb75-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-297"><a href="#cb75-297" aria-hidden="true" tabindex="-1"></a><span class="fu"># Inspeção</span></span>
-<span id="cb75-300"><a href="#cb75-300" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-301"><a href="#cb75-301" aria-hidden="true" tabindex="-1"></a>maize <span class="ot">&lt;-</span> df<span class="sc">$</span>maize</span>
-<span id="cb75-302"><a href="#cb75-302" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_intro</span>(maize)</span>
-<span id="cb75-303"><a href="#cb75-303" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_histogram</span>(maize)</span>
-<span id="cb75-304"><a href="#cb75-304" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(maize)</span>
-<span id="cb75-305"><a href="#cb75-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-306"><a href="#cb75-306" aria-hidden="true" tabindex="-1"></a><span class="co"># pacote metan</span></span>
-<span id="cb75-307"><a href="#cb75-307" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(maize)</span>
-<span id="cb75-308"><a href="#cb75-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-309"><a href="#cb75-309" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-287"><a href="#cb75-287" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-288"><a href="#cb75-288" aria-hidden="true" tabindex="-1"></a>(mesclado <span class="ot">&lt;-</span> df<span class="sc">$</span>fill)</span>
+<span id="cb75-289"><a href="#cb75-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-290"><a href="#cb75-290" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-291"><a href="#cb75-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-292"><a href="#cb75-292" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`fill()`</span> do pacote <span class="in">`tidyr`</span> pode ser utilizada para preencher valores faltantes. Ela preenche os valores ausentes nas colunas selecionadas. Isso é útil no formato de saída comum em que os valores não são repetidos e são registrados apenas quando são alterados. Par</span>
+<span id="cb75-293"><a href="#cb75-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-296"><a href="#cb75-296" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-297"><a href="#cb75-297" aria-hidden="true" tabindex="-1"></a>(preenchido <span class="ot">&lt;-</span> <span class="fu">fill</span>(mesclado, AMB, HIBRIDO))</span>
+<span id="cb75-298"><a href="#cb75-298" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-299"><a href="#cb75-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-300"><a href="#cb75-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-301"><a href="#cb75-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-302"><a href="#cb75-302" aria-hidden="true" tabindex="-1"></a><span class="fu"># Inspeção</span></span>
+<span id="cb75-305"><a href="#cb75-305" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-306"><a href="#cb75-306" aria-hidden="true" tabindex="-1"></a>maize <span class="ot">&lt;-</span> df<span class="sc">$</span>maize</span>
+<span id="cb75-307"><a href="#cb75-307" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_intro</span>(maize)</span>
+<span id="cb75-308"><a href="#cb75-308" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_histogram</span>(maize)</span>
+<span id="cb75-309"><a href="#cb75-309" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(maize)</span>
 <span id="cb75-310"><a href="#cb75-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-311"><a href="#cb75-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-312"><a href="#cb75-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-313"><a href="#cb75-313" aria-hidden="true" tabindex="-1"></a><span class="fu"># Homework</span></span>
-<span id="cb75-314"><a href="#cb75-314" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-315"><a href="#cb75-315" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
-<span id="cb75-316"><a href="#cb75-316" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb75-311"><a href="#cb75-311" aria-hidden="true" tabindex="-1"></a><span class="co"># pacote metan</span></span>
+<span id="cb75-312"><a href="#cb75-312" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(maize)</span>
+<span id="cb75-313"><a href="#cb75-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-314"><a href="#cb75-314" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-315"><a href="#cb75-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-316"><a href="#cb75-316" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-317"><a href="#cb75-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-318"><a href="#cb75-318" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb75-318"><a href="#cb75-318" aria-hidden="true" tabindex="-1"></a><span class="fu"># Homework</span></span>
 <span id="cb75-319"><a href="#cb75-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-320"><a href="#cb75-320" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138588&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
-<span id="cb75-321"><a href="#cb75-321" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-320"><a href="#cb75-320" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb75-321"><a href="#cb75-321" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb75-322"><a href="#cb75-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-323"><a href="#cb75-323" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb75-324"><a href="#cb75-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-325"><a href="#cb75-325" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138588&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
+<span id="cb75-326"><a href="#cb75-326" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
