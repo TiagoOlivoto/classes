@@ -112,6 +112,7 @@ library(rio)        # importação/exportação de dados
 
 {{< video https://www.youtube.com/embed/8B8QDZnDhtY >}}
 
+
 # Dados e scripts
 
 
@@ -121,6 +122,10 @@ library(rio)        # importação/exportação de dados
 ```{r echo=FALSE}
 fs::dir_tree("E:/Desktop/UFSC/aulas/classes/RGV410046/data", recurse = 1)
 ```
+
+{{< video https://www.youtube.com/embed/hnO-KMpIVcg >}}
+
+
 
 # Referências
 
