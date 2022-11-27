@@ -14,9 +14,40 @@ Bem-vindo ao material de apoio da disciplina RGV410046 (Introdução à linguage
 [![Prof. Dra. Ana Catarina Conte Jakovac](figs/catarina.jpg)](http://lattes.cnpq.br/6851033339458776)
 :::
 
-# Conteúdo programático
+# Calendário de aulas
 
-## 21/11/2022 (08:20 às 11:50)
+```{r }
+#| code-fold: true
+#| code-summary: "Clique aqui e veja como o calendário foi feito!"
+#| out-width: "100%"
+#| warning: false
+#| message: false
+
+library(calendR)
+# tutorial calendR
+# https://r-coder.com/calendar-plot-r/
+events <- rep(NA, 61)
+events[c(21,  28)] <- "08:20 às 11:50"
+events[c(23:25, 29:32)] <- "13:30 às 16:00"
+
+img <- "figs/calendr.png"
+
+# Creating the calendar
+calendR(year = 2022,
+        start_date ="2022-11-01",
+        end_date = "2022-12-31",
+        special.days = events,
+        special.col = c("lightsalmon", "lightgreen"),
+        title = "RGV410046 - Introdução à linguagem R de programação", 
+        subtitle = "Cronograma de aulas",
+        mbg.col = "forestgreen",            
+        months.col = "white",
+        bg.img = img,
+        legend.pos = "bottom")
+```
+
+# Conteúdo programático
+## 21/11/2022
 
 -   Introdução à disciplina
 -   Instalação do R e Rstudio
@@ -26,13 +57,13 @@ Bem-vindo ao material de apoio da disciplina RGV410046 (Introdução à linguage
     -   Fóruns e materiais de apoio
 -   Exercício (encontrar pacotes)
 
-## 23/11/2022 (13:30 às 16:00)
+## 23/11/2022 
 
 -   Dinâmica aula anterior
 -   Tipos de dados
-    -   Numérico
-    -   Lógico
-    -   Caractere
+-   Numérico
+-   Lógico
+-   Caractere
 -   Estrutura de dados;
     -   Vetor
     -   Matriz
@@ -44,7 +75,7 @@ Bem-vindo ao material de apoio da disciplina RGV410046 (Introdução à linguage
     -   Tidyverse
 -   Exercício (lógica de programação)
 
-## 24/11/2022 (13:30 às 16:00)
+## 24/11/2022 
 
 -   Importação de dados (pc, repositório)
 -   dados tidy
@@ -52,43 +83,37 @@ Bem-vindo ao material de apoio da disciplina RGV410046 (Introdução à linguage
 -   Exercício descrição dos dados, arrumar tipo de dados
 -   Exportação de dados
 
-## 25/11/2022 (13:30 às 16:00)
+## 25/11/2022
 
 -   Manipulação de dados
-    -   Longer (dados errados, para arrumar)
-    -   Wider
-    -   Separate
-    -   Unite
-    -   rename
+-   Longer (dados errados, para arrumar)
+-   Wider
+-   Separate
+-   Unite
+-   rename
 
-## 28/11/2022 (08:20 às 11:50)
-
+## 28/11/2022
 -   Mutação de dados
-    -   select
-    -   filter
-    -   slice
-    -   arrange
+-   select
+-   filter
+-   slice
+-   arrange
 -   (dados próprios para o dia 1)
 
-## 30/11/2022 (13:30 às 16:00)
-
+## 30/11/2022
 -   Sintetização de dados
-    -   mutate
+-   mutate
+-   group_by
+-   summarise
+-   across
 
-    -   group_by
-
-    -   summarise
-
-    -   across
-
-## 01/12/2022 (13:30 às 16:00)
-
+## 01/12/2022
 -   Seus dados, suas análises
 
-## 02/12/2022 (13:30 às 15:00)
-
+## 02/12/2022
 -   o básico do ggplot2
 -   Fechamento da disciplina
+
 
 # Instalação do R e Rstudio
 
@@ -112,20 +137,15 @@ library(rio)        # importação/exportação de dados
 
 {{< video https://www.youtube.com/embed/8B8QDZnDhtY >}}
 
-
 # Dados e scripts
 
-
 <a href="https://downgit.github.io/#/home?url=https://github.com/TiagoOlivoto/classes/tree/master/RGV410046" target="_blank" rel="noopener"> <button class="btn btn-success"><i class="fa fa-save"></i> Download dados e scripts</button> </a>
-
 
 ```{r echo=FALSE}
 fs::dir_tree("E:/Desktop/UFSC/aulas/classes/RGV410046/data", recurse = 1)
 ```
 
 {{< video https://www.youtube.com/embed/hnO-KMpIVcg >}}
-
-
 
 # Referências
 

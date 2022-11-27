@@ -1,5 +1,5 @@
 ---
-title: "5. Mutação"
+title: "5. Seleção e filtragem"
 ---
 
 # Diretório
@@ -313,21 +313,6 @@ maize |> replace_na()
 # substitui NA pela média da coluna (cuidado!!!)
 maize |> replace_na(replacement = "colmean")
 ```
-
-::: callout-note
-## Abordagem R base
-
-O seguinte exemplo realiza o mesmo procedimento de criação da variável categórica utilizando as funções R base `transform()` e `ifelse()`. Note que é preciso aninhar diversos \``` ifelse()`s `` para obter a mesmo resultado de `case_when()`. Com poucas condicionantes, as duas abordagens são semelhantes, mas na medida em que diversas condicionantes precisam ser utilziadas, `case_when()` se torna muito mais clara.
-
-```{r}
-transform(maize, 
-          CASO = ifelse(MGRA > 280 | APLA_PLANT < 1.3 | NGRA > 820, "Selecionar",
-                        ifelse(APLA_PLANT > 2.3, "Alto",
-                               ifelse(MGRA < 130, "Pouco produtivo",
-                                      "Outro")))) |> 
-  as_tibble()
-```
-:::
 
 # dplyr vs R base
 

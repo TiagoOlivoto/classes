@@ -161,6 +161,9 @@ export(
 
 [^1]: Wickham, Hadley. 2014. "Tidy Data". Journal of Statistical Software 59: 1--23.
 
+{{< video https://www.youtube.com/embed/TYcKMXwPsuw >}}
+
+
 ## Mesmos dados, diferentes formas
 
 Nesta seção você aprenderá organizar dados no R no formato *tidy*. Colocar seus dados nesse formato requer algum trabalho inicial, mas esse trabalho compensa a longo prazo. Aqui, um foco especial será dado nas funções do pacote `tidyr` e do pacote `metan`. Se você quiser saber mais sobre a teoria por tras dos dados *tidy*, poderá apreciar o artigo [Tidy Data](https://www.jstatsoft.org/article/view/v059i10).

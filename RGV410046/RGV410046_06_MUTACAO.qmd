@@ -1,0 +1,236 @@
+---
+title: "6. Mutação"
+---
+
+# Diretório
+
+```{r include = FALSE}
+knitr::opts_knit$set(root.dir = "E:/Desktop/UFSC/aulas/classes/RGV410046/data")
+```
+
+```{r eval=FALSE}
+# meu computador (mudar de acordo)
+setwd("E:/Desktop/UFSC/aulas/classes/RGV410046/data")
+```
+
+# Pacotes e dados
+
+```{r warning=FALSE, message=FALSE}
+library(rio)
+library(tidyverse)
+library(metan)
+
+# dados
+maize <- 
+  import("examples_data.xlsx",
+         sheet = "maize",
+         setclass = "tbl")
+
+```
+
+# Mutação
+
+## Geral
+
+![Fonte: https://dplyr.tidyverse.org/index.html](figs/mutate.png){alt="Fonte: https://dplyr.tidyverse.org/index.html"}
+
+A função [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) é utilizada quando se deseja adicionar novas variáveis no conjunto de dados. Estas variáveis são funções de variáveis existentes. Como exemplo, vamos criar uma nova variável chamada `CD` no conjunto de dados `maize`, qual será a razão entre `CESP` e `DIES`. Note que a função adiciona a nova variável após a última variável origina e mantém todas as demais. Você pode controlar a posição da nova variável criada utilizando os argumentos `.before` e `.after` (assim como na função `relocate()`) e quais variáveis são mantidas utilizando o argumento `.keep`.
+
+```{r}
+# padrão: nova variável inserida na última posição
+maize %>% mutate(CD = CESP/DIES)
+# posição da nova variável
+maize %>% mutate(CD = CESP/DIES, 
+                 .after = DIES)
+# mantém somente as utilizadas no cálculo
+maize %>% mutate(CD = CESP/DIES,
+                 .keep = "used")
+# mantém as não utilizadas
+maize %>% mutate(CD = CESP/DIES,
+                 .keep = "unused")
+# mantém somente a variável criada
+maize %>% mutate(CD = CESP/DIES,
+                 .keep = "none")
+
+```
+
+## Mutação por grupos
+
+[![](figs/group_by.png){fig-alt="Fonte: https://dplyr.tidyverse.org/index.html"}](https://dplyr.tidyverse.org/index.html)
+
+A função `group_by()` pode ser utilizada para realizar mutação dentro de cada nível de uma ou mais variáveis categóricas. Para este exemplo, vamos criar uma variável (rank) que será o rankeamento das observações dentro de cada híbrido com base na MGRA (em ordem decrescente).
+
+```{r}
+maize |> 
+  group_by(HIB) |> 
+  mutate(rank = rank(desc(MGRA)))
+
+```
+
+::: callout-tip
+O ranqueamento acima foi obtido com base no ranqueamento, utilizando a função `slice_min()`. Execute o código abaixo e veja o que acontece.
+
+```{r eval=FALSE}
+maize |> 
+  group_by(HIB) |> 
+  slice_max(MGRA, n = 2)
+```
+:::
+
+Em alguns casos, um agrupamento específico onde cada linha é considerada um grupo pode ser útil. Isto pode ser realizado com a função `rowwise()`. Como `group_by()`, `rowwise()` não faz nada sozinha; apenas muda a forma como os outros verbos (ex., mutate, summarise funcionam). Por exemplo, compare os resultados de mutate() no código a seguir:
+
+```{r}
+df <- tibble(x = 1:2, y = 3:4, z = 5:6)
+# sem rowise()
+df |> mutate(m = sum(c(x, y, z)))
+# com rowise()
+df |>
+  rowwise() |> 
+  mutate(soma = sum(c(x, y, z)))
+
+# mesmo resultado
+# utilizando semântica tidyselect 
+df |>
+  rowwise() |> 
+  mutate(soma = sum(c_across(x:z)))
+
+```
+
+## Mutação de várias variáveis
+
+![Fonte: https://dplyr.tidyverse.org/reference/across.html](figs/across.png){alt="Fonte: https://dplyr.tidyverse.org/reference/across.html"}
+
+Em alguns casos, deseja-se aplicar a mesma função de mutação (ou resumo) à várias variáveis. A função [`across()`](https://dplyr.tidyverse.org/reference/across.html) facilita a aplicação da mesma transformação a várias colunas, permitindo que você use a semântica `select()` dentro de funções como `summarise()` e `mutate()`. Como exemplo de aplicação, vamos criar uma função para rescalar uma variável para uma amplitude 0-1 e aplicar essa função à todas as colunas numéricas do conjunto `maize`.
+
+```{r}
+# função para rescalar
+rescale <- function(x) {
+  rng <- range(x, na.rm = TRUE)
+  (x - rng[1]) / (rng[2] - rng[1])
+}
+
+# aplica a função rescale() a todas as colunas numéricas
+maize %>% mutate(across(where(is.numeric), rescale))
+
+# aplica a função rescale() para algumas colunas
+maize %>% mutate(across(MGRA:NGRA, rescale))
+
+
+```
+
+Também é possível utilizar a semântica `select()` dentro de `across()`. Isso significa que *select helpers* podem ser utilizados. No exemplo abaixo apenas as variáveis que contém `"_PLANT"` são mutadas, sendo que os valores destas variáveis são divididos por 2.
+
+```{r}
+# usando select helpers
+# divide o valor da variável pela metade
+# atribui um sufixo para as novas variáveis
+# seleciona apenas as utilizadas
+maize %>%
+  mutate(across(contains("_PLANT"), ~.x / 2,
+                .names = "{.col}_metade"),
+         .after = AIES_PLANT,
+         .keep = "used")
+```
+
+## Mutação condicional
+
+É muito comum comum que condicionantes sejam necessárias quando alguma nova variável for criada. Abaixo, um pequeno exemplo contendo notas de 10 alunos é utilizado.
+
+```{r}
+set.seed(5)
+notas <- 
+  data.frame(aluno = paste0("Aluno", 1:10),
+             nota = runif(10, 3, 10) |> round(1))
+notas
+```
+
+Os objetivos aqui são:
+
+1.  Criar uma nova variável em `notas` contendo a classe que tal aluno foi classificado dependendo de sua nota, com as seguintes condições:
+    -   Nota menor que 4: **reprovado**
+    -   Nota de 4 a menos que 7: **exame**
+    -   Nota igual ou maior que 7: **aprovado**
+2.  Ordenar as notas em ordem decrescente (do maior para o menor).
+
+### ifelse() com R base
+
+A função `ifelse()` retorna um valor com a mesma forma de `test` que é preenchido com elementos selecionados de `yes` ou `no`, dependendo se o elemento de `test` é `TRUE` ou `FALSE`. Para criação da nova coluna baseado nas notas em `notas`, utiliza-se a seguinte abordagem. Note que como temos três classes (aprovado, reprovado ou exame) e `ifelse()` somente retorna duas dependendo se o teste é `TRUE` ou `FALSE`, precisamos aninhar `ifelse()`s.
+
+```{r}
+classe <- 
+  transform(notas,
+            condicao = ifelse(nota < 4,
+                           yes = "reprovado", 
+                           no = ifelse(nota >= 4 & nota < 7,
+                                       yes = "exame",
+                                       no = "aprovado")))
+classe[order(classe$nota, decreasing = TRUE), ]
+```
+
+### case_when() com dplyr
+
+`case_when()` pode ser vista como uma versão vetorizada de `ifelse()` que permite que você avalie várias instruções. Se nenhum caso corresponder, `NA` será retornado. Esta função é particularmente útil dentro da função `mutate()` quando você quer criar uma nova variável que depende de uma combinação complexa de variáveis existentes.
+
+A função é baseada em uma sequência de fórmulas de dois lados. O lado esquerdo (LHS) determina o teste; O lado direito (RHS) fornece o valor de substituição.
+
+```{r}
+notas |> 
+  mutate(condicao = case_when(
+    nota < 4 ~ "reprovado",
+    between(nota, 4, 6.99999999) ~ "exame", # mesmo que nota >= 4 & nota < 7
+    TRUE ~ "aprovado" # TRUE: o que não foi incluso nas duas avaliações anteriores
+  )) |> 
+  arrange(desc(nota))
+
+```
+
+Neste exemplo, o conjunto de dados `maize` é utilizado para mostrar como uma variável qualitativa nominal pode ser criada utilizando a função `case_when()`. A nova variável será criada dependendo dos valores de `APLA`, `AIES` ou `CESP`. Ao agrupar pela nova variável categórica criada e utilizar a função `slice_sample()`, um exemplo de cada nível é amostrado aleatoriamente.
+
+```{r}
+set.seed(10)
+
+maize %>% 
+  mutate(
+    CASO = case_when(
+      MGRA > 280 | APLA_PLANT < 1.3 | NGRA > 820 ~  "Selecionar",
+      APLA_PLANT > 2.3 ~ "Alto",
+      MGRA < 130 ~ "Pouco produtivo",
+      TRUE ~ "Outro"
+    )
+  ) |> 
+  group_by(CASO) |> 
+  slice_sample(n = 1)
+
+```
+
+::: callout-note
+## Abordagem R base
+
+O seguinte exemplo realiza o mesmo procedimento de criação da variável categórica utilizando as funções R base `transform()` e `ifelse()`.
+
+```{r}
+milho2 <- 
+transform(maize, 
+          CASO = ifelse(MGRA > 280 | APLA_PLANT < 1.3 | NGRA > 820, "Selecionar",
+                        ifelse(APLA_PLANT > 2.3, "Alto",
+                               ifelse(MGRA < 130, "Pouco produtivo",
+                                      "Outro"))))
+# cria uma lista onde cada elemento é um nível de CASO
+casos <- split(milho2, milho2$CASO)
+
+# percorre a lista e amostra uma linha aleatória de cada uma
+# junta com rbind()
+
+set.seed(10)
+do.call(rbind,
+  lapply(casos, function(x){
+    x[sample(nrow(x), 1), ]
+  })
+)
+
+```
+:::
+
+```{=html}
+<div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=138588&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
+```

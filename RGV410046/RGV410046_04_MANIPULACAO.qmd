@@ -1,5 +1,7 @@
 ---
 title: "4. Manipulação de Dados"
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Diretório
@@ -55,7 +57,7 @@ long <-
   pivot_longer(df_wide,
                cols = P1:P5,
                names_to = "PLANTA",
-               values_to = "ALTURA")
+               values_to = "AP")
 long
 ```
 
@@ -67,7 +69,7 @@ A seleção de variáveis no universo *tidy* é prioritariamente suportada pelo 
 ```{r}
 # seleciona variáveis que contém uma determinada string
 pivot_longer(df_wide,
-             cols = contains("P"),
+             cols = starts_with("P"),
              names_to = "PLANTA",
              values_to = "ALTURA") |> 
   print(n = 3)
@@ -146,7 +148,8 @@ ex_separate |>
   separate(RELACAO, into = c("AESP", "APLA"))
 
 # explicita para separar no /
-ex_separate |> 
+ex_separate2 <- 
+  ex_separate |> 
   separate(RELACAO, into = c("AESP", "APLA"), sep = "/")
 ```
 
@@ -158,7 +161,7 @@ Considerando o conjunto de dados `wider2`, combine o que você aprendeu até ago
 
 # Concatenar
 
-Quem trabalha com excel muito provavelmente já utilizou a função `=CONCAT`, que concatena valores de múltiplas colunas em uma única coluna. Aqui, a função `unite()`, pode ser utilizada para este fim. Ela é o inverso da \``` separate()` ``.
+Quem trabalha com excel muito provavelmente já utilizou a função `=CONCAT`, que concatena valores de múltiplas colunas em uma única coluna. Aqui, a função `unite()`, pode ser utilizada para este fim. Ela é o inverso da `separate()`.
 
 [![Exemplo da função unite(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf](figs/unite.png){alt="Exemplo da função pivot_longer(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf"}](https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf)
 
@@ -167,6 +170,11 @@ Vamos considerar que queiramos unir as colunas HIBRIDO e BLOCO do conjunto `dflo
 ```{r}
 dflong |> 
   unite(HIBRIDO, BLOCO, col = "NIVEL") |> 
+  separate(NIVEL, into = c("HIBRIDO", "BLOCO")) |> 
+  head()
+
+dflong |> 
+  unite("NIVEL", HIBRIDO:BLOCO) |> 
   head()
 
 # 
@@ -221,6 +229,7 @@ long |>
 # utilizando select helper
 long |> 
   add_suffix(starts_with("A"), suffix = "a") |> 
+  select(contains("_a")) |> 
   names()
 
 ```
