@@ -319,7 +319,7 @@ maize |> replace_na(replacement = "colmean")
 A tabela a seguir mostra uma tradução condensada entre os verbos `dplyr` e seus equivalentes R base. As seções a seguir descrevem cada operação com mais detalhes. Você aprende mais sobre os verbos dplyr em sua documentação e em For more vignette("one-table").
 
 | dplyr                          | base                                                                                                                                                              |
-|--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------|--------------------------------------------------------|
 | `arrange(df, x)`               | `df[order(x), , drop = FALSE]`                                                                                                                                    |
 | `distinct(df, x)`              | `df[!duplicated(x), , drop = FALSE]`, [`unique()`](https://rdrr.io/r/base/unique.html)                                                                            |
 | `filter(df, x)`                | `df[which(x), , drop = FALSE]`, [`subset()`](https://rdrr.io/r/base/subset.html)                                                                                  |
@@ -343,5 +343,5 @@ A tabela a seguir mostra uma tradução condensada entre os verbos `dplyr` e seu
 :::
 
 ```{=html}
-<div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=138588&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
+<div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=141637&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
 ```

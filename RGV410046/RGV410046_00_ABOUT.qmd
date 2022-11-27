@@ -47,6 +47,7 @@ calendR(year = 2022,
 ```
 
 # Conteúdo programático
+
 ## 21/11/2022
 
 -   Introdução à disciplina
@@ -57,7 +58,7 @@ calendR(year = 2022,
     -   Fóruns e materiais de apoio
 -   Exercício (encontrar pacotes)
 
-## 23/11/2022 
+## 23/11/2022
 
 -   Dinâmica aula anterior
 -   Tipos de dados
@@ -75,7 +76,7 @@ calendR(year = 2022,
     -   Tidyverse
 -   Exercício (lógica de programação)
 
-## 24/11/2022 
+## 24/11/2022
 
 -   Importação de dados (pc, repositório)
 -   dados tidy
@@ -93,6 +94,7 @@ calendR(year = 2022,
 -   rename
 
 ## 28/11/2022
+
 -   Mutação de dados
 -   select
 -   filter
@@ -101,6 +103,7 @@ calendR(year = 2022,
 -   (dados próprios para o dia 1)
 
 ## 30/11/2022
+
 -   Sintetização de dados
 -   mutate
 -   group_by
@@ -108,12 +111,13 @@ calendR(year = 2022,
 -   across
 
 ## 01/12/2022
+
 -   Seus dados, suas análises
 
 ## 02/12/2022
+
 -   o básico do ggplot2
 -   Fechamento da disciplina
-
 
 # Instalação do R e Rstudio
 
@@ -156,6 +160,24 @@ fs::dir_tree("E:/Desktop/UFSC/aulas/classes/RGV410046/data", recurse = 1)
 
 [![](figs/r4ds.png)](https://r4ds.had.co.nz/)
 :::
+
+# Detalhes importantes
+
+## Código fonte
+
+O código fonte deste material pode ser encontrado neste [repositório](https://github.com/TiagoOlivoto/classes/tree/master/RGV410046) GitHub. Para informar qualquer problema, por favor, crie um [pull request](https://github.com/TiagoOlivoto/classes/pulls).
+
+## Licença
+
+\<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="\_blank" rel="noopener"\>\<img src="https://raw.githubusercontent.com/TiagoOlivoto/tiagoolivoto/master/static/img/gemsr/license.jpg" alt="Licença Creative Commons" style="border-width:0" width="200" height="40"/\>\</a\>\<br /\>Este material é distribuído nos termos da licença \<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"\>CC BY-NC-SA 4.0\</a\>. resumo legível da licença afirma que você tem o direito de:
+
+-   **Compartilhar** --- copiar e redistribuir o material em qualquer suporte ou formato
+-   **Adaptar** --- remixar, transformar, e criar a partir do material
+-   **Atribuição** --- Você deve dar o crédito apropriado, prover um link para a licença e indicar se mudanças foram feitas. Você deve fazê-lo em qualquer circunstância razoável, mas de nenhuma maneira que sugira que o licenciante apoia você ou o seu uso.
+-   **De acordo com os termos seguintes**
+    -   **Não Comercial** --- Você não pode usar o material para fins comerciais.
+    -   **CompartilhaIgual** --- Se você remixar, transformar, ou criar a partir do material, tem de distribuir as suas contribuições sob a mesma licença que o original.
+    -   **Sem restrições adicionais** --- Você não pode aplicar termos jurídicos ou medidas de caráter tecnológico que restrinjam legalmente outros de fazerem algo que a licença permita.
 
 ```{=html}
 <div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=138603&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
