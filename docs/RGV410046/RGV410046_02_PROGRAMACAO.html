@@ -473,15 +473,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">first</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 17.96887</code></pre>
+<pre><code>[1] 32.50094</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">last</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 33.48516</code></pre>
+<pre><code>[1] 72.24972</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nth</span>(x, <span class="dv">23</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 39.59574</code></pre>
+<pre><code>[1] 50.49352</code></pre>
 </div>
 </div>
 <div class="callout-important callout callout-style-default callout-captioned">
@@ -675,26 +675,15 @@ Tip
 <h2 class="anchored" data-anchor-id="lista">Lista</h2>
 <p>No exemplo abaixo, será armazenado em uma lista um objeto de cada class. Posteriomente, será selecionado o terceiro objeto</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>list1 <span class="ot">&lt;-</span> <span class="fu">list</span>(x2, x10, x11)</span>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>list1 <span class="ot">&lt;-</span> <span class="fu">list</span>(x2, x9, x10)</span>
 <span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>list1[[<span class="dv">3</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>function (display = "", width, height, pointsize, gamma, bg, 
-    canvas, fonts, family, xpos, ypos, title, type, antialias, 
-    symbolfamily) 
-{
-    if (is.numeric(display) &amp;&amp; missing(height) &amp;&amp; (missing(width) || 
-        is.numeric(width))) {
-        warning(gettextf("Calls like '%s' are unsafe and should be replaced by '%s'", 
-            "x11(w, h)", "x11(width=w, height=h)"), domain = NA)
-        if (!missing(width)) 
-            height &lt;- width
-        width &lt;- display
-    }
-    windows(width = width, height = height, pointsize = pointsize, 
-        bg = bg, gamma = gamma, xpos = xpos, ypos = ypos, title = title)
-}
-&lt;bytecode: 0x000001c588448c48&gt;
-&lt;environment: namespace:grDevices&gt;</code></pre>
+<pre><code>  arvore altura
+1     O1    4.0
+2     O2    4.6
+3     O3    3.8
+4     O4    5.0
+5     O5    4.1</code></pre>
 </div>
 </div>
 </section>
@@ -1752,7 +1741,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb150-217"><a href="#cb150-217" aria-hidden="true" tabindex="-1"></a>No exemplo abaixo, será armazenado em uma lista um objeto de cada class. Posteriomente, será selecionado o terceiro objeto</span>
 <span id="cb150-218"><a href="#cb150-218" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb150-219"><a href="#cb150-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb150-220"><a href="#cb150-220" aria-hidden="true" tabindex="-1"></a>list1 <span class="ot">&lt;-</span> <span class="fu">list</span>(x2, x10, x11)</span>
+<span id="cb150-220"><a href="#cb150-220" aria-hidden="true" tabindex="-1"></a>list1 <span class="ot">&lt;-</span> <span class="fu">list</span>(x2, x9, x10)</span>
 <span id="cb150-221"><a href="#cb150-221" aria-hidden="true" tabindex="-1"></a>list1[[<span class="dv">3</span>]]</span>
 <span id="cb150-222"><a href="#cb150-222" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-223"><a href="#cb150-223" aria-hidden="true" tabindex="-1"></a></span>

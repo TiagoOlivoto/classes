@@ -209,7 +209,7 @@ tib1[, 1]
 No exemplo abaixo, será armazenado em uma lista um objeto de cada class. Posteriomente, será selecionado o terceiro objeto
 
 ```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}
-list1 <- list(x2, x10, x11)
+list1 <- list(x2, x9, x10)
 list1[[3]]
 ```
 
