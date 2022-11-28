@@ -95,7 +95,7 @@ calendR(year = 2022,
 
 ## 28/11/2022
 
--   Mutação de dados
+-   Seleção de dados
 -   select
 -   filter
 -   slice
@@ -104,15 +104,17 @@ calendR(year = 2022,
 
 ## 30/11/2022
 
--   Sintetização de dados
+-   Mutação de dados
 -   mutate
--   group_by
--   summarise
 -   across
+-   group_by
 
 ## 01/12/2022
 
--   Seus dados, suas análises
+-   Resumo de dados
+-   summarise
+-   across
+-   group_by
 
 ## 02/12/2022
 
@@ -169,7 +171,10 @@ O código fonte deste material pode ser encontrado neste [repositório](https://
 
 ## Licença
 
-\<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="\_blank" rel="noopener"\>\<img src="https://raw.githubusercontent.com/TiagoOlivoto/tiagoolivoto/master/static/img/gemsr/license.jpg" alt="Licença Creative Commons" style="border-width:0" width="200" height="40"/\>\</a\>\<br /\>Este material é distribuído nos termos da licença \<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"\>CC BY-NC-SA 4.0\</a\>. resumo legível da licença afirma que você tem o direito de:
+```{=html}
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/TiagoOlivoto/tiagoolivoto/master/static/img/gemsr/license.jpg" alt="Licença Creative Commons" style="border-width:0" width="200" height="40"/></a><br />Este material é distribuído nos termos da licença <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+```
+O resumo legível da licença afirma que você tem o direito de:
 
 -   **Compartilhar** --- copiar e redistribuir o material em qualquer suporte ou formato
 -   **Adaptar** --- remixar, transformar, e criar a partir do material
