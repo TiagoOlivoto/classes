@@ -338,8 +338,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># tutorial calendR</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># https://r-coder.com/calendar-plot-r/</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>events <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">61</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>events[<span class="fu">c</span>(<span class="dv">21</span>,  <span class="dv">28</span>)] <span class="ot">&lt;-</span> <span class="st">"08:20 às 11:50"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>events[<span class="fu">c</span>(<span class="dv">23</span><span class="sc">:</span><span class="dv">25</span>, <span class="dv">29</span><span class="sc">:</span><span class="dv">32</span>)] <span class="ot">&lt;-</span> <span class="st">"13:30 às 16:00"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>events[<span class="fu">c</span>(<span class="dv">21</span>,  <span class="dv">28</span>, <span class="dv">32</span>)] <span class="ot">&lt;-</span> <span class="st">"08:20 às 11:50"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>events[<span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">30</span><span class="sc">:</span><span class="dv">31</span>)] <span class="ot">&lt;-</span> <span class="st">"13:30 às 16:00"</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="st">"figs/calendr.png"</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
@@ -497,6 +497,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ├── exportado.csv
 ├── exportado.txt
 ├── exportado.xlsx
+├── faostat
+│   ├── area.xlsx
+│   └── producao.xlsx
 └── minha_lista.xlsx</code></pre>
 </div>
 </div>
@@ -891,8 +894,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co"># tutorial calendR</span></span>
 <span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co"># https://r-coder.com/calendar-plot-r/</span></span>
 <span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>events <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">61</span>)</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>events[<span class="fu">c</span>(<span class="dv">21</span>,  <span class="dv">28</span>)] <span class="ot">&lt;-</span> <span class="st">"08:20 às 11:50"</span></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>events[<span class="fu">c</span>(<span class="dv">23</span><span class="sc">:</span><span class="dv">25</span>, <span class="dv">29</span><span class="sc">:</span><span class="dv">32</span>)] <span class="ot">&lt;-</span> <span class="st">"13:30 às 16:00"</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>events[<span class="fu">c</span>(<span class="dv">21</span>,  <span class="dv">28</span>, <span class="dv">32</span>)] <span class="ot">&lt;-</span> <span class="st">"08:20 às 11:50"</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>events[<span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">30</span><span class="sc">:</span><span class="dv">31</span>)] <span class="ot">&lt;-</span> <span class="st">"13:30 às 16:00"</span></span>
 <span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="st">"figs/calendr.png"</span></span>
 <span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>

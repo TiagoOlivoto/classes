@@ -27,8 +27,8 @@ library(calendR)
 # tutorial calendR
 # https://r-coder.com/calendar-plot-r/
 events <- rep(NA, 61)
-events[c(21,  28)] <- "08:20 às 11:50"
-events[c(23:25, 29:32)] <- "13:30 às 16:00"
+events[c(21,  28, 32)] <- "08:20 às 11:50"
+events[c(23, 25, 30:31)] <- "13:30 às 16:00"
 
 img <- "figs/calendr.png"
 
