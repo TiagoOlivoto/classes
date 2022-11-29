@@ -209,6 +209,7 @@ Após vermos estas regras, percebemos que dos quatro conjuntos apresentados ante
 
 ### Formatar strings
 
+
 Um dos maiores equívocos cometidos ao trabalhar com conjuntos de dados e que pode impactar significativamente análises posteriores é a falta de padrão de nomenclatura, tanto em variáveis como string de caracteres. Por exemplo, suponha que tenhamos uma string de caracteres `str = c("Env1", "env 1", "env.1")`, para representar três observações do ambiente "env 1". Por definição, `str` deve representar um nível único, mas na verdade tem três níveis.
 
 ```{r}
@@ -250,6 +251,9 @@ Para formatar os nomes de colunas, podemos utilizar a função `tidy_colnames()`
 messy <- tidy_colnames(messy)
 names(messy)
 ```
+
+{{< video https://www.youtube.com/embed/Jw_jEPBiAVQ >}}
+
 
 ### Preencher valores
 
