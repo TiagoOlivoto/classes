@@ -335,8 +335,10 @@ A tabela a seguir mostra uma tradução condensada entre os verbos `dplyr` e seu
 | `summarise(df, mean(x))`       | `mean(df$x)`, [`tapply()`](https://rdrr.io/r/base/tapply.html), [`aggregate()`](https://rdrr.io/r/stats/aggregate.html), [`by()`](https://rdrr.io/r/base/by.html) |
 | `slice(df, c(1, 2, 5))`        | `df[c(1, 2, 5), , drop = FALSE]`                                                                                                                                  |
 
+# Desafio
+
 ::: callout-important
-## Desafio
+## 
 
 -   Crie uma variável chamada `MGRA_kg` qual será o resultado em quilogramas da massa de grãos.
 -   Selecione somente as colunas `HIB`, `AMB`, `REP` e `MGRA_Kg`.

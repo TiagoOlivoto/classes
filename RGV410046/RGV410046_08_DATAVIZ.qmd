@@ -55,7 +55,20 @@ df
 
 ## Dados da estação meteorológica
 
-Os dados contidos em `estacao_fazenda.csv` contém informações de variáveis climáticas obtidas em sensores automáticos com leituras horárias, do dia 01/01/2022 a 28/11/2022, totalizando 7957 observações. Estes dados serão utilizados ainda neste material, na sessão @sec-dados-da-estação.
+Os dados contidos em `estacao_fazenda.csv` contém informações de variáveis climáticas obtidas em sensores automáticos de uma estação meteorológica localizada na Fazenda Experimental da Ressacada (UFSC)
+
+```{r}
+#| echo: false
+library(leaflet)
+leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng= -48.54,
+             lat= -27.69,
+             popup="The birthplace of R")
+
+```
+
+Os dados são em escala horária, do dia 01/01/2022 a 28/11/2022, totalizando 7957 observações. Estes dados serão utilizados ainda neste material, na sessão @sec-dados-da-estação.
 
 ```{r}
 df_estacao <-  

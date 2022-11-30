@@ -161,8 +161,6 @@ export(
 
 [^1]: Wickham, Hadley. 2014. "Tidy Data". Journal of Statistical Software 59: 1--23.
 
-{{< video https://www.youtube.com/embed/TYcKMXwPsuw >}}
-
 
 ## Mesmos dados, diferentes formas
 
@@ -204,6 +202,8 @@ A Figura à seguir mostra as regras visualmente.
 ![Adaptado de https://r4ds.had.co.nz/tidy-data.html#tidy-data-1](figs/tidy.png)
 
 Após vermos estas regras, percebemos que dos quatro conjuntos apresentados anteriormente, apenas `df` é *tidy*. Ao usarmos conjuntos de dados *tidy* vamos poder aproveitar uma das belezas do R: a possibilidade de aplicar funções à vetores, que neste caso nada mais são do que os valores presentes em cada coluna.
+
+{{< video https://www.youtube.com/embed/TYcKMXwPsuw >}}
 
 ## Padão, padrão, padrão!
 
@@ -251,6 +251,7 @@ Para formatar os nomes de colunas, podemos utilizar a função `tidy_colnames()`
 messy <- tidy_colnames(messy)
 names(messy)
 ```
+
 
 {{< video https://www.youtube.com/embed/Jw_jEPBiAVQ >}}
 
