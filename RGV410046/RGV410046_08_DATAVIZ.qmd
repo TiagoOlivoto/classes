@@ -1,5 +1,7 @@
 ---
 title: "8. Visualização de dados"
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Diretório

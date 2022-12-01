@@ -1,5 +1,7 @@
 ---
 title: "7. Sintetização"
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Diretório

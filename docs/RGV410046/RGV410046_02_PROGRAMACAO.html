@@ -478,15 +478,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">first</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 49.38953</code></pre>
+<pre><code>[1] 16.06539</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">last</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 69.58599</code></pre>
+<pre><code>[1] 71.9914</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nth</span>(x, <span class="dv">23</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 26.05196</code></pre>
+<pre><code>[1] 19.23971</code></pre>
 </div>
 </div>
 <div class="callout-important callout callout-style-default callout-captioned">
@@ -1537,581 +1537,583 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb150" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb150-2"><a href="#cb150-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "2. Introdução à programação R"</span></span>
-<span id="cb150-3"><a href="#cb150-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb150-4"><a href="#cb150-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-5"><a href="#cb150-5" aria-hidden="true" tabindex="-1"></a>Neste material, serão vistos conceitos importantes envolvidos na programação R que envolvem o conhecimento dos tipos de objetos, estruturas de dados e lógica de programação.</span>
+<span id="cb150-3"><a href="#cb150-3" aria-hidden="true" tabindex="-1"></a><span class="an">editor_options:</span><span class="co"> </span></span>
+<span id="cb150-4"><a href="#cb150-4" aria-hidden="true" tabindex="-1"></a><span class="co">  chunk_output_type: console</span></span>
+<span id="cb150-5"><a href="#cb150-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb150-6"><a href="#cb150-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-7"><a href="#cb150-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tipos de objetos {#sec-tipos-de-objetos}</span></span>
+<span id="cb150-7"><a href="#cb150-7" aria-hidden="true" tabindex="-1"></a>Neste material, serão vistos conceitos importantes envolvidos na programação R que envolvem o conhecimento dos tipos de objetos, estruturas de dados e lógica de programação.</span>
 <span id="cb150-8"><a href="#cb150-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-9"><a href="#cb150-9" aria-hidden="true" tabindex="-1"></a>R é uma linguagem orientada a objetos: um objeto em R é qualquer coisa (constantes, estruturas de dados, funções, gráficos) que podem ser atribuídas a uma variável. Os principais objetos usados ​​para armazenar valores numéricos reais ou complexos, valores lógicos ou caracteres são:</span>
+<span id="cb150-9"><a href="#cb150-9" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tipos de objetos {#sec-tipos-de-objetos}</span></span>
 <span id="cb150-10"><a href="#cb150-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-11"><a href="#cb150-11" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Vetores: arrays unidimensionais usados ​​para armazenar dados de coleção do mesmo modo</span>
+<span id="cb150-11"><a href="#cb150-11" aria-hidden="true" tabindex="-1"></a>R é uma linguagem orientada a objetos: um objeto em R é qualquer coisa (constantes, estruturas de dados, funções, gráficos) que podem ser atribuídas a uma variável. Os principais objetos usados ​​para armazenar valores numéricos reais ou complexos, valores lógicos ou caracteres são:</span>
 <span id="cb150-12"><a href="#cb150-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-13"><a href="#cb150-13" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Vetores Numéricos (modo: numérico)</span>
+<span id="cb150-13"><a href="#cb150-13" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Vetores: arrays unidimensionais usados ​​para armazenar dados de coleção do mesmo modo</span>
 <span id="cb150-14"><a href="#cb150-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-15"><a href="#cb150-15" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Vetores Complexos (modo: complexo)</span>
+<span id="cb150-15"><a href="#cb150-15" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Vetores Numéricos (modo: numérico)</span>
 <span id="cb150-16"><a href="#cb150-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-17"><a href="#cb150-17" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Vetores Lógicos (modelo: lógico)</span>
+<span id="cb150-17"><a href="#cb150-17" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Vetores Complexos (modo: complexo)</span>
 <span id="cb150-18"><a href="#cb150-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-19"><a href="#cb150-19" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Character Vector ou strings de texto (modo: caractere)</span>
+<span id="cb150-19"><a href="#cb150-19" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Vetores Lógicos (modelo: lógico)</span>
 <span id="cb150-20"><a href="#cb150-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-21"><a href="#cb150-21" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Matrizes**: arrays bidimensionais para armazenar coleções de dados do mesmo modo. Eles são acessados ​​por dois índices inteiros.</span>
+<span id="cb150-21"><a href="#cb150-21" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Character Vector ou strings de texto (modo: caractere)</span>
 <span id="cb150-22"><a href="#cb150-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-23"><a href="#cb150-23" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Arrays**: semelhantes a matrizes, mas podem ser multidimensionais (mais de duas dimensões)</span>
+<span id="cb150-23"><a href="#cb150-23" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Matrizes**: arrays bidimensionais para armazenar coleções de dados do mesmo modo. Eles são acessados ​​por dois índices inteiros.</span>
 <span id="cb150-24"><a href="#cb150-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-25"><a href="#cb150-25" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Fatores**: vetores de variáveis ​​categóricas destinados a agrupar os componentes de outro vetor com o mesmo tamanho</span>
+<span id="cb150-25"><a href="#cb150-25" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Arrays**: semelhantes a matrizes, mas podem ser multidimensionais (mais de duas dimensões)</span>
 <span id="cb150-26"><a href="#cb150-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-27"><a href="#cb150-27" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Listas**: coleção ordenada de objetos, onde os elementos podem ser de diferentes tipos</span>
+<span id="cb150-27"><a href="#cb150-27" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Fatores**: vetores de variáveis ​​categóricas destinados a agrupar os componentes de outro vetor com o mesmo tamanho</span>
 <span id="cb150-28"><a href="#cb150-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-29"><a href="#cb150-29" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Data Frames**: generalização de matrizes onde diferentes colunas podem armazenar dados de modos diferentes.</span>
+<span id="cb150-29"><a href="#cb150-29" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Listas**: coleção ordenada de objetos, onde os elementos podem ser de diferentes tipos</span>
 <span id="cb150-30"><a href="#cb150-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-31"><a href="#cb150-31" aria-hidden="true" tabindex="-1"></a><span class="al">![Principais objetos do R (http://venus.ifca.unican.es/Rintro/dataStruct.html)](figs/datastructure.png)</span></span>
+<span id="cb150-31"><a href="#cb150-31" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Data Frames**: generalização de matrizes onde diferentes colunas podem armazenar dados de modos diferentes.</span>
 <span id="cb150-32"><a href="#cb150-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-33"><a href="#cb150-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Estuturas de dados</span></span>
+<span id="cb150-33"><a href="#cb150-33" aria-hidden="true" tabindex="-1"></a><span class="al">![Principais objetos do R (http://venus.ifca.unican.es/Rintro/dataStruct.html)](figs/datastructure.png)</span></span>
 <span id="cb150-34"><a href="#cb150-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-35"><a href="#cb150-35" aria-hidden="true" tabindex="-1"></a>Existem quatro tipos principais de estruturas de dados, que podem ser interpretadas como: *logical*, *integer*, *double* e *character* (que contém cadeias de caracteres). Vetores do tipo *integer* e *double* são conhecidos como vetores numéricos. Cada um dos quatro tipos primários possui uma sintaxe especial para criar um valor individual, um escalar. A função <span class="in">`c()`</span> combina valores que formam vetores<span class="ot">[^1]</span>. Abaixo, é demonstrado como vetores podem ser criados utilizando <span class="in">`c()`</span>. Note que o código é dado entre parênteses <span class="in">`(...)`</span> para que o valor seja armazenado no ambiente ao mesmo tempo em que é impresso no console.</span>
+<span id="cb150-35"><a href="#cb150-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Estuturas de dados</span></span>
 <span id="cb150-36"><a href="#cb150-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-37"><a href="#cb150-37" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>Vetores são uma estrutura de dados básica do R que permite armazenar um conjunto de valores numéricos ou de caracteres em um objeto nomeado</span>
+<span id="cb150-37"><a href="#cb150-37" aria-hidden="true" tabindex="-1"></a>Existem quatro tipos principais de estruturas de dados, que podem ser interpretadas como: *logical*, *integer*, *double* e *character* (que contém cadeias de caracteres). Vetores do tipo *integer* e *double* são conhecidos como vetores numéricos. Cada um dos quatro tipos primários possui uma sintaxe especial para criar um valor individual, um escalar. A função <span class="in">`c()`</span> combina valores que formam vetores<span class="ot">[^1]</span>. Abaixo, é demonstrado como vetores podem ser criados utilizando <span class="in">`c()`</span>. Note que o código é dado entre parênteses <span class="in">`(...)`</span> para que o valor seja armazenado no ambiente ao mesmo tempo em que é impresso no console.</span>
 <span id="cb150-38"><a href="#cb150-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-39"><a href="#cb150-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Vetores do tipo *double*</span></span>
+<span id="cb150-39"><a href="#cb150-39" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>Vetores são uma estrutura de dados básica do R que permite armazenar um conjunto de valores numéricos ou de caracteres em um objeto nomeado</span>
 <span id="cb150-40"><a href="#cb150-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-41"><a href="#cb150-41" aria-hidden="true" tabindex="-1"></a>Vetores do tipo *double* podem ser especificadas em formato decimal (<span class="in">`0.1234`</span>) ou científico (<span class="in">`1.23e4`</span>).</span>
+<span id="cb150-41"><a href="#cb150-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### Vetores do tipo *double*</span></span>
 <span id="cb150-42"><a href="#cb150-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-45"><a href="#cb150-45" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb150-46"><a href="#cb150-46" aria-hidden="true" tabindex="-1"></a>(x1 <span class="ot">&lt;-</span> <span class="dv">1</span>) <span class="co"># Escalar </span></span>
-<span id="cb150-47"><a href="#cb150-47" aria-hidden="true" tabindex="-1"></a>(x2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="fl">3.5</span>)) <span class="co"># Vetor</span></span>
-<span id="cb150-48"><a href="#cb150-48" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x2)</span>
-<span id="cb150-49"><a href="#cb150-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-50"><a href="#cb150-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-51"><a href="#cb150-51" aria-hidden="true" tabindex="-1"></a><span class="fu">### Vetores do tipo *integer*</span></span>
+<span id="cb150-43"><a href="#cb150-43" aria-hidden="true" tabindex="-1"></a>Vetores do tipo *double* podem ser especificadas em formato decimal (<span class="in">`0.1234`</span>) ou científico (<span class="in">`1.23e4`</span>).</span>
+<span id="cb150-44"><a href="#cb150-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-47"><a href="#cb150-47" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb150-48"><a href="#cb150-48" aria-hidden="true" tabindex="-1"></a>(x1 <span class="ot">&lt;-</span> <span class="dv">1</span>) <span class="co"># Escalar </span></span>
+<span id="cb150-49"><a href="#cb150-49" aria-hidden="true" tabindex="-1"></a>(x2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="fl">3.5</span>)) <span class="co"># Vetor</span></span>
+<span id="cb150-50"><a href="#cb150-50" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x2)</span>
+<span id="cb150-51"><a href="#cb150-51" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-52"><a href="#cb150-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-53"><a href="#cb150-53" aria-hidden="true" tabindex="-1"></a>Vetores do tipo *integer* são escritos de forma semelhante aos *double*, mas devem ser seguidos por L (1234L, 1e4L ou 0xcafeL) e não podem conter valores fracionados.</span>
+<span id="cb150-53"><a href="#cb150-53" aria-hidden="true" tabindex="-1"></a><span class="fu">### Vetores do tipo *integer*</span></span>
 <span id="cb150-54"><a href="#cb150-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-57"><a href="#cb150-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb150-58"><a href="#cb150-58" aria-hidden="true" tabindex="-1"></a>(x3 <span class="ot">&lt;-</span> <span class="fu">c</span>(1L,2L,3L)) <span class="co"># Vetor</span></span>
-<span id="cb150-59"><a href="#cb150-59" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x3)</span>
-<span id="cb150-60"><a href="#cb150-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-61"><a href="#cb150-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb150-55"><a href="#cb150-55" aria-hidden="true" tabindex="-1"></a>Vetores do tipo *integer* são escritos de forma semelhante aos *double*, mas devem ser seguidos por L (1234L, 1e4L ou 0xcafeL) e não podem conter valores fracionados.</span>
+<span id="cb150-56"><a href="#cb150-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-59"><a href="#cb150-59" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb150-60"><a href="#cb150-60" aria-hidden="true" tabindex="-1"></a>(x3 <span class="ot">&lt;-</span> <span class="fu">c</span>(1L,2L,3L)) <span class="co"># Vetor</span></span>
+<span id="cb150-61"><a href="#cb150-61" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x3)</span>
 <span id="cb150-62"><a href="#cb150-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-63"><a href="#cb150-63" aria-hidden="true" tabindex="-1"></a><span class="fu">### Vetores do tipo *character*</span></span>
+<span id="cb150-63"><a href="#cb150-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-64"><a href="#cb150-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-65"><a href="#cb150-65" aria-hidden="true" tabindex="-1"></a>Vetores do tipo *character* são cercadas por " e contém texto, tais como (<span class="in">`"dia"`</span>) ou ' (<span class="in">`'noite'`</span>).</span>
+<span id="cb150-65"><a href="#cb150-65" aria-hidden="true" tabindex="-1"></a><span class="fu">### Vetores do tipo *character*</span></span>
 <span id="cb150-66"><a href="#cb150-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-69"><a href="#cb150-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb150-70"><a href="#cb150-70" aria-hidden="true" tabindex="-1"></a>(x4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"um"</span>,<span class="st">"dois"</span>,<span class="st">"três"</span>)) <span class="co"># Vetor com caracteres</span></span>
-<span id="cb150-71"><a href="#cb150-71" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x4)</span>
-<span id="cb150-72"><a href="#cb150-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-73"><a href="#cb150-73" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb150-67"><a href="#cb150-67" aria-hidden="true" tabindex="-1"></a>Vetores do tipo *character* são cercadas por " e contém texto, tais como (<span class="in">`"dia"`</span>) ou ' (<span class="in">`'noite'`</span>).</span>
+<span id="cb150-68"><a href="#cb150-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-71"><a href="#cb150-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb150-72"><a href="#cb150-72" aria-hidden="true" tabindex="-1"></a>(x4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"um"</span>,<span class="st">"dois"</span>,<span class="st">"três"</span>)) <span class="co"># Vetor com caracteres</span></span>
+<span id="cb150-73"><a href="#cb150-73" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x4)</span>
 <span id="cb150-74"><a href="#cb150-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-75"><a href="#cb150-75" aria-hidden="true" tabindex="-1"></a><span class="fu">### Vetores do tipo *logical*</span></span>
+<span id="cb150-75"><a href="#cb150-75" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-76"><a href="#cb150-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-77"><a href="#cb150-77" aria-hidden="true" tabindex="-1"></a>Vetores do tipo logical podem ser escritos por extenso (<span class="in">`TRUE`</span> ou <span class="in">`FASLSE`</span>) ou abreviados (<span class="in">`T`</span> ou <span class="in">`F`</span>).</span>
+<span id="cb150-77"><a href="#cb150-77" aria-hidden="true" tabindex="-1"></a><span class="fu">### Vetores do tipo *logical*</span></span>
 <span id="cb150-78"><a href="#cb150-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-81"><a href="#cb150-81" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb150-82"><a href="#cb150-82" aria-hidden="true" tabindex="-1"></a>(x5 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>)) <span class="co"># Vetor logical</span></span>
-<span id="cb150-83"><a href="#cb150-83" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x5)</span>
-<span id="cb150-84"><a href="#cb150-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-85"><a href="#cb150-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-86"><a href="#cb150-86" aria-hidden="true" tabindex="-1"></a><span class="fu">### </span></span>
+<span id="cb150-79"><a href="#cb150-79" aria-hidden="true" tabindex="-1"></a>Vetores do tipo logical podem ser escritos por extenso (<span class="in">`TRUE`</span> ou <span class="in">`FASLSE`</span>) ou abreviados (<span class="in">`T`</span> ou <span class="in">`F`</span>).</span>
+<span id="cb150-80"><a href="#cb150-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-83"><a href="#cb150-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb150-84"><a href="#cb150-84" aria-hidden="true" tabindex="-1"></a>(x5 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>)) <span class="co"># Vetor logical</span></span>
+<span id="cb150-85"><a href="#cb150-85" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x5)</span>
+<span id="cb150-86"><a href="#cb150-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-87"><a href="#cb150-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-88"><a href="#cb150-88" aria-hidden="true" tabindex="-1"></a>Os vetores foram armazenados em *x1*, *x2*, *x3 e x4* e ficaram armazenados como valores na área de trabalho como valores (*values*). Para que os valores sejam mostrados basta digitar no *console* onde os vetores foram armazenados. Vetores também podem ser criados utilizando as funções <span class="in">`rep()`</span> e <span class="in">`seq()`</span>, conforme mostrado abaixo.</span>
+<span id="cb150-88"><a href="#cb150-88" aria-hidden="true" tabindex="-1"></a><span class="fu">### </span></span>
 <span id="cb150-89"><a href="#cb150-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-90"><a href="#cb150-90" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb150-91"><a href="#cb150-91" aria-hidden="true" tabindex="-1"></a>(x6 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">5</span>, <span class="dv">10</span>))</span>
-<span id="cb150-92"><a href="#cb150-92" aria-hidden="true" tabindex="-1"></a>(x7 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
-<span id="cb150-93"><a href="#cb150-93" aria-hidden="true" tabindex="-1"></a>(x8 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="at">by =</span> <span class="fl">0.5</span>))</span>
-<span id="cb150-94"><a href="#cb150-94" aria-hidden="true" tabindex="-1"></a>(x9 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">20</span>, <span class="at">by =</span> <span class="dv">2</span>))</span>
-<span id="cb150-95"><a href="#cb150-95" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-96"><a href="#cb150-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-97"><a href="#cb150-97" aria-hidden="true" tabindex="-1"></a>Agora, objserve o seu ambiente de trabalho. Lá você pode ver os objetos que foram criados.</span>
+<span id="cb150-90"><a href="#cb150-90" aria-hidden="true" tabindex="-1"></a>Os vetores foram armazenados em *x1*, *x2*, *x3 e x4* e ficaram armazenados como valores na área de trabalho como valores (*values*). Para que os valores sejam mostrados basta digitar no *console* onde os vetores foram armazenados. Vetores também podem ser criados utilizando as funções <span class="in">`rep()`</span> e <span class="in">`seq()`</span>, conforme mostrado abaixo.</span>
+<span id="cb150-91"><a href="#cb150-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-92"><a href="#cb150-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb150-93"><a href="#cb150-93" aria-hidden="true" tabindex="-1"></a>(x6 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">5</span>, <span class="dv">10</span>))</span>
+<span id="cb150-94"><a href="#cb150-94" aria-hidden="true" tabindex="-1"></a>(x7 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
+<span id="cb150-95"><a href="#cb150-95" aria-hidden="true" tabindex="-1"></a>(x8 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="at">by =</span> <span class="fl">0.5</span>))</span>
+<span id="cb150-96"><a href="#cb150-96" aria-hidden="true" tabindex="-1"></a>(x9 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">20</span>, <span class="at">by =</span> <span class="dv">2</span>))</span>
+<span id="cb150-97"><a href="#cb150-97" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-98"><a href="#cb150-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-99"><a href="#cb150-99" aria-hidden="true" tabindex="-1"></a><span class="al">![](figs/env.png)</span></span>
+<span id="cb150-99"><a href="#cb150-99" aria-hidden="true" tabindex="-1"></a>Agora, objserve o seu ambiente de trabalho. Lá você pode ver os objetos que foram criados.</span>
 <span id="cb150-100"><a href="#cb150-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-101"><a href="#cb150-101" aria-hidden="true" tabindex="-1"></a>VocÇe também pode ser combinar as funções <span class="in">`c()`</span>, <span class="in">`rep()`</span> e <span class="in">`seq()`</span> para criar vetores mais complexos, como mostrado abaixo.</span>
+<span id="cb150-101"><a href="#cb150-101" aria-hidden="true" tabindex="-1"></a><span class="al">![](figs/env.png)</span></span>
 <span id="cb150-102"><a href="#cb150-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-103"><a href="#cb150-103" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb150-104"><a href="#cb150-104" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>), <span class="at">each =</span> <span class="dv">4</span>)     <span class="co"># repete números de uma sequência</span></span>
-<span id="cb150-105"><a href="#cb150-105" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)                      <span class="co"># cria uma sequência</span></span>
-<span id="cb150-106"><a href="#cb150-106" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>), <span class="at">length.out=</span> <span class="dv">15</span>) <span class="co"># define o tamanho da saída</span></span>
-<span id="cb150-107"><a href="#cb150-107" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-108"><a href="#cb150-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-109"><a href="#cb150-109" aria-hidden="true" tabindex="-1"></a>Utilizando colchtes <span class="in">`[]`</span> é possível selecionar um (ou um conjunto) de elementos de um vetor. Por exemplo:</span>
+<span id="cb150-103"><a href="#cb150-103" aria-hidden="true" tabindex="-1"></a>VocÇe também pode ser combinar as funções <span class="in">`c()`</span>, <span class="in">`rep()`</span> e <span class="in">`seq()`</span> para criar vetores mais complexos, como mostrado abaixo.</span>
+<span id="cb150-104"><a href="#cb150-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-105"><a href="#cb150-105" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb150-106"><a href="#cb150-106" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>), <span class="at">each =</span> <span class="dv">4</span>)     <span class="co"># repete números de uma sequência</span></span>
+<span id="cb150-107"><a href="#cb150-107" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)                      <span class="co"># cria uma sequência</span></span>
+<span id="cb150-108"><a href="#cb150-108" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>), <span class="at">length.out=</span> <span class="dv">15</span>) <span class="co"># define o tamanho da saída</span></span>
+<span id="cb150-109"><a href="#cb150-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-110"><a href="#cb150-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-111"><a href="#cb150-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb150-112"><a href="#cb150-112" aria-hidden="true" tabindex="-1"></a>x8[<span class="dv">1</span>]            <span class="co"># Seleciona o primeiro elemento do vetor </span></span>
-<span id="cb150-113"><a href="#cb150-113" aria-hidden="true" tabindex="-1"></a>x8[<span class="dv">4</span>]            <span class="co">#  Seleciona o quarto elemento do vetor </span></span>
-<span id="cb150-114"><a href="#cb150-114" aria-hidden="true" tabindex="-1"></a>x8[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">8</span>)]   <span class="co"># Seleciona o primeiro, o quarto e o oitavo elemento</span></span>
-<span id="cb150-115"><a href="#cb150-115" aria-hidden="true" tabindex="-1"></a>x8[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]          <span class="co"># armazena uma sequência de elementos (primeiro ao quarto)</span></span>
-<span id="cb150-116"><a href="#cb150-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-117"><a href="#cb150-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-118"><a href="#cb150-118" aria-hidden="true" tabindex="-1"></a>Em adição ao uso de <span class="in">`[]`</span>, as funções <span class="in">`first()`</span>, <span class="in">`last()`</span> e <span class="in">`nth()`</span> do pacote <span class="in">`dplyr`</span> são utilizadas para selecionar o primeiro, o último e o i-ésimo elemento de um vetor. A principal vantagem é que você pode fornecer um vetor secundário opcional que define a ordem e fornecer um valor padrão a ser usado quando a entrada for menor que o esperado.</span>
+<span id="cb150-111"><a href="#cb150-111" aria-hidden="true" tabindex="-1"></a>Utilizando colchtes <span class="in">`[]`</span> é possível selecionar um (ou um conjunto) de elementos de um vetor. Por exemplo:</span>
+<span id="cb150-112"><a href="#cb150-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-113"><a href="#cb150-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb150-114"><a href="#cb150-114" aria-hidden="true" tabindex="-1"></a>x8[<span class="dv">1</span>]            <span class="co"># Seleciona o primeiro elemento do vetor </span></span>
+<span id="cb150-115"><a href="#cb150-115" aria-hidden="true" tabindex="-1"></a>x8[<span class="dv">4</span>]            <span class="co">#  Seleciona o quarto elemento do vetor </span></span>
+<span id="cb150-116"><a href="#cb150-116" aria-hidden="true" tabindex="-1"></a>x8[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">8</span>)]   <span class="co"># Seleciona o primeiro, o quarto e o oitavo elemento</span></span>
+<span id="cb150-117"><a href="#cb150-117" aria-hidden="true" tabindex="-1"></a>x8[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]          <span class="co"># armazena uma sequência de elementos (primeiro ao quarto)</span></span>
+<span id="cb150-118"><a href="#cb150-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-119"><a href="#cb150-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-120"><a href="#cb150-120" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb150-121"><a href="#cb150-121" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dv">100</span>)</span>
-<span id="cb150-122"><a href="#cb150-122" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb150-123"><a href="#cb150-123" aria-hidden="true" tabindex="-1"></a><span class="fu">first</span>(x)</span>
-<span id="cb150-124"><a href="#cb150-124" aria-hidden="true" tabindex="-1"></a><span class="fu">last</span>(x)</span>
-<span id="cb150-125"><a href="#cb150-125" aria-hidden="true" tabindex="-1"></a><span class="fu">nth</span>(x, <span class="dv">23</span>)</span>
-<span id="cb150-126"><a href="#cb150-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-127"><a href="#cb150-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-128"><a href="#cb150-128" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
-<span id="cb150-129"><a href="#cb150-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## Usamos \&lt;- ou = para associação de nomes a objetos?</span></span>
-<span id="cb150-130"><a href="#cb150-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-131"><a href="#cb150-131" aria-hidden="true" tabindex="-1"></a>Muitos usuários utilizam o símbolo da igualdade "=" para associarmos nomes aos objetos, algo que o ambiente R compreenderá. Contudo, o uso da igualdade deverá em R ser usado apenas para a utilização em argumentos de uma função e não para associação de nomes a objetos. Para mais detalhes, execute o comando <span class="in">`?assignOps`</span>.</span>
-<span id="cb150-132"><a href="#cb150-132" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb150-133"><a href="#cb150-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-134"><a href="#cb150-134" aria-hidden="true" tabindex="-1"></a><span class="fu">## Matrizes</span></span>
+<span id="cb150-120"><a href="#cb150-120" aria-hidden="true" tabindex="-1"></a>Em adição ao uso de <span class="in">`[]`</span>, as funções <span class="in">`first()`</span>, <span class="in">`last()`</span> e <span class="in">`nth()`</span> do pacote <span class="in">`dplyr`</span> são utilizadas para selecionar o primeiro, o último e o i-ésimo elemento de um vetor. A principal vantagem é que você pode fornecer um vetor secundário opcional que define a ordem e fornecer um valor padrão a ser usado quando a entrada for menor que o esperado.</span>
+<span id="cb150-121"><a href="#cb150-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-122"><a href="#cb150-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb150-123"><a href="#cb150-123" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dv">100</span>)</span>
+<span id="cb150-124"><a href="#cb150-124" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb150-125"><a href="#cb150-125" aria-hidden="true" tabindex="-1"></a><span class="fu">first</span>(x)</span>
+<span id="cb150-126"><a href="#cb150-126" aria-hidden="true" tabindex="-1"></a><span class="fu">last</span>(x)</span>
+<span id="cb150-127"><a href="#cb150-127" aria-hidden="true" tabindex="-1"></a><span class="fu">nth</span>(x, <span class="dv">23</span>)</span>
+<span id="cb150-128"><a href="#cb150-128" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb150-129"><a href="#cb150-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-130"><a href="#cb150-130" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb150-131"><a href="#cb150-131" aria-hidden="true" tabindex="-1"></a><span class="fu">## Usamos \&lt;- ou = para associação de nomes a objetos?</span></span>
+<span id="cb150-132"><a href="#cb150-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-133"><a href="#cb150-133" aria-hidden="true" tabindex="-1"></a>Muitos usuários utilizam o símbolo da igualdade "=" para associarmos nomes aos objetos, algo que o ambiente R compreenderá. Contudo, o uso da igualdade deverá em R ser usado apenas para a utilização em argumentos de uma função e não para associação de nomes a objetos. Para mais detalhes, execute o comando <span class="in">`?assignOps`</span>.</span>
+<span id="cb150-134"><a href="#cb150-134" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb150-135"><a href="#cb150-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-136"><a href="#cb150-136" aria-hidden="true" tabindex="-1"></a>As matrizes são um conjunto de valores (ou variáveis) dispostos em linhas e colunas, e que formam um corpo delimitado por <span class="sc">\[</span> <span class="sc">\]</span>. As matrizes são geralmente representadas genericamente por ${{\boldsymbol{A}}_{{\boldsymbol{MxN}}}}$, onde **M** e **N** represetam os números de linhas e colunas da matriz, respectivamente. As matrizes podem ser facilmente construídas utilizando a função <span class="in">`matrix()`</span>. Alternativamente, as funções <span class="in">`cbind()`</span> e <span class="in">`rbind()`</span> também podem ser utilizadas. A primeira função adiciona colunas as matrizes, enquanto que a segunda adiciona linhas. Veremos mais tarde que estas funções podem ser combinadas com outras funções para construção de dataframes.</span>
+<span id="cb150-136"><a href="#cb150-136" aria-hidden="true" tabindex="-1"></a><span class="fu">## Matrizes</span></span>
 <span id="cb150-137"><a href="#cb150-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-138"><a href="#cb150-138" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb150-139"><a href="#cb150-139" aria-hidden="true" tabindex="-1"></a><span class="do">## Usando cbind()</span></span>
-<span id="cb150-140"><a href="#cb150-140" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>))                <span class="co"># Uma coluna com 5 elementos cada </span></span>
-<span id="cb150-141"><a href="#cb150-141" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>))  <span class="co"># 2 colunas de 5 elementos</span></span>
-<span id="cb150-142"><a href="#cb150-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-143"><a href="#cb150-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-144"><a href="#cb150-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb150-145"><a href="#cb150-145" aria-hidden="true" tabindex="-1"></a><span class="do">## Usando rbind()</span></span>
-<span id="cb150-146"><a href="#cb150-146" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)) <span class="co"># 1 linha com 5 elementos cada</span></span>
-<span id="cb150-147"><a href="#cb150-147" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)) <span class="co"># 2 linhas com 5 elementos cada</span></span>
-<span id="cb150-148"><a href="#cb150-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-149"><a href="#cb150-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb150-138"><a href="#cb150-138" aria-hidden="true" tabindex="-1"></a>As matrizes são um conjunto de valores (ou variáveis) dispostos em linhas e colunas, e que formam um corpo delimitado por <span class="sc">\[</span> <span class="sc">\]</span>. As matrizes são geralmente representadas genericamente por ${{\boldsymbol{A}}_{{\boldsymbol{MxN}}}}$, onde **M** e **N** represetam os números de linhas e colunas da matriz, respectivamente. As matrizes podem ser facilmente construídas utilizando a função <span class="in">`matrix()`</span>. Alternativamente, as funções <span class="in">`cbind()`</span> e <span class="in">`rbind()`</span> também podem ser utilizadas. A primeira função adiciona colunas as matrizes, enquanto que a segunda adiciona linhas. Veremos mais tarde que estas funções podem ser combinadas com outras funções para construção de dataframes.</span>
+<span id="cb150-139"><a href="#cb150-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-140"><a href="#cb150-140" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb150-141"><a href="#cb150-141" aria-hidden="true" tabindex="-1"></a><span class="do">## Usando cbind()</span></span>
+<span id="cb150-142"><a href="#cb150-142" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>))                <span class="co"># Uma coluna com 5 elementos cada </span></span>
+<span id="cb150-143"><a href="#cb150-143" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>))  <span class="co"># 2 colunas de 5 elementos</span></span>
+<span id="cb150-144"><a href="#cb150-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb150-145"><a href="#cb150-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-146"><a href="#cb150-146" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb150-147"><a href="#cb150-147" aria-hidden="true" tabindex="-1"></a><span class="do">## Usando rbind()</span></span>
+<span id="cb150-148"><a href="#cb150-148" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)) <span class="co"># 1 linha com 5 elementos cada</span></span>
+<span id="cb150-149"><a href="#cb150-149" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)) <span class="co"># 2 linhas com 5 elementos cada</span></span>
 <span id="cb150-150"><a href="#cb150-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-151"><a href="#cb150-151" aria-hidden="true" tabindex="-1"></a>Com a função <span class="in">`matrix()`</span> podemos podemos criar matrizes. Para isso, alguns *argumentos* devem ser declarados. Na função `matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,dimnames = NULL)`, os argumentos que devemos inicialmente conhecer são o `nrow`, `ncol` e `byrow`. O primeiro indica o número de linhas da matriz, o segundo a número de colunas e o terceiro indica como a matriz é preenchida. Por *default*, <span class="in">`byrow`</span> é <span class="in">`FALSE`</span>, indicando que as matrizes são preenchidas por colunas. Se <span class="in">`TRUE`</span>, o preenchimento ocorre por linhas.</span>
+<span id="cb150-151"><a href="#cb150-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-152"><a href="#cb150-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-153"><a href="#cb150-153" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb150-154"><a href="#cb150-154" aria-hidden="true" tabindex="-1"></a><span class="do">## Usando matrix</span></span>
-<span id="cb150-155"><a href="#cb150-155" aria-hidden="true" tabindex="-1"></a>(x9 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">3</span>))</span>
-<span id="cb150-156"><a href="#cb150-156" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x9)</span>
-<span id="cb150-157"><a href="#cb150-157" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x9)</span>
-<span id="cb150-158"><a href="#cb150-158" aria-hidden="true" tabindex="-1"></a>(x10 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb150-159"><a href="#cb150-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-160"><a href="#cb150-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-161"><a href="#cb150-161" aria-hidden="true" tabindex="-1"></a>Para selecionar elementos, linhas e colunas da matriz com <span class="sc">\[</span> <span class="sc">\]</span> utiliza-se um sistema de coordenadas:</span>
+<span id="cb150-153"><a href="#cb150-153" aria-hidden="true" tabindex="-1"></a>Com a função <span class="in">`matrix()`</span> podemos podemos criar matrizes. Para isso, alguns *argumentos* devem ser declarados. Na função `matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,dimnames = NULL)`, os argumentos que devemos inicialmente conhecer são o `nrow`, `ncol` e `byrow`. O primeiro indica o número de linhas da matriz, o segundo a número de colunas e o terceiro indica como a matriz é preenchida. Por *default*, <span class="in">`byrow`</span> é <span class="in">`FALSE`</span>, indicando que as matrizes são preenchidas por colunas. Se <span class="in">`TRUE`</span>, o preenchimento ocorre por linhas.</span>
+<span id="cb150-154"><a href="#cb150-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-155"><a href="#cb150-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb150-156"><a href="#cb150-156" aria-hidden="true" tabindex="-1"></a><span class="do">## Usando matrix</span></span>
+<span id="cb150-157"><a href="#cb150-157" aria-hidden="true" tabindex="-1"></a>(x9 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">3</span>))</span>
+<span id="cb150-158"><a href="#cb150-158" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x9)</span>
+<span id="cb150-159"><a href="#cb150-159" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x9)</span>
+<span id="cb150-160"><a href="#cb150-160" aria-hidden="true" tabindex="-1"></a>(x10 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb150-161"><a href="#cb150-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-162"><a href="#cb150-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-163"><a href="#cb150-163" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb150-164"><a href="#cb150-164" aria-hidden="true" tabindex="-1"></a>x9[<span class="dv">2</span>, <span class="dv">3</span>] <span class="co"># seleciona o elemento que está na linha 2 e coluna 3</span></span>
-<span id="cb150-165"><a href="#cb150-165" aria-hidden="true" tabindex="-1"></a>x9[, <span class="dv">2</span>] <span class="co"># "," indica que todas as linhas serão selecionadas na coluna 2</span></span>
-<span id="cb150-166"><a href="#cb150-166" aria-hidden="true" tabindex="-1"></a>x9[<span class="dv">1</span>, ] <span class="co"># "," indica que todas as colunas serão selecionadas na linha 1</span></span>
-<span id="cb150-167"><a href="#cb150-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-168"><a href="#cb150-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-169"><a href="#cb150-169" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb150-170"><a href="#cb150-170" aria-hidden="true" tabindex="-1"></a>Note que matrizes ficam armazenadas no ambiente glogal em "Data", não "Values".</span>
-<span id="cb150-171"><a href="#cb150-171" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb150-172"><a href="#cb150-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-173"><a href="#cb150-173" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Frame</span></span>
+<span id="cb150-163"><a href="#cb150-163" aria-hidden="true" tabindex="-1"></a>Para selecionar elementos, linhas e colunas da matriz com <span class="sc">\[</span> <span class="sc">\]</span> utiliza-se um sistema de coordenadas:</span>
+<span id="cb150-164"><a href="#cb150-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-165"><a href="#cb150-165" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb150-166"><a href="#cb150-166" aria-hidden="true" tabindex="-1"></a>x9[<span class="dv">2</span>, <span class="dv">3</span>] <span class="co"># seleciona o elemento que está na linha 2 e coluna 3</span></span>
+<span id="cb150-167"><a href="#cb150-167" aria-hidden="true" tabindex="-1"></a>x9[, <span class="dv">2</span>] <span class="co"># "," indica que todas as linhas serão selecionadas na coluna 2</span></span>
+<span id="cb150-168"><a href="#cb150-168" aria-hidden="true" tabindex="-1"></a>x9[<span class="dv">1</span>, ] <span class="co"># "," indica que todas as colunas serão selecionadas na linha 1</span></span>
+<span id="cb150-169"><a href="#cb150-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb150-170"><a href="#cb150-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-171"><a href="#cb150-171" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb150-172"><a href="#cb150-172" aria-hidden="true" tabindex="-1"></a>Note que matrizes ficam armazenadas no ambiente glogal em "Data", não "Values".</span>
+<span id="cb150-173"><a href="#cb150-173" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb150-174"><a href="#cb150-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-175"><a href="#cb150-175" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`data.frame()`</span> cria estruturas cujas colunas podem ser valores numéricos ou caracteres. É uma estrutura muito utilizada em funções do *software R*.</span>
+<span id="cb150-175"><a href="#cb150-175" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Frame</span></span>
 <span id="cb150-176"><a href="#cb150-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-177"><a href="#cb150-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb150-178"><a href="#cb150-178" aria-hidden="true" tabindex="-1"></a>x10 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">arvore =</span> <span class="fu">paste0</span>(<span class="st">"O"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>),</span>
-<span id="cb150-179"><a href="#cb150-179" aria-hidden="true" tabindex="-1"></a>                  <span class="at">altura =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="fl">4.6</span>, <span class="fl">3.8</span>, <span class="dv">5</span>, <span class="fl">4.1</span>))</span>
-<span id="cb150-180"><a href="#cb150-180" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x10)</span>
-<span id="cb150-181"><a href="#cb150-181" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x10)</span>
-<span id="cb150-182"><a href="#cb150-182" aria-hidden="true" tabindex="-1"></a><span class="co"># o mesmo sistema de coordenadas pode ser utilizado com data.frames</span></span>
-<span id="cb150-183"><a href="#cb150-183" aria-hidden="true" tabindex="-1"></a>x10[<span class="dv">1</span>, ]</span>
-<span id="cb150-184"><a href="#cb150-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-185"><a href="#cb150-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-186"><a href="#cb150-186" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tibbles</span></span>
+<span id="cb150-177"><a href="#cb150-177" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`data.frame()`</span> cria estruturas cujas colunas podem ser valores numéricos ou caracteres. É uma estrutura muito utilizada em funções do *software R*.</span>
+<span id="cb150-178"><a href="#cb150-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-179"><a href="#cb150-179" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb150-180"><a href="#cb150-180" aria-hidden="true" tabindex="-1"></a>x10 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">arvore =</span> <span class="fu">paste0</span>(<span class="st">"O"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>),</span>
+<span id="cb150-181"><a href="#cb150-181" aria-hidden="true" tabindex="-1"></a>                  <span class="at">altura =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="fl">4.6</span>, <span class="fl">3.8</span>, <span class="dv">5</span>, <span class="fl">4.1</span>))</span>
+<span id="cb150-182"><a href="#cb150-182" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x10)</span>
+<span id="cb150-183"><a href="#cb150-183" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x10)</span>
+<span id="cb150-184"><a href="#cb150-184" aria-hidden="true" tabindex="-1"></a><span class="co"># o mesmo sistema de coordenadas pode ser utilizado com data.frames</span></span>
+<span id="cb150-185"><a href="#cb150-185" aria-hidden="true" tabindex="-1"></a>x10[<span class="dv">1</span>, ]</span>
+<span id="cb150-186"><a href="#cb150-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-187"><a href="#cb150-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-188"><a href="#cb150-188" aria-hidden="true" tabindex="-1"></a>Um <span class="in">`tibble`</span> ou <span class="in">`tbl_df`</span>, é uma versão moderna do <span class="in">`data.frame`</span>. Tibbles são datas frames que não alteram nomes ou tipos de variáveis, possuindo um método <span class="in">`print()`</span> aprimorado, que facilita o uso com grandes conjuntos de dados contendo objetos complexos. Você pode forçar um objeto de classe <span class="in">`data.frame`</span> a um de classe <span class="in">`tibble`</span> utilizando <span class="in">`as_tibble()`</span> ou criar um a partir de vetores individuais com <span class="in">`tibble()`</span>. A função <span class="in">`tibble()`</span>, diferente de <span class="in">`data.frame()`</span> permite que você se refira às variáveis que você acabou de criar. É possível, também, que um tibble tenha nomes de colunas que não sejam nomes de variáveis R válidos. Por exemplo, elas podem não começar com uma letra ou podem conter caracteres incomuns como um espaço. Para se referir a essas variáveis, você precisa cercá-las com <span class="sc">\`</span> <span class="sc">\`</span>. Neste documento, a estrutura de dados padrão a ser utilizada será tibble.</span>
+<span id="cb150-188"><a href="#cb150-188" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tibbles</span></span>
 <span id="cb150-189"><a href="#cb150-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-190"><a href="#cb150-190" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb150-191"><a href="#cb150-191" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertendo um dataframe a um tibble</span></span>
-<span id="cb150-192"><a href="#cb150-192" aria-hidden="true" tabindex="-1"></a>tbl_x10 <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(x10)</span>
-<span id="cb150-193"><a href="#cb150-193" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tbl_x10)</span>
-<span id="cb150-194"><a href="#cb150-194" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tbl_x10)</span>
-<span id="cb150-195"><a href="#cb150-195" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-196"><a href="#cb150-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-197"><a href="#cb150-197" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb150-198"><a href="#cb150-198" aria-hidden="true" tabindex="-1"></a><span class="co"># Tentando criar um dataframe</span></span>
-<span id="cb150-199"><a href="#cb150-199" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb150-200"><a href="#cb150-200" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>,</span>
-<span id="cb150-201"><a href="#cb150-201" aria-hidden="true" tabindex="-1"></a>           <span class="at">z =</span> x <span class="sc">^</span> <span class="dv">2</span> <span class="sc">+</span> y)</span>
-<span id="cb150-202"><a href="#cb150-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-203"><a href="#cb150-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb150-190"><a href="#cb150-190" aria-hidden="true" tabindex="-1"></a>Um <span class="in">`tibble`</span> ou <span class="in">`tbl_df`</span>, é uma versão moderna do <span class="in">`data.frame`</span>. Tibbles são datas frames que não alteram nomes ou tipos de variáveis, possuindo um método <span class="in">`print()`</span> aprimorado, que facilita o uso com grandes conjuntos de dados contendo objetos complexos. Você pode forçar um objeto de classe <span class="in">`data.frame`</span> a um de classe <span class="in">`tibble`</span> utilizando <span class="in">`as_tibble()`</span> ou criar um a partir de vetores individuais com <span class="in">`tibble()`</span>. A função <span class="in">`tibble()`</span>, diferente de <span class="in">`data.frame()`</span> permite que você se refira às variáveis que você acabou de criar. É possível, também, que um tibble tenha nomes de colunas que não sejam nomes de variáveis R válidos. Por exemplo, elas podem não começar com uma letra ou podem conter caracteres incomuns como um espaço. Para se referir a essas variáveis, você precisa cercá-las com <span class="sc">\`</span> <span class="sc">\`</span>. Neste documento, a estrutura de dados padrão a ser utilizada será tibble.</span>
+<span id="cb150-191"><a href="#cb150-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-192"><a href="#cb150-192" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb150-193"><a href="#cb150-193" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertendo um dataframe a um tibble</span></span>
+<span id="cb150-194"><a href="#cb150-194" aria-hidden="true" tabindex="-1"></a>tbl_x10 <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(x10)</span>
+<span id="cb150-195"><a href="#cb150-195" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tbl_x10)</span>
+<span id="cb150-196"><a href="#cb150-196" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tbl_x10)</span>
+<span id="cb150-197"><a href="#cb150-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb150-198"><a href="#cb150-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-199"><a href="#cb150-199" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb150-200"><a href="#cb150-200" aria-hidden="true" tabindex="-1"></a><span class="co"># Tentando criar um dataframe</span></span>
+<span id="cb150-201"><a href="#cb150-201" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb150-202"><a href="#cb150-202" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>,</span>
+<span id="cb150-203"><a href="#cb150-203" aria-hidden="true" tabindex="-1"></a>           <span class="at">z =</span> x <span class="sc">^</span> <span class="dv">2</span> <span class="sc">+</span> y)</span>
 <span id="cb150-204"><a href="#cb150-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-205"><a href="#cb150-205" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb150-206"><a href="#cb150-206" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando um tibble</span></span>
-<span id="cb150-207"><a href="#cb150-207" aria-hidden="true" tabindex="-1"></a>tib1 <span class="ot">&lt;-</span> </span>
-<span id="cb150-208"><a href="#cb150-208" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb150-209"><a href="#cb150-209" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>,</span>
-<span id="cb150-210"><a href="#cb150-210" aria-hidden="true" tabindex="-1"></a>         <span class="at">z =</span> x <span class="sc">^</span> <span class="dv">2</span> <span class="sc">+</span> y)</span>
-<span id="cb150-211"><a href="#cb150-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-212"><a href="#cb150-212" aria-hidden="true" tabindex="-1"></a>tib1[, <span class="dv">1</span>]</span>
-<span id="cb150-213"><a href="#cb150-213" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-214"><a href="#cb150-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-215"><a href="#cb150-215" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lista</span></span>
+<span id="cb150-205"><a href="#cb150-205" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb150-206"><a href="#cb150-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-207"><a href="#cb150-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb150-208"><a href="#cb150-208" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando um tibble</span></span>
+<span id="cb150-209"><a href="#cb150-209" aria-hidden="true" tabindex="-1"></a>tib1 <span class="ot">&lt;-</span> </span>
+<span id="cb150-210"><a href="#cb150-210" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb150-211"><a href="#cb150-211" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>,</span>
+<span id="cb150-212"><a href="#cb150-212" aria-hidden="true" tabindex="-1"></a>         <span class="at">z =</span> x <span class="sc">^</span> <span class="dv">2</span> <span class="sc">+</span> y)</span>
+<span id="cb150-213"><a href="#cb150-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-214"><a href="#cb150-214" aria-hidden="true" tabindex="-1"></a>tib1[, <span class="dv">1</span>]</span>
+<span id="cb150-215"><a href="#cb150-215" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-216"><a href="#cb150-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-217"><a href="#cb150-217" aria-hidden="true" tabindex="-1"></a>No exemplo abaixo, será armazenado em uma lista um objeto de cada class. Posteriomente, será selecionado o terceiro objeto</span>
+<span id="cb150-217"><a href="#cb150-217" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lista</span></span>
 <span id="cb150-218"><a href="#cb150-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-219"><a href="#cb150-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb150-220"><a href="#cb150-220" aria-hidden="true" tabindex="-1"></a>list1 <span class="ot">&lt;-</span> <span class="fu">list</span>(x2, x9, x10)</span>
-<span id="cb150-221"><a href="#cb150-221" aria-hidden="true" tabindex="-1"></a>list1[[<span class="dv">3</span>]]</span>
-<span id="cb150-222"><a href="#cb150-222" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-223"><a href="#cb150-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-224"><a href="#cb150-224" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lógica de programação</span></span>
+<span id="cb150-219"><a href="#cb150-219" aria-hidden="true" tabindex="-1"></a>No exemplo abaixo, será armazenado em uma lista um objeto de cada class. Posteriomente, será selecionado o terceiro objeto</span>
+<span id="cb150-220"><a href="#cb150-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-221"><a href="#cb150-221" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb150-222"><a href="#cb150-222" aria-hidden="true" tabindex="-1"></a>list1 <span class="ot">&lt;-</span> <span class="fu">list</span>(x2, x9, x10)</span>
+<span id="cb150-223"><a href="#cb150-223" aria-hidden="true" tabindex="-1"></a>list1[[<span class="dv">3</span>]]</span>
+<span id="cb150-224"><a href="#cb150-224" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-225"><a href="#cb150-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-226"><a href="#cb150-226" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
-<span id="cb150-227"><a href="#cb150-227" aria-hidden="true" tabindex="-1"></a><span class="fu">## É preciso mesmo compreender programação?</span></span>
-<span id="cb150-228"><a href="#cb150-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-229"><a href="#cb150-229" aria-hidden="true" tabindex="-1"></a>A programação é uma habilidade transversal necessária para todo o trabalho de ciência de dados (usando R ou não!). Resumidamente, a programação produz o código, e o código é uma ferramenta de comunicação entre você e o computado.</span>
-<span id="cb150-230"><a href="#cb150-230" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb150-231"><a href="#cb150-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-232"><a href="#cb150-232" aria-hidden="true" tabindex="-1"></a><span class="fu">## Funções</span></span>
+<span id="cb150-226"><a href="#cb150-226" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lógica de programação</span></span>
+<span id="cb150-227"><a href="#cb150-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-228"><a href="#cb150-228" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb150-229"><a href="#cb150-229" aria-hidden="true" tabindex="-1"></a><span class="fu">## É preciso mesmo compreender programação?</span></span>
+<span id="cb150-230"><a href="#cb150-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-231"><a href="#cb150-231" aria-hidden="true" tabindex="-1"></a>A programação é uma habilidade transversal necessária para todo o trabalho de ciência de dados (usando R ou não!). Resumidamente, a programação produz o código, e o código é uma ferramenta de comunicação entre você e o computado.</span>
+<span id="cb150-232"><a href="#cb150-232" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb150-233"><a href="#cb150-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-234"><a href="#cb150-234" aria-hidden="true" tabindex="-1"></a>Uma das melhores maneiras de tornar o código mais eficiente é escrever funções. As funções são a base da linguagem *R*. Através de *argumentos* que são indicados em <span class="in">`funtion()`</span>, uma expressão (ou série de expressões) é resolvida e um valor (ou um conjunto de valores) é retornado. As funções permitem automatizar tarefas comuns de uma maneira mais poderosa e geral do que 'copiar e colar'. Escrever uma função tem três grandes vantagens sobre o uso de copiar e colar:</span>
+<span id="cb150-234"><a href="#cb150-234" aria-hidden="true" tabindex="-1"></a><span class="fu">## Funções</span></span>
 <span id="cb150-235"><a href="#cb150-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-236"><a href="#cb150-236" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Você pode dar a uma função um nome evocativo que torne seu código mais fácil de entender.</span>
-<span id="cb150-237"><a href="#cb150-237" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>À medida que os requisitos mudam, você só precisa atualizar o código em um local, em vez de vários.</span>
-<span id="cb150-238"><a href="#cb150-238" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Você elimina a chance de cometer erros acidentais ao copiar e colar (ex., atualizar um nome de variável em um local, mas não em outro).</span>
-<span id="cb150-239"><a href="#cb150-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-240"><a href="#cb150-240" aria-hidden="true" tabindex="-1"></a>Considere escrever uma função sempre que 'copiar e colar' um bloco de código mais de duas vezes. Quando uma função é armazenada no ambiente de trabalho, basta digitar o nome como o qual aquela função foi gravada. Os argumentos podem ser inseridos na ordem em que aparecem na função, sem especificar a qual argumento aquele valor pertence. No caso em que a inserção dos argumentos é diferente da ordem em que aparecem na função, é preciso identificar a qual argumento aquele valor pertente. Note que é possível combinar valores numéricos e texto como argumentos e/ou resultados de funções. Veja alguns exemplos.</span>
+<span id="cb150-236"><a href="#cb150-236" aria-hidden="true" tabindex="-1"></a>Uma das melhores maneiras de tornar o código mais eficiente é escrever funções. As funções são a base da linguagem *R*. Através de *argumentos* que são indicados em <span class="in">`funtion()`</span>, uma expressão (ou série de expressões) é resolvida e um valor (ou um conjunto de valores) é retornado. As funções permitem automatizar tarefas comuns de uma maneira mais poderosa e geral do que 'copiar e colar'. Escrever uma função tem três grandes vantagens sobre o uso de copiar e colar:</span>
+<span id="cb150-237"><a href="#cb150-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-238"><a href="#cb150-238" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Você pode dar a uma função um nome evocativo que torne seu código mais fácil de entender.</span>
+<span id="cb150-239"><a href="#cb150-239" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>À medida que os requisitos mudam, você só precisa atualizar o código em um local, em vez de vários.</span>
+<span id="cb150-240"><a href="#cb150-240" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Você elimina a chance de cometer erros acidentais ao copiar e colar (ex., atualizar um nome de variável em um local, mas não em outro).</span>
 <span id="cb150-241"><a href="#cb150-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-242"><a href="#cb150-242" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE, error=TRUE}</span></span>
-<span id="cb150-243"><a href="#cb150-243" aria-hidden="true" tabindex="-1"></a><span class="co"># EXEMPLO 1:</span></span>
-<span id="cb150-244"><a href="#cb150-244" aria-hidden="true" tabindex="-1"></a><span class="co"># resolve a função 2x+1</span></span>
-<span id="cb150-245"><a href="#cb150-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-246"><a href="#cb150-246" aria-hidden="true" tabindex="-1"></a>fun1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x){  <span class="co"># x é o único argumento da função</span></span>
-<span id="cb150-247"><a href="#cb150-247" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb150-248"><a href="#cb150-248" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(a) <span class="co"># retorna a</span></span>
-<span id="cb150-249"><a href="#cb150-249" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb150-250"><a href="#cb150-250" aria-hidden="true" tabindex="-1"></a><span class="fu">fun1</span>(<span class="dv">2</span>)</span>
-<span id="cb150-251"><a href="#cb150-251" aria-hidden="true" tabindex="-1"></a><span class="fu">fun1</span>(<span class="at">x =</span> <span class="dv">2</span>) <span class="co"># explicita o ragumento</span></span>
-<span id="cb150-252"><a href="#cb150-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-253"><a href="#cb150-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-254"><a href="#cb150-254" aria-hidden="true" tabindex="-1"></a><span class="co"># EXEMPLO 2</span></span>
-<span id="cb150-255"><a href="#cb150-255" aria-hidden="true" tabindex="-1"></a><span class="co"># função para elevar ao quadrado ou cubo</span></span>
-<span id="cb150-256"><a href="#cb150-256" aria-hidden="true" tabindex="-1"></a><span class="co"># inclui condicionantes</span></span>
-<span id="cb150-257"><a href="#cb150-257" aria-hidden="true" tabindex="-1"></a>elevar <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">eleva =</span> <span class="st">"quadrado"</span>){</span>
-<span id="cb150-258"><a href="#cb150-258" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span>eleva <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"quadrado"</span>, <span class="st">"cubo"</span>)){</span>
-<span id="cb150-259"><a href="#cb150-259" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"O argumento eleva = "</span>,eleva, <span class="st">" deve ser ou 'quadrado' ou 'cubo'"</span>)</span>
-<span id="cb150-260"><a href="#cb150-260" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb150-261"><a href="#cb150-261" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(eleva <span class="sc">==</span> <span class="st">"quadrado"</span>){</span>
-<span id="cb150-262"><a href="#cb150-262" aria-hidden="true" tabindex="-1"></a>    valor <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(x<span class="sc">^</span><span class="dv">2</span> <span class="sc">&gt;=</span> <span class="dv">1000</span>,</span>
-<span id="cb150-263"><a href="#cb150-263" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">paste</span>(<span class="st">"O resultado ("</span>,x<span class="sc">^</span><span class="dv">2</span>,<span class="st">") tem mais que 3 dígitos"</span>),</span>
-<span id="cb150-264"><a href="#cb150-264" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">paste</span>(<span class="st">"O resultado ("</span>,x<span class="sc">^</span><span class="dv">2</span>,<span class="st">") tem menos que 3 dígitos"</span>))</span>
-<span id="cb150-265"><a href="#cb150-265" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb150-266"><a href="#cb150-266" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(eleva <span class="sc">==</span> <span class="st">"cubo"</span>){</span>
-<span id="cb150-267"><a href="#cb150-267" aria-hidden="true" tabindex="-1"></a>    valor <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(x<span class="sc">^</span><span class="dv">3</span> <span class="sc">&gt;=</span> <span class="dv">1000</span>,</span>
-<span id="cb150-268"><a href="#cb150-268" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">paste</span>(<span class="st">"O resultado ("</span>,x<span class="sc">^</span><span class="dv">3</span>,<span class="st">") tem mais que 3 dígitos"</span>),</span>
-<span id="cb150-269"><a href="#cb150-269" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">paste</span>(<span class="st">"O resultado ("</span>,x<span class="sc">^</span><span class="dv">3</span>,<span class="st">") tem menos que 3 dígitos"</span>))</span>
-<span id="cb150-270"><a href="#cb150-270" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb150-271"><a href="#cb150-271" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb150-272"><a href="#cb150-272" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(valor)</span>
-<span id="cb150-273"><a href="#cb150-273" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb150-274"><a href="#cb150-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-275"><a href="#cb150-275" aria-hidden="true" tabindex="-1"></a><span class="fu">elevar</span>(<span class="dv">2</span>)                       <span class="co"># usa o valor dos argumentos </span></span>
-<span id="cb150-276"><a href="#cb150-276" aria-hidden="true" tabindex="-1"></a><span class="fu">elevar</span>(<span class="dv">3</span>, <span class="st">"cubo"</span>)               <span class="co"># argumentos na sequência que eles aparecem</span></span>
-<span id="cb150-277"><a href="#cb150-277" aria-hidden="true" tabindex="-1"></a><span class="fu">elevar</span>(<span class="at">eleva =</span> <span class="st">"cubo"</span>, <span class="at">x =</span> <span class="dv">15</span>)  <span class="co"># mudar a ordem dos argumentos</span></span>
-<span id="cb150-278"><a href="#cb150-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-279"><a href="#cb150-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-242"><a href="#cb150-242" aria-hidden="true" tabindex="-1"></a>Considere escrever uma função sempre que 'copiar e colar' um bloco de código mais de duas vezes. Quando uma função é armazenada no ambiente de trabalho, basta digitar o nome como o qual aquela função foi gravada. Os argumentos podem ser inseridos na ordem em que aparecem na função, sem especificar a qual argumento aquele valor pertence. No caso em que a inserção dos argumentos é diferente da ordem em que aparecem na função, é preciso identificar a qual argumento aquele valor pertente. Note que é possível combinar valores numéricos e texto como argumentos e/ou resultados de funções. Veja alguns exemplos.</span>
+<span id="cb150-243"><a href="#cb150-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-244"><a href="#cb150-244" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE, error=TRUE}</span></span>
+<span id="cb150-245"><a href="#cb150-245" aria-hidden="true" tabindex="-1"></a><span class="co"># EXEMPLO 1:</span></span>
+<span id="cb150-246"><a href="#cb150-246" aria-hidden="true" tabindex="-1"></a><span class="co"># resolve a função 2x+1</span></span>
+<span id="cb150-247"><a href="#cb150-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-248"><a href="#cb150-248" aria-hidden="true" tabindex="-1"></a>fun1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x){  <span class="co"># x é o único argumento da função</span></span>
+<span id="cb150-249"><a href="#cb150-249" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb150-250"><a href="#cb150-250" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(a) <span class="co"># retorna a</span></span>
+<span id="cb150-251"><a href="#cb150-251" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb150-252"><a href="#cb150-252" aria-hidden="true" tabindex="-1"></a><span class="fu">fun1</span>(<span class="dv">2</span>)</span>
+<span id="cb150-253"><a href="#cb150-253" aria-hidden="true" tabindex="-1"></a><span class="fu">fun1</span>(<span class="at">x =</span> <span class="dv">2</span>) <span class="co"># explicita o ragumento</span></span>
+<span id="cb150-254"><a href="#cb150-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-255"><a href="#cb150-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-256"><a href="#cb150-256" aria-hidden="true" tabindex="-1"></a><span class="co"># EXEMPLO 2</span></span>
+<span id="cb150-257"><a href="#cb150-257" aria-hidden="true" tabindex="-1"></a><span class="co"># função para elevar ao quadrado ou cubo</span></span>
+<span id="cb150-258"><a href="#cb150-258" aria-hidden="true" tabindex="-1"></a><span class="co"># inclui condicionantes</span></span>
+<span id="cb150-259"><a href="#cb150-259" aria-hidden="true" tabindex="-1"></a>elevar <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">eleva =</span> <span class="st">"quadrado"</span>){</span>
+<span id="cb150-260"><a href="#cb150-260" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span>eleva <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"quadrado"</span>, <span class="st">"cubo"</span>)){</span>
+<span id="cb150-261"><a href="#cb150-261" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"O argumento eleva = "</span>,eleva, <span class="st">" deve ser ou 'quadrado' ou 'cubo'"</span>)</span>
+<span id="cb150-262"><a href="#cb150-262" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb150-263"><a href="#cb150-263" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(eleva <span class="sc">==</span> <span class="st">"quadrado"</span>){</span>
+<span id="cb150-264"><a href="#cb150-264" aria-hidden="true" tabindex="-1"></a>    valor <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(x<span class="sc">^</span><span class="dv">2</span> <span class="sc">&gt;=</span> <span class="dv">1000</span>,</span>
+<span id="cb150-265"><a href="#cb150-265" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">paste</span>(<span class="st">"O resultado ("</span>,x<span class="sc">^</span><span class="dv">2</span>,<span class="st">") tem mais que 3 dígitos"</span>),</span>
+<span id="cb150-266"><a href="#cb150-266" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">paste</span>(<span class="st">"O resultado ("</span>,x<span class="sc">^</span><span class="dv">2</span>,<span class="st">") tem menos que 3 dígitos"</span>))</span>
+<span id="cb150-267"><a href="#cb150-267" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb150-268"><a href="#cb150-268" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(eleva <span class="sc">==</span> <span class="st">"cubo"</span>){</span>
+<span id="cb150-269"><a href="#cb150-269" aria-hidden="true" tabindex="-1"></a>    valor <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(x<span class="sc">^</span><span class="dv">3</span> <span class="sc">&gt;=</span> <span class="dv">1000</span>,</span>
+<span id="cb150-270"><a href="#cb150-270" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">paste</span>(<span class="st">"O resultado ("</span>,x<span class="sc">^</span><span class="dv">3</span>,<span class="st">") tem mais que 3 dígitos"</span>),</span>
+<span id="cb150-271"><a href="#cb150-271" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">paste</span>(<span class="st">"O resultado ("</span>,x<span class="sc">^</span><span class="dv">3</span>,<span class="st">") tem menos que 3 dígitos"</span>))</span>
+<span id="cb150-272"><a href="#cb150-272" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb150-273"><a href="#cb150-273" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb150-274"><a href="#cb150-274" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(valor)</span>
+<span id="cb150-275"><a href="#cb150-275" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb150-276"><a href="#cb150-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-277"><a href="#cb150-277" aria-hidden="true" tabindex="-1"></a><span class="fu">elevar</span>(<span class="dv">2</span>)                       <span class="co"># usa o valor dos argumentos </span></span>
+<span id="cb150-278"><a href="#cb150-278" aria-hidden="true" tabindex="-1"></a><span class="fu">elevar</span>(<span class="dv">3</span>, <span class="st">"cubo"</span>)               <span class="co"># argumentos na sequência que eles aparecem</span></span>
+<span id="cb150-279"><a href="#cb150-279" aria-hidden="true" tabindex="-1"></a><span class="fu">elevar</span>(<span class="at">eleva =</span> <span class="st">"cubo"</span>, <span class="at">x =</span> <span class="dv">15</span>)  <span class="co"># mudar a ordem dos argumentos</span></span>
 <span id="cb150-280"><a href="#cb150-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-281"><a href="#cb150-281" aria-hidden="true" tabindex="-1"></a><span class="co"># EXEMPLO 3: fórmula de Bháskara</span></span>
-<span id="cb150-282"><a href="#cb150-282" aria-hidden="true" tabindex="-1"></a><span class="co"># Encontrar as raízes de uma equação de segundo grau</span></span>
-<span id="cb150-283"><a href="#cb150-283" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotar a curva</span></span>
-<span id="cb150-284"><a href="#cb150-284" aria-hidden="true" tabindex="-1"></a>bhaskara <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b, c, <span class="at">plot =</span> <span class="cn">TRUE</span>){ </span>
-<span id="cb150-285"><a href="#cb150-285" aria-hidden="true" tabindex="-1"></a>  <span class="co"># argumentos a, b e c são </span></span>
-<span id="cb150-286"><a href="#cb150-286" aria-hidden="true" tabindex="-1"></a>  dentro_raiz <span class="ot">&lt;-</span> b<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span> <span class="sc">*</span> a <span class="sc">*</span> c</span>
-<span id="cb150-287"><a href="#cb150-287" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(dentro_raiz <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
-<span id="cb150-288"><a href="#cb150-288" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Sem solução real"</span>)</span>
-<span id="cb150-289"><a href="#cb150-289" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb150-290"><a href="#cb150-290" aria-hidden="true" tabindex="-1"></a>  delta <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(dentro_raiz)</span>
-<span id="cb150-291"><a href="#cb150-291" aria-hidden="true" tabindex="-1"></a>  x1 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">+</span> delta) <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> a)</span>
-<span id="cb150-292"><a href="#cb150-292" aria-hidden="true" tabindex="-1"></a>  x2 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">-</span> delta) <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> a)</span>
-<span id="cb150-293"><a href="#cb150-293" aria-hidden="true" tabindex="-1"></a>  minx <span class="ot">&lt;-</span> <span class="fu">min</span>(x1, x2)</span>
-<span id="cb150-294"><a href="#cb150-294" aria-hidden="true" tabindex="-1"></a>  min_exp <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(minx <span class="sc">&lt;</span> <span class="dv">0</span>, minx <span class="sc">+</span> minx <span class="sc">*</span> <span class="fl">0.2</span>, minx <span class="sc">-</span> minx <span class="sc">*</span> <span class="fl">0.2</span>)</span>
-<span id="cb150-295"><a href="#cb150-295" aria-hidden="true" tabindex="-1"></a>  maxx <span class="ot">&lt;-</span> <span class="fu">max</span>(x1, x2)</span>
-<span id="cb150-296"><a href="#cb150-296" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb150-297"><a href="#cb150-297" aria-hidden="true" tabindex="-1"></a>  <span class="co"># checa se precisa plotar</span></span>
-<span id="cb150-298"><a href="#cb150-298" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">isTRUE</span>(plot)){</span>
-<span id="cb150-299"><a href="#cb150-299" aria-hidden="true" tabindex="-1"></a>    <span class="co"># plot.new()</span></span>
-<span id="cb150-300"><a href="#cb150-300" aria-hidden="true" tabindex="-1"></a>    <span class="co"># curva</span></span>
-<span id="cb150-301"><a href="#cb150-301" aria-hidden="true" tabindex="-1"></a>    <span class="fu">curve</span>(a <span class="sc">*</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> b <span class="sc">*</span> x <span class="sc">+</span> c, </span>
-<span id="cb150-302"><a href="#cb150-302" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlim =</span> <span class="fu">c</span>(min_exp,</span>
-<span id="cb150-303"><a href="#cb150-303" aria-hidden="true" tabindex="-1"></a>                   maxx <span class="sc">+</span> maxx <span class="sc">*</span> <span class="fl">0.2</span>))</span>
-<span id="cb150-304"><a href="#cb150-304" aria-hidden="true" tabindex="-1"></a>    <span class="co"># pontos nas raízes</span></span>
-<span id="cb150-305"><a href="#cb150-305" aria-hidden="true" tabindex="-1"></a>    <span class="fu">points</span>(<span class="at">x =</span> <span class="fu">c</span>(x1, x2),</span>
-<span id="cb150-306"><a href="#cb150-306" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
-<span id="cb150-307"><a href="#cb150-307" aria-hidden="true" tabindex="-1"></a>           <span class="at">col =</span> <span class="st">"black"</span>,</span>
-<span id="cb150-308"><a href="#cb150-308" aria-hidden="true" tabindex="-1"></a>           <span class="at">pch =</span> <span class="dv">19</span>)</span>
-<span id="cb150-309"><a href="#cb150-309" aria-hidden="true" tabindex="-1"></a>    <span class="co"># linha no zero</span></span>
-<span id="cb150-310"><a href="#cb150-310" aria-hidden="true" tabindex="-1"></a>    <span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
-<span id="cb150-311"><a href="#cb150-311" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb150-312"><a href="#cb150-312" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb150-313"><a href="#cb150-313" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calcula o x e y do vértice</span></span>
-<span id="cb150-314"><a href="#cb150-314" aria-hidden="true" tabindex="-1"></a>  x_vert <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="sc">-</span>b <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>a), <span class="dv">3</span>)</span>
-<span id="cb150-315"><a href="#cb150-315" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"x: "</span>, x_vert))</span>
-<span id="cb150-316"><a href="#cb150-316" aria-hidden="true" tabindex="-1"></a>  y_vert <span class="ot">&lt;-</span> <span class="fu">round</span>(a <span class="sc">*</span> x_vert<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> b <span class="sc">*</span> x_vert <span class="sc">+</span> c , <span class="dv">3</span>)</span>
-<span id="cb150-317"><a href="#cb150-317" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"y: "</span>, y_vert))</span>
-<span id="cb150-318"><a href="#cb150-318" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb150-319"><a href="#cb150-319" aria-hidden="true" tabindex="-1"></a>  <span class="co"># plota os pontos do vértice</span></span>
-<span id="cb150-320"><a href="#cb150-320" aria-hidden="true" tabindex="-1"></a>  <span class="fu">points</span>(<span class="at">x =</span> x_vert,</span>
-<span id="cb150-321"><a href="#cb150-321" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> y_vert,</span>
-<span id="cb150-322"><a href="#cb150-322" aria-hidden="true" tabindex="-1"></a>         <span class="at">col =</span> <span class="st">"red"</span>,</span>
-<span id="cb150-323"><a href="#cb150-323" aria-hidden="true" tabindex="-1"></a>         <span class="at">pch =</span> <span class="dv">19</span>)</span>
-<span id="cb150-324"><a href="#cb150-324" aria-hidden="true" tabindex="-1"></a>  <span class="co"># retorna as raízes</span></span>
-<span id="cb150-325"><a href="#cb150-325" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"Raízes: S{"</span>, x1, <span class="st">";"</span>, x2, <span class="st">"}"</span>))</span>
-<span id="cb150-326"><a href="#cb150-326" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb150-327"><a href="#cb150-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-328"><a href="#cb150-328" aria-hidden="true" tabindex="-1"></a><span class="fu">bhaskara</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">3</span>)</span>
-<span id="cb150-329"><a href="#cb150-329" aria-hidden="true" tabindex="-1"></a><span class="fu">bhaskara</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="sc">-</span><span class="dv">3</span>)</span>
-<span id="cb150-330"><a href="#cb150-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-331"><a href="#cb150-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-332"><a href="#cb150-332" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb150-281"><a href="#cb150-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-282"><a href="#cb150-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-283"><a href="#cb150-283" aria-hidden="true" tabindex="-1"></a><span class="co"># EXEMPLO 3: fórmula de Bháskara</span></span>
+<span id="cb150-284"><a href="#cb150-284" aria-hidden="true" tabindex="-1"></a><span class="co"># Encontrar as raízes de uma equação de segundo grau</span></span>
+<span id="cb150-285"><a href="#cb150-285" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotar a curva</span></span>
+<span id="cb150-286"><a href="#cb150-286" aria-hidden="true" tabindex="-1"></a>bhaskara <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b, c, <span class="at">plot =</span> <span class="cn">TRUE</span>){ </span>
+<span id="cb150-287"><a href="#cb150-287" aria-hidden="true" tabindex="-1"></a>  <span class="co"># argumentos a, b e c são </span></span>
+<span id="cb150-288"><a href="#cb150-288" aria-hidden="true" tabindex="-1"></a>  dentro_raiz <span class="ot">&lt;-</span> b<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span> <span class="sc">*</span> a <span class="sc">*</span> c</span>
+<span id="cb150-289"><a href="#cb150-289" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(dentro_raiz <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
+<span id="cb150-290"><a href="#cb150-290" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Sem solução real"</span>)</span>
+<span id="cb150-291"><a href="#cb150-291" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb150-292"><a href="#cb150-292" aria-hidden="true" tabindex="-1"></a>  delta <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(dentro_raiz)</span>
+<span id="cb150-293"><a href="#cb150-293" aria-hidden="true" tabindex="-1"></a>  x1 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">+</span> delta) <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> a)</span>
+<span id="cb150-294"><a href="#cb150-294" aria-hidden="true" tabindex="-1"></a>  x2 <span class="ot">&lt;-</span> (<span class="sc">-</span>b <span class="sc">-</span> delta) <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> a)</span>
+<span id="cb150-295"><a href="#cb150-295" aria-hidden="true" tabindex="-1"></a>  minx <span class="ot">&lt;-</span> <span class="fu">min</span>(x1, x2)</span>
+<span id="cb150-296"><a href="#cb150-296" aria-hidden="true" tabindex="-1"></a>  min_exp <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(minx <span class="sc">&lt;</span> <span class="dv">0</span>, minx <span class="sc">+</span> minx <span class="sc">*</span> <span class="fl">0.2</span>, minx <span class="sc">-</span> minx <span class="sc">*</span> <span class="fl">0.2</span>)</span>
+<span id="cb150-297"><a href="#cb150-297" aria-hidden="true" tabindex="-1"></a>  maxx <span class="ot">&lt;-</span> <span class="fu">max</span>(x1, x2)</span>
+<span id="cb150-298"><a href="#cb150-298" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb150-299"><a href="#cb150-299" aria-hidden="true" tabindex="-1"></a>  <span class="co"># checa se precisa plotar</span></span>
+<span id="cb150-300"><a href="#cb150-300" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">isTRUE</span>(plot)){</span>
+<span id="cb150-301"><a href="#cb150-301" aria-hidden="true" tabindex="-1"></a>    <span class="co"># plot.new()</span></span>
+<span id="cb150-302"><a href="#cb150-302" aria-hidden="true" tabindex="-1"></a>    <span class="co"># curva</span></span>
+<span id="cb150-303"><a href="#cb150-303" aria-hidden="true" tabindex="-1"></a>    <span class="fu">curve</span>(a <span class="sc">*</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> b <span class="sc">*</span> x <span class="sc">+</span> c, </span>
+<span id="cb150-304"><a href="#cb150-304" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlim =</span> <span class="fu">c</span>(min_exp,</span>
+<span id="cb150-305"><a href="#cb150-305" aria-hidden="true" tabindex="-1"></a>                   maxx <span class="sc">+</span> maxx <span class="sc">*</span> <span class="fl">0.2</span>))</span>
+<span id="cb150-306"><a href="#cb150-306" aria-hidden="true" tabindex="-1"></a>    <span class="co"># pontos nas raízes</span></span>
+<span id="cb150-307"><a href="#cb150-307" aria-hidden="true" tabindex="-1"></a>    <span class="fu">points</span>(<span class="at">x =</span> <span class="fu">c</span>(x1, x2),</span>
+<span id="cb150-308"><a href="#cb150-308" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb150-309"><a href="#cb150-309" aria-hidden="true" tabindex="-1"></a>           <span class="at">col =</span> <span class="st">"black"</span>,</span>
+<span id="cb150-310"><a href="#cb150-310" aria-hidden="true" tabindex="-1"></a>           <span class="at">pch =</span> <span class="dv">19</span>)</span>
+<span id="cb150-311"><a href="#cb150-311" aria-hidden="true" tabindex="-1"></a>    <span class="co"># linha no zero</span></span>
+<span id="cb150-312"><a href="#cb150-312" aria-hidden="true" tabindex="-1"></a>    <span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb150-313"><a href="#cb150-313" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb150-314"><a href="#cb150-314" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb150-315"><a href="#cb150-315" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calcula o x e y do vértice</span></span>
+<span id="cb150-316"><a href="#cb150-316" aria-hidden="true" tabindex="-1"></a>  x_vert <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="sc">-</span>b <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>a), <span class="dv">3</span>)</span>
+<span id="cb150-317"><a href="#cb150-317" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"x: "</span>, x_vert))</span>
+<span id="cb150-318"><a href="#cb150-318" aria-hidden="true" tabindex="-1"></a>  y_vert <span class="ot">&lt;-</span> <span class="fu">round</span>(a <span class="sc">*</span> x_vert<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> b <span class="sc">*</span> x_vert <span class="sc">+</span> c , <span class="dv">3</span>)</span>
+<span id="cb150-319"><a href="#cb150-319" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"y: "</span>, y_vert))</span>
+<span id="cb150-320"><a href="#cb150-320" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb150-321"><a href="#cb150-321" aria-hidden="true" tabindex="-1"></a>  <span class="co"># plota os pontos do vértice</span></span>
+<span id="cb150-322"><a href="#cb150-322" aria-hidden="true" tabindex="-1"></a>  <span class="fu">points</span>(<span class="at">x =</span> x_vert,</span>
+<span id="cb150-323"><a href="#cb150-323" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> y_vert,</span>
+<span id="cb150-324"><a href="#cb150-324" aria-hidden="true" tabindex="-1"></a>         <span class="at">col =</span> <span class="st">"red"</span>,</span>
+<span id="cb150-325"><a href="#cb150-325" aria-hidden="true" tabindex="-1"></a>         <span class="at">pch =</span> <span class="dv">19</span>)</span>
+<span id="cb150-326"><a href="#cb150-326" aria-hidden="true" tabindex="-1"></a>  <span class="co"># retorna as raízes</span></span>
+<span id="cb150-327"><a href="#cb150-327" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"Raízes: S{"</span>, x1, <span class="st">";"</span>, x2, <span class="st">"}"</span>))</span>
+<span id="cb150-328"><a href="#cb150-328" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb150-329"><a href="#cb150-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-330"><a href="#cb150-330" aria-hidden="true" tabindex="-1"></a><span class="fu">bhaskara</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">3</span>)</span>
+<span id="cb150-331"><a href="#cb150-331" aria-hidden="true" tabindex="-1"></a><span class="fu">bhaskara</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="sc">-</span><span class="dv">3</span>)</span>
+<span id="cb150-332"><a href="#cb150-332" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb150-333"><a href="#cb150-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-334"><a href="#cb150-334" aria-hidden="true" tabindex="-1"></a><span class="fu">## Operador pipe</span></span>
+<span id="cb150-334"><a href="#cb150-334" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-335"><a href="#cb150-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-336"><a href="#cb150-336" aria-hidden="true" tabindex="-1"></a>Pipes são uma ferramenta poderosa para expressar claramente uma sequência de várias operações. Em resumo, o operador pipe fornece o resultado do lado esquerdo (LHS) do operador como o primeiro argumento do lado direito (RHS). O pipe <span class="in">`%&gt;%`</span> vem do pacote <span class="co">[</span><span class="ot">magrittr</span><span class="co">](https://magrittr.tidyverse.org/index.html)</span> e faz parte da família de pacotes <span class="co">[</span><span class="ot">`tidyverse`</span><span class="co">](https://www.tidyverse.org/)</span>, que serão explorados no decorrer deste material. O objetivo do pipe é ajudá-lo a escrever código de uma maneira que seja mais fácil de ler e entender. A partir da versão 4.1.0, o R contém um pipe nativo <span class="in">`|&gt;`</span>. Sutis diferenças são observadas, mas não é nosso objetivo aqui entrar neste universo. Para maiores detalhes veja o vídeo abaixo.</span>
+<span id="cb150-336"><a href="#cb150-336" aria-hidden="true" tabindex="-1"></a><span class="fu">## Operador pipe</span></span>
 <span id="cb150-337"><a href="#cb150-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-338"><a href="#cb150-338" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/TmSwDAvPX2Q &gt;}}</span>
+<span id="cb150-338"><a href="#cb150-338" aria-hidden="true" tabindex="-1"></a>Pipes são uma ferramenta poderosa para expressar claramente uma sequência de várias operações. Em resumo, o operador pipe fornece o resultado do lado esquerdo (LHS) do operador como o primeiro argumento do lado direito (RHS). O pipe <span class="in">`%&gt;%`</span> vem do pacote <span class="co">[</span><span class="ot">magrittr</span><span class="co">](https://magrittr.tidyverse.org/index.html)</span> e faz parte da família de pacotes <span class="co">[</span><span class="ot">`tidyverse`</span><span class="co">](https://www.tidyverse.org/)</span>, que serão explorados no decorrer deste material. O objetivo do pipe é ajudá-lo a escrever código de uma maneira que seja mais fácil de ler e entender. A partir da versão 4.1.0, o R contém um pipe nativo <span class="in">`|&gt;`</span>. Sutis diferenças são observadas, mas não é nosso objetivo aqui entrar neste universo. Para maiores detalhes veja o vídeo abaixo.</span>
 <span id="cb150-339"><a href="#cb150-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-340"><a href="#cb150-340" aria-hidden="true" tabindex="-1"></a>Você consegue habilitar o pipe nativo no Rstudio, indo em *Tools \&gt; Global Options \&gt; Code* e selecionar a caixa indicada abaixo.</span>
+<span id="cb150-340"><a href="#cb150-340" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/TmSwDAvPX2Q &gt;}}</span>
 <span id="cb150-341"><a href="#cb150-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-342"><a href="#cb150-342" aria-hidden="true" tabindex="-1"></a><span class="al">![](figs/pipe.png)</span></span>
+<span id="cb150-342"><a href="#cb150-342" aria-hidden="true" tabindex="-1"></a>Você consegue habilitar o pipe nativo no Rstudio, indo em *Tools \&gt; Global Options \&gt; Code* e selecionar a caixa indicada abaixo.</span>
 <span id="cb150-343"><a href="#cb150-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-344"><a href="#cb150-344" aria-hidden="true" tabindex="-1"></a>Para ver por que o pipe é tão útil, vamos explorar algumas maneiras de escrever o mesmo código. Para isso, considere as seguintes (e simples) operações.</span>
+<span id="cb150-344"><a href="#cb150-344" aria-hidden="true" tabindex="-1"></a><span class="al">![](figs/pipe.png)</span></span>
 <span id="cb150-345"><a href="#cb150-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-346"><a href="#cb150-346" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; -   Crie uma função que computa o quadrado do desvio de cada termo em relação à média.</span></span>
-<span id="cb150-347"><a href="#cb150-347" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; -   Crie um vetor com 10 dados aleatórios de uma distribuição normal com média 10 e desvio padrão 2, utilizando </span><span class="in">`rnorm().`</span></span>
-<span id="cb150-348"><a href="#cb150-348" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; -   Eleve o vetor numérico ao quadrado</span></span>
-<span id="cb150-349"><a href="#cb150-349" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; -   Some os valores</span></span>
-<span id="cb150-350"><a href="#cb150-350" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; -   divida por n - 1</span></span>
-<span id="cb150-351"><a href="#cb150-351" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; -   Armazene no objeto var_amo</span></span>
-<span id="cb150-352"><a href="#cb150-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-355"><a href="#cb150-355" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb150-356"><a href="#cb150-356" aria-hidden="true" tabindex="-1"></a><span class="co"># função para computar o quadrado dos desvios</span></span>
-<span id="cb150-357"><a href="#cb150-357" aria-hidden="true" tabindex="-1"></a>quadrado_desvio <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb150-358"><a href="#cb150-358" aria-hidden="true" tabindex="-1"></a>  (x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb150-359"><a href="#cb150-359" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb150-360"><a href="#cb150-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-361"><a href="#cb150-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-362"><a href="#cb150-362" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>) <span class="co"># garante reprodutibilidade</span></span>
-<span id="cb150-363"><a href="#cb150-363" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>))</span>
-<span id="cb150-364"><a href="#cb150-364" aria-hidden="true" tabindex="-1"></a>(quad_desv <span class="ot">&lt;-</span> <span class="fu">quadrado_desvio</span>(x))</span>
-<span id="cb150-365"><a href="#cb150-365" aria-hidden="true" tabindex="-1"></a>(soma_quad_desv <span class="ot">&lt;-</span> <span class="fu">sum</span>(quad_desv))</span>
-<span id="cb150-366"><a href="#cb150-366" aria-hidden="true" tabindex="-1"></a>(var_amo <span class="ot">&lt;-</span> <span class="fu">sum</span>(soma_quad_desv) <span class="sc">/</span> <span class="dv">9</span>)</span>
-<span id="cb150-367"><a href="#cb150-367" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-368"><a href="#cb150-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-369"><a href="#cb150-369" aria-hidden="true" tabindex="-1"></a>Note que a mesma operação pode ser realizada se você aninhar as funções.</span>
+<span id="cb150-346"><a href="#cb150-346" aria-hidden="true" tabindex="-1"></a>Para ver por que o pipe é tão útil, vamos explorar algumas maneiras de escrever o mesmo código. Para isso, considere as seguintes (e simples) operações.</span>
+<span id="cb150-347"><a href="#cb150-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-348"><a href="#cb150-348" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; -   Crie uma função que computa o quadrado do desvio de cada termo em relação à média.</span></span>
+<span id="cb150-349"><a href="#cb150-349" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; -   Crie um vetor com 10 dados aleatórios de uma distribuição normal com média 10 e desvio padrão 2, utilizando </span><span class="in">`rnorm().`</span></span>
+<span id="cb150-350"><a href="#cb150-350" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; -   Eleve o vetor numérico ao quadrado</span></span>
+<span id="cb150-351"><a href="#cb150-351" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; -   Some os valores</span></span>
+<span id="cb150-352"><a href="#cb150-352" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; -   divida por n - 1</span></span>
+<span id="cb150-353"><a href="#cb150-353" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; -   Armazene no objeto var_amo</span></span>
+<span id="cb150-354"><a href="#cb150-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-357"><a href="#cb150-357" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb150-358"><a href="#cb150-358" aria-hidden="true" tabindex="-1"></a><span class="co"># função para computar o quadrado dos desvios</span></span>
+<span id="cb150-359"><a href="#cb150-359" aria-hidden="true" tabindex="-1"></a>quadrado_desvio <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb150-360"><a href="#cb150-360" aria-hidden="true" tabindex="-1"></a>  (x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb150-361"><a href="#cb150-361" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb150-362"><a href="#cb150-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-363"><a href="#cb150-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-364"><a href="#cb150-364" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>) <span class="co"># garante reprodutibilidade</span></span>
+<span id="cb150-365"><a href="#cb150-365" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>))</span>
+<span id="cb150-366"><a href="#cb150-366" aria-hidden="true" tabindex="-1"></a>(quad_desv <span class="ot">&lt;-</span> <span class="fu">quadrado_desvio</span>(x))</span>
+<span id="cb150-367"><a href="#cb150-367" aria-hidden="true" tabindex="-1"></a>(soma_quad_desv <span class="ot">&lt;-</span> <span class="fu">sum</span>(quad_desv))</span>
+<span id="cb150-368"><a href="#cb150-368" aria-hidden="true" tabindex="-1"></a>(var_amo <span class="ot">&lt;-</span> <span class="fu">sum</span>(soma_quad_desv) <span class="sc">/</span> <span class="dv">9</span>)</span>
+<span id="cb150-369"><a href="#cb150-369" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-370"><a href="#cb150-370" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-373"><a href="#cb150-373" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb150-374"><a href="#cb150-374" aria-hidden="true" tabindex="-1"></a>(var_amo <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">sum</span>(<span class="fu">quadrado_desvio</span>(x))) <span class="sc">/</span> <span class="dv">9</span>)</span>
-<span id="cb150-375"><a href="#cb150-375" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-376"><a href="#cb150-376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-377"><a href="#cb150-377" aria-hidden="true" tabindex="-1"></a>Agora, utilizando o pipe, note como o código fica muito mais claro, pois as indicações são feitas na ordem em que elas precisam ser executadas.</span>
+<span id="cb150-371"><a href="#cb150-371" aria-hidden="true" tabindex="-1"></a>Note que a mesma operação pode ser realizada se você aninhar as funções.</span>
+<span id="cb150-372"><a href="#cb150-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-375"><a href="#cb150-375" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb150-376"><a href="#cb150-376" aria-hidden="true" tabindex="-1"></a>(var_amo <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">sum</span>(<span class="fu">quadrado_desvio</span>(x))) <span class="sc">/</span> <span class="dv">9</span>)</span>
+<span id="cb150-377"><a href="#cb150-377" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-378"><a href="#cb150-378" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-381"><a href="#cb150-381" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb150-382"><a href="#cb150-382" aria-hidden="true" tabindex="-1"></a>var_amo <span class="ot">&lt;-</span> </span>
-<span id="cb150-383"><a href="#cb150-383" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">|&gt;</span> </span>
-<span id="cb150-384"><a href="#cb150-384" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quadrado_desvio</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb150-385"><a href="#cb150-385" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>() <span class="sc">/</span> <span class="dv">9</span></span>
-<span id="cb150-386"><a href="#cb150-386" aria-hidden="true" tabindex="-1"></a>var_amo</span>
-<span id="cb150-387"><a href="#cb150-387" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-388"><a href="#cb150-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-389"><a href="#cb150-389" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb150-390"><a href="#cb150-390" aria-hidden="true" tabindex="-1"></a>Se você ainda não percebeu, acabamos de reproduzir o que a função nativa do R <span class="in">`var()`</span> faz para computar a variância amostral.</span>
-<span id="cb150-391"><a href="#cb150-391" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-394"><a href="#cb150-394" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb150-395"><a href="#cb150-395" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(x)</span>
-<span id="cb150-396"><a href="#cb150-396" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-397"><a href="#cb150-397" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb150-398"><a href="#cb150-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-399"><a href="#cb150-399" aria-hidden="true" tabindex="-1"></a><span class="fu">## Loops {#loops}</span></span>
+<span id="cb150-379"><a href="#cb150-379" aria-hidden="true" tabindex="-1"></a>Agora, utilizando o pipe, note como o código fica muito mais claro, pois as indicações são feitas na ordem em que elas precisam ser executadas.</span>
+<span id="cb150-380"><a href="#cb150-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-383"><a href="#cb150-383" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb150-384"><a href="#cb150-384" aria-hidden="true" tabindex="-1"></a>var_amo <span class="ot">&lt;-</span> </span>
+<span id="cb150-385"><a href="#cb150-385" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">|&gt;</span> </span>
+<span id="cb150-386"><a href="#cb150-386" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quadrado_desvio</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb150-387"><a href="#cb150-387" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>() <span class="sc">/</span> <span class="dv">9</span></span>
+<span id="cb150-388"><a href="#cb150-388" aria-hidden="true" tabindex="-1"></a>var_amo</span>
+<span id="cb150-389"><a href="#cb150-389" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb150-390"><a href="#cb150-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-391"><a href="#cb150-391" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb150-392"><a href="#cb150-392" aria-hidden="true" tabindex="-1"></a>Se você ainda não percebeu, acabamos de reproduzir o que a função nativa do R <span class="in">`var()`</span> faz para computar a variância amostral.</span>
+<span id="cb150-393"><a href="#cb150-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-396"><a href="#cb150-396" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb150-397"><a href="#cb150-397" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(x)</span>
+<span id="cb150-398"><a href="#cb150-398" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb150-399"><a href="#cb150-399" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb150-400"><a href="#cb150-400" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-401"><a href="#cb150-401" aria-hidden="true" tabindex="-1"></a>Reescrever um código muitas vezes por necessidade de repetir um determinado procedimento seria bastante trabalhoso, além de precisarmos de mais tempo para isso e estarmos mais propensos à erros, como por exemplo, esquecer de trocar o nome de uma variável, ou um coeficiente. Por isso, o R tem algumas funções que fazem essas repetições para nós. Isso é muito comum e pode ser facilmente implementado pela função <span class="in">`for()`</span>, <span class="in">`while()`</span> e <span class="in">`repeat()`</span>.</span>
+<span id="cb150-401"><a href="#cb150-401" aria-hidden="true" tabindex="-1"></a><span class="fu">## Loops {#loops}</span></span>
 <span id="cb150-402"><a href="#cb150-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-403"><a href="#cb150-403" aria-hidden="true" tabindex="-1"></a><span class="fu">### for()</span></span>
+<span id="cb150-403"><a href="#cb150-403" aria-hidden="true" tabindex="-1"></a>Reescrever um código muitas vezes por necessidade de repetir um determinado procedimento seria bastante trabalhoso, além de precisarmos de mais tempo para isso e estarmos mais propensos à erros, como por exemplo, esquecer de trocar o nome de uma variável, ou um coeficiente. Por isso, o R tem algumas funções que fazem essas repetições para nós. Isso é muito comum e pode ser facilmente implementado pela função <span class="in">`for()`</span>, <span class="in">`while()`</span> e <span class="in">`repeat()`</span>.</span>
 <span id="cb150-404"><a href="#cb150-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-405"><a href="#cb150-405" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`for()`</span> repete o código indicado dentro de <span class="in">`{}`</span> *n* vezes, sendo *n* o comprimento da sequência dentro dos parênteses.</span>
+<span id="cb150-405"><a href="#cb150-405" aria-hidden="true" tabindex="-1"></a><span class="fu">### for()</span></span>
 <span id="cb150-406"><a href="#cb150-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-407"><a href="#cb150-407" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb150-408"><a href="#cb150-408" aria-hidden="true" tabindex="-1"></a>j <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb150-409"><a href="#cb150-409" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>j){</span>
-<span id="cb150-410"><a href="#cb150-410" aria-hidden="true" tabindex="-1"></a>  k <span class="ot">&lt;-</span> i <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb150-411"><a href="#cb150-411" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(k)</span>
-<span id="cb150-412"><a href="#cb150-412" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb150-413"><a href="#cb150-413" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-414"><a href="#cb150-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-415"><a href="#cb150-415" aria-hidden="true" tabindex="-1"></a><span class="fu">### `while`()</span></span>
+<span id="cb150-407"><a href="#cb150-407" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`for()`</span> repete o código indicado dentro de <span class="in">`{}`</span> *n* vezes, sendo *n* o comprimento da sequência dentro dos parênteses.</span>
+<span id="cb150-408"><a href="#cb150-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-409"><a href="#cb150-409" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb150-410"><a href="#cb150-410" aria-hidden="true" tabindex="-1"></a>j <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb150-411"><a href="#cb150-411" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>j){</span>
+<span id="cb150-412"><a href="#cb150-412" aria-hidden="true" tabindex="-1"></a>  k <span class="ot">&lt;-</span> i <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb150-413"><a href="#cb150-413" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(k)</span>
+<span id="cb150-414"><a href="#cb150-414" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb150-415"><a href="#cb150-415" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-416"><a href="#cb150-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-417"><a href="#cb150-417" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`while()`</span> (que significa enquanto) repete o código dentro de <span class="in">`{}`</span> enquanto alguma condição for verdadeira. Isso é útil, por exemplo, para ser aplicada em um modelo que contém um algoritmo iterativo que necessita de convergência. O modo é iterado infinitas vezes até a convergência ser atingida, ou até uma condição (por exemplo, após um número máximo de iterações) ser atingida.</span>
+<span id="cb150-417"><a href="#cb150-417" aria-hidden="true" tabindex="-1"></a><span class="fu">### `while`()</span></span>
 <span id="cb150-418"><a href="#cb150-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-419"><a href="#cb150-419" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb150-420"><a href="#cb150-420" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb150-421"><a href="#cb150-421" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (i <span class="sc">&lt;=</span> <span class="dv">5</span>){</span>
-<span id="cb150-422"><a href="#cb150-422" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i <span class="sc">*</span> <span class="dv">2</span>)</span>
-<span id="cb150-423"><a href="#cb150-423" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb150-424"><a href="#cb150-424" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb150-425"><a href="#cb150-425" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-426"><a href="#cb150-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-427"><a href="#cb150-427" aria-hidden="true" tabindex="-1"></a>Note que os dois últimos exemplos apresentam o mesmo resultado: o R vai retornar uma sequência <span class="in">`i`</span> sendo <span class="in">`i = 1:5`</span>, onde cada número será o resultado da multiplicação $i \times 2$. No caso <span class="in">`while()`</span>, precisamos mudar o valor de <span class="in">`i`</span> para que a sequência continue até que a condição <span class="in">`(i &lt;= 5)`</span> for verdadeira. Em adição, precisamos declarar a variável (<span class="in">`i = 1`</span>) antes para que o R possa testar a condição expressa dentro dos parênteses. No caso do <span class="in">`for()`</span>, a sequência progride sem precisarmos fazer isso manualmente.</span>
+<span id="cb150-419"><a href="#cb150-419" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`while()`</span> (que significa enquanto) repete o código dentro de <span class="in">`{}`</span> enquanto alguma condição for verdadeira. Isso é útil, por exemplo, para ser aplicada em um modelo que contém um algoritmo iterativo que necessita de convergência. O modo é iterado infinitas vezes até a convergência ser atingida, ou até uma condição (por exemplo, após um número máximo de iterações) ser atingida.</span>
+<span id="cb150-420"><a href="#cb150-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-421"><a href="#cb150-421" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb150-422"><a href="#cb150-422" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb150-423"><a href="#cb150-423" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (i <span class="sc">&lt;=</span> <span class="dv">5</span>){</span>
+<span id="cb150-424"><a href="#cb150-424" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i <span class="sc">*</span> <span class="dv">2</span>)</span>
+<span id="cb150-425"><a href="#cb150-425" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb150-426"><a href="#cb150-426" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb150-427"><a href="#cb150-427" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-428"><a href="#cb150-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-429"><a href="#cb150-429" aria-hidden="true" tabindex="-1"></a><span class="fu">### `repeat`()</span></span>
+<span id="cb150-429"><a href="#cb150-429" aria-hidden="true" tabindex="-1"></a>Note que os dois últimos exemplos apresentam o mesmo resultado: o R vai retornar uma sequência <span class="in">`i`</span> sendo <span class="in">`i = 1:5`</span>, onde cada número será o resultado da multiplicação $i \times 2$. No caso <span class="in">`while()`</span>, precisamos mudar o valor de <span class="in">`i`</span> para que a sequência continue até que a condição <span class="in">`(i &lt;= 5)`</span> for verdadeira. Em adição, precisamos declarar a variável (<span class="in">`i = 1`</span>) antes para que o R possa testar a condição expressa dentro dos parênteses. No caso do <span class="in">`for()`</span>, a sequência progride sem precisarmos fazer isso manualmente.</span>
 <span id="cb150-430"><a href="#cb150-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-431"><a href="#cb150-431" aria-hidden="true" tabindex="-1"></a>No último exemplo, utilizando <span class="in">`repeat()`</span>, o R repetirá o código dentro de <span class="in">`{}`</span> sem condições. Com isso, precisamos utilizar a combinação das funções <span class="in">`if()`</span> e <span class="in">`break()`</span> para informar ao programa quando o código deve parar de ser repetido.</span>
+<span id="cb150-431"><a href="#cb150-431" aria-hidden="true" tabindex="-1"></a><span class="fu">### `repeat`()</span></span>
 <span id="cb150-432"><a href="#cb150-432" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-433"><a href="#cb150-433" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb150-434"><a href="#cb150-434" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb150-435"><a href="#cb150-435" aria-hidden="true" tabindex="-1"></a><span class="cf">repeat</span> {</span>
-<span id="cb150-436"><a href="#cb150-436" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i <span class="sc">*</span> <span class="dv">2</span>)</span>
-<span id="cb150-437"><a href="#cb150-437" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb150-438"><a href="#cb150-438" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;</span> <span class="dv">5</span>){</span>
-<span id="cb150-439"><a href="#cb150-439" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span>()</span>
-<span id="cb150-440"><a href="#cb150-440" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb150-441"><a href="#cb150-441" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb150-442"><a href="#cb150-442" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-443"><a href="#cb150-443" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-444"><a href="#cb150-444" aria-hidden="true" tabindex="-1"></a><span class="fu">### </span></span>
+<span id="cb150-433"><a href="#cb150-433" aria-hidden="true" tabindex="-1"></a>No último exemplo, utilizando <span class="in">`repeat()`</span>, o R repetirá o código dentro de <span class="in">`{}`</span> sem condições. Com isso, precisamos utilizar a combinação das funções <span class="in">`if()`</span> e <span class="in">`break()`</span> para informar ao programa quando o código deve parar de ser repetido.</span>
+<span id="cb150-434"><a href="#cb150-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-435"><a href="#cb150-435" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb150-436"><a href="#cb150-436" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb150-437"><a href="#cb150-437" aria-hidden="true" tabindex="-1"></a><span class="cf">repeat</span> {</span>
+<span id="cb150-438"><a href="#cb150-438" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i <span class="sc">*</span> <span class="dv">2</span>)</span>
+<span id="cb150-439"><a href="#cb150-439" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb150-440"><a href="#cb150-440" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;</span> <span class="dv">5</span>){</span>
+<span id="cb150-441"><a href="#cb150-441" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span>()</span>
+<span id="cb150-442"><a href="#cb150-442" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb150-443"><a href="#cb150-443" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb150-444"><a href="#cb150-444" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-445"><a href="#cb150-445" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-446"><a href="#cb150-446" aria-hidden="true" tabindex="-1"></a>Imprimir números no console foi uma boa maneira de conhecermos como o procedimento *for-loop* funciona no R. Em resumo: podemos chegar no mesmo resultado utilziando três abordagens distintas. Mas vamos dar um pouco mais de aplicabilidade aos procedimentos *for-loop*. Imagine que temos este simples data.frame:</span>
+<span id="cb150-446"><a href="#cb150-446" aria-hidden="true" tabindex="-1"></a><span class="fu">### </span></span>
 <span id="cb150-447"><a href="#cb150-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-450"><a href="#cb150-450" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb150-451"><a href="#cb150-451" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb150-452"><a href="#cb150-452" aria-hidden="true" tabindex="-1"></a>  <span class="at">a =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>),</span>
-<span id="cb150-453"><a href="#cb150-453" aria-hidden="true" tabindex="-1"></a>  <span class="at">b =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>),</span>
-<span id="cb150-454"><a href="#cb150-454" aria-hidden="true" tabindex="-1"></a>  <span class="at">c =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>),</span>
-<span id="cb150-455"><a href="#cb150-455" aria-hidden="true" tabindex="-1"></a>  <span class="at">d =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>),</span>
-<span id="cb150-456"><a href="#cb150-456" aria-hidden="true" tabindex="-1"></a>  <span class="at">e =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
-<span id="cb150-457"><a href="#cb150-457" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb150-458"><a href="#cb150-458" aria-hidden="true" tabindex="-1"></a>df</span>
-<span id="cb150-459"><a href="#cb150-459" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-460"><a href="#cb150-460" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-461"><a href="#cb150-461" aria-hidden="true" tabindex="-1"></a>Agora, imagine que você quer computar a média de cada variável. Você poderia fazer isso copiando e colando 5 vezes o código.</span>
+<span id="cb150-448"><a href="#cb150-448" aria-hidden="true" tabindex="-1"></a>Imprimir números no console foi uma boa maneira de conhecermos como o procedimento *for-loop* funciona no R. Em resumo: podemos chegar no mesmo resultado utilziando três abordagens distintas. Mas vamos dar um pouco mais de aplicabilidade aos procedimentos *for-loop*. Imagine que temos este simples data.frame:</span>
+<span id="cb150-449"><a href="#cb150-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-452"><a href="#cb150-452" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb150-453"><a href="#cb150-453" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb150-454"><a href="#cb150-454" aria-hidden="true" tabindex="-1"></a>  <span class="at">a =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>),</span>
+<span id="cb150-455"><a href="#cb150-455" aria-hidden="true" tabindex="-1"></a>  <span class="at">b =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>),</span>
+<span id="cb150-456"><a href="#cb150-456" aria-hidden="true" tabindex="-1"></a>  <span class="at">c =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>),</span>
+<span id="cb150-457"><a href="#cb150-457" aria-hidden="true" tabindex="-1"></a>  <span class="at">d =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>),</span>
+<span id="cb150-458"><a href="#cb150-458" aria-hidden="true" tabindex="-1"></a>  <span class="at">e =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
+<span id="cb150-459"><a href="#cb150-459" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb150-460"><a href="#cb150-460" aria-hidden="true" tabindex="-1"></a>df</span>
+<span id="cb150-461"><a href="#cb150-461" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-462"><a href="#cb150-462" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-465"><a href="#cb150-465" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb150-466"><a href="#cb150-466" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>a)</span>
-<span id="cb150-467"><a href="#cb150-467" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>b)</span>
-<span id="cb150-468"><a href="#cb150-468" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>c)</span>
-<span id="cb150-469"><a href="#cb150-469" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>d)</span>
-<span id="cb150-470"><a href="#cb150-470" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>e)</span>
-<span id="cb150-471"><a href="#cb150-471" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-472"><a href="#cb150-472" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-473"><a href="#cb150-473" aria-hidden="true" tabindex="-1"></a>Usando o for loop, teríamos um vetor de médias, com o seguinte código</span>
+<span id="cb150-463"><a href="#cb150-463" aria-hidden="true" tabindex="-1"></a>Agora, imagine que você quer computar a média de cada variável. Você poderia fazer isso copiando e colando 5 vezes o código.</span>
+<span id="cb150-464"><a href="#cb150-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-467"><a href="#cb150-467" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb150-468"><a href="#cb150-468" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>a)</span>
+<span id="cb150-469"><a href="#cb150-469" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>b)</span>
+<span id="cb150-470"><a href="#cb150-470" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>c)</span>
+<span id="cb150-471"><a href="#cb150-471" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>d)</span>
+<span id="cb150-472"><a href="#cb150-472" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>e)</span>
+<span id="cb150-473"><a href="#cb150-473" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-474"><a href="#cb150-474" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-477"><a href="#cb150-477" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb150-478"><a href="#cb150-478" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> <span class="cn">NULL</span>                 <span class="co"># 1. output</span></span>
-<span id="cb150-479"><a href="#cb150-479" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(df)) {        <span class="co"># 2. Sequência</span></span>
-<span id="cb150-480"><a href="#cb150-480" aria-hidden="true" tabindex="-1"></a>  output[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(df[[i]])   <span class="co"># 3. o que é executado dentro de cada loop</span></span>
-<span id="cb150-481"><a href="#cb150-481" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb150-482"><a href="#cb150-482" aria-hidden="true" tabindex="-1"></a>output</span>
-<span id="cb150-483"><a href="#cb150-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-484"><a href="#cb150-484" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb150-475"><a href="#cb150-475" aria-hidden="true" tabindex="-1"></a>Usando o for loop, teríamos um vetor de médias, com o seguinte código</span>
+<span id="cb150-476"><a href="#cb150-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-479"><a href="#cb150-479" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb150-480"><a href="#cb150-480" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> <span class="cn">NULL</span>                 <span class="co"># 1. output</span></span>
+<span id="cb150-481"><a href="#cb150-481" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(df)) {        <span class="co"># 2. Sequência</span></span>
+<span id="cb150-482"><a href="#cb150-482" aria-hidden="true" tabindex="-1"></a>  output[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(df[[i]])   <span class="co"># 3. o que é executado dentro de cada loop</span></span>
+<span id="cb150-483"><a href="#cb150-483" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb150-484"><a href="#cb150-484" aria-hidden="true" tabindex="-1"></a>output</span>
 <span id="cb150-485"><a href="#cb150-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-486"><a href="#cb150-486" aria-hidden="true" tabindex="-1"></a>Bem, neste exemplo, as duas abordagens têm 5 linhas de programação e realmente parece que o loop foi um tanto quanto mais "difícil" de implementar. Sua vantagem, no entanto, aparece quando muitas colunas estão disponíveis. Neste caso, se um conjunto de dados com 100 variáveis precisa ser analizado, as mesmas cinco linhas de programação são utilizadas.</span>
+<span id="cb150-486"><a href="#cb150-486" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-487"><a href="#cb150-487" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-488"><a href="#cb150-488" aria-hidden="true" tabindex="-1"></a><span class="fu">## Família `apply`</span></span>
+<span id="cb150-488"><a href="#cb150-488" aria-hidden="true" tabindex="-1"></a>Bem, neste exemplo, as duas abordagens têm 5 linhas de programação e realmente parece que o loop foi um tanto quanto mais "difícil" de implementar. Sua vantagem, no entanto, aparece quando muitas colunas estão disponíveis. Neste caso, se um conjunto de dados com 100 variáveis precisa ser analizado, as mesmas cinco linhas de programação são utilizadas.</span>
 <span id="cb150-489"><a href="#cb150-489" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-490"><a href="#cb150-490" aria-hidden="true" tabindex="-1"></a>Nativamente, o R contém uma família de funções vetorizadas que minimizam sua necessidade de criar loops explicitamente. Essas funções aplicarão uma função especificada a um objeto de dados e sua principal diferença está na classe de objeto na qual a função é aplicada (lista vs. matriz, etc.) e na classe de objeto que será retornada da função.</span>
+<span id="cb150-490"><a href="#cb150-490" aria-hidden="true" tabindex="-1"></a><span class="fu">## Família `apply`</span></span>
 <span id="cb150-491"><a href="#cb150-491" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-492"><a href="#cb150-492" aria-hidden="true" tabindex="-1"></a><span class="fu">### `apply()`</span></span>
+<span id="cb150-492"><a href="#cb150-492" aria-hidden="true" tabindex="-1"></a>Nativamente, o R contém uma família de funções vetorizadas que minimizam sua necessidade de criar loops explicitamente. Essas funções aplicarão uma função especificada a um objeto de dados e sua principal diferença está na classe de objeto na qual a função é aplicada (lista vs. matriz, etc.) e na classe de objeto que será retornada da função.</span>
 <span id="cb150-493"><a href="#cb150-493" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-494"><a href="#cb150-494" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`apply()`</span> é mais frequentemente usada para aplicar uma função às linhas ou colunas (margens) de matrizes ou data.frames. Note como montante de código para computar a média de cada coluna de <span class="in">`df`</span> é drasticamente reduzido utilizando <span class="in">`apply()`</span>.</span>
+<span id="cb150-494"><a href="#cb150-494" aria-hidden="true" tabindex="-1"></a><span class="fu">### `apply()`</span></span>
 <span id="cb150-495"><a href="#cb150-495" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-498"><a href="#cb150-498" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb150-499"><a href="#cb150-499" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(df, <span class="dv">1</span>, mean) <span class="co"># média das linhas</span></span>
-<span id="cb150-500"><a href="#cb150-500" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(df, <span class="dv">2</span>, mean) <span class="co"># média das colunas</span></span>
-<span id="cb150-501"><a href="#cb150-501" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-502"><a href="#cb150-502" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb150-496"><a href="#cb150-496" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`apply()`</span> é mais frequentemente usada para aplicar uma função às linhas ou colunas (margens) de matrizes ou data.frames. Note como montante de código para computar a média de cada coluna de <span class="in">`df`</span> é drasticamente reduzido utilizando <span class="in">`apply()`</span>.</span>
+<span id="cb150-497"><a href="#cb150-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-500"><a href="#cb150-500" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb150-501"><a href="#cb150-501" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(df, <span class="dv">1</span>, mean) <span class="co"># média das linhas</span></span>
+<span id="cb150-502"><a href="#cb150-502" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(df, <span class="dv">2</span>, mean) <span class="co"># média das colunas</span></span>
 <span id="cb150-503"><a href="#cb150-503" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-504"><a href="#cb150-504" aria-hidden="true" tabindex="-1"></a><span class="fu">### `lapply()`</span></span>
+<span id="cb150-504"><a href="#cb150-504" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-505"><a href="#cb150-505" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-506"><a href="#cb150-506" aria-hidden="true" tabindex="-1"></a>A função lapply() faz a seguinte série simples de operações:</span>
+<span id="cb150-506"><a href="#cb150-506" aria-hidden="true" tabindex="-1"></a><span class="fu">### `lapply()`</span></span>
 <span id="cb150-507"><a href="#cb150-507" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-508"><a href="#cb150-508" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Faz um *loop* em uma lista, iterando sobre cada elemento dessa lista;</span>
-<span id="cb150-509"><a href="#cb150-509" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Aplica uma função a cada elemento da lista (uma função que você especifica)</span>
-<span id="cb150-510"><a href="#cb150-510" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Retorna uma lista (o l é para "lista").</span>
-<span id="cb150-511"><a href="#cb150-511" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-514"><a href="#cb150-514" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb150-515"><a href="#cb150-515" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(df, mean)</span>
-<span id="cb150-516"><a href="#cb150-516" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-517"><a href="#cb150-517" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-518"><a href="#cb150-518" aria-hidden="true" tabindex="-1"></a><span class="fu">### `sapply()`</span></span>
+<span id="cb150-508"><a href="#cb150-508" aria-hidden="true" tabindex="-1"></a>A função lapply() faz a seguinte série simples de operações:</span>
+<span id="cb150-509"><a href="#cb150-509" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-510"><a href="#cb150-510" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Faz um *loop* em uma lista, iterando sobre cada elemento dessa lista;</span>
+<span id="cb150-511"><a href="#cb150-511" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Aplica uma função a cada elemento da lista (uma função que você especifica)</span>
+<span id="cb150-512"><a href="#cb150-512" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Retorna uma lista (o l é para "lista").</span>
+<span id="cb150-513"><a href="#cb150-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-516"><a href="#cb150-516" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb150-517"><a href="#cb150-517" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(df, mean)</span>
+<span id="cb150-518"><a href="#cb150-518" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-519"><a href="#cb150-519" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-520"><a href="#cb150-520" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`sapply()`</span> se comporta de maneira semelhante a <span class="in">`lapply()`</span>; a única diferença está no valor retornado. <span class="in">`sapply()`</span> tentará simplificar o resultado, se possível.</span>
+<span id="cb150-520"><a href="#cb150-520" aria-hidden="true" tabindex="-1"></a><span class="fu">### `sapply()`</span></span>
 <span id="cb150-521"><a href="#cb150-521" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-524"><a href="#cb150-524" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb150-525"><a href="#cb150-525" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(df, mean)</span>
-<span id="cb150-526"><a href="#cb150-526" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-527"><a href="#cb150-527" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-528"><a href="#cb150-528" aria-hidden="true" tabindex="-1"></a><span class="fu">## Família `map_*()`</span></span>
+<span id="cb150-522"><a href="#cb150-522" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`sapply()`</span> se comporta de maneira semelhante a <span class="in">`lapply()`</span>; a única diferença está no valor retornado. <span class="in">`sapply()`</span> tentará simplificar o resultado, se possível.</span>
+<span id="cb150-523"><a href="#cb150-523" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-526"><a href="#cb150-526" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb150-527"><a href="#cb150-527" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(df, mean)</span>
+<span id="cb150-528"><a href="#cb150-528" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-529"><a href="#cb150-529" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-530"><a href="#cb150-530" aria-hidden="true" tabindex="-1"></a>O padrão de fazer um *loop* sobre um vetor, fazer algo em cada elemento e salvar os resultados é tão comum que o pacote <span class="co">[</span><span class="ot">`purrr`</span><span class="co">](https://purrr.tidyverse.org/)</span> fornece uma família de funções para fazer isso por você. Existe uma função para cada tipo de saída:</span>
+<span id="cb150-530"><a href="#cb150-530" aria-hidden="true" tabindex="-1"></a><span class="fu">## Família `map_*()`</span></span>
 <span id="cb150-531"><a href="#cb150-531" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-532"><a href="#cb150-532" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`map()`</span> retorna uma lista.</span>
-<span id="cb150-533"><a href="#cb150-533" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`map_lgl()`</span> retorna um vetor lógico.</span>
-<span id="cb150-534"><a href="#cb150-534" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`map_int()`</span> retorna um vetor de números inteiros.</span>
-<span id="cb150-535"><a href="#cb150-535" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`map_dbl()`</span> retorna um vetor *double*.</span>
-<span id="cb150-536"><a href="#cb150-536" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`map_chr()`</span> retorna um vetor de caracteres.</span>
-<span id="cb150-537"><a href="#cb150-537" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-540"><a href="#cb150-540" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb150-541"><a href="#cb150-541" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
-<span id="cb150-542"><a href="#cb150-542" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-543"><a href="#cb150-543" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(df, mean) <span class="co"># retorna uma lista</span></span>
-<span id="cb150-544"><a href="#cb150-544" aria-hidden="true" tabindex="-1"></a><span class="fu">map_dbl</span>(df, mean) <span class="co"># retorna um vetor double</span></span>
-<span id="cb150-545"><a href="#cb150-545" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb150-546"><a href="#cb150-546" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-547"><a href="#cb150-547" aria-hidden="true" tabindex="-1"></a><span class="fu"># Combinando tudo até aqui</span></span>
+<span id="cb150-532"><a href="#cb150-532" aria-hidden="true" tabindex="-1"></a>O padrão de fazer um *loop* sobre um vetor, fazer algo em cada elemento e salvar os resultados é tão comum que o pacote <span class="co">[</span><span class="ot">`purrr`</span><span class="co">](https://purrr.tidyverse.org/)</span> fornece uma família de funções para fazer isso por você. Existe uma função para cada tipo de saída:</span>
+<span id="cb150-533"><a href="#cb150-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-534"><a href="#cb150-534" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`map()`</span> retorna uma lista.</span>
+<span id="cb150-535"><a href="#cb150-535" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`map_lgl()`</span> retorna um vetor lógico.</span>
+<span id="cb150-536"><a href="#cb150-536" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`map_int()`</span> retorna um vetor de números inteiros.</span>
+<span id="cb150-537"><a href="#cb150-537" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`map_dbl()`</span> retorna um vetor *double*.</span>
+<span id="cb150-538"><a href="#cb150-538" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`map_chr()`</span> retorna um vetor de caracteres.</span>
+<span id="cb150-539"><a href="#cb150-539" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-542"><a href="#cb150-542" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb150-543"><a href="#cb150-543" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb150-544"><a href="#cb150-544" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-545"><a href="#cb150-545" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(df, mean) <span class="co"># retorna uma lista</span></span>
+<span id="cb150-546"><a href="#cb150-546" aria-hidden="true" tabindex="-1"></a><span class="fu">map_dbl</span>(df, mean) <span class="co"># retorna um vetor double</span></span>
+<span id="cb150-547"><a href="#cb150-547" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb150-548"><a href="#cb150-548" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-549"><a href="#cb150-549" aria-hidden="true" tabindex="-1"></a>Nesta seção, vamos combinar os conhecimentos vistos até aqui para demonstrar o teorema central do limite<span class="ot">[^2]</span>. Para isto, criamos uma função (<span class="in">`teor_lim()`</span>) que tem 1 argumento: <span class="in">`n`</span> o número de vezes que se realiza a amostra. Para isso, tomaremos como valores 'populacionais', 2000 observações oriundas de uma <span class="co">[</span><span class="ot">distribuição Weibull</span><span class="co">](https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_de_Weibull)</span> com shape = 1 e scala = 5 e como amostra, 10 valores aleatoriamente amostrados desta população. Para confecção dos dendrogramas, os pacotes <span class="co">[</span><span class="ot">`ggplot2`</span><span class="co">](https://ggplot2.tidyverse.org/)</span> e <span class="co">[</span><span class="ot">`patchwork`</span><span class="co">](https://patchwork.data-imaginist.com/)</span> são utilizados.</span>
+<span id="cb150-549"><a href="#cb150-549" aria-hidden="true" tabindex="-1"></a><span class="fu"># Combinando tudo até aqui</span></span>
 <span id="cb150-550"><a href="#cb150-550" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-551"><a href="#cb150-551" aria-hidden="true" tabindex="-1"></a><span class="ot">[^2]: </span>O teorema central do limite define que distribuição das médias amostrais é aproximadamente normal, a medida em que o número de amostas aumenta, independentemente da forma da distribuição da população.</span>
+<span id="cb150-551"><a href="#cb150-551" aria-hidden="true" tabindex="-1"></a>Nesta seção, vamos combinar os conhecimentos vistos até aqui para demonstrar o teorema central do limite<span class="ot">[^2]</span>. Para isto, criamos uma função (<span class="in">`teor_lim()`</span>) que tem 1 argumento: <span class="in">`n`</span> o número de vezes que se realiza a amostra. Para isso, tomaremos como valores 'populacionais', 2000 observações oriundas de uma <span class="co">[</span><span class="ot">distribuição Weibull</span><span class="co">](https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_de_Weibull)</span> com shape = 1 e scala = 5 e como amostra, 10 valores aleatoriamente amostrados desta população. Para confecção dos dendrogramas, os pacotes <span class="co">[</span><span class="ot">`ggplot2`</span><span class="co">](https://ggplot2.tidyverse.org/)</span> e <span class="co">[</span><span class="ot">`patchwork`</span><span class="co">](https://patchwork.data-imaginist.com/)</span> são utilizados.</span>
 <span id="cb150-552"><a href="#cb150-552" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-555"><a href="#cb150-555" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb150-556"><a href="#cb150-556" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "100%"</span></span>
-<span id="cb150-557"><a href="#cb150-557" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-558"><a href="#cb150-558" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb150-559"><a href="#cb150-559" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb150-560"><a href="#cb150-560" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-561"><a href="#cb150-561" aria-hidden="true" tabindex="-1"></a><span class="co"># forma da distribuição</span></span>
-<span id="cb150-562"><a href="#cb150-562" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">100</span>)</span>
-<span id="cb150-563"><a href="#cb150-563" aria-hidden="true" tabindex="-1"></a>pop <span class="ot">&lt;-</span> <span class="fu">rweibull</span>(<span class="dv">2000</span>, <span class="fl">1.5</span>, <span class="dv">3</span>)</span>
-<span id="cb150-564"><a href="#cb150-564" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pop, <span class="at">nclass =</span> <span class="dv">20</span>)</span>
-<span id="cb150-565"><a href="#cb150-565" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-566"><a href="#cb150-566" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-567"><a href="#cb150-567" aria-hidden="true" tabindex="-1"></a><span class="co"># função para amostrar aleatoriamente 5 amostras</span></span>
-<span id="cb150-568"><a href="#cb150-568" aria-hidden="true" tabindex="-1"></a>teor_lim <span class="ot">&lt;-</span> <span class="cf">function</span>(n, pop){</span>
-<span id="cb150-569"><a href="#cb150-569" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">mean =</span> </span>
-<span id="cb150-570"><a href="#cb150-570" aria-hidden="true" tabindex="-1"></a>               <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="cf">function</span>(x){</span>
-<span id="cb150-571"><a href="#cb150-571" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">mean</span>(<span class="fu">rweibull</span>(<span class="dv">2000</span>, <span class="fl">1.5</span>, <span class="dv">3</span>))</span>
-<span id="cb150-572"><a href="#cb150-572" aria-hidden="true" tabindex="-1"></a>               }),</span>
-<span id="cb150-573"><a href="#cb150-573" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> n)</span>
-<span id="cb150-574"><a href="#cb150-574" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb150-575"><a href="#cb150-575" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-576"><a href="#cb150-576" aria-hidden="true" tabindex="-1"></a><span class="co"># definir o número de amostragens</span></span>
-<span id="cb150-577"><a href="#cb150-577" aria-hidden="true" tabindex="-1"></a>sizes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">50</span>, <span class="dv">200</span>, <span class="dv">2000</span>, <span class="dv">10000</span>, <span class="dv">30000</span>, <span class="dv">100000</span>)</span>
-<span id="cb150-578"><a href="#cb150-578" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-579"><a href="#cb150-579" aria-hidden="true" tabindex="-1"></a><span class="co"># criar a distribuição amostral</span></span>
-<span id="cb150-580"><a href="#cb150-580" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
-<span id="cb150-581"><a href="#cb150-581" aria-hidden="true" tabindex="-1"></a>dist_amo <span class="ot">&lt;-</span> <span class="fu">map_dfr</span>(sizes, teor_lim, pop)</span>
-<span id="cb150-582"><a href="#cb150-582" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-583"><a href="#cb150-583" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-553"><a href="#cb150-553" aria-hidden="true" tabindex="-1"></a><span class="ot">[^2]: </span>O teorema central do limite define que distribuição das médias amostrais é aproximadamente normal, a medida em que o número de amostas aumenta, independentemente da forma da distribuição da população.</span>
+<span id="cb150-554"><a href="#cb150-554" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-557"><a href="#cb150-557" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb150-558"><a href="#cb150-558" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "100%"</span></span>
+<span id="cb150-559"><a href="#cb150-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-560"><a href="#cb150-560" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb150-561"><a href="#cb150-561" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb150-562"><a href="#cb150-562" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-563"><a href="#cb150-563" aria-hidden="true" tabindex="-1"></a><span class="co"># forma da distribuição</span></span>
+<span id="cb150-564"><a href="#cb150-564" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">100</span>)</span>
+<span id="cb150-565"><a href="#cb150-565" aria-hidden="true" tabindex="-1"></a>pop <span class="ot">&lt;-</span> <span class="fu">rweibull</span>(<span class="dv">2000</span>, <span class="fl">1.5</span>, <span class="dv">3</span>)</span>
+<span id="cb150-566"><a href="#cb150-566" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pop, <span class="at">nclass =</span> <span class="dv">20</span>)</span>
+<span id="cb150-567"><a href="#cb150-567" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-568"><a href="#cb150-568" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-569"><a href="#cb150-569" aria-hidden="true" tabindex="-1"></a><span class="co"># função para amostrar aleatoriamente 5 amostras</span></span>
+<span id="cb150-570"><a href="#cb150-570" aria-hidden="true" tabindex="-1"></a>teor_lim <span class="ot">&lt;-</span> <span class="cf">function</span>(n, pop){</span>
+<span id="cb150-571"><a href="#cb150-571" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">mean =</span> </span>
+<span id="cb150-572"><a href="#cb150-572" aria-hidden="true" tabindex="-1"></a>               <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="cf">function</span>(x){</span>
+<span id="cb150-573"><a href="#cb150-573" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">mean</span>(<span class="fu">rweibull</span>(<span class="dv">2000</span>, <span class="fl">1.5</span>, <span class="dv">3</span>))</span>
+<span id="cb150-574"><a href="#cb150-574" aria-hidden="true" tabindex="-1"></a>               }),</span>
+<span id="cb150-575"><a href="#cb150-575" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> n)</span>
+<span id="cb150-576"><a href="#cb150-576" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb150-577"><a href="#cb150-577" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-578"><a href="#cb150-578" aria-hidden="true" tabindex="-1"></a><span class="co"># definir o número de amostragens</span></span>
+<span id="cb150-579"><a href="#cb150-579" aria-hidden="true" tabindex="-1"></a>sizes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">50</span>, <span class="dv">200</span>, <span class="dv">2000</span>, <span class="dv">10000</span>, <span class="dv">30000</span>, <span class="dv">100000</span>)</span>
+<span id="cb150-580"><a href="#cb150-580" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-581"><a href="#cb150-581" aria-hidden="true" tabindex="-1"></a><span class="co"># criar a distribuição amostral</span></span>
+<span id="cb150-582"><a href="#cb150-582" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb150-583"><a href="#cb150-583" aria-hidden="true" tabindex="-1"></a>dist_amo <span class="ot">&lt;-</span> <span class="fu">map_dfr</span>(sizes, teor_lim, pop)</span>
 <span id="cb150-584"><a href="#cb150-584" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-585"><a href="#cb150-585" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dist_amo, <span class="fu">aes</span>(mean)) <span class="sc">+</span></span>
-<span id="cb150-586"><a href="#cb150-586" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">100</span>,</span>
-<span id="cb150-587"><a href="#cb150-587" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">aes</span>(<span class="at">y =</span> ..density..)) <span class="sc">+</span></span>
-<span id="cb150-588"><a href="#cb150-588" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">size =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span> </span>
-<span id="cb150-589"><a href="#cb150-589" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>size, <span class="at">scales =</span> <span class="st">"free"</span>)</span>
-<span id="cb150-590"><a href="#cb150-590" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-591"><a href="#cb150-591" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-592"><a href="#cb150-592" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb150-585"><a href="#cb150-585" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-586"><a href="#cb150-586" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-587"><a href="#cb150-587" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dist_amo, <span class="fu">aes</span>(mean)) <span class="sc">+</span></span>
+<span id="cb150-588"><a href="#cb150-588" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">100</span>,</span>
+<span id="cb150-589"><a href="#cb150-589" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">aes</span>(<span class="at">y =</span> ..density..)) <span class="sc">+</span></span>
+<span id="cb150-590"><a href="#cb150-590" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">size =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span> </span>
+<span id="cb150-591"><a href="#cb150-591" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>size, <span class="at">scales =</span> <span class="st">"free"</span>)</span>
+<span id="cb150-592"><a href="#cb150-592" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb150-593"><a href="#cb150-593" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-594"><a href="#cb150-594" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb150-595"><a href="#cb150-595" aria-hidden="true" tabindex="-1"></a><span class="fu">## Homework</span></span>
-<span id="cb150-596"><a href="#cb150-596" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-597"><a href="#cb150-597" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Criar um data frame com 10 observações e 3 variáveis quantitativas;</span>
-<span id="cb150-598"><a href="#cb150-598" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Converta o data frame para uma matriz;</span>
-<span id="cb150-599"><a href="#cb150-599" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Use alguma das abordagens vistas (sapply, for, apply, etc) para computar a média de cada variável na matriz, armazenando-a em um vetor;</span>
-<span id="cb150-600"><a href="#cb150-600" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Diminua de cada observação a média da variável;</span>
-<span id="cb150-601"><a href="#cb150-601" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Eleve os desvios ao quadrado;</span>
-<span id="cb150-602"><a href="#cb150-602" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Some os desvios ao quadrado;</span>
-<span id="cb150-603"><a href="#cb150-603" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Divida pelo número de observações - 1</span>
-<span id="cb150-604"><a href="#cb150-604" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb150-605"><a href="#cb150-605" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-606"><a href="#cb150-606" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb150-594"><a href="#cb150-594" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb150-595"><a href="#cb150-595" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-596"><a href="#cb150-596" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb150-597"><a href="#cb150-597" aria-hidden="true" tabindex="-1"></a><span class="fu">## Homework</span></span>
+<span id="cb150-598"><a href="#cb150-598" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-599"><a href="#cb150-599" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Criar um data frame com 10 observações e 3 variáveis quantitativas;</span>
+<span id="cb150-600"><a href="#cb150-600" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Converta o data frame para uma matriz;</span>
+<span id="cb150-601"><a href="#cb150-601" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Use alguma das abordagens vistas (sapply, for, apply, etc) para computar a média de cada variável na matriz, armazenando-a em um vetor;</span>
+<span id="cb150-602"><a href="#cb150-602" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Diminua de cada observação a média da variável;</span>
+<span id="cb150-603"><a href="#cb150-603" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Eleve os desvios ao quadrado;</span>
+<span id="cb150-604"><a href="#cb150-604" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Some os desvios ao quadrado;</span>
+<span id="cb150-605"><a href="#cb150-605" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Divida pelo número de observações - 1</span>
+<span id="cb150-606"><a href="#cb150-606" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb150-607"><a href="#cb150-607" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-608"><a href="#cb150-608" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=141634&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
-<span id="cb150-609"><a href="#cb150-609" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb150-608"><a href="#cb150-608" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb150-609"><a href="#cb150-609" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-610"><a href="#cb150-610" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=141634&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
+<span id="cb150-611"><a href="#cb150-611" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

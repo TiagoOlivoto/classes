@@ -1,5 +1,7 @@
 ---
 title: "6. Mutação"
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Diretório
@@ -36,18 +38,21 @@ A função [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) é ut
 
 ```{r}
 # padrão: nova variável inserida na última posição
-maize %>% mutate(CD = CESP/DIES)
+maize |>
+  mutate(CD = CESP/DIES)
 # posição da nova variável
-maize %>% mutate(CD = CESP/DIES, 
+maize |> mutate(CD = CESP/DIES, 
                  .after = DIES)
 # mantém somente as utilizadas no cálculo
-maize %>% mutate(CD = CESP/DIES,
+maize |>
+  mutate(CD = CESP/DIES,
+                CD_quad = CD ^2,
                  .keep = "used")
 # mantém as não utilizadas
-maize %>% mutate(CD = CESP/DIES,
+maize |> mutate(CD = CESP/DIES,
                  .keep = "unused")
 # mantém somente a variável criada
-maize %>% mutate(CD = CESP/DIES,
+maize |> mutate(CD = CESP/DIES,
                  .keep = "none")
 
 ```
@@ -59,9 +64,11 @@ maize %>% mutate(CD = CESP/DIES,
 A função `group_by()` pode ser utilizada para realizar mutação dentro de cada nível de uma ou mais variáveis categóricas. Para este exemplo, vamos criar uma variável (rank) que será o rankeamento das observações dentro de cada híbrido com base na MGRA (em ordem decrescente).
 
 ```{r}
+hib <- 
 maize |> 
-  group_by(HIB) |> 
+  # group_by(HIB, AMB) |>
   mutate(rank = rank(desc(MGRA)))
+
 
 ```
 
@@ -86,6 +93,7 @@ df |>
   rowwise() |> 
   mutate(soma = sum(c(x, y, z)))
 
+
 # mesmo resultado
 # utilizando semântica tidyselect 
 df |>
@@ -102,16 +110,18 @@ Em alguns casos, deseja-se aplicar a mesma função de mutação (ou resumo) à 
 
 ```{r}
 # função para rescalar
+# intervalo de 0 a 1
 rescale <- function(x) {
   rng <- range(x, na.rm = TRUE)
   (x - rng[1]) / (rng[2] - rng[1])
 }
+maize |> mutate(MGRA_resc = rescale(MGRA))
 
 # aplica a função rescale() a todas as colunas numéricas
-maize %>% mutate(across(where(is.numeric), rescale))
+maize |> mutate(across(where(is.numeric), rescale))
 
 # aplica a função rescale() para algumas colunas
-maize %>% mutate(across(MGRA:NGRA, rescale))
+maize |> mutate(across(MGRA:NGRA, rescale))
 
 
 ```
@@ -123,7 +133,7 @@ Também é possível utilizar a semântica `select()` dentro de `across()`. Isso
 # divide o valor da variável pela metade
 # atribui um sufixo para as novas variáveis
 # seleciona apenas as utilizadas
-maize %>%
+maize |>
   mutate(across(contains("_PLANT"), ~.x / 2,
                 .names = "{.col}_metade"),
          .after = AIES_PLANT,
@@ -140,7 +150,7 @@ divide2 <- function(x){
   x / 2
 }
 
-maize %>%
+maize |>
   mutate(across(contains("_PLANT"), divide2,
                 .names = "{.col}_metade"),
          .after = AIES_PLANT,
@@ -205,7 +215,7 @@ Neste exemplo, o conjunto de dados `maize` é utilizado para mostrar como uma va
 ```{r}
 set.seed(10)
 
-maize %>% 
+maize |> 
   mutate(
     CASO = case_when(
       MGRA > 280 | APLA_PLANT < 1.3 | NGRA > 820 ~  "Selecionar",
@@ -219,7 +229,8 @@ maize %>%
 
 t <- 
 maize |> 
-  mutate(test = case_when(MGRA > 280 ~ MGRA *10000))
+  mutate(test = case_when(MGRA > 280 ~ MGRA *1000,
+                          TRUE ~ MGRA))
 
 ```
 
@@ -235,9 +246,9 @@ transform(maize,
                         ifelse(APLA_PLANT > 2.3, "Alto",
                                ifelse(MGRA < 130, "Pouco produtivo",
                                       "Outro"))))
+
 # cria uma lista onde cada elemento é um nível de CASO
 casos <- split(milho2, milho2$CASO)
-
 
 
 # percorre a lista e amostra uma linha aleatória de cada uma

@@ -920,6 +920,7 @@ retornando NA</code></pre>
 12  A2      H2   III     1.924</code></pre>
 </div>
 </div>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/22n7aZjK-Vw" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 </section>
 </section>
@@ -1321,306 +1322,310 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb75" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "3. Dados"</span></span>
-<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Diretório</span></span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="an">editor_options:</span><span class="co"> </span></span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a><span class="co">  chunk_output_type: console</span></span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{r include = FALSE}</span></span>
-<span id="cb75-8"><a href="#cb75-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">root.dir =</span> <span class="st">"E:/Desktop/UFSC/aulas/classes/RGV410046/data"</span>)</span>
-<span id="cb75-9"><a href="#cb75-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-10"><a href="#cb75-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-11"><a href="#cb75-11" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb75-12"><a href="#cb75-12" aria-hidden="true" tabindex="-1"></a><span class="co"># meu computador (mudar de acordo)</span></span>
-<span id="cb75-13"><a href="#cb75-13" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"E:/Desktop/UFSC/aulas/classes/RGV410046/data"</span>)</span>
-<span id="cb75-14"><a href="#cb75-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-15"><a href="#cb75-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-16"><a href="#cb75-16" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacotes</span></span>
+<span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># Diretório</span></span>
+<span id="cb75-8"><a href="#cb75-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-9"><a href="#cb75-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{r include = FALSE}</span></span>
+<span id="cb75-10"><a href="#cb75-10" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">root.dir =</span> <span class="st">"E:/Desktop/UFSC/aulas/classes/RGV410046/data"</span>)</span>
+<span id="cb75-11"><a href="#cb75-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-12"><a href="#cb75-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-13"><a href="#cb75-13" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb75-14"><a href="#cb75-14" aria-hidden="true" tabindex="-1"></a><span class="co"># meu computador (mudar de acordo)</span></span>
+<span id="cb75-15"><a href="#cb75-15" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"E:/Desktop/UFSC/aulas/classes/RGV410046/data"</span>)</span>
+<span id="cb75-16"><a href="#cb75-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-17"><a href="#cb75-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-18"><a href="#cb75-18" aria-hidden="true" tabindex="-1"></a><span class="in">```{r warning=FALSE, message=FALSE}</span></span>
-<span id="cb75-19"><a href="#cb75-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb75-20"><a href="#cb75-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb75-21"><a href="#cb75-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span>
-<span id="cb75-22"><a href="#cb75-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DataExplorer)</span>
-<span id="cb75-23"><a href="#cb75-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-24"><a href="#cb75-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-25"><a href="#cb75-25" aria-hidden="true" tabindex="-1"></a><span class="fu"># Importação</span></span>
+<span id="cb75-18"><a href="#cb75-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacotes</span></span>
+<span id="cb75-19"><a href="#cb75-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-20"><a href="#cb75-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{r warning=FALSE, message=FALSE}</span></span>
+<span id="cb75-21"><a href="#cb75-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb75-22"><a href="#cb75-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb75-23"><a href="#cb75-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span>
+<span id="cb75-24"><a href="#cb75-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DataExplorer)</span>
+<span id="cb75-25"><a href="#cb75-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-26"><a href="#cb75-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-27"><a href="#cb75-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Funções R base</span></span>
+<span id="cb75-27"><a href="#cb75-27" aria-hidden="true" tabindex="-1"></a><span class="fu"># Importação</span></span>
 <span id="cb75-28"><a href="#cb75-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-29"><a href="#cb75-29" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`read.table()`</span> lê um arquivo em formato de tabela (.txt, .csv) e cria um data frame a partir dele.</span>
+<span id="cb75-29"><a href="#cb75-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Funções R base</span></span>
 <span id="cb75-30"><a href="#cb75-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-31"><a href="#cb75-31" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = FALSE, message = TRUE, warning = TRUE}</span></span>
-<span id="cb75-32"><a href="#cb75-32" aria-hidden="true" tabindex="-1"></a>(dados <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"df_txt.txt"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb75-33"><a href="#cb75-33" aria-hidden="true" tabindex="-1"></a>(dados <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"df_csv.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">";"</span>))</span>
-<span id="cb75-34"><a href="#cb75-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Argumento header = TRUE indica a existência de cabeçalho</span></span>
-<span id="cb75-35"><a href="#cb75-35" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-36"><a href="#cb75-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-37"><a href="#cb75-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rstudio</span></span>
+<span id="cb75-31"><a href="#cb75-31" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`read.table()`</span> lê um arquivo em formato de tabela (.txt, .csv) e cria um data frame a partir dele.</span>
+<span id="cb75-32"><a href="#cb75-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-33"><a href="#cb75-33" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = FALSE, message = TRUE, warning = TRUE}</span></span>
+<span id="cb75-34"><a href="#cb75-34" aria-hidden="true" tabindex="-1"></a>(dados <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"df_txt.txt"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb75-35"><a href="#cb75-35" aria-hidden="true" tabindex="-1"></a>(dados <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"df_csv.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">";"</span>))</span>
+<span id="cb75-36"><a href="#cb75-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Argumento header = TRUE indica a existência de cabeçalho</span></span>
+<span id="cb75-37"><a href="#cb75-37" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-38"><a href="#cb75-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-39"><a href="#cb75-39" aria-hidden="true" tabindex="-1"></a>A forma mais comum do pesquisador digitar seus dados é através de planilhas eletrônicas do Excel. Para carregar esses dados, basta ir em *Import Dataset* na área de trabalho. O passo a passo está descrito abaixo:</span>
+<span id="cb75-39"><a href="#cb75-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rstudio</span></span>
 <span id="cb75-40"><a href="#cb75-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-41"><a href="#cb75-41" aria-hidden="true" tabindex="-1"></a><span class="al">![Importando dados de planilhas eletrônicas do Excel - Passo 1](figs/Import.png)</span></span>
+<span id="cb75-41"><a href="#cb75-41" aria-hidden="true" tabindex="-1"></a>A forma mais comum do pesquisador digitar seus dados é através de planilhas eletrônicas do Excel. Para carregar esses dados, basta ir em *Import Dataset* na área de trabalho. O passo a passo está descrito abaixo:</span>
 <span id="cb75-42"><a href="#cb75-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-43"><a href="#cb75-43" aria-hidden="true" tabindex="-1"></a><span class="al">![Importando dados de planilhas eletrônicas do Excel - Passo 2](figs/Import1.png)</span></span>
+<span id="cb75-43"><a href="#cb75-43" aria-hidden="true" tabindex="-1"></a><span class="al">![Importando dados de planilhas eletrônicas do Excel - Passo 1](figs/Import.png)</span></span>
 <span id="cb75-44"><a href="#cb75-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-45"><a href="#cb75-45" aria-hidden="true" tabindex="-1"></a><span class="al">![Importando dados de planilhas eletrônicas do Excel - Passo 3](figs/Import2.png)</span></span>
+<span id="cb75-45"><a href="#cb75-45" aria-hidden="true" tabindex="-1"></a><span class="al">![Importando dados de planilhas eletrônicas do Excel - Passo 2](figs/Import1.png)</span></span>
 <span id="cb75-46"><a href="#cb75-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-47"><a href="#cb75-47" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacote rio</span></span>
+<span id="cb75-47"><a href="#cb75-47" aria-hidden="true" tabindex="-1"></a><span class="al">![Importando dados de planilhas eletrônicas do Excel - Passo 3](figs/Import2.png)</span></span>
 <span id="cb75-48"><a href="#cb75-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-49"><a href="#cb75-49" aria-hidden="true" tabindex="-1"></a>O pacote <span class="co">[</span><span class="ot">`rio`</span><span class="co">](https://cran.r-project.org/web/packages/rio/index.html)</span> é um pacote R relativamente recente utilizado para importação e exportação de dados. Ele faz suposições sobre o formato do arquivo (<span class="co">[</span><span class="ot">veja os formatos suportados aqui</span><span class="co">](https://www.rdocumentation.org/packages/rio/versions/0.5.29)</span>), ou seja, adivinha o formato do arquivo que você está tentando importar e, consequentemente, aplica funções de importação apropriadas a esse formato. Tudo isso é feito com a função <span class="in">`import()`</span>.</span>
+<span id="cb75-49"><a href="#cb75-49" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacote rio</span></span>
 <span id="cb75-50"><a href="#cb75-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-51"><a href="#cb75-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Do excel</span></span>
+<span id="cb75-51"><a href="#cb75-51" aria-hidden="true" tabindex="-1"></a>O pacote <span class="co">[</span><span class="ot">`rio`</span><span class="co">](https://cran.r-project.org/web/packages/rio/index.html)</span> é um pacote R relativamente recente utilizado para importação e exportação de dados. Ele faz suposições sobre o formato do arquivo (<span class="co">[</span><span class="ot">veja os formatos suportados aqui</span><span class="co">](https://www.rdocumentation.org/packages/rio/versions/0.5.29)</span>), ou seja, adivinha o formato do arquivo que você está tentando importar e, consequentemente, aplica funções de importação apropriadas a esse formato. Tudo isso é feito com a função <span class="in">`import()`</span>.</span>
 <span id="cb75-52"><a href="#cb75-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-53"><a href="#cb75-53" aria-hidden="true" tabindex="-1"></a><span class="fu">### Um arquivo</span></span>
+<span id="cb75-53"><a href="#cb75-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Do excel</span></span>
 <span id="cb75-54"><a href="#cb75-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-57"><a href="#cb75-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-58"><a href="#cb75-58" aria-hidden="true" tabindex="-1"></a><span class="co"># primeira planilha do excel</span></span>
-<span id="cb75-59"><a href="#cb75-59" aria-hidden="true" tabindex="-1"></a>df_excel <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"df_excel.xlsx"</span>)</span>
-<span id="cb75-60"><a href="#cb75-60" aria-hidden="true" tabindex="-1"></a>df_excel</span>
-<span id="cb75-61"><a href="#cb75-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-62"><a href="#cb75-62" aria-hidden="true" tabindex="-1"></a><span class="co"># uma planilha específica</span></span>
-<span id="cb75-63"><a href="#cb75-63" aria-hidden="true" tabindex="-1"></a><span class="co"># converter para tibble</span></span>
-<span id="cb75-64"><a href="#cb75-64" aria-hidden="true" tabindex="-1"></a>df_excel2 <span class="ot">&lt;-</span> </span>
-<span id="cb75-65"><a href="#cb75-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(<span class="st">"df_excel.xlsx"</span>,</span>
-<span id="cb75-66"><a href="#cb75-66" aria-hidden="true" tabindex="-1"></a>         <span class="at">sheet =</span> <span class="st">"traits"</span>,</span>
-<span id="cb75-67"><a href="#cb75-67" aria-hidden="true" tabindex="-1"></a>         <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
-<span id="cb75-68"><a href="#cb75-68" aria-hidden="true" tabindex="-1"></a>df_excel2</span>
-<span id="cb75-69"><a href="#cb75-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-70"><a href="#cb75-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-71"><a href="#cb75-71" aria-hidden="true" tabindex="-1"></a><span class="fu">### Vários arquivos</span></span>
+<span id="cb75-55"><a href="#cb75-55" aria-hidden="true" tabindex="-1"></a><span class="fu">### Um arquivo</span></span>
+<span id="cb75-56"><a href="#cb75-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-59"><a href="#cb75-59" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-60"><a href="#cb75-60" aria-hidden="true" tabindex="-1"></a><span class="co"># primeira planilha do excel</span></span>
+<span id="cb75-61"><a href="#cb75-61" aria-hidden="true" tabindex="-1"></a>df_excel <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"df_excel.xlsx"</span>)</span>
+<span id="cb75-62"><a href="#cb75-62" aria-hidden="true" tabindex="-1"></a>df_excel</span>
+<span id="cb75-63"><a href="#cb75-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-64"><a href="#cb75-64" aria-hidden="true" tabindex="-1"></a><span class="co"># uma planilha específica</span></span>
+<span id="cb75-65"><a href="#cb75-65" aria-hidden="true" tabindex="-1"></a><span class="co"># converter para tibble</span></span>
+<span id="cb75-66"><a href="#cb75-66" aria-hidden="true" tabindex="-1"></a>df_excel2 <span class="ot">&lt;-</span> </span>
+<span id="cb75-67"><a href="#cb75-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(<span class="st">"df_excel.xlsx"</span>,</span>
+<span id="cb75-68"><a href="#cb75-68" aria-hidden="true" tabindex="-1"></a>         <span class="at">sheet =</span> <span class="st">"traits"</span>,</span>
+<span id="cb75-69"><a href="#cb75-69" aria-hidden="true" tabindex="-1"></a>         <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
+<span id="cb75-70"><a href="#cb75-70" aria-hidden="true" tabindex="-1"></a>df_excel2</span>
+<span id="cb75-71"><a href="#cb75-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-72"><a href="#cb75-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-75"><a href="#cb75-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-76"><a href="#cb75-76" aria-hidden="true" tabindex="-1"></a>(padrao <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">"df_excel"</span>))</span>
-<span id="cb75-77"><a href="#cb75-77" aria-hidden="true" tabindex="-1"></a>df_lista <span class="ot">&lt;-</span> <span class="fu">import_list</span>(<span class="at">file =</span> padrao)</span>
-<span id="cb75-78"><a href="#cb75-78" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df_lista)</span>
-<span id="cb75-79"><a href="#cb75-79" aria-hidden="true" tabindex="-1"></a>df_lista_bind <span class="ot">&lt;-</span> <span class="fu">import_list</span>(<span class="at">file =</span> padrao, <span class="at">rbind =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb75-80"><a href="#cb75-80" aria-hidden="true" tabindex="-1"></a>df_lista_bind</span>
-<span id="cb75-81"><a href="#cb75-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-82"><a href="#cb75-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-83"><a href="#cb75-83" aria-hidden="true" tabindex="-1"></a><span class="fu">## Planilha separada por vírgulas</span></span>
+<span id="cb75-73"><a href="#cb75-73" aria-hidden="true" tabindex="-1"></a><span class="fu">### Vários arquivos</span></span>
+<span id="cb75-74"><a href="#cb75-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-77"><a href="#cb75-77" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-78"><a href="#cb75-78" aria-hidden="true" tabindex="-1"></a>(padrao <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">"df_excel"</span>))</span>
+<span id="cb75-79"><a href="#cb75-79" aria-hidden="true" tabindex="-1"></a>df_lista <span class="ot">&lt;-</span> <span class="fu">import_list</span>(<span class="at">file =</span> padrao)</span>
+<span id="cb75-80"><a href="#cb75-80" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df_lista)</span>
+<span id="cb75-81"><a href="#cb75-81" aria-hidden="true" tabindex="-1"></a>df_lista_bind <span class="ot">&lt;-</span> <span class="fu">import_list</span>(<span class="at">file =</span> padrao, <span class="at">rbind =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb75-82"><a href="#cb75-82" aria-hidden="true" tabindex="-1"></a>df_lista_bind</span>
+<span id="cb75-83"><a href="#cb75-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-84"><a href="#cb75-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-87"><a href="#cb75-87" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-88"><a href="#cb75-88" aria-hidden="true" tabindex="-1"></a>df_csv <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"df_csv.csv"</span>)</span>
-<span id="cb75-89"><a href="#cb75-89" aria-hidden="true" tabindex="-1"></a>df_csv</span>
-<span id="cb75-90"><a href="#cb75-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-91"><a href="#cb75-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-92"><a href="#cb75-92" aria-hidden="true" tabindex="-1"></a><span class="fu">## Arquivos de texto</span></span>
+<span id="cb75-85"><a href="#cb75-85" aria-hidden="true" tabindex="-1"></a><span class="fu">## Planilha separada por vírgulas</span></span>
+<span id="cb75-86"><a href="#cb75-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-89"><a href="#cb75-89" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-90"><a href="#cb75-90" aria-hidden="true" tabindex="-1"></a>df_csv <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"df_csv.csv"</span>)</span>
+<span id="cb75-91"><a href="#cb75-91" aria-hidden="true" tabindex="-1"></a>df_csv</span>
+<span id="cb75-92"><a href="#cb75-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-93"><a href="#cb75-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-96"><a href="#cb75-96" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-97"><a href="#cb75-97" aria-hidden="true" tabindex="-1"></a>df_txt <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"df_txt.txt"</span>)</span>
-<span id="cb75-98"><a href="#cb75-98" aria-hidden="true" tabindex="-1"></a>df_txt</span>
-<span id="cb75-99"><a href="#cb75-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-100"><a href="#cb75-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-101"><a href="#cb75-101" aria-hidden="true" tabindex="-1"></a><span class="fu">## Google sheets</span></span>
+<span id="cb75-94"><a href="#cb75-94" aria-hidden="true" tabindex="-1"></a><span class="fu">## Arquivos de texto</span></span>
+<span id="cb75-95"><a href="#cb75-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-98"><a href="#cb75-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-99"><a href="#cb75-99" aria-hidden="true" tabindex="-1"></a>df_txt <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"df_txt.txt"</span>)</span>
+<span id="cb75-100"><a href="#cb75-100" aria-hidden="true" tabindex="-1"></a>df_txt</span>
+<span id="cb75-101"><a href="#cb75-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-102"><a href="#cb75-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-105"><a href="#cb75-105" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-106"><a href="#cb75-106" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/1b-Sj9l-VwJ-Oy-hFx7j8twsA5oC6-Fr9ukllywfim0E"</span></span>
-<span id="cb75-107"><a href="#cb75-107" aria-hidden="true" tabindex="-1"></a>df_gsheet <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">dec =</span> <span class="st">","</span>)</span>
-<span id="cb75-108"><a href="#cb75-108" aria-hidden="true" tabindex="-1"></a>df_gsheet</span>
-<span id="cb75-109"><a href="#cb75-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-110"><a href="#cb75-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-111"><a href="#cb75-111" aria-hidden="true" tabindex="-1"></a><span class="fu">## SPSS</span></span>
+<span id="cb75-103"><a href="#cb75-103" aria-hidden="true" tabindex="-1"></a><span class="fu">## Google sheets</span></span>
+<span id="cb75-104"><a href="#cb75-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-107"><a href="#cb75-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-108"><a href="#cb75-108" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/1b-Sj9l-VwJ-Oy-hFx7j8twsA5oC6-Fr9ukllywfim0E"</span></span>
+<span id="cb75-109"><a href="#cb75-109" aria-hidden="true" tabindex="-1"></a>df_gsheet <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">dec =</span> <span class="st">","</span>)</span>
+<span id="cb75-110"><a href="#cb75-110" aria-hidden="true" tabindex="-1"></a>df_gsheet</span>
+<span id="cb75-111"><a href="#cb75-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-112"><a href="#cb75-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-113"><a href="#cb75-113" aria-hidden="true" tabindex="-1"></a>O arquivo <span class="in">`".sav"`</span> de exemplo foi baixado <span class="co">[</span><span class="ot">deste site</span><span class="co">](https://lo.unisa.edu.au/mod/book/view.php?id=646443&amp;chapterid=106604)</span></span>
+<span id="cb75-113"><a href="#cb75-113" aria-hidden="true" tabindex="-1"></a><span class="fu">## SPSS</span></span>
 <span id="cb75-114"><a href="#cb75-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-117"><a href="#cb75-117" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-118"><a href="#cb75-118" aria-hidden="true" tabindex="-1"></a>df_spss <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"df_spss.sav"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
-<span id="cb75-119"><a href="#cb75-119" aria-hidden="true" tabindex="-1"></a>df_spss</span>
-<span id="cb75-120"><a href="#cb75-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-121"><a href="#cb75-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-122"><a href="#cb75-122" aria-hidden="true" tabindex="-1"></a><span class="fu">## DBF</span></span>
+<span id="cb75-115"><a href="#cb75-115" aria-hidden="true" tabindex="-1"></a>O arquivo <span class="in">`".sav"`</span> de exemplo foi baixado <span class="co">[</span><span class="ot">deste site</span><span class="co">](https://lo.unisa.edu.au/mod/book/view.php?id=646443&amp;chapterid=106604)</span></span>
+<span id="cb75-116"><a href="#cb75-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-119"><a href="#cb75-119" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-120"><a href="#cb75-120" aria-hidden="true" tabindex="-1"></a>df_spss <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"df_spss.sav"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
+<span id="cb75-121"><a href="#cb75-121" aria-hidden="true" tabindex="-1"></a>df_spss</span>
+<span id="cb75-122"><a href="#cb75-122" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-123"><a href="#cb75-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-124"><a href="#cb75-124" aria-hidden="true" tabindex="-1"></a>O arquivo <span class="in">`".dbf"`</span> de exemplo foi baixado <span class="co">[</span><span class="ot">deste site</span><span class="co">](https://github.com/infused/dbf/blob/master/spec/fixtures/dbase_83.dbf)</span></span>
+<span id="cb75-124"><a href="#cb75-124" aria-hidden="true" tabindex="-1"></a><span class="fu">## DBF</span></span>
 <span id="cb75-125"><a href="#cb75-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-128"><a href="#cb75-128" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-129"><a href="#cb75-129" aria-hidden="true" tabindex="-1"></a>df_dbf <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"df_dbf.dbf"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
-<span id="cb75-130"><a href="#cb75-130" aria-hidden="true" tabindex="-1"></a>df_dbf</span>
-<span id="cb75-131"><a href="#cb75-131" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-132"><a href="#cb75-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-133"><a href="#cb75-133" aria-hidden="true" tabindex="-1"></a><span class="fu">## ODS</span></span>
+<span id="cb75-126"><a href="#cb75-126" aria-hidden="true" tabindex="-1"></a>O arquivo <span class="in">`".dbf"`</span> de exemplo foi baixado <span class="co">[</span><span class="ot">deste site</span><span class="co">](https://github.com/infused/dbf/blob/master/spec/fixtures/dbase_83.dbf)</span></span>
+<span id="cb75-127"><a href="#cb75-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-130"><a href="#cb75-130" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-131"><a href="#cb75-131" aria-hidden="true" tabindex="-1"></a>df_dbf <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"df_dbf.dbf"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
+<span id="cb75-132"><a href="#cb75-132" aria-hidden="true" tabindex="-1"></a>df_dbf</span>
+<span id="cb75-133"><a href="#cb75-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-134"><a href="#cb75-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-137"><a href="#cb75-137" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-138"><a href="#cb75-138" aria-hidden="true" tabindex="-1"></a>df_ods <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"df_ods.ods"</span>)</span>
-<span id="cb75-139"><a href="#cb75-139" aria-hidden="true" tabindex="-1"></a>df_ods</span>
-<span id="cb75-140"><a href="#cb75-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-141"><a href="#cb75-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-142"><a href="#cb75-142" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rdata</span></span>
+<span id="cb75-135"><a href="#cb75-135" aria-hidden="true" tabindex="-1"></a><span class="fu">## ODS</span></span>
+<span id="cb75-136"><a href="#cb75-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-139"><a href="#cb75-139" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-140"><a href="#cb75-140" aria-hidden="true" tabindex="-1"></a>df_ods <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"df_ods.ods"</span>)</span>
+<span id="cb75-141"><a href="#cb75-141" aria-hidden="true" tabindex="-1"></a>df_ods</span>
+<span id="cb75-142"><a href="#cb75-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-143"><a href="#cb75-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-146"><a href="#cb75-146" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-147"><a href="#cb75-147" aria-hidden="true" tabindex="-1"></a>df_rdata <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"df_r.RData"</span>)</span>
-<span id="cb75-148"><a href="#cb75-148" aria-hidden="true" tabindex="-1"></a>df_rdata</span>
-<span id="cb75-149"><a href="#cb75-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-150"><a href="#cb75-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-151"><a href="#cb75-151" aria-hidden="true" tabindex="-1"></a><span class="fu"># Exportar</span></span>
+<span id="cb75-144"><a href="#cb75-144" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rdata</span></span>
+<span id="cb75-145"><a href="#cb75-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-148"><a href="#cb75-148" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-149"><a href="#cb75-149" aria-hidden="true" tabindex="-1"></a>df_rdata <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"df_r.RData"</span>)</span>
+<span id="cb75-150"><a href="#cb75-150" aria-hidden="true" tabindex="-1"></a>df_rdata</span>
+<span id="cb75-151"><a href="#cb75-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-152"><a href="#cb75-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-155"><a href="#cb75-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-156"><a href="#cb75-156" aria-hidden="true" tabindex="-1"></a><span class="co"># exportar para excel</span></span>
-<span id="cb75-157"><a href="#cb75-157" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(df_excel, <span class="st">"exportado.xlsx"</span>)</span>
-<span id="cb75-158"><a href="#cb75-158" aria-hidden="true" tabindex="-1"></a><span class="co"># exportar para txt</span></span>
-<span id="cb75-159"><a href="#cb75-159" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(df_excel, <span class="st">"exportado.txt"</span>)</span>
-<span id="cb75-160"><a href="#cb75-160" aria-hidden="true" tabindex="-1"></a><span class="co"># exportar para csv</span></span>
-<span id="cb75-161"><a href="#cb75-161" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(df_excel, <span class="st">"exportado.csv"</span>)</span>
-<span id="cb75-162"><a href="#cb75-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-163"><a href="#cb75-163" aria-hidden="true" tabindex="-1"></a><span class="co"># exportar várias planilhas para um arquivo</span></span>
-<span id="cb75-164"><a href="#cb75-164" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(</span>
-<span id="cb75-165"><a href="#cb75-165" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
-<span id="cb75-166"><a href="#cb75-166" aria-hidden="true" tabindex="-1"></a>    <span class="at">plan1 =</span> df_excel,</span>
-<span id="cb75-167"><a href="#cb75-167" aria-hidden="true" tabindex="-1"></a>    <span class="at">plan2 =</span> df_excel2</span>
-<span id="cb75-168"><a href="#cb75-168" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb75-169"><a href="#cb75-169" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"minha_lista.xlsx"</span></span>
-<span id="cb75-170"><a href="#cb75-170" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb75-171"><a href="#cb75-171" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-172"><a href="#cb75-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-173"><a href="#cb75-173" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tutorial Importação e Exportação</span></span>
+<span id="cb75-153"><a href="#cb75-153" aria-hidden="true" tabindex="-1"></a><span class="fu"># Exportar</span></span>
+<span id="cb75-154"><a href="#cb75-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-157"><a href="#cb75-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-158"><a href="#cb75-158" aria-hidden="true" tabindex="-1"></a><span class="co"># exportar para excel</span></span>
+<span id="cb75-159"><a href="#cb75-159" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(df_excel, <span class="st">"exportado.xlsx"</span>)</span>
+<span id="cb75-160"><a href="#cb75-160" aria-hidden="true" tabindex="-1"></a><span class="co"># exportar para txt</span></span>
+<span id="cb75-161"><a href="#cb75-161" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(df_excel, <span class="st">"exportado.txt"</span>)</span>
+<span id="cb75-162"><a href="#cb75-162" aria-hidden="true" tabindex="-1"></a><span class="co"># exportar para csv</span></span>
+<span id="cb75-163"><a href="#cb75-163" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(df_excel, <span class="st">"exportado.csv"</span>)</span>
+<span id="cb75-164"><a href="#cb75-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-165"><a href="#cb75-165" aria-hidden="true" tabindex="-1"></a><span class="co"># exportar várias planilhas para um arquivo</span></span>
+<span id="cb75-166"><a href="#cb75-166" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(</span>
+<span id="cb75-167"><a href="#cb75-167" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb75-168"><a href="#cb75-168" aria-hidden="true" tabindex="-1"></a>    <span class="at">plan1 =</span> df_excel,</span>
+<span id="cb75-169"><a href="#cb75-169" aria-hidden="true" tabindex="-1"></a>    <span class="at">plan2 =</span> df_excel2</span>
+<span id="cb75-170"><a href="#cb75-170" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb75-171"><a href="#cb75-171" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"minha_lista.xlsx"</span></span>
+<span id="cb75-172"><a href="#cb75-172" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb75-173"><a href="#cb75-173" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-174"><a href="#cb75-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-175"><a href="#cb75-175" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/fVJfL4LFLAM &gt;}}</span>
+<span id="cb75-175"><a href="#cb75-175" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tutorial Importação e Exportação</span></span>
 <span id="cb75-176"><a href="#cb75-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-177"><a href="#cb75-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-178"><a href="#cb75-178" aria-hidden="true" tabindex="-1"></a><span class="fu"># Dados *tidy*</span></span>
+<span id="cb75-177"><a href="#cb75-177" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/fVJfL4LFLAM &gt;}}</span>
+<span id="cb75-178"><a href="#cb75-178" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-179"><a href="#cb75-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-180"><a href="#cb75-180" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Conjuntos de dados organizados são fáceis de manipular, modelar e visualizar, e possuem uma estrutura específica: cada variável é uma coluna, cada observação é uma linha e cada tipo de unidade observacional é uma tabela (Wickham, 2014)</span><span class="ot">[^1]</span></span>
+<span id="cb75-180"><a href="#cb75-180" aria-hidden="true" tabindex="-1"></a><span class="fu"># Dados *tidy*</span></span>
 <span id="cb75-181"><a href="#cb75-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-182"><a href="#cb75-182" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>Wickham, Hadley. 2014. "Tidy Data". Journal of Statistical Software 59: 1--23.</span>
+<span id="cb75-182"><a href="#cb75-182" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Conjuntos de dados organizados são fáceis de manipular, modelar e visualizar, e possuem uma estrutura específica: cada variável é uma coluna, cada observação é uma linha e cada tipo de unidade observacional é uma tabela (Wickham, 2014)</span><span class="ot">[^1]</span></span>
 <span id="cb75-183"><a href="#cb75-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-184"><a href="#cb75-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-185"><a href="#cb75-185" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mesmos dados, diferentes formas</span></span>
+<span id="cb75-184"><a href="#cb75-184" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>Wickham, Hadley. 2014. "Tidy Data". Journal of Statistical Software 59: 1--23.</span>
+<span id="cb75-185"><a href="#cb75-185" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-186"><a href="#cb75-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-187"><a href="#cb75-187" aria-hidden="true" tabindex="-1"></a>Nesta seção você aprenderá organizar dados no R no formato *tidy*. Colocar seus dados nesse formato requer algum trabalho inicial, mas esse trabalho compensa a longo prazo. Aqui, um foco especial será dado nas funções do pacote `tidyr` e do pacote `metan`. Se você quiser saber mais sobre a teoria por tras dos dados *tidy*, poderá apreciar o artigo <span class="co">[</span><span class="ot">Tidy Data</span><span class="co">](https://www.jstatsoft.org/article/view/v059i10)</span>.</span>
+<span id="cb75-187"><a href="#cb75-187" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mesmos dados, diferentes formas</span></span>
 <span id="cb75-188"><a href="#cb75-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-189"><a href="#cb75-189" aria-hidden="true" tabindex="-1"></a>Você pode representar os mesmos dados várias maneiras. O exemplo abaixo mostra os mesmos dados organizados de quatro maneiras diferentes. Cada conjunto de dados mostra os mesmos valores de duas variáveis (ALT_ESP, ALT_PLANT) mensuradas em três híbridos (HIBRIDO), considerando três repetições (BLOCOS).</span>
+<span id="cb75-189"><a href="#cb75-189" aria-hidden="true" tabindex="-1"></a>Nesta seção você aprenderá organizar dados no R no formato *tidy*. Colocar seus dados nesse formato requer algum trabalho inicial, mas esse trabalho compensa a longo prazo. Aqui, um foco especial será dado nas funções do pacote `tidyr` e do pacote `metan`. Se você quiser saber mais sobre a teoria por tras dos dados *tidy*, poderá apreciar o artigo <span class="co">[</span><span class="ot">Tidy Data</span><span class="co">](https://www.jstatsoft.org/article/view/v059i10)</span>.</span>
 <span id="cb75-190"><a href="#cb75-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-191"><a href="#cb75-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{r warning=FALSE, message=FALSE}</span></span>
-<span id="cb75-192"><a href="#cb75-192" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">import_list</span>(<span class="st">"examples_data.xlsx"</span>)</span>
-<span id="cb75-193"><a href="#cb75-193" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>df1</span>
-<span id="cb75-194"><a href="#cb75-194" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>df2</span>
-<span id="cb75-195"><a href="#cb75-195" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>df3</span>
-<span id="cb75-196"><a href="#cb75-196" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>df4</span>
-<span id="cb75-197"><a href="#cb75-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-198"><a href="#cb75-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-199"><a href="#cb75-199" aria-hidden="true" tabindex="-1"></a>Essas são todas representações dos mesmos dados, mas são completamente diferentes do ponto de vista de uso.</span>
+<span id="cb75-191"><a href="#cb75-191" aria-hidden="true" tabindex="-1"></a>Você pode representar os mesmos dados várias maneiras. O exemplo abaixo mostra os mesmos dados organizados de quatro maneiras diferentes. Cada conjunto de dados mostra os mesmos valores de duas variáveis (ALT_ESP, ALT_PLANT) mensuradas em três híbridos (HIBRIDO), considerando três repetições (BLOCOS).</span>
+<span id="cb75-192"><a href="#cb75-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-193"><a href="#cb75-193" aria-hidden="true" tabindex="-1"></a><span class="in">```{r warning=FALSE, message=FALSE}</span></span>
+<span id="cb75-194"><a href="#cb75-194" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">import_list</span>(<span class="st">"examples_data.xlsx"</span>)</span>
+<span id="cb75-195"><a href="#cb75-195" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>df1</span>
+<span id="cb75-196"><a href="#cb75-196" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>df2</span>
+<span id="cb75-197"><a href="#cb75-197" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>df3</span>
+<span id="cb75-198"><a href="#cb75-198" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>df4</span>
+<span id="cb75-199"><a href="#cb75-199" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-200"><a href="#cb75-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-201"><a href="#cb75-201" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
-<span id="cb75-202"><a href="#cb75-202" aria-hidden="true" tabindex="-1"></a><span class="fu">## O que não fazer</span></span>
-<span id="cb75-203"><a href="#cb75-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-204"><a href="#cb75-204" aria-hidden="true" tabindex="-1"></a>Vamos assumir que queiramos computar a média da variável <span class="in">`ALT_PLANT`</span>. Observe os quatro exemplos abaixo e veja qual está correto.</span>
+<span id="cb75-201"><a href="#cb75-201" aria-hidden="true" tabindex="-1"></a>Essas são todas representações dos mesmos dados, mas são completamente diferentes do ponto de vista de uso.</span>
+<span id="cb75-202"><a href="#cb75-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-203"><a href="#cb75-203" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
+<span id="cb75-204"><a href="#cb75-204" aria-hidden="true" tabindex="-1"></a><span class="fu">## O que não fazer</span></span>
 <span id="cb75-205"><a href="#cb75-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-206"><a href="#cb75-206" aria-hidden="true" tabindex="-1"></a><span class="in">```{r error=TRUE}</span></span>
-<span id="cb75-207"><a href="#cb75-207" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>df1<span class="sc">$</span>ALT_PLANT)</span>
-<span id="cb75-208"><a href="#cb75-208" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>df2<span class="sc">$</span>value)</span>
-<span id="cb75-209"><a href="#cb75-209" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>df3<span class="sc">$</span>ALT_PLANT_I)</span>
-<span id="cb75-210"><a href="#cb75-210" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>df4<span class="sc">$</span>I)</span>
-<span id="cb75-211"><a href="#cb75-211" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-212"><a href="#cb75-212" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb75-213"><a href="#cb75-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-214"><a href="#cb75-214" aria-hidden="true" tabindex="-1"></a>Um conjunto de dados *tidy* é um conjunto de dados onde as três regras à seguir são respeitadas:</span>
+<span id="cb75-206"><a href="#cb75-206" aria-hidden="true" tabindex="-1"></a>Vamos assumir que queiramos computar a média da variável <span class="in">`ALT_PLANT`</span>. Observe os quatro exemplos abaixo e veja qual está correto.</span>
+<span id="cb75-207"><a href="#cb75-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-208"><a href="#cb75-208" aria-hidden="true" tabindex="-1"></a><span class="in">```{r error=TRUE}</span></span>
+<span id="cb75-209"><a href="#cb75-209" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>df1<span class="sc">$</span>ALT_PLANT)</span>
+<span id="cb75-210"><a href="#cb75-210" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>df2<span class="sc">$</span>value)</span>
+<span id="cb75-211"><a href="#cb75-211" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>df3<span class="sc">$</span>ALT_PLANT_I)</span>
+<span id="cb75-212"><a href="#cb75-212" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>df4<span class="sc">$</span>I)</span>
+<span id="cb75-213"><a href="#cb75-213" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-214"><a href="#cb75-214" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb75-215"><a href="#cb75-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-216"><a href="#cb75-216" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Cada variável deve ter sua própria coluna.</span>
-<span id="cb75-217"><a href="#cb75-217" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Cada observação deve ter sua própria linha.</span>
-<span id="cb75-218"><a href="#cb75-218" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Cada valor deve ter sua própria célula.</span>
-<span id="cb75-219"><a href="#cb75-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-220"><a href="#cb75-220" aria-hidden="true" tabindex="-1"></a>A Figura à seguir mostra as regras visualmente.</span>
+<span id="cb75-216"><a href="#cb75-216" aria-hidden="true" tabindex="-1"></a>Um conjunto de dados *tidy* é um conjunto de dados onde as três regras à seguir são respeitadas:</span>
+<span id="cb75-217"><a href="#cb75-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-218"><a href="#cb75-218" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Cada variável deve ter sua própria coluna.</span>
+<span id="cb75-219"><a href="#cb75-219" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Cada observação deve ter sua própria linha.</span>
+<span id="cb75-220"><a href="#cb75-220" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Cada valor deve ter sua própria célula.</span>
 <span id="cb75-221"><a href="#cb75-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-222"><a href="#cb75-222" aria-hidden="true" tabindex="-1"></a><span class="al">![Adaptado de https://r4ds.had.co.nz/tidy-data.html#tidy-data-1](figs/tidy.png)</span></span>
+<span id="cb75-222"><a href="#cb75-222" aria-hidden="true" tabindex="-1"></a>A Figura à seguir mostra as regras visualmente.</span>
 <span id="cb75-223"><a href="#cb75-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-224"><a href="#cb75-224" aria-hidden="true" tabindex="-1"></a>Após vermos estas regras, percebemos que dos quatro conjuntos apresentados anteriormente, apenas <span class="in">`df`</span> é *tidy*. Ao usarmos conjuntos de dados *tidy* vamos poder aproveitar uma das belezas do R: a possibilidade de aplicar funções à vetores, que neste caso nada mais são do que os valores presentes em cada coluna.</span>
+<span id="cb75-224"><a href="#cb75-224" aria-hidden="true" tabindex="-1"></a><span class="al">![Adaptado de https://r4ds.had.co.nz/tidy-data.html#tidy-data-1](figs/tidy.png)</span></span>
 <span id="cb75-225"><a href="#cb75-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-226"><a href="#cb75-226" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/TYcKMXwPsuw &gt;}}</span>
+<span id="cb75-226"><a href="#cb75-226" aria-hidden="true" tabindex="-1"></a>Após vermos estas regras, percebemos que dos quatro conjuntos apresentados anteriormente, apenas <span class="in">`df`</span> é *tidy*. Ao usarmos conjuntos de dados *tidy* vamos poder aproveitar uma das belezas do R: a possibilidade de aplicar funções à vetores, que neste caso nada mais são do que os valores presentes em cada coluna.</span>
 <span id="cb75-227"><a href="#cb75-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-228"><a href="#cb75-228" aria-hidden="true" tabindex="-1"></a><span class="fu">## Padão, padrão, padrão!</span></span>
+<span id="cb75-228"><a href="#cb75-228" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/TYcKMXwPsuw &gt;}}</span>
 <span id="cb75-229"><a href="#cb75-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-230"><a href="#cb75-230" aria-hidden="true" tabindex="-1"></a><span class="fu">### Formatar strings</span></span>
+<span id="cb75-230"><a href="#cb75-230" aria-hidden="true" tabindex="-1"></a><span class="fu">## Padão, padrão, padrão!</span></span>
 <span id="cb75-231"><a href="#cb75-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-232"><a href="#cb75-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-233"><a href="#cb75-233" aria-hidden="true" tabindex="-1"></a>Um dos maiores equívocos cometidos ao trabalhar com conjuntos de dados e que pode impactar significativamente análises posteriores é a falta de padrão de nomenclatura, tanto em variáveis como string de caracteres. Por exemplo, suponha que tenhamos uma string de caracteres <span class="in">`str = c("Env1", "env 1", "env.1")`</span>, para representar três observações do ambiente "env 1". Por definição, <span class="in">`str`</span> deve representar um nível único, mas na verdade tem três níveis.</span>
+<span id="cb75-232"><a href="#cb75-232" aria-hidden="true" tabindex="-1"></a><span class="fu">### Formatar strings</span></span>
+<span id="cb75-233"><a href="#cb75-233" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-234"><a href="#cb75-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-237"><a href="#cb75-237" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-238"><a href="#cb75-238" aria-hidden="true" tabindex="-1"></a>str <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Env1"</span>, <span class="st">"env 1"</span>, <span class="st">"env.1"</span>)</span>
-<span id="cb75-239"><a href="#cb75-239" aria-hidden="true" tabindex="-1"></a>str <span class="sc">|&gt;</span> <span class="fu">factor</span>() <span class="sc">|&gt;</span> <span class="fu">levels</span>()</span>
-<span id="cb75-240"><a href="#cb75-240" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-241"><a href="#cb75-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-242"><a href="#cb75-242" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`tidy_strings()`</span> do pacote <span class="in">`metan`</span> pode ser usada para organizar strings de caracteres colocando todas as palavras em maiúsculas, substituindo qualquer espaço, tabulação, caracteres de pontuação por <span class="in">`_`</span> e colocando <span class="in">`_`</span> entre maiúsculas e minúsculas.</span>
+<span id="cb75-235"><a href="#cb75-235" aria-hidden="true" tabindex="-1"></a>Um dos maiores equívocos cometidos ao trabalhar com conjuntos de dados e que pode impactar significativamente análises posteriores é a falta de padrão de nomenclatura, tanto em variáveis como string de caracteres. Por exemplo, suponha que tenhamos uma string de caracteres <span class="in">`str = c("Env1", "env 1", "env.1")`</span>, para representar três observações do ambiente "env 1". Por definição, <span class="in">`str`</span> deve representar um nível único, mas na verdade tem três níveis.</span>
+<span id="cb75-236"><a href="#cb75-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-239"><a href="#cb75-239" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-240"><a href="#cb75-240" aria-hidden="true" tabindex="-1"></a>str <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Env1"</span>, <span class="st">"env 1"</span>, <span class="st">"env.1"</span>)</span>
+<span id="cb75-241"><a href="#cb75-241" aria-hidden="true" tabindex="-1"></a>str <span class="sc">|&gt;</span> <span class="fu">factor</span>() <span class="sc">|&gt;</span> <span class="fu">levels</span>()</span>
+<span id="cb75-242"><a href="#cb75-242" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-243"><a href="#cb75-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-246"><a href="#cb75-246" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-247"><a href="#cb75-247" aria-hidden="true" tabindex="-1"></a>(tidy_str <span class="ot">&lt;-</span> <span class="fu">tidy_strings</span>(str))</span>
-<span id="cb75-248"><a href="#cb75-248" aria-hidden="true" tabindex="-1"></a>tidy_str <span class="sc">|&gt;</span> <span class="fu">factor</span>() <span class="sc">|&gt;</span> <span class="fu">levels</span>()</span>
-<span id="cb75-249"><a href="#cb75-249" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-250"><a href="#cb75-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-251"><a href="#cb75-251" aria-hidden="true" tabindex="-1"></a>Excelente! Agora temos o nível único que deveríamos ter antes.</span>
+<span id="cb75-244"><a href="#cb75-244" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`tidy_strings()`</span> do pacote <span class="in">`metan`</span> pode ser usada para organizar strings de caracteres colocando todas as palavras em maiúsculas, substituindo qualquer espaço, tabulação, caracteres de pontuação por <span class="in">`_`</span> e colocando <span class="in">`_`</span> entre maiúsculas e minúsculas.</span>
+<span id="cb75-245"><a href="#cb75-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-248"><a href="#cb75-248" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-249"><a href="#cb75-249" aria-hidden="true" tabindex="-1"></a>(tidy_str <span class="ot">&lt;-</span> <span class="fu">tidy_strings</span>(str))</span>
+<span id="cb75-250"><a href="#cb75-250" aria-hidden="true" tabindex="-1"></a>tidy_str <span class="sc">|&gt;</span> <span class="fu">factor</span>() <span class="sc">|&gt;</span> <span class="fu">levels</span>()</span>
+<span id="cb75-251"><a href="#cb75-251" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-252"><a href="#cb75-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-253"><a href="#cb75-253" aria-hidden="true" tabindex="-1"></a><span class="fu">### Formatar nomes de colunas</span></span>
+<span id="cb75-253"><a href="#cb75-253" aria-hidden="true" tabindex="-1"></a>Excelente! Agora temos o nível único que deveríamos ter antes.</span>
 <span id="cb75-254"><a href="#cb75-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-255"><a href="#cb75-255" aria-hidden="true" tabindex="-1"></a>O mesmo princípio visto anteriormente se aplica aos nomes das colunas. Como exemplo motivador, vamos utilziar o conjunto de dados <span class="in">`messy`</span>.</span>
+<span id="cb75-255"><a href="#cb75-255" aria-hidden="true" tabindex="-1"></a><span class="fu">### Formatar nomes de colunas</span></span>
 <span id="cb75-256"><a href="#cb75-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-257"><a href="#cb75-257" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message = FALSE, warning=FALSE}</span></span>
-<span id="cb75-258"><a href="#cb75-258" aria-hidden="true" tabindex="-1"></a>messy <span class="ot">&lt;-</span> df<span class="sc">$</span>messy</span>
-<span id="cb75-259"><a href="#cb75-259" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(messy)</span>
-<span id="cb75-260"><a href="#cb75-260" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-261"><a href="#cb75-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-262"><a href="#cb75-262" aria-hidden="true" tabindex="-1"></a>Observe que o nome das colunas do conjunto de dados <span class="in">`messy`</span> não segue nenhum padrão. São observados letras minúsculas e maiúsculas, espaços e pontuações. Note o que a presença de espaços resulta na seleção de variáveis.</span>
+<span id="cb75-257"><a href="#cb75-257" aria-hidden="true" tabindex="-1"></a>O mesmo princípio visto anteriormente se aplica aos nomes das colunas. Como exemplo motivador, vamos utilziar o conjunto de dados <span class="in">`messy`</span>.</span>
+<span id="cb75-258"><a href="#cb75-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-259"><a href="#cb75-259" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message = FALSE, warning=FALSE}</span></span>
+<span id="cb75-260"><a href="#cb75-260" aria-hidden="true" tabindex="-1"></a>messy <span class="ot">&lt;-</span> df<span class="sc">$</span>messy</span>
+<span id="cb75-261"><a href="#cb75-261" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(messy)</span>
+<span id="cb75-262"><a href="#cb75-262" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-263"><a href="#cb75-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-264"><a href="#cb75-264" aria-hidden="true" tabindex="-1"></a><span class="in">```{r error=TRUE}</span></span>
-<span id="cb75-265"><a href="#cb75-265" aria-hidden="true" tabindex="-1"></a>messy<span class="sc">$</span>env</span>
-<span id="cb75-266"><a href="#cb75-266" aria-hidden="true" tabindex="-1"></a>messy<span class="sc">$</span>b <span class="dv">1</span></span>
-<span id="cb75-267"><a href="#cb75-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-268"><a href="#cb75-268" aria-hidden="true" tabindex="-1"></a><span class="co"># espaços requerem código adicional</span></span>
-<span id="cb75-269"><a href="#cb75-269" aria-hidden="true" tabindex="-1"></a>messy<span class="sc">$</span><span class="st">`</span><span class="at">b 1</span><span class="st">`</span></span>
-<span id="cb75-270"><a href="#cb75-270" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-271"><a href="#cb75-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-272"><a href="#cb75-272" aria-hidden="true" tabindex="-1"></a>Para formatar os nomes de colunas, podemos utilizar a função <span class="in">`tidy_colnames()`</span> do pacote <span class="in">`metan`</span>.</span>
+<span id="cb75-264"><a href="#cb75-264" aria-hidden="true" tabindex="-1"></a>Observe que o nome das colunas do conjunto de dados <span class="in">`messy`</span> não segue nenhum padrão. São observados letras minúsculas e maiúsculas, espaços e pontuações. Note o que a presença de espaços resulta na seleção de variáveis.</span>
+<span id="cb75-265"><a href="#cb75-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-266"><a href="#cb75-266" aria-hidden="true" tabindex="-1"></a><span class="in">```{r error=TRUE}</span></span>
+<span id="cb75-267"><a href="#cb75-267" aria-hidden="true" tabindex="-1"></a>messy<span class="sc">$</span>env</span>
+<span id="cb75-268"><a href="#cb75-268" aria-hidden="true" tabindex="-1"></a>messy<span class="sc">$</span>b <span class="dv">1</span></span>
+<span id="cb75-269"><a href="#cb75-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-270"><a href="#cb75-270" aria-hidden="true" tabindex="-1"></a><span class="co"># espaços requerem código adicional</span></span>
+<span id="cb75-271"><a href="#cb75-271" aria-hidden="true" tabindex="-1"></a>messy<span class="sc">$</span><span class="st">`</span><span class="at">b 1</span><span class="st">`</span></span>
+<span id="cb75-272"><a href="#cb75-272" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-273"><a href="#cb75-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-276"><a href="#cb75-276" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-277"><a href="#cb75-277" aria-hidden="true" tabindex="-1"></a>messy <span class="ot">&lt;-</span> <span class="fu">tidy_colnames</span>(messy)</span>
-<span id="cb75-278"><a href="#cb75-278" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(messy)</span>
-<span id="cb75-279"><a href="#cb75-279" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-280"><a href="#cb75-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-281"><a href="#cb75-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-282"><a href="#cb75-282" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/Jw_jEPBiAVQ &gt;}}</span>
+<span id="cb75-274"><a href="#cb75-274" aria-hidden="true" tabindex="-1"></a>Para formatar os nomes de colunas, podemos utilizar a função <span class="in">`tidy_colnames()`</span> do pacote <span class="in">`metan`</span>.</span>
+<span id="cb75-275"><a href="#cb75-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-278"><a href="#cb75-278" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-279"><a href="#cb75-279" aria-hidden="true" tabindex="-1"></a>messy <span class="ot">&lt;-</span> <span class="fu">tidy_colnames</span>(messy)</span>
+<span id="cb75-280"><a href="#cb75-280" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(messy)</span>
+<span id="cb75-281"><a href="#cb75-281" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-282"><a href="#cb75-282" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-283"><a href="#cb75-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-284"><a href="#cb75-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-285"><a href="#cb75-285" aria-hidden="true" tabindex="-1"></a><span class="fu">### Preencher valores</span></span>
+<span id="cb75-284"><a href="#cb75-284" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/Jw_jEPBiAVQ &gt;}}</span>
+<span id="cb75-285"><a href="#cb75-285" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-286"><a href="#cb75-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-287"><a href="#cb75-287" aria-hidden="true" tabindex="-1"></a>Observe o seguinte conjunto de dados</span>
+<span id="cb75-287"><a href="#cb75-287" aria-hidden="true" tabindex="-1"></a><span class="fu">### Preencher valores</span></span>
 <span id="cb75-288"><a href="#cb75-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-289"><a href="#cb75-289" aria-hidden="true" tabindex="-1"></a><span class="al">![](figs/fill.png)</span></span>
+<span id="cb75-289"><a href="#cb75-289" aria-hidden="true" tabindex="-1"></a>Observe o seguinte conjunto de dados</span>
 <span id="cb75-290"><a href="#cb75-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-291"><a href="#cb75-291" aria-hidden="true" tabindex="-1"></a>Na hora da coleta de dados é muito comum observar células mescladas em conjuntos de dados. Observe o que acontece quando estes dados são importados para o software R.</span>
+<span id="cb75-291"><a href="#cb75-291" aria-hidden="true" tabindex="-1"></a><span class="al">![](figs/fill.png)</span></span>
 <span id="cb75-292"><a href="#cb75-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-295"><a href="#cb75-295" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-296"><a href="#cb75-296" aria-hidden="true" tabindex="-1"></a>(mesclado <span class="ot">&lt;-</span> df<span class="sc">$</span>fill)</span>
-<span id="cb75-297"><a href="#cb75-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-298"><a href="#cb75-298" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-293"><a href="#cb75-293" aria-hidden="true" tabindex="-1"></a>Na hora da coleta de dados é muito comum observar células mescladas em conjuntos de dados. Observe o que acontece quando estes dados são importados para o software R.</span>
+<span id="cb75-294"><a href="#cb75-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-297"><a href="#cb75-297" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-298"><a href="#cb75-298" aria-hidden="true" tabindex="-1"></a>(mesclado <span class="ot">&lt;-</span> df<span class="sc">$</span>fill)</span>
 <span id="cb75-299"><a href="#cb75-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-300"><a href="#cb75-300" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`fill()`</span> do pacote <span class="in">`tidyr`</span> pode ser utilizada para preencher valores faltantes. Ela preenche os valores ausentes nas colunas selecionadas. Isso é útil no formato de saída comum em que os valores não são repetidos e são registrados apenas quando são alterados. Par</span>
+<span id="cb75-300"><a href="#cb75-300" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-301"><a href="#cb75-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-304"><a href="#cb75-304" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-305"><a href="#cb75-305" aria-hidden="true" tabindex="-1"></a>(preenchido <span class="ot">&lt;-</span> <span class="fu">fill</span>(mesclado, AMB, HIBRIDO))</span>
-<span id="cb75-306"><a href="#cb75-306" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-307"><a href="#cb75-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-308"><a href="#cb75-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-302"><a href="#cb75-302" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`fill()`</span> do pacote <span class="in">`tidyr`</span> pode ser utilizada para preencher valores faltantes. Ela preenche os valores ausentes nas colunas selecionadas. Isso é útil no formato de saída comum em que os valores não são repetidos e são registrados apenas quando são alterados. Par</span>
+<span id="cb75-303"><a href="#cb75-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-306"><a href="#cb75-306" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-307"><a href="#cb75-307" aria-hidden="true" tabindex="-1"></a>(preenchido <span class="ot">&lt;-</span> <span class="fu">fill</span>(mesclado, AMB, HIBRIDO))</span>
+<span id="cb75-308"><a href="#cb75-308" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-309"><a href="#cb75-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-310"><a href="#cb75-310" aria-hidden="true" tabindex="-1"></a><span class="fu"># Inspeção</span></span>
-<span id="cb75-313"><a href="#cb75-313" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-314"><a href="#cb75-314" aria-hidden="true" tabindex="-1"></a>maize <span class="ot">&lt;-</span> df<span class="sc">$</span>maize</span>
-<span id="cb75-315"><a href="#cb75-315" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_intro</span>(maize)</span>
-<span id="cb75-316"><a href="#cb75-316" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_histogram</span>(maize)</span>
-<span id="cb75-317"><a href="#cb75-317" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(maize)</span>
-<span id="cb75-318"><a href="#cb75-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-319"><a href="#cb75-319" aria-hidden="true" tabindex="-1"></a><span class="co"># pacote metan</span></span>
-<span id="cb75-320"><a href="#cb75-320" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(maize)</span>
-<span id="cb75-321"><a href="#cb75-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-322"><a href="#cb75-322" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-323"><a href="#cb75-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-324"><a href="#cb75-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-310"><a href="#cb75-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-311"><a href="#cb75-311" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/22n7aZjK-Vw &gt;}}</span>
+<span id="cb75-312"><a href="#cb75-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-313"><a href="#cb75-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-314"><a href="#cb75-314" aria-hidden="true" tabindex="-1"></a><span class="fu"># Inspeção</span></span>
+<span id="cb75-317"><a href="#cb75-317" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb75-318"><a href="#cb75-318" aria-hidden="true" tabindex="-1"></a>maize <span class="ot">&lt;-</span> df<span class="sc">$</span>maize</span>
+<span id="cb75-319"><a href="#cb75-319" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_intro</span>(maize)</span>
+<span id="cb75-320"><a href="#cb75-320" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_histogram</span>(maize)</span>
+<span id="cb75-321"><a href="#cb75-321" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(maize)</span>
+<span id="cb75-322"><a href="#cb75-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-323"><a href="#cb75-323" aria-hidden="true" tabindex="-1"></a><span class="co"># pacote metan</span></span>
+<span id="cb75-324"><a href="#cb75-324" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(maize)</span>
 <span id="cb75-325"><a href="#cb75-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-326"><a href="#cb75-326" aria-hidden="true" tabindex="-1"></a><span class="fu"># Homework</span></span>
+<span id="cb75-326"><a href="#cb75-326" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb75-327"><a href="#cb75-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-328"><a href="#cb75-328" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
-<span id="cb75-329"><a href="#cb75-329" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb75-330"><a href="#cb75-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-331"><a href="#cb75-331" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb75-332"><a href="#cb75-332" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-333"><a href="#cb75-333" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=141635&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
-<span id="cb75-334"><a href="#cb75-334" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-328"><a href="#cb75-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-329"><a href="#cb75-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-330"><a href="#cb75-330" aria-hidden="true" tabindex="-1"></a><span class="fu"># Homework</span></span>
+<span id="cb75-331"><a href="#cb75-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-332"><a href="#cb75-332" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb75-333"><a href="#cb75-333" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb75-334"><a href="#cb75-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-335"><a href="#cb75-335" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb75-336"><a href="#cb75-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-337"><a href="#cb75-337" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=141635&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
+<span id="cb75-338"><a href="#cb75-338" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

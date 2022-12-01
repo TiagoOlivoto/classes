@@ -1046,279 +1046,281 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb66" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "1. O software R"</span></span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># O software R</span></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="an">editor_options:</span><span class="co"> </span></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="co">  chunk_output_type: console</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>O artigo <span class="co">[</span><span class="ot">R: A Language for Data Analysis and Graphics</span><span class="co">](https://www.jstor.org/stable/1390807?seq=1#page_scan_tab_contents)</span><span class="ot">[^1]</span>, escrito pelos desenvolvedores da linguagem George Ross Ihaka e Robert Clifford Gentleman, marca o início de uma nova era no processamento e análise de dados: o desenvolvimento do software R.</span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># O software R</span></span>
 <span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: https://www.jstor.org/stable/1390807?seq=1#page_scan_tab_contents</span></span>
+<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a>O artigo <span class="co">[</span><span class="ot">R: A Language for Data Analysis and Graphics</span><span class="co">](https://www.jstor.org/stable/1390807?seq=1#page_scan_tab_contents)</span><span class="ot">[^1]</span>, escrito pelos desenvolvedores da linguagem George Ross Ihaka e Robert Clifford Gentleman, marca o início de uma nova era no processamento e análise de dados: o desenvolvimento do software R.</span>
 <span id="cb66-10"><a href="#cb66-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-11"><a href="#cb66-11" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">Criadores do [^2]</span><span class="co">](figs/autores_r.png)</span></span>
+<span id="cb66-11"><a href="#cb66-11" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: https://www.jstor.org/stable/1390807?seq=1#page_scan_tab_contents</span></span>
 <span id="cb66-12"><a href="#cb66-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-13"><a href="#cb66-13" aria-hidden="true" tabindex="-1"></a><span class="ot">[^2]: </span>Fonte: Robert Gentleman<span class="sc">\&lt;</span>https://biocasia2020.bioconductor.org/<span class="sc">\&gt;</span>; Ross Ihaka: <span class="sc">\&lt;</span>https://stat.auckland.ac.nz/<span class="sc">\&gt;</span></span>
+<span id="cb66-13"><a href="#cb66-13" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">Criadores do [^2]</span><span class="co">](figs/autores_r.png)</span></span>
 <span id="cb66-14"><a href="#cb66-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-15"><a href="#cb66-15" aria-hidden="true" tabindex="-1"></a><span class="ot">[^3]: </span>Fonte: Robert Gentleman<span class="sc">\&lt;</span>https://biocasia2020.bioconductor.org/<span class="sc">\&gt;</span>; Ross Ihaka: <span class="sc">\&lt;</span>https://stat.auckland.ac.nz/<span class="sc">\&gt;</span></span>
+<span id="cb66-15"><a href="#cb66-15" aria-hidden="true" tabindex="-1"></a><span class="ot">[^2]: </span>Fonte: Robert Gentleman<span class="sc">\&lt;</span>https://biocasia2020.bioconductor.org/<span class="sc">\&gt;</span>; Ross Ihaka: <span class="sc">\&lt;</span>https://stat.auckland.ac.nz/<span class="sc">\&gt;</span></span>
 <span id="cb66-16"><a href="#cb66-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-17"><a href="#cb66-17" aria-hidden="true" tabindex="-1"></a>O R é uma linguagem e ambiente estatístico que traz muitas vantagens para o usuário, embora elas não sejam tão obvias inicialmente:</span>
+<span id="cb66-17"><a href="#cb66-17" aria-hidden="true" tabindex="-1"></a><span class="ot">[^3]: </span>Fonte: Robert Gentleman<span class="sc">\&lt;</span>https://biocasia2020.bioconductor.org/<span class="sc">\&gt;</span>; Ross Ihaka: <span class="sc">\&lt;</span>https://stat.auckland.ac.nz/<span class="sc">\&gt;</span></span>
 <span id="cb66-18"><a href="#cb66-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-19"><a href="#cb66-19" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>O R é um Software Livre (livre no sentido de liberdade) distribuído sob a <span class="co">[</span><span class="ot">Licença Pública Geral</span><span class="co">](https://www.gnu.org/licenses/quick-guide-gplv3.html)</span><span class="ot">[^4]</span>, podendo ser livremente copiado, distribuído, e instalado em diversos computadores livremente. Isso contrasta com softwares comerciais, que têm licenças altamente restritivas, que não permitem que cópias sejam distribuídas ou instaladas em mais de um computador sem a devida licença (que obviamente é paga!);</span>
-<span id="cb66-20"><a href="#cb66-20" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A grande maioria dos Softwares livres são grátis, e o R não é uma exceção;</span>
-<span id="cb66-21"><a href="#cb66-21" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Os códigos-fontes R estão disponíveis para os usuários, e atualmente são gerenciados por um grupo chamado <span class="co">[</span><span class="ot">R Development Core Team</span><span class="co">](https://www.r-project.org/)</span><span class="ot">[^5]</span>. A vantagem de ter o código aberto é que falhas podem ser detectadas e rapidamente corrigidas. Este sistema de revisão depende da participação dos usuários. Em contraste, em muitos pacotes comerciais, as falhas não são corrigidas até o lançamento da próxima versão, o que pode levar vários anos;</span>
-<span id="cb66-22"><a href="#cb66-22" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>O R fornece um interface de entrada por linha de comando (ELC).</span>
-<span id="cb66-23"><a href="#cb66-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-24"><a href="#cb66-24" aria-hidden="true" tabindex="-1"></a><span class="ot">[^4]: https://www.gnu.org/licenses/quick-guide-gplv3.html</span></span>
+<span id="cb66-19"><a href="#cb66-19" aria-hidden="true" tabindex="-1"></a>O R é uma linguagem e ambiente estatístico que traz muitas vantagens para o usuário, embora elas não sejam tão obvias inicialmente:</span>
+<span id="cb66-20"><a href="#cb66-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-21"><a href="#cb66-21" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>O R é um Software Livre (livre no sentido de liberdade) distribuído sob a <span class="co">[</span><span class="ot">Licença Pública Geral</span><span class="co">](https://www.gnu.org/licenses/quick-guide-gplv3.html)</span><span class="ot">[^4]</span>, podendo ser livremente copiado, distribuído, e instalado em diversos computadores livremente. Isso contrasta com softwares comerciais, que têm licenças altamente restritivas, que não permitem que cópias sejam distribuídas ou instaladas em mais de um computador sem a devida licença (que obviamente é paga!);</span>
+<span id="cb66-22"><a href="#cb66-22" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>A grande maioria dos Softwares livres são grátis, e o R não é uma exceção;</span>
+<span id="cb66-23"><a href="#cb66-23" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Os códigos-fontes R estão disponíveis para os usuários, e atualmente são gerenciados por um grupo chamado <span class="co">[</span><span class="ot">R Development Core Team</span><span class="co">](https://www.r-project.org/)</span><span class="ot">[^5]</span>. A vantagem de ter o código aberto é que falhas podem ser detectadas e rapidamente corrigidas. Este sistema de revisão depende da participação dos usuários. Em contraste, em muitos pacotes comerciais, as falhas não são corrigidas até o lançamento da próxima versão, o que pode levar vários anos;</span>
+<span id="cb66-24"><a href="#cb66-24" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>O R fornece um interface de entrada por linha de comando (ELC).</span>
 <span id="cb66-25"><a href="#cb66-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-26"><a href="#cb66-26" aria-hidden="true" tabindex="-1"></a><span class="ot">[^5]: https://www.r-project.org/</span></span>
+<span id="cb66-26"><a href="#cb66-26" aria-hidden="true" tabindex="-1"></a><span class="ot">[^4]: https://www.gnu.org/licenses/quick-guide-gplv3.html</span></span>
 <span id="cb66-27"><a href="#cb66-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-28"><a href="#cb66-28" aria-hidden="true" tabindex="-1"></a>No software R, todos os comandos são digitados e o mouse é pouco usado. Pode parecer antigo, pouco amigável ou até pobre em recursos visuais, mas isso faz com que nos deparemos com o melhor recurso do R: a sua flexibilidade. Para usuários familiarizados, a linguagem do R se torna clara e simples. Com poucos comandos, funções poderosas podem ser<span class="ot">[^6]</span> e o usuário é sempre consciente do que foi pedido através da ELC (Meus dados, minhas análises!). Isso contrasta com pacotes que possuem uma interface amigável (point-and-click), mas que escondem a dinâmica dos cálculos e, potencialmente, os seus erros. Finalmente, o R fornece uma ampla variedade de procedimentos estatísticos básicos ou que exigem grande esforço computacional (modelagem linear e não linear, testes estatísticos clássicos, análise de séries temporais, classificação, agrupamento, etc.) e recursos gráficos elegantes. Um dos pontos fortes de R é a facilidade com que gráficos de qualidade podem ser produzidos, incluindo símbolos matemáticos e fórmulas, quando necessário. O software R está disponível em uma ampla variedade de plataformas UNIX e sistemas similares (incluindo FreeBSD e Linux), Windows e MacOS.</span>
+<span id="cb66-28"><a href="#cb66-28" aria-hidden="true" tabindex="-1"></a><span class="ot">[^5]: https://www.r-project.org/</span></span>
 <span id="cb66-29"><a href="#cb66-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-30"><a href="#cb66-30" aria-hidden="true" tabindex="-1"></a><span class="ot">[^6]: </span>Veja uma breve história de como o pacote metan, desenvolvido pelo prof. Olivoto, foi concebido <span class="ot">&lt;https://methodsblog.com/2020/05/28/metan_package/&gt;</span></span>
+<span id="cb66-30"><a href="#cb66-30" aria-hidden="true" tabindex="-1"></a>No software R, todos os comandos são digitados e o mouse é pouco usado. Pode parecer antigo, pouco amigável ou até pobre em recursos visuais, mas isso faz com que nos deparemos com o melhor recurso do R: a sua flexibilidade. Para usuários familiarizados, a linguagem do R se torna clara e simples. Com poucos comandos, funções poderosas podem ser<span class="ot">[^6]</span> e o usuário é sempre consciente do que foi pedido através da ELC (Meus dados, minhas análises!). Isso contrasta com pacotes que possuem uma interface amigável (point-and-click), mas que escondem a dinâmica dos cálculos e, potencialmente, os seus erros. Finalmente, o R fornece uma ampla variedade de procedimentos estatísticos básicos ou que exigem grande esforço computacional (modelagem linear e não linear, testes estatísticos clássicos, análise de séries temporais, classificação, agrupamento, etc.) e recursos gráficos elegantes. Um dos pontos fortes de R é a facilidade com que gráficos de qualidade podem ser produzidos, incluindo símbolos matemáticos e fórmulas, quando necessário. O software R está disponível em uma ampla variedade de plataformas UNIX e sistemas similares (incluindo FreeBSD e Linux), Windows e MacOS.</span>
 <span id="cb66-31"><a href="#cb66-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-32"><a href="#cb66-32" aria-hidden="true" tabindex="-1"></a><span class="fu"># O software RStudio</span></span>
+<span id="cb66-32"><a href="#cb66-32" aria-hidden="true" tabindex="-1"></a><span class="ot">[^6]: </span>Veja uma breve história de como o pacote metan, desenvolvido pelo prof. Olivoto, foi concebido <span class="ot">&lt;https://methodsblog.com/2020/05/28/metan_package/&gt;</span></span>
 <span id="cb66-33"><a href="#cb66-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-34"><a href="#cb66-34" aria-hidden="true" tabindex="-1"></a>Quem ja é usuário de softwares por linhas de comando, como o SAS, provavelmente não vai notar muita diferença. Toda análise se resume à seguinte sequência *dados \&gt; códigos \&gt; saída*. A experiência do usuário com o R, no entanto, pode ser mais atrativa utilizando o <span class="co">[</span><span class="ot">RStudio</span><span class="co">](https://www.rstudio.com/)</span><span class="ot">[^7]</span>. O Rstudio é um produto de código aberto disponível publicamente em 28/02/2011 que está disponível gratuitamente. Ele é um ambiente de desenvolvimento integrado para R que inclui</span>
+<span id="cb66-34"><a href="#cb66-34" aria-hidden="true" tabindex="-1"></a><span class="fu"># O software RStudio</span></span>
 <span id="cb66-35"><a href="#cb66-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-36"><a href="#cb66-36" aria-hidden="true" tabindex="-1"></a><span class="ot">[^7]: https://www.rstudio.com/</span></span>
+<span id="cb66-36"><a href="#cb66-36" aria-hidden="true" tabindex="-1"></a>Quem ja é usuário de softwares por linhas de comando, como o SAS, provavelmente não vai notar muita diferença. Toda análise se resume à seguinte sequência *dados \&gt; códigos \&gt; saída*. A experiência do usuário com o R, no entanto, pode ser mais atrativa utilizando o <span class="co">[</span><span class="ot">RStudio</span><span class="co">](https://www.rstudio.com/)</span><span class="ot">[^7]</span>. O Rstudio é um produto de código aberto disponível publicamente em 28/02/2011 que está disponível gratuitamente. Ele é um ambiente de desenvolvimento integrado para R que inclui</span>
 <span id="cb66-37"><a href="#cb66-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-38"><a href="#cb66-38" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Janelas de edição de texto a partir das quais o código pode ser enviado para o console e/ou salvo no sistema operacional</span>
-<span id="cb66-39"><a href="#cb66-39" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Listas de objetos em sua área de trabalho</span>
-<span id="cb66-40"><a href="#cb66-40" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Histórico infinito dos comandos facilmente pesquisável com capacidade de inserir, a partir do histórico, um comando no console novamente;</span>
-<span id="cb66-41"><a href="#cb66-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Interface com o sistema operacional para acesso a arquivos;</span>
-<span id="cb66-42"><a href="#cb66-42" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Janela de ajuda com botões de voltar e avançar</span>
-<span id="cb66-43"><a href="#cb66-43" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Download de pacotes.</span>
-<span id="cb66-44"><a href="#cb66-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-45"><a href="#cb66-45" aria-hidden="true" tabindex="-1"></a>Nesta seção serão abordados alguns aspectos básicos para que o usuário do R possa desenvolver as suas análises. Será dado enfoque para áreas básicas da interface, cujo conhecimento é necessário para que um usuário inicante possa realizar sua primeira análisee. A figura abaixo mostra as principais janelas do **Rstudio**, incluindo o *script*, o *console*, a *"área de trabalho"* e o *output* para gráficos.</span>
+<span id="cb66-38"><a href="#cb66-38" aria-hidden="true" tabindex="-1"></a><span class="ot">[^7]: https://www.rstudio.com/</span></span>
+<span id="cb66-39"><a href="#cb66-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-40"><a href="#cb66-40" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Janelas de edição de texto a partir das quais o código pode ser enviado para o console e/ou salvo no sistema operacional</span>
+<span id="cb66-41"><a href="#cb66-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Listas de objetos em sua área de trabalho</span>
+<span id="cb66-42"><a href="#cb66-42" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Histórico infinito dos comandos facilmente pesquisável com capacidade de inserir, a partir do histórico, um comando no console novamente;</span>
+<span id="cb66-43"><a href="#cb66-43" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Interface com o sistema operacional para acesso a arquivos;</span>
+<span id="cb66-44"><a href="#cb66-44" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Janela de ajuda com botões de voltar e avançar</span>
+<span id="cb66-45"><a href="#cb66-45" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Download de pacotes.</span>
 <span id="cb66-46"><a href="#cb66-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-47"><a href="#cb66-47" aria-hidden="true" tabindex="-1"></a><span class="al">![Interface do RStudio](figs/Console.png)</span></span>
+<span id="cb66-47"><a href="#cb66-47" aria-hidden="true" tabindex="-1"></a>Nesta seção serão abordados alguns aspectos básicos para que o usuário do R possa desenvolver as suas análises. Será dado enfoque para áreas básicas da interface, cujo conhecimento é necessário para que um usuário inicante possa realizar sua primeira análisee. A figura abaixo mostra as principais janelas do **Rstudio**, incluindo o *script*, o *console*, a *"área de trabalho"* e o *output* para gráficos.</span>
 <span id="cb66-48"><a href="#cb66-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-49"><a href="#cb66-49" aria-hidden="true" tabindex="-1"></a>No canto inferior direito, além de servir como *output* para gráficos (*Plots*), também é o local onde os pacotes utilizados nas análises (*Packages*) são instalados e maiores informações sobre as funções podem ser encontradas (*Help*).</span>
+<span id="cb66-49"><a href="#cb66-49" aria-hidden="true" tabindex="-1"></a><span class="al">![Interface do RStudio](figs/Console.png)</span></span>
 <span id="cb66-50"><a href="#cb66-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-51"><a href="#cb66-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Meu primeiro script</span></span>
+<span id="cb66-51"><a href="#cb66-51" aria-hidden="true" tabindex="-1"></a>No canto inferior direito, além de servir como *output* para gráficos (*Plots*), também é o local onde os pacotes utilizados nas análises (*Packages*) são instalados e maiores informações sobre as funções podem ser encontradas (*Help*).</span>
 <span id="cb66-52"><a href="#cb66-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-53"><a href="#cb66-53" aria-hidden="true" tabindex="-1"></a>O primero passo é criar um novo script, seguindo os seguintes passos: *File \&gt; New File \&gt; R script* ou utilizando o atalho *Ctrl+Shift+N*. Para salvar um script, devemos clicar no botão com o símbolo de disquete (R/RStudio), escolher o nome do arquivo e o diretório onde o arquivo será armazenado no seu computador. Algumas importantes dicas:</span>
+<span id="cb66-53"><a href="#cb66-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Meu primeiro script</span></span>
 <span id="cb66-54"><a href="#cb66-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-55"><a href="#cb66-55" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Escolha sempre um nome sem caracteres especiais (ex., ç, ã, é, etc.)</span>
+<span id="cb66-55"><a href="#cb66-55" aria-hidden="true" tabindex="-1"></a>O primero passo é criar um novo script, seguindo os seguintes passos: *File \&gt; New File \&gt; R script* ou utilizando o atalho *Ctrl+Shift+N*. Para salvar um script, devemos clicar no botão com o símbolo de disquete (R/RStudio), escolher o nome do arquivo e o diretório onde o arquivo será armazenado no seu computador. Algumas importantes dicas:</span>
 <span id="cb66-56"><a href="#cb66-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-57"><a href="#cb66-57" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Escolha sempre um nome curto ou abreviado, que identifique a finalidade das linhas de comando escritas (ex., dftese)</span>
+<span id="cb66-57"><a href="#cb66-57" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Escolha sempre um nome sem caracteres especiais (ex., ç, ã, é, etc.)</span>
 <span id="cb66-58"><a href="#cb66-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-59"><a href="#cb66-59" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Evite espaços se o nome do arquivo for composto. Para isso, use um uderscore '<span class="sc">\_</span>'(ex., df_tese)</span>
+<span id="cb66-59"><a href="#cb66-59" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Escolha sempre um nome curto ou abreviado, que identifique a finalidade das linhas de comando escritas (ex., dftese)</span>
 <span id="cb66-60"><a href="#cb66-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-61"><a href="#cb66-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Diretório de trabalho</span></span>
+<span id="cb66-61"><a href="#cb66-61" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Evite espaços se o nome do arquivo for composto. Para isso, use um uderscore '<span class="sc">\_</span>'(ex., df_tese)</span>
 <span id="cb66-62"><a href="#cb66-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-63"><a href="#cb66-63" aria-hidden="true" tabindex="-1"></a>Antes de iniciar as análises, recomenda-se escolher um diretório onde devem estar os *inputs* (dados) e para onde serão enviados os *outputs* (gráficos, arquivos .txt, .xlsx, etc). Para selecionar o diretório, basta seguir o caminho *Session \&gt; Set Working Directory \&gt; Choosing diretory* ou utilizar as teclas de atalho *Ctrl+Shift+H*.</span>
+<span id="cb66-63"><a href="#cb66-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Diretório de trabalho</span></span>
 <span id="cb66-64"><a href="#cb66-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-65"><a href="#cb66-65" aria-hidden="true" tabindex="-1"></a><span class="al">![Selecionando um diretório](figs/Diretory.png)</span></span>
+<span id="cb66-65"><a href="#cb66-65" aria-hidden="true" tabindex="-1"></a>Antes de iniciar as análises, recomenda-se escolher um diretório onde devem estar os *inputs* (dados) e para onde serão enviados os *outputs* (gráficos, arquivos .txt, .xlsx, etc). Para selecionar o diretório, basta seguir o caminho *Session \&gt; Set Working Directory \&gt; Choosing diretory* ou utilizar as teclas de atalho *Ctrl+Shift+H*.</span>
 <span id="cb66-66"><a href="#cb66-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-67"><a href="#cb66-67" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacotes</span></span>
+<span id="cb66-67"><a href="#cb66-67" aria-hidden="true" tabindex="-1"></a><span class="al">![Selecionando um diretório](figs/Diretory.png)</span></span>
 <span id="cb66-68"><a href="#cb66-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-69"><a href="#cb66-69" aria-hidden="true" tabindex="-1"></a>Se você realizou o download do software R pela primeira vez e achou um tanto quanto "estranho" o pequeno tamanho do arquivo (\~80 Mb), provalemente deve ter se perguntado como um software estatistico tão poderoso pode ser comprimido em um arquivo tão pequeno (pequeno em comparação com os +20 GB do SAS). A resposta é simples: somente os pacote básicos do R são baixados com o arquivo de instalação. Na medida em que o usuário necessita realizar uma análise específica, a instalação de um pacote que contém uma função específica para realizar tal análise é necessária.</span>
+<span id="cb66-69"><a href="#cb66-69" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacotes</span></span>
 <span id="cb66-70"><a href="#cb66-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-71"><a href="#cb66-71" aria-hidden="true" tabindex="-1"></a>A instalação dos pacotes pode ser realizada conforme a figura abaixo, ou utilizando o comando <span class="in">`install.packages()`</span>. Após a instalação do pacote, o usuário deve utilizar a função <span class="in">`library()`</span> para que o pacote seja carregado e as suas funções possam ser utilizadas. Quando o usuário tenta utilizar uma função pertencente a um determinado pacote e este pacote não está instalado (ou carregado), um erro é exibido.</span>
+<span id="cb66-71"><a href="#cb66-71" aria-hidden="true" tabindex="-1"></a>Se você realizou o download do software R pela primeira vez e achou um tanto quanto "estranho" o pequeno tamanho do arquivo (\~80 Mb), provalemente deve ter se perguntado como um software estatistico tão poderoso pode ser comprimido em um arquivo tão pequeno (pequeno em comparação com os +20 GB do SAS). A resposta é simples: somente os pacote básicos do R são baixados com o arquivo de instalação. Na medida em que o usuário necessita realizar uma análise específica, a instalação de um pacote que contém uma função específica para realizar tal análise é necessária.</span>
 <span id="cb66-72"><a href="#cb66-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-73"><a href="#cb66-73" aria-hidden="true" tabindex="-1"></a><span class="al">![Instalando pacotes](figs/Install.png)</span></span>
+<span id="cb66-73"><a href="#cb66-73" aria-hidden="true" tabindex="-1"></a>A instalação dos pacotes pode ser realizada conforme a figura abaixo, ou utilizando o comando <span class="in">`install.packages()`</span>. Após a instalação do pacote, o usuário deve utilizar a função <span class="in">`library()`</span> para que o pacote seja carregado e as suas funções possam ser utilizadas. Quando o usuário tenta utilizar uma função pertencente a um determinado pacote e este pacote não está instalado (ou carregado), um erro é exibido.</span>
 <span id="cb66-74"><a href="#cb66-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-75"><a href="#cb66-75" aria-hidden="true" tabindex="-1"></a><span class="al">![Ajuda para a função `nls()`](figs/Help.png)</span></span>
+<span id="cb66-75"><a href="#cb66-75" aria-hidden="true" tabindex="-1"></a><span class="al">![Instalando pacotes](figs/Install.png)</span></span>
 <span id="cb66-76"><a href="#cb66-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-77"><a href="#cb66-77" aria-hidden="true" tabindex="-1"></a>Como exemplo inicial, vamos tentar selecionar a variável *Sepal.Length* do conjunto de dados base `iris` utilizando a função abaixo. **Cuidado, spoilers do pacote dplyr!**</span>
+<span id="cb66-77"><a href="#cb66-77" aria-hidden="true" tabindex="-1"></a><span class="al">![Ajuda para a função `nls()`](figs/Help.png)</span></span>
 <span id="cb66-78"><a href="#cb66-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-79"><a href="#cb66-79" aria-hidden="true" tabindex="-1"></a>Posteriormente, o seguinte código é digitado e executado ao se selecionar a linha do código e clicar no botão *run* ou utilizando o atalho <span class="in">`Ctrl+Enter`</span>).</span>
+<span id="cb66-79"><a href="#cb66-79" aria-hidden="true" tabindex="-1"></a>Como exemplo inicial, vamos tentar selecionar a variável *Sepal.Length* do conjunto de dados base `iris` utilizando a função abaixo. **Cuidado, spoilers do pacote dplyr!**</span>
 <span id="cb66-80"><a href="#cb66-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-81"><a href="#cb66-81" aria-hidden="true" tabindex="-1"></a><span class="in">```{r error=TRUE}</span></span>
-<span id="cb66-82"><a href="#cb66-82" aria-hidden="true" tabindex="-1"></a>SL <span class="ot">&lt;-</span> <span class="fu">select</span>(iris, Sepal.Length)</span>
-<span id="cb66-83"><a href="#cb66-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-84"><a href="#cb66-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-85"><a href="#cb66-85" aria-hidden="true" tabindex="-1"></a>Neste caso, um erro é exibido pois o pacote **dplyr** não está instalado ou carregado. Caso ele já estiver instalado, a mensagem de erro acima é superada ao carregar o pacote antes de executar a função.</span>
+<span id="cb66-81"><a href="#cb66-81" aria-hidden="true" tabindex="-1"></a>Posteriormente, o seguinte código é digitado e executado ao se selecionar a linha do código e clicar no botão *run* ou utilizando o atalho <span class="in">`Ctrl+Enter`</span>).</span>
+<span id="cb66-82"><a href="#cb66-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-83"><a href="#cb66-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{r error=TRUE}</span></span>
+<span id="cb66-84"><a href="#cb66-84" aria-hidden="true" tabindex="-1"></a>SL <span class="ot">&lt;-</span> <span class="fu">select</span>(iris, Sepal.Length)</span>
+<span id="cb66-85"><a href="#cb66-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb66-86"><a href="#cb66-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-87"><a href="#cb66-87" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb66-88"><a href="#cb66-88" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb66-89"><a href="#cb66-89" aria-hidden="true" tabindex="-1"></a>SL <span class="ot">&lt;-</span> <span class="fu">select</span>(iris, Sepal.Length)</span>
-<span id="cb66-90"><a href="#cb66-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-91"><a href="#cb66-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-92"><a href="#cb66-92" aria-hidden="true" tabindex="-1"></a>Caso o pacote **dplyr** não esteja instalado, a maneira mais fácil de instalá-lo é instalando a coleção de pacotes <span class="co">[</span><span class="ot">tidyverse</span><span class="co">](https://www.tidyverse.org/)</span><span class="ot">[^8]</span> seguindo os passos da Figura 3 ou utilizando a seguinte função.</span>
+<span id="cb66-87"><a href="#cb66-87" aria-hidden="true" tabindex="-1"></a>Neste caso, um erro é exibido pois o pacote **dplyr** não está instalado ou carregado. Caso ele já estiver instalado, a mensagem de erro acima é superada ao carregar o pacote antes de executar a função.</span>
+<span id="cb66-88"><a href="#cb66-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-89"><a href="#cb66-89" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb66-90"><a href="#cb66-90" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb66-91"><a href="#cb66-91" aria-hidden="true" tabindex="-1"></a>SL <span class="ot">&lt;-</span> <span class="fu">select</span>(iris, Sepal.Length)</span>
+<span id="cb66-92"><a href="#cb66-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb66-93"><a href="#cb66-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-94"><a href="#cb66-94" aria-hidden="true" tabindex="-1"></a><span class="ot">[^8]: https://www.tidyverse.org/</span></span>
+<span id="cb66-94"><a href="#cb66-94" aria-hidden="true" tabindex="-1"></a>Caso o pacote **dplyr** não esteja instalado, a maneira mais fácil de instalá-lo é instalando a coleção de pacotes <span class="co">[</span><span class="ot">tidyverse</span><span class="co">](https://www.tidyverse.org/)</span><span class="ot">[^8]</span> seguindo os passos da Figura 3 ou utilizando a seguinte função.</span>
 <span id="cb66-95"><a href="#cb66-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-96"><a href="#cb66-96" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE, message=FALSE, warning=FALSE}</span></span>
-<span id="cb66-97"><a href="#cb66-97" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb66-98"><a href="#cb66-98" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb66-99"><a href="#cb66-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-100"><a href="#cb66-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-101"><a href="#cb66-101" aria-hidden="true" tabindex="-1"></a>O **tidyverse** é uma coleção de pacotes R projetados para a ciência de dados, contendo, dentre outros, seguintes pacotes que serão utilizados neste material.</span>
+<span id="cb66-96"><a href="#cb66-96" aria-hidden="true" tabindex="-1"></a><span class="ot">[^8]: https://www.tidyverse.org/</span></span>
+<span id="cb66-97"><a href="#cb66-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-98"><a href="#cb66-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb66-99"><a href="#cb66-99" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb66-100"><a href="#cb66-100" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb66-101"><a href="#cb66-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb66-102"><a href="#cb66-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-103"><a href="#cb66-103" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**ggplot2**, para criação de gráficos.</span>
-<span id="cb66-104"><a href="#cb66-104" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**dplyr**, para manipulação de dados.</span>
-<span id="cb66-105"><a href="#cb66-105" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**tidyr**, para organização de dados.</span>
-<span id="cb66-106"><a href="#cb66-106" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**tibble**, para criação de tibbles.</span>
-<span id="cb66-107"><a href="#cb66-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-108"><a href="#cb66-108" aria-hidden="true" tabindex="-1"></a>Praticamente todas as rotinas realizadas no R são baseadas em bibliotecas de códigos. Para instalar os pacotes necessários para reprodução deste material, o seguinte código é utilizado.</span>
+<span id="cb66-103"><a href="#cb66-103" aria-hidden="true" tabindex="-1"></a>O **tidyverse** é uma coleção de pacotes R projetados para a ciência de dados, contendo, dentre outros, seguintes pacotes que serão utilizados neste material.</span>
+<span id="cb66-104"><a href="#cb66-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-105"><a href="#cb66-105" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**ggplot2**, para criação de gráficos.</span>
+<span id="cb66-106"><a href="#cb66-106" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**dplyr**, para manipulação de dados.</span>
+<span id="cb66-107"><a href="#cb66-107" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**tidyr**, para organização de dados.</span>
+<span id="cb66-108"><a href="#cb66-108" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**tibble**, para criação de tibbles.</span>
 <span id="cb66-109"><a href="#cb66-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-110"><a href="#cb66-110" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, message=FALSE, warning=FALSE, eval=FALSE}</span></span>
-<span id="cb66-111"><a href="#cb66-111" aria-hidden="true" tabindex="-1"></a>pacotes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"esquisse"</span>, <span class="st">"metan"</span>, <span class="st">"rio"</span>)</span>
-<span id="cb66-112"><a href="#cb66-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-113"><a href="#cb66-113" aria-hidden="true" tabindex="-1"></a><span class="co"># instalar os pacotes</span></span>
-<span id="cb66-114"><a href="#cb66-114" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(pacotes)</span>
-<span id="cb66-115"><a href="#cb66-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-116"><a href="#cb66-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb66-110"><a href="#cb66-110" aria-hidden="true" tabindex="-1"></a>Praticamente todas as rotinas realizadas no R são baseadas em bibliotecas de códigos. Para instalar os pacotes necessários para reprodução deste material, o seguinte código é utilizado.</span>
+<span id="cb66-111"><a href="#cb66-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-112"><a href="#cb66-112" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, message=FALSE, warning=FALSE, eval=FALSE}</span></span>
+<span id="cb66-113"><a href="#cb66-113" aria-hidden="true" tabindex="-1"></a>pacotes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"esquisse"</span>, <span class="st">"metan"</span>, <span class="st">"rio"</span>)</span>
+<span id="cb66-114"><a href="#cb66-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-115"><a href="#cb66-115" aria-hidden="true" tabindex="-1"></a><span class="co"># instalar os pacotes</span></span>
+<span id="cb66-116"><a href="#cb66-116" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(pacotes)</span>
 <span id="cb66-117"><a href="#cb66-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-118"><a href="#cb66-118" aria-hidden="true" tabindex="-1"></a>É provável que a primeira instalação seja um pouco demorada, pois todas as dependências serão instaladas. Após finalizada a instalação, basta carregar o pacote que será utilizado com <span class="in">`library()`</span>.</span>
+<span id="cb66-118"><a href="#cb66-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb66-119"><a href="#cb66-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-120"><a href="#cb66-120" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message=FALSE, warning=FALSE}</span></span>
-<span id="cb66-121"><a href="#cb66-121" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb66-122"><a href="#cb66-122" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-123"><a href="#cb66-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-124"><a href="#cb66-124" aria-hidden="true" tabindex="-1"></a>Os pacotes disponibilizados no software *R* estão em constante atualização. Para verificar novas versões de pacotes é possível ir em *Packages \&gt; Update* que se encontra no canto inferior direito conforme demonstrado na Figura 5.</span>
+<span id="cb66-120"><a href="#cb66-120" aria-hidden="true" tabindex="-1"></a>É provável que a primeira instalação seja um pouco demorada, pois todas as dependências serão instaladas. Após finalizada a instalação, basta carregar o pacote que será utilizado com <span class="in">`library()`</span>.</span>
+<span id="cb66-121"><a href="#cb66-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-122"><a href="#cb66-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r message=FALSE, warning=FALSE}</span></span>
+<span id="cb66-123"><a href="#cb66-123" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb66-124"><a href="#cb66-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb66-125"><a href="#cb66-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-126"><a href="#cb66-126" aria-hidden="true" tabindex="-1"></a><span class="al">![Verificando se há atualizações disponíveis](figs/Update.png)</span></span>
+<span id="cb66-126"><a href="#cb66-126" aria-hidden="true" tabindex="-1"></a>Os pacotes disponibilizados no software *R* estão em constante atualização. Para verificar novas versões de pacotes é possível ir em *Packages \&gt; Update* que se encontra no canto inferior direito conforme demonstrado na Figura 5.</span>
 <span id="cb66-127"><a href="#cb66-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-128"><a href="#cb66-128" aria-hidden="true" tabindex="-1"></a>Por fim, para citar os pacotes, recomenda-se verificar a referência através da função <span class="in">`citation()`</span>. Para o pacote <span class="in">`metan`</span>, por exemplo, a referência oficial é encontrada no <span class="co">[</span><span class="ot">artigo</span><span class="co">](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13384)</span> que descreve o pacote</span>
+<span id="cb66-128"><a href="#cb66-128" aria-hidden="true" tabindex="-1"></a><span class="al">![Verificando se há atualizações disponíveis](figs/Update.png)</span></span>
 <span id="cb66-129"><a href="#cb66-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-130"><a href="#cb66-130" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE, error = FALSE}</span></span>
-<span id="cb66-131"><a href="#cb66-131" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">"metan"</span>)</span>
-<span id="cb66-132"><a href="#cb66-132" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-133"><a href="#cb66-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-134"><a href="#cb66-134" aria-hidden="true" tabindex="-1"></a><span class="fu"># Comandos elementares</span></span>
+<span id="cb66-130"><a href="#cb66-130" aria-hidden="true" tabindex="-1"></a>Por fim, para citar os pacotes, recomenda-se verificar a referência através da função <span class="in">`citation()`</span>. Para o pacote <span class="in">`metan`</span>, por exemplo, a referência oficial é encontrada no <span class="co">[</span><span class="ot">artigo</span><span class="co">](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13384)</span> que descreve o pacote</span>
+<span id="cb66-131"><a href="#cb66-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-132"><a href="#cb66-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE, error = FALSE}</span></span>
+<span id="cb66-133"><a href="#cb66-133" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">"metan"</span>)</span>
+<span id="cb66-134"><a href="#cb66-134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb66-135"><a href="#cb66-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-136"><a href="#cb66-136" aria-hidden="true" tabindex="-1"></a><span class="fu">## Atribuições</span></span>
+<span id="cb66-136"><a href="#cb66-136" aria-hidden="true" tabindex="-1"></a><span class="fu"># Comandos elementares</span></span>
 <span id="cb66-137"><a href="#cb66-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-138"><a href="#cb66-138" aria-hidden="true" tabindex="-1"></a>Os **comandos elementares** podem ser divididos em **expressões** e **atribuições**. Por exemplo, podemos estar interessados em resolver a seguinte expressão $10+15=25$.</span>
+<span id="cb66-138"><a href="#cb66-138" aria-hidden="true" tabindex="-1"></a><span class="fu">## Atribuições</span></span>
 <span id="cb66-139"><a href="#cb66-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-142"><a href="#cb66-142" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb66-143"><a href="#cb66-143" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">15</span></span>
-<span id="cb66-144"><a href="#cb66-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-145"><a href="#cb66-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-146"><a href="#cb66-146" aria-hidden="true" tabindex="-1"></a>No console quando passamos pelo comando, o R avalia a função e retorna o resultado. Caso queiramos armazenar este resultado em algum objeto, usamos a atribuição <span class="in">`&lt;-`</span> (Alt + -) que é utilizada no formato <span class="in">`objeto &lt;- operacao`</span>. Considerano o mesmo caso anterior, um objeto <span class="in">`soma`</span> é criado com</span>
+<span id="cb66-140"><a href="#cb66-140" aria-hidden="true" tabindex="-1"></a>Os **comandos elementares** podem ser divididos em **expressões** e **atribuições**. Por exemplo, podemos estar interessados em resolver a seguinte expressão $10+15=25$.</span>
+<span id="cb66-141"><a href="#cb66-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-144"><a href="#cb66-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb66-145"><a href="#cb66-145" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">15</span></span>
+<span id="cb66-146"><a href="#cb66-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb66-147"><a href="#cb66-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-150"><a href="#cb66-150" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb66-151"><a href="#cb66-151" aria-hidden="true" tabindex="-1"></a>soma <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="sc">+</span> <span class="dv">15</span></span>
-<span id="cb66-152"><a href="#cb66-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-153"><a href="#cb66-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-154"><a href="#cb66-154" aria-hidden="true" tabindex="-1"></a><span class="fu">## Operadores matemáticos</span></span>
+<span id="cb66-148"><a href="#cb66-148" aria-hidden="true" tabindex="-1"></a>No console quando passamos pelo comando, o R avalia a função e retorna o resultado. Caso queiramos armazenar este resultado em algum objeto, usamos a atribuição <span class="in">`&lt;-`</span> (Alt + -) que é utilizada no formato <span class="in">`objeto &lt;- operacao`</span>. Considerano o mesmo caso anterior, um objeto <span class="in">`soma`</span> é criado com</span>
+<span id="cb66-149"><a href="#cb66-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-152"><a href="#cb66-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb66-153"><a href="#cb66-153" aria-hidden="true" tabindex="-1"></a>soma <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="sc">+</span> <span class="dv">15</span></span>
+<span id="cb66-154"><a href="#cb66-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb66-155"><a href="#cb66-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-156"><a href="#cb66-156" aria-hidden="true" tabindex="-1"></a>Conhecendo estes comandos elementares, podemos passar para as operações matemáticas mais utilizadas e que são cruciais na linguagem de programação. No R, estas operações são baseadas em símbolos ou funções que se assemelham à maioria dos outros softwares estatísticos.</span>
+<span id="cb66-156"><a href="#cb66-156" aria-hidden="true" tabindex="-1"></a><span class="fu">## Operadores matemáticos</span></span>
 <span id="cb66-157"><a href="#cb66-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-158"><a href="#cb66-158" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb66-159"><a href="#cb66-159" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="co"># Soma</span></span>
-<span id="cb66-160"><a href="#cb66-160" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span> <span class="co"># Subtração</span></span>
-<span id="cb66-161"><a href="#cb66-161" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span> <span class="co"># Multiplicação</span></span>
-<span id="cb66-162"><a href="#cb66-162" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">^</span> <span class="dv">2</span> <span class="co"># Eleva ao quadrado, multiplica e soma</span></span>
-<span id="cb66-163"><a href="#cb66-163" aria-hidden="true" tabindex="-1"></a>((<span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span>) <span class="sc">*</span> <span class="dv">2</span>) <span class="sc">^</span> <span class="dv">2</span> <span class="co"># Soma, multiplica e eleva ao quadrado</span></span>
-<span id="cb66-164"><a href="#cb66-164" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">4</span>) <span class="co"># Raiz quadrada</span></span>
-<span id="cb66-165"><a href="#cb66-165" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span><span class="sc">^</span><span class="dv">2</span> <span class="co"># Potência</span></span>
-<span id="cb66-166"><a href="#cb66-166" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">10</span>) <span class="co"># Por default, o logarítimo é de base e (logarítimo natural)</span></span>
-<span id="cb66-167"><a href="#cb66-167" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">100</span>, <span class="dv">10</span>) <span class="co"># Logarítimo de base 10</span></span>
-<span id="cb66-168"><a href="#cb66-168" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">100</span>) <span class="co"># exponencial</span></span>
-<span id="cb66-169"><a href="#cb66-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-170"><a href="#cb66-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb66-158"><a href="#cb66-158" aria-hidden="true" tabindex="-1"></a>Conhecendo estes comandos elementares, podemos passar para as operações matemáticas mais utilizadas e que são cruciais na linguagem de programação. No R, estas operações são baseadas em símbolos ou funções que se assemelham à maioria dos outros softwares estatísticos.</span>
+<span id="cb66-159"><a href="#cb66-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-160"><a href="#cb66-160" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb66-161"><a href="#cb66-161" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="co"># Soma</span></span>
+<span id="cb66-162"><a href="#cb66-162" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span> <span class="co"># Subtração</span></span>
+<span id="cb66-163"><a href="#cb66-163" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span> <span class="co"># Multiplicação</span></span>
+<span id="cb66-164"><a href="#cb66-164" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">^</span> <span class="dv">2</span> <span class="co"># Eleva ao quadrado, multiplica e soma</span></span>
+<span id="cb66-165"><a href="#cb66-165" aria-hidden="true" tabindex="-1"></a>((<span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span>) <span class="sc">*</span> <span class="dv">2</span>) <span class="sc">^</span> <span class="dv">2</span> <span class="co"># Soma, multiplica e eleva ao quadrado</span></span>
+<span id="cb66-166"><a href="#cb66-166" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">4</span>) <span class="co"># Raiz quadrada</span></span>
+<span id="cb66-167"><a href="#cb66-167" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span><span class="sc">^</span><span class="dv">2</span> <span class="co"># Potência</span></span>
+<span id="cb66-168"><a href="#cb66-168" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">10</span>) <span class="co"># Por default, o logarítimo é de base e (logarítimo natural)</span></span>
+<span id="cb66-169"><a href="#cb66-169" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">100</span>, <span class="dv">10</span>) <span class="co"># Logarítimo de base 10</span></span>
+<span id="cb66-170"><a href="#cb66-170" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">100</span>) <span class="co"># exponencial</span></span>
 <span id="cb66-171"><a href="#cb66-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-172"><a href="#cb66-172" aria-hidden="true" tabindex="-1"></a><span class="fu">## Álgebra de matrizes</span></span>
+<span id="cb66-172"><a href="#cb66-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb66-173"><a href="#cb66-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-174"><a href="#cb66-174" aria-hidden="true" tabindex="-1"></a>Para multiplicação de matrizes utiliza-se <span class="in">`%*%`</span> ao envéz de <span class="in">`*`</span>. Note a diferença no exemplo abaixo.</span>
+<span id="cb66-174"><a href="#cb66-174" aria-hidden="true" tabindex="-1"></a><span class="fu">## Álgebra de matrizes</span></span>
 <span id="cb66-175"><a href="#cb66-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-176"><a href="#cb66-176" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, message = FALSE, warning = FALSE}</span></span>
-<span id="cb66-177"><a href="#cb66-177" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">2</span>))</span>
-<span id="cb66-178"><a href="#cb66-178" aria-hidden="true" tabindex="-1"></a>(y <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>, <span class="at">ncol =</span> <span class="dv">2</span>))</span>
-<span id="cb66-179"><a href="#cb66-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-180"><a href="#cb66-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-181"><a href="#cb66-181" aria-hidden="true" tabindex="-1"></a>O resultado da multiplicação da matriz <span class="in">`x`</span> e <span class="in">`y`</span> é dado por:</span>
+<span id="cb66-176"><a href="#cb66-176" aria-hidden="true" tabindex="-1"></a>Para multiplicação de matrizes utiliza-se <span class="in">`%*%`</span> ao envéz de <span class="in">`*`</span>. Note a diferença no exemplo abaixo.</span>
+<span id="cb66-177"><a href="#cb66-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-178"><a href="#cb66-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, message = FALSE, warning = FALSE}</span></span>
+<span id="cb66-179"><a href="#cb66-179" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">2</span>))</span>
+<span id="cb66-180"><a href="#cb66-180" aria-hidden="true" tabindex="-1"></a>(y <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>, <span class="at">ncol =</span> <span class="dv">2</span>))</span>
+<span id="cb66-181"><a href="#cb66-181" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb66-182"><a href="#cb66-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-183"><a href="#cb66-183" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb66-184"><a href="#cb66-184" aria-hidden="true" tabindex="-1"></a>    \left( {\begin{array}{*{20}{c}}{1 \cdot 5 + 3 \cdot 6}&amp;{1 \cdot 7 + 3 \cdot 8}\\{2 \cdot 5 + 4 \cdot 6}&amp;{2 \cdot 7 + 4 \cdot 8}\end{array}} \right) = \left( {\begin{array}{*{20}{c}}{23}&amp;{31}<span class="sc">\\</span>{34}&amp;{46}\end{array}} \right)</span>
+<span id="cb66-183"><a href="#cb66-183" aria-hidden="true" tabindex="-1"></a>O resultado da multiplicação da matriz <span class="in">`x`</span> e <span class="in">`y`</span> é dado por:</span>
+<span id="cb66-184"><a href="#cb66-184" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb66-185"><a href="#cb66-185" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb66-186"><a href="#cb66-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-187"><a href="#cb66-187" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, message = FALSE, warning = FALSE}</span></span>
-<span id="cb66-188"><a href="#cb66-188" aria-hidden="true" tabindex="-1"></a>x <span class="sc">*</span> y <span class="co"># Errado</span></span>
-<span id="cb66-189"><a href="#cb66-189" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%*%</span> y <span class="co"># Certo</span></span>
-<span id="cb66-190"><a href="#cb66-190" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-191"><a href="#cb66-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-192"><a href="#cb66-192" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`t()`</span> é utilizada para transposição de matrizes e <span class="in">`solve()`</span> para inversão de matrizes. Vamos resolver o seguinte sistema de equações utilizando estes operadores.</span>
+<span id="cb66-186"><a href="#cb66-186" aria-hidden="true" tabindex="-1"></a>    \left( {\begin{array}{*{20}{c}}{1 \cdot 5 + 3 \cdot 6}&amp;{1 \cdot 7 + 3 \cdot 8}\\{2 \cdot 5 + 4 \cdot 6}&amp;{2 \cdot 7 + 4 \cdot 8}\end{array}} \right) = \left( {\begin{array}{*{20}{c}}{23}&amp;{31}<span class="sc">\\</span>{34}&amp;{46}\end{array}} \right)</span>
+<span id="cb66-187"><a href="#cb66-187" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb66-188"><a href="#cb66-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-189"><a href="#cb66-189" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, message = FALSE, warning = FALSE}</span></span>
+<span id="cb66-190"><a href="#cb66-190" aria-hidden="true" tabindex="-1"></a>x <span class="sc">*</span> y <span class="co"># Errado</span></span>
+<span id="cb66-191"><a href="#cb66-191" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%*%</span> y <span class="co"># Certo</span></span>
+<span id="cb66-192"><a href="#cb66-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb66-193"><a href="#cb66-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-194"><a href="#cb66-194" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb66-195"><a href="#cb66-195" aria-hidden="true" tabindex="-1"></a>\begin{array}{l}{x_1} + 2{x_2} = 4<span class="sc">\\</span>{x_1} - {x_2} = 1\end{array}</span>
+<span id="cb66-194"><a href="#cb66-194" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`t()`</span> é utilizada para transposição de matrizes e <span class="in">`solve()`</span> para inversão de matrizes. Vamos resolver o seguinte sistema de equações utilizando estes operadores.</span>
+<span id="cb66-195"><a href="#cb66-195" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb66-196"><a href="#cb66-196" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb66-197"><a href="#cb66-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-198"><a href="#cb66-198" aria-hidden="true" tabindex="-1"></a>Matricialmente o sistema acima é dado por:</span>
+<span id="cb66-197"><a href="#cb66-197" aria-hidden="true" tabindex="-1"></a>\begin{array}{l}{x_1} + 2{x_2} = 4<span class="sc">\\</span>{x_1} - {x_2} = 1\end{array}</span>
+<span id="cb66-198"><a href="#cb66-198" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb66-199"><a href="#cb66-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-200"><a href="#cb66-200" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb66-201"><a href="#cb66-201" aria-hidden="true" tabindex="-1"></a>\left<span class="co">[</span><span class="ot"> {\begin{array}{*{20}{c}}{\begin{array}{*{20}{l}}1\\1\end{array}}&amp;{\begin{array}{*{20}{c}}2\\{ - 1}\end{array}}\end{array}} \right</span><span class="co">]</span>\left<span class="co">[</span><span class="ot"> {\begin{array}{*{20}{c}}{{x_1}}\\{{x_2}}\end{array}} \right</span><span class="co">]</span> = \left<span class="co">[</span><span class="ot"> {\begin{array}{*{20}{c}}4\\1\end{array}} \right</span><span class="co">]</span></span>
+<span id="cb66-200"><a href="#cb66-200" aria-hidden="true" tabindex="-1"></a>Matricialmente o sistema acima é dado por:</span>
+<span id="cb66-201"><a href="#cb66-201" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb66-202"><a href="#cb66-202" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb66-203"><a href="#cb66-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-204"><a href="#cb66-204" aria-hidden="true" tabindex="-1"></a>Esse sistema de equações é representado por ${\bf{AX}} = {\bf{c}}$ e tem como solução ${\bf{X = }}{{\bf{A}}^{{\bf{ - 1}}}}{\bf{c}}$</span>
+<span id="cb66-203"><a href="#cb66-203" aria-hidden="true" tabindex="-1"></a>\left<span class="co">[</span><span class="ot"> {\begin{array}{*{20}{c}}{\begin{array}{*{20}{l}}1\\1\end{array}}&amp;{\begin{array}{*{20}{c}}2\\{ - 1}\end{array}}\end{array}} \right</span><span class="co">]</span>\left<span class="co">[</span><span class="ot"> {\begin{array}{*{20}{c}}{{x_1}}\\{{x_2}}\end{array}} \right</span><span class="co">]</span> = \left<span class="co">[</span><span class="ot"> {\begin{array}{*{20}{c}}4\\1\end{array}} \right</span><span class="co">]</span></span>
+<span id="cb66-204"><a href="#cb66-204" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb66-205"><a href="#cb66-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-206"><a href="#cb66-206" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb66-206"><a href="#cb66-206" aria-hidden="true" tabindex="-1"></a>Esse sistema de equações é representado por ${\bf{AX}} = {\bf{c}}$ e tem como solução ${\bf{X = }}{{\bf{A}}^{{\bf{ - 1}}}}{\bf{c}}$</span>
 <span id="cb66-207"><a href="#cb66-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-208"><a href="#cb66-208" aria-hidden="true" tabindex="-1"></a>(A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>), <span class="at">ncol =</span> <span class="dv">2</span>))</span>
-<span id="cb66-209"><a href="#cb66-209" aria-hidden="true" tabindex="-1"></a><span class="co"># Transposta de A</span></span>
-<span id="cb66-210"><a href="#cb66-210" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(A)</span>
-<span id="cb66-211"><a href="#cb66-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-212"><a href="#cb66-212" aria-hidden="true" tabindex="-1"></a><span class="co"># resolução do sistema de equações</span></span>
-<span id="cb66-213"><a href="#cb66-213" aria-hidden="true" tabindex="-1"></a>(Ainv <span class="ot">&lt;-</span> <span class="fu">solve</span>(A)) <span class="co"># Obtém a inversa generalizada de A</span></span>
-<span id="cb66-214"><a href="#cb66-214" aria-hidden="true" tabindex="-1"></a>(c <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>)) <span class="co"># Vetor C</span></span>
-<span id="cb66-215"><a href="#cb66-215" aria-hidden="true" tabindex="-1"></a>(X <span class="ot">&lt;-</span> Ainv <span class="sc">%*%</span> c)</span>
-<span id="cb66-216"><a href="#cb66-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-217"><a href="#cb66-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-218"><a href="#cb66-218" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb66-208"><a href="#cb66-208" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb66-209"><a href="#cb66-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-210"><a href="#cb66-210" aria-hidden="true" tabindex="-1"></a>(A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>), <span class="at">ncol =</span> <span class="dv">2</span>))</span>
+<span id="cb66-211"><a href="#cb66-211" aria-hidden="true" tabindex="-1"></a><span class="co"># Transposta de A</span></span>
+<span id="cb66-212"><a href="#cb66-212" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(A)</span>
+<span id="cb66-213"><a href="#cb66-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-214"><a href="#cb66-214" aria-hidden="true" tabindex="-1"></a><span class="co"># resolução do sistema de equações</span></span>
+<span id="cb66-215"><a href="#cb66-215" aria-hidden="true" tabindex="-1"></a>(Ainv <span class="ot">&lt;-</span> <span class="fu">solve</span>(A)) <span class="co"># Obtém a inversa generalizada de A</span></span>
+<span id="cb66-216"><a href="#cb66-216" aria-hidden="true" tabindex="-1"></a>(c <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>)) <span class="co"># Vetor C</span></span>
+<span id="cb66-217"><a href="#cb66-217" aria-hidden="true" tabindex="-1"></a>(X <span class="ot">&lt;-</span> Ainv <span class="sc">%*%</span> c)</span>
+<span id="cb66-218"><a href="#cb66-218" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb66-219"><a href="#cb66-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-220"><a href="#cb66-220" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb66-221"><a href="#cb66-221" aria-hidden="true" tabindex="-1"></a>Note que o mesmo resultado anterior pode ser obtido sem a necessidade de atribuição, ao declarar todas as operações em um único comando</span>
-<span id="cb66-222"><a href="#cb66-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-225"><a href="#cb66-225" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb66-226"><a href="#cb66-226" aria-hidden="true" tabindex="-1"></a><span class="fu">solve</span>(<span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>), <span class="at">ncol =</span> <span class="dv">2</span>)) <span class="sc">%*%</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>)</span>
-<span id="cb66-227"><a href="#cb66-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-228"><a href="#cb66-228" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-229"><a href="#cb66-229" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb66-230"><a href="#cb66-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-231"><a href="#cb66-231" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`det()`</span> é utilizada para calcular o determinante de uma matriz e função <span class="in">`eigen()`</span> para calcular calcular autovalores e autovetores</span>
+<span id="cb66-220"><a href="#cb66-220" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb66-221"><a href="#cb66-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-222"><a href="#cb66-222" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb66-223"><a href="#cb66-223" aria-hidden="true" tabindex="-1"></a>Note que o mesmo resultado anterior pode ser obtido sem a necessidade de atribuição, ao declarar todas as operações em um único comando</span>
+<span id="cb66-224"><a href="#cb66-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-227"><a href="#cb66-227" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb66-228"><a href="#cb66-228" aria-hidden="true" tabindex="-1"></a><span class="fu">solve</span>(<span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>), <span class="at">ncol =</span> <span class="dv">2</span>)) <span class="sc">%*%</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>)</span>
+<span id="cb66-229"><a href="#cb66-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-230"><a href="#cb66-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb66-231"><a href="#cb66-231" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb66-232"><a href="#cb66-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-233"><a href="#cb66-233" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb66-234"><a href="#cb66-234" aria-hidden="true" tabindex="-1"></a>(X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">9</span>), <span class="at">ncol =</span> <span class="dv">3</span>))</span>
-<span id="cb66-235"><a href="#cb66-235" aria-hidden="true" tabindex="-1"></a>(detX <span class="ot">&lt;-</span> <span class="fu">det</span>(X))</span>
-<span id="cb66-236"><a href="#cb66-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-237"><a href="#cb66-237" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb66-233"><a href="#cb66-233" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`det()`</span> é utilizada para calcular o determinante de uma matriz e função <span class="in">`eigen()`</span> para calcular calcular autovalores e autovetores</span>
+<span id="cb66-234"><a href="#cb66-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-235"><a href="#cb66-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb66-236"><a href="#cb66-236" aria-hidden="true" tabindex="-1"></a>(X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">9</span>), <span class="at">ncol =</span> <span class="dv">3</span>))</span>
+<span id="cb66-237"><a href="#cb66-237" aria-hidden="true" tabindex="-1"></a>(detX <span class="ot">&lt;-</span> <span class="fu">det</span>(X))</span>
 <span id="cb66-238"><a href="#cb66-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-239"><a href="#cb66-239" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb66-240"><a href="#cb66-240" aria-hidden="true" tabindex="-1"></a>(av <span class="ot">&lt;-</span> <span class="fu">eigen</span>(X))</span>
-<span id="cb66-241"><a href="#cb66-241" aria-hidden="true" tabindex="-1"></a>av<span class="sc">$</span>values <span class="co"># Extrai os autovalores</span></span>
-<span id="cb66-242"><a href="#cb66-242" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-243"><a href="#cb66-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-244"><a href="#cb66-244" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb66-245"><a href="#cb66-245" aria-hidden="true" tabindex="-1"></a>av<span class="sc">$</span>vectors <span class="co"># Extrai os autovetores</span></span>
-<span id="cb66-246"><a href="#cb66-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-247"><a href="#cb66-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-248"><a href="#cb66-248" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`diag()`</span> extrai a diagonal de uma matriz ou cria uma matriz onde a diagonal são os elementos declarados. Os próximos comandos extraem a diagonal de X e criam uma matriz identidade, com 3 linhas e 3 colunas.</span>
+<span id="cb66-239"><a href="#cb66-239" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb66-240"><a href="#cb66-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-241"><a href="#cb66-241" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb66-242"><a href="#cb66-242" aria-hidden="true" tabindex="-1"></a>(av <span class="ot">&lt;-</span> <span class="fu">eigen</span>(X))</span>
+<span id="cb66-243"><a href="#cb66-243" aria-hidden="true" tabindex="-1"></a>av<span class="sc">$</span>values <span class="co"># Extrai os autovalores</span></span>
+<span id="cb66-244"><a href="#cb66-244" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb66-245"><a href="#cb66-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-246"><a href="#cb66-246" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb66-247"><a href="#cb66-247" aria-hidden="true" tabindex="-1"></a>av<span class="sc">$</span>vectors <span class="co"># Extrai os autovetores</span></span>
+<span id="cb66-248"><a href="#cb66-248" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb66-249"><a href="#cb66-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-250"><a href="#cb66-250" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb66-251"><a href="#cb66-251" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(X)</span>
-<span id="cb66-252"><a href="#cb66-252" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb66-253"><a href="#cb66-253" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-254"><a href="#cb66-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-255"><a href="#cb66-255" aria-hidden="true" tabindex="-1"></a><span class="fu"># Fóruns e materiais de apoio</span></span>
+<span id="cb66-250"><a href="#cb66-250" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`diag()`</span> extrai a diagonal de uma matriz ou cria uma matriz onde a diagonal são os elementos declarados. Os próximos comandos extraem a diagonal de X e criam uma matriz identidade, com 3 linhas e 3 colunas.</span>
+<span id="cb66-251"><a href="#cb66-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-252"><a href="#cb66-252" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb66-253"><a href="#cb66-253" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(X)</span>
+<span id="cb66-254"><a href="#cb66-254" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb66-255"><a href="#cb66-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb66-256"><a href="#cb66-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-257"><a href="#cb66-257" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="3"}</span>
-<span id="cb66-258"><a href="#cb66-258" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Playlist R Quick Tips](figs/rqt.png)</span><span class="co">](https://www.youtube.com/watch?v=e89kyYJgWqc&amp;list=PLJG9aEbqLtMiHWzBMBuakz33LtehOaUTD)</span></span>
-<span id="cb66-259"><a href="#cb66-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-260"><a href="#cb66-260" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Série do Prof. Ben Dêivid](figs/rapidinhasdor.png)</span><span class="co">](https://github.com/bendeivide/rapidinhasdor)</span></span>
+<span id="cb66-257"><a href="#cb66-257" aria-hidden="true" tabindex="-1"></a><span class="fu"># Fóruns e materiais de apoio</span></span>
+<span id="cb66-258"><a href="#cb66-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-259"><a href="#cb66-259" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="3"}</span>
+<span id="cb66-260"><a href="#cb66-260" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Playlist R Quick Tips](figs/rqt.png)</span><span class="co">](https://www.youtube.com/watch?v=e89kyYJgWqc&amp;list=PLJG9aEbqLtMiHWzBMBuakz33LtehOaUTD)</span></span>
 <span id="cb66-261"><a href="#cb66-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-262"><a href="#cb66-262" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Canal do Prof. Alcinei](figs/alcinei.jpg)</span><span class="co">](https://www.youtube.com/channel/UCDGyvLCJnv9RtTY1YMBMVNQ)</span></span>
-<span id="cb66-263"><a href="#cb66-263" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb66-264"><a href="#cb66-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-265"><a href="#cb66-265" aria-hidden="true" tabindex="-1"></a><span class="fu"># Homework</span></span>
+<span id="cb66-262"><a href="#cb66-262" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Série do Prof. Ben Dêivid](figs/rapidinhasdor.png)</span><span class="co">](https://github.com/bendeivide/rapidinhasdor)</span></span>
+<span id="cb66-263"><a href="#cb66-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-264"><a href="#cb66-264" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Canal do Prof. Alcinei](figs/alcinei.jpg)</span><span class="co">](https://www.youtube.com/channel/UCDGyvLCJnv9RtTY1YMBMVNQ)</span></span>
+<span id="cb66-265"><a href="#cb66-265" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb66-266"><a href="#cb66-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-267"><a href="#cb66-267" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
-<span id="cb66-268"><a href="#cb66-268" aria-hidden="true" tabindex="-1"></a><span class="fu">## Meu primeiro relatório em R</span></span>
-<span id="cb66-269"><a href="#cb66-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-270"><a href="#cb66-270" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Utilizando o RStudio, crie um documento em formato quarto, salve em uma pasta de sua preferência.</span>
-<span id="cb66-271"><a href="#cb66-271" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Neste relatório, apresente os comandos para instalação de dois pacotes que acreditas serem de utilidade em sua área de estudo.</span>
-<span id="cb66-272"><a href="#cb66-272" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Descreva brevemente os pacotes instalados</span>
-<span id="cb66-273"><a href="#cb66-273" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb66-274"><a href="#cb66-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-275"><a href="#cb66-275" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/MO9jPS1xZdQ &gt;}}</span>
+<span id="cb66-267"><a href="#cb66-267" aria-hidden="true" tabindex="-1"></a><span class="fu"># Homework</span></span>
+<span id="cb66-268"><a href="#cb66-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-269"><a href="#cb66-269" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb66-270"><a href="#cb66-270" aria-hidden="true" tabindex="-1"></a><span class="fu">## Meu primeiro relatório em R</span></span>
+<span id="cb66-271"><a href="#cb66-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-272"><a href="#cb66-272" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Utilizando o RStudio, crie um documento em formato quarto, salve em uma pasta de sua preferência.</span>
+<span id="cb66-273"><a href="#cb66-273" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Neste relatório, apresente os comandos para instalação de dois pacotes que acreditas serem de utilidade em sua área de estudo.</span>
+<span id="cb66-274"><a href="#cb66-274" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Descreva brevemente os pacotes instalados</span>
+<span id="cb66-275"><a href="#cb66-275" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb66-276"><a href="#cb66-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-277"><a href="#cb66-277" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb66-277"><a href="#cb66-277" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/MO9jPS1xZdQ &gt;}}</span>
 <span id="cb66-278"><a href="#cb66-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-279"><a href="#cb66-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-280"><a href="#cb66-280" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138588&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
-<span id="cb66-281"><a href="#cb66-281" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb66-279"><a href="#cb66-279" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb66-280"><a href="#cb66-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-281"><a href="#cb66-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-282"><a href="#cb66-282" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138588&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
+<span id="cb66-283"><a href="#cb66-283" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

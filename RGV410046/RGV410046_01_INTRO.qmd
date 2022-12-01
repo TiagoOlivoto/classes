@@ -1,5 +1,7 @@
 ---
 title: "1. O software R"
+editor_options: 
+  chunk_output_type: console
 ---
 
 # O software R

@@ -1,5 +1,7 @@
 ---
 title: "2. Introdução à programação R"
+editor_options: 
+  chunk_output_type: console
 ---
 
 Neste material, serão vistos conceitos importantes envolvidos na programação R que envolvem o conhecimento dos tipos de objetos, estruturas de dados e lógica de programação.

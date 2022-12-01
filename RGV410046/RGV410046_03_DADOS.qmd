@@ -1,5 +1,7 @@
 ---
 title: "3. Dados"
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Diretório
@@ -275,6 +277,8 @@ A função `fill()` do pacote `tidyr` pode ser utilizada para preencher valores 
 (preenchido <- fill(mesclado, AMB, HIBRIDO))
 ```
 
+
+{{< video https://www.youtube.com/embed/22n7aZjK-Vw >}}
 
 
 # Inspeção
