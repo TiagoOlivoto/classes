@@ -304,7 +304,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   </ul></li>
   <li><a href="#inspeção" id="toc-inspeção" class="nav-link" data-scroll-target="#inspeção">Inspeção</a></li>
-  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/TiagoOlivoto/classes/edit/main/RGV410046/RGV410046_03_DADOS.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -930,18 +929,18 @@ retornando NA</code></pre>
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>maize <span class="ot">&lt;-</span> df<span class="sc">$</span>maize</span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_intro</span>(maize)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="RGV410046_03_DADOS_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+<p><img src="RGV410046_03_DADOS_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_histogram</span>(maize)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="RGV410046_03_DADOS_files/figure-html/unnamed-chunk-24-2.png" class="img-fluid" width="672"></p>
+<p><img src="RGV410046_03_DADOS_files/figure-html/unnamed-chunk-24-2.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(maize)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="RGV410046_03_DADOS_files/figure-html/unnamed-chunk-24-3.png" class="img-fluid" width="672"></p>
+<p><img src="RGV410046_03_DADOS_files/figure-html/unnamed-chunk-24-3.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pacote metan</span></span>
-<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(maize)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(maize, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 10
    Variable   Class     Missing Levels Valid_n   Min Median    Max Outlier Text 
@@ -977,23 +976,11 @@ MMG, NGRA. Use 'find_outliers()' for more details.</code></pre>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Zero values observed in variable(s) APLA_PLANT.</code></pre>
 </div>
-</div>
-</section>
-<section id="homework" class="level1">
-<h1>Homework</h1>
-<div class="callout-important callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Important
+<div class="cell-output-display">
+<p><img src="RGV410046_03_DADOS_files/figure-html/unnamed-chunk-24-4.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/h2ywRFtPZik" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 
 <div align="center"><a href="https://www.free-website-hit-counter.com"><img src="https://www.free-website-hit-counter.com/c.php?d=9&amp;id=141635&amp;s=2" border="0" alt="Free Website Hit Counter"></a><br><small><a href="https://www.free-website-hit-counter.com" title="Free Website Hit Counter">Free website hit counter</a></small></div>
 
@@ -1605,27 +1592,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb75-313"><a href="#cb75-313" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-314"><a href="#cb75-314" aria-hidden="true" tabindex="-1"></a><span class="fu"># Inspeção</span></span>
 <span id="cb75-317"><a href="#cb75-317" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb75-318"><a href="#cb75-318" aria-hidden="true" tabindex="-1"></a>maize <span class="ot">&lt;-</span> df<span class="sc">$</span>maize</span>
-<span id="cb75-319"><a href="#cb75-319" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_intro</span>(maize)</span>
-<span id="cb75-320"><a href="#cb75-320" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_histogram</span>(maize)</span>
-<span id="cb75-321"><a href="#cb75-321" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(maize)</span>
-<span id="cb75-322"><a href="#cb75-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-323"><a href="#cb75-323" aria-hidden="true" tabindex="-1"></a><span class="co"># pacote metan</span></span>
-<span id="cb75-324"><a href="#cb75-324" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(maize)</span>
+<span id="cb75-318"><a href="#cb75-318" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "100%"</span></span>
+<span id="cb75-319"><a href="#cb75-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-320"><a href="#cb75-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-321"><a href="#cb75-321" aria-hidden="true" tabindex="-1"></a>maize <span class="ot">&lt;-</span> df<span class="sc">$</span>maize</span>
+<span id="cb75-322"><a href="#cb75-322" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_intro</span>(maize)</span>
+<span id="cb75-323"><a href="#cb75-323" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_histogram</span>(maize)</span>
+<span id="cb75-324"><a href="#cb75-324" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(maize)</span>
 <span id="cb75-325"><a href="#cb75-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-326"><a href="#cb75-326" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb75-327"><a href="#cb75-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-326"><a href="#cb75-326" aria-hidden="true" tabindex="-1"></a><span class="co"># pacote metan</span></span>
+<span id="cb75-327"><a href="#cb75-327" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(maize, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb75-328"><a href="#cb75-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-329"><a href="#cb75-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-330"><a href="#cb75-330" aria-hidden="true" tabindex="-1"></a><span class="fu"># Homework</span></span>
+<span id="cb75-329"><a href="#cb75-329" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-330"><a href="#cb75-330" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-331"><a href="#cb75-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-332"><a href="#cb75-332" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
-<span id="cb75-333"><a href="#cb75-333" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb75-332"><a href="#cb75-332" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/h2ywRFtPZik &gt;}}</span>
+<span id="cb75-333"><a href="#cb75-333" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-334"><a href="#cb75-334" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-335"><a href="#cb75-335" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb75-335"><a href="#cb75-335" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-336"><a href="#cb75-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-337"><a href="#cb75-337" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=141635&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
-<span id="cb75-338"><a href="#cb75-338" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb75-337"><a href="#cb75-337" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb75-338"><a href="#cb75-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-339"><a href="#cb75-339" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=141635&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
+<span id="cb75-340"><a href="#cb75-340" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

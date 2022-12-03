@@ -283,22 +283,24 @@ A função `fill()` do pacote `tidyr` pode ser utilizada para preencher valores 
 
 # Inspeção
 ```{r}
+#| out-width: "100%"
+
+
 maize <- df$maize
 plot_intro(maize)
 plot_histogram(maize)
 plot_missing(maize)
 
 # pacote metan
-inspect(maize)
+inspect(maize, plot = TRUE)
 
 ```
 
 
+{{< video https://www.youtube.com/embed/h2ywRFtPZik >}}
 
-# Homework
 
-::: callout-important
-:::
+
 
 ```{=html}
 
