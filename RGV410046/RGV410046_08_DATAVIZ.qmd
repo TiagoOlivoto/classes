@@ -76,7 +76,7 @@ Os dados são em escala horária, do dia 01/01/2022 a 28/11/2022, totalizando 79
 df_estacao <-  
   import("estacao_fazenda.csv", setclass = "tbl") |>
   mutate(dia = dmy(dia),
-         m = fct_relevel(factor(m), paste0(1:10))) # reordena os meses
+         m = fct_relevel(factor(m), paste0(1:11))) # reordena os meses
 df_estacao
 ```
 
@@ -123,6 +123,7 @@ No `ggplot2`, os gráficos são construídos camada por camada (ou, *layers*, em
 ```{r message = FALSE, warning = FALSE}
 #| out-width: "100%"
 
+
 p1 <- 
   ggplot(df, aes(x = comprimento, y = largura)) +
   geom_point()
@@ -130,6 +131,7 @@ p1
 ```
 
 Este comando criou um gráfico e armazenou no objeto `p1`, que será plotado posteriormente. Observe que o primeiro argumento da função é o data frame onde nossos dados foram armazenados. A função `aes()` descreve como as variáveis são mapeadas (neste caso `comprimento` no eixo `x` e `largura` no eixo `y`). A função `geom_point()` definiu que a forma geométrica a ser utilizada é baseada em pontos, gerando, assim, um gráfico de dispersão. Isto é tudo que precisa ser feito para a confecção de um gráfico simples.
+
 
 ## Aesthetics (estética)
 
@@ -147,6 +149,7 @@ p2 <-
 p2
 ```
 
+
 Ao incluirmos `colour = cor` dentro da função `aes`, dizemos ao `ggplot` que os pontos devem ser mapeados esteticamente (neste caso utilizando cores) para cada nível do fator `cor` presente em nossos dados. Digamos que em vez de utilizar diferentes cores, a cor do grão do café deveria ser representada por diferentes tipos de marcadores (quadrados, triângulo, etc.) Neste caso, o argumento `colour = cor` é substituído por `shape = cor`.
 
 ```{r message = FALSE, warning = FALSE}
@@ -157,6 +160,7 @@ p3 <-
                  shape = cor,
                  color = cor)) +
   geom_point()
+
 
 # organizar os gráficos
 arrange_ggplot(p1, p2, p3,
@@ -279,7 +283,7 @@ Três importantes geometrias são apresentadas a seguir:
 g1 <- 
   ggplot(df, aes(comprimento, largura)) +
   geom_point()
-
+g1
 
 # adiciona linhas horizontais e verticais
 g2 <- 
@@ -303,7 +307,7 @@ box1 <-
 
 box2 <- 
   ggplot(df, aes(grupo, comprimento)) +
-  geom_boxplot() +
+  geom_boxplot(outlier.colour = "transparent") +
   geom_jitter(width = 0.1, color = "salmon")
 
 box3 <- 
@@ -388,7 +392,7 @@ h1 <-
 
 h2 <- 
   ggplot(df_estacao, aes(x = tmed)) +
-  geom_histogram(fill = "skyblue") +
+  geom_histogram(fill = "green") +
   facet_wrap(~m) +
   labs(x = "Temperatura média (ºC)",
        y = "Número de horas")
@@ -525,11 +529,11 @@ dado_reg <- tibble(dose = c(15,20,25,30,35,40),
                    prod = c(65,70,73,75,69,62))
 
 q1 <-
-  ggplot(dado_reg, aes(dose, prod))+
-  geom_point()+
-  stat_smooth(method = "lm",
-              formula = "y ~ poly(x, 1)",
-              se = FALSE)
+    ggplot(dado_reg, aes(dose, prod))+
+    geom_point()+
+    stat_smooth(method = "lm",
+                formula = "y ~ poly(x, 1)",
+                se = FALSE)
 
 q2 <-
   q1 +

@@ -30,6 +30,9 @@ Onde $Y_i$ é o valor observado da variável dependente no *i*-ésimo nível da 
 No seguinte exemplo é apresentado o valor do rendimento de grãos de um certo híbrido de milho (eixo *y*) em função da dose de N (eixo *x*).
 
 ```{r}
+#| out-width: "100%"
+
+
 x <- seq(0, 150, by = 25)
 y <- c(8.6, 8.9, 9.5, 9.9, 10, 10.2, 10.5)
 df <- data.frame(x = x, y = y)
@@ -48,17 +51,9 @@ O problema consiste em obter o valor de $\beta_0$ e $\beta_1$ de melhor ajuste p
 
 $$
 {b_1} = \frac{{S{P_{xy}}}}{{S{Q_x}}}
-$$
-:::
-
-::: callout-note
-$$
+$$ $$
 {b_0} = \bar y - {b_1} \times \bar x
-$$
-:::
-
-::: callout-note
-Onde
+$$ Onde
 
 $$
 S{P_{xy}} = \sum\limits_{i = 1}^n {{x_i}{y_i}}  - \frac{{\left( {\sum\limits_{i = 1}^n {{x_i}} } \right)\left( {\sum\limits_{i = 1}^n {{y_i}} } \right)}}{n}
@@ -203,6 +198,9 @@ Os desvios são computados como a diferença entre o valor observado e o valor p
 Fica fácil identificar estes desvios plotando-os no gráfico abaixo.
 
 ```{r}
+#| out-width: "100%"
+
+
 # gráfico base
 ggplot(df, aes(x, y)) +
   geom_segment(aes(x = x,
@@ -263,6 +261,9 @@ pred
 Os valores preditos são obtidos ao substituir o *x* da equação pelo valor utilizado. Pode-se criar uma função para retornar os valores preditos utilizando um modelo ajustado e o valor de x desejado. No seguinte exemplo, o valor de *y* quando *x* é 75 é calculado e plotado no gráfico.
 
 ```{r}
+#| out-width: "100%"
+
+
 # modelo ajustado o valor predito para x = 75
 # função auxiliar
 pred_linear <- function(mod, x){
@@ -291,6 +292,9 @@ ggplot(df, aes(x, y)) +
 ## Regressão linear com repetições
 
 ```{r}
+#| out-width: "100%"
+
+
 url <- "https://bit.ly/df_biostat"
 df_reg <- import(url, sheet = "REG_DEL_DATA", setclass = "tbl")
 
@@ -335,6 +339,9 @@ $$
 Como motivação, utilizaremos os dados abaixo. Para ajustar um modelo polinomial, utilizamos a função `poly()` e informamos o grau do polinômio desejado. É válido lembrar, que o grau máximo possível de polinômio é dado pelo número de níveis da variável independente/preditora menos 1.
 
 ```{r}
+#| out-width: "100%"
+
+
 DOSEN <- c(0, 50, 100, 150, 200, 250)
 RG    <- c(7.1, 7.3, 7.66, 7.71, 7.62, 7.6)
 df2 <- data.frame(DOSEN = DOSEN, RG = RG)
@@ -448,6 +455,9 @@ rg_mee
 De posse das informações, um gráfico elaborado, que deveria ser apresentado em todo trabalho deste tipo pode ser confeccionado com a função `plot_lines()` do pacote `metan` combinado com algumas funções do pacote `ggplot2`. Sugiro a leitura do [capítulo 8 deste material](https://tiagoolivoto.github.io/e-bookr/graph.html) para mais informações sobre confecção de gráficos no R.
 
 ```{r}
+#| out-width: "100%"
+
+
 p1 +
   labs(title = "Equação quadrática",
        subtitle = "Trigângulo e cículo representam os pontos de MME e MET, respectivamente",
