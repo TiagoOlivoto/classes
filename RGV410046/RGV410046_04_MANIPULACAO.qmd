@@ -86,6 +86,8 @@ pivot_longer(df_wide,
 
 Após a modificação, as colunas são descartadas e obtemos as colunas de planta e altura. Assim, vemos que `pivot_longer()` torna os conjuntos de dados mais longos aumentando o número de linhas e diminuindo o número de colunas.
 
+{{< video https://www.youtube.com/embed/4KwZeQe6JOc >}}
+
 ## Wider
 
 Uma outra forma comum de dados que não seguem o formato *tidy* é quando observações estão espalhadas por várias linhas. Observe os dados abaixo.
