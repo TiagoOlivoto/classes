@@ -130,6 +130,9 @@ wider2
 ```
 :::
 
+{{< video https://www.youtube.com/embed/UFtEb4BIWno >}}
+
+
 # Separar
 
 Até agora você aprendeu como realizar operações morfológicas para transformar dados em de formato *wide* para *long* e vice-versa. O seguinte conjunto de dados tem um problema diferente:
