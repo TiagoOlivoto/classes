@@ -191,6 +191,9 @@ dflong |>
   head()
 ```
 
+
+{{< video https://www.youtube.com/embed/paVd6eGsfRg >}}
+
 # Renomear
 
 Algumas vezes necessitamos renomear as variáveis em nosso conjunto de dados. Seria trabalhoso mudar o nome da coluna nos dados externos e importa-los novamente. Vamos considerar os dados em `long` e renomear a coluna `UE > PARCELA` e `BLOCO > REP`. Aqui, algumas alternativas são apresentadas.
@@ -238,6 +241,10 @@ long |>
   names()
 
 ```
+
+
+{{< video https://www.youtube.com/embed/j4knVncyUIE >}}
+
 
 # Juntar
 
