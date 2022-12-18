@@ -296,6 +296,10 @@ df1 |> full_join(df2, keep = TRUE)
 
 ```
 
+
+{{< video https://www.youtube.com/embed/KpvsyMORq6w >}}
+
+
 ## Junções com filtragem
 
 As duas seguintes funções de filtragem filtram linhas de `x` com base na presença ou ausência de correspondências em `y`:

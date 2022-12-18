@@ -821,6 +821,7 @@ Desafio
 7      &lt;NA&gt;  &lt;NA&gt;        NA      NA        H2 2.049333 0.9873333</code></pre>
 </div>
 </div>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/KpvsyMORq6w" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="junções-com-filtragem" class="level2">
 <h2 class="anchored" data-anchor-id="junções-com-filtragem">Junções com filtragem</h2>
@@ -1585,91 +1586,95 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb87-326"><a href="#cb87-326" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb87-327"><a href="#cb87-327" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb87-328"><a href="#cb87-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-329"><a href="#cb87-329" aria-hidden="true" tabindex="-1"></a><span class="fu">## Junções com filtragem</span></span>
-<span id="cb87-330"><a href="#cb87-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-331"><a href="#cb87-331" aria-hidden="true" tabindex="-1"></a>As duas seguintes funções de filtragem filtram linhas de <span class="in">`x`</span> com base na presença ou ausência de correspondências em <span class="in">`y`</span>:</span>
+<span id="cb87-329"><a href="#cb87-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-330"><a href="#cb87-330" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/KpvsyMORq6w &gt;}}</span>
+<span id="cb87-331"><a href="#cb87-331" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb87-332"><a href="#cb87-332" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-333"><a href="#cb87-333" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`semi_join()`</span> retorna todas as linhas de <span class="in">`x`</span> **com** uma correspondência em <span class="in">`y`</span>.</span>
-<span id="cb87-334"><a href="#cb87-334" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`anti_join()`</span> retorna todas as linhas de <span class="in">`x`</span> **sem** uma correspondência em <span class="in">`y`</span>.</span>
-<span id="cb87-335"><a href="#cb87-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-336"><a href="#cb87-336" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Fonte: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf](figs/filter_join.png)</span><span class="ot">{alt="Fonte: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf"}</span><span class="co">](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)</span></span>
-<span id="cb87-337"><a href="#cb87-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-340"><a href="#cb87-340" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb87-341"><a href="#cb87-341" aria-hidden="true" tabindex="-1"></a><span class="co"># linhas de df1 que estão em df2</span></span>
-<span id="cb87-342"><a href="#cb87-342" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">semi_join</span>(df2)</span>
-<span id="cb87-343"><a href="#cb87-343" aria-hidden="true" tabindex="-1"></a><span class="co"># linhas de df1 que NÃO estão em df2</span></span>
-<span id="cb87-344"><a href="#cb87-344" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">anti_join</span>(df2)</span>
-<span id="cb87-345"><a href="#cb87-345" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb87-346"><a href="#cb87-346" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-347"><a href="#cb87-347" aria-hidden="true" tabindex="-1"></a><span class="fu">## Operações com conjuntos (vetores)</span></span>
-<span id="cb87-348"><a href="#cb87-348" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-349"><a href="#cb87-349" aria-hidden="true" tabindex="-1"></a>Operações com conjuntos são importantes na análise de dados. Por exemplo, se um determinado genótipo foi selecionado nos ambientes A, B e C, então, este determinado genótipo é a interseção dos ambientes A, B e C. Tanto o R-base quanto o pacote <span class="in">`dplyr`</span> fornecem funções para operações com conjuntos, mas funcionam com dois conjuntos de uma vez apenas.</span>
+<span id="cb87-333"><a href="#cb87-333" aria-hidden="true" tabindex="-1"></a><span class="fu">## Junções com filtragem</span></span>
+<span id="cb87-334"><a href="#cb87-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-335"><a href="#cb87-335" aria-hidden="true" tabindex="-1"></a>As duas seguintes funções de filtragem filtram linhas de <span class="in">`x`</span> com base na presença ou ausência de correspondências em <span class="in">`y`</span>:</span>
+<span id="cb87-336"><a href="#cb87-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-337"><a href="#cb87-337" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`semi_join()`</span> retorna todas as linhas de <span class="in">`x`</span> **com** uma correspondência em <span class="in">`y`</span>.</span>
+<span id="cb87-338"><a href="#cb87-338" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`anti_join()`</span> retorna todas as linhas de <span class="in">`x`</span> **sem** uma correspondência em <span class="in">`y`</span>.</span>
+<span id="cb87-339"><a href="#cb87-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-340"><a href="#cb87-340" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Fonte: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf](figs/filter_join.png)</span><span class="ot">{alt="Fonte: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf"}</span><span class="co">](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)</span></span>
+<span id="cb87-341"><a href="#cb87-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-344"><a href="#cb87-344" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb87-345"><a href="#cb87-345" aria-hidden="true" tabindex="-1"></a><span class="co"># linhas de df1 que estão em df2</span></span>
+<span id="cb87-346"><a href="#cb87-346" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">semi_join</span>(df2)</span>
+<span id="cb87-347"><a href="#cb87-347" aria-hidden="true" tabindex="-1"></a><span class="co"># linhas de df1 que NÃO estão em df2</span></span>
+<span id="cb87-348"><a href="#cb87-348" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">anti_join</span>(df2)</span>
+<span id="cb87-349"><a href="#cb87-349" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb87-350"><a href="#cb87-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-353"><a href="#cb87-353" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb87-354"><a href="#cb87-354" aria-hidden="true" tabindex="-1"></a>(A <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
-<span id="cb87-355"><a href="#cb87-355" aria-hidden="true" tabindex="-1"></a>(B <span class="ot">&lt;-</span> letters[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>])</span>
-<span id="cb87-356"><a href="#cb87-356" aria-hidden="true" tabindex="-1"></a>(C <span class="ot">&lt;-</span> letters[<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>])</span>
-<span id="cb87-357"><a href="#cb87-357" aria-hidden="true" tabindex="-1"></a>(D <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>])</span>
-<span id="cb87-358"><a href="#cb87-358" aria-hidden="true" tabindex="-1"></a>set_lits <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">A =</span> A, <span class="at">B =</span> B, <span class="at">C =</span> C, <span class="at">D =</span> D)</span>
-<span id="cb87-359"><a href="#cb87-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-360"><a href="#cb87-360" aria-hidden="true" tabindex="-1"></a><span class="co"># intersecção de A, B (dplyr)</span></span>
-<span id="cb87-361"><a href="#cb87-361" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(A, B)</span>
-<span id="cb87-362"><a href="#cb87-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-363"><a href="#cb87-363" aria-hidden="true" tabindex="-1"></a><span class="co"># intersecção de A, B e C (dplyr)</span></span>
-<span id="cb87-364"><a href="#cb87-364" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(<span class="fu">intersect</span>(A, B), C)</span>
-<span id="cb87-365"><a href="#cb87-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-351"><a href="#cb87-351" aria-hidden="true" tabindex="-1"></a><span class="fu">## Operações com conjuntos (vetores)</span></span>
+<span id="cb87-352"><a href="#cb87-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-353"><a href="#cb87-353" aria-hidden="true" tabindex="-1"></a>Operações com conjuntos são importantes na análise de dados. Por exemplo, se um determinado genótipo foi selecionado nos ambientes A, B e C, então, este determinado genótipo é a interseção dos ambientes A, B e C. Tanto o R-base quanto o pacote <span class="in">`dplyr`</span> fornecem funções para operações com conjuntos, mas funcionam com dois conjuntos de uma vez apenas.</span>
+<span id="cb87-354"><a href="#cb87-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-357"><a href="#cb87-357" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb87-358"><a href="#cb87-358" aria-hidden="true" tabindex="-1"></a>(A <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
+<span id="cb87-359"><a href="#cb87-359" aria-hidden="true" tabindex="-1"></a>(B <span class="ot">&lt;-</span> letters[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb87-360"><a href="#cb87-360" aria-hidden="true" tabindex="-1"></a>(C <span class="ot">&lt;-</span> letters[<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>])</span>
+<span id="cb87-361"><a href="#cb87-361" aria-hidden="true" tabindex="-1"></a>(D <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>])</span>
+<span id="cb87-362"><a href="#cb87-362" aria-hidden="true" tabindex="-1"></a>set_lits <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">A =</span> A, <span class="at">B =</span> B, <span class="at">C =</span> C, <span class="at">D =</span> D)</span>
+<span id="cb87-363"><a href="#cb87-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-364"><a href="#cb87-364" aria-hidden="true" tabindex="-1"></a><span class="co"># intersecção de A, B (dplyr)</span></span>
+<span id="cb87-365"><a href="#cb87-365" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(A, B)</span>
 <span id="cb87-366"><a href="#cb87-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-367"><a href="#cb87-367" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb87-368"><a href="#cb87-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-369"><a href="#cb87-369" aria-hidden="true" tabindex="-1"></a>Observe que para computar interseções/uniões/diferenças com mais de dois conjuntos precisamos chamar (ex., <span class="in">`intersect()`</span>) várias vezes O pacote <span class="in">`metan`</span> fornece um grupo de funções <span class="in">`set_*()`</span> que supera esse problema</span>
+<span id="cb87-367"><a href="#cb87-367" aria-hidden="true" tabindex="-1"></a><span class="co"># intersecção de A, B e C (dplyr)</span></span>
+<span id="cb87-368"><a href="#cb87-368" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(<span class="fu">intersect</span>(A, B), C)</span>
+<span id="cb87-369"><a href="#cb87-369" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb87-370"><a href="#cb87-370" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-373"><a href="#cb87-373" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb87-374"><a href="#cb87-374" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersecção de A e B</span></span>
-<span id="cb87-375"><a href="#cb87-375" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(A, B)</span>
-<span id="cb87-376"><a href="#cb87-376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-377"><a href="#cb87-377" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersecção de A, B e C</span></span>
-<span id="cb87-378"><a href="#cb87-378" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(A, B, C)</span>
-<span id="cb87-379"><a href="#cb87-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-371"><a href="#cb87-371" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb87-372"><a href="#cb87-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-373"><a href="#cb87-373" aria-hidden="true" tabindex="-1"></a>Observe que para computar interseções/uniões/diferenças com mais de dois conjuntos precisamos chamar (ex., <span class="in">`intersect()`</span>) várias vezes O pacote <span class="in">`metan`</span> fornece um grupo de funções <span class="in">`set_*()`</span> que supera esse problema</span>
+<span id="cb87-374"><a href="#cb87-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-377"><a href="#cb87-377" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb87-378"><a href="#cb87-378" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersecção de A e B</span></span>
+<span id="cb87-379"><a href="#cb87-379" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(A, B)</span>
 <span id="cb87-380"><a href="#cb87-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-381"><a href="#cb87-381" aria-hidden="true" tabindex="-1"></a><span class="co"># União de todos os conjuntos</span></span>
-<span id="cb87-382"><a href="#cb87-382" aria-hidden="true" tabindex="-1"></a><span class="co"># Todas as funções entendem um objeto de classe lista</span></span>
+<span id="cb87-381"><a href="#cb87-381" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersecção de A, B e C</span></span>
+<span id="cb87-382"><a href="#cb87-382" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(A, B, C)</span>
 <span id="cb87-383"><a href="#cb87-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-384"><a href="#cb87-384" aria-hidden="true" tabindex="-1"></a><span class="fu">set_union</span>(set_lits)</span>
-<span id="cb87-385"><a href="#cb87-385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-386"><a href="#cb87-386" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersecção de todos os conjuntos</span></span>
-<span id="cb87-387"><a href="#cb87-387" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(set_lits)</span>
-<span id="cb87-388"><a href="#cb87-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-389"><a href="#cb87-389" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb87-390"><a href="#cb87-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-391"><a href="#cb87-391" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb87-392"><a href="#cb87-392" aria-hidden="true" tabindex="-1"></a><span class="fu">## Diagrama de Venn</span></span>
-<span id="cb87-393"><a href="#cb87-393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-394"><a href="#cb87-394" aria-hidden="true" tabindex="-1"></a>Um diagrama de Venn é um estilo de diagrama amplamente utilizado que mostra a relação lógica entre conjuntos usando curvas fechadas simples desenhadas em um plano para representar conjuntos. Muitas vezes, essas curvas são círculos ou elipses. Para mostrar as relações entre os conjuntos A, B, C e D, usamos a função <span class="in">`venn_plot()`</span> do pacote metan.</span>
-<span id="cb87-395"><a href="#cb87-395" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-398"><a href="#cb87-398" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb87-399"><a href="#cb87-399" aria-hidden="true" tabindex="-1"></a><span class="fu">venn_plot</span>(set_lits, <span class="at">show_elements =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb87-400"><a href="#cb87-400" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb87-401"><a href="#cb87-401" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb87-402"><a href="#cb87-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-403"><a href="#cb87-403" aria-hidden="true" tabindex="-1"></a><span class="fu">## Operações com conjuntos (data frames)</span></span>
-<span id="cb87-404"><a href="#cb87-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-405"><a href="#cb87-405" aria-hidden="true" tabindex="-1"></a>Nesta seção será demonstrado como é possivel utilizar operações de cojuntos como interseção e união. É esperado que as entradas x e y tenham as mesmas variáveis. Para isto, vamos criar dois novos conjuntos de dados fictícios.</span>
+<span id="cb87-384"><a href="#cb87-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-385"><a href="#cb87-385" aria-hidden="true" tabindex="-1"></a><span class="co"># União de todos os conjuntos</span></span>
+<span id="cb87-386"><a href="#cb87-386" aria-hidden="true" tabindex="-1"></a><span class="co"># Todas as funções entendem um objeto de classe lista</span></span>
+<span id="cb87-387"><a href="#cb87-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-388"><a href="#cb87-388" aria-hidden="true" tabindex="-1"></a><span class="fu">set_union</span>(set_lits)</span>
+<span id="cb87-389"><a href="#cb87-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-390"><a href="#cb87-390" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersecção de todos os conjuntos</span></span>
+<span id="cb87-391"><a href="#cb87-391" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(set_lits)</span>
+<span id="cb87-392"><a href="#cb87-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-393"><a href="#cb87-393" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb87-394"><a href="#cb87-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-395"><a href="#cb87-395" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb87-396"><a href="#cb87-396" aria-hidden="true" tabindex="-1"></a><span class="fu">## Diagrama de Venn</span></span>
+<span id="cb87-397"><a href="#cb87-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-398"><a href="#cb87-398" aria-hidden="true" tabindex="-1"></a>Um diagrama de Venn é um estilo de diagrama amplamente utilizado que mostra a relação lógica entre conjuntos usando curvas fechadas simples desenhadas em um plano para representar conjuntos. Muitas vezes, essas curvas são círculos ou elipses. Para mostrar as relações entre os conjuntos A, B, C e D, usamos a função <span class="in">`venn_plot()`</span> do pacote metan.</span>
+<span id="cb87-399"><a href="#cb87-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-402"><a href="#cb87-402" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb87-403"><a href="#cb87-403" aria-hidden="true" tabindex="-1"></a><span class="fu">venn_plot</span>(set_lits, <span class="at">show_elements =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb87-404"><a href="#cb87-404" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb87-405"><a href="#cb87-405" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb87-406"><a href="#cb87-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-409"><a href="#cb87-409" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb87-410"><a href="#cb87-410" aria-hidden="true" tabindex="-1"></a>dfi1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">gen =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>),</span>
-<span id="cb87-411"><a href="#cb87-411" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>))</span>
-<span id="cb87-412"><a href="#cb87-412" aria-hidden="true" tabindex="-1"></a>dfi2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">gen =</span> <span class="fu">c</span>(<span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>),</span>
-<span id="cb87-413"><a href="#cb87-413" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>))</span>
-<span id="cb87-414"><a href="#cb87-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-415"><a href="#cb87-415" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(dfi1, dfi2)</span>
-<span id="cb87-416"><a href="#cb87-416" aria-hidden="true" tabindex="-1"></a><span class="fu">set_difference</span>(dfi1, dfi2)</span>
-<span id="cb87-417"><a href="#cb87-417" aria-hidden="true" tabindex="-1"></a><span class="fu">set_union</span>(dfi1, dfi2)</span>
+<span id="cb87-407"><a href="#cb87-407" aria-hidden="true" tabindex="-1"></a><span class="fu">## Operações com conjuntos (data frames)</span></span>
+<span id="cb87-408"><a href="#cb87-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-409"><a href="#cb87-409" aria-hidden="true" tabindex="-1"></a>Nesta seção será demonstrado como é possivel utilizar operações de cojuntos como interseção e união. É esperado que as entradas x e y tenham as mesmas variáveis. Para isto, vamos criar dois novos conjuntos de dados fictícios.</span>
+<span id="cb87-410"><a href="#cb87-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-413"><a href="#cb87-413" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb87-414"><a href="#cb87-414" aria-hidden="true" tabindex="-1"></a>dfi1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">gen =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>),</span>
+<span id="cb87-415"><a href="#cb87-415" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb87-416"><a href="#cb87-416" aria-hidden="true" tabindex="-1"></a>dfi2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">gen =</span> <span class="fu">c</span>(<span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>),</span>
+<span id="cb87-417"><a href="#cb87-417" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>))</span>
 <span id="cb87-418"><a href="#cb87-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-419"><a href="#cb87-419" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb87-420"><a href="#cb87-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-421"><a href="#cb87-421" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb87-422"><a href="#cb87-422" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=141636&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
+<span id="cb87-419"><a href="#cb87-419" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(dfi1, dfi2)</span>
+<span id="cb87-420"><a href="#cb87-420" aria-hidden="true" tabindex="-1"></a><span class="fu">set_difference</span>(dfi1, dfi2)</span>
+<span id="cb87-421"><a href="#cb87-421" aria-hidden="true" tabindex="-1"></a><span class="fu">set_union</span>(dfi1, dfi2)</span>
+<span id="cb87-422"><a href="#cb87-422" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb87-423"><a href="#cb87-423" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb87-424"><a href="#cb87-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-425"><a href="#cb87-425" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb87-426"><a href="#cb87-426" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=141636&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
+<span id="cb87-427"><a href="#cb87-427" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
