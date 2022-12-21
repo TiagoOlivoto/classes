@@ -6,19 +6,65 @@ title: "FIT5306 - Bioestatística e Experimentação Agrícola"
 
 Bem-vindo ao material de apoio da disciplina FIT5306 (Bioestatística e Experimentação Agrícola)! Esta página contém os dados e scripts R necessários para aplicação prática dos conteúdos vistos na disciplina.
 
+# Cronograma
+
+```{r }
+#| code-fold: true
+#| code-summary: "Clique aqui e veja como o calendário foi feito!"
+#| out-width: "100%"
+#| fig-width: 8
+#| fig-height: 7
+#| warning: false
+#| message: false
+
+library(calendR)
+# tutorial calendR
+# https://r-coder.com/calendar-plot-r/
+
+events <- rep(NA, 153)
+segundas <- seq(6, 135, by = 7)
+tercas <- seq(7, 126, by = 7)
+events[segundas] <- "1: Aulas teóricas\nCCA/ZDR 201\nA/B/C: 13:30-16:00"
+events[tercas] <- "2: Aulas práticas (campo)\nRessacada\nC: 10:10-11:50\nA: 13:30-15:10\nB: 15:20-17:00"
+
+# Aulas práticas no CCA
+events[c(28, 49, 56, 63, 77, 91, 98, 112, 119, 126)] <- "3: Aulas práticas (sala)\nCCA\nC: 10:10-11:50\nA: 13:30-15:10\nB: 15:20-17:00"
+
+# Provas
+events[c(69, 132)] <- "3: Avaliações"
+
+# Feriados
+events[c(62)] <- "4: Feriado"
+
+
+cores <- c("lightsalmon", "lightgreen", "skyblue", "cyan",  "gold")
+
+# Creating the calendar
+calendR(year = 2023,
+        start_date ="2023-03-01",
+        end_date = "2023-07-31",
+        special.days = events,
+        special.col = cores,
+        title = "FIT5306 - Bioestatística e Experimentação Agrícola", 
+        subtitle = "Cronograma de aulas - 2023/01",
+        subtitle.size = 15,
+        mbg.col = "forestgreen",
+        months.col = "white",
+        bg.img = "figs/calendr.png",
+        legend.pos = "bottom",
+        day.size = 4,
+        months.size = 14,
+        orientation = "portrait")
+
+```
+
 # Pacotes necessários
 
 Para começar, é sugerido que os seguintes pacotes sejam instalados (confira como fazer isso no vídeo abaixo).
 
-```{=html}
-<div class="video-container">
-  
-<iframe src="https://www.youtube.com/embed/8B8QDZnDhtY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+{{< video https://www.youtube.com/embed/8B8QDZnDhtY >}}
 
-</iframe>
 
-</div>
-```
 ```{r warning=FALSE, message = FALSE}
 library(tidyverse)  # manipulação de dados
 library(metan)      # estatísticas descritivas
