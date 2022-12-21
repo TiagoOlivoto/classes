@@ -708,6 +708,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 5       2.62       1.55  15.9  51.6  224.  406.   551 A1    H1    I    </code></pre>
 </div>
 </div>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/F6rdmuitPAw" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 </section>
 <section id="trabalhado-com-linhas" class="level1">
@@ -1640,138 +1641,143 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb89-240"><a href="#cb89-240" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">relocate</span>(<span class="fu">where</span>(is.numeric), <span class="at">.before =</span> <span class="fu">where</span>(is.character))</span>
 <span id="cb89-241"><a href="#cb89-241" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb89-242"><a href="#cb89-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-243"><a href="#cb89-243" aria-hidden="true" tabindex="-1"></a><span class="fu"># Trabalhado com linhas</span></span>
-<span id="cb89-244"><a href="#cb89-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-245"><a href="#cb89-245" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Fonte: https://dplyr.tidyverse.org/](figs/filter.png)</span><span class="co">](https://dplyr.tidyverse.org/)</span></span>
+<span id="cb89-243"><a href="#cb89-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-244"><a href="#cb89-244" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/F6rdmuitPAw &gt;}}</span>
+<span id="cb89-245"><a href="#cb89-245" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb89-246"><a href="#cb89-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-247"><a href="#cb89-247" aria-hidden="true" tabindex="-1"></a><span class="fu">## Selecionar linhas com base em seus valores</span></span>
-<span id="cb89-248"><a href="#cb89-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-249"><a href="#cb89-249" aria-hidden="true" tabindex="-1"></a>Utilizando a função <span class="co">[</span><span class="ot">`filter()`</span><span class="co">](https://dplyr.tidyverse.org/reference/filter.html)</span> é possivel filtrar as linhas de um conjunto de dados com base no valor de suas variáveis. No primeiro exemplo, selecionaremos as linhas onde o valor da variável MGRA é maior que 280.</span>
-<span id="cb89-250"><a href="#cb89-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-251"><a href="#cb89-251" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb89-252"><a href="#cb89-252" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">%&gt;%</span> </span>
-<span id="cb89-253"><a href="#cb89-253" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(MGRA <span class="sc">&gt;</span> <span class="dv">280</span>)</span>
-<span id="cb89-254"><a href="#cb89-254" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb89-247"><a href="#cb89-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-248"><a href="#cb89-248" aria-hidden="true" tabindex="-1"></a><span class="fu"># Trabalhado com linhas</span></span>
+<span id="cb89-249"><a href="#cb89-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-250"><a href="#cb89-250" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Fonte: https://dplyr.tidyverse.org/](figs/filter.png)</span><span class="co">](https://dplyr.tidyverse.org/)</span></span>
+<span id="cb89-251"><a href="#cb89-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-252"><a href="#cb89-252" aria-hidden="true" tabindex="-1"></a><span class="fu">## Selecionar linhas com base em seus valores</span></span>
+<span id="cb89-253"><a href="#cb89-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-254"><a href="#cb89-254" aria-hidden="true" tabindex="-1"></a>Utilizando a função <span class="co">[</span><span class="ot">`filter()`</span><span class="co">](https://dplyr.tidyverse.org/reference/filter.html)</span> é possivel filtrar as linhas de um conjunto de dados com base no valor de suas variáveis. No primeiro exemplo, selecionaremos as linhas onde o valor da variável MGRA é maior que 280.</span>
 <span id="cb89-255"><a href="#cb89-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-256"><a href="#cb89-256" aria-hidden="true" tabindex="-1"></a>No segundo exemplo, selecionaremos apenas as linhas onde a MGRA é maior que 220 **OU** a APLA é menor que 1.3 **OU** o NGRA é maior que 820.</span>
-<span id="cb89-257"><a href="#cb89-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-258"><a href="#cb89-258" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb89-259"><a href="#cb89-259" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">%&gt;%</span> </span>
-<span id="cb89-260"><a href="#cb89-260" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(MGRA <span class="sc">&gt;</span> <span class="dv">280</span> <span class="sc">|</span> APLA_PLANT <span class="sc">&lt;</span> <span class="fl">1.3</span> <span class="sc">|</span> NGRA <span class="sc">&gt;</span> <span class="dv">820</span>)</span>
-<span id="cb89-261"><a href="#cb89-261" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb89-256"><a href="#cb89-256" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb89-257"><a href="#cb89-257" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">%&gt;%</span> </span>
+<span id="cb89-258"><a href="#cb89-258" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(MGRA <span class="sc">&gt;</span> <span class="dv">280</span>)</span>
+<span id="cb89-259"><a href="#cb89-259" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb89-260"><a href="#cb89-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-261"><a href="#cb89-261" aria-hidden="true" tabindex="-1"></a>No segundo exemplo, selecionaremos apenas as linhas onde a MGRA é maior que 220 **OU** a APLA é menor que 1.3 **OU** o NGRA é maior que 820.</span>
 <span id="cb89-262"><a href="#cb89-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-263"><a href="#cb89-263" aria-hidden="true" tabindex="-1"></a>No último exemplo, selecionaremos apenas as linhas onde MGRA é maior que é maior que 220 **E** a APLA é menor que 2.</span>
-<span id="cb89-264"><a href="#cb89-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-265"><a href="#cb89-265" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb89-266"><a href="#cb89-266" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">%&gt;%</span> </span>
-<span id="cb89-267"><a href="#cb89-267" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(MGRA <span class="sc">&gt;</span> <span class="dv">220</span> <span class="sc">&amp;</span> APLA_PLANT <span class="sc">&lt;</span> <span class="dv">2</span>)</span>
-<span id="cb89-268"><a href="#cb89-268" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb89-263"><a href="#cb89-263" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb89-264"><a href="#cb89-264" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">%&gt;%</span> </span>
+<span id="cb89-265"><a href="#cb89-265" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(MGRA <span class="sc">&gt;</span> <span class="dv">280</span> <span class="sc">|</span> APLA_PLANT <span class="sc">&lt;</span> <span class="fl">1.3</span> <span class="sc">|</span> NGRA <span class="sc">&gt;</span> <span class="dv">820</span>)</span>
+<span id="cb89-266"><a href="#cb89-266" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb89-267"><a href="#cb89-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-268"><a href="#cb89-268" aria-hidden="true" tabindex="-1"></a>No último exemplo, selecionaremos apenas as linhas onde MGRA é maior que é maior que 220 **E** a APLA é menor que 2.</span>
 <span id="cb89-269"><a href="#cb89-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-270"><a href="#cb89-270" aria-hidden="true" tabindex="-1"></a>Isto é aproximadamente equivalente ao seguinte código R base.</span>
-<span id="cb89-271"><a href="#cb89-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-272"><a href="#cb89-272" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb89-273"><a href="#cb89-273" aria-hidden="true" tabindex="-1"></a>maize[maize<span class="sc">$</span>MGRA <span class="sc">&gt;</span> <span class="dv">220</span> <span class="sc">&amp;</span> maize<span class="sc">$</span>APLA_PLANT <span class="sc">&lt;</span> <span class="dv">2</span>, ]</span>
-<span id="cb89-274"><a href="#cb89-274" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb89-275"><a href="#cb89-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-276"><a href="#cb89-276" aria-hidden="true" tabindex="-1"></a>Você também pode usar <span class="in">`filter()`</span> para remover grupos inteiros. Por exemplo, o código a seguir elimina todas as linhas que contém o híbrido "H1".</span>
-<span id="cb89-277"><a href="#cb89-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-280"><a href="#cb89-280" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb89-281"><a href="#cb89-281" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">filter</span>(HIB <span class="sc">!=</span> <span class="st">"H1"</span>)</span>
-<span id="cb89-282"><a href="#cb89-282" aria-hidden="true" tabindex="-1"></a><span class="co"># seleciona somente os híbridos H1 e H2</span></span>
-<span id="cb89-283"><a href="#cb89-283" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">filter</span>(HIB  <span class="sc">%in%</span>  <span class="fu">c</span>(<span class="st">"H1"</span>, <span class="st">"H2"</span>))</span>
-<span id="cb89-284"><a href="#cb89-284" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb89-285"><a href="#cb89-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-286"><a href="#cb89-286" aria-hidden="true" tabindex="-1"></a><span class="fu">## Selecionar linhas com base em sua posição</span></span>
-<span id="cb89-287"><a href="#cb89-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-288"><a href="#cb89-288" aria-hidden="true" tabindex="-1"></a>A função <span class="co">[</span><span class="ot">`slice()`</span><span class="co">](https://dplyr.tidyverse.org/articles/grouping.html?q=slice#slice-and-friends)</span> permite indexar linhas por seus locais (inteiros). Ele permite selecionar, remover e duplicar linhas. Ele é acompanhado por vários auxiliares para casos de uso comuns:</span>
-<span id="cb89-289"><a href="#cb89-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-290"><a href="#cb89-290" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`slice_head()`</span> e <span class="in">`slice_tail()`</span> selecionam a primeira ou a última linha.</span>
-<span id="cb89-291"><a href="#cb89-291" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`slice_sample()`</span> seleciona linhas aleatoriamente.</span>
-<span id="cb89-292"><a href="#cb89-292" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`slice_min()`</span> e <span class="in">`slice_max()`</span> selecionam linhas com valores mais altos ou mais baixos de uma variável.</span>
-<span id="cb89-293"><a href="#cb89-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-296"><a href="#cb89-296" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb89-297"><a href="#cb89-297" aria-hidden="true" tabindex="-1"></a><span class="co"># selciona as primeiras três linhas</span></span>
-<span id="cb89-298"><a href="#cb89-298" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb89-299"><a href="#cb89-299" aria-hidden="true" tabindex="-1"></a><span class="co"># cinco linhas aleatórias</span></span>
-<span id="cb89-300"><a href="#cb89-300" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">5</span>)</span>
-<span id="cb89-301"><a href="#cb89-301" aria-hidden="true" tabindex="-1"></a><span class="co"># dois menores valores de MGRA</span></span>
-<span id="cb89-302"><a href="#cb89-302" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">slice_min</span>(<span class="at">n =</span> <span class="dv">2</span>, MGRA)</span>
-<span id="cb89-303"><a href="#cb89-303" aria-hidden="true" tabindex="-1"></a><span class="co"># maior valor de NGRA</span></span>
-<span id="cb89-304"><a href="#cb89-304" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">slice_max</span>(<span class="at">n =</span> <span class="dv">1</span>, NGRA)</span>
-<span id="cb89-305"><a href="#cb89-305" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb89-306"><a href="#cb89-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-307"><a href="#cb89-307" aria-hidden="true" tabindex="-1"></a><span class="fu">## </span></span>
-<span id="cb89-308"><a href="#cb89-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-309"><a href="#cb89-309" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ordenar linhas com base em seus valores</span></span>
-<span id="cb89-310"><a href="#cb89-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-311"><a href="#cb89-311" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`arrange()`</span> é utilizada para ordenar as linhas de um tibble (ou data.frames) com base em uma expressão envolvendo suas variáveis.</span>
-<span id="cb89-312"><a href="#cb89-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-315"><a href="#cb89-315" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb89-316"><a href="#cb89-316" aria-hidden="true" tabindex="-1"></a><span class="co"># ordena as linhas com base na variável CESP (crescente)</span></span>
-<span id="cb89-317"><a href="#cb89-317" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">arrange</span>(CESP)</span>
-<span id="cb89-318"><a href="#cb89-318" aria-hidden="true" tabindex="-1"></a><span class="co"># ordena as linhas com base na variável CESP (decrescente)</span></span>
-<span id="cb89-319"><a href="#cb89-319" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(CESP))</span>
-<span id="cb89-320"><a href="#cb89-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-321"><a href="#cb89-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-322"><a href="#cb89-322" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb89-323"><a href="#cb89-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-324"><a href="#cb89-324" aria-hidden="true" tabindex="-1"></a>Ao combinar a função <span class="in">`group_by()`</span> com <span class="in">`arrange()`</span> é possível realizar o ordenamento para cada nível de um determinado fator. No exemplo abaixo, a variável <span class="in">`APLA`</span> é ordenada de maneira crescente para cada híbrido.</span>
+<span id="cb89-270"><a href="#cb89-270" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb89-271"><a href="#cb89-271" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">%&gt;%</span> </span>
+<span id="cb89-272"><a href="#cb89-272" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(MGRA <span class="sc">&gt;</span> <span class="dv">220</span> <span class="sc">&amp;</span> APLA_PLANT <span class="sc">&lt;</span> <span class="dv">2</span>)</span>
+<span id="cb89-273"><a href="#cb89-273" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb89-274"><a href="#cb89-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-275"><a href="#cb89-275" aria-hidden="true" tabindex="-1"></a>Isto é aproximadamente equivalente ao seguinte código R base.</span>
+<span id="cb89-276"><a href="#cb89-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-277"><a href="#cb89-277" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb89-278"><a href="#cb89-278" aria-hidden="true" tabindex="-1"></a>maize[maize<span class="sc">$</span>MGRA <span class="sc">&gt;</span> <span class="dv">220</span> <span class="sc">&amp;</span> maize<span class="sc">$</span>APLA_PLANT <span class="sc">&lt;</span> <span class="dv">2</span>, ]</span>
+<span id="cb89-279"><a href="#cb89-279" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb89-280"><a href="#cb89-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-281"><a href="#cb89-281" aria-hidden="true" tabindex="-1"></a>Você também pode usar <span class="in">`filter()`</span> para remover grupos inteiros. Por exemplo, o código a seguir elimina todas as linhas que contém o híbrido "H1".</span>
+<span id="cb89-282"><a href="#cb89-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-285"><a href="#cb89-285" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb89-286"><a href="#cb89-286" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">filter</span>(HIB <span class="sc">!=</span> <span class="st">"H1"</span>)</span>
+<span id="cb89-287"><a href="#cb89-287" aria-hidden="true" tabindex="-1"></a><span class="co"># seleciona somente os híbridos H1 e H2</span></span>
+<span id="cb89-288"><a href="#cb89-288" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">filter</span>(HIB  <span class="sc">%in%</span>  <span class="fu">c</span>(<span class="st">"H1"</span>, <span class="st">"H2"</span>))</span>
+<span id="cb89-289"><a href="#cb89-289" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb89-290"><a href="#cb89-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-291"><a href="#cb89-291" aria-hidden="true" tabindex="-1"></a><span class="fu">## Selecionar linhas com base em sua posição</span></span>
+<span id="cb89-292"><a href="#cb89-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-293"><a href="#cb89-293" aria-hidden="true" tabindex="-1"></a>A função <span class="co">[</span><span class="ot">`slice()`</span><span class="co">](https://dplyr.tidyverse.org/articles/grouping.html?q=slice#slice-and-friends)</span> permite indexar linhas por seus locais (inteiros). Ele permite selecionar, remover e duplicar linhas. Ele é acompanhado por vários auxiliares para casos de uso comuns:</span>
+<span id="cb89-294"><a href="#cb89-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-295"><a href="#cb89-295" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`slice_head()`</span> e <span class="in">`slice_tail()`</span> selecionam a primeira ou a última linha.</span>
+<span id="cb89-296"><a href="#cb89-296" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`slice_sample()`</span> seleciona linhas aleatoriamente.</span>
+<span id="cb89-297"><a href="#cb89-297" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`slice_min()`</span> e <span class="in">`slice_max()`</span> selecionam linhas com valores mais altos ou mais baixos de uma variável.</span>
+<span id="cb89-298"><a href="#cb89-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-301"><a href="#cb89-301" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb89-302"><a href="#cb89-302" aria-hidden="true" tabindex="-1"></a><span class="co"># selciona as primeiras três linhas</span></span>
+<span id="cb89-303"><a href="#cb89-303" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb89-304"><a href="#cb89-304" aria-hidden="true" tabindex="-1"></a><span class="co"># cinco linhas aleatórias</span></span>
+<span id="cb89-305"><a href="#cb89-305" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">5</span>)</span>
+<span id="cb89-306"><a href="#cb89-306" aria-hidden="true" tabindex="-1"></a><span class="co"># dois menores valores de MGRA</span></span>
+<span id="cb89-307"><a href="#cb89-307" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">slice_min</span>(<span class="at">n =</span> <span class="dv">2</span>, MGRA)</span>
+<span id="cb89-308"><a href="#cb89-308" aria-hidden="true" tabindex="-1"></a><span class="co"># maior valor de NGRA</span></span>
+<span id="cb89-309"><a href="#cb89-309" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">slice_max</span>(<span class="at">n =</span> <span class="dv">1</span>, NGRA)</span>
+<span id="cb89-310"><a href="#cb89-310" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb89-311"><a href="#cb89-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-312"><a href="#cb89-312" aria-hidden="true" tabindex="-1"></a><span class="fu">## </span></span>
+<span id="cb89-313"><a href="#cb89-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-314"><a href="#cb89-314" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ordenar linhas com base em seus valores</span></span>
+<span id="cb89-315"><a href="#cb89-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-316"><a href="#cb89-316" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`arrange()`</span> é utilizada para ordenar as linhas de um tibble (ou data.frames) com base em uma expressão envolvendo suas variáveis.</span>
+<span id="cb89-317"><a href="#cb89-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-320"><a href="#cb89-320" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb89-321"><a href="#cb89-321" aria-hidden="true" tabindex="-1"></a><span class="co"># ordena as linhas com base na variável CESP (crescente)</span></span>
+<span id="cb89-322"><a href="#cb89-322" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">arrange</span>(CESP)</span>
+<span id="cb89-323"><a href="#cb89-323" aria-hidden="true" tabindex="-1"></a><span class="co"># ordena as linhas com base na variável CESP (decrescente)</span></span>
+<span id="cb89-324"><a href="#cb89-324" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(CESP))</span>
 <span id="cb89-325"><a href="#cb89-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-328"><a href="#cb89-328" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb89-329"><a href="#cb89-329" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">%&gt;%</span></span>
-<span id="cb89-330"><a href="#cb89-330" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(HIB) <span class="sc">%&gt;%</span></span>
-<span id="cb89-331"><a href="#cb89-331" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(MGRA, <span class="at">.by_group =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb89-332"><a href="#cb89-332" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-333"><a href="#cb89-333" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb89-334"><a href="#cb89-334" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-335"><a href="#cb89-335" aria-hidden="true" tabindex="-1"></a><span class="fu">## Outras funções úteis</span></span>
-<span id="cb89-336"><a href="#cb89-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-337"><a href="#cb89-337" aria-hidden="true" tabindex="-1"></a>Algumas funções do pacote <span class="in">`metan`</span> podem ser úteis para trabalhar com dados faltantes. Abaixo, alguns exemplos são mostrados.</span>
-<span id="cb89-338"><a href="#cb89-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-341"><a href="#cb89-341" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb89-342"><a href="#cb89-342" aria-hidden="true" tabindex="-1"></a><span class="co"># seleciona linhas com NA</span></span>
-<span id="cb89-343"><a href="#cb89-343" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">select_rows_na</span>()</span>
-<span id="cb89-344"><a href="#cb89-344" aria-hidden="true" tabindex="-1"></a><span class="co"># remove linhas com NA</span></span>
-<span id="cb89-345"><a href="#cb89-345" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">remove_rows_na</span>()</span>
-<span id="cb89-346"><a href="#cb89-346" aria-hidden="true" tabindex="-1"></a><span class="co"># substitu NA por 0</span></span>
-<span id="cb89-347"><a href="#cb89-347" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">replace_na</span>()</span>
-<span id="cb89-348"><a href="#cb89-348" aria-hidden="true" tabindex="-1"></a><span class="co"># substitui NA pela média da coluna (cuidado!!!)</span></span>
-<span id="cb89-349"><a href="#cb89-349" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">replace_na</span>(<span class="at">replacement =</span> <span class="st">"colmean"</span>)</span>
-<span id="cb89-350"><a href="#cb89-350" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb89-351"><a href="#cb89-351" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-352"><a href="#cb89-352" aria-hidden="true" tabindex="-1"></a><span class="fu"># dplyr vs R base</span></span>
-<span id="cb89-353"><a href="#cb89-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-354"><a href="#cb89-354" aria-hidden="true" tabindex="-1"></a>A tabela a seguir mostra uma tradução condensada entre os verbos <span class="in">`dplyr`</span> e seus equivalentes R base. As seções a seguir descrevem cada operação com mais detalhes. Você aprende mais sobre os verbos dplyr em sua documentação e em For more vignette("one-table").</span>
-<span id="cb89-355"><a href="#cb89-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-356"><a href="#cb89-356" aria-hidden="true" tabindex="-1"></a>| dplyr                          | base                                                                                                                                                              |</span>
-<span id="cb89-357"><a href="#cb89-357" aria-hidden="true" tabindex="-1"></a>|----------------|--------------------------------------------------------|</span>
-<span id="cb89-358"><a href="#cb89-358" aria-hidden="true" tabindex="-1"></a>| <span class="in">`arrange(df, x)`</span>               | <span class="in">`df[order(x), , drop = FALSE]`</span>                                                                                                                                    |</span>
-<span id="cb89-359"><a href="#cb89-359" aria-hidden="true" tabindex="-1"></a>| <span class="in">`distinct(df, x)`</span>              | <span class="in">`df[!duplicated(x), , drop = FALSE]`</span>, <span class="co">[</span><span class="ot">`unique()`</span><span class="co">](https://rdrr.io/r/base/unique.html)</span>                                                                            |</span>
-<span id="cb89-360"><a href="#cb89-360" aria-hidden="true" tabindex="-1"></a>| <span class="in">`filter(df, x)`</span>                | <span class="in">`df[which(x), , drop = FALSE]`</span>, <span class="co">[</span><span class="ot">`subset()`</span><span class="co">](https://rdrr.io/r/base/subset.html)</span>                                                                                  |</span>
-<span id="cb89-361"><a href="#cb89-361" aria-hidden="true" tabindex="-1"></a>| <span class="in">`mutate(df, z = x + y)`</span>        | <span class="in">`df$z &lt;- df$x + df$y`</span>, <span class="co">[</span><span class="ot">`transform()`</span><span class="co">](https://rdrr.io/r/base/transform.html)</span>                                                                                     |</span>
-<span id="cb89-362"><a href="#cb89-362" aria-hidden="true" tabindex="-1"></a>| <span class="in">`pull(df, 1)`</span>                  | <span class="in">`df[[1]]`</span>                                                                                                                                                         |</span>
-<span id="cb89-363"><a href="#cb89-363" aria-hidden="true" tabindex="-1"></a>| <span class="in">`pull(df, x)`</span>                  | <span class="in">`df$x`</span>                                                                                                                                                            |</span>
-<span id="cb89-364"><a href="#cb89-364" aria-hidden="true" tabindex="-1"></a>| <span class="in">`rename(df, y = x)`</span>            | <span class="in">`names(df)[names(df) == "x"] &lt;- "y"`</span>                                                                                                                              |</span>
-<span id="cb89-365"><a href="#cb89-365" aria-hidden="true" tabindex="-1"></a>| <span class="in">`relocate(df, y)`</span>              | <span class="in">`df[union("y", names(df))]`</span>                                                                                                                                       |</span>
-<span id="cb89-366"><a href="#cb89-366" aria-hidden="true" tabindex="-1"></a>| <span class="in">`select(df, x, y)`</span>             | <span class="in">`df[c("x", "y")]`</span>, <span class="co">[</span><span class="ot">`subset()`</span><span class="co">](https://rdrr.io/r/base/subset.html)</span>                                                                                               |</span>
-<span id="cb89-367"><a href="#cb89-367" aria-hidden="true" tabindex="-1"></a>| <span class="in">`select(df, starts_with("x"))`</span> | <span class="in">`df[grepl(names(df), "^x")]`</span>                                                                                                                                      |</span>
-<span id="cb89-368"><a href="#cb89-368" aria-hidden="true" tabindex="-1"></a>| <span class="in">`summarise(df, mean(x))`</span>       | <span class="in">`mean(df$x)`</span>, <span class="co">[</span><span class="ot">`tapply()`</span><span class="co">](https://rdrr.io/r/base/tapply.html)</span>, <span class="co">[</span><span class="ot">`aggregate()`</span><span class="co">](https://rdrr.io/r/stats/aggregate.html)</span>, <span class="co">[</span><span class="ot">`by()`</span><span class="co">](https://rdrr.io/r/base/by.html)</span> |</span>
-<span id="cb89-369"><a href="#cb89-369" aria-hidden="true" tabindex="-1"></a>| <span class="in">`slice(df, c(1, 2, 5))`</span>        | <span class="in">`df[c(1, 2, 5), , drop = FALSE]`</span>                                                                                                                                  |</span>
-<span id="cb89-370"><a href="#cb89-370" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-371"><a href="#cb89-371" aria-hidden="true" tabindex="-1"></a><span class="fu"># Desafio</span></span>
-<span id="cb89-372"><a href="#cb89-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-373"><a href="#cb89-373" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
-<span id="cb89-374"><a href="#cb89-374" aria-hidden="true" tabindex="-1"></a><span class="fu">## </span></span>
+<span id="cb89-326"><a href="#cb89-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-327"><a href="#cb89-327" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb89-328"><a href="#cb89-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-329"><a href="#cb89-329" aria-hidden="true" tabindex="-1"></a>Ao combinar a função <span class="in">`group_by()`</span> com <span class="in">`arrange()`</span> é possível realizar o ordenamento para cada nível de um determinado fator. No exemplo abaixo, a variável <span class="in">`APLA`</span> é ordenada de maneira crescente para cada híbrido.</span>
+<span id="cb89-330"><a href="#cb89-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-333"><a href="#cb89-333" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb89-334"><a href="#cb89-334" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">%&gt;%</span></span>
+<span id="cb89-335"><a href="#cb89-335" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(HIB) <span class="sc">%&gt;%</span></span>
+<span id="cb89-336"><a href="#cb89-336" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(MGRA, <span class="at">.by_group =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb89-337"><a href="#cb89-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-338"><a href="#cb89-338" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb89-339"><a href="#cb89-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-340"><a href="#cb89-340" aria-hidden="true" tabindex="-1"></a><span class="fu">## Outras funções úteis</span></span>
+<span id="cb89-341"><a href="#cb89-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-342"><a href="#cb89-342" aria-hidden="true" tabindex="-1"></a>Algumas funções do pacote <span class="in">`metan`</span> podem ser úteis para trabalhar com dados faltantes. Abaixo, alguns exemplos são mostrados.</span>
+<span id="cb89-343"><a href="#cb89-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-346"><a href="#cb89-346" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb89-347"><a href="#cb89-347" aria-hidden="true" tabindex="-1"></a><span class="co"># seleciona linhas com NA</span></span>
+<span id="cb89-348"><a href="#cb89-348" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">select_rows_na</span>()</span>
+<span id="cb89-349"><a href="#cb89-349" aria-hidden="true" tabindex="-1"></a><span class="co"># remove linhas com NA</span></span>
+<span id="cb89-350"><a href="#cb89-350" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">remove_rows_na</span>()</span>
+<span id="cb89-351"><a href="#cb89-351" aria-hidden="true" tabindex="-1"></a><span class="co"># substitu NA por 0</span></span>
+<span id="cb89-352"><a href="#cb89-352" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">replace_na</span>()</span>
+<span id="cb89-353"><a href="#cb89-353" aria-hidden="true" tabindex="-1"></a><span class="co"># substitui NA pela média da coluna (cuidado!!!)</span></span>
+<span id="cb89-354"><a href="#cb89-354" aria-hidden="true" tabindex="-1"></a>maize <span class="sc">|&gt;</span> <span class="fu">replace_na</span>(<span class="at">replacement =</span> <span class="st">"colmean"</span>)</span>
+<span id="cb89-355"><a href="#cb89-355" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb89-356"><a href="#cb89-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-357"><a href="#cb89-357" aria-hidden="true" tabindex="-1"></a><span class="fu"># dplyr vs R base</span></span>
+<span id="cb89-358"><a href="#cb89-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-359"><a href="#cb89-359" aria-hidden="true" tabindex="-1"></a>A tabela a seguir mostra uma tradução condensada entre os verbos <span class="in">`dplyr`</span> e seus equivalentes R base. As seções a seguir descrevem cada operação com mais detalhes. Você aprende mais sobre os verbos dplyr em sua documentação e em For more vignette("one-table").</span>
+<span id="cb89-360"><a href="#cb89-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-361"><a href="#cb89-361" aria-hidden="true" tabindex="-1"></a>| dplyr                          | base                                                                                                                                                              |</span>
+<span id="cb89-362"><a href="#cb89-362" aria-hidden="true" tabindex="-1"></a>|------------------|------------------------------------------------------|</span>
+<span id="cb89-363"><a href="#cb89-363" aria-hidden="true" tabindex="-1"></a>| <span class="in">`arrange(df, x)`</span>               | <span class="in">`df[order(x), , drop = FALSE]`</span>                                                                                                                                    |</span>
+<span id="cb89-364"><a href="#cb89-364" aria-hidden="true" tabindex="-1"></a>| <span class="in">`distinct(df, x)`</span>              | <span class="in">`df[!duplicated(x), , drop = FALSE]`</span>, <span class="co">[</span><span class="ot">`unique()`</span><span class="co">](https://rdrr.io/r/base/unique.html)</span>                                                                            |</span>
+<span id="cb89-365"><a href="#cb89-365" aria-hidden="true" tabindex="-1"></a>| <span class="in">`filter(df, x)`</span>                | <span class="in">`df[which(x), , drop = FALSE]`</span>, <span class="co">[</span><span class="ot">`subset()`</span><span class="co">](https://rdrr.io/r/base/subset.html)</span>                                                                                  |</span>
+<span id="cb89-366"><a href="#cb89-366" aria-hidden="true" tabindex="-1"></a>| <span class="in">`mutate(df, z = x + y)`</span>        | <span class="in">`df$z &lt;- df$x + df$y`</span>, <span class="co">[</span><span class="ot">`transform()`</span><span class="co">](https://rdrr.io/r/base/transform.html)</span>                                                                                     |</span>
+<span id="cb89-367"><a href="#cb89-367" aria-hidden="true" tabindex="-1"></a>| <span class="in">`pull(df, 1)`</span>                  | <span class="in">`df[[1]]`</span>                                                                                                                                                         |</span>
+<span id="cb89-368"><a href="#cb89-368" aria-hidden="true" tabindex="-1"></a>| <span class="in">`pull(df, x)`</span>                  | <span class="in">`df$x`</span>                                                                                                                                                            |</span>
+<span id="cb89-369"><a href="#cb89-369" aria-hidden="true" tabindex="-1"></a>| <span class="in">`rename(df, y = x)`</span>            | <span class="in">`names(df)[names(df) == "x"] &lt;- "y"`</span>                                                                                                                              |</span>
+<span id="cb89-370"><a href="#cb89-370" aria-hidden="true" tabindex="-1"></a>| <span class="in">`relocate(df, y)`</span>              | <span class="in">`df[union("y", names(df))]`</span>                                                                                                                                       |</span>
+<span id="cb89-371"><a href="#cb89-371" aria-hidden="true" tabindex="-1"></a>| <span class="in">`select(df, x, y)`</span>             | <span class="in">`df[c("x", "y")]`</span>, <span class="co">[</span><span class="ot">`subset()`</span><span class="co">](https://rdrr.io/r/base/subset.html)</span>                                                                                               |</span>
+<span id="cb89-372"><a href="#cb89-372" aria-hidden="true" tabindex="-1"></a>| <span class="in">`select(df, starts_with("x"))`</span> | <span class="in">`df[grepl(names(df), "^x")]`</span>                                                                                                                                      |</span>
+<span id="cb89-373"><a href="#cb89-373" aria-hidden="true" tabindex="-1"></a>| <span class="in">`summarise(df, mean(x))`</span>       | <span class="in">`mean(df$x)`</span>, <span class="co">[</span><span class="ot">`tapply()`</span><span class="co">](https://rdrr.io/r/base/tapply.html)</span>, <span class="co">[</span><span class="ot">`aggregate()`</span><span class="co">](https://rdrr.io/r/stats/aggregate.html)</span>, <span class="co">[</span><span class="ot">`by()`</span><span class="co">](https://rdrr.io/r/base/by.html)</span> |</span>
+<span id="cb89-374"><a href="#cb89-374" aria-hidden="true" tabindex="-1"></a>| <span class="in">`slice(df, c(1, 2, 5))`</span>        | <span class="in">`df[c(1, 2, 5), , drop = FALSE]`</span>                                                                                                                                  |</span>
 <span id="cb89-375"><a href="#cb89-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-376"><a href="#cb89-376" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Crie uma variável chamada <span class="in">`MGRA_kg`</span> qual será o resultado em quilogramas da massa de grãos.</span>
-<span id="cb89-377"><a href="#cb89-377" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Selecione somente as colunas <span class="in">`HIB`</span>, <span class="in">`AMB`</span>, <span class="in">`REP`</span> e <span class="in">`MGRA_Kg`</span>.</span>
-<span id="cb89-378"><a href="#cb89-378" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Selecione somente as cinco linhas com maior valor de <span class="in">`MGRA_Kg`</span>.</span>
-<span id="cb89-379"><a href="#cb89-379" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Compute os valores máximos, mínimos e a média destas cinco observações.</span>
-<span id="cb89-380"><a href="#cb89-380" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb89-381"><a href="#cb89-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-382"><a href="#cb89-382" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb89-383"><a href="#cb89-383" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=141637&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
-<span id="cb89-384"><a href="#cb89-384" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb89-376"><a href="#cb89-376" aria-hidden="true" tabindex="-1"></a><span class="fu"># Desafio</span></span>
+<span id="cb89-377"><a href="#cb89-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-378"><a href="#cb89-378" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb89-379"><a href="#cb89-379" aria-hidden="true" tabindex="-1"></a><span class="fu">## </span></span>
+<span id="cb89-380"><a href="#cb89-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-381"><a href="#cb89-381" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Crie uma variável chamada <span class="in">`MGRA_kg`</span> qual será o resultado em quilogramas da massa de grãos.</span>
+<span id="cb89-382"><a href="#cb89-382" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Selecione somente as colunas <span class="in">`HIB`</span>, <span class="in">`AMB`</span>, <span class="in">`REP`</span> e <span class="in">`MGRA_Kg`</span>.</span>
+<span id="cb89-383"><a href="#cb89-383" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Selecione somente as cinco linhas com maior valor de <span class="in">`MGRA_Kg`</span>.</span>
+<span id="cb89-384"><a href="#cb89-384" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Compute os valores máximos, mínimos e a média destas cinco observações.</span>
+<span id="cb89-385"><a href="#cb89-385" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb89-386"><a href="#cb89-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-387"><a href="#cb89-387" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb89-388"><a href="#cb89-388" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=141637&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
+<span id="cb89-389"><a href="#cb89-389" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

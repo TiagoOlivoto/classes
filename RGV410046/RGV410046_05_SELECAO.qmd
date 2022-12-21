@@ -218,6 +218,11 @@ df |> relocate(contains("_PLANT"), .after = last_col())
 df |> relocate(where(is.numeric), .before = where(is.character))
 ```
 
+
+{{< video https://www.youtube.com/embed/F6rdmuitPAw >}}
+
+
+
 # Trabalhado com linhas
 
 [![Fonte: https://dplyr.tidyverse.org/](figs/filter.png)](https://dplyr.tidyverse.org/)
@@ -323,7 +328,7 @@ maize |> replace_na(replacement = "colmean")
 A tabela a seguir mostra uma tradução condensada entre os verbos `dplyr` e seus equivalentes R base. As seções a seguir descrevem cada operação com mais detalhes. Você aprende mais sobre os verbos dplyr em sua documentação e em For more vignette("one-table").
 
 | dplyr                          | base                                                                                                                                                              |
-|----------------|--------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | `arrange(df, x)`               | `df[order(x), , drop = FALSE]`                                                                                                                                    |
 | `distinct(df, x)`              | `df[!duplicated(x), , drop = FALSE]`, [`unique()`](https://rdrr.io/r/base/unique.html)                                                                            |
 | `filter(df, x)`                | `df[which(x), , drop = FALSE]`, [`subset()`](https://rdrr.io/r/base/subset.html)                                                                                  |
