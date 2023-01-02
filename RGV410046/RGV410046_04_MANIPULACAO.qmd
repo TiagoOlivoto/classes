@@ -316,6 +316,7 @@ df1 |> semi_join(df2)
 df1 |> anti_join(df2)
 ```
 
+
 ## Operações com conjuntos (vetores)
 
 Operações com conjuntos são importantes na análise de dados. Por exemplo, se um determinado genótipo foi selecionado nos ambientes A, B e C, então, este determinado genótipo é a interseção dos ambientes A, B e C. Tanto o R-base quanto o pacote `dplyr` fornecem funções para operações com conjuntos, mas funcionam com dois conjuntos de uma vez apenas.

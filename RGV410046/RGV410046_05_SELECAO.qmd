@@ -264,6 +264,10 @@ maize |> filter(HIB != "H1")
 maize |> filter(HIB  %in%  c("H1", "H2"))
 ```
 
+{{< video https://www.youtube.com/embed/FsqHLaxPFv8 >}}
+
+
+
 ## Selecionar linhas com base em sua posição
 
 A função [`slice()`](https://dplyr.tidyverse.org/articles/grouping.html?q=slice#slice-and-friends) permite indexar linhas por seus locais (inteiros). Ele permite selecionar, remover e duplicar linhas. Ele é acompanhado por vários auxiliares para casos de uso comuns:
@@ -283,7 +287,9 @@ maize |> slice_min(n = 2, MGRA)
 maize |> slice_max(n = 1, NGRA)
 ```
 
-## 
+
+{{< video https://www.youtube.com/embed/ybgmOVuTD28 >}}
+
 
 ## Ordenar linhas com base em seus valores
 
