@@ -121,29 +121,30 @@ ggplot() +
 
 ## DIC
 
-Para realizar a casualização em um experimento de delineamento inteiramente ao acaso, pode-se utilizar a função [`sketch`](https://agronomiar.github.io/AgroR_Tutorial/fun%C3%A7%C3%A3o-para-croqui-experimental.html#delineamento-inteiramente-casualizado) do pacote agroR. Neste exemplo, simulo a casualização de quatro tratamentos ("C1", "C2", "C3" e "C4") em um ensaio conduzido em delineamento inteiramente casualizado (DIC) com quatro repetições (`r`).
+Para realizar a casualização em um experimento de delineamento inteiramente ao acaso, pode-se utilizar a função `CRD` do pacote FielDHub. Neste exemplo, simulo a casualização de quatro tratamentos ("C1", "C2", "C3" e "C4") em um ensaio conduzido em delineamento inteiramente casualizado (DIC) com quatro repetições (`r`).
 
 ```{r}
 #| out-width: "100%"
 #| 
-library(AgroR)
-set.seed(1)
+library(FielDHub)
 trats <- c("C1", "C2", "C3", "C4")
-sketch(trats, r = 4)
+crd <- CRD(t = trats,
+           reps = 4)
+print(crd)
+plot(crd)
 ```
 
 ## DBC
 
-Para casualização em DBC, a mesma função `sketch` é usada. No entanto, utiliza-se o argumento `design` para indicar que o delineamento é um DBC
+Para casualização em DBC, `RCBD` é usada.
 
 ```{r}
 #| out-width: "100%"
-set.seed(1)
 trats <- c("C1", "C2", "C3", "C4")
-# casualização em DBC
-sketch(trats, r = 4, design = "DBC")
-# inverte a posição dos blocos
-sketch(trats, r = 4, design = "DBC", pos = "column")
+rcbd <- RCBD(t = trats,
+             reps = 4)
+print(rcbd)
+plot(rcbd)
 
 ```
 
