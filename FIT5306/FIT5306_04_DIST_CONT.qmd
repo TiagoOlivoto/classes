@@ -1379,11 +1379,9 @@ a\) O valor estimado de venda de toras para maravalha
 
 > Para encontrar este número, precisamos saber quantas árvores com esta medida são esperadas. Para isso, precisamos encontrar a probabilidade de ocorrência de árvores com até 18 cm de DAP e multiplicar essa probabilidade pelo total de árvores.
 
-\$\$
-
+$$
 Z = \frac{17 - 22}{4} = -1,25
-
-\$\$
+$$
 
 ```{r}
 #| code-fold: true
@@ -1416,23 +1414,17 @@ b\) o valor estimado de venda de toras para fabricação de tábua
 
 > Para encontrar este número, precisamos saber quantas árvores com com mais de 18 cm se espera. A probabilidade de árvores com mais de 18 cm (P) é dada por
 
-\$\$
-
+$$
 Z = P(X \> 1,25) = 1 - P(\le 1,25)
+$$
 
-\$\$
-
-\$\$
-
+$$
 P(X \> 1,25) = 1 - 0,1056
+$$
 
-\$\$
-
-\$\$
-
+$$
 P(X \> 1,25) = 0,8943
-
-\$\$
+$$
 
 ```{r}
 
@@ -1471,23 +1463,17 @@ c\) O DAP que somente 5 % das toras ultrapassará
 
 > Este valor é o quantil da distribuição no valor acumulado de 0.95. Precisamos, primeiramente, encontrar a probabilidade de $P(Z \> z)$:
 
-\$\$
+$$
+P(Z\ge z) = 1 - P(Z \le z)
+$$
 
-P(Z\>z) = 1 - P(Z≤z)
+$$
+P(Z \ge z) = 1 - 0,95
+$$
 
-\$\$
-
-\$\$
-
-P(Z\>z) = 1 - 0,95
-
-\$\$
-
-\$\$
-
-P(Z\>z) = 0,05
-
-\$\$
+$$
+P(Z \ge z) = 0,05
+$$
 
 O valor de 0,95 é encontrado no quantil \~1,65 (Z) da distribuição normal padrão (tabela). Para saber o valor exato, podemos utilizar a função `qnorm()`.
 
@@ -1529,41 +1515,29 @@ ggplot() +
 
 De posse do valor de *Z*, basta realizar uma inversão da fórmula de padronização para encontrar o valor de *x*.
 
-\$\$
+$$
+Z = (x - \mu)/\sigma\\
+$$
 
-Z = (x -- \mu)/\sigma\\
+$$
+1,644 = (x - 22)/4\\
+$$
 
-\$\$
+$$
+1,644\times4 = x - 22\\
+$$
 
-\$\$
+$$
+6,576 = x - 22\\
+$$
 
-1,644 = (x -- 22)/4\\
-
-\$\$
-
-\$\$
-
-1,644\times4 = x -- 22\\
-
-\$\$
-
-\$\$
-
-6,576 = x -- 22\\
-
-\$\$
-
-\$\$
-
+$$
 x = 22 + 6,576
+$$
 
-\$\$
-
-\$\$
-
+$$
 x = 28,576
-
-\$\$
+$$
 
 Então, o peso DAP que somente 5% das toras ultrapassará é de \~28,6 cm.
 

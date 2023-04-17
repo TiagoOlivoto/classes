@@ -64,7 +64,6 @@ Para começar, é sugerido que os seguintes pacotes sejam instalados (confira co
 
 {{< video https://www.youtube.com/embed/8B8QDZnDhtY >}}
 
-
 ```{r warning=FALSE, message = FALSE}
 library(tidyverse)  # manipulação de dados
 library(metan)      # estatísticas descritivas
@@ -103,9 +102,11 @@ O arquivo contém as seguintes planilhas, que podem ser reunidas nas seguintes c
 
 ## Correlação
 
--   `COR_DATA_DENSIDADE`: Dois métodos de mensurar a densidade média da madeira (g /cm$^3$) em *Eucalyptus grandis* foram aplicados a uma amostra de n = 13 árvores. O primeiro método (X) é determinado utilizando um paquímetro e uma sonda Pressler de 0,5 cm na região da árvore determinada no diâmetro à altura do peito (DAP). A segunda, variável (Y) também foi mensurada no DAP utilizando cortes transversais no tronco. Esse exemplo foi apresentado por Ferreira (2009)\[\^1\].
+-   `COR_DATA_DENSIDADE`: Dois métodos de mensurar a densidade média da madeira (g /cm$^3$) em *Eucalyptus grandis* foram aplicados a uma amostra de n = 13 árvores. O primeiro método (X) é determinado utilizando um paquímetro e uma sonda Pressler de 0,5 cm na região da árvore determinada no diâmetro à altura do peito (DAP). A segunda, variável (Y) também foi mensurada no DAP utilizando cortes transversais no tronco. Esse exemplo foi apresentado por [^1].
 -   `CORRELACAO_DATA`: dados de altura de planta (AP) e altura da espiga (AE) observados em 10 plantas de milho.
 -   `CORRELACAO_ANALISE`: Análise de correlação para os dados `CORRELACAO_DATA`.
+
+[^1]: Ferreira, D.F. 2009. Estatística Básica. 2nd ed. UFLA, Viçosa, MG.
 
 ## Experimentos unifatoriais
 
@@ -130,12 +131,12 @@ As seguintes planilhas contém dados de experimentos bifatoriais com diferentes 
 
 -   `FAT1_SI`: Fator 1 **qualitativo** (fontes de nitrogênio), com três níveis; Fator 2 **qualitativo** (híbridos), com três níveis, **com interação significativa**.
 -   `FAT1_CI`: Fator 1 **qualitativo** (dias de avaliação), com três níveis; Fator 2 **qualitativo** (radiação solar), com três níveis, **sem interação significativa**.
--   `FAT1_C2I`[^1]: Fator 1 **Qualitativo** (enxofre), com dois níveis; Fator 2 **qualitativo** (parcelamento de N), com três níveis, **com interação significativa**.
+-   `FAT1_C2I`[^2]: Fator 1 **Qualitativo** (enxofre), com dois níveis; Fator 2 **qualitativo** (parcelamento de N), com três níveis, **com interação significativa**.
 -   `FAT2_SI`: Fator 1 **qualitativo** (híbridos), com dois níveis; Fator 2 **quantitativo** (doses de N), com cinco níveis, **sem interação significativa**.
 -   `FAT2_CI`: Fator 1 **qualitativo** (híbridos), com dois níveis; Fator 2 **quantitativo** (doses de N), com cinco níveis, **com interação significativa**.
 -   `FAT3`: Fator 1 **quantitativo** (doses de N), com quatro níveis; Fator 2 **quantitativo** (doses de K), com cinco níveis, **com interação significativa**.
 
-[^1]: Olivoto, T., I.R. Carvalho, M. Nardino, M. Ferrari, A.J. de Pelegrin, et al. 2016. Sulfur and nitrogen effects on industrial quality and grain yield of wheat Efeitos. Rev. Ciências Agroveterinárias 15(1): 24--33. doi: 10.5965/223811711512016024.
+[^2]: Olivoto, T., I.R. Carvalho, M. Nardino, M. Ferrari, A.J. de Pelegrin, et al. 2016. Sulfur and nitrogen effects on industrial quality and grain yield of wheat Efeitos. Rev. Ciências Agroveterinárias 15(1): 24--33. doi: 10.5965/223811711512016024.
 
 ------------------------------------------------------------------------
 

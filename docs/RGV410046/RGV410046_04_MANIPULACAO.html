@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.223">
+<meta name="generator" content="quarto-1.3.298">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -154,52 +125,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../00_about.html"><i class="bi bi-fa fa-home" role="img">
+    <a class="nav-link" href="../00_about.html" rel="" target=""><i class="bi bi-fa fa-home" role="img">
 </i> 
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../FIT5306/FIT5306_00_ABOUT.html">
+    <a class="nav-link" href="../FIT5306/FIT5306_00_ABOUT.html" rel="" target="">
  <span class="menu-text">Bioestatística</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../RGV410046/RGV410046_00_ABOUT.html" aria-current="page">
+    <a class="nav-link active" href="../RGV410046/RGV410046_00_ABOUT.html" rel="" target="" aria-current="page">
  <span class="menu-text">Introdução ao R</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.researchgate.net/profile/Tiago_Olivoto"><i class="bi bi-fab fa-researchgate fa" role="img">
+    <a class="nav-link" href="https://www.researchgate.net/profile/Tiago_Olivoto" rel="" target=""><i class="bi bi-fab fa-researchgate fa" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/TiagoOlivoto/classes"><i class="bi bi-bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/TiagoOlivoto/classes" rel="" target=""><i class="bi bi-bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/tolivoto"><i class="bi bi-bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/tolivoto" rel="" target=""><i class="bi bi-bi bi-twitter" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.mendeley.com/profiles/tiago-olivoto/"><i class="bi bi-fab fa-mendeley fa" role="img">
+    <a class="nav-link" href="https://www.mendeley.com/profiles/tiago-olivoto/" rel="" target=""><i class="bi bi-fab fa-mendeley fa" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">4. Manipulação de Dados</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../RGV410046/RGV410046_04_MANIPULACAO.html">4. Manipulação de Dados</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -207,62 +183,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
-      <div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RGV410046/RGV410046_00_ABOUT.html" class="sidebar-item-text sidebar-link">RGV410046 - Introdução à linguagem R de programação</a>
+  <a href="../RGV410046/RGV410046_00_ABOUT.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RGV410046 - Introdução à linguagem R de programação</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RGV410046/RGV410046_01_INTRO.html" class="sidebar-item-text sidebar-link">1. O software R</a>
+  <a href="../RGV410046/RGV410046_01_INTRO.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. O software R</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RGV410046/RGV410046_02_PROGRAMACAO.html" class="sidebar-item-text sidebar-link">2. Introdução à programação R</a>
+  <a href="../RGV410046/RGV410046_02_PROGRAMACAO.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Introdução à programação R</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RGV410046/RGV410046_03_DADOS.html" class="sidebar-item-text sidebar-link">3. Dados</a>
+  <a href="../RGV410046/RGV410046_03_DADOS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Dados</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RGV410046/RGV410046_04_MANIPULACAO.html" class="sidebar-item-text sidebar-link active">4. Manipulação de Dados</a>
+  <a href="../RGV410046/RGV410046_04_MANIPULACAO.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">4. Manipulação de Dados</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RGV410046/RGV410046_05_SELECAO.html" class="sidebar-item-text sidebar-link">5. Seleção e filtragem</a>
+  <a href="../RGV410046/RGV410046_05_SELECAO.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Seleção e filtragem</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RGV410046/RGV410046_06_MUTACAO.html" class="sidebar-item-text sidebar-link">6. Mutação</a>
+  <a href="../RGV410046/RGV410046_06_MUTACAO.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Mutação</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RGV410046/RGV410046_07_RESUMO.html" class="sidebar-item-text sidebar-link">7. Sintetização</a>
+  <a href="../RGV410046/RGV410046_07_RESUMO.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Sintetização</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RGV410046/RGV410046_08_DATAVIZ.html" class="sidebar-item-text sidebar-link">8. Visualização de dados</a>
+  <a href="../RGV410046/RGV410046_08_DATAVIZ.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Visualização de dados</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -300,7 +286,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">4. Manipulação de Dados</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">4. Manipulação de Dados</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -396,15 +382,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8     2     1 AQ       P3      13.5
  9     2     1 AQ       P4      14  
 10     2     1 AQ       P5      15  
-# … with 35 more rows</code></pre>
+# ℹ 35 more rows</code></pre>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 tidyselect style notation
 </div>
 </div>
@@ -424,7 +410,7 @@ tidyselect style notation
 1     1     1 AO       P1         16
 2     1     1 AO       P2         17
 3     1     1 AO       P3         19
-# … with 42 more rows</code></pre>
+# ℹ 42 more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># seleciona variáveis por sua posição</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pivot_longer</span>(df_wide,</span>
@@ -439,13 +425,13 @@ tidyselect style notation
 1     1     1 AO       P1         16
 2     1     1 AO       P2         17
 3     1     1 AO       P3         19
-# … with 42 more rows</code></pre>
+# ℹ 42 more rows</code></pre>
 </div>
 </div>
 </div>
 </div>
 <p>Após a modificação, as colunas são descartadas e obtemos as colunas de planta e altura. Assim, vemos que <code>pivot_longer()</code> torna os conjuntos de dados mais longos aumentando o número de linhas e diminuindo o número de colunas.</p>
-<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/4KwZeQe6JOc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/4KwZeQe6JOc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="wider" class="level2">
 <h2 class="anchored" data-anchor-id="wider">Wider</h2>
@@ -507,12 +493,12 @@ tidyselect style notation
 9 H3      III        2.18   0.992</code></pre>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Múltiplos nomes e/ou valores
 </div>
 </div>
@@ -527,17 +513,17 @@ Múltiplos nomes e/ou valores
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>wider2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 7
-  HIBRIDO ALT_PLANT.I ALT_ESP.I ALT_PLANT.II ALT_ESP.II ALT_PLANT.III ALT_ESP.…¹
-  &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;      &lt;dbl&gt;
-1 H1             3.00      1.88         2.97       1.83          2.81      1.67 
-2 H2             2.10      0.91         2.12       1.03          1.92      1.02 
-3 H3             2.13      1.05         2.13       1.01          2.18      0.992
-# … with abbreviated variable name ¹​ALT_ESP.III</code></pre>
+  HIBRIDO ALT_PLANT.I ALT_ESP.I ALT_PLANT.II ALT_ESP.II ALT_PLANT.III
+  &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;
+1 H1             3.00      1.88         2.97       1.83          2.81
+2 H2             2.10      0.91         2.12       1.03          1.92
+3 H3             2.13      1.05         2.13       1.01          2.18
+# ℹ 1 more variable: ALT_ESP.III &lt;dbl&gt;</code></pre>
 </div>
 </div>
 </div>
 </div>
-<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/UFtEb4BIWno" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/UFtEb4BIWno" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 </section>
 <section id="separar" class="level1">
@@ -571,8 +557,8 @@ Múltiplos nomes e/ou valores
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ex_separate <span class="sc">|&gt;</span> </span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(RELACAO, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"AESP"</span>, <span class="st">"APLA"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Expected 2 pieces. Additional pieces discarded in 9 rows [1, 2, 3, 4,
-5, 6, 7, 8, 9].</code></pre>
+<pre><code>Warning: Expected 2 pieces. Additional pieces discarded in 9 rows [1, 2, 3, 4, 5, 6, 7,
+8, 9].</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  HIBRIDO BLOCO ALT_PLANT ALT_ESP AESP APLA
@@ -591,12 +577,12 @@ Múltiplos nomes e/ou valores
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  ex_separate <span class="sc">|&gt;</span> </span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(RELACAO, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"AESP"</span>, <span class="st">"APLA"</span>), <span class="at">sep =</span> <span class="st">"/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Desafio
 </div>
 </div>
@@ -658,7 +644,7 @@ Desafio
 6 H1.III      H1   III   ALT_ESP 1.674</code></pre>
 </div>
 </div>
-<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/paVd6eGsfRg" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/paVd6eGsfRg" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="renomear" class="level1">
 <h1>Renomear</h1>
@@ -716,7 +702,7 @@ Desafio
 <pre><code>[1] "ADUBACAO_a" "AP_a"      </code></pre>
 </div>
 </div>
-<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/j4knVncyUIE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/j4knVncyUIE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 </section>
 <section id="juntar" class="level1">
@@ -773,7 +759,7 @@ Desafio
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df1</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">left_join</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Joining, by = "HIBRIDO"</code></pre>
+<pre><code>Joining with `by = join_by(HIBRIDO)`</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  HIBRIDO BLOCO ALT_PLANT ALT_ESP AP_M     AE_M
@@ -797,7 +783,7 @@ Desafio
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df1 e df2</span></span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">inner_join</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Joining, by = "HIBRIDO"</code></pre>
+<pre><code>Joining with `by = join_by(HIBRIDO)`</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  HIBRIDO BLOCO ALT_PLANT ALT_ESP AP_M     AE_M
@@ -808,7 +794,7 @@ Desafio
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df1 ou df2</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">full_join</span>(df2, <span class="at">keep =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Joining, by = "HIBRIDO"</code></pre>
+<pre><code>Joining with `by = join_by(HIBRIDO)`</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  HIBRIDO.x BLOCO ALT_PLANT ALT_ESP HIBRIDO.y     AP_M      AE_M
@@ -821,7 +807,7 @@ Desafio
 7      &lt;NA&gt;  &lt;NA&gt;        NA      NA        H2 2.049333 0.9873333</code></pre>
 </div>
 </div>
-<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/KpvsyMORq6w" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/KpvsyMORq6w" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="junções-com-filtragem" class="level2">
 <h2 class="anchored" data-anchor-id="junções-com-filtragem">Junções com filtragem</h2>
@@ -840,7 +826,7 @@ Desafio
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># linhas de df1 que estão em df2</span></span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">semi_join</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Joining, by = "HIBRIDO"</code></pre>
+<pre><code>Joining with `by = join_by(HIBRIDO)`</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  HIBRIDO BLOCO ALT_PLANT ALT_ESP
@@ -851,7 +837,7 @@ Desafio
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># linhas de df1 que NÃO estão em df2</span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">anti_join</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Joining, by = "HIBRIDO"</code></pre>
+<pre><code>Joining with `by = join_by(HIBRIDO)`</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  HIBRIDO BLOCO ALT_PLANT ALT_ESP
@@ -919,12 +905,12 @@ Desafio
 <pre><code>[1] "c" "d"</code></pre>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Diagrama de Venn
 </div>
 </div>
@@ -1119,9 +1105,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1237,6 +1237,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1682,6 +1768,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Material de apoio à disciplinas</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">Prof.&nbsp;Dr.&nbsp;Tiago Olivoto FIT/CCA/UFSC</div>
   </div>
 </footer>

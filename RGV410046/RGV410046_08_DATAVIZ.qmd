@@ -76,7 +76,7 @@ Os dados são em escala horária, do dia 01/01/2022 a 28/11/2022, totalizando 79
 df_estacao <-  
   import("estacao_fazenda.csv", setclass = "tbl") |>
   mutate(dia = dmy(dia),
-         m = fct_relevel(factor(m), paste0(1:11))) # reordena os meses
+         m = fct_relevel(factor(m), paste0(1:12))) # reordena os meses
 df_estacao
 ```
 
@@ -614,8 +614,8 @@ ggplot() +
 
 vento_long <-
   df_estacao %>%
-  select(m, hora, velvent) %>% 
-  pivot_longer(-c(m, hora))
+  select(m, dia, velvent) %>% 
+  pivot_longer(-c(m, dia))
 
 
 
