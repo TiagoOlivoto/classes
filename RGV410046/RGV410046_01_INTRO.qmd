@@ -168,7 +168,8 @@ exp(100) # exponencial
 
 ```
 
-## Álgebra de matrizes
+
+## Álgebra de matrizes (avançado)
 
 Para multiplicação de matrizes utiliza-se `%*%` ao envéz de `*`. Note a diferença no exemplo abaixo.
 

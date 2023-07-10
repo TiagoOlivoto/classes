@@ -93,6 +93,8 @@ maize |>
 ```
 
 
+{{< video https://www.youtube.com/embed/gbP5tZS6f2M >}}
+
 ## Diversas variáveis, uma estatística
 
 Até aqui vimos como a média (global ou para cada híbrido) da MGRA pode ser calculada. Quase sempre, no entanto, quando calculamos a média (ou qualquer outra medida) em um conjunto de dados, queremos fazê-la para todas (ou algumas) variáveis numéricas dos dados. Implementar isto com `dplyr` é relativamente fácil. Para isto, é utilizada a função `across()` que aplica uma função (ou um conjunto de funções) a um conjunto de colunas. Veremos como `across()` pode ser utilizada para calcular a média para as variáveis numéricas do conjunto `maize`. No exemplo abaixo, `where()` aplica uma função (neste caso `is.numeric()`) a todas as variáveis e seleciona aquelas para as quais a função retorna `TRUE`. Assim, a média somente é calculada para as variáveis numéricas.
@@ -120,6 +122,8 @@ maize |>
 
 
 
+{{< video https://www.youtube.com/embed/_Htjv0s4_nw >}}
+
 ## Diversas variáveis, diversas estatísticas
 
 Se desejamos computar mais de uma estatística para variáveis específicas, então o próximo código nos ajudará. Note que para aplicar mais de uma função é necessário criar uma lista com o nome das funções. Neste caso, os sufixos `_m` e `_sd` representam a média e o desvio padrão, respectivamente. Faremos isso para cada nível da variável `HIB`.
@@ -130,6 +134,11 @@ maize %>%
   summarise(across(starts_with("M"),
                    .fns =  list(m = mean, sd = sd)))
 ```
+
+
+
+{{< video https://www.youtube.com/embed/BtoE-YSh9Uw >}}
+
 
 
 ## Quick tips

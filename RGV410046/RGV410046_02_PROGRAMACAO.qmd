@@ -382,6 +382,12 @@ var(x)
 ```
 :::
 
+
+
+# Avançado
+
+
+
 ## Loops {#loops}
 
 Reescrever um código muitas vezes por necessidade de repetir um determinado procedimento seria bastante trabalhoso, além de precisarmos de mais tempo para isso e estarmos mais propensos à erros, como por exemplo, esquecer de trocar o nome de uma variável, ou um coeficiente. Por isso, o R tem algumas funções que fazem essas repetições para nós. Isso é muito comum e pode ser facilmente implementado pela função `for()`, `while()` e `repeat()`.
@@ -562,6 +568,7 @@ ggplot(dist_amo, aes(mean)) +
 ```
 
 ::: callout-tip
+
 ## Homework
 
 -   Criar um data frame com 10 observações e 3 variáveis quantitativas;

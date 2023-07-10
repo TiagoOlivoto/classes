@@ -25,27 +25,6 @@ library(DataExplorer)
 ```
 
 # Importação
-
-## Funções R base
-
-A função `read.table()` lê um arquivo em formato de tabela (.txt, .csv) e cria um data frame a partir dele.
-
-```{r echo = TRUE, eval = FALSE, message = TRUE, warning = TRUE}
-(dados <- read.table("df_txt.txt", header = TRUE))
-(dados <- read.table("df_csv.csv", header = TRUE, sep = ";"))
-# Argumento header = TRUE indica a existência de cabeçalho
-```
-
-## Rstudio
-
-A forma mais comum do pesquisador digitar seus dados é através de planilhas eletrônicas do Excel. Para carregar esses dados, basta ir em *Import Dataset* na área de trabalho. O passo a passo está descrito abaixo:
-
-![Importando dados de planilhas eletrônicas do Excel - Passo 1](figs/Import.png)
-
-![Importando dados de planilhas eletrônicas do Excel - Passo 2](figs/Import1.png)
-
-![Importando dados de planilhas eletrônicas do Excel - Passo 3](figs/Import2.png)
-
 # Pacote rio
 
 O pacote [`rio`](https://cran.r-project.org/web/packages/rio/index.html) é um pacote R relativamente recente utilizado para importação e exportação de dados. Ele faz suposições sobre o formato do arquivo ([veja os formatos suportados aqui](https://www.rdocumentation.org/packages/rio/versions/0.5.29)), ou seja, adivinha o formato do arquivo que você está tentando importar e, consequentemente, aplica funções de importação apropriadas a esse formato. Tudo isso é feito com a função `import()`.
@@ -100,6 +79,9 @@ df_gsheet <- import(url, dec = ",")
 df_gsheet
 ```
 
+
+
+# Outros formatos (Avançado)
 ## SPSS
 
 O arquivo `".sav"` de exemplo foi baixado [deste site](https://lo.unisa.edu.au/mod/book/view.php?id=646443&chapterid=106604)
@@ -132,6 +114,29 @@ df_rdata <- readRDS("df_r.RData")
 df_rdata
 ```
 
+
+# Funções R base
+
+A função `read.table()` lê um arquivo em formato de tabela (.txt, .csv) e cria um data frame a partir dele.
+
+```{r echo = TRUE, eval = FALSE, message = TRUE, warning = TRUE}
+(dados <- read.table("df_txt.txt", header = TRUE))
+(dados <- read.table("df_csv.csv", header = TRUE, sep = ";"))
+# Argumento header = TRUE indica a existência de cabeçalho
+```
+
+# Rstudio
+
+A forma mais comum do pesquisador digitar seus dados é através de planilhas eletrônicas do Excel. Para carregar esses dados, basta ir em *Import Dataset* na área de trabalho. O passo a passo está descrito abaixo:
+
+![Importando dados de planilhas eletrônicas do Excel - Passo 1](figs/Import.png)
+
+![Importando dados de planilhas eletrônicas do Excel - Passo 2](figs/Import1.png)
+
+![Importando dados de planilhas eletrônicas do Excel - Passo 3](figs/Import2.png)
+
+
+
 # Exportar
 
 ```{r}
@@ -162,7 +167,6 @@ export(
 > Conjuntos de dados organizados são fáceis de manipular, modelar e visualizar, e possuem uma estrutura específica: cada variável é uma coluna, cada observação é uma linha e cada tipo de unidade observacional é uma tabela (Wickham, 2014)[^1]
 
 [^1]: Wickham, Hadley. 2014. "Tidy Data". Journal of Statistical Software 59: 1--23.
-
 
 ## Mesmos dados, diferentes formas
 
@@ -207,10 +211,11 @@ Após vermos estas regras, percebemos que dos quatro conjuntos apresentados ante
 
 {{< video https://www.youtube.com/embed/TYcKMXwPsuw >}}
 
+
+
 ## Padão, padrão, padrão!
 
 ### Formatar strings
-
 
 Um dos maiores equívocos cometidos ao trabalhar com conjuntos de dados e que pode impactar significativamente análises posteriores é a falta de padrão de nomenclatura, tanto em variáveis como string de caracteres. Por exemplo, suponha que tenhamos uma string de caracteres `str = c("Env1", "env 1", "env.1")`, para representar três observações do ambiente "env 1". Por definição, `str` deve representar um nível único, mas na verdade tem três níveis.
 
@@ -254,11 +259,32 @@ messy <- tidy_colnames(messy)
 names(messy)
 ```
 
-
 {{< video https://www.youtube.com/embed/Jw_jEPBiAVQ >}}
 
 
-### Preencher valores
+# Avançado
+## Inspeção
+
+```{r}
+#| out-width: "100%"
+
+
+maize <- df$maize
+plot_intro(maize)
+plot_histogram(maize)
+plot_missing(maize)
+
+# pacote metan
+inspect(maize, plot = TRUE)
+
+```
+
+{{< video https://www.youtube.com/embed/h2ywRFtPZik >}}
+
+
+
+
+## Preencher valores
 
 Observe o seguinte conjunto de dados
 
@@ -277,31 +303,7 @@ A função `fill()` do pacote `tidyr` pode ser utilizada para preencher valores 
 (preenchido <- fill(mesclado, AMB, HIBRIDO))
 ```
 
-
 {{< video https://www.youtube.com/embed/22n7aZjK-Vw >}}
-
-
-# Inspeção
-```{r}
-#| out-width: "100%"
-
-
-maize <- df$maize
-plot_intro(maize)
-plot_histogram(maize)
-plot_missing(maize)
-
-# pacote metan
-inspect(maize, plot = TRUE)
-
-```
-
-
-{{< video https://www.youtube.com/embed/h2ywRFtPZik >}}
-
-
-
-
 ```{=html}
 
 <div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=141635&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>

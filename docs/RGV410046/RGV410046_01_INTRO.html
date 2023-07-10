@@ -219,14 +219,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RGV410046/RGV410046_04_MANIPULACAO.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4. Manipulação de Dados</span></a>
+  <a href="../RGV410046/RGV410046_04_SELECAO.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Seleção e filtragem</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RGV410046/RGV410046_05_SELECAO.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">5. Seleção e filtragem</span></a>
+  <a href="../RGV410046/RGV410046_05_MANIPULACAO.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Manipulação de Dados</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -268,7 +268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#atribuições" id="toc-atribuições" class="nav-link" data-scroll-target="#atribuições">Atribuições</a></li>
   <li><a href="#operadores-matemáticos" id="toc-operadores-matemáticos" class="nav-link" data-scroll-target="#operadores-matemáticos">Operadores matemáticos</a></li>
-  <li><a href="#álgebra-de-matrizes" id="toc-álgebra-de-matrizes" class="nav-link" data-scroll-target="#álgebra-de-matrizes">Álgebra de matrizes</a></li>
+  <li><a href="#álgebra-de-matrizes-avançado" id="toc-álgebra-de-matrizes-avançado" class="nav-link" data-scroll-target="#álgebra-de-matrizes-avançado">Álgebra de matrizes (avançado)</a></li>
   </ul></li>
   <li><a href="#fóruns-e-materiais-de-apoio" id="toc-fóruns-e-materiais-de-apoio" class="nav-link" data-scroll-target="#fóruns-e-materiais-de-apoio">Fóruns e materiais de apoio</a></li>
   <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
@@ -500,8 +500,8 @@ A BibTeX entry for LaTeX users is
 </div>
 </div>
 </section>
-<section id="álgebra-de-matrizes" class="level2">
-<h2 class="anchored" data-anchor-id="álgebra-de-matrizes">Álgebra de matrizes</h2>
+<section id="álgebra-de-matrizes-avançado" class="level2">
+<h2 class="anchored" data-anchor-id="álgebra-de-matrizes-avançado">Álgebra de matrizes (avançado)</h2>
 <p>Para multiplicação de matrizes utiliza-se <code>%*%</code> ao envéz de <code>*</code>. Note a diferença no exemplo abaixo.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1301,114 +1301,115 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb66-171"><a href="#cb66-171" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb66-172"><a href="#cb66-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb66-173"><a href="#cb66-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-174"><a href="#cb66-174" aria-hidden="true" tabindex="-1"></a><span class="fu">## Álgebra de matrizes</span></span>
-<span id="cb66-175"><a href="#cb66-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-176"><a href="#cb66-176" aria-hidden="true" tabindex="-1"></a>Para multiplicação de matrizes utiliza-se <span class="in">`%*%`</span> ao envéz de <span class="in">`*`</span>. Note a diferença no exemplo abaixo.</span>
-<span id="cb66-177"><a href="#cb66-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-178"><a href="#cb66-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, message = FALSE, warning = FALSE}</span></span>
-<span id="cb66-179"><a href="#cb66-179" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">2</span>))</span>
-<span id="cb66-180"><a href="#cb66-180" aria-hidden="true" tabindex="-1"></a>(y <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>, <span class="at">ncol =</span> <span class="dv">2</span>))</span>
-<span id="cb66-181"><a href="#cb66-181" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-182"><a href="#cb66-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-183"><a href="#cb66-183" aria-hidden="true" tabindex="-1"></a>O resultado da multiplicação da matriz <span class="in">`x`</span> e <span class="in">`y`</span> é dado por:</span>
-<span id="cb66-184"><a href="#cb66-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-185"><a href="#cb66-185" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb66-186"><a href="#cb66-186" aria-hidden="true" tabindex="-1"></a>    \left( {\begin{array}{*{20}{c}}{1 \cdot 5 + 3 \cdot 6}&amp;{1 \cdot 7 + 3 \cdot 8}\\{2 \cdot 5 + 4 \cdot 6}&amp;{2 \cdot 7 + 4 \cdot 8}\end{array}} \right) = \left( {\begin{array}{*{20}{c}}{23}&amp;{31}<span class="sc">\\</span>{34}&amp;{46}\end{array}} \right)</span>
-<span id="cb66-187"><a href="#cb66-187" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb66-188"><a href="#cb66-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-189"><a href="#cb66-189" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, message = FALSE, warning = FALSE}</span></span>
-<span id="cb66-190"><a href="#cb66-190" aria-hidden="true" tabindex="-1"></a>x <span class="sc">*</span> y <span class="co"># Errado</span></span>
-<span id="cb66-191"><a href="#cb66-191" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%*%</span> y <span class="co"># Certo</span></span>
-<span id="cb66-192"><a href="#cb66-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-193"><a href="#cb66-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-194"><a href="#cb66-194" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`t()`</span> é utilizada para transposição de matrizes e <span class="in">`solve()`</span> para inversão de matrizes. Vamos resolver o seguinte sistema de equações utilizando estes operadores.</span>
-<span id="cb66-195"><a href="#cb66-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-196"><a href="#cb66-196" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb66-197"><a href="#cb66-197" aria-hidden="true" tabindex="-1"></a>\begin{array}{l}{x_1} + 2{x_2} = 4<span class="sc">\\</span>{x_1} - {x_2} = 1\end{array}</span>
-<span id="cb66-198"><a href="#cb66-198" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb66-199"><a href="#cb66-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-200"><a href="#cb66-200" aria-hidden="true" tabindex="-1"></a>Matricialmente o sistema acima é dado por:</span>
-<span id="cb66-201"><a href="#cb66-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-202"><a href="#cb66-202" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb66-203"><a href="#cb66-203" aria-hidden="true" tabindex="-1"></a>\left<span class="co">[</span><span class="ot"> {\begin{array}{*{20}{c}}{\begin{array}{*{20}{l}}1\\1\end{array}}&amp;{\begin{array}{*{20}{c}}2\\{ - 1}\end{array}}\end{array}} \right</span><span class="co">]</span>\left<span class="co">[</span><span class="ot"> {\begin{array}{*{20}{c}}{{x_1}}\\{{x_2}}\end{array}} \right</span><span class="co">]</span> = \left<span class="co">[</span><span class="ot"> {\begin{array}{*{20}{c}}4\\1\end{array}} \right</span><span class="co">]</span></span>
-<span id="cb66-204"><a href="#cb66-204" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb66-205"><a href="#cb66-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-206"><a href="#cb66-206" aria-hidden="true" tabindex="-1"></a>Esse sistema de equações é representado por ${\bf{AX}} = {\bf{c}}$ e tem como solução ${\bf{X = }}{{\bf{A}}^{{\bf{ - 1}}}}{\bf{c}}$</span>
-<span id="cb66-207"><a href="#cb66-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-208"><a href="#cb66-208" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb66-209"><a href="#cb66-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-210"><a href="#cb66-210" aria-hidden="true" tabindex="-1"></a>(A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>), <span class="at">ncol =</span> <span class="dv">2</span>))</span>
-<span id="cb66-211"><a href="#cb66-211" aria-hidden="true" tabindex="-1"></a><span class="co"># Transposta de A</span></span>
-<span id="cb66-212"><a href="#cb66-212" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(A)</span>
-<span id="cb66-213"><a href="#cb66-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-214"><a href="#cb66-214" aria-hidden="true" tabindex="-1"></a><span class="co"># resolução do sistema de equações</span></span>
-<span id="cb66-215"><a href="#cb66-215" aria-hidden="true" tabindex="-1"></a>(Ainv <span class="ot">&lt;-</span> <span class="fu">solve</span>(A)) <span class="co"># Obtém a inversa generalizada de A</span></span>
-<span id="cb66-216"><a href="#cb66-216" aria-hidden="true" tabindex="-1"></a>(c <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>)) <span class="co"># Vetor C</span></span>
-<span id="cb66-217"><a href="#cb66-217" aria-hidden="true" tabindex="-1"></a>(X <span class="ot">&lt;-</span> Ainv <span class="sc">%*%</span> c)</span>
-<span id="cb66-218"><a href="#cb66-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-174"><a href="#cb66-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-175"><a href="#cb66-175" aria-hidden="true" tabindex="-1"></a><span class="fu">## Álgebra de matrizes (avançado)</span></span>
+<span id="cb66-176"><a href="#cb66-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-177"><a href="#cb66-177" aria-hidden="true" tabindex="-1"></a>Para multiplicação de matrizes utiliza-se <span class="in">`%*%`</span> ao envéz de <span class="in">`*`</span>. Note a diferença no exemplo abaixo.</span>
+<span id="cb66-178"><a href="#cb66-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-179"><a href="#cb66-179" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, message = FALSE, warning = FALSE}</span></span>
+<span id="cb66-180"><a href="#cb66-180" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">2</span>))</span>
+<span id="cb66-181"><a href="#cb66-181" aria-hidden="true" tabindex="-1"></a>(y <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>, <span class="at">ncol =</span> <span class="dv">2</span>))</span>
+<span id="cb66-182"><a href="#cb66-182" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb66-183"><a href="#cb66-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-184"><a href="#cb66-184" aria-hidden="true" tabindex="-1"></a>O resultado da multiplicação da matriz <span class="in">`x`</span> e <span class="in">`y`</span> é dado por:</span>
+<span id="cb66-185"><a href="#cb66-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-186"><a href="#cb66-186" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb66-187"><a href="#cb66-187" aria-hidden="true" tabindex="-1"></a>    \left( {\begin{array}{*{20}{c}}{1 \cdot 5 + 3 \cdot 6}&amp;{1 \cdot 7 + 3 \cdot 8}\\{2 \cdot 5 + 4 \cdot 6}&amp;{2 \cdot 7 + 4 \cdot 8}\end{array}} \right) = \left( {\begin{array}{*{20}{c}}{23}&amp;{31}<span class="sc">\\</span>{34}&amp;{46}\end{array}} \right)</span>
+<span id="cb66-188"><a href="#cb66-188" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb66-189"><a href="#cb66-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-190"><a href="#cb66-190" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, message = FALSE, warning = FALSE}</span></span>
+<span id="cb66-191"><a href="#cb66-191" aria-hidden="true" tabindex="-1"></a>x <span class="sc">*</span> y <span class="co"># Errado</span></span>
+<span id="cb66-192"><a href="#cb66-192" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%*%</span> y <span class="co"># Certo</span></span>
+<span id="cb66-193"><a href="#cb66-193" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb66-194"><a href="#cb66-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-195"><a href="#cb66-195" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`t()`</span> é utilizada para transposição de matrizes e <span class="in">`solve()`</span> para inversão de matrizes. Vamos resolver o seguinte sistema de equações utilizando estes operadores.</span>
+<span id="cb66-196"><a href="#cb66-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-197"><a href="#cb66-197" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb66-198"><a href="#cb66-198" aria-hidden="true" tabindex="-1"></a>\begin{array}{l}{x_1} + 2{x_2} = 4<span class="sc">\\</span>{x_1} - {x_2} = 1\end{array}</span>
+<span id="cb66-199"><a href="#cb66-199" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb66-200"><a href="#cb66-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-201"><a href="#cb66-201" aria-hidden="true" tabindex="-1"></a>Matricialmente o sistema acima é dado por:</span>
+<span id="cb66-202"><a href="#cb66-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-203"><a href="#cb66-203" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb66-204"><a href="#cb66-204" aria-hidden="true" tabindex="-1"></a>\left<span class="co">[</span><span class="ot"> {\begin{array}{*{20}{c}}{\begin{array}{*{20}{l}}1\\1\end{array}}&amp;{\begin{array}{*{20}{c}}2\\{ - 1}\end{array}}\end{array}} \right</span><span class="co">]</span>\left<span class="co">[</span><span class="ot"> {\begin{array}{*{20}{c}}{{x_1}}\\{{x_2}}\end{array}} \right</span><span class="co">]</span> = \left<span class="co">[</span><span class="ot"> {\begin{array}{*{20}{c}}4\\1\end{array}} \right</span><span class="co">]</span></span>
+<span id="cb66-205"><a href="#cb66-205" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb66-206"><a href="#cb66-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-207"><a href="#cb66-207" aria-hidden="true" tabindex="-1"></a>Esse sistema de equações é representado por ${\bf{AX}} = {\bf{c}}$ e tem como solução ${\bf{X = }}{{\bf{A}}^{{\bf{ - 1}}}}{\bf{c}}$</span>
+<span id="cb66-208"><a href="#cb66-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-209"><a href="#cb66-209" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb66-210"><a href="#cb66-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-211"><a href="#cb66-211" aria-hidden="true" tabindex="-1"></a>(A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>), <span class="at">ncol =</span> <span class="dv">2</span>))</span>
+<span id="cb66-212"><a href="#cb66-212" aria-hidden="true" tabindex="-1"></a><span class="co"># Transposta de A</span></span>
+<span id="cb66-213"><a href="#cb66-213" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(A)</span>
+<span id="cb66-214"><a href="#cb66-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-215"><a href="#cb66-215" aria-hidden="true" tabindex="-1"></a><span class="co"># resolução do sistema de equações</span></span>
+<span id="cb66-216"><a href="#cb66-216" aria-hidden="true" tabindex="-1"></a>(Ainv <span class="ot">&lt;-</span> <span class="fu">solve</span>(A)) <span class="co"># Obtém a inversa generalizada de A</span></span>
+<span id="cb66-217"><a href="#cb66-217" aria-hidden="true" tabindex="-1"></a>(c <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>)) <span class="co"># Vetor C</span></span>
+<span id="cb66-218"><a href="#cb66-218" aria-hidden="true" tabindex="-1"></a>(X <span class="ot">&lt;-</span> Ainv <span class="sc">%*%</span> c)</span>
 <span id="cb66-219"><a href="#cb66-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-220"><a href="#cb66-220" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-221"><a href="#cb66-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-222"><a href="#cb66-222" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb66-223"><a href="#cb66-223" aria-hidden="true" tabindex="-1"></a>Note que o mesmo resultado anterior pode ser obtido sem a necessidade de atribuição, ao declarar todas as operações em um único comando</span>
-<span id="cb66-224"><a href="#cb66-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-227"><a href="#cb66-227" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb66-228"><a href="#cb66-228" aria-hidden="true" tabindex="-1"></a><span class="fu">solve</span>(<span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>), <span class="at">ncol =</span> <span class="dv">2</span>)) <span class="sc">%*%</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>)</span>
-<span id="cb66-229"><a href="#cb66-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-230"><a href="#cb66-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-231"><a href="#cb66-231" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb66-232"><a href="#cb66-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-233"><a href="#cb66-233" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`det()`</span> é utilizada para calcular o determinante de uma matriz e função <span class="in">`eigen()`</span> para calcular calcular autovalores e autovetores</span>
-<span id="cb66-234"><a href="#cb66-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-235"><a href="#cb66-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb66-236"><a href="#cb66-236" aria-hidden="true" tabindex="-1"></a>(X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">9</span>), <span class="at">ncol =</span> <span class="dv">3</span>))</span>
-<span id="cb66-237"><a href="#cb66-237" aria-hidden="true" tabindex="-1"></a>(detX <span class="ot">&lt;-</span> <span class="fu">det</span>(X))</span>
-<span id="cb66-238"><a href="#cb66-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-239"><a href="#cb66-239" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-240"><a href="#cb66-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-241"><a href="#cb66-241" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb66-242"><a href="#cb66-242" aria-hidden="true" tabindex="-1"></a>(av <span class="ot">&lt;-</span> <span class="fu">eigen</span>(X))</span>
-<span id="cb66-243"><a href="#cb66-243" aria-hidden="true" tabindex="-1"></a>av<span class="sc">$</span>values <span class="co"># Extrai os autovalores</span></span>
-<span id="cb66-244"><a href="#cb66-244" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-245"><a href="#cb66-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-246"><a href="#cb66-246" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb66-247"><a href="#cb66-247" aria-hidden="true" tabindex="-1"></a>av<span class="sc">$</span>vectors <span class="co"># Extrai os autovetores</span></span>
-<span id="cb66-248"><a href="#cb66-248" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-249"><a href="#cb66-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-250"><a href="#cb66-250" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`diag()`</span> extrai a diagonal de uma matriz ou cria uma matriz onde a diagonal são os elementos declarados. Os próximos comandos extraem a diagonal de X e criam uma matriz identidade, com 3 linhas e 3 colunas.</span>
-<span id="cb66-251"><a href="#cb66-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-252"><a href="#cb66-252" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
-<span id="cb66-253"><a href="#cb66-253" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(X)</span>
-<span id="cb66-254"><a href="#cb66-254" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb66-255"><a href="#cb66-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb66-256"><a href="#cb66-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-257"><a href="#cb66-257" aria-hidden="true" tabindex="-1"></a><span class="fu"># Fóruns e materiais de apoio</span></span>
-<span id="cb66-258"><a href="#cb66-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-259"><a href="#cb66-259" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="3"}</span>
-<span id="cb66-260"><a href="#cb66-260" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Playlist R Quick Tips](figs/rqt.png)</span><span class="co">](https://www.youtube.com/watch?v=e89kyYJgWqc&amp;list=PLJG9aEbqLtMiHWzBMBuakz33LtehOaUTD)</span></span>
-<span id="cb66-261"><a href="#cb66-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-262"><a href="#cb66-262" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Série do Prof. Ben Dêivid](figs/rapidinhasdor.png)</span><span class="co">](https://github.com/bendeivide/rapidinhasdor)</span></span>
-<span id="cb66-263"><a href="#cb66-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-264"><a href="#cb66-264" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Canal do Prof. Alcinei](figs/alcinei.jpg)</span><span class="co">](https://www.youtube.com/channel/UCDGyvLCJnv9RtTY1YMBMVNQ)</span></span>
-<span id="cb66-265"><a href="#cb66-265" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb66-266"><a href="#cb66-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-267"><a href="#cb66-267" aria-hidden="true" tabindex="-1"></a><span class="fu"># Homework</span></span>
-<span id="cb66-268"><a href="#cb66-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-269"><a href="#cb66-269" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
-<span id="cb66-270"><a href="#cb66-270" aria-hidden="true" tabindex="-1"></a><span class="fu">## Meu primeiro relatório em R</span></span>
-<span id="cb66-271"><a href="#cb66-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-272"><a href="#cb66-272" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Utilizando o RStudio, crie um documento em formato quarto, salve em uma pasta de sua preferência.</span>
-<span id="cb66-273"><a href="#cb66-273" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Neste relatório, apresente os comandos para instalação de dois pacotes que acreditas serem de utilidade em sua área de estudo.</span>
-<span id="cb66-274"><a href="#cb66-274" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Descreva brevemente os pacotes instalados</span>
-<span id="cb66-275"><a href="#cb66-275" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb66-276"><a href="#cb66-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-277"><a href="#cb66-277" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/MO9jPS1xZdQ &gt;}}</span>
-<span id="cb66-278"><a href="#cb66-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-279"><a href="#cb66-279" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb66-280"><a href="#cb66-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-220"><a href="#cb66-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-221"><a href="#cb66-221" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb66-222"><a href="#cb66-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-223"><a href="#cb66-223" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb66-224"><a href="#cb66-224" aria-hidden="true" tabindex="-1"></a>Note que o mesmo resultado anterior pode ser obtido sem a necessidade de atribuição, ao declarar todas as operações em um único comando</span>
+<span id="cb66-225"><a href="#cb66-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-228"><a href="#cb66-228" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb66-229"><a href="#cb66-229" aria-hidden="true" tabindex="-1"></a><span class="fu">solve</span>(<span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>), <span class="at">ncol =</span> <span class="dv">2</span>)) <span class="sc">%*%</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>)</span>
+<span id="cb66-230"><a href="#cb66-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-231"><a href="#cb66-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb66-232"><a href="#cb66-232" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb66-233"><a href="#cb66-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-234"><a href="#cb66-234" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`det()`</span> é utilizada para calcular o determinante de uma matriz e função <span class="in">`eigen()`</span> para calcular calcular autovalores e autovetores</span>
+<span id="cb66-235"><a href="#cb66-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-236"><a href="#cb66-236" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb66-237"><a href="#cb66-237" aria-hidden="true" tabindex="-1"></a>(X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">9</span>), <span class="at">ncol =</span> <span class="dv">3</span>))</span>
+<span id="cb66-238"><a href="#cb66-238" aria-hidden="true" tabindex="-1"></a>(detX <span class="ot">&lt;-</span> <span class="fu">det</span>(X))</span>
+<span id="cb66-239"><a href="#cb66-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-240"><a href="#cb66-240" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb66-241"><a href="#cb66-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-242"><a href="#cb66-242" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb66-243"><a href="#cb66-243" aria-hidden="true" tabindex="-1"></a>(av <span class="ot">&lt;-</span> <span class="fu">eigen</span>(X))</span>
+<span id="cb66-244"><a href="#cb66-244" aria-hidden="true" tabindex="-1"></a>av<span class="sc">$</span>values <span class="co"># Extrai os autovalores</span></span>
+<span id="cb66-245"><a href="#cb66-245" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb66-246"><a href="#cb66-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-247"><a href="#cb66-247" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb66-248"><a href="#cb66-248" aria-hidden="true" tabindex="-1"></a>av<span class="sc">$</span>vectors <span class="co"># Extrai os autovetores</span></span>
+<span id="cb66-249"><a href="#cb66-249" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb66-250"><a href="#cb66-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-251"><a href="#cb66-251" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`diag()`</span> extrai a diagonal de uma matriz ou cria uma matriz onde a diagonal são os elementos declarados. Os próximos comandos extraem a diagonal de X e criam uma matriz identidade, com 3 linhas e 3 colunas.</span>
+<span id="cb66-252"><a href="#cb66-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-253"><a href="#cb66-253" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}</span></span>
+<span id="cb66-254"><a href="#cb66-254" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(X)</span>
+<span id="cb66-255"><a href="#cb66-255" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb66-256"><a href="#cb66-256" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb66-257"><a href="#cb66-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-258"><a href="#cb66-258" aria-hidden="true" tabindex="-1"></a><span class="fu"># Fóruns e materiais de apoio</span></span>
+<span id="cb66-259"><a href="#cb66-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-260"><a href="#cb66-260" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="3"}</span>
+<span id="cb66-261"><a href="#cb66-261" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Playlist R Quick Tips](figs/rqt.png)</span><span class="co">](https://www.youtube.com/watch?v=e89kyYJgWqc&amp;list=PLJG9aEbqLtMiHWzBMBuakz33LtehOaUTD)</span></span>
+<span id="cb66-262"><a href="#cb66-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-263"><a href="#cb66-263" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Série do Prof. Ben Dêivid](figs/rapidinhasdor.png)</span><span class="co">](https://github.com/bendeivide/rapidinhasdor)</span></span>
+<span id="cb66-264"><a href="#cb66-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-265"><a href="#cb66-265" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Canal do Prof. Alcinei](figs/alcinei.jpg)</span><span class="co">](https://www.youtube.com/channel/UCDGyvLCJnv9RtTY1YMBMVNQ)</span></span>
+<span id="cb66-266"><a href="#cb66-266" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb66-267"><a href="#cb66-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-268"><a href="#cb66-268" aria-hidden="true" tabindex="-1"></a><span class="fu"># Homework</span></span>
+<span id="cb66-269"><a href="#cb66-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-270"><a href="#cb66-270" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb66-271"><a href="#cb66-271" aria-hidden="true" tabindex="-1"></a><span class="fu">## Meu primeiro relatório em R</span></span>
+<span id="cb66-272"><a href="#cb66-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-273"><a href="#cb66-273" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Utilizando o RStudio, crie um documento em formato quarto, salve em uma pasta de sua preferência.</span>
+<span id="cb66-274"><a href="#cb66-274" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Neste relatório, apresente os comandos para instalação de dois pacotes que acreditas serem de utilidade em sua área de estudo.</span>
+<span id="cb66-275"><a href="#cb66-275" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Descreva brevemente os pacotes instalados</span>
+<span id="cb66-276"><a href="#cb66-276" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb66-277"><a href="#cb66-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-278"><a href="#cb66-278" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/MO9jPS1xZdQ &gt;}}</span>
+<span id="cb66-279"><a href="#cb66-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-280"><a href="#cb66-280" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
 <span id="cb66-281"><a href="#cb66-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-282"><a href="#cb66-282" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138588&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
-<span id="cb66-283"><a href="#cb66-283" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb66-282"><a href="#cb66-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-283"><a href="#cb66-283" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138588&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
+<span id="cb66-284"><a href="#cb66-284" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

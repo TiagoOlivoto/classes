@@ -1,5 +1,5 @@
 ---
-title: "5. Seleção e filtragem"
+title: "4. Seleção e filtragem"
 editor_options: 
   chunk_output_type: console
 ---
@@ -202,7 +202,7 @@ df |> pull(5)
 
 ```
 
-## Realocar colunas
+## Realocar colunas (Avançado)
 
 Para reordenar colunas em um data frame, podemos utilizar a função [`relocate()`](https://dplyr.tidyverse.org/reference/relocate.html) do pacote `dplyr`. Ela altera as posições das colunas, usando a mesma sintaxe que `select()` para facilitar a movimentação de blocos de colunas de uma só vez.
 
@@ -314,7 +314,11 @@ maize %>%
 
 ```
 
-## Outras funções úteis
+
+{{< video https://www.youtube.com/embed/GN4ipJWqWjs >}}
+
+
+# Outras funções úteis (Avançado)
 
 Algumas funções do pacote `metan` podem ser úteis para trabalhar com dados faltantes. Abaixo, alguns exemplos são mostrados.
 

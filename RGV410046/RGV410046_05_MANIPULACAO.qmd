@@ -1,5 +1,5 @@
 ---
-title: "4. Manipulação de Dados"
+title: "5. Manipulação de Dados"
 editor_options: 
   chunk_output_type: console
 ---
@@ -114,6 +114,7 @@ wider
 
 ```
 
+
 ::: callout-tip
 ## Múltiplos nomes e/ou valores
 
@@ -133,7 +134,7 @@ wider2
 {{< video https://www.youtube.com/embed/UFtEb4BIWno >}}
 
 
-# Separar
+# Separar (atualizar com as novas funções)
 
 Até agora você aprendeu como realizar operações morfológicas para transformar dados em de formato *wide* para *long* e vice-versa. O seguinte conjunto de dados tem um problema diferente:
 
@@ -158,11 +159,13 @@ ex_separate2 <-
   separate(RELACAO, into = c("AESP", "APLA"), sep = "/")
 ```
 
+
 ::: callout-tip
 ## Desafio
 
 Considerando o conjunto de dados `wider2`, combine o que você aprendeu até agora com `pivot_longer()` e `separate()` para retornar o conjunto de dados `dflong`.
 :::
+
 
 # Concatenar
 
@@ -194,7 +197,7 @@ dflong |>
 
 {{< video https://www.youtube.com/embed/paVd6eGsfRg >}}
 
-# Renomear
+# Renomear (Passar batido)
 
 Algumas vezes necessitamos renomear as variáveis em nosso conjunto de dados. Seria trabalhoso mudar o nome da coluna nos dados externos e importa-los novamente. Vamos considerar os dados em `long` e renomear a coluna `UE > PARCELA` e `BLOCO > REP`. Aqui, algumas alternativas são apresentadas.
 
@@ -246,6 +249,7 @@ long |>
 {{< video https://www.youtube.com/embed/j4knVncyUIE >}}
 
 
+
 # Juntar
 
 É raro que uma análise de dados envolva apenas uma única tabela de dados. Na prática, diversas tabela podem existir e ferramentas flexíveis para combiná-las são necessárias. No `dplyr`, existem uma família de funções do tipo `*_join(x, y)` que podem ser utilizadas para unir colunas de `y` a `x`, combinando linhas com base nas chaves:
@@ -264,19 +268,11 @@ Se uma linha em `x` corresponder a várias linhas em `y`, todas as linhas em `y`
 Vamos à um exemplo prático!
 
 ```{r}
-df1 <- import("examples_data.xlsx", sheet = "df1")
+df1 <- import("examples_data.xlsx", sheet = "df_left")
+df2 <- import("examples_data.xlsx", sheet = "df_right")
 # computar a média para cada híbrido
 # renomear as variáveis
-df2 <- 
-  mean_by(df1, HIBRIDO) |> 
-  rename(AP_M = ALT_PLANT, AE_M = ALT_ESP)
 
-# remove alguns níveis para mostrar as diferenças nas funções
-df1 <- df1 |> filter(HIBRIDO != "H2")
-df2 <- df2 |> filter(HIBRIDO != "H3")
-
-df1
-df2
 
 ```
 
@@ -300,7 +296,8 @@ df1 |> full_join(df2, keep = TRUE)
 {{< video https://www.youtube.com/embed/KpvsyMORq6w >}}
 
 
-## Junções com filtragem
+# Avançado
+## Junções com filtragem 
 
 As duas seguintes funções de filtragem filtram linhas de `x` com base na presença ou ausência de correspondências em `y`:
 

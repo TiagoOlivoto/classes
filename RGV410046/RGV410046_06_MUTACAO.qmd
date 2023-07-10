@@ -32,7 +32,7 @@ maize <-
 
 # Geral
 
-![Fonte: https://dplyr.tidyverse.org/index.html](figs/mutate.png){alt="Fonte: https://dplyr.tidyverse.org/index.html"}
+![Fonte: https://dplyr.tidyverse.org/index.html](figs/mutate.png)
 
 A função [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) é utilizada quando se deseja adicionar novas variáveis no conjunto de dados. Estas variáveis são funções de variáveis existentes. Como exemplo, vamos criar uma nova variável chamada `CD` no conjunto de dados `maize`, qual será a razão entre `CESP` e `DIES`. Note que a função adiciona a nova variável após a última variável origina e mantém todas as demais. Você pode controlar a posição da nova variável criada utilizando os argumentos `.before` e `.after` (assim como na função `relocate()`) e quais variáveis são mantidas utilizando o argumento `.keep`.
 
@@ -43,6 +43,10 @@ maize |>
 # posição da nova variável
 maize |> mutate(CD = CESP/DIES, 
                  .after = DIES)
+
+
+
+#######################################################
 # mantém somente as utilizadas no cálculo
 maize |>
   mutate(CD = CESP/DIES,
@@ -54,7 +58,7 @@ maize |> mutate(CD = CESP/DIES,
 # mantém somente a variável criada
 maize |> mutate(CD = CESP/DIES,
                  .keep = "none")
-
+########################################################
 ```
 
 # Mutação por grupos
@@ -102,26 +106,28 @@ df |>
 
 ```
 
+
+{{< video https://www.youtube.com/embed/HEtbubQI4_U >}}
+
+
 # Mutação de várias variáveis
 
-![Fonte: https://dplyr.tidyverse.org/reference/across.html](figs/across.png){alt="Fonte: https://dplyr.tidyverse.org/reference/across.html"}
+![Fonte: https://dplyr.tidyverse.org/reference/across.html](figs/across.png)
 
 Em alguns casos, deseja-se aplicar a mesma função de mutação (ou resumo) à várias variáveis. A função [`across()`](https://dplyr.tidyverse.org/reference/across.html) facilita a aplicação da mesma transformação a várias colunas, permitindo que você use a semântica `select()` dentro de funções como `summarise()` e `mutate()`. Como exemplo de aplicação, vamos criar uma função para rescalar uma variável para uma amplitude 0-1 e aplicar essa função à todas as colunas numéricas do conjunto `maize`.
 
 ```{r}
-# função para rescalar
+# função para dividir cada valor por 2
 # intervalo de 0 a 1
-rescale <- function(x) {
-  rng <- range(x, na.rm = TRUE)
-  (x - rng[1]) / (rng[2] - rng[1])
+divid2 <- function(x) {
+  x / 2
 }
-maize |> mutate(MGRA_resc = rescale(MGRA))
 
-# aplica a função rescale() a todas as colunas numéricas
-maize |> mutate(across(where(is.numeric), rescale))
+# aplica a função divid2() a todas as colunas numéricas
+maize |> mutate(across(where(is.numeric), divid2))
 
-# aplica a função rescale() para algumas colunas
-maize |> mutate(across(MGRA:NGRA, rescale))
+# aplica a função divid2() para algumas colunas
+maize |> mutate(across(MGRA:NGRA, divid2))
 
 
 ```
@@ -134,7 +140,7 @@ Também é possível utilizar a semântica `select()` dentro de `across()`. Isso
 # atribui um sufixo para as novas variáveis
 # seleciona apenas as utilizadas
 maize |>
-  mutate(across(contains("_PLANT"), ~.x / 2,
+  mutate(across(contains("_PLANT"), \(x){x / 2},
                 .names = "{.col}_metade"),
          .after = AIES_PLANT,
          .keep = "used")
@@ -158,7 +164,12 @@ maize |>
 ```
 :::
 
-# Mutação condicional
+
+{{< video https://www.youtube.com/embed/efPJSOKTvA8 >}}
+
+
+
+# Mutação condicional (Avançado)
 
 É muito comum comum que condicionantes sejam necessárias quando alguma nova variável for criada. Abaixo, um pequeno exemplo contendo notas de 10 alunos é utilizado.
 
@@ -234,6 +245,9 @@ maize |>
 
 ```
 
+{{< video https://www.youtube.com/embed/VEz2x7yL2BA >}}
+
+
 ::: callout-note
 # Abordagem R base
 
@@ -264,9 +278,9 @@ do.call(rbind,
 ```
 :::
 
-# Desafio
-
+# Exemplo de aplicação
 ::: callout-important
+
 # Cálculo de Graus-dia (GD)
 
 Segundo Ometto (1981)[^1], existe uma temperatura mínima (Tm, ºC) para acionar os dispositivos metabólicos da planta, que é denominada de temperatura basal inferior (Tb, ºC). Somente acima desta temperatura a planta pode se desenvolver. O mesmo autor ressalta, contudo, que a planta também possui uma temperatura basal superior (TB, ºC), acima da qual há um estancamento das atividades metabólicas, prejudicando seu desenvolvimento.

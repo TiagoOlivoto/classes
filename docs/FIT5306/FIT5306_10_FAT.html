@@ -450,19 +450,19 @@ Híbrido 2     9.3   8.2</code></pre>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mat_dfsi <span class="sc">|&gt;</span> </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_col_sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>         Nitrato Ureia row_sums
-1            6.8   5.7     12.5
-2            9.3   8.2     17.5
-col_sums    16.1  13.9     30.0</code></pre>
+<pre><code>          Nitrato Ureia row_sum
+Híbrido 1     6.8   5.7    12.5
+Híbrido 2     9.3   8.2    17.5
+col_sum      16.1  13.9    30.0</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tabela dupla entrada (totais)</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mat_dfsi <span class="sc">|&gt;</span> </span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_col_mean</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>          Nitrato Ureia row_means
-1            6.80  5.70      6.25
-2            9.30  8.20      8.75
-col_means    8.05  6.95      7.50</code></pre>
+<pre><code>          Nitrato Ureia row_mean
+Híbrido 1    6.80  5.70     6.25
+Híbrido 2    9.30  8.20     8.75
+col_mean     8.05  6.95     7.50</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados do fator GEN</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rowSums</span>(mat_dfsi) <span class="sc">^</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

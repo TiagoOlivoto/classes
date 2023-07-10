@@ -26,18 +26,17 @@ Bem-vindo ao material de apoio da disciplina RGV410046 (Introdução à linguage
 library(calendR)
 # tutorial calendR
 # https://r-coder.com/calendar-plot-r/
-events <- rep(NA, 61)
-events[c(21,  28, 32)] <- "08:20 às 11:50"
-events[c(23, 25, 30:31)] <- "13:30 às 16:00"
+events <- rep(NA, 30)
+events[c(11, 13:15, 20:22, 28)] <- "08:20 às 11:50"
 
 img <- "figs/calendr.png"
 
 # Creating the calendar
 calendR(year = 2022,
-        start_date ="2022-11-01",
-        end_date = "2022-12-31",
+        start_date ="2023-09-01",
+        end_date = "2023-09-30",
         special.days = events,
-        special.col = c("lightsalmon", "lightgreen"),
+        special.col =  "lightgreen",
         title = "RGV410046 - Introdução à linguagem R de programação", 
         subtitle = "Cronograma de aulas",
         mbg.col = "forestgreen",            
@@ -48,7 +47,7 @@ calendR(year = 2022,
 
 # Conteúdo programático
 
-## 21/11/2022
+## 11/09/2023
 
 -   Introdução à disciplina
 -   Instalação do R e Rstudio
@@ -56,9 +55,11 @@ calendR(year = 2022,
     -   Script
     -   Pacotes
     -   Fóruns e materiais de apoio
--   Exercício (encontrar pacotes)
+-   Aplicação prática
 
-## 23/11/2022
+
+
+## 13/09/2023
 
 -   Dinâmica aula anterior
 -   Tipos de dados
@@ -74,52 +75,58 @@ calendR(year = 2022,
 -   Lógica de programação
     -   Base
     -   Tidyverse
--   Exercício (lógica de programação)
+-   Aplicação prática
 
-## 24/11/2022
+
+## 14/09/2023
 
 -   Importação de dados (pc, repositório)
 -   dados tidy
--   Conversão de dados
--   Exercício descrição dos dados, arrumar tipo de dados
+-   Inspeção de dados
 -   Exportação de dados
+-   Aplicação prática
 
-## 25/11/2022
 
--   Manipulação de dados
--   Longer (dados errados, para arrumar)
--   Wider
--   Separate
--   Unite
--   rename
-
-## 28/11/2022
+## 15/09/2023
 
 -   Seleção de dados
 -   select
 -   filter
 -   slice
 -   arrange
--   (dados próprios para o dia 1)
+-   Aplicação prática
 
-## 30/11/2022
+
+## 20/09/2023
+
+-   Manipulação de dados
+-   Longer (dados errados, para arrumar)
+-   Wider
+-   Separate
+-   Unite
+-   Aplicação prática
+
+
+## 21/09/2023
 
 -   Mutação de dados
 -   mutate
 -   across
 -   group_by
+-   Aplicação prática
 
-## 01/12/2022
+## 22/09/2023
 
 -   Resumo de dados
 -   summarise
 -   across
 -   group_by
+-   Aplicação prática
 
-## 02/12/2022
+## 28/09/2023
 
--   o básico do ggplot2
--   Fechamento da disciplina
+-   Correção do desafio
+
 
 # Instalação do R e Rstudio
 
@@ -139,6 +146,7 @@ Para começar, é sugerido que os seguintes pacotes sejam instalados (confira co
 library(tidyverse)  # manipulação de dados
 library(metan)      # estatísticas descritivas
 library(rio)        # importação/exportação de dados
+
 ```
 
 {{< video https://www.youtube.com/embed/8B8QDZnDhtY >}}
