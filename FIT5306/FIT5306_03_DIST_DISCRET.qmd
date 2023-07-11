@@ -34,7 +34,7 @@ Onde:
 
 Consideremos a variável aleatória discreta *X* como o sexo de um bezerro nascido. Denotando sucesso (1 = fêmea) e fracasso (2 = macho), a probabilidade de sucesso é $p = 0,5$ e a de fracasso $q = 1 - q = 0,5$. Assim, considerando o parto de uma vaca, há 50% de chance de nascimento de uma terneira.
 
-```{r}
+```{r error=TRUE}
 library(DiagrammeR)
 mermaid("
    graph TB

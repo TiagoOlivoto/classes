@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.298">
+<meta name="generator" content="quarto-1.4.205">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -84,6 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "panel-placement": "start",
   "type": "textbox",
   "limit": 20,
+  "keyboard-shortcut": [
+    null
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -93,7 +96,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
@@ -103,6 +107,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </script>
 <script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -116,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Aulas</span>
     </a>
@@ -162,10 +171,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
@@ -173,10 +182,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../FIT5306/FIT5306_04_DIST_CONT.html">4. Distribuições Contínuas</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../FIT5306/FIT5306_04_DIST_CONT.html">4. Distribuições Contínuas</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -339,7 +348,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A distribuição normal é um modelo bastante útil na estatística, pois sua função densidade de probabilidade (FDP) está associada ao fato de que aproxima de forma bastante satisfatória as curvas de frequências observadas quando se mensura diversas variáveis biológicas (ex., altura, massa, comprimento, etc). Como exemplo, vamos ver a distribuição da massa de mil grãos de híbridos de milho, disponíveis no conjunto de dados <code>data_ge</code> do pacote <code>metan</code>. Neste exemplo, a linha vermelha representa a distribuição normal.</p>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -370,7 +379,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Vamos ver a distribuição dos valores do comprimento da folha de café, mensurado na primeira aula de bioestatística.</p>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># link dos dados</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>link <span class="ot">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1453191616"</span></span>
@@ -411,7 +420,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>No exemplo abaixo, é apresentado a distribuição de uma variável aleatória contínua (<em>X</em>) com <span class="math inline">\(\mu = 20\)</span>, e <span class="math inline">\(\sigma = 2\)</span>. Assim, dizemos que <span class="math inline">\(X \sim N(\mu,\sigma)\)</span>, ou seja, segue uma distribuição normal com média <span class="math inline">\(\mu = 20\)</span> e desvio padrão <span class="math inline">\(\sigma = 2\)</span>.</p>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> dnorm,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">geom =</span> <span class="st">"line"</span>,</span>
@@ -478,7 +487,7 @@ P\left(x_{1}\le X \le  x_{2}\right)=\int_{x_{1}}^{x_{2}} \frac{1}{\sigma \sqrt{2
 </blockquote>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>me <span class="ot">&lt;-</span> <span class="dv">2</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sdd <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -529,7 +538,7 @@ P\left(x_{1}\le X \le  x_{2}\right)=\int_{x_{1}}^{x_{2}} \frac{1}{\sigma \sqrt{2
 <p>O cálculo da integral da distribuição Normal pode ser aproximado pelo método geométrico por soma de retângulos (Ou <a href="https://pt.wikipedia.org/wiki/Soma_de_Riemann">Soma de Riemann</a>). Este método possibilita calcular a integral definida em dois pontos (ex., <span class="math inline">\(x_1\)</span> e <span class="math inline">\(x_2\)</span>), considerando uma variável com distribuição normal. Assim, a soma das áreas dos retângulos sob a curva da distribuição normal resultarão na probabilidade estatística de um valor estar no intervalo <span class="math inline">\(x_1,x_2\)</span>.</p>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">##### N = 20</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">20</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
@@ -668,7 +677,7 @@ Z = \frac{X- \mu}{\sigma}
 <p>Os valores de <em>Z</em> podem ser interpretados como o número de desvios padrão afastados da média, em uma distribuição normal padrão.</p>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> dnorm,</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">geom =</span> <span class="st">"area"</span>,</span>
@@ -757,7 +766,7 @@ Note
 <p>No exemplo, a área da parte sombreada (probabilidade) é de 0,39455.</p>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>normal <span class="ot">&lt;-</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="fl">2.8</span>)) <span class="sc">+</span></span>
@@ -816,7 +825,7 @@ Note
 <p>SOLUÇÃO: encontrar a probabilidade de vender mais que 30000 t.</p>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>me <span class="ot">&lt;-</span> <span class="dv">25000</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>sdd <span class="ot">&lt;-</span> <span class="dv">2600</span></span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>val <span class="ot">&lt;-</span> <span class="dv">30000</span></span>
@@ -826,14 +835,14 @@ Note
 <pre><code>[1] 1.923077</code></pre>
 </div>
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>(prob <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(Z))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.0272352</code></pre>
 </div>
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gráfico da normal padrão</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>normal <span class="ot">&lt;-</span></span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -887,7 +896,7 @@ Note
 <p>RESOLUÇÃO: encontrar os valores de Z associado a 90 e 100, encontrando a área sobre a curva entre estes dois valores.</p>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>me <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>sdd <span class="ot">&lt;-</span> <span class="dv">10</span></span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>val1 <span class="ot">&lt;-</span> <span class="dv">90</span></span>
@@ -898,14 +907,14 @@ Note
 <pre><code>[1] -1</code></pre>
 </div>
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>(Z2 <span class="ot">&lt;-</span> (val2 <span class="sc">-</span> me) <span class="sc">/</span> sdd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># probabilidade dos valores estarem a 1 desvio padrão para mais ou menos</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(Z2) <span class="sc">-</span> <span class="fu">pnorm</span>(Z1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -913,7 +922,7 @@ Note
 <pre><code>[1] 0.6826895</code></pre>
 </div>
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>args <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean =</span> <span class="dv">100</span>,</span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sd =</span> <span class="dv">10</span></span>
@@ -1742,7 +1751,7 @@ Note
 <p>A distribuição <em>t</em> possui como único parâmetro o Grau Liberdade (GL). Esta distribuição detém caudas mais pesadas que a distribuição normal quando o tamanho da amostra é pequeno e a medida que <span class="math inline">\(n \to N\)</span>, a distribuição <em>t</em> de Student se aproxima da normal. Note abaixo as diferenças nas curvas quando se compara a distribuição Normal com a distribuição <em>t</em> com diferentes GLs.</p>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">6</span>, <span class="dv">6</span>)) <span class="sc">+</span></span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> dnorm,</span>
@@ -1773,7 +1782,7 @@ Note
 <p>Abaixo, é mostrada a Função Densidade de Probabilidade de uma distribuição <em>t</em> com 20 graus liberdade. As áreas sombreadas em azul escuro representam os quantis que acumulam uma área de <span class="math inline">\(\alpha / 2\)</span> em cada lado da distribuição, de tal forma que a área destacada em verde representa 1 - <span class="math inline">\(\alpha\)</span>, sendo <span class="math inline">\(\alpha\)</span> a probabilidade de erro.</p>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> dt, </span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">args =</span> <span class="fu">list</span>(<span class="at">df =</span> <span class="dv">20</span>),</span>
@@ -1886,7 +1895,7 @@ LS =  170,44 + 2,063 \times \frac{{8,38}}{{\sqrt {25} }} = 173,90
 </div>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> </span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">media =</span> media,</span>
@@ -1900,7 +1909,7 @@ LS =  170,44 + 2,063 \times \frac{{8,38}}{{\sqrt {25} }} = 173,90
 [166.98 &lt;= mu &lt;= 173.9]</code></pre>
 </div>
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -1910,7 +1919,7 @@ LS =  170,44 + 2,063 \times \frac{{8,38}}{{\sqrt {25} }} = 173,90
 1  170.    8.38  167.  174.</code></pre>
 </div>
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># criar o gráfico com os intervalos</span></span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="co"># média geral</span></span>
 <span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> media, <span class="at">y =</span> <span class="st">""</span>)) <span class="sc">+</span></span>
@@ -1950,7 +1959,7 @@ attr(,"conf.level")
 <p>Como temos dois grupos (xx e xy) o intervalo de confiança para a média pode ser calculado para cada grupo. Neste caso é válido utilizar os intervalos de confiança da média como critério para significância da diferença entre duas médias. Médias onde os intervalos de confiança não se sobrepõe podem ser consideradas significativas na probabilidade de erro considerada para o cálculo do intervalo.</p>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="co"># média por cromossomo</span></span>
 <span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> </span>
@@ -1967,7 +1976,7 @@ attr(,"conf.level")
 [162.02170.36 &lt;= mu &lt;= 170.134179.974]</code></pre>
 </div>
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># criar o gráfico com os intervalos</span></span>
 <span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="co"># média por cromossomo</span></span>
 <span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df2, <span class="fu">aes</span>(<span class="at">x =</span> media, <span class="at">y =</span> crm)) <span class="sc">+</span></span>
@@ -1999,7 +2008,7 @@ attr(,"conf.level")
 <p>Considere um aviário com 15000 frangos. O criador realizou a amostragem de 25 frangos aleatoriamente para realizar uma estimativa da média do peso do lote visando a programação para abate. Após analisar as pesagens coletadas, o produtor encontrou uma média de 2,83 Kg e um desvio padrão de 0,27 Kg. Pergunta-se: Qual o intervalo de 95% para a média estimada?</p>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">media =</span> <span class="fl">2.83</span>,</span>
 <span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">desvpad =</span> <span class="fl">0.27</span>,</span>
@@ -2012,7 +2021,7 @@ attr(,"conf.level")
 [2.719 &lt;= mu &lt;= 2.941]</code></pre>
 </div>
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df3, <span class="fu">aes</span>(<span class="at">x =</span> media, <span class="at">y =</span> <span class="st">""</span>)) <span class="sc">+</span></span>
 <span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> LI,</span>
 <span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">xmax =</span> LS),</span>
@@ -2032,7 +2041,7 @@ attr(,"conf.level")
 <p>Abaixo, são simuladas 4 amostras de n = 20 com médias igual a 10 e desvios padrões variantes. Note como o intervalo de confiança é menor a medida em que o desvio padrão é mais baixo.</p>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>df4 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">amostra =</span> <span class="fu">paste0</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>),</span>
 <span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">media =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>),</span>
@@ -2047,7 +2056,7 @@ attr(,"conf.level")
 [9.5328.1287.1926.256 &lt;= mu &lt;= 10.46811.87212.80813.744]</code></pre>
 </div>
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>df4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -2060,7 +2069,7 @@ attr(,"conf.level")
 4 4          10       8  6.26  13.7 dp: 8</code></pre>
 </div>
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co"># criar o gráfico com os intervalos</span></span>
 <span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df4, <span class="fu">aes</span>(<span class="at">x =</span> media, <span class="at">y =</span> amostra)) <span class="sc">+</span></span>
 <span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">10</span>, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
@@ -2085,7 +2094,7 @@ attr(,"conf.level")
 <h3 class="anchored" data-anchor-id="variação-no-tamanho-da-amostra">Variação no tamanho da amostra</h3>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>df_t <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">dist =</span> <span class="st">"t"</span>,</span>
 <span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">30</span>, <span class="at">length.out =</span> <span class="dv">200</span>),</span>
@@ -2100,7 +2109,7 @@ attr(,"conf.level")
 [-7.969-3.041-0.1791.6462.8923.7894.4614.9835.3985.7376.0186.2556.4586.6336.7876.9237.0447.1527.257.3397.427.4947.5637.6267.6847.7397.797.8387.8837.9257.9658.0028.0388.0728.1048.1358.1648.1928.2188.2448.2688.2918.3148.3368.3568.3768.3968.4148.4338.458.4678.4838.4998.5148.5298.5448.5588.5718.5848.5978.618.6228.6348.6458.6578.6688.6798.6898.6998.7098.7198.7298.7388.7478.7568.7658.7738.7828.798.7988.8068.8148.8218.8298.8368.8438.858.8578.8648.8718.8778.8848.898.8968.9028.9088.9148.928.9268.9318.9378.9438.9488.9538.9588.9648.9698.9748.9798.9838.9888.9938.9989.0029.0079.0119.0169.029.0249.0289.0339.0379.0419.0459.0499.0539.0579.069.0649.0689.0729.0759.0799.0829.0869.0899.0939.0969.19.1039.1069.119.1139.1169.1199.1229.1259.1289.1319.1349.1379.149.1439.1469.1499.1529.1549.1579.169.1639.1659.1689.1719.1739.1769.1789.1819.1839.1869.1889.1919.1939.1969.1989.29.2039.2059.2079.219.2129.2149.2169.2189.2219.2239.2259.2279.2299.2319.2339.2359.2379.2399.2419.2439.2459.2479.2499.2519.253 &lt;= mu &lt;= 27.96923.04120.17918.35417.10816.21115.53915.01714.60214.26313.98213.74513.54213.36713.21313.07712.95612.84812.7512.66112.5812.50612.43712.37412.31612.26112.2112.16212.11712.07512.03511.99811.96211.92811.89611.86511.83611.80811.78211.75611.73211.70911.68611.66411.64411.62411.60411.58611.56711.5511.53311.51711.50111.48611.47111.45611.44211.42911.41611.40311.3911.37811.36611.35511.34311.33211.32111.31111.30111.29111.28111.27111.26211.25311.24411.23511.22711.21811.2111.20211.19411.18611.17911.17111.16411.15711.1511.14311.13611.12911.12311.11611.1111.10411.09811.09211.08611.0811.07411.06911.06311.05711.05211.04711.04211.03611.03111.02611.02111.01711.01211.00711.00210.99810.99310.98910.98410.9810.97610.97210.96710.96310.95910.95510.95110.94710.94310.9410.93610.93210.92810.92510.92110.91810.91410.91110.90710.90410.910.89710.89410.8910.88710.88410.88110.87810.87510.87210.86910.86610.86310.8610.85710.85410.85110.84810.84610.84310.8410.83710.83510.83210.82910.82710.82410.82210.81910.81710.81410.81210.80910.80710.80410.80210.810.79710.79510.79310.7910.78810.78610.78410.78210.77910.77710.77510.77310.77110.76910.76710.76510.76310.76110.75910.75710.75510.75310.75110.74910.747]</code></pre>
 </div>
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>df_n <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">dist =</span> <span class="st">"normal"</span>,</span>
 <span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">30</span>, <span class="at">length.out =</span> <span class="dv">200</span>),</span>
@@ -2203,7 +2212,7 @@ mean of x
 \]</span></p>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co">#gráfico</span></span>
 <span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_altura, <span class="fu">aes</span>(altura, <span class="at">fill =</span> crm)) <span class="sc">+</span></span>
 <span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
@@ -2274,7 +2283,7 @@ mean in group xx mean in group xy
 <p>O pacote <a href="https://indrajeetpatil.github.io/ggstatsplot/index.html">ggstatplot</a> pode ser utilizado para confecionar gráficos que incluem teste de hipóteses.</p>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggstatsplot)</span>
 <span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbetweenstats</span>(df_altura, </span>
@@ -2445,7 +2454,7 @@ t_c = 3,2725
 <p>A aplicação no software R, é dada no seguinte exemplo</p>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(MGRA <span class="sc">~</span> HIBRIDO, <span class="at">data =</span> df, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -2462,7 +2471,7 @@ mean in group H1 mean in group H2
            222.7            144.4 </code></pre>
 </div>
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggstatsplot)</span>
 <span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb127-3"><a href="#cb127-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbetweenstats</span>(df,</span>
@@ -2498,7 +2507,7 @@ t_c = 2,38
 \]</span></p>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb128"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(NGRA <span class="sc">~</span> HIBRIDO, <span class="at">data =</span> df, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -2515,7 +2524,7 @@ mean in group H1 mean in group H2
            593.5            457.9 </code></pre>
 </div>
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbetweenstats</span>(df,</span>
 <span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>               </span>
 <span id="cb130-3"><a href="#cb130-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">x =</span> HIBRIDO,</span>
@@ -2670,7 +2679,7 @@ mean difference
 <p>Com base nessas informações, calcule o intervalo de confiança de 95% para as médias do DAP da área 1 e área 2 e, com base nos intervalos, justifique se a média do DAP das duas áreas pode ser considerada estatisticamente diferente.</p>
 <div class="cell">
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb147"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb147-2"><a href="#cb147-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">area =</span> <span class="fu">c</span>(<span class="st">"Área 1"</span>, <span class="st">"Área 2"</span>),</span>
 <span id="cb147-3"><a href="#cb147-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">media =</span> <span class="fu">c</span>(<span class="fl">11.5</span>, <span class="fl">13.6</span>),</span>
@@ -2685,7 +2694,7 @@ mean difference
 [10.09611.766 &lt;= mu &lt;= 12.90415.434]</code></pre>
 </div>
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb149"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -2696,7 +2705,7 @@ mean difference
 2 Área 2  13.6       5    31  11.8  15.4</code></pre>
 </div>
 <details>
-<summary>Mostrar script</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb151"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="co"># criar o gráfico com os intervalos</span></span>
 <span id="cb151-2"><a href="#cb151-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb151-3"><a href="#cb151-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> media, <span class="at">y =</span> area)) <span class="sc">+</span></span>
@@ -2735,13 +2744,13 @@ mean difference
 </section>
 
 
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p><a href="http://www.swlearning.com/quant/kohler/stat/biographical_sketches/bio12.1.html" class="uri">http://www.swlearning.com/quant/kohler/stat/biographical_sketches/bio12.1.html</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p><a href="https://link.springer.com/10.1007/s00122-021-03820-3" class="uri">https://link.springer.com/10.1007/s00122-021-03820-3</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section></div></main> <!-- /main -->
+</aside></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -2783,6 +2792,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -2851,13 +2887,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -2987,10 +3025,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -3000,8 +3037,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -3014,6 +3060,60 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      try { hash = new URL(url).hash; } catch {}
+      const id = hash.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note !== null) {
+        try {
+          const html = processXRef(id, note);
+          instance.setContent(html);
+        } finally {
+          instance.enable();
+          instance.show();
+        }
+      } else {
+        // See if we can fetch this
+        fetch(url.split('#')[0])
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.getElementById(id);
+          if (note !== null) {
+            const html = processXRef(id, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -3057,6 +3157,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -5453,13 +5554,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Material de apoio à disciplinas</div>   
+    <div class="nav-footer-left">
+<p>Material de apoio à disciplinas</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">Prof.&nbsp;Dr.&nbsp;Tiago Olivoto FIT/CCA/UFSC</div>
+    <div class="nav-footer-right">
+<p>Prof.&nbsp;Dr.&nbsp;Tiago Olivoto FIT/CCA/UFSC</p>
+</div>
   </div>
 </footer>
+
 
 
 

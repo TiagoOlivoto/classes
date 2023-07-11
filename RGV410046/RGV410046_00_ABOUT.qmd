@@ -37,12 +37,13 @@ calendR(year = 2022,
         end_date = "2023-09-30",
         special.days = events,
         special.col =  "lightgreen",
-        title = "RGV410046 - Introdução à linguagem R de programação", 
+        title = "RGV410046\nIntrodução à linguagem R de programação", 
         subtitle = "Cronograma de aulas",
         mbg.col = "forestgreen",            
         months.col = "white",
         bg.img = img,
         legend.pos = "bottom")
+ggplot2::ggsave("cronograma2.jpg", width = 5.5, height = 5.5)
 ```
 
 # Conteúdo programático
