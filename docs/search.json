@@ -305,7 +305,7 @@
     "href": "RGV410046/RGV410046_00_ABOUT.html#section",
     "title": "RGV410046 - Introdução à linguagem R de programação",
     "section": "11/09/2023",
-    "text": "11/09/2023\n\nIntrodução à disciplina\nInstalação do R e Rstudio\nIntrodução ao R\n\nScript\nPacotes\nFóruns e materiais de apoio\n\nAplicação prática"
+    "text": "11/09/2023\n\nIntrodução à disciplina\nInstalação do R e Rstudio\nIntrodução ao R\n\nScript\nPacotes\nFóruns e materiais de apoio\n\nApresentação do desafio (avaliação da disciplina)\nAplicação prática"
   },
   {
     "objectID": "RGV410046/RGV410046_00_ABOUT.html#section-1",
@@ -353,8 +353,8 @@
     "objectID": "RGV410046/RGV410046_00_ABOUT.html#section-7",
     "href": "RGV410046/RGV410046_00_ABOUT.html#section-7",
     "title": "RGV410046 - Introdução à linguagem R de programação",
-    "section": "28/09/2023",
-    "text": "28/09/2023\n\nCorreção do desafio"
+    "section": "27/08/2023",
+    "text": "27/08/2023\n\nEntrega do desafio"
   },
   {
     "objectID": "RGV410046/RGV410046_00_ABOUT.html#código-fonte",
@@ -1496,5 +1496,12 @@
     "title": "7. Sintetização",
     "section": "Quick tips",
     "text": "Quick tips\n\nmy_quantile &lt;- function(x, probs) {\n  tibble::tibble(x = quantile(x, probs), probs = probs)\n}\nmtcars %&gt;%\n  group_by(cyl) %&gt;%\n  summarise(my_quantile(disp, c(0.25, 0.75)))\n\nWarning: Returning more (or less) than 1 row per `summarise()` group was deprecated in\ndplyr 1.1.0.\nℹ Please use `reframe()` instead.\nℹ When switching from `summarise()` to `reframe()`, remember that `reframe()`\n  always returns an ungrouped data frame and adjust accordingly.\n\n\n`summarise()` has grouped output by 'cyl'. You can override using the `.groups`\nargument.\n\n\n# A tibble: 6 × 3\n# Groups:   cyl [3]\n    cyl     x probs\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     4  78.8  0.25\n2     4 121.   0.75\n3     6 160    0.25\n4     6 196.   0.75\n5     8 302.   0.25\n6     8 390    0.75\n\nmaize %&gt;%\n   group_by(HIB) %&gt;%\n  summarise(my_quantile(MGRA, c(0.25, 0.75)))\n\nWarning: Returning more (or less) than 1 row per `summarise()` group was deprecated in\ndplyr 1.1.0.\nℹ Please use `reframe()` instead.\nℹ When switching from `summarise()` to `reframe()`, remember that `reframe()`\n  always returns an ungrouped data frame and adjust accordingly.\n\n\n`summarise()` has grouped output by 'HIB'. You can override using the `.groups`\nargument.\n\n\n# A tibble: 26 × 3\n# Groups:   HIB [13]\n   HIB       x probs\n   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 H1     162.  0.25\n 2 H1     211.  0.75\n 3 H10    131.  0.25\n 4 H10    199.  0.75\n 5 H11    144.  0.25\n 6 H11    193.  0.75\n 7 H12    121.  0.25\n 8 H12    186.  0.75\n 9 H13    146.  0.25\n10 H13    211.  0.75\n# ℹ 16 more rows\n\n\nFree website hit counter"
+  },
+  {
+    "objectID": "RGV410046/RGV410046_00_ABOUT.html#section-8",
+    "href": "RGV410046/RGV410046_00_ABOUT.html#section-8",
+    "title": "RGV410046 - Introdução à linguagem R de programação",
+    "section": "28/09/2023",
+    "text": "28/09/2023\n\nCorreção do desafio"
   }
 ]

@@ -22,12 +22,14 @@ Bem-vindo ao material de apoio da disciplina RGV410046 (Introdução à linguage
 #| out-width: "100%"
 #| warning: false
 #| message: false
+#| 
 
 library(calendR)
 # tutorial calendR
 # https://r-coder.com/calendar-plot-r/
 events <- rep(NA, 30)
 events[c(11, 13:15, 20:22, 28)] <- "08:20 às 11:50"
+events[27] <- "Entrega do desafio"
 
 img <- "figs/calendr.png"
 
@@ -36,7 +38,7 @@ calendR(year = 2022,
         start_date ="2023-09-01",
         end_date = "2023-09-30",
         special.days = events,
-        special.col =  "lightgreen",
+        special.col =  c("lightgreen", "salmon"),
         title = "RGV410046\nIntrodução à linguagem R de programação", 
         subtitle = "Cronograma de aulas",
         mbg.col = "forestgreen",            
@@ -56,6 +58,7 @@ ggplot2::ggsave("cronograma2.jpg", width = 5.5, height = 5.5)
     -   Script
     -   Pacotes
     -   Fóruns e materiais de apoio
+-   Apresentação do desafio (avaliação da disciplina)
 -   Aplicação prática
 
 
@@ -124,10 +127,16 @@ ggplot2::ggsave("cronograma2.jpg", width = 5.5, height = 5.5)
 -   group_by
 -   Aplicação prática
 
+## 27/08/2023
+- Entrega do desafio
+
 ## 28/09/2023
 
 -   Correção do desafio
 
+
+# Forma de avaliação
+A avaliação consistirá em uma metodologia baseado em problema, onde o aluno precisará apresentar uma solução para resolução de um desafio envolvendo o conteúdo visto na disciplina. O desafio será apresentado no ínicio da disciplina e o aluno deverá entrega-lo até o dia 27/08/2023.
 
 # Instalação do R e Rstudio
 
