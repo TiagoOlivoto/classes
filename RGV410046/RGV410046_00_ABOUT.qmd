@@ -136,7 +136,7 @@ ggplot2::ggsave("cronograma2.jpg", width = 5.5, height = 5.5)
 
 
 # Forma de avaliação
-A avaliação consistirá em uma metodologia baseado em problema, onde o aluno precisará apresentar uma solução para resolução de um desafio envolvendo o conteúdo visto na disciplina. O desafio será apresentado no ínicio da disciplina e o aluno deverá entrega-lo até o dia 27/08/2023.
+A avaliação consistirá em uma metodologia baseado em problema, onde o aluno precisará apresentar uma solução para resolução de um desafio envolvendo o conteúdo visto na disciplina. O desafio será apresentado no ínicio da disciplina e o aluno deverá entrega-lo até o dia 27/09/2023.
 
 # Instalação do R e Rstudio
 
