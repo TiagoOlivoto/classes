@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.205">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -84,9 +84,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "panel-placement": "start",
   "type": "textbox",
   "limit": 20,
-  "keyboard-shortcut": [
-    null
-  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -107,11 +104,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </script>
 <script async="" src="https://hypothes.is/embed.js"></script>
-<script>
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    document.body.classList.add('hypothesis-enabled');
-  });
-</script>
 
 
 <link rel="stylesheet" href="../style.css">
@@ -123,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Aulas</span>
     </a>
@@ -169,10 +161,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
@@ -180,9 +172,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../RGV410046/RGV410046_05_MANIPULACAO.html">5. Manipulação de Dados</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../RGV410046/RGV410046_05_MANIPULACAO.html">5. Manipulação de Dados</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -271,9 +263,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#longer" id="toc-longer" class="nav-link" data-scroll-target="#longer">Longer</a></li>
   <li><a href="#wider" id="toc-wider" class="nav-link" data-scroll-target="#wider">Wider</a></li>
   </ul></li>
-  <li><a href="#separar-atualizar-com-as-novas-funções" id="toc-separar-atualizar-com-as-novas-funções" class="nav-link" data-scroll-target="#separar-atualizar-com-as-novas-funções">Separar (atualizar com as novas funções)</a></li>
+  <li><a href="#separar" id="toc-separar" class="nav-link" data-scroll-target="#separar">Separar</a></li>
   <li><a href="#concatenar" id="toc-concatenar" class="nav-link" data-scroll-target="#concatenar">Concatenar</a></li>
-  <li><a href="#renomear-passar-batido" id="toc-renomear-passar-batido" class="nav-link" data-scroll-target="#renomear-passar-batido">Renomear (Passar batido)</a>
+  <li><a href="#renomear-homework" id="toc-renomear-homework" class="nav-link" data-scroll-target="#renomear-homework">Renomear (Homework)</a>
   <ul>
   <li><a href="#r-base" id="toc-r-base" class="nav-link" data-scroll-target="#r-base">R base</a></li>
   <li><a href="#dplyr-rename" id="toc-dplyr-rename" class="nav-link" data-scroll-target="#dplyr-rename">dplyr <code>rename()</code></a></li>
@@ -317,7 +309,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Diretório</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># meu computador (mudar de acordo)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"E:/Desktop/UFSC/aulas/classes/RGV410046/data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"D:/Desktop/UFSC/aulas/classes/RGV410046/data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="pacotes" class="level1">
@@ -538,8 +530,8 @@ Múltiplos nomes e/ou valores
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/UFtEb4BIWno" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 </section>
-<section id="separar-atualizar-com-as-novas-funções" class="level1">
-<h1>Separar (atualizar com as novas funções)</h1>
+<section id="separar" class="level1">
+<h1>Separar</h1>
 <p>Até agora você aprendeu como realizar operações morfológicas para transformar dados em de formato <em>wide</em> para <em>long</em> e vice-versa. O seguinte conjunto de dados tem um problema diferente:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>(ex_separate <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"examples_data.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"df5"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -588,19 +580,6 @@ Múltiplos nomes e/ou valores
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>ex_separate2 <span class="ot">&lt;-</span> </span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  ex_separate <span class="sc">|&gt;</span> </span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(RELACAO, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"AESP"</span>, <span class="st">"APLA"</span>), <span class="at">sep =</span> <span class="st">"/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Desafio
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Considerando o conjunto de dados <code>wider2</code>, combine o que você aprendeu até agora com <code>pivot_longer()</code> e <code>separate()</code> para retornar o conjunto de dados <code>dflong</code>.</p>
-</div>
 </div>
 </section>
 <section id="concatenar" class="level1">
@@ -658,8 +637,8 @@ Desafio
 </div>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/paVd6eGsfRg" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
-<section id="renomear-passar-batido" class="level1">
-<h1>Renomear (Passar batido)</h1>
+<section id="renomear-homework" class="level1">
+<h1>Renomear (Homework)</h1>
 <p>Algumas vezes necessitamos renomear as variáveis em nosso conjunto de dados. Seria trabalhoso mudar o nome da coluna nos dados externos e importa-los novamente. Vamos considerar os dados em <code>long</code> e renomear a coluna <code>UE &gt; PARCELA</code> e <code>BLOCO &gt; REP</code>. Aqui, algumas alternativas são apresentadas.</p>
 <section id="r-base" class="level2">
 <h2 class="anchored" data-anchor-id="r-base">R base</h2>
@@ -996,33 +975,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -1089,15 +1041,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  let localAlternateSentinel = 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1227,9 +1177,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1239,17 +1190,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1262,60 +1204,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    if (id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
-        }
-        return container.innerHTML
-      } else {
-        return note.innerHTML;
-      }
-    } else {
-      return note.innerHTML;
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      try { hash = new URL(url).hash; } catch {}
-      const id = hash.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note !== null) {
-        try {
-          const html = processXRef(id, note);
-          instance.setContent(html);
-        } finally {
-          instance.enable();
-          instance.show();
-        }
-      } else {
-        // See if we can fetch this
-        fetch(url.split('#')[0])
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.getElementById(id);
-          if (note !== null) {
-            const html = processXRef(id, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1359,7 +1247,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1465,12 +1352,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb84-7"><a href="#cb84-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># Diretório</span></span>
 <span id="cb84-8"><a href="#cb84-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb84-9"><a href="#cb84-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{r include = FALSE}</span></span>
-<span id="cb84-10"><a href="#cb84-10" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">root.dir =</span> <span class="st">"E:/Desktop/UFSC/aulas/classes/RGV410046/data"</span>)</span>
+<span id="cb84-10"><a href="#cb84-10" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">root.dir =</span> <span class="st">"D:/Desktop/UFSC/aulas/classes/RGV410046/data"</span>)</span>
 <span id="cb84-11"><a href="#cb84-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb84-12"><a href="#cb84-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb84-13"><a href="#cb84-13" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
 <span id="cb84-14"><a href="#cb84-14" aria-hidden="true" tabindex="-1"></a><span class="co"># meu computador (mudar de acordo)</span></span>
-<span id="cb84-15"><a href="#cb84-15" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"E:/Desktop/UFSC/aulas/classes/RGV410046/data"</span>)</span>
+<span id="cb84-15"><a href="#cb84-15" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"D:/Desktop/UFSC/aulas/classes/RGV410046/data"</span>)</span>
 <span id="cb84-16"><a href="#cb84-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb84-17"><a href="#cb84-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb84-18"><a href="#cb84-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacotes</span></span>
@@ -1592,7 +1479,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb84-146"><a href="#cb84-146" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/UFtEb4BIWno &gt;}}</span>
 <span id="cb84-147"><a href="#cb84-147" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb84-148"><a href="#cb84-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-149"><a href="#cb84-149" aria-hidden="true" tabindex="-1"></a><span class="fu"># Separar (atualizar com as novas funções)</span></span>
+<span id="cb84-149"><a href="#cb84-149" aria-hidden="true" tabindex="-1"></a><span class="fu"># Separar</span></span>
 <span id="cb84-150"><a href="#cb84-150" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb84-151"><a href="#cb84-151" aria-hidden="true" tabindex="-1"></a>Até agora você aprendeu como realizar operações morfológicas para transformar dados em de formato *wide* para *long* e vice-versa. O seguinte conjunto de dados tem um problema diferente:</span>
 <span id="cb84-152"><a href="#cb84-152" aria-hidden="true" tabindex="-1"></a></span>
@@ -1618,246 +1505,236 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb84-176"><a href="#cb84-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb84-177"><a href="#cb84-177" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb84-178"><a href="#cb84-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-179"><a href="#cb84-179" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb84-180"><a href="#cb84-180" aria-hidden="true" tabindex="-1"></a><span class="fu">## Desafio</span></span>
-<span id="cb84-181"><a href="#cb84-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-182"><a href="#cb84-182" aria-hidden="true" tabindex="-1"></a>Considerando o conjunto de dados <span class="in">`wider2`</span>, combine o que você aprendeu até agora com <span class="in">`pivot_longer()`</span> e <span class="in">`separate()`</span> para retornar o conjunto de dados <span class="in">`dflong`</span>.</span>
-<span id="cb84-183"><a href="#cb84-183" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb84-179"><a href="#cb84-179" aria-hidden="true" tabindex="-1"></a><span class="fu"># Concatenar</span></span>
+<span id="cb84-180"><a href="#cb84-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-181"><a href="#cb84-181" aria-hidden="true" tabindex="-1"></a>Quem trabalha com excel muito provavelmente já utilizou a função <span class="in">`=CONCAT`</span>, que concatena valores de múltiplas colunas em uma única coluna. Aqui, a função <span class="in">`unite()`</span>, pode ser utilizada para este fim. Ela é o inverso da <span class="in">`separate()`</span>.</span>
+<span id="cb84-182"><a href="#cb84-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-183"><a href="#cb84-183" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Exemplo da função unite(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf](figs/unite.png)</span><span class="ot">{alt="Exemplo da função pivot_longer(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf"}</span><span class="co">](https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf)</span></span>
 <span id="cb84-184"><a href="#cb84-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-185"><a href="#cb84-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-186"><a href="#cb84-186" aria-hidden="true" tabindex="-1"></a><span class="fu"># Concatenar</span></span>
-<span id="cb84-187"><a href="#cb84-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-188"><a href="#cb84-188" aria-hidden="true" tabindex="-1"></a>Quem trabalha com excel muito provavelmente já utilizou a função <span class="in">`=CONCAT`</span>, que concatena valores de múltiplas colunas em uma única coluna. Aqui, a função <span class="in">`unite()`</span>, pode ser utilizada para este fim. Ela é o inverso da <span class="in">`separate()`</span>.</span>
-<span id="cb84-189"><a href="#cb84-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-190"><a href="#cb84-190" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Exemplo da função unite(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf](figs/unite.png)</span><span class="ot">{alt="Exemplo da função pivot_longer(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf"}</span><span class="co">](https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf)</span></span>
-<span id="cb84-191"><a href="#cb84-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-192"><a href="#cb84-192" aria-hidden="true" tabindex="-1"></a>Vamos considerar que queiramos unir as colunas HIBRIDO e BLOCO do conjunto <span class="in">`dflong`</span> em uma única coluna, chamada NÍVEL. Esta união é dada por</span>
-<span id="cb84-193"><a href="#cb84-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-196"><a href="#cb84-196" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb84-197"><a href="#cb84-197" aria-hidden="true" tabindex="-1"></a>dflong <span class="sc">|&gt;</span> </span>
-<span id="cb84-198"><a href="#cb84-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(HIBRIDO, BLOCO, <span class="at">col =</span> <span class="st">"NIVEL"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb84-199"><a href="#cb84-199" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(NIVEL, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"HIBRIDO"</span>, <span class="st">"BLOCO"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb84-200"><a href="#cb84-200" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
-<span id="cb84-201"><a href="#cb84-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-202"><a href="#cb84-202" aria-hidden="true" tabindex="-1"></a>dflong <span class="sc">|&gt;</span> </span>
-<span id="cb84-203"><a href="#cb84-203" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="st">"NIVEL"</span>, HIBRIDO<span class="sc">:</span>BLOCO) <span class="sc">|&gt;</span> </span>
-<span id="cb84-204"><a href="#cb84-204" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
-<span id="cb84-205"><a href="#cb84-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-206"><a href="#cb84-206" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb84-207"><a href="#cb84-207" aria-hidden="true" tabindex="-1"></a>dflong <span class="sc">|&gt;</span> </span>
-<span id="cb84-208"><a href="#cb84-208" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(HIBRIDO, BLOCO,</span>
-<span id="cb84-209"><a href="#cb84-209" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">"NIVEL"</span>,</span>
-<span id="cb84-210"><a href="#cb84-210" aria-hidden="true" tabindex="-1"></a>        <span class="at">sep =</span> <span class="st">"."</span>,</span>
-<span id="cb84-211"><a href="#cb84-211" aria-hidden="true" tabindex="-1"></a>        <span class="at">remove =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb84-212"><a href="#cb84-212" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
-<span id="cb84-213"><a href="#cb84-213" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-185"><a href="#cb84-185" aria-hidden="true" tabindex="-1"></a>Vamos considerar que queiramos unir as colunas HIBRIDO e BLOCO do conjunto <span class="in">`dflong`</span> em uma única coluna, chamada NÍVEL. Esta união é dada por</span>
+<span id="cb84-186"><a href="#cb84-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-189"><a href="#cb84-189" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-190"><a href="#cb84-190" aria-hidden="true" tabindex="-1"></a>dflong <span class="sc">|&gt;</span> </span>
+<span id="cb84-191"><a href="#cb84-191" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(HIBRIDO, BLOCO, <span class="at">col =</span> <span class="st">"NIVEL"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb84-192"><a href="#cb84-192" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(NIVEL, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"HIBRIDO"</span>, <span class="st">"BLOCO"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb84-193"><a href="#cb84-193" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb84-194"><a href="#cb84-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-195"><a href="#cb84-195" aria-hidden="true" tabindex="-1"></a>dflong <span class="sc">|&gt;</span> </span>
+<span id="cb84-196"><a href="#cb84-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="st">"NIVEL"</span>, HIBRIDO<span class="sc">:</span>BLOCO) <span class="sc">|&gt;</span> </span>
+<span id="cb84-197"><a href="#cb84-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb84-198"><a href="#cb84-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-199"><a href="#cb84-199" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb84-200"><a href="#cb84-200" aria-hidden="true" tabindex="-1"></a>dflong <span class="sc">|&gt;</span> </span>
+<span id="cb84-201"><a href="#cb84-201" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(HIBRIDO, BLOCO,</span>
+<span id="cb84-202"><a href="#cb84-202" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">"NIVEL"</span>,</span>
+<span id="cb84-203"><a href="#cb84-203" aria-hidden="true" tabindex="-1"></a>        <span class="at">sep =</span> <span class="st">"."</span>,</span>
+<span id="cb84-204"><a href="#cb84-204" aria-hidden="true" tabindex="-1"></a>        <span class="at">remove =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb84-205"><a href="#cb84-205" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb84-206"><a href="#cb84-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-207"><a href="#cb84-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-208"><a href="#cb84-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-209"><a href="#cb84-209" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/paVd6eGsfRg &gt;}}</span>
+<span id="cb84-210"><a href="#cb84-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-211"><a href="#cb84-211" aria-hidden="true" tabindex="-1"></a><span class="fu"># Renomear (Homework)</span></span>
+<span id="cb84-212"><a href="#cb84-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-213"><a href="#cb84-213" aria-hidden="true" tabindex="-1"></a>Algumas vezes necessitamos renomear as variáveis em nosso conjunto de dados. Seria trabalhoso mudar o nome da coluna nos dados externos e importa-los novamente. Vamos considerar os dados em <span class="in">`long`</span> e renomear a coluna <span class="in">`UE &gt; PARCELA`</span> e <span class="in">`BLOCO &gt; REP`</span>. Aqui, algumas alternativas são apresentadas.</span>
 <span id="cb84-214"><a href="#cb84-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-215"><a href="#cb84-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-216"><a href="#cb84-216" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/paVd6eGsfRg &gt;}}</span>
-<span id="cb84-217"><a href="#cb84-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-218"><a href="#cb84-218" aria-hidden="true" tabindex="-1"></a><span class="fu"># Renomear (Passar batido)</span></span>
-<span id="cb84-219"><a href="#cb84-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-220"><a href="#cb84-220" aria-hidden="true" tabindex="-1"></a>Algumas vezes necessitamos renomear as variáveis em nosso conjunto de dados. Seria trabalhoso mudar o nome da coluna nos dados externos e importa-los novamente. Vamos considerar os dados em <span class="in">`long`</span> e renomear a coluna <span class="in">`UE &gt; PARCELA`</span> e <span class="in">`BLOCO &gt; REP`</span>. Aqui, algumas alternativas são apresentadas.</span>
-<span id="cb84-221"><a href="#cb84-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-222"><a href="#cb84-222" aria-hidden="true" tabindex="-1"></a><span class="fu">## R base</span></span>
-<span id="cb84-223"><a href="#cb84-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-226"><a href="#cb84-226" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb84-227"><a href="#cb84-227" aria-hidden="true" tabindex="-1"></a>long1 <span class="ot">&lt;-</span> long</span>
-<span id="cb84-228"><a href="#cb84-228" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(long1)[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"PARCELA"</span>, <span class="st">"REP"</span>)</span>
-<span id="cb84-229"><a href="#cb84-229" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(long1)</span>
-<span id="cb84-230"><a href="#cb84-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb84-231"><a href="#cb84-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-232"><a href="#cb84-232" aria-hidden="true" tabindex="-1"></a><span class="fu">## dplyr `rename()`</span></span>
-<span id="cb84-233"><a href="#cb84-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-234"><a href="#cb84-234" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`rename()`</span> do pacote <span class="in">`dplyr`</span> altera os nomes de variáveis individuais usando a sintaxe <span class="in">`nome_novo = nome_antigo`</span>.</span>
-<span id="cb84-235"><a href="#cb84-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-238"><a href="#cb84-238" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb84-239"><a href="#cb84-239" aria-hidden="true" tabindex="-1"></a><span class="fu">rename</span>(long,</span>
-<span id="cb84-240"><a href="#cb84-240" aria-hidden="true" tabindex="-1"></a>       <span class="at">PARCELA =</span> UE,</span>
-<span id="cb84-241"><a href="#cb84-241" aria-hidden="true" tabindex="-1"></a>       <span class="at">REP =</span> BLOCO) <span class="sc">|&gt;</span> </span>
-<span id="cb84-242"><a href="#cb84-242" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span>
-<span id="cb84-243"><a href="#cb84-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb84-244"><a href="#cb84-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-245"><a href="#cb84-245" aria-hidden="true" tabindex="-1"></a><span class="fu">## dplyr `rename_with()`</span></span>
-<span id="cb84-246"><a href="#cb84-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-247"><a href="#cb84-247" aria-hidden="true" tabindex="-1"></a>Uma outra alternativa é <span class="in">`rename_with()`</span>, que renomeia colunas usando uma função.</span>
-<span id="cb84-248"><a href="#cb84-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-251"><a href="#cb84-251" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb84-252"><a href="#cb84-252" aria-hidden="true" tabindex="-1"></a><span class="fu">rename_with</span>(long, tolower) <span class="sc">|&gt;</span> <span class="fu">names</span>()</span>
-<span id="cb84-253"><a href="#cb84-253" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb84-254"><a href="#cb84-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-255"><a href="#cb84-255" aria-hidden="true" tabindex="-1"></a><span class="fu">## metan `add_prefix()` e `add_suffix()`</span></span>
-<span id="cb84-256"><a href="#cb84-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-257"><a href="#cb84-257" aria-hidden="true" tabindex="-1"></a>Prefixos e sufixos são extremamente úteis na manipulação de dados, pois permitem que <span class="co">[</span><span class="ot">select helpers</span><span class="co">](https://tidyselect.r-lib.org/reference/language.html)</span> possam ser utilizados na seleção de variáveis, que será visto no próximo tópico. Aqui, vamos ver como prefixos e sufixos podem ser adicionados à nomes das variáveis.</span>
+<span id="cb84-215"><a href="#cb84-215" aria-hidden="true" tabindex="-1"></a><span class="fu">## R base</span></span>
+<span id="cb84-216"><a href="#cb84-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-219"><a href="#cb84-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-220"><a href="#cb84-220" aria-hidden="true" tabindex="-1"></a>long1 <span class="ot">&lt;-</span> long</span>
+<span id="cb84-221"><a href="#cb84-221" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(long1)[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"PARCELA"</span>, <span class="st">"REP"</span>)</span>
+<span id="cb84-222"><a href="#cb84-222" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(long1)</span>
+<span id="cb84-223"><a href="#cb84-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-224"><a href="#cb84-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-225"><a href="#cb84-225" aria-hidden="true" tabindex="-1"></a><span class="fu">## dplyr `rename()`</span></span>
+<span id="cb84-226"><a href="#cb84-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-227"><a href="#cb84-227" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`rename()`</span> do pacote <span class="in">`dplyr`</span> altera os nomes de variáveis individuais usando a sintaxe <span class="in">`nome_novo = nome_antigo`</span>.</span>
+<span id="cb84-228"><a href="#cb84-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-231"><a href="#cb84-231" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-232"><a href="#cb84-232" aria-hidden="true" tabindex="-1"></a><span class="fu">rename</span>(long,</span>
+<span id="cb84-233"><a href="#cb84-233" aria-hidden="true" tabindex="-1"></a>       <span class="at">PARCELA =</span> UE,</span>
+<span id="cb84-234"><a href="#cb84-234" aria-hidden="true" tabindex="-1"></a>       <span class="at">REP =</span> BLOCO) <span class="sc">|&gt;</span> </span>
+<span id="cb84-235"><a href="#cb84-235" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span>
+<span id="cb84-236"><a href="#cb84-236" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-237"><a href="#cb84-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-238"><a href="#cb84-238" aria-hidden="true" tabindex="-1"></a><span class="fu">## dplyr `rename_with()`</span></span>
+<span id="cb84-239"><a href="#cb84-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-240"><a href="#cb84-240" aria-hidden="true" tabindex="-1"></a>Uma outra alternativa é <span class="in">`rename_with()`</span>, que renomeia colunas usando uma função.</span>
+<span id="cb84-241"><a href="#cb84-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-244"><a href="#cb84-244" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-245"><a href="#cb84-245" aria-hidden="true" tabindex="-1"></a><span class="fu">rename_with</span>(long, tolower) <span class="sc">|&gt;</span> <span class="fu">names</span>()</span>
+<span id="cb84-246"><a href="#cb84-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-247"><a href="#cb84-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-248"><a href="#cb84-248" aria-hidden="true" tabindex="-1"></a><span class="fu">## metan `add_prefix()` e `add_suffix()`</span></span>
+<span id="cb84-249"><a href="#cb84-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-250"><a href="#cb84-250" aria-hidden="true" tabindex="-1"></a>Prefixos e sufixos são extremamente úteis na manipulação de dados, pois permitem que <span class="co">[</span><span class="ot">select helpers</span><span class="co">](https://tidyselect.r-lib.org/reference/language.html)</span> possam ser utilizados na seleção de variáveis, que será visto no próximo tópico. Aqui, vamos ver como prefixos e sufixos podem ser adicionados à nomes das variáveis.</span>
+<span id="cb84-251"><a href="#cb84-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-254"><a href="#cb84-254" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-255"><a href="#cb84-255" aria-hidden="true" tabindex="-1"></a>long <span class="sc">|&gt;</span> </span>
+<span id="cb84-256"><a href="#cb84-256" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_prefix</span>(UE<span class="sc">:</span>PLANTA, <span class="at">prefix =</span> <span class="st">"Fct"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb84-257"><a href="#cb84-257" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span>
 <span id="cb84-258"><a href="#cb84-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-261"><a href="#cb84-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb84-262"><a href="#cb84-262" aria-hidden="true" tabindex="-1"></a>long <span class="sc">|&gt;</span> </span>
-<span id="cb84-263"><a href="#cb84-263" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_prefix</span>(UE<span class="sc">:</span>PLANTA, <span class="at">prefix =</span> <span class="st">"Fct"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb84-264"><a href="#cb84-264" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span>
-<span id="cb84-265"><a href="#cb84-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-266"><a href="#cb84-266" aria-hidden="true" tabindex="-1"></a><span class="co"># utilizando select helper</span></span>
-<span id="cb84-267"><a href="#cb84-267" aria-hidden="true" tabindex="-1"></a>long <span class="sc">|&gt;</span> </span>
-<span id="cb84-268"><a href="#cb84-268" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_suffix</span>(<span class="fu">starts_with</span>(<span class="st">"A"</span>), <span class="at">suffix =</span> <span class="st">"a"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb84-269"><a href="#cb84-269" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"_a"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb84-270"><a href="#cb84-270" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span>
+<span id="cb84-259"><a href="#cb84-259" aria-hidden="true" tabindex="-1"></a><span class="co"># utilizando select helper</span></span>
+<span id="cb84-260"><a href="#cb84-260" aria-hidden="true" tabindex="-1"></a>long <span class="sc">|&gt;</span> </span>
+<span id="cb84-261"><a href="#cb84-261" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_suffix</span>(<span class="fu">starts_with</span>(<span class="st">"A"</span>), <span class="at">suffix =</span> <span class="st">"a"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb84-262"><a href="#cb84-262" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"_a"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb84-263"><a href="#cb84-263" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span>
+<span id="cb84-264"><a href="#cb84-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-265"><a href="#cb84-265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-266"><a href="#cb84-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-267"><a href="#cb84-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-268"><a href="#cb84-268" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/j4knVncyUIE &gt;}}</span>
+<span id="cb84-269"><a href="#cb84-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-270"><a href="#cb84-270" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb84-271"><a href="#cb84-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-272"><a href="#cb84-272" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-272"><a href="#cb84-272" aria-hidden="true" tabindex="-1"></a><span class="fu"># Juntar</span></span>
 <span id="cb84-273"><a href="#cb84-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-274"><a href="#cb84-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-275"><a href="#cb84-275" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/j4knVncyUIE &gt;}}</span>
-<span id="cb84-276"><a href="#cb84-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-274"><a href="#cb84-274" aria-hidden="true" tabindex="-1"></a>É raro que uma análise de dados envolva apenas uma única tabela de dados. Na prática, diversas tabela podem existir e ferramentas flexíveis para combiná-las são necessárias. No <span class="in">`dplyr`</span>, existem uma família de funções do tipo <span class="in">`*_join(x, y)`</span> que podem ser utilizadas para unir colunas de <span class="in">`y`</span> a <span class="in">`x`</span>, combinando linhas com base nas chaves:</span>
+<span id="cb84-275"><a href="#cb84-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-276"><a href="#cb84-276" aria-hidden="true" tabindex="-1"></a><span class="fu">## Junções com mutação</span></span>
 <span id="cb84-277"><a href="#cb84-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-278"><a href="#cb84-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-279"><a href="#cb84-279" aria-hidden="true" tabindex="-1"></a><span class="fu"># Juntar</span></span>
-<span id="cb84-280"><a href="#cb84-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-281"><a href="#cb84-281" aria-hidden="true" tabindex="-1"></a>É raro que uma análise de dados envolva apenas uma única tabela de dados. Na prática, diversas tabela podem existir e ferramentas flexíveis para combiná-las são necessárias. No <span class="in">`dplyr`</span>, existem uma família de funções do tipo <span class="in">`*_join(x, y)`</span> que podem ser utilizadas para unir colunas de <span class="in">`y`</span> a <span class="in">`x`</span>, combinando linhas com base nas chaves:</span>
+<span id="cb84-278"><a href="#cb84-278" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`left_join()`</span>: inclui todas as linhas em <span class="in">`x`</span>.</span>
+<span id="cb84-279"><a href="#cb84-279" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`right_join()`</span>: inclui todas as linhas em <span class="in">`y`</span>.</span>
+<span id="cb84-280"><a href="#cb84-280" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`inner_join()`</span>: inclui todas as linhas em <span class="in">`x`</span> e <span class="in">`y`</span>.</span>
+<span id="cb84-281"><a href="#cb84-281" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`full_join()`</span>: inclui todas as linhas em <span class="in">`x`</span> ou <span class="in">`y`</span>.</span>
 <span id="cb84-282"><a href="#cb84-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-283"><a href="#cb84-283" aria-hidden="true" tabindex="-1"></a><span class="fu">## Junções com mutação</span></span>
+<span id="cb84-283"><a href="#cb84-283" aria-hidden="true" tabindex="-1"></a>Se uma linha em <span class="in">`x`</span> corresponder a várias linhas em <span class="in">`y`</span>, todas as linhas em <span class="in">`y`</span> serão retornadas uma vez para cada linha correspondente em <span class="in">`x`</span>.</span>
 <span id="cb84-284"><a href="#cb84-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-285"><a href="#cb84-285" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`left_join()`</span>: inclui todas as linhas em <span class="in">`x`</span>.</span>
-<span id="cb84-286"><a href="#cb84-286" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`right_join()`</span>: inclui todas as linhas em <span class="in">`y`</span>.</span>
-<span id="cb84-287"><a href="#cb84-287" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`inner_join()`</span>: inclui todas as linhas em <span class="in">`x`</span> e <span class="in">`y`</span>.</span>
-<span id="cb84-288"><a href="#cb84-288" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`full_join()`</span>: inclui todas as linhas em <span class="in">`x`</span> ou <span class="in">`y`</span>.</span>
-<span id="cb84-289"><a href="#cb84-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-290"><a href="#cb84-290" aria-hidden="true" tabindex="-1"></a>Se uma linha em <span class="in">`x`</span> corresponder a várias linhas em <span class="in">`y`</span>, todas as linhas em <span class="in">`y`</span> serão retornadas uma vez para cada linha correspondente em <span class="in">`x`</span>.</span>
-<span id="cb84-291"><a href="#cb84-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-292"><a href="#cb84-292" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Fonte: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf](figs/mutate_join.png)</span><span class="co">](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)</span></span>
-<span id="cb84-293"><a href="#cb84-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-294"><a href="#cb84-294" aria-hidden="true" tabindex="-1"></a>Vamos à um exemplo prático!</span>
-<span id="cb84-295"><a href="#cb84-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-298"><a href="#cb84-298" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb84-299"><a href="#cb84-299" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"examples_data.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"df_left"</span>)</span>
-<span id="cb84-300"><a href="#cb84-300" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"examples_data.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"df_right"</span>)</span>
-<span id="cb84-301"><a href="#cb84-301" aria-hidden="true" tabindex="-1"></a><span class="co"># computar a média para cada híbrido</span></span>
-<span id="cb84-302"><a href="#cb84-302" aria-hidden="true" tabindex="-1"></a><span class="co"># renomear as variáveis</span></span>
-<span id="cb84-303"><a href="#cb84-303" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-304"><a href="#cb84-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-305"><a href="#cb84-305" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb84-306"><a href="#cb84-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-309"><a href="#cb84-309" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb84-310"><a href="#cb84-310" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df1</span></span>
-<span id="cb84-311"><a href="#cb84-311" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">left_join</span>(df2)</span>
+<span id="cb84-285"><a href="#cb84-285" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Fonte: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf](figs/mutate_join.png)</span><span class="co">](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)</span></span>
+<span id="cb84-286"><a href="#cb84-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-287"><a href="#cb84-287" aria-hidden="true" tabindex="-1"></a>Vamos à um exemplo prático!</span>
+<span id="cb84-288"><a href="#cb84-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-291"><a href="#cb84-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-292"><a href="#cb84-292" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"examples_data.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"df_left"</span>)</span>
+<span id="cb84-293"><a href="#cb84-293" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"examples_data.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"df_right"</span>)</span>
+<span id="cb84-294"><a href="#cb84-294" aria-hidden="true" tabindex="-1"></a><span class="co"># computar a média para cada híbrido</span></span>
+<span id="cb84-295"><a href="#cb84-295" aria-hidden="true" tabindex="-1"></a><span class="co"># renomear as variáveis</span></span>
+<span id="cb84-296"><a href="#cb84-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-297"><a href="#cb84-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-298"><a href="#cb84-298" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-299"><a href="#cb84-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-302"><a href="#cb84-302" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-303"><a href="#cb84-303" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df1</span></span>
+<span id="cb84-304"><a href="#cb84-304" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">left_join</span>(df2)</span>
+<span id="cb84-305"><a href="#cb84-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-306"><a href="#cb84-306" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df2</span></span>
+<span id="cb84-307"><a href="#cb84-307" aria-hidden="true" tabindex="-1"></a><span class="co"># suprima a mensagem informando por qual coluna(s) juntar</span></span>
+<span id="cb84-308"><a href="#cb84-308" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">right_join</span>(df2, <span class="at">by =</span> <span class="st">"HIBRIDO"</span>)</span>
+<span id="cb84-309"><a href="#cb84-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-310"><a href="#cb84-310" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df1 e df2</span></span>
+<span id="cb84-311"><a href="#cb84-311" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">inner_join</span>(df2)</span>
 <span id="cb84-312"><a href="#cb84-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-313"><a href="#cb84-313" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df2</span></span>
-<span id="cb84-314"><a href="#cb84-314" aria-hidden="true" tabindex="-1"></a><span class="co"># suprima a mensagem informando por qual coluna(s) juntar</span></span>
-<span id="cb84-315"><a href="#cb84-315" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">right_join</span>(df2, <span class="at">by =</span> <span class="st">"HIBRIDO"</span>)</span>
-<span id="cb84-316"><a href="#cb84-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-317"><a href="#cb84-317" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df1 e df2</span></span>
-<span id="cb84-318"><a href="#cb84-318" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">inner_join</span>(df2)</span>
-<span id="cb84-319"><a href="#cb84-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-320"><a href="#cb84-320" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df1 ou df2</span></span>
-<span id="cb84-321"><a href="#cb84-321" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">full_join</span>(df2, <span class="at">keep =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb84-313"><a href="#cb84-313" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df1 ou df2</span></span>
+<span id="cb84-314"><a href="#cb84-314" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">full_join</span>(df2, <span class="at">keep =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb84-315"><a href="#cb84-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-316"><a href="#cb84-316" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-317"><a href="#cb84-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-318"><a href="#cb84-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-319"><a href="#cb84-319" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/KpvsyMORq6w &gt;}}</span>
+<span id="cb84-320"><a href="#cb84-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-321"><a href="#cb84-321" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb84-322"><a href="#cb84-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-323"><a href="#cb84-323" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb84-324"><a href="#cb84-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-323"><a href="#cb84-323" aria-hidden="true" tabindex="-1"></a><span class="fu"># Avançado</span></span>
+<span id="cb84-324"><a href="#cb84-324" aria-hidden="true" tabindex="-1"></a><span class="fu">## Junções com filtragem </span></span>
 <span id="cb84-325"><a href="#cb84-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-326"><a href="#cb84-326" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/KpvsyMORq6w &gt;}}</span>
+<span id="cb84-326"><a href="#cb84-326" aria-hidden="true" tabindex="-1"></a>As duas seguintes funções de filtragem filtram linhas de <span class="in">`x`</span> com base na presença ou ausência de correspondências em <span class="in">`y`</span>:</span>
 <span id="cb84-327"><a href="#cb84-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-328"><a href="#cb84-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-329"><a href="#cb84-329" aria-hidden="true" tabindex="-1"></a><span class="fu"># Avançado</span></span>
-<span id="cb84-330"><a href="#cb84-330" aria-hidden="true" tabindex="-1"></a><span class="fu">## Junções com filtragem </span></span>
-<span id="cb84-331"><a href="#cb84-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-332"><a href="#cb84-332" aria-hidden="true" tabindex="-1"></a>As duas seguintes funções de filtragem filtram linhas de <span class="in">`x`</span> com base na presença ou ausência de correspondências em <span class="in">`y`</span>:</span>
-<span id="cb84-333"><a href="#cb84-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-334"><a href="#cb84-334" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`semi_join()`</span> retorna todas as linhas de <span class="in">`x`</span> **com** uma correspondência em <span class="in">`y`</span>.</span>
-<span id="cb84-335"><a href="#cb84-335" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`anti_join()`</span> retorna todas as linhas de <span class="in">`x`</span> **sem** uma correspondência em <span class="in">`y`</span>.</span>
-<span id="cb84-336"><a href="#cb84-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-337"><a href="#cb84-337" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Fonte: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf](figs/filter_join.png)</span><span class="ot">{alt="Fonte: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf"}</span><span class="co">](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)</span></span>
-<span id="cb84-338"><a href="#cb84-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-341"><a href="#cb84-341" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb84-342"><a href="#cb84-342" aria-hidden="true" tabindex="-1"></a><span class="co"># linhas de df1 que estão em df2</span></span>
-<span id="cb84-343"><a href="#cb84-343" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">semi_join</span>(df2)</span>
-<span id="cb84-344"><a href="#cb84-344" aria-hidden="true" tabindex="-1"></a><span class="co"># linhas de df1 que NÃO estão em df2</span></span>
-<span id="cb84-345"><a href="#cb84-345" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">anti_join</span>(df2)</span>
-<span id="cb84-346"><a href="#cb84-346" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb84-347"><a href="#cb84-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-348"><a href="#cb84-348" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-349"><a href="#cb84-349" aria-hidden="true" tabindex="-1"></a><span class="fu">## Operações com conjuntos (vetores)</span></span>
-<span id="cb84-350"><a href="#cb84-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-351"><a href="#cb84-351" aria-hidden="true" tabindex="-1"></a>Operações com conjuntos são importantes na análise de dados. Por exemplo, se um determinado genótipo foi selecionado nos ambientes A, B e C, então, este determinado genótipo é a interseção dos ambientes A, B e C. Tanto o R-base quanto o pacote <span class="in">`dplyr`</span> fornecem funções para operações com conjuntos, mas funcionam com dois conjuntos de uma vez apenas.</span>
-<span id="cb84-352"><a href="#cb84-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-355"><a href="#cb84-355" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb84-356"><a href="#cb84-356" aria-hidden="true" tabindex="-1"></a>(A <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
-<span id="cb84-357"><a href="#cb84-357" aria-hidden="true" tabindex="-1"></a>(B <span class="ot">&lt;-</span> letters[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>])</span>
-<span id="cb84-358"><a href="#cb84-358" aria-hidden="true" tabindex="-1"></a>(C <span class="ot">&lt;-</span> letters[<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>])</span>
-<span id="cb84-359"><a href="#cb84-359" aria-hidden="true" tabindex="-1"></a>(D <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>])</span>
-<span id="cb84-360"><a href="#cb84-360" aria-hidden="true" tabindex="-1"></a>set_lits <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">A =</span> A, <span class="at">B =</span> B, <span class="at">C =</span> C, <span class="at">D =</span> D)</span>
+<span id="cb84-328"><a href="#cb84-328" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`semi_join()`</span> retorna todas as linhas de <span class="in">`x`</span> **com** uma correspondência em <span class="in">`y`</span>.</span>
+<span id="cb84-329"><a href="#cb84-329" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`anti_join()`</span> retorna todas as linhas de <span class="in">`x`</span> **sem** uma correspondência em <span class="in">`y`</span>.</span>
+<span id="cb84-330"><a href="#cb84-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-331"><a href="#cb84-331" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Fonte: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf](figs/filter_join.png)</span><span class="ot">{alt="Fonte: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf"}</span><span class="co">](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)</span></span>
+<span id="cb84-332"><a href="#cb84-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-335"><a href="#cb84-335" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-336"><a href="#cb84-336" aria-hidden="true" tabindex="-1"></a><span class="co"># linhas de df1 que estão em df2</span></span>
+<span id="cb84-337"><a href="#cb84-337" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">semi_join</span>(df2)</span>
+<span id="cb84-338"><a href="#cb84-338" aria-hidden="true" tabindex="-1"></a><span class="co"># linhas de df1 que NÃO estão em df2</span></span>
+<span id="cb84-339"><a href="#cb84-339" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">anti_join</span>(df2)</span>
+<span id="cb84-340"><a href="#cb84-340" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-341"><a href="#cb84-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-342"><a href="#cb84-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-343"><a href="#cb84-343" aria-hidden="true" tabindex="-1"></a><span class="fu">## Operações com conjuntos (vetores)</span></span>
+<span id="cb84-344"><a href="#cb84-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-345"><a href="#cb84-345" aria-hidden="true" tabindex="-1"></a>Operações com conjuntos são importantes na análise de dados. Por exemplo, se um determinado genótipo foi selecionado nos ambientes A, B e C, então, este determinado genótipo é a interseção dos ambientes A, B e C. Tanto o R-base quanto o pacote <span class="in">`dplyr`</span> fornecem funções para operações com conjuntos, mas funcionam com dois conjuntos de uma vez apenas.</span>
+<span id="cb84-346"><a href="#cb84-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-349"><a href="#cb84-349" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-350"><a href="#cb84-350" aria-hidden="true" tabindex="-1"></a>(A <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
+<span id="cb84-351"><a href="#cb84-351" aria-hidden="true" tabindex="-1"></a>(B <span class="ot">&lt;-</span> letters[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb84-352"><a href="#cb84-352" aria-hidden="true" tabindex="-1"></a>(C <span class="ot">&lt;-</span> letters[<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>])</span>
+<span id="cb84-353"><a href="#cb84-353" aria-hidden="true" tabindex="-1"></a>(D <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>])</span>
+<span id="cb84-354"><a href="#cb84-354" aria-hidden="true" tabindex="-1"></a>set_lits <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">A =</span> A, <span class="at">B =</span> B, <span class="at">C =</span> C, <span class="at">D =</span> D)</span>
+<span id="cb84-355"><a href="#cb84-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-356"><a href="#cb84-356" aria-hidden="true" tabindex="-1"></a><span class="co"># intersecção de A, B (dplyr)</span></span>
+<span id="cb84-357"><a href="#cb84-357" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(A, B)</span>
+<span id="cb84-358"><a href="#cb84-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-359"><a href="#cb84-359" aria-hidden="true" tabindex="-1"></a><span class="co"># intersecção de A, B e C (dplyr)</span></span>
+<span id="cb84-360"><a href="#cb84-360" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(<span class="fu">intersect</span>(A, B), C)</span>
 <span id="cb84-361"><a href="#cb84-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-362"><a href="#cb84-362" aria-hidden="true" tabindex="-1"></a><span class="co"># intersecção de A, B (dplyr)</span></span>
-<span id="cb84-363"><a href="#cb84-363" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(A, B)</span>
+<span id="cb84-362"><a href="#cb84-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-363"><a href="#cb84-363" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb84-364"><a href="#cb84-364" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-365"><a href="#cb84-365" aria-hidden="true" tabindex="-1"></a><span class="co"># intersecção de A, B e C (dplyr)</span></span>
-<span id="cb84-366"><a href="#cb84-366" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(<span class="fu">intersect</span>(A, B), C)</span>
-<span id="cb84-367"><a href="#cb84-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-368"><a href="#cb84-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-369"><a href="#cb84-369" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb84-370"><a href="#cb84-370" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-371"><a href="#cb84-371" aria-hidden="true" tabindex="-1"></a>Observe que para computar interseções/uniões/diferenças com mais de dois conjuntos precisamos chamar (ex., <span class="in">`intersect()`</span>) várias vezes O pacote <span class="in">`metan`</span> fornece um grupo de funções <span class="in">`set_*()`</span> que supera esse problema</span>
+<span id="cb84-365"><a href="#cb84-365" aria-hidden="true" tabindex="-1"></a>Observe que para computar interseções/uniões/diferenças com mais de dois conjuntos precisamos chamar (ex., <span class="in">`intersect()`</span>) várias vezes O pacote <span class="in">`metan`</span> fornece um grupo de funções <span class="in">`set_*()`</span> que supera esse problema</span>
+<span id="cb84-366"><a href="#cb84-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-369"><a href="#cb84-369" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-370"><a href="#cb84-370" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersecção de A e B</span></span>
+<span id="cb84-371"><a href="#cb84-371" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(A, B)</span>
 <span id="cb84-372"><a href="#cb84-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-375"><a href="#cb84-375" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb84-376"><a href="#cb84-376" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersecção de A e B</span></span>
-<span id="cb84-377"><a href="#cb84-377" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(A, B)</span>
-<span id="cb84-378"><a href="#cb84-378" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-379"><a href="#cb84-379" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersecção de A, B e C</span></span>
-<span id="cb84-380"><a href="#cb84-380" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(A, B, C)</span>
+<span id="cb84-373"><a href="#cb84-373" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersecção de A, B e C</span></span>
+<span id="cb84-374"><a href="#cb84-374" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(A, B, C)</span>
+<span id="cb84-375"><a href="#cb84-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-376"><a href="#cb84-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-377"><a href="#cb84-377" aria-hidden="true" tabindex="-1"></a><span class="co"># União de todos os conjuntos</span></span>
+<span id="cb84-378"><a href="#cb84-378" aria-hidden="true" tabindex="-1"></a><span class="co"># Todas as funções entendem um objeto de classe lista</span></span>
+<span id="cb84-379"><a href="#cb84-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-380"><a href="#cb84-380" aria-hidden="true" tabindex="-1"></a><span class="fu">set_union</span>(set_lits)</span>
 <span id="cb84-381"><a href="#cb84-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-382"><a href="#cb84-382" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-383"><a href="#cb84-383" aria-hidden="true" tabindex="-1"></a><span class="co"># União de todos os conjuntos</span></span>
-<span id="cb84-384"><a href="#cb84-384" aria-hidden="true" tabindex="-1"></a><span class="co"># Todas as funções entendem um objeto de classe lista</span></span>
-<span id="cb84-385"><a href="#cb84-385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-386"><a href="#cb84-386" aria-hidden="true" tabindex="-1"></a><span class="fu">set_union</span>(set_lits)</span>
-<span id="cb84-387"><a href="#cb84-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-388"><a href="#cb84-388" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersecção de todos os conjuntos</span></span>
-<span id="cb84-389"><a href="#cb84-389" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(set_lits)</span>
-<span id="cb84-390"><a href="#cb84-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-391"><a href="#cb84-391" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb84-392"><a href="#cb84-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-393"><a href="#cb84-393" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb84-394"><a href="#cb84-394" aria-hidden="true" tabindex="-1"></a><span class="fu">## Diagrama de Venn</span></span>
-<span id="cb84-395"><a href="#cb84-395" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-396"><a href="#cb84-396" aria-hidden="true" tabindex="-1"></a>Um diagrama de Venn é um estilo de diagrama amplamente utilizado que mostra a relação lógica entre conjuntos usando curvas fechadas simples desenhadas em um plano para representar conjuntos. Muitas vezes, essas curvas são círculos ou elipses. Para mostrar as relações entre os conjuntos A, B, C e D, usamos a função <span class="in">`venn_plot()`</span> do pacote metan.</span>
-<span id="cb84-397"><a href="#cb84-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-400"><a href="#cb84-400" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb84-401"><a href="#cb84-401" aria-hidden="true" tabindex="-1"></a><span class="fu">venn_plot</span>(set_lits, <span class="at">show_elements =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb84-402"><a href="#cb84-402" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb84-403"><a href="#cb84-403" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb84-404"><a href="#cb84-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-405"><a href="#cb84-405" aria-hidden="true" tabindex="-1"></a><span class="fu">## Operações com conjuntos (data frames)</span></span>
-<span id="cb84-406"><a href="#cb84-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-407"><a href="#cb84-407" aria-hidden="true" tabindex="-1"></a>Nesta seção será demonstrado como é possivel utilizar operações de cojuntos como interseção e união. É esperado que as entradas x e y tenham as mesmas variáveis. Para isto, vamos criar dois novos conjuntos de dados fictícios.</span>
-<span id="cb84-408"><a href="#cb84-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-411"><a href="#cb84-411" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb84-412"><a href="#cb84-412" aria-hidden="true" tabindex="-1"></a>dfi1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">gen =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>),</span>
-<span id="cb84-413"><a href="#cb84-413" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>))</span>
-<span id="cb84-414"><a href="#cb84-414" aria-hidden="true" tabindex="-1"></a>dfi2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">gen =</span> <span class="fu">c</span>(<span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>),</span>
-<span id="cb84-415"><a href="#cb84-415" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>))</span>
+<span id="cb84-382"><a href="#cb84-382" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersecção de todos os conjuntos</span></span>
+<span id="cb84-383"><a href="#cb84-383" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(set_lits)</span>
+<span id="cb84-384"><a href="#cb84-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-385"><a href="#cb84-385" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-386"><a href="#cb84-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-387"><a href="#cb84-387" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb84-388"><a href="#cb84-388" aria-hidden="true" tabindex="-1"></a><span class="fu">## Diagrama de Venn</span></span>
+<span id="cb84-389"><a href="#cb84-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-390"><a href="#cb84-390" aria-hidden="true" tabindex="-1"></a>Um diagrama de Venn é um estilo de diagrama amplamente utilizado que mostra a relação lógica entre conjuntos usando curvas fechadas simples desenhadas em um plano para representar conjuntos. Muitas vezes, essas curvas são círculos ou elipses. Para mostrar as relações entre os conjuntos A, B, C e D, usamos a função <span class="in">`venn_plot()`</span> do pacote metan.</span>
+<span id="cb84-391"><a href="#cb84-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-394"><a href="#cb84-394" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-395"><a href="#cb84-395" aria-hidden="true" tabindex="-1"></a><span class="fu">venn_plot</span>(set_lits, <span class="at">show_elements =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb84-396"><a href="#cb84-396" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-397"><a href="#cb84-397" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb84-398"><a href="#cb84-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-399"><a href="#cb84-399" aria-hidden="true" tabindex="-1"></a><span class="fu">## Operações com conjuntos (data frames)</span></span>
+<span id="cb84-400"><a href="#cb84-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-401"><a href="#cb84-401" aria-hidden="true" tabindex="-1"></a>Nesta seção será demonstrado como é possivel utilizar operações de cojuntos como interseção e união. É esperado que as entradas x e y tenham as mesmas variáveis. Para isto, vamos criar dois novos conjuntos de dados fictícios.</span>
+<span id="cb84-402"><a href="#cb84-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-405"><a href="#cb84-405" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-406"><a href="#cb84-406" aria-hidden="true" tabindex="-1"></a>dfi1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">gen =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>),</span>
+<span id="cb84-407"><a href="#cb84-407" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb84-408"><a href="#cb84-408" aria-hidden="true" tabindex="-1"></a>dfi2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">gen =</span> <span class="fu">c</span>(<span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>),</span>
+<span id="cb84-409"><a href="#cb84-409" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>))</span>
+<span id="cb84-410"><a href="#cb84-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-411"><a href="#cb84-411" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(dfi1, dfi2)</span>
+<span id="cb84-412"><a href="#cb84-412" aria-hidden="true" tabindex="-1"></a><span class="fu">set_difference</span>(dfi1, dfi2)</span>
+<span id="cb84-413"><a href="#cb84-413" aria-hidden="true" tabindex="-1"></a><span class="fu">set_union</span>(dfi1, dfi2)</span>
+<span id="cb84-414"><a href="#cb84-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-415"><a href="#cb84-415" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb84-416"><a href="#cb84-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-417"><a href="#cb84-417" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(dfi1, dfi2)</span>
-<span id="cb84-418"><a href="#cb84-418" aria-hidden="true" tabindex="-1"></a><span class="fu">set_difference</span>(dfi1, dfi2)</span>
-<span id="cb84-419"><a href="#cb84-419" aria-hidden="true" tabindex="-1"></a><span class="fu">set_union</span>(dfi1, dfi2)</span>
-<span id="cb84-420"><a href="#cb84-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-421"><a href="#cb84-421" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb84-422"><a href="#cb84-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-423"><a href="#cb84-423" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb84-424"><a href="#cb84-424" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=141636&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
-<span id="cb84-425"><a href="#cb84-425" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-417"><a href="#cb84-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-418"><a href="#cb84-418" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb84-419"><a href="#cb84-419" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=141636&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
+<span id="cb84-420"><a href="#cb84-420" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>Material de apoio à disciplinas</p>
-</div>   
+    <div class="nav-footer-left">Material de apoio à disciplinas</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">
-<p>Prof.&nbsp;Dr.&nbsp;Tiago Olivoto FIT/CCA/UFSC</p>
-</div>
+    <div class="nav-footer-right">Prof.&nbsp;Dr.&nbsp;Tiago Olivoto FIT/CCA/UFSC</div>
   </div>
 </footer>
-
 
 
 

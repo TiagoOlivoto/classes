@@ -50,11 +50,15 @@ calendR(year = 2023,
         subtitle.size = 15,
         mbg.col = "forestgreen",
         months.col = "white",
-        bg.img = "figs/calendr.png",
+        # bg.img = "figs/calendr.png",
         legend.pos = "bottom",
         day.size = 4,
         months.size = 14,
         orientation = "portrait")
+
+# ggplot2::ggsave("calendario.jpg",
+#                 width = 13,
+#                 height = 6.5)
 
 ```
 

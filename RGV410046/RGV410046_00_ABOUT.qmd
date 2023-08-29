@@ -28,10 +28,10 @@ library(calendR)
 # tutorial calendR
 # https://r-coder.com/calendar-plot-r/
 events <- rep(NA, 30)
-events[c(11, 13:15, 20:22, 28)] <- "08:20 às 11:50"
-events[27] <- "Entrega do desafio"
+events[c(11, 14, 15, 18, 21, 22, 25, 28)] <- "08:20 às 11:50"
+events[27] <- "Entrega do desafio (sem atividade presencial)"
 
-img <- "figs/calendr.png"
+# img <- "figs/calendr.png"
 
 # Creating the calendar
 calendR(year = 2022,
@@ -43,10 +43,14 @@ calendR(year = 2022,
         subtitle = "Cronograma de aulas",
         mbg.col = "forestgreen",            
         months.col = "white",
-        bg.img = img,
+        # bg.img = img,
         legend.pos = "bottom")
 ggplot2::ggsave("cronograma2.jpg", width = 5.5, height = 5.5)
 ```
+
+# Salas
+* 106 - PGA: 14, 21, e 28/09 (quintas-feiras)
+* 107 - PGA: 11, 15, 18, 22 e 25/09
 
 # Conteúdo programático
 
@@ -62,8 +66,7 @@ ggplot2::ggsave("cronograma2.jpg", width = 5.5, height = 5.5)
 -   Aplicação prática
 
 
-
-## 13/09/2023
+## 14/09/2023
 
 -   Dinâmica aula anterior
 -   Tipos de dados
@@ -82,7 +85,7 @@ ggplot2::ggsave("cronograma2.jpg", width = 5.5, height = 5.5)
 -   Aplicação prática
 
 
-## 14/09/2023
+## 15/09/2023
 
 -   Importação de dados (pc, repositório)
 -   dados tidy
@@ -91,7 +94,7 @@ ggplot2::ggsave("cronograma2.jpg", width = 5.5, height = 5.5)
 -   Aplicação prática
 
 
-## 15/09/2023
+## 18/09/2023
 
 -   Seleção de dados
 -   select
@@ -101,7 +104,7 @@ ggplot2::ggsave("cronograma2.jpg", width = 5.5, height = 5.5)
 -   Aplicação prática
 
 
-## 20/09/2023
+## 21/09/2023
 
 -   Manipulação de dados
 -   Longer (dados errados, para arrumar)
@@ -111,7 +114,7 @@ ggplot2::ggsave("cronograma2.jpg", width = 5.5, height = 5.5)
 -   Aplicação prática
 
 
-## 21/09/2023
+## 22/09/2023
 
 -   Mutação de dados
 -   mutate
@@ -119,7 +122,7 @@ ggplot2::ggsave("cronograma2.jpg", width = 5.5, height = 5.5)
 -   group_by
 -   Aplicação prática
 
-## 22/09/2023
+## 25/09/2023
 
 -   Resumo de dados
 -   summarise
@@ -130,13 +133,14 @@ ggplot2::ggsave("cronograma2.jpg", width = 5.5, height = 5.5)
 ## 27/08/2023
 - Entrega do desafio
 
-## 28/09/2023
 
+## 28/09/2023
 -   Correção do desafio
 
 
 # Forma de avaliação
 A avaliação consistirá em uma metodologia baseado em problema, onde o aluno precisará apresentar uma solução para resolução de um desafio envolvendo o conteúdo visto na disciplina. O desafio será apresentado no ínicio da disciplina e o aluno deverá entrega-lo até o dia 27/09/2023.
+
 
 # Instalação do R e Rstudio
 
@@ -166,7 +170,7 @@ library(rio)        # importação/exportação de dados
 <a href="https://downgit.github.io/#/home?url=https://github.com/TiagoOlivoto/classes/tree/master/RGV410046" target="_blank" rel="noopener"> <button class="btn btn-success"><i class="fa fa-save"></i> Download dados e scripts</button> </a>
 
 ```{r echo=FALSE}
-fs::dir_tree("E:/Desktop/UFSC/aulas/classes/RGV410046/data", recurse = 1)
+fs::dir_tree("D:/Desktop/UFSC/aulas/classes/RGV410046/data", recurse = 1)
 ```
 
 {{< video https://www.youtube.com/embed/hnO-KMpIVcg >}}

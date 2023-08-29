@@ -7,12 +7,12 @@ editor_options:
 # Diretório
 
 ```{r include = FALSE}
-knitr::opts_knit$set(root.dir = "E:/Desktop/UFSC/aulas/classes/RGV410046/data")
+knitr::opts_knit$set(root.dir = "D:/Desktop/UFSC/aulas/classes/RGV410046/data")
 ```
 
 ```{r eval=FALSE}
 # meu computador (mudar de acordo)
-setwd("E:/Desktop/UFSC/aulas/classes/RGV410046/data")
+setwd("D:/Desktop/UFSC/aulas/classes/RGV410046/data")
 ```
 
 # Pacotes
@@ -134,7 +134,7 @@ wider2
 {{< video https://www.youtube.com/embed/UFtEb4BIWno >}}
 
 
-# Separar (atualizar com as novas funções)
+# Separar
 
 Até agora você aprendeu como realizar operações morfológicas para transformar dados em de formato *wide* para *long* e vice-versa. O seguinte conjunto de dados tem um problema diferente:
 
@@ -158,13 +158,6 @@ ex_separate2 <-
   ex_separate |> 
   separate(RELACAO, into = c("AESP", "APLA"), sep = "/")
 ```
-
-
-::: callout-tip
-## Desafio
-
-Considerando o conjunto de dados `wider2`, combine o que você aprendeu até agora com `pivot_longer()` e `separate()` para retornar o conjunto de dados `dflong`.
-:::
 
 
 # Concatenar
@@ -197,7 +190,7 @@ dflong |>
 
 {{< video https://www.youtube.com/embed/paVd6eGsfRg >}}
 
-# Renomear (Passar batido)
+# Renomear (Homework)
 
 Algumas vezes necessitamos renomear as variáveis em nosso conjunto de dados. Seria trabalhoso mudar o nome da coluna nos dados externos e importa-los novamente. Vamos considerar os dados em `long` e renomear a coluna `UE > PARCELA` e `BLOCO > REP`. Aqui, algumas alternativas são apresentadas.
 
@@ -296,6 +289,7 @@ df1 |> full_join(df2, keep = TRUE)
 {{< video https://www.youtube.com/embed/KpvsyMORq6w >}}
 
 
+
 # Avançado
 ## Junções com filtragem 
 
@@ -379,6 +373,7 @@ set_difference(dfi1, dfi2)
 set_union(dfi1, dfi2)
 
 ```
+
 
 ```{=html}
 <div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=141636&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>

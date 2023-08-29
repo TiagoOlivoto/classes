@@ -7,12 +7,12 @@ editor_options:
 # Diretório
 
 ```{r include = FALSE}
-knitr::opts_knit$set(root.dir = "E:/Desktop/UFSC/aulas/classes/RGV410046/data")
+knitr::opts_knit$set(root.dir = "D:/Desktop/UFSC/aulas/classes/RGV410046/data")
 ```
 
 ```{r eval=FALSE}
 # meu computador (mudar de acordo)
-setwd("E:/Desktop/UFSC/aulas/classes/RGV410046/data")
+setwd("D:/Desktop/UFSC/aulas/classes/RGV410046/data")
 ```
 
 # Pacotes e dados
@@ -249,7 +249,7 @@ maize |>
 
 
 ::: callout-note
-# Abordagem R base
+## Abordagem R base
 
 O seguinte exemplo realiza o mesmo procedimento de criação da variável categórica utilizando as funções R base `transform()` e `ifelse()`.
 
@@ -278,10 +278,10 @@ do.call(rbind,
 ```
 :::
 
-# Exemplo de aplicação
+## Exemplo de aplicação
 ::: callout-important
 
-# Cálculo de Graus-dia (GD)
+## Cálculo de Graus-dia (GD)
 
 Segundo Ometto (1981)[^1], existe uma temperatura mínima (Tm, ºC) para acionar os dispositivos metabólicos da planta, que é denominada de temperatura basal inferior (Tb, ºC). Somente acima desta temperatura a planta pode se desenvolver. O mesmo autor ressalta, contudo, que a planta também possui uma temperatura basal superior (TB, ºC), acima da qual há um estancamento das atividades metabólicas, prejudicando seu desenvolvimento.
 

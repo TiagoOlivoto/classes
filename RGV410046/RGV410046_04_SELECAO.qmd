@@ -7,13 +7,14 @@ editor_options:
 # Diretório
 
 ```{r include = FALSE}
-knitr::opts_knit$set(root.dir = "E:/Desktop/UFSC/aulas/classes/RGV410046/data")
+knitr::opts_knit$set(root.dir = "D:/Desktop/UFSC/aulas/classes/RGV410046/data")
 ```
 
 ```{r eval=FALSE}
 # meu computador (mudar de acordo)
-setwd("E:/Desktop/UFSC/aulas/classes/RGV410046/data")
+setwd("D:/Desktop/UFSC/aulas/classes/RGV410046/data")
 ```
+
 
 # Pacotes e dados
 

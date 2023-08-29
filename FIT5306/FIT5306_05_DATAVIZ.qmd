@@ -10,7 +10,6 @@ Para reprodução destes exemplos, os seguintes pacotes precisam ser instalados 
 # pacotes para criação de mapas (github)
 remotes::install_github("ropensci/rnaturalearthhires")
 remotes::install_github("ricardo-bion/ggradar")
-remotes::install_github("ricardo-bion/ggradar")
 ```
 
 Antes de carregar, verifique se o pacote está instalado.
@@ -675,6 +674,7 @@ p2 <-
   p1 + 
   geom_sf(data = brazil, aes(fill = scat))
 p2
+
 ```
 
 ### Mapa do Brasil e SC, com municípios
