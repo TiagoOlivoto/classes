@@ -167,7 +167,7 @@ library(rio)        # importação/exportação de dados
 
 # Dados e scripts
 
-<a href="https://downgit.github.io/#/home?url=https://github.com/TiagoOlivoto/classes/tree/master/RGV410046" target="_blank" rel="noopener"> <button class="btn btn-success"><i class="fa fa-save"></i> Download dados e scripts</button> </a>
+<a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/TiagoOlivoto/classes/tree/master/RGV410046" target="_blank" rel="noopener"> <button class="btn btn-success"><i class="fa fa-save"></i> Download dados e scripts</button> </a>
 
 ```{r echo=FALSE}
 fs::dir_tree("D:/Desktop/UFSC/aulas/classes/RGV410046/data", recurse = 1)
