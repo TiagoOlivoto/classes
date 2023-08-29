@@ -28,24 +28,24 @@ library(calendR)
 # tutorial calendR
 # https://r-coder.com/calendar-plot-r/
 events <- rep(NA, 30)
-events[c(11, 14, 15, 18, 21, 22, 25, 28)] <- "08:20 às 11:50"
-events[27] <- "Entrega do desafio (sem atividade presencial)"
+events[c(14, 21, 28)] <- "Sala 106 - PGA"
+events[c(11, 15, 18, 22, 25)] <- "Sala 107 - PGA"
+events[27] <- "Entrega do desafio \nSem atividade presencial"
 
 # img <- "figs/calendr.png"
 
 # Creating the calendar
-calendR(year = 2022,
-        start_date ="2023-09-01",
+calendR(start_date ="2023-09-01",
         end_date = "2023-09-30",
         special.days = events,
-        special.col =  c("lightgreen", "salmon"),
+        special.col =  c("lightgreen", "lightblue", "salmon"),
         title = "RGV410046\nIntrodução à linguagem R de programação", 
-        subtitle = "Cronograma de aulas",
+        subtitle = "Cronograma de aulas - 08:20 às 11:50",
         mbg.col = "forestgreen",            
         months.col = "white",
         # bg.img = img,
         legend.pos = "bottom")
-ggplot2::ggsave("cronograma2.jpg", width = 5.5, height = 5.5)
+# ggplot2::ggsave("cronograma2.jpg", width = 5.5, height = 5.5)
 ```
 
 # Salas
