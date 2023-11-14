@@ -321,6 +321,7 @@ bhaskara <- function(a, b, c, plot = TRUE){
 
 bhaskara(1, -2, -3)
 bhaskara(-1, 4, -3)
+bhaskara(1, 2, -8)
 
 
 ```
@@ -356,6 +357,7 @@ set.seed(1) # garante reprodutibilidade
 (quad_desv <- quadrado_desvio(x))
 (soma_quad_desv <- sum(quad_desv))
 (var_amo <- sum(soma_quad_desv) / 9)
+
 ```
 
 Note que a mesma operação pode ser realizada se você aninhar as funções.

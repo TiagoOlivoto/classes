@@ -22,31 +22,34 @@ library(calendR)
 # https://r-coder.com/calendar-plot-r/
 
 events <- rep(NA, 153)
-segundas <- seq(7, 126, by = 7)
-tercas <- seq(8, 127, by = 7)
+segundas <- seq(11, 123, by = 7)
+tercas <- seq(12, 124, by = 7)
 events[segundas] <- "1: Aulas teóricas\nCCA/ZDR 201\nA/B/C: 13:30-16:00"
 events[tercas] <- "2: Aulas práticas (campo)\nRessacada\nC: 10:10-11:50\nA: 13:30-15:10\nB: 15:20-17:00"
 
 # Aulas práticas no CCA
-events[c(29,  50,  64,  71, 106, 113, 120, 127)] <- "3: Aulas práticas (sala)\nCCA\nC: 10:10-11:50\nA: 13:30-15:10\nB: 15:20-17:00"
+events[c(33,  54,  61,  75, 82, 96, 110, 117, 124)] <- "3: Aulas práticas (análises)\nCCA\nC: 10:10-11:50\nA: 13:30-15:10\nB: 15:20-17:00"
 
 # Provas
-events[c(63, 126)] <- "3: Avaliações"
+events[c(67, 130)] <- "3: Avaliações"
 
-# Feriados
-events[c(84, 85)] <- "4: Semana Acadêmica"
+# Seminário
+events[131] <- "4: Apresentação\ndo projeto"
+
+# # Feriados
+# events[c(84, 85)] <- "4: Semana Acadêmica"
 
 
 cores <- c("lightsalmon", "lightgreen", "skyblue", "cyan",  "gold")
 
 # Creating the calendar
-calendR(year = 2023,
-        start_date ="2023-08-01",
-        end_date = "2023-12-31",
+calendR(year = 2024,
+        from ="2024-03-01",
+        to = "2024-07-31",
         special.days = events,
         special.col = cores,
         title = "FIT5306 - Bioestatística e Experimentação Agrícola", 
-        subtitle = "Cronograma de aulas - 2023/02",
+        subtitle = "Cronograma de aulas - 2024/01",
         subtitle.size = 15,
         mbg.col = "forestgreen",
         months.col = "white",
@@ -57,8 +60,8 @@ calendR(year = 2023,
         orientation = "portrait")
 
 # ggplot2::ggsave("calendario.jpg",
-#                 width = 13,
-#                 height = 6.5)
+#                 width = 8,
+#                 height = 8)
 
 ```
 

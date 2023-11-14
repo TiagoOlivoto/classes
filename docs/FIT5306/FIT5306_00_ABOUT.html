@@ -319,39 +319,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># https://r-coder.com/calendar-plot-r/</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>events <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">153</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>segundas <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">7</span>, <span class="dv">126</span>, <span class="at">by =</span> <span class="dv">7</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>tercas <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">8</span>, <span class="dv">127</span>, <span class="at">by =</span> <span class="dv">7</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>segundas <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">11</span>, <span class="dv">123</span>, <span class="at">by =</span> <span class="dv">7</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>tercas <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">12</span>, <span class="dv">124</span>, <span class="at">by =</span> <span class="dv">7</span>)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>events[segundas] <span class="ot">&lt;-</span> <span class="st">"1: Aulas teóricas</span><span class="sc">\n</span><span class="st">CCA/ZDR 201</span><span class="sc">\n</span><span class="st">A/B/C: 13:30-16:00"</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>events[tercas] <span class="ot">&lt;-</span> <span class="st">"2: Aulas práticas (campo)</span><span class="sc">\n</span><span class="st">Ressacada</span><span class="sc">\n</span><span class="st">C: 10:10-11:50</span><span class="sc">\n</span><span class="st">A: 13:30-15:10</span><span class="sc">\n</span><span class="st">B: 15:20-17:00"</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Aulas práticas no CCA</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>events[<span class="fu">c</span>(<span class="dv">29</span>,  <span class="dv">50</span>,  <span class="dv">64</span>,  <span class="dv">71</span>, <span class="dv">106</span>, <span class="dv">113</span>, <span class="dv">120</span>, <span class="dv">127</span>)] <span class="ot">&lt;-</span> <span class="st">"3: Aulas práticas (sala)</span><span class="sc">\n</span><span class="st">CCA</span><span class="sc">\n</span><span class="st">C: 10:10-11:50</span><span class="sc">\n</span><span class="st">A: 13:30-15:10</span><span class="sc">\n</span><span class="st">B: 15:20-17:00"</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>events[<span class="fu">c</span>(<span class="dv">33</span>,  <span class="dv">54</span>,  <span class="dv">61</span>,  <span class="dv">75</span>, <span class="dv">82</span>, <span class="dv">96</span>, <span class="dv">110</span>, <span class="dv">117</span>, <span class="dv">124</span>)] <span class="ot">&lt;-</span> <span class="st">"3: Aulas práticas (análises)</span><span class="sc">\n</span><span class="st">CCA</span><span class="sc">\n</span><span class="st">C: 10:10-11:50</span><span class="sc">\n</span><span class="st">A: 13:30-15:10</span><span class="sc">\n</span><span class="st">B: 15:20-17:00"</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Provas</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>events[<span class="fu">c</span>(<span class="dv">63</span>, <span class="dv">126</span>)] <span class="ot">&lt;-</span> <span class="st">"3: Avaliações"</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>events[<span class="fu">c</span>(<span class="dv">67</span>, <span class="dv">130</span>)] <span class="ot">&lt;-</span> <span class="st">"3: Avaliações"</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Feriados</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>events[<span class="fu">c</span>(<span class="dv">84</span>, <span class="dv">85</span>)] <span class="ot">&lt;-</span> <span class="st">"4: Semana Acadêmica"</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Seminário</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>events[<span class="dv">131</span>] <span class="ot">&lt;-</span> <span class="st">"4: Apresentação</span><span class="sc">\n</span><span class="st">do projeto"</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"lightsalmon"</span>, <span class="st">"lightgreen"</span>, <span class="st">"skyblue"</span>, <span class="st">"cyan"</span>,  <span class="st">"gold"</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># # Feriados</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># events[c(84, 85)] &lt;- "4: Semana Acadêmica"</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating the calendar</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">calendR</span>(<span class="at">year =</span> <span class="dv">2023</span>,</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">start_date =</span><span class="st">"2023-08-01"</span>,</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">end_date =</span> <span class="st">"2023-12-31"</span>,</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">special.days =</span> events,</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">special.col =</span> cores,</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"FIT5306 - Bioestatística e Experimentação Agrícola"</span>, </span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">subtitle =</span> <span class="st">"Cronograma de aulas - 2023/02"</span>,</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">subtitle.size =</span> <span class="dv">15</span>,</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">mbg.col =</span> <span class="st">"forestgreen"</span>,</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">months.col =</span> <span class="st">"white"</span>,</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># bg.img = "figs/calendr.png",</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.pos =</span> <span class="st">"bottom"</span>,</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">day.size =</span> <span class="dv">4</span>,</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">months.size =</span> <span class="dv">14</span>,</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">orientation =</span> <span class="st">"portrait"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"lightsalmon"</span>, <span class="st">"lightgreen"</span>, <span class="st">"skyblue"</span>, <span class="st">"cyan"</span>,  <span class="st">"gold"</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating the calendar</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">calendR</span>(<span class="at">year =</span> <span class="dv">2024</span>,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">from =</span><span class="st">"2024-03-01"</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">to =</span> <span class="st">"2024-07-31"</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">special.days =</span> events,</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">special.col =</span> cores,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"FIT5306 - Bioestatística e Experimentação Agrícola"</span>, </span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">subtitle =</span> <span class="st">"Cronograma de aulas - 2024/01"</span>,</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        <span class="at">subtitle.size =</span> <span class="dv">15</span>,</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">mbg.col =</span> <span class="st">"forestgreen"</span>,</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">months.col =</span> <span class="st">"white"</span>,</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        <span class="co"># bg.img = "figs/calendr.png",</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.pos =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">day.size =</span> <span class="dv">4</span>,</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">months.size =</span> <span class="dv">14</span>,</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">orientation =</span> <span class="st">"portrait"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="FIT5306_00_ABOUT_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" style="width:100.0%"></p>
@@ -359,8 +362,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <details>
 <summary>Clique aqui e veja como o calendário foi feito!</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot2::ggsave("calendario.jpg",</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#                 width = 13,</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#                 height = 6.5)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#                 width = 8,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#                 height = 8)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -905,131 +908,134 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># https://r-coder.com/calendar-plot-r/</span></span>
 <span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>events <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">153</span>)</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>segundas <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">7</span>, <span class="dv">126</span>, <span class="at">by =</span> <span class="dv">7</span>)</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>tercas <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">8</span>, <span class="dv">127</span>, <span class="at">by =</span> <span class="dv">7</span>)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>segundas <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">11</span>, <span class="dv">123</span>, <span class="at">by =</span> <span class="dv">7</span>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>tercas <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">12</span>, <span class="dv">124</span>, <span class="at">by =</span> <span class="dv">7</span>)</span>
 <span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>events[segundas] <span class="ot">&lt;-</span> <span class="st">"1: Aulas teóricas</span><span class="sc">\n</span><span class="st">CCA/ZDR 201</span><span class="sc">\n</span><span class="st">A/B/C: 13:30-16:00"</span></span>
 <span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>events[tercas] <span class="ot">&lt;-</span> <span class="st">"2: Aulas práticas (campo)</span><span class="sc">\n</span><span class="st">Ressacada</span><span class="sc">\n</span><span class="st">C: 10:10-11:50</span><span class="sc">\n</span><span class="st">A: 13:30-15:10</span><span class="sc">\n</span><span class="st">B: 15:20-17:00"</span></span>
 <span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Aulas práticas no CCA</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>events[<span class="fu">c</span>(<span class="dv">29</span>,  <span class="dv">50</span>,  <span class="dv">64</span>,  <span class="dv">71</span>, <span class="dv">106</span>, <span class="dv">113</span>, <span class="dv">120</span>, <span class="dv">127</span>)] <span class="ot">&lt;-</span> <span class="st">"3: Aulas práticas (sala)</span><span class="sc">\n</span><span class="st">CCA</span><span class="sc">\n</span><span class="st">C: 10:10-11:50</span><span class="sc">\n</span><span class="st">A: 13:30-15:10</span><span class="sc">\n</span><span class="st">B: 15:20-17:00"</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>events[<span class="fu">c</span>(<span class="dv">33</span>,  <span class="dv">54</span>,  <span class="dv">61</span>,  <span class="dv">75</span>, <span class="dv">82</span>, <span class="dv">96</span>, <span class="dv">110</span>, <span class="dv">117</span>, <span class="dv">124</span>)] <span class="ot">&lt;-</span> <span class="st">"3: Aulas práticas (análises)</span><span class="sc">\n</span><span class="st">CCA</span><span class="sc">\n</span><span class="st">C: 10:10-11:50</span><span class="sc">\n</span><span class="st">A: 13:30-15:10</span><span class="sc">\n</span><span class="st">B: 15:20-17:00"</span></span>
 <span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Provas</span></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>events[<span class="fu">c</span>(<span class="dv">63</span>, <span class="dv">126</span>)] <span class="ot">&lt;-</span> <span class="st">"3: Avaliações"</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>events[<span class="fu">c</span>(<span class="dv">67</span>, <span class="dv">130</span>)] <span class="ot">&lt;-</span> <span class="st">"3: Avaliações"</span></span>
 <span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Feriados</span></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>events[<span class="fu">c</span>(<span class="dv">84</span>, <span class="dv">85</span>)] <span class="ot">&lt;-</span> <span class="st">"4: Semana Acadêmica"</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Seminário</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>events[<span class="dv">131</span>] <span class="ot">&lt;-</span> <span class="st">"4: Apresentação</span><span class="sc">\n</span><span class="st">do projeto"</span></span>
 <span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"lightsalmon"</span>, <span class="st">"lightgreen"</span>, <span class="st">"skyblue"</span>, <span class="st">"cyan"</span>,  <span class="st">"gold"</span>)</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="co"># # Feriados</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="co"># events[c(84, 85)] &lt;- "4: Semana Acadêmica"</span></span>
 <span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating the calendar</span></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="fu">calendR</span>(<span class="at">year =</span> <span class="dv">2023</span>,</span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>        <span class="at">start_date =</span><span class="st">"2023-08-01"</span>,</span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>        <span class="at">end_date =</span> <span class="st">"2023-12-31"</span>,</span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>        <span class="at">special.days =</span> events,</span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>        <span class="at">special.col =</span> cores,</span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"FIT5306 - Bioestatística e Experimentação Agrícola"</span>, </span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>        <span class="at">subtitle =</span> <span class="st">"Cronograma de aulas - 2023/02"</span>,</span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>        <span class="at">subtitle.size =</span> <span class="dv">15</span>,</span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>        <span class="at">mbg.col =</span> <span class="st">"forestgreen"</span>,</span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>        <span class="at">months.col =</span> <span class="st">"white"</span>,</span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>        <span class="co"># bg.img = "figs/calendr.png",</span></span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.pos =</span> <span class="st">"bottom"</span>,</span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>        <span class="at">day.size =</span> <span class="dv">4</span>,</span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>        <span class="at">months.size =</span> <span class="dv">14</span>,</span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>        <span class="at">orientation =</span> <span class="st">"portrait"</span>)</span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot2::ggsave("calendario.jpg",</span></span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a><span class="co">#                 width = 13,</span></span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a><span class="co">#                 height = 6.5)</span></span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacotes necessários</span></span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>Para começar, é sugerido que os seguintes pacotes sejam instalados (confira como fazer isso no vídeo abaixo).</span>
-<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/8B8QDZnDhtY &gt;}}</span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{r warning=FALSE, message = FALSE}</span></span>
-<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># manipulação de dados</span></span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)      <span class="co"># estatísticas descritivas</span></span>
-<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)        <span class="co"># importação/exportação de dados</span></span>
-<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)    <span class="co"># comparação de médias</span></span>
-<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(AgroR)      <span class="co"># casualização e ANOVA</span></span>
-<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggstatsplot)<span class="co"># Gráficos com inferência estatística</span></span>
-<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a><span class="fu"># Dados de exemplo</span></span>
-<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>O conjunto de dados <span class="in">`dados_biost.xlsx`</span> contém dados que podem ser utilizados para aplicação prática dos conteúdos trabalhados na disciplina. Para baixar o arquivo <span class="in">`.xlsx`</span>, utilize o botão abaixo.</span>
-<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;a</span> <span class="er">href</span><span class="ot">=</span><span class="st">"https://bit.ly/df_biostat"</span> <span class="er">target</span><span class="ot">=</span><span class="st">"_blank"</span> <span class="er">rel</span><span class="ot">=</span><span class="st">"noopener"</span><span class="kw">&gt;</span> <span class="kw">&lt;button</span> <span class="er">class</span><span class="ot">=</span><span class="st">"btn btn-success"</span><span class="kw">&gt;&lt;i</span> <span class="er">class</span><span class="ot">=</span><span class="st">"fa fa-save"</span><span class="kw">&gt;&lt;/i&gt;</span> Download dados_biost_exp.xlsx<span class="kw">&lt;/button&gt;</span> <span class="kw">&lt;/a&gt;</span></span>
-<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>Planilhas específicas podem ser baixadas diretamente no software R, utilizando o argumento <span class="in">`sheet`</span> da função <span class="in">`import()`</span> do pacote <span class="in">`rio`</span>.</span>
-<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
-<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>df_biostat <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"DIC-DBC"</span>)</span>
-<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_biostat)</span>
-<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a>O arquivo contém as seguintes planilhas, que podem ser reunidas nas seguintes classes:</span>
-<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a><span class="fu">## Regressão</span></span>
-<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_DATA`</span>: dados sem repetição (**hipotéticos**) do RG observados em diferentes doses de Nitrogênio.</span>
-<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_ANALISE`</span>: Análise de regressão linear de primeiro grau dos dados <span class="in">`REG_DATA`</span>.</span>
-<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_DEL_DATA`</span>: dados com repetições do rendimento de grãos observados em diferentes doses de Nitrogênio.</span>
-<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_DEL_ANALISE`</span>: Análise de regressão dos dados <span class="in">`REG_DEL_DATA`</span>.</span>
-<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_PRATICA`</span>: dados referente a uma amostra de tamanho n = 11, na qual se aplicou CO2 em diferentes concentrações em folhas de trigo (X). A quantidade de C02 absorvida (Y) em cm3 / dm2 / hora foi avaliada. Esse exemplo foi apresentado por Ferreira (2009)<span class="sc">\[</span>\^1<span class="sc">\]</span>.</span>
-<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_PRATICA_ANALISE`</span>: Análise de regressão dos dados <span class="in">`REG_PRATICA`</span>.</span>
-<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a><span class="fu">## Correlação</span></span>
-<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`COR_DATA_DENSIDADE`</span>: Dois métodos de mensurar a densidade média da madeira (g /cm$^3$) em *Eucalyptus grandis* foram aplicados a uma amostra de n = 13 árvores. O primeiro método (X) é determinado utilizando um paquímetro e uma sonda Pressler de 0,5 cm na região da árvore determinada no diâmetro à altura do peito (DAP). A segunda, variável (Y) também foi mensurada no DAP utilizando cortes transversais no tronco. Esse exemplo foi apresentado por <span class="ot">[^1]</span>.</span>
-<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`CORRELACAO_DATA`</span>: dados de altura de planta (AP) e altura da espiga (AE) observados em 10 plantas de milho.</span>
-<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`CORRELACAO_ANALISE`</span>: Análise de correlação para os dados <span class="in">`CORRELACAO_DATA`</span>.</span>
-<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>Ferreira, D.F. 2009. Estatística Básica. 2nd ed. UFLA, Viçosa, MG.</span>
-<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## Experimentos unifatoriais</span></span>
-<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a>Os dados <span class="in">`COBERTURA_N_MASSA`</span> e <span class="in">`COBERTURA_N_SOJA`</span> foram obtidos em um trabalho conduzido em grupo no Centro Universitário Unideau, tendo como participantes os alunos Bernardo Pinheiro Busatta, Tiago Jonatan Fochesatto, Diogo Andre Ody, Gustavo Peretti e Paulo Sérgio Trevisol.</span>
-<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`COBERTURA_N_MASSA`</span>: dados de um experimento bifatorial com dois níveis de nitrogênio (com e sem) e quatro níveis de plantas de cobertura (aveia preta, centeio, triticale e pousio), conduzido em um DBC com quatro repetições. Foram avaliados a matéria verde (MV) e matéria seca (MS) das plantas, bem como a matéria seca de raiz (MSR).</span>
-<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`COBERTURA_N_SOJA`</span>: Com os mesmos tratamentos apresentados em <span class="in">`COBERTURA_N_MASSA`</span>, o experimento avaliou caracteres morfológicos e o rendimento de grãos de soja cultivada na resteva das respectivas coberturas de solo. Foram avaliados o número de legumes por planta (NL), número de grãos por legume (NGL), massa de mil grãos (MMG) e o rendimento de grãos (RG).</span>
-<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`DIC-DBC`</span>: dados de área foliar (AF) e matéria seca de planta (MST) de plantas de chicória avaliadas em diferentes níveis de radiação solar (50%, 70% e 100%). O experimento foi conduzido em delineamento de blocos completos casualizados, com quatro repetições.</span>
-<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`EFEITOS`</span>: Os efeitos de tratamento e erro (delineamento inteiramente casualizado) para os dados da planilha <span class="in">`DIC-DBC`</span>.</span>
-<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`DIC-DBC-ANOVA`</span>: análise de variância nos delineamentos DIC e DBC, para efeitos de comparação, dos dados da planilha <span class="in">`DIC-DBC`</span>.</span>
-<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`QUALI`</span>: Dados do rendimento de grãos (RG) de 10 híbridos de milho avaliados em um delineamento de blocos completos casualizados, com quatro repetições.</span>
-<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`QUANTI_LINEAR`</span>: Dados do rendimento de grãos (RG) de um híbrido de milho sob diferentes doses de nitrogênio, avaliados em um delineamento de blocos completos casualizados, com quatro repetições. O conjunto apresenta um comportamento linear.</span>
-<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`QUANTI_LINEAR`</span>: Dados do rendimento de grãos (RG) de um híbrido de milho sob diferentes doses de nitrogênio, avaliados em um delineamento de blocos completos casualizados, com quatro repetições. O conjunto apresenta um comportamento linear.</span>
-<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`QUANTI_QUADRÁTICA`</span>: Dados do rendimento de grãos (RG) de um híbrido de milho sob diferentes doses de nitrogênio, avaliados em um delineamento de blocos completos casualizados, com quatro repetições. O conjunto apresenta um comportamento quadrático.</span>
-<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`maize`</span>: Dados de um ensaio multi-ambientes onde 13 híbridos de milho foram avaliados em quatro localidades, sendo que em cada localidade um delineamento de blocos completos casualizados com três repetições foi utilizado. São apresentados dados de sete caracteres quantitativos avaliados em cinco plantas aleatoriamente escolhidas em cada parcela.</span>
-<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a><span class="fu">## Experimentos bifatoriais</span></span>
-<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a>As seguintes planilhas contém dados de experimentos bifatoriais com diferentes combinações de fatores qualitativos e quantitativos na presença de interação significativa e não significativa. Em todos os exemplos, é utilizado o delineamento de blocos completos casualizados.</span>
-<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT1_SI`</span>: Fator 1 **qualitativo** (fontes de nitrogênio), com três níveis; Fator 2 **qualitativo** (híbridos), com três níveis, **com interação significativa**.</span>
-<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT1_CI`</span>: Fator 1 **qualitativo** (dias de avaliação), com três níveis; Fator 2 **qualitativo** (radiação solar), com três níveis, **sem interação significativa**.</span>
-<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT1_C2I`</span><span class="ot">[^2]</span>: Fator 1 **Qualitativo** (enxofre), com dois níveis; Fator 2 **qualitativo** (parcelamento de N), com três níveis, **com interação significativa**.</span>
-<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT2_SI`</span>: Fator 1 **qualitativo** (híbridos), com dois níveis; Fator 2 **quantitativo** (doses de N), com cinco níveis, **sem interação significativa**.</span>
-<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT2_CI`</span>: Fator 1 **qualitativo** (híbridos), com dois níveis; Fator 2 **quantitativo** (doses de N), com cinco níveis, **com interação significativa**.</span>
-<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT3`</span>: Fator 1 **quantitativo** (doses de N), com quatro níveis; Fator 2 **quantitativo** (doses de K), com cinco níveis, **com interação significativa**.</span>
-<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a><span class="ot">[^2]: </span>Olivoto, T., I.R. Carvalho, M. Nardino, M. Ferrari, A.J. de Pelegrin, et al. 2016. Sulfur and nitrogen effects on industrial quality and grain yield of wheat Efeitos. Rev. Ciências Agroveterinárias 15(1): 24--33. doi: 10.5965/223811711512016024.</span>
-<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138590&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
-<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"lightsalmon"</span>, <span class="st">"lightgreen"</span>, <span class="st">"skyblue"</span>, <span class="st">"cyan"</span>,  <span class="st">"gold"</span>)</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating the calendar</span></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="fu">calendR</span>(<span class="at">year =</span> <span class="dv">2024</span>,</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>        <span class="at">from =</span><span class="st">"2024-03-01"</span>,</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>        <span class="at">to =</span> <span class="st">"2024-07-31"</span>,</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>        <span class="at">special.days =</span> events,</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>        <span class="at">special.col =</span> cores,</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"FIT5306 - Bioestatística e Experimentação Agrícola"</span>, </span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>        <span class="at">subtitle =</span> <span class="st">"Cronograma de aulas - 2024/01"</span>,</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>        <span class="at">subtitle.size =</span> <span class="dv">15</span>,</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>        <span class="at">mbg.col =</span> <span class="st">"forestgreen"</span>,</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>        <span class="at">months.col =</span> <span class="st">"white"</span>,</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>        <span class="co"># bg.img = "figs/calendr.png",</span></span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.pos =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>        <span class="at">day.size =</span> <span class="dv">4</span>,</span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>        <span class="at">months.size =</span> <span class="dv">14</span>,</span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>        <span class="at">orientation =</span> <span class="st">"portrait"</span>)</span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot2::ggsave("calendario.jpg",</span></span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a><span class="co">#                 width = 8,</span></span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a><span class="co">#                 height = 8)</span></span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacotes necessários</span></span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>Para começar, é sugerido que os seguintes pacotes sejam instalados (confira como fazer isso no vídeo abaixo).</span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/8B8QDZnDhtY &gt;}}</span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a><span class="in">```{r warning=FALSE, message = FALSE}</span></span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># manipulação de dados</span></span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)      <span class="co"># estatísticas descritivas</span></span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)        <span class="co"># importação/exportação de dados</span></span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)    <span class="co"># comparação de médias</span></span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(AgroR)      <span class="co"># casualização e ANOVA</span></span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggstatsplot)<span class="co"># Gráficos com inferência estatística</span></span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a><span class="fu"># Dados de exemplo</span></span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>O conjunto de dados <span class="in">`dados_biost.xlsx`</span> contém dados que podem ser utilizados para aplicação prática dos conteúdos trabalhados na disciplina. Para baixar o arquivo <span class="in">`.xlsx`</span>, utilize o botão abaixo.</span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;a</span> <span class="er">href</span><span class="ot">=</span><span class="st">"https://bit.ly/df_biostat"</span> <span class="er">target</span><span class="ot">=</span><span class="st">"_blank"</span> <span class="er">rel</span><span class="ot">=</span><span class="st">"noopener"</span><span class="kw">&gt;</span> <span class="kw">&lt;button</span> <span class="er">class</span><span class="ot">=</span><span class="st">"btn btn-success"</span><span class="kw">&gt;&lt;i</span> <span class="er">class</span><span class="ot">=</span><span class="st">"fa fa-save"</span><span class="kw">&gt;&lt;/i&gt;</span> Download dados_biost_exp.xlsx<span class="kw">&lt;/button&gt;</span> <span class="kw">&lt;/a&gt;</span></span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>Planilhas específicas podem ser baixadas diretamente no software R, utilizando o argumento <span class="in">`sheet`</span> da função <span class="in">`import()`</span> do pacote <span class="in">`rio`</span>.</span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a>df_biostat <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"DIC-DBC"</span>)</span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_biostat)</span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>O arquivo contém as seguintes planilhas, que podem ser reunidas nas seguintes classes:</span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a><span class="fu">## Regressão</span></span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_DATA`</span>: dados sem repetição (**hipotéticos**) do RG observados em diferentes doses de Nitrogênio.</span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_ANALISE`</span>: Análise de regressão linear de primeiro grau dos dados <span class="in">`REG_DATA`</span>.</span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_DEL_DATA`</span>: dados com repetições do rendimento de grãos observados em diferentes doses de Nitrogênio.</span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_DEL_ANALISE`</span>: Análise de regressão dos dados <span class="in">`REG_DEL_DATA`</span>.</span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_PRATICA`</span>: dados referente a uma amostra de tamanho n = 11, na qual se aplicou CO2 em diferentes concentrações em folhas de trigo (X). A quantidade de C02 absorvida (Y) em cm3 / dm2 / hora foi avaliada. Esse exemplo foi apresentado por Ferreira (2009)<span class="sc">\[</span>\^1<span class="sc">\]</span>.</span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REG_PRATICA_ANALISE`</span>: Análise de regressão dos dados <span class="in">`REG_PRATICA`</span>.</span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a><span class="fu">## Correlação</span></span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`COR_DATA_DENSIDADE`</span>: Dois métodos de mensurar a densidade média da madeira (g /cm$^3$) em *Eucalyptus grandis* foram aplicados a uma amostra de n = 13 árvores. O primeiro método (X) é determinado utilizando um paquímetro e uma sonda Pressler de 0,5 cm na região da árvore determinada no diâmetro à altura do peito (DAP). A segunda, variável (Y) também foi mensurada no DAP utilizando cortes transversais no tronco. Esse exemplo foi apresentado por <span class="ot">[^1]</span>.</span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`CORRELACAO_DATA`</span>: dados de altura de planta (AP) e altura da espiga (AE) observados em 10 plantas de milho.</span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`CORRELACAO_ANALISE`</span>: Análise de correlação para os dados <span class="in">`CORRELACAO_DATA`</span>.</span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>Ferreira, D.F. 2009. Estatística Básica. 2nd ed. UFLA, Viçosa, MG.</span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a><span class="fu">## Experimentos unifatoriais</span></span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a>Os dados <span class="in">`COBERTURA_N_MASSA`</span> e <span class="in">`COBERTURA_N_SOJA`</span> foram obtidos em um trabalho conduzido em grupo no Centro Universitário Unideau, tendo como participantes os alunos Bernardo Pinheiro Busatta, Tiago Jonatan Fochesatto, Diogo Andre Ody, Gustavo Peretti e Paulo Sérgio Trevisol.</span>
+<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`COBERTURA_N_MASSA`</span>: dados de um experimento bifatorial com dois níveis de nitrogênio (com e sem) e quatro níveis de plantas de cobertura (aveia preta, centeio, triticale e pousio), conduzido em um DBC com quatro repetições. Foram avaliados a matéria verde (MV) e matéria seca (MS) das plantas, bem como a matéria seca de raiz (MSR).</span>
+<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`COBERTURA_N_SOJA`</span>: Com os mesmos tratamentos apresentados em <span class="in">`COBERTURA_N_MASSA`</span>, o experimento avaliou caracteres morfológicos e o rendimento de grãos de soja cultivada na resteva das respectivas coberturas de solo. Foram avaliados o número de legumes por planta (NL), número de grãos por legume (NGL), massa de mil grãos (MMG) e o rendimento de grãos (RG).</span>
+<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`DIC-DBC`</span>: dados de área foliar (AF) e matéria seca de planta (MST) de plantas de chicória avaliadas em diferentes níveis de radiação solar (50%, 70% e 100%). O experimento foi conduzido em delineamento de blocos completos casualizados, com quatro repetições.</span>
+<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`EFEITOS`</span>: Os efeitos de tratamento e erro (delineamento inteiramente casualizado) para os dados da planilha <span class="in">`DIC-DBC`</span>.</span>
+<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`DIC-DBC-ANOVA`</span>: análise de variância nos delineamentos DIC e DBC, para efeitos de comparação, dos dados da planilha <span class="in">`DIC-DBC`</span>.</span>
+<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`QUALI`</span>: Dados do rendimento de grãos (RG) de 10 híbridos de milho avaliados em um delineamento de blocos completos casualizados, com quatro repetições.</span>
+<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`QUANTI_LINEAR`</span>: Dados do rendimento de grãos (RG) de um híbrido de milho sob diferentes doses de nitrogênio, avaliados em um delineamento de blocos completos casualizados, com quatro repetições. O conjunto apresenta um comportamento linear.</span>
+<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`QUANTI_LINEAR`</span>: Dados do rendimento de grãos (RG) de um híbrido de milho sob diferentes doses de nitrogênio, avaliados em um delineamento de blocos completos casualizados, com quatro repetições. O conjunto apresenta um comportamento linear.</span>
+<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`QUANTI_QUADRÁTICA`</span>: Dados do rendimento de grãos (RG) de um híbrido de milho sob diferentes doses de nitrogênio, avaliados em um delineamento de blocos completos casualizados, com quatro repetições. O conjunto apresenta um comportamento quadrático.</span>
+<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`maize`</span>: Dados de um ensaio multi-ambientes onde 13 híbridos de milho foram avaliados em quatro localidades, sendo que em cada localidade um delineamento de blocos completos casualizados com três repetições foi utilizado. São apresentados dados de sete caracteres quantitativos avaliados em cinco plantas aleatoriamente escolhidas em cada parcela.</span>
+<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## Experimentos bifatoriais</span></span>
+<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a>As seguintes planilhas contém dados de experimentos bifatoriais com diferentes combinações de fatores qualitativos e quantitativos na presença de interação significativa e não significativa. Em todos os exemplos, é utilizado o delineamento de blocos completos casualizados.</span>
+<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT1_SI`</span>: Fator 1 **qualitativo** (fontes de nitrogênio), com três níveis; Fator 2 **qualitativo** (híbridos), com três níveis, **com interação significativa**.</span>
+<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT1_CI`</span>: Fator 1 **qualitativo** (dias de avaliação), com três níveis; Fator 2 **qualitativo** (radiação solar), com três níveis, **sem interação significativa**.</span>
+<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT1_C2I`</span><span class="ot">[^2]</span>: Fator 1 **Qualitativo** (enxofre), com dois níveis; Fator 2 **qualitativo** (parcelamento de N), com três níveis, **com interação significativa**.</span>
+<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT2_SI`</span>: Fator 1 **qualitativo** (híbridos), com dois níveis; Fator 2 **quantitativo** (doses de N), com cinco níveis, **sem interação significativa**.</span>
+<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT2_CI`</span>: Fator 1 **qualitativo** (híbridos), com dois níveis; Fator 2 **quantitativo** (doses de N), com cinco níveis, **com interação significativa**.</span>
+<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`FAT3`</span>: Fator 1 **quantitativo** (doses de N), com quatro níveis; Fator 2 **quantitativo** (doses de K), com cinco níveis, **com interação significativa**.</span>
+<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a><span class="ot">[^2]: </span>Olivoto, T., I.R. Carvalho, M. Nardino, M. Ferrari, A.J. de Pelegrin, et al. 2016. Sulfur and nitrogen effects on industrial quality and grain yield of wheat Efeitos. Rev. Ciências Agroveterinárias 15(1): 24--33. doi: 10.5965/223811711512016024.</span>
+<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138590&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
+<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

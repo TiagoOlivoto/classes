@@ -4,6 +4,7 @@ editor_options:
   chunk_output_type: console
 ---
 
+
 # Diretório
 
 ```{r include = FALSE}
