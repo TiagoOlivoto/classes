@@ -11,7 +11,7 @@ Bem-vindo ao material de apoio da disciplina RGV410046 (Introdução à linguage
 ::: {layout-ncol="2"}
 [![Prof. Dr. Tiago Olivoto](figs/olivoto.png)](https://olivoto.netlify.app/)
 
-[![Prof. Dra. Ana Catarina Conte Jakovac](figs/catarina.jpg)](http://lattes.cnpq.br/6851033339458776)
+[![Dr. Andre Luiz Giles de Oliveira](figs/giles.png)](http://lattes.cnpq.br/5450976686682976)
 :::
 
 # Calendário de aulas
@@ -27,34 +27,27 @@ Bem-vindo ao material de apoio da disciplina RGV410046 (Introdução à linguage
 library(calendR)
 # tutorial calendR
 # https://r-coder.com/calendar-plot-r/
-events <- rep(NA, 30)
-events[c(14, 21, 28)] <- "Sala 106 - PGA"
-events[c(11, 15, 18, 22, 25)] <- "Sala 107 - PGA"
-events[27] <- "Entrega do desafio \nSem atividade presencial"
-
-# img <- "figs/calendr.png"
-
+events <- rep(NA, 60)
+events[c(30, 32:34,
+         37, 39:41)] <- "Aula"
 # Creating the calendar
-calendR(start_date ="2023-09-01",
-        end_date = "2023-09-30",
+calendR(from ="2024-09-01",
+        to = "2024-10-30",
         special.days = events,
-        special.col =  c("lightgreen", "lightblue", "salmon"),
+        special.col =  c("lightgreen"),
         title = "RGV410046\nIntrodução à linguagem R de programação", 
-        subtitle = "Cronograma de aulas - 08:20 às 11:50",
+        subtitle = "Cronograma de aulas 2024/02 - 08:20 às 11:50",
         mbg.col = "forestgreen",            
         months.col = "white",
-        # bg.img = img,
         legend.pos = "bottom")
-# ggplot2::ggsave("cronograma2.jpg", width = 5.5, height = 5.5)
 ```
 
 # Salas
-* 106 - PGA: 14, 21, e 28/09 (quintas-feiras)
-* 107 - PGA: 11, 15, 18, 22 e 25/09
+* À definir
 
 # Conteúdo programático
 
-## 11/09/2023
+## 30/09/2024
 
 -   Introdução à disciplina
 -   Instalação do R e Rstudio
@@ -66,7 +59,7 @@ calendR(start_date ="2023-09-01",
 -   Aplicação prática
 
 
-## 14/09/2023
+## 02/10/2024
 
 -   Dinâmica aula anterior
 -   Tipos de dados
@@ -85,7 +78,7 @@ calendR(start_date ="2023-09-01",
 -   Aplicação prática
 
 
-## 15/09/2023
+## 03/10/2024
 
 -   Importação de dados (pc, repositório)
 -   dados tidy
@@ -94,7 +87,7 @@ calendR(start_date ="2023-09-01",
 -   Aplicação prática
 
 
-## 18/09/2023
+## 04/10/2024
 
 -   Seleção de dados
 -   select
@@ -104,7 +97,7 @@ calendR(start_date ="2023-09-01",
 -   Aplicação prática
 
 
-## 21/09/2023
+## 07/10/2024
 
 -   Manipulação de dados
 -   Longer (dados errados, para arrumar)
@@ -114,7 +107,7 @@ calendR(start_date ="2023-09-01",
 -   Aplicação prática
 
 
-## 22/09/2023
+## 09/10/2024
 
 -   Mutação de dados
 -   mutate
@@ -122,7 +115,7 @@ calendR(start_date ="2023-09-01",
 -   group_by
 -   Aplicação prática
 
-## 25/09/2023
+## 10/10/2024
 
 -   Resumo de dados
 -   summarise
@@ -130,16 +123,13 @@ calendR(start_date ="2023-09-01",
 -   group_by
 -   Aplicação prática
 
-## 27/08/2023
+## 11/10/2024
 - Entrega do desafio
-
-
-## 28/09/2023
 -   Correção do desafio
 
 
 # Forma de avaliação
-A avaliação consistirá em uma metodologia baseado em problema, onde o aluno precisará apresentar uma solução para resolução de um desafio envolvendo o conteúdo visto na disciplina. O desafio será apresentado no ínicio da disciplina e o aluno deverá entrega-lo até o dia 27/09/2023.
+A avaliação consistirá em uma metodologia baseado em problema, onde o aluno precisará apresentar uma solução para resolução de um desafio envolvendo o conteúdo visto na disciplina. O desafio será apresentado no ínicio da disciplina e o aluno deverá entrega-lo até o dia 11/10/2024.
 
 
 # Instalação do R e Rstudio

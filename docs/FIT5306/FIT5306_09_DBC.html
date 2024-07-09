@@ -341,9 +341,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="características" class="level2">
 <h2 class="anchored" data-anchor-id="características">Características</h2>
 <ul>
-<li>Utiliza apenas os princípios de repetição e casualização;</li>
-<li>Os tratamentos são alocados nas parcelas de forma inteiramente casual, sem nenhum tipo de bloqueamento.</li>
-<li>Exige que o material experimental e a área experimental sejam uniformes. Ele geralmente é mais utilizado em experimentos nos quais as condições experimentais podem ser bastante controladas (por exemplo em laboratórios);</li>
+<li>Utiliza os princípios de repetição, casualização e controle local;</li>
+<li>Os tratamentos são alocados aleatoriamente dentro de grupos de unidades experimentais homogêneas (blocos).</li>
+<li>Utilizado para controlar uma fonte de variação presente na área experimental, mas que não é de interesse do pesquisador. A heterogeneidade da área deve ser controlada entre os diferentes blocos; dentro do bloco é necessário que as condições sejam homogêneas.</li>
 </ul>
 </section>
 <section id="vantagens" class="level2">
@@ -602,8 +602,8 @@ Lower triangle: Comparisons (estimate)   earlier vs. later</code></pre>
 <section id="dados" class="level2">
 <h2 class="anchored" data-anchor-id="dados">Dados</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/1vpVGdIkggRxmdnwrkllHbVA0TIHN85UK/edit#gid=1486281449"</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df_maize <span class="ot">&lt;-</span>  <span class="fu">import</span>(url, <span class="at">dec =</span> <span class="st">","</span>)</span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df_maize <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"QUALI"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>tabela <span class="ot">&lt;-</span> </span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  df_maize <span class="sc">%&gt;%</span> </span>
@@ -612,7 +612,7 @@ Lower triangle: Comparisons (estimate)   earlier vs. later</code></pre>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>tabela</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>            B1     B2    B3     B4 row_sum
+<pre><code>             1      2     3      4 row_sum
 NP_1     8.820  9.360  7.98 11.760  37.920
 NP_2     9.123  7.860  8.82 12.120  37.923
 NP_3     7.740  8.123  7.92 11.220  35.003
@@ -630,10 +630,10 @@ col_sum 36.223 37.243 36.74 54.752 164.958</code></pre>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pwpm</span>(med_hib)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         NP_1     NP_2     NP_3     NP_4   NP_5
-NP_1   [9.48]   1.0000   0.5666   0.0040 0.0002
-NP_2 -0.00075   [9.48]   0.5657   0.0040 0.0002
-NP_3  0.72925  0.73000   [8.75]   0.0533 0.0018
-NP_4  2.23500  2.23575  1.50575   [7.24] 0.3168
+NP_1   [9.48]   1.0000   0.9297   0.1675 0.0267
+NP_2 -0.00075   [9.48]   0.9295   0.1673 0.0267
+NP_3  0.72925  0.73000   [8.75]   0.5045 0.1101
+NP_4  2.23500  2.23575  1.50575   [7.24] 0.8326
 NP_5  3.19700  3.19775  2.46775  0.96200 [6.28]
 
 Row and column labels: HIBRIDO
@@ -1168,9 +1168,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Características</span></span>
 <span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Utiliza apenas os princípios de repetição e casualização;</span>
-<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Os tratamentos são alocados nas parcelas de forma inteiramente casual, sem nenhum tipo de bloqueamento.</span>
-<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Exige que o material experimental e a área experimental sejam uniformes. Ele geralmente é mais utilizado em experimentos nos quais as condições experimentais podem ser bastante controladas (por exemplo em laboratórios);</span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Utiliza os princípios de repetição, casualização e controle local;</span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Os tratamentos são alocados aleatoriamente dentro de grupos de unidades experimentais homogêneas (blocos).</span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Utilizado para controlar uma fonte de variação presente na área experimental, mas que não é de interesse do pesquisador. A heterogeneidade da área deve ser controlada entre os diferentes blocos; dentro do bloco é necessário que as condições sejam homogêneas.</span>
 <span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vantagens</span></span>
 <span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a></span>
@@ -1335,8 +1335,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb30-194"><a href="#cb30-194" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dados</span></span>
 <span id="cb30-195"><a href="#cb30-195" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-198"><a href="#cb30-198" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-199"><a href="#cb30-199" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/1vpVGdIkggRxmdnwrkllHbVA0TIHN85UK/edit#gid=1486281449"</span></span>
-<span id="cb30-200"><a href="#cb30-200" aria-hidden="true" tabindex="-1"></a>df_maize <span class="ot">&lt;-</span>  <span class="fu">import</span>(url, <span class="at">dec =</span> <span class="st">","</span>)</span>
+<span id="cb30-199"><a href="#cb30-199" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
+<span id="cb30-200"><a href="#cb30-200" aria-hidden="true" tabindex="-1"></a>df_maize <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"QUALI"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
 <span id="cb30-201"><a href="#cb30-201" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-202"><a href="#cb30-202" aria-hidden="true" tabindex="-1"></a>tabela <span class="ot">&lt;-</span> </span>
 <span id="cb30-203"><a href="#cb30-203" aria-hidden="true" tabindex="-1"></a>  df_maize <span class="sc">%&gt;%</span> </span>

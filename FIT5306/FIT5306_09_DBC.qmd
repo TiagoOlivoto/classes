@@ -19,9 +19,9 @@ No Delineamento de Blocos Completos Casualizados uma restrição na casualizaç�
 
 ## Características
 
--   Utiliza apenas os princípios de repetição e casualização;
--   Os tratamentos são alocados nas parcelas de forma inteiramente casual, sem nenhum tipo de bloqueamento.
--   Exige que o material experimental e a área experimental sejam uniformes. Ele geralmente é mais utilizado em experimentos nos quais as condições experimentais podem ser bastante controladas (por exemplo em laboratórios);
+-   Utiliza os princípios de repetição, casualização e controle local;
+-   Os tratamentos são alocados aleatoriamente dentro de grupos de unidades experimentais homogêneas (blocos).
+-   Utilizado para controlar uma fonte de variação presente na área experimental, mas que não é de interesse do pesquisador. A heterogeneidade da área deve ser controlada entre os diferentes blocos; dentro do bloco é necessário que as condições sejam homogêneas.
 
 ## Vantagens
 
@@ -187,8 +187,8 @@ with(df_dbc,
 ## Dados
 
 ```{r}
-url <- "https://docs.google.com/spreadsheets/d/1vpVGdIkggRxmdnwrkllHbVA0TIHN85UK/edit#gid=1486281449"
-df_maize <-  import(url, dec = ",")
+url <- "https://bit.ly/df_biostat"
+df_maize <- import(url, sheet = "QUALI", setclass = "tbl")
 
 tabela <- 
   df_maize %>% 
