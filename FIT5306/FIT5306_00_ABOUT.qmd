@@ -6,7 +6,7 @@ title: "FIT5306 - Bioestatística e Experimentação Agrícola"
 
 Bem-vindo ao material de apoio da disciplina FIT5306 (Bioestatística e Experimentação Agrícola)! Esta página contém os dados e scripts R necessários para aplicação prática dos conteúdos vistos na disciplina.
 
-# Cronograma (2024/02)
+# Cronograma (2025/01)
 
 ```{r }
 #| code-fold: true
@@ -17,49 +17,51 @@ Bem-vindo ao material de apoio da disciplina FIT5306 (Bioestatística e Experime
 #| warning: false
 #| message: false
 
+library(ggplot2)
 library(calendR)
 # tutorial calendR
 # https://r-coder.com/calendar-plot-r/
 
 events <- rep(NA, 153)
-segundas <- seq(26, 138, by = 7)
-tercas <- seq(27, 139, by = 7)
+segundas <- seq(10, 129, by = 7)
+tercas <- seq(11, 130, by = 7)
 events[segundas] <- "1: Aulas teóricas\nCCA/ZDR 201\nA/B/C: 13:30-16:00"
 events[tercas] <- "2: Aulas práticas (campo)\nRessacada\nC: 10:10-11:50\nA: 13:30-15:10\nB: 15:20-17:00"
 
 # Aulas práticas no CCA
-events[c(48, 69, 76, 90, 111, 125, 132)] <- "3: Aulas práticas (análises)\nCCA\nC: 10:10-11:50\nA: 13:30-15:10\nB: 15:20-17:00"
+events[c(32, 53, 60, 74, 81, 95, 109, 116, 123)] <- "3: Aulas práticas (análises)\nCCA\nC: 10:10-11:50\nA: 13:30-15:10\nB: 15:20-17:00"
 
 # Provas
-events[c(82, 138)] <- "3: Avaliações"
+events[c(66, 129)] <- "4: Avaliações"
 
 # Seminário
-events[139] <- "4: Apresentação\ndo projeto"
+events[130] <- "5: Apresentação\ndo projeto"
 
 # # Feriados
-events[c(96, 97)] <- "4: Semana Acadêmica"
+events[c(52)] <- "6: Feriado"
 
 
 
 # Creating the calendar
 calendR(year = 2024,
-        from ="2024-08-01",
-        to = "2024-12-31",
+        from ="2025-03-01",
+        to = "2025-07-31",
         special.days = events,
         special.col = metan::ggplot_color(length(unique(na.omit(events)))),
         title = "FIT5306 - Bioestatística e Experimentação Agrícola", 
-        subtitle = "Cronograma de aulas - 2024/02",
+        subtitle = "Cronograma de aulas - 2025/01",
         subtitle.size = 15,
         mbg.col = "forestgreen",
         months.col = "white",
         legend.pos = "bottom",
         day.size = 4,
         months.size = 14,
-        orientation = "portrait")
+        orientation = "portrait") +
+  guides(fill = guide_legend(nrow = 1))
 
-ggplot2::ggsave("calendario.jpg",
-                width = 8,
-                height = 8)
+# ggplot2::ggsave("calendario.jpg",
+#                 width = 10,
+#                 height = 6.75)
 
 ```
 
