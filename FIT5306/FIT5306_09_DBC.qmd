@@ -10,7 +10,6 @@ library(metan)      # estatísticas descritivas
 library(rio)        # importação/exportação de dados
 library(emmeans)    # comparação de médias
 library(AgroR)      # casualização e ANOVA
-library(ExpDes.pt)
 ```
 
 # Delineamento de Blocos Completos Casualizados (DBC) {#sec-dbc}

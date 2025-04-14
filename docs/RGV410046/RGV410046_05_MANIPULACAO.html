@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5. Manipulação de Dados – Aulas</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../RGV410046/RGV410046_06_MUTACAO.html" rel="next">
+<link href="../RGV410046/RGV410046_04_SELECAO.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean"
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+
+
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Aulas</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../00_about.html"> <i class="bi bi-fa fa-home" role="img">
+</i> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../FIT5306/FIT5306_00_ABOUT.html"> 
+<span class="menu-text">Bioestatística</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../RGV410046/RGV410046_00_ABOUT.html" aria-current="page"> 
+<span class="menu-text">Introdução ao R</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.researchgate.net/profile/Tiago_Olivoto"> <i class="bi bi-fab fa-researchgate fa" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/TiagoOlivoto/classes"> <i class="bi bi-bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/tolivoto"> <i class="bi bi-bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.mendeley.com/profiles/tiago-olivoto/"> <i class="bi bi-fab fa-mendeley fa" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../RGV410046/RGV410046_05_MANIPULACAO.html">5. Manipulação de Dados</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../RGV410046/RGV410046_00_ABOUT.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RGV410046 - Introdução à linguagem R de programação</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../RGV410046/RGV410046_01_INTRO.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. O software R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../RGV410046/RGV410046_02_PROGRAMACAO.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Introdução à programação R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../RGV410046/RGV410046_03_DADOS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Dados</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../RGV410046/RGV410046_04_SELECAO.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Seleção e filtragem</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../RGV410046/RGV410046_05_MANIPULACAO.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">5. Manipulação de Dados</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../RGV410046/RGV410046_06_MUTACAO.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Mutação</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../RGV410046/RGV410046_07_RESUMO.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Sintetização</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../RGV410046/RGV410046_08_DATAVIZ.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Visualização de dados</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#diretório" id="toc-diretório" class="nav-link active" data-scroll-target="#diretório">Diretório</a></li>
+  <li><a href="#pacotes" id="toc-pacotes" class="nav-link" data-scroll-target="#pacotes">Pacotes</a></li>
+  <li><a href="#girar" id="toc-girar" class="nav-link" data-scroll-target="#girar">Girar</a>
+  <ul>
+  <li><a href="#longer" id="toc-longer" class="nav-link" data-scroll-target="#longer">Longer</a></li>
+  <li><a href="#wider" id="toc-wider" class="nav-link" data-scroll-target="#wider">Wider</a></li>
+  </ul></li>
+  <li><a href="#separar" id="toc-separar" class="nav-link" data-scroll-target="#separar">Separar</a></li>
+  <li><a href="#concatenar" id="toc-concatenar" class="nav-link" data-scroll-target="#concatenar">Concatenar</a></li>
+  <li><a href="#renomear-homework" id="toc-renomear-homework" class="nav-link" data-scroll-target="#renomear-homework">Renomear (Homework)</a>
+  <ul>
+  <li><a href="#r-base" id="toc-r-base" class="nav-link" data-scroll-target="#r-base">R base</a></li>
+  <li><a href="#dplyr-rename" id="toc-dplyr-rename" class="nav-link" data-scroll-target="#dplyr-rename">dplyr <code>rename()</code></a></li>
+  <li><a href="#dplyr-rename_with" id="toc-dplyr-rename_with" class="nav-link" data-scroll-target="#dplyr-rename_with">dplyr <code>rename_with()</code></a></li>
+  <li><a href="#metan-add_prefix-e-add_suffix" id="toc-metan-add_prefix-e-add_suffix" class="nav-link" data-scroll-target="#metan-add_prefix-e-add_suffix">metan <code>add_prefix()</code> e <code>add_suffix()</code></a></li>
+  </ul></li>
+  <li><a href="#juntar" id="toc-juntar" class="nav-link" data-scroll-target="#juntar">Juntar</a>
+  <ul>
+  <li><a href="#junções-com-mutação" id="toc-junções-com-mutação" class="nav-link" data-scroll-target="#junções-com-mutação">Junções com mutação</a></li>
+  </ul></li>
+  <li><a href="#avançado" id="toc-avançado" class="nav-link" data-scroll-target="#avançado">Avançado</a>
+  <ul>
+  <li><a href="#junções-com-filtragem" id="toc-junções-com-filtragem" class="nav-link" data-scroll-target="#junções-com-filtragem">Junções com filtragem</a></li>
+  <li><a href="#operações-com-conjuntos-vetores" id="toc-operações-com-conjuntos-vetores" class="nav-link" data-scroll-target="#operações-com-conjuntos-vetores">Operações com conjuntos (vetores)</a></li>
+  <li><a href="#operações-com-conjuntos-data-frames" id="toc-operações-com-conjuntos-data-frames" class="nav-link" data-scroll-target="#operações-com-conjuntos-data-frames">Operações com conjuntos (data frames)</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/TiagoOlivoto/classes/edit/main/RGV410046/RGV410046_05_MANIPULACAO.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">5. Manipulação de Dados</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="diretório" class="level1">
+<h1>Diretório</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># meu computador (mudar de acordo)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"D:/Desktop/UFSC/aulas/classes/RGV410046/data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="pacotes" class="level1">
+<h1>Pacotes</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="girar" class="level1">
+<h1>Girar</h1>
+<p>Geralmente, os dados são organizados para facilitar algum uso que não seja a análise. Por exemplo, os dados geralmente são organizados para facilitar ao máximo a coleta. Isso significa que, para a maioria das análises, os dados não estarão em um formato <em>tidy</em> e você precisará fazer algumas transformações morfológicas. O primeiro passo é sempre descobrir quais são as variáveis a serem transformadas. O segundo passo é resolver um dos dois problemas mais comuns:</p>
+<ul>
+<li>Uma variável pode estar espalhada por várias colunas.</li>
+<li>Uma observação pode estar espalhada por várias linhas.</li>
+</ul>
+<p>Note o exemplo abaixo.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/feijao.png" class="img-fluid figure-img"></p>
+<figcaption>Exemplo de dados em um formato “wide”</figcaption>
+</figure>
+</div>
+<p>No caso acima, a altura de planta de plantas de feijão foi mensurada em cinco plantas de cada bloco de três diferentes tratamentos. Então, cada tratamento conterá 15 valores. Note que as medições de cada planta estão dispostas em cinco diferentes colunas (P1 a P5). Então, a variável altura de planta está <em>espalhada</em> por várias colunas. Para corrigir esse problema e o problema de uma observação estar espalhada por várias linhas, utilizaremos duas das mais importantes do pacote <code>tidyr</code>: <code>pivot_longer()</code> e <code>pivot_wider()</code>.</p>
+<section id="longer" class="level2">
+<h2 class="anchored" data-anchor-id="longer">Longer</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(df_wide <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"examples_data.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"feijao"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  UE BLOCO ADUBACAO   P1   P2   P3   P4   P5
+1  1     1       AO 16.0 17.0 19.0 15.0 17.0
+2  2     1       AQ 21.5 17.0 13.5 14.0 15.0
+3  3     1       SA 13.0 16.5 11.5 14.5 12.5
+4  4     2       AQ 15.0 14.0 13.0 16.0 16.0
+5  5     2       AO 14.0 17.0 18.0 16.0 14.0
+6  6     2       SA 15.0 14.0 16.0 16.0 13.0
+7  7     3       AO 17.0 17.0 11.0 16.0 15.0
+8  8     3       SA 17.0 16.0 14.0 17.0 12.0
+9  9     3       AQ 16.0 17.0 14.0 16.0 12.0</code></pre>
+</div>
+</div>
+<p>Para organizar um conjunto de dados como esse, precisamos dinamizar as colunas problemáticas em duas novas colunas (variável e valor) utilizando a função <code>pivot_longer()</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf"><img src="figs/pivot_longer.png" class="img-fluid figure-img" alt="Exemplo da função pivot_longer(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf"></a></p>
+<figcaption>Exemplo da função pivot_longer(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf</figcaption>
+</figure>
+</div>
+<p>Para realizar essa operação, precisamos de três parâmetros (além do conjunto de dados)</p>
+<ul>
+<li><code>cols</code>: o conjunto de colunas cujos nomes são valores, não variáveis. Neste exemplo, essas são as colunas P1, P2, P3, P4 e P5.</li>
+<li><code>names_to</code>: O nome da variável para a qual mover os nomes das colunas. Aqui será <code>"PLANTA"</code>.</li>
+<li><code>values_to</code>: O nome da variável para a qual mover os valores da coluna. Aqui será <code>"ALTURA"</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>long <span class="ot">&lt;-</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(df_wide,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">cols =</span> P1<span class="sc">:</span>P5,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"PLANTA"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"AP"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>long</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 45 × 5
+      UE BLOCO ADUBACAO PLANTA    AP
+   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;dbl&gt;
+ 1     1     1 AO       P1      16  
+ 2     1     1 AO       P2      17  
+ 3     1     1 AO       P3      19  
+ 4     1     1 AO       P4      15  
+ 5     1     1 AO       P5      17  
+ 6     2     1 AQ       P1      21.5
+ 7     2     1 AQ       P2      17  
+ 8     2     1 AQ       P3      13.5
+ 9     2     1 AQ       P4      14  
+10     2     1 AQ       P5      15  
+# ℹ 35 more rows</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+tidyselect style notation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A seleção de variáveis no universo <em>tidy</em> é prioritariamente suportada pelo pacote <code>tidyselect</code>. Isso significa que a seleção de variáveis pode ser realizada com base em seus nomes, posições, ou propriedades.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># seleciona variáveis que contém uma determinada string</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pivot_longer</span>(df_wide,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"P"</span>),</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">names_to =</span> <span class="st">"PLANTA"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">values_to =</span> <span class="st">"ALTURA"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 45 × 5
+     UE BLOCO ADUBACAO PLANTA ALTURA
+  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;dbl&gt;
+1     1     1 AO       P1         16
+2     1     1 AO       P2         17
+3     1     1 AO       P3         19
+# ℹ 42 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># seleciona variáveis por sua posição</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pivot_longer</span>(df_wide,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">cols =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">8</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">names_to =</span> <span class="st">"PLANTA"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">values_to =</span> <span class="st">"ALTURA"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 45 × 5
+     UE BLOCO ADUBACAO PLANTA ALTURA
+  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;dbl&gt;
+1     1     1 AO       P1         16
+2     1     1 AO       P2         17
+3     1     1 AO       P3         19
+# ℹ 42 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>Após a modificação, as colunas são descartadas e obtemos as colunas de planta e altura. Assim, vemos que <code>pivot_longer()</code> torna os conjuntos de dados mais longos aumentando o número de linhas e diminuindo o número de colunas.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/4KwZeQe6JOc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="wider" class="level2">
+<h2 class="anchored" data-anchor-id="wider">Wider</h2>
+<p>Uma outra forma comum de dados que não seguem o formato <em>tidy</em> é quando observações estão espalhadas por várias linhas. Observe os dados abaixo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(dflong <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"examples_data.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"df2"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   HIBRIDO BLOCO  VARIAVEL VALOR
+1       H1     I ALT_PLANT 3.002
+2       H1     I   ALT_ESP 1.878
+3       H1    II ALT_PLANT 2.974
+4       H1    II   ALT_ESP 1.834
+5       H1   III ALT_PLANT 2.814
+6       H1   III   ALT_ESP 1.674
+7       H2     I ALT_PLANT 2.104
+8       H2     I   ALT_ESP 0.910
+9       H2    II ALT_PLANT 2.120
+10      H2    II   ALT_ESP 1.034
+11      H2   III ALT_PLANT 1.924
+12      H2   III   ALT_ESP 1.018
+13      H3     I ALT_PLANT 2.132
+14      H3     I   ALT_ESP 1.052
+15      H3    II ALT_PLANT 2.126
+16      H3    II   ALT_ESP 1.012
+17      H3   III ALT_PLANT 2.182
+18      H3   III   ALT_ESP 0.992</code></pre>
+</div>
+</div>
+<p>Neste caso, duas variáveis (ALT_PLANT e ALT_ESP) estão espalhadas pelas linhas. Para lidar com esse problema, utilizamos a função <code>pivot_wider()</code> que é o oposto de <code>pivot_longer().</code></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Fonte:%20https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf"><img src="figs/pivot_wider.png" class="img-fluid figure-img" alt="Exemplo da função pivot_longer(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf"></a></p>
+<figcaption>Exemplo da função pivot_wider(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf</figcaption>
+</figure>
+</div>
+<p>Para arrumarmos os dados em <code>dflong</code> utilizamos <code>pivot_wider()</code> de maneira similar à <code>pivot_longer()</code>. Desta vez, no entanto, precisamos apenas de dois parâmetros:</p>
+<ul>
+<li><code>names_from</code>: A coluna da qual obter nomes de variáveis. Aqui, é <code>"VARIAVEL"</code>.</li>
+<li><code>values_from</code>: A coluna da qual obter valores. Aqui é <code>"VALOR"</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>wider <span class="ot">&lt;-</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>   dflong <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> VARIAVEL,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">values_from =</span> VALOR)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>wider</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 4
+  HIBRIDO BLOCO ALT_PLANT ALT_ESP
+  &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+1 H1      I          3.00   1.88 
+2 H1      II         2.97   1.83 
+3 H1      III        2.81   1.67 
+4 H2      I          2.10   0.91 
+5 H2      II         2.12   1.03 
+6 H2      III        1.92   1.02 
+7 H3      I          2.13   1.05 
+8 H3      II         2.13   1.01 
+9 H3      III        2.18   0.992</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Múltiplos nomes e/ou valores
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Em alguns casos será necessário realizar a o mesmo processo anterior, mas utilizando múltiplas variáveis em <code>names_from</code> e/ou <code>values_from</code>. Aqui, também são mostrados alguns argumentos adicionais que permitem um bom nível de controle sobre como as variáveis são combinadas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>wider2 <span class="ot">&lt;-</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  dflong <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="fu">c</span>(VARIAVEL, BLOCO),</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_from =</span> VALOR,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">names_sep =</span> <span class="st">"."</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>wider2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 7
+  HIBRIDO ALT_PLANT.I ALT_ESP.I ALT_PLANT.II ALT_ESP.II ALT_PLANT.III
+  &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;
+1 H1             3.00      1.88         2.97       1.83          2.81
+2 H2             2.10      0.91         2.12       1.03          1.92
+3 H3             2.13      1.05         2.13       1.01          2.18
+# ℹ 1 more variable: ALT_ESP.III &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/UFtEb4BIWno" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+</section>
+<section id="separar" class="level1">
+<h1>Separar</h1>
+<p>Até agora você aprendeu como realizar operações morfológicas para transformar dados em de formato <em>wide</em> para <em>long</em> e vice-versa. O seguinte conjunto de dados tem um problema diferente:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>(ex_separate <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"examples_data.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"df5"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  HIBRIDO BLOCO ALT_PLANT ALT_ESP       RELACAO
+1      H1     I     3.002   1.878 1.878 / 3.002
+2      H1    II     2.974   1.834 1.834 / 2.974
+3      H1   III     2.814   1.674 1.674 / 2.814
+4      H2     I     2.104   0.910  0.91 / 2.104
+5      H2    II     2.120   1.034  1.034 / 2.12
+6      H2   III     1.924   1.018 1.018 / 1.924
+7      H3     I     2.132   1.052 1.052 / 2.132
+8      H3    II     2.126   1.012 1.012 / 2.126
+9      H3   III     2.182   0.992 0.992 / 2.182</code></pre>
+</div>
+</div>
+<p>Observe que a coluna temos uma coluna (RELACAO) contém duas variáveis (ALT_ESP e ALT_PLANT). Para corrigir esse problema, precisaremos da função <code>separate()</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Fonte:%20https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf"><img src="figs/separate.png" class="img-fluid figure-img" alt="Exemplo da função pivot_longer(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf"></a></p>
+<figcaption>Exemplo da função separate(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf</figcaption>
+</figure>
+</div>
+<p>Por padrão, <code>separate()</code> dividirá valores onde quer que veja um caractere não alfanumérico. Você também pode explicitar um separador para as colunas. Note o que acontece abaixo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># por padrão, separa no primeiro caractere alfanumérico (.)</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ex_separate <span class="sc">|&gt;</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(RELACAO, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"AESP"</span>, <span class="st">"APLA"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Expected 2 pieces. Additional pieces discarded in 9 rows [1, 2, 3, 4, 5, 6, 7,
+8, 9].</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  HIBRIDO BLOCO ALT_PLANT ALT_ESP AESP APLA
+1      H1     I     3.002   1.878    1  878
+2      H1    II     2.974   1.834    1  834
+3      H1   III     2.814   1.674    1  674
+4      H2     I     2.104   0.910    0   91
+5      H2    II     2.120   1.034    1  034
+6      H2   III     1.924   1.018    1  018
+7      H3     I     2.132   1.052    1  052
+8      H3    II     2.126   1.012    1  012
+9      H3   III     2.182   0.992    0  992</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># explicita para separar no /</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>ex_separate2 <span class="ot">&lt;-</span> </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  ex_separate <span class="sc">|&gt;</span> </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(RELACAO, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"AESP"</span>, <span class="st">"APLA"</span>), <span class="at">sep =</span> <span class="st">"/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="concatenar" class="level1">
+<h1>Concatenar</h1>
+<p>Quem trabalha com excel muito provavelmente já utilizou a função <code>=CONCAT</code>, que concatena valores de múltiplas colunas em uma única coluna. Aqui, a função <code>unite()</code>, pode ser utilizada para este fim. Ela é o inverso da <code>separate()</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf"><img src="figs/unite.png" class="img-fluid figure-img" alt="Exemplo da função pivot_longer(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf"></a></p>
+<figcaption>Exemplo da função unite(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf</figcaption>
+</figure>
+</div>
+<p>Vamos considerar que queiramos unir as colunas HIBRIDO e BLOCO do conjunto <code>dflong</code> em uma única coluna, chamada NÍVEL. Esta união é dada por</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>dflong <span class="sc">|&gt;</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(HIBRIDO, BLOCO, <span class="at">col =</span> <span class="st">"NIVEL"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(NIVEL, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"HIBRIDO"</span>, <span class="st">"BLOCO"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  HIBRIDO BLOCO  VARIAVEL VALOR
+1      H1     I ALT_PLANT 3.002
+2      H1     I   ALT_ESP 1.878
+3      H1    II ALT_PLANT 2.974
+4      H1    II   ALT_ESP 1.834
+5      H1   III ALT_PLANT 2.814
+6      H1   III   ALT_ESP 1.674</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>dflong <span class="sc">|&gt;</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="st">"NIVEL"</span>, HIBRIDO<span class="sc">:</span>BLOCO) <span class="sc">|&gt;</span> </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   NIVEL  VARIAVEL VALOR
+1   H1_I ALT_PLANT 3.002
+2   H1_I   ALT_ESP 1.878
+3  H1_II ALT_PLANT 2.974
+4  H1_II   ALT_ESP 1.834
+5 H1_III ALT_PLANT 2.814
+6 H1_III   ALT_ESP 1.674</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>dflong <span class="sc">|&gt;</span> </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(HIBRIDO, BLOCO,</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">"NIVEL"</span>,</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">sep =</span> <span class="st">"."</span>,</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">remove =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   NIVEL HIBRIDO BLOCO  VARIAVEL VALOR
+1   H1.I      H1     I ALT_PLANT 3.002
+2   H1.I      H1     I   ALT_ESP 1.878
+3  H1.II      H1    II ALT_PLANT 2.974
+4  H1.II      H1    II   ALT_ESP 1.834
+5 H1.III      H1   III ALT_PLANT 2.814
+6 H1.III      H1   III   ALT_ESP 1.674</code></pre>
+</div>
+</div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/paVd6eGsfRg" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="renomear-homework" class="level1">
+<h1>Renomear (Homework)</h1>
+<p>Algumas vezes necessitamos renomear as variáveis em nosso conjunto de dados. Seria trabalhoso mudar o nome da coluna nos dados externos e importa-los novamente. Vamos considerar os dados em <code>long</code> e renomear a coluna <code>UE &gt; PARCELA</code> e <code>BLOCO &gt; REP</code>. Aqui, algumas alternativas são apresentadas.</p>
+<section id="r-base" class="level2">
+<h2 class="anchored" data-anchor-id="r-base">R base</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>long1 <span class="ot">&lt;-</span> long</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(long1)[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"PARCELA"</span>, <span class="st">"REP"</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(long1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "PARCELA"  "REP"      "ADUBACAO" "PLANTA"   "AP"      </code></pre>
+</div>
+</div>
+</section>
+<section id="dplyr-rename" class="level2">
+<h2 class="anchored" data-anchor-id="dplyr-rename">dplyr <code>rename()</code></h2>
+<p>A função <code>rename()</code> do pacote <code>dplyr</code> altera os nomes de variáveis individuais usando a sintaxe <code>nome_novo = nome_antigo</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rename</span>(long,</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">PARCELA =</span> UE,</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">REP =</span> BLOCO) <span class="sc">|&gt;</span> </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "PARCELA"  "REP"      "ADUBACAO" "PLANTA"   "AP"      </code></pre>
+</div>
+</div>
+</section>
+<section id="dplyr-rename_with" class="level2">
+<h2 class="anchored" data-anchor-id="dplyr-rename_with">dplyr <code>rename_with()</code></h2>
+<p>Uma outra alternativa é <code>rename_with()</code>, que renomeia colunas usando uma função.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rename_with</span>(long, tolower) <span class="sc">|&gt;</span> <span class="fu">names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ue"       "bloco"    "adubacao" "planta"   "ap"      </code></pre>
+</div>
+</div>
+</section>
+<section id="metan-add_prefix-e-add_suffix" class="level2">
+<h2 class="anchored" data-anchor-id="metan-add_prefix-e-add_suffix">metan <code>add_prefix()</code> e <code>add_suffix()</code></h2>
+<p>Prefixos e sufixos são extremamente úteis na manipulação de dados, pois permitem que <a href="https://tidyselect.r-lib.org/reference/language.html">select helpers</a> possam ser utilizados na seleção de variáveis, que será visto no próximo tópico. Aqui, vamos ver como prefixos e sufixos podem ser adicionados à nomes das variáveis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>long <span class="sc">|&gt;</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_prefix</span>(UE<span class="sc">:</span>PLANTA, <span class="at">prefix =</span> <span class="st">"Fct"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Fct_UE"       "Fct_BLOCO"    "Fct_ADUBACAO" "Fct_PLANTA"   "AP"          </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># utilizando select helper</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>long <span class="sc">|&gt;</span> </span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_suffix</span>(<span class="fu">starts_with</span>(<span class="st">"A"</span>), <span class="at">suffix =</span> <span class="st">"a"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"_a"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ADUBACAO_a" "AP_a"      </code></pre>
+</div>
+</div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/j4knVncyUIE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+</section>
+<section id="juntar" class="level1">
+<h1>Juntar</h1>
+<p>É raro que uma análise de dados envolva apenas uma única tabela de dados. Na prática, diversas tabela podem existir e ferramentas flexíveis para combiná-las são necessárias. No <code>dplyr</code>, existem uma família de funções do tipo <code>*_join(x, y)</code> que podem ser utilizadas para unir colunas de <code>y</code> a <code>x</code>, combinando linhas com base nas chaves:</p>
+<section id="junções-com-mutação" class="level2">
+<h2 class="anchored" data-anchor-id="junções-com-mutação">Junções com mutação</h2>
+<ul>
+<li><code>left_join()</code>: inclui todas as linhas em <code>x</code>.</li>
+<li><code>right_join()</code>: inclui todas as linhas em <code>y</code>.</li>
+<li><code>inner_join()</code>: inclui todas as linhas em <code>x</code> e <code>y</code>.</li>
+<li><code>full_join()</code>: inclui todas as linhas em <code>x</code> ou <code>y</code>.</li>
+</ul>
+<p>Se uma linha em <code>x</code> corresponder a várias linhas em <code>y</code>, todas as linhas em <code>y</code> serão retornadas uma vez para cada linha correspondente em <code>x</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf"><img src="figs/mutate_join.png" class="img-fluid figure-img" alt="Fonte: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf"></a></p>
+<figcaption>Fonte: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf</figcaption>
+</figure>
+</div>
+<p>Vamos à um exemplo prático!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"examples_data.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"df_left"</span>)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"examples_data.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"df_right"</span>)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># computar a média para cada híbrido</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># renomear as variáveis</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df1</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">left_join</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(HIBRIDO)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  HIBRIDO BLOCO ALT_PLANT ALT_ESP AP_M     AE_M
+1      H1     I     3.002   1.878 2.93 1.795333
+2      H1    II     2.974   1.834 2.93 1.795333
+3      H1   III     2.814   1.674 2.93 1.795333
+4      H3     I     2.132   1.052   NA       NA
+5      H3    II     2.126   1.012   NA       NA
+6      H3   III     2.182   0.992   NA       NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df2</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># suprima a mensagem informando por qual coluna(s) juntar</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">right_join</span>(df2, <span class="at">by =</span> <span class="st">"HIBRIDO"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  HIBRIDO BLOCO ALT_PLANT ALT_ESP     AP_M      AE_M
+1      H1     I     3.002   1.878 2.930000 1.7953333
+2      H1    II     2.974   1.834 2.930000 1.7953333
+3      H1   III     2.814   1.674 2.930000 1.7953333
+4      H2  &lt;NA&gt;        NA      NA 2.049333 0.9873333</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df1 e df2</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">inner_join</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(HIBRIDO)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  HIBRIDO BLOCO ALT_PLANT ALT_ESP AP_M     AE_M
+1      H1     I     3.002   1.878 2.93 1.795333
+2      H1    II     2.974   1.834 2.93 1.795333
+3      H1   III     2.814   1.674 2.93 1.795333</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df1 ou df2</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">full_join</span>(df2, <span class="at">keep =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(HIBRIDO)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  HIBRIDO.x BLOCO ALT_PLANT ALT_ESP HIBRIDO.y     AP_M      AE_M
+1        H1     I     3.002   1.878        H1 2.930000 1.7953333
+2        H1    II     2.974   1.834        H1 2.930000 1.7953333
+3        H1   III     2.814   1.674        H1 2.930000 1.7953333
+4        H3     I     2.132   1.052      &lt;NA&gt;       NA        NA
+5        H3    II     2.126   1.012      &lt;NA&gt;       NA        NA
+6        H3   III     2.182   0.992      &lt;NA&gt;       NA        NA
+7      &lt;NA&gt;  &lt;NA&gt;        NA      NA        H2 2.049333 0.9873333</code></pre>
+</div>
+</div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/KpvsyMORq6w" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+</section>
+<section id="avançado" class="level1">
+<h1>Avançado</h1>
+<section id="junções-com-filtragem" class="level2">
+<h2 class="anchored" data-anchor-id="junções-com-filtragem">Junções com filtragem</h2>
+<p>As duas seguintes funções de filtragem filtram linhas de <code>x</code> com base na presença ou ausência de correspondências em <code>y</code>:</p>
+<ul>
+<li><code>semi_join()</code> retorna todas as linhas de <code>x</code> <strong>com</strong> uma correspondência em <code>y</code>.</li>
+<li><code>anti_join()</code> retorna todas as linhas de <code>x</code> <strong>sem</strong> uma correspondência em <code>y</code>.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf"><img src="figs/filter_join.png" class="img-fluid figure-img" alt="Fonte: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf"></a></p>
+<figcaption>Fonte: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf</figcaption>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># linhas de df1 que estão em df2</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">semi_join</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(HIBRIDO)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  HIBRIDO BLOCO ALT_PLANT ALT_ESP
+1      H1     I     3.002   1.878
+2      H1    II     2.974   1.834
+3      H1   III     2.814   1.674</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># linhas de df1 que NÃO estão em df2</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">anti_join</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(HIBRIDO)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  HIBRIDO BLOCO ALT_PLANT ALT_ESP
+1      H3     I     2.132   1.052
+2      H3    II     2.126   1.012
+3      H3   III     2.182   0.992</code></pre>
+</div>
+</div>
+</section>
+<section id="operações-com-conjuntos-vetores" class="level2">
+<h2 class="anchored" data-anchor-id="operações-com-conjuntos-vetores">Operações com conjuntos (vetores)</h2>
+<p>Operações com conjuntos são importantes na análise de dados. Por exemplo, se um determinado genótipo foi selecionado nos ambientes A, B e C, então, este determinado genótipo é a interseção dos ambientes A, B e C. Tanto o R-base quanto o pacote <code>dplyr</code> fornecem funções para operações com conjuntos, mas funcionam com dois conjuntos de uma vez apenas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>(A <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a" "b" "c" "d"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>(B <span class="ot">&lt;-</span> letters[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "b" "c" "d" "e"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>(C <span class="ot">&lt;-</span> letters[<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "c" "d" "e" "f" "g"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>(D <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>set_lits <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">A =</span> A, <span class="at">B =</span> B, <span class="at">C =</span> C, <span class="at">D =</span> D)</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="co"># intersecção de A, B (dplyr)</span></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(A, B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "b" "c" "d"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># intersecção de A, B e C (dplyr)</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(<span class="fu">intersect</span>(A, B), C)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "c" "d"</code></pre>
+</div>
+</div>
+<p>Observe que para computar interseções/uniões/diferenças com mais de dois conjuntos precisamos chamar (ex., <code>intersect()</code>) várias vezes O pacote <code>metan</code> fornece um grupo de funções <code>set_*()</code> que supera esse problema</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersecção de A e B</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(A, B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "b" "c" "d"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersecção de A, B e C</span></span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(A, B, C)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "c" "d"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># União de todos os conjuntos</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Todas as funções entendem um objeto de classe lista</span></span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set_union</span>(set_lits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersecção de todos os conjuntos</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(set_lits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "c" "d"</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Diagrama de Venn
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Um diagrama de Venn é um estilo de diagrama amplamente utilizado que mostra a relação lógica entre conjuntos usando curvas fechadas simples desenhadas em um plano para representar conjuntos. Muitas vezes, essas curvas são círculos ou elipses. Para mostrar as relações entre os conjuntos A, B, C e D, usamos a função <code>venn_plot()</code> do pacote metan.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">venn_plot</span>(set_lits, <span class="at">show_elements =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="RGV410046_05_MANIPULACAO_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="operações-com-conjuntos-data-frames" class="level2">
+<h2 class="anchored" data-anchor-id="operações-com-conjuntos-data-frames">Operações com conjuntos (data frames)</h2>
+<p>Nesta seção será demonstrado como é possivel utilizar operações de cojuntos como interseção e união. É esperado que as entradas x e y tenham as mesmas variáveis. Para isto, vamos criar dois novos conjuntos de dados fictícios.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>dfi1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">gen =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>),</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>dfi2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">gen =</span> <span class="fu">c</span>(<span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>),</span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>))</span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(dfi1, dfi2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  gen y
+1   B 3
+2   C 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set_difference</span>(dfi1, dfi2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  gen y
+1   A 2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set_union</span>(dfi1, dfi2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  gen y
+1   A 2
+2   B 3
+3   C 1
+4   D 4</code></pre>
+</div>
+</div>
+<div align="center"><a href="https://www.free-website-hit-counter.com"><img src="https://www.free-website-hit-counter.com/c.php?d=9&amp;id=141636&amp;s=2" border="0" alt="Free Website Hit Counter"></a><br><small><a href="https://www.free-website-hit-counter.com" title="Free Website Hit Counter">Free website hit counter</a></small></div>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../RGV410046/RGV410046_04_SELECAO.html" class="pagination-link" aria-label="4. Seleção e filtragem">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">4. Seleção e filtragem</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../RGV410046/RGV410046_06_MUTACAO.html" class="pagination-link" aria-label="6. Mutação">
+        <span class="nav-page-text">6. Mutação</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb84" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "5. Manipulação de Dados"</span></span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a><span class="an">editor_options:</span><span class="co"> </span></span>
+<span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a><span class="co">  chunk_output_type: console</span></span>
+<span id="cb84-5"><a href="#cb84-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb84-6"><a href="#cb84-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-7"><a href="#cb84-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># Diretório</span></span>
+<span id="cb84-8"><a href="#cb84-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-9"><a href="#cb84-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{r include = FALSE}</span></span>
+<span id="cb84-10"><a href="#cb84-10" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_knit$set(root.dir = "D:/Desktop/UFSC/aulas/classes/RGV410046/data")</span></span>
+<span id="cb84-11"><a href="#cb84-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-12"><a href="#cb84-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-13"><a href="#cb84-13" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb84-14"><a href="#cb84-14" aria-hidden="true" tabindex="-1"></a><span class="in"># meu computador (mudar de acordo)</span></span>
+<span id="cb84-15"><a href="#cb84-15" aria-hidden="true" tabindex="-1"></a><span class="in">setwd("D:/Desktop/UFSC/aulas/classes/RGV410046/data")</span></span>
+<span id="cb84-16"><a href="#cb84-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-17"><a href="#cb84-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-18"><a href="#cb84-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pacotes</span></span>
+<span id="cb84-19"><a href="#cb84-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-20"><a href="#cb84-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{r warning=FALSE, message=FALSE}</span></span>
+<span id="cb84-21"><a href="#cb84-21" aria-hidden="true" tabindex="-1"></a><span class="in">library(rio)</span></span>
+<span id="cb84-22"><a href="#cb84-22" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb84-23"><a href="#cb84-23" aria-hidden="true" tabindex="-1"></a><span class="in">library(metan)</span></span>
+<span id="cb84-24"><a href="#cb84-24" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-25"><a href="#cb84-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-26"><a href="#cb84-26" aria-hidden="true" tabindex="-1"></a><span class="fu"># Girar</span></span>
+<span id="cb84-27"><a href="#cb84-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-28"><a href="#cb84-28" aria-hidden="true" tabindex="-1"></a>Geralmente, os dados são organizados para facilitar algum uso que não seja a análise. Por exemplo, os dados geralmente são organizados para facilitar ao máximo a coleta. Isso significa que, para a maioria das análises, os dados não estarão em um formato *tidy* e você precisará fazer algumas transformações morfológicas. O primeiro passo é sempre descobrir quais são as variáveis a serem transformadas. O segundo passo é resolver um dos dois problemas mais comuns:</span>
+<span id="cb84-29"><a href="#cb84-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-30"><a href="#cb84-30" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Uma variável pode estar espalhada por várias colunas.</span>
+<span id="cb84-31"><a href="#cb84-31" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Uma observação pode estar espalhada por várias linhas.</span>
+<span id="cb84-32"><a href="#cb84-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-33"><a href="#cb84-33" aria-hidden="true" tabindex="-1"></a>Note o exemplo abaixo.</span>
+<span id="cb84-34"><a href="#cb84-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-35"><a href="#cb84-35" aria-hidden="true" tabindex="-1"></a><span class="al">![Exemplo de dados em um formato "wide"](figs/feijao.png)</span></span>
+<span id="cb84-36"><a href="#cb84-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-37"><a href="#cb84-37" aria-hidden="true" tabindex="-1"></a>No caso acima, a altura de planta de plantas de feijão foi mensurada em cinco plantas de cada bloco de três diferentes tratamentos. Então, cada tratamento conterá 15 valores. Note que as medições de cada planta estão dispostas em cinco diferentes colunas (P1 a P5). Então, a variável altura de planta está *espalhada* por várias colunas. Para corrigir esse problema e o problema de uma observação estar espalhada por várias linhas, utilizaremos duas das mais importantes do pacote <span class="in">`tidyr`</span>: <span class="in">`pivot_longer()`</span> e <span class="in">`pivot_wider()`</span>.</span>
+<span id="cb84-38"><a href="#cb84-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-39"><a href="#cb84-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Longer</span></span>
+<span id="cb84-40"><a href="#cb84-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-43"><a href="#cb84-43" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-44"><a href="#cb84-44" aria-hidden="true" tabindex="-1"></a>(df_wide <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"examples_data.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"feijao"</span>))</span>
+<span id="cb84-45"><a href="#cb84-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-46"><a href="#cb84-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-47"><a href="#cb84-47" aria-hidden="true" tabindex="-1"></a>Para organizar um conjunto de dados como esse, precisamos dinamizar as colunas problemáticas em duas novas colunas (variável e valor) utilizando a função <span class="in">`pivot_longer()`</span>.</span>
+<span id="cb84-48"><a href="#cb84-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-49"><a href="#cb84-49" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Exemplo da função pivot_longer(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf](figs/pivot_longer.png)</span><span class="co">](https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf)</span></span>
+<span id="cb84-50"><a href="#cb84-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-51"><a href="#cb84-51" aria-hidden="true" tabindex="-1"></a>Para realizar essa operação, precisamos de três parâmetros (além do conjunto de dados)</span>
+<span id="cb84-52"><a href="#cb84-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-53"><a href="#cb84-53" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`cols`</span>: o conjunto de colunas cujos nomes são valores, não variáveis. Neste exemplo, essas são as colunas P1, P2, P3, P4 e P5.</span>
+<span id="cb84-54"><a href="#cb84-54" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`names_to`</span>: O nome da variável para a qual mover os nomes das colunas. Aqui será <span class="in">`"PLANTA"`</span>.</span>
+<span id="cb84-55"><a href="#cb84-55" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`values_to`</span>: O nome da variável para a qual mover os valores da coluna. Aqui será <span class="in">`"ALTURA"`</span>.</span>
+<span id="cb84-56"><a href="#cb84-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-59"><a href="#cb84-59" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-60"><a href="#cb84-60" aria-hidden="true" tabindex="-1"></a>long <span class="ot">&lt;-</span> </span>
+<span id="cb84-61"><a href="#cb84-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(df_wide,</span>
+<span id="cb84-62"><a href="#cb84-62" aria-hidden="true" tabindex="-1"></a>               <span class="at">cols =</span> P1<span class="sc">:</span>P5,</span>
+<span id="cb84-63"><a href="#cb84-63" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"PLANTA"</span>,</span>
+<span id="cb84-64"><a href="#cb84-64" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"AP"</span>)</span>
+<span id="cb84-65"><a href="#cb84-65" aria-hidden="true" tabindex="-1"></a>long</span>
+<span id="cb84-66"><a href="#cb84-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-67"><a href="#cb84-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-68"><a href="#cb84-68" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb84-69"><a href="#cb84-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## tidyselect style notation</span></span>
+<span id="cb84-70"><a href="#cb84-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-71"><a href="#cb84-71" aria-hidden="true" tabindex="-1"></a>A seleção de variáveis no universo *tidy* é prioritariamente suportada pelo pacote <span class="in">`tidyselect`</span>. Isso significa que a seleção de variáveis pode ser realizada com base em seus nomes, posições, ou propriedades.</span>
+<span id="cb84-72"><a href="#cb84-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-75"><a href="#cb84-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-76"><a href="#cb84-76" aria-hidden="true" tabindex="-1"></a><span class="co"># seleciona variáveis que contém uma determinada string</span></span>
+<span id="cb84-77"><a href="#cb84-77" aria-hidden="true" tabindex="-1"></a><span class="fu">pivot_longer</span>(df_wide,</span>
+<span id="cb84-78"><a href="#cb84-78" aria-hidden="true" tabindex="-1"></a>             <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"P"</span>),</span>
+<span id="cb84-79"><a href="#cb84-79" aria-hidden="true" tabindex="-1"></a>             <span class="at">names_to =</span> <span class="st">"PLANTA"</span>,</span>
+<span id="cb84-80"><a href="#cb84-80" aria-hidden="true" tabindex="-1"></a>             <span class="at">values_to =</span> <span class="st">"ALTURA"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb84-81"><a href="#cb84-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">3</span>)</span>
+<span id="cb84-82"><a href="#cb84-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-83"><a href="#cb84-83" aria-hidden="true" tabindex="-1"></a><span class="co"># seleciona variáveis por sua posição</span></span>
+<span id="cb84-84"><a href="#cb84-84" aria-hidden="true" tabindex="-1"></a><span class="fu">pivot_longer</span>(df_wide,</span>
+<span id="cb84-85"><a href="#cb84-85" aria-hidden="true" tabindex="-1"></a>             <span class="at">cols =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">8</span>,</span>
+<span id="cb84-86"><a href="#cb84-86" aria-hidden="true" tabindex="-1"></a>             <span class="at">names_to =</span> <span class="st">"PLANTA"</span>,</span>
+<span id="cb84-87"><a href="#cb84-87" aria-hidden="true" tabindex="-1"></a>             <span class="at">values_to =</span> <span class="st">"ALTURA"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb84-88"><a href="#cb84-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">3</span>)</span>
+<span id="cb84-89"><a href="#cb84-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-90"><a href="#cb84-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-91"><a href="#cb84-91" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb84-92"><a href="#cb84-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-93"><a href="#cb84-93" aria-hidden="true" tabindex="-1"></a>Após a modificação, as colunas são descartadas e obtemos as colunas de planta e altura. Assim, vemos que <span class="in">`pivot_longer()`</span> torna os conjuntos de dados mais longos aumentando o número de linhas e diminuindo o número de colunas.</span>
+<span id="cb84-94"><a href="#cb84-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-95"><a href="#cb84-95" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/4KwZeQe6JOc &gt;}}</span>
+<span id="cb84-96"><a href="#cb84-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-97"><a href="#cb84-97" aria-hidden="true" tabindex="-1"></a><span class="fu">## Wider</span></span>
+<span id="cb84-98"><a href="#cb84-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-99"><a href="#cb84-99" aria-hidden="true" tabindex="-1"></a>Uma outra forma comum de dados que não seguem o formato *tidy* é quando observações estão espalhadas por várias linhas. Observe os dados abaixo.</span>
+<span id="cb84-100"><a href="#cb84-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-103"><a href="#cb84-103" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-104"><a href="#cb84-104" aria-hidden="true" tabindex="-1"></a>(dflong <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"examples_data.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"df2"</span>))</span>
+<span id="cb84-105"><a href="#cb84-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-106"><a href="#cb84-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-107"><a href="#cb84-107" aria-hidden="true" tabindex="-1"></a>Neste caso, duas variáveis (ALT_PLANT e ALT_ESP) estão espalhadas pelas linhas. Para lidar com esse problema, utilizamos a função <span class="in">`pivot_wider()`</span> que é o oposto de <span class="in">`pivot_longer().`</span></span>
+<span id="cb84-108"><a href="#cb84-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-109"><a href="#cb84-109" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Exemplo da função pivot_wider(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf](figs/pivot_wider.png)</span><span class="ot">{alt="Exemplo da função pivot_longer(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf"}</span><span class="co">](Fonte:%20https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf)</span></span>
+<span id="cb84-110"><a href="#cb84-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-111"><a href="#cb84-111" aria-hidden="true" tabindex="-1"></a>Para arrumarmos os dados em <span class="in">`dflong`</span> utilizamos <span class="in">`pivot_wider()`</span> de maneira similar à <span class="in">`pivot_longer()`</span>. Desta vez, no entanto, precisamos apenas de dois parâmetros:</span>
+<span id="cb84-112"><a href="#cb84-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-113"><a href="#cb84-113" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`names_from`</span>: A coluna da qual obter nomes de variáveis. Aqui, é <span class="in">`"VARIAVEL"`</span>.</span>
+<span id="cb84-114"><a href="#cb84-114" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`values_from`</span>: A coluna da qual obter valores. Aqui é <span class="in">`"VALOR"`</span>.</span>
+<span id="cb84-115"><a href="#cb84-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-118"><a href="#cb84-118" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-119"><a href="#cb84-119" aria-hidden="true" tabindex="-1"></a>wider <span class="ot">&lt;-</span> </span>
+<span id="cb84-120"><a href="#cb84-120" aria-hidden="true" tabindex="-1"></a>   dflong <span class="sc">|&gt;</span> </span>
+<span id="cb84-121"><a href="#cb84-121" aria-hidden="true" tabindex="-1"></a>     <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> VARIAVEL,</span>
+<span id="cb84-122"><a href="#cb84-122" aria-hidden="true" tabindex="-1"></a>                 <span class="at">values_from =</span> VALOR)</span>
+<span id="cb84-123"><a href="#cb84-123" aria-hidden="true" tabindex="-1"></a>wider</span>
+<span id="cb84-124"><a href="#cb84-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-125"><a href="#cb84-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-126"><a href="#cb84-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-127"><a href="#cb84-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-128"><a href="#cb84-128" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb84-129"><a href="#cb84-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## Múltiplos nomes e/ou valores</span></span>
+<span id="cb84-130"><a href="#cb84-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-131"><a href="#cb84-131" aria-hidden="true" tabindex="-1"></a>Em alguns casos será necessário realizar a o mesmo processo anterior, mas utilizando múltiplas variáveis em <span class="in">`names_from`</span> e/ou <span class="in">`values_from`</span>. Aqui, também são mostrados alguns argumentos adicionais que permitem um bom nível de controle sobre como as variáveis são combinadas.</span>
+<span id="cb84-132"><a href="#cb84-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-135"><a href="#cb84-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-136"><a href="#cb84-136" aria-hidden="true" tabindex="-1"></a>wider2 <span class="ot">&lt;-</span> </span>
+<span id="cb84-137"><a href="#cb84-137" aria-hidden="true" tabindex="-1"></a>  dflong <span class="sc">|&gt;</span> </span>
+<span id="cb84-138"><a href="#cb84-138" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="fu">c</span>(VARIAVEL, BLOCO),</span>
+<span id="cb84-139"><a href="#cb84-139" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_from =</span> VALOR,</span>
+<span id="cb84-140"><a href="#cb84-140" aria-hidden="true" tabindex="-1"></a>                <span class="at">names_sep =</span> <span class="st">"."</span>)</span>
+<span id="cb84-141"><a href="#cb84-141" aria-hidden="true" tabindex="-1"></a>wider2</span>
+<span id="cb84-142"><a href="#cb84-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-143"><a href="#cb84-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-144"><a href="#cb84-144" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb84-145"><a href="#cb84-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-146"><a href="#cb84-146" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/UFtEb4BIWno &gt;}}</span>
+<span id="cb84-147"><a href="#cb84-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-148"><a href="#cb84-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-149"><a href="#cb84-149" aria-hidden="true" tabindex="-1"></a><span class="fu"># Separar</span></span>
+<span id="cb84-150"><a href="#cb84-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-151"><a href="#cb84-151" aria-hidden="true" tabindex="-1"></a>Até agora você aprendeu como realizar operações morfológicas para transformar dados em de formato *wide* para *long* e vice-versa. O seguinte conjunto de dados tem um problema diferente:</span>
+<span id="cb84-152"><a href="#cb84-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-155"><a href="#cb84-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-156"><a href="#cb84-156" aria-hidden="true" tabindex="-1"></a>(ex_separate <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"examples_data.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"df5"</span>))</span>
+<span id="cb84-157"><a href="#cb84-157" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-158"><a href="#cb84-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-159"><a href="#cb84-159" aria-hidden="true" tabindex="-1"></a>Observe que a coluna temos uma coluna (RELACAO) contém duas variáveis (ALT_ESP e ALT_PLANT). Para corrigir esse problema, precisaremos da função <span class="in">`separate()`</span>.</span>
+<span id="cb84-160"><a href="#cb84-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-161"><a href="#cb84-161" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Exemplo da função separate(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf](figs/separate.png)</span><span class="ot">{alt="Exemplo da função pivot_longer(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf"}</span><span class="co">](Fonte:%20https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf)</span></span>
+<span id="cb84-162"><a href="#cb84-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-163"><a href="#cb84-163" aria-hidden="true" tabindex="-1"></a>Por padrão, <span class="in">`separate()`</span> dividirá valores onde quer que veja um caractere não alfanumérico. Você também pode explicitar um separador para as colunas. Note o que acontece abaixo.</span>
+<span id="cb84-164"><a href="#cb84-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-167"><a href="#cb84-167" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-168"><a href="#cb84-168" aria-hidden="true" tabindex="-1"></a><span class="co"># por padrão, separa no primeiro caractere alfanumérico (.)</span></span>
+<span id="cb84-169"><a href="#cb84-169" aria-hidden="true" tabindex="-1"></a>ex_separate <span class="sc">|&gt;</span> </span>
+<span id="cb84-170"><a href="#cb84-170" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(RELACAO, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"AESP"</span>, <span class="st">"APLA"</span>))</span>
+<span id="cb84-171"><a href="#cb84-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-172"><a href="#cb84-172" aria-hidden="true" tabindex="-1"></a><span class="co"># explicita para separar no /</span></span>
+<span id="cb84-173"><a href="#cb84-173" aria-hidden="true" tabindex="-1"></a>ex_separate2 <span class="ot">&lt;-</span> </span>
+<span id="cb84-174"><a href="#cb84-174" aria-hidden="true" tabindex="-1"></a>  ex_separate <span class="sc">|&gt;</span> </span>
+<span id="cb84-175"><a href="#cb84-175" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(RELACAO, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"AESP"</span>, <span class="st">"APLA"</span>), <span class="at">sep =</span> <span class="st">"/"</span>)</span>
+<span id="cb84-176"><a href="#cb84-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-177"><a href="#cb84-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-178"><a href="#cb84-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-179"><a href="#cb84-179" aria-hidden="true" tabindex="-1"></a><span class="fu"># Concatenar</span></span>
+<span id="cb84-180"><a href="#cb84-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-181"><a href="#cb84-181" aria-hidden="true" tabindex="-1"></a>Quem trabalha com excel muito provavelmente já utilizou a função <span class="in">`=CONCAT`</span>, que concatena valores de múltiplas colunas em uma única coluna. Aqui, a função <span class="in">`unite()`</span>, pode ser utilizada para este fim. Ela é o inverso da <span class="in">`separate()`</span>.</span>
+<span id="cb84-182"><a href="#cb84-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-183"><a href="#cb84-183" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Exemplo da função unite(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf](figs/unite.png)</span><span class="ot">{alt="Exemplo da função pivot_longer(). Fonte: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf"}</span><span class="co">](https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf)</span></span>
+<span id="cb84-184"><a href="#cb84-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-185"><a href="#cb84-185" aria-hidden="true" tabindex="-1"></a>Vamos considerar que queiramos unir as colunas HIBRIDO e BLOCO do conjunto <span class="in">`dflong`</span> em uma única coluna, chamada NÍVEL. Esta união é dada por</span>
+<span id="cb84-186"><a href="#cb84-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-189"><a href="#cb84-189" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-190"><a href="#cb84-190" aria-hidden="true" tabindex="-1"></a>dflong <span class="sc">|&gt;</span> </span>
+<span id="cb84-191"><a href="#cb84-191" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(HIBRIDO, BLOCO, <span class="at">col =</span> <span class="st">"NIVEL"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb84-192"><a href="#cb84-192" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(NIVEL, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"HIBRIDO"</span>, <span class="st">"BLOCO"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb84-193"><a href="#cb84-193" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb84-194"><a href="#cb84-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-195"><a href="#cb84-195" aria-hidden="true" tabindex="-1"></a>dflong <span class="sc">|&gt;</span> </span>
+<span id="cb84-196"><a href="#cb84-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="st">"NIVEL"</span>, HIBRIDO<span class="sc">:</span>BLOCO) <span class="sc">|&gt;</span> </span>
+<span id="cb84-197"><a href="#cb84-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb84-198"><a href="#cb84-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-199"><a href="#cb84-199" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb84-200"><a href="#cb84-200" aria-hidden="true" tabindex="-1"></a>dflong <span class="sc">|&gt;</span> </span>
+<span id="cb84-201"><a href="#cb84-201" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(HIBRIDO, BLOCO,</span>
+<span id="cb84-202"><a href="#cb84-202" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">"NIVEL"</span>,</span>
+<span id="cb84-203"><a href="#cb84-203" aria-hidden="true" tabindex="-1"></a>        <span class="at">sep =</span> <span class="st">"."</span>,</span>
+<span id="cb84-204"><a href="#cb84-204" aria-hidden="true" tabindex="-1"></a>        <span class="at">remove =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb84-205"><a href="#cb84-205" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb84-206"><a href="#cb84-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-207"><a href="#cb84-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-208"><a href="#cb84-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-209"><a href="#cb84-209" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/paVd6eGsfRg &gt;}}</span>
+<span id="cb84-210"><a href="#cb84-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-211"><a href="#cb84-211" aria-hidden="true" tabindex="-1"></a><span class="fu"># Renomear (Homework)</span></span>
+<span id="cb84-212"><a href="#cb84-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-213"><a href="#cb84-213" aria-hidden="true" tabindex="-1"></a>Algumas vezes necessitamos renomear as variáveis em nosso conjunto de dados. Seria trabalhoso mudar o nome da coluna nos dados externos e importa-los novamente. Vamos considerar os dados em <span class="in">`long`</span> e renomear a coluna <span class="in">`UE &gt; PARCELA`</span> e <span class="in">`BLOCO &gt; REP`</span>. Aqui, algumas alternativas são apresentadas.</span>
+<span id="cb84-214"><a href="#cb84-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-215"><a href="#cb84-215" aria-hidden="true" tabindex="-1"></a><span class="fu">## R base</span></span>
+<span id="cb84-216"><a href="#cb84-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-219"><a href="#cb84-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-220"><a href="#cb84-220" aria-hidden="true" tabindex="-1"></a>long1 <span class="ot">&lt;-</span> long</span>
+<span id="cb84-221"><a href="#cb84-221" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(long1)[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"PARCELA"</span>, <span class="st">"REP"</span>)</span>
+<span id="cb84-222"><a href="#cb84-222" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(long1)</span>
+<span id="cb84-223"><a href="#cb84-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-224"><a href="#cb84-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-225"><a href="#cb84-225" aria-hidden="true" tabindex="-1"></a><span class="fu">## dplyr `rename()`</span></span>
+<span id="cb84-226"><a href="#cb84-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-227"><a href="#cb84-227" aria-hidden="true" tabindex="-1"></a>A função <span class="in">`rename()`</span> do pacote <span class="in">`dplyr`</span> altera os nomes de variáveis individuais usando a sintaxe <span class="in">`nome_novo = nome_antigo`</span>.</span>
+<span id="cb84-228"><a href="#cb84-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-231"><a href="#cb84-231" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-232"><a href="#cb84-232" aria-hidden="true" tabindex="-1"></a><span class="fu">rename</span>(long,</span>
+<span id="cb84-233"><a href="#cb84-233" aria-hidden="true" tabindex="-1"></a>       <span class="at">PARCELA =</span> UE,</span>
+<span id="cb84-234"><a href="#cb84-234" aria-hidden="true" tabindex="-1"></a>       <span class="at">REP =</span> BLOCO) <span class="sc">|&gt;</span> </span>
+<span id="cb84-235"><a href="#cb84-235" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span>
+<span id="cb84-236"><a href="#cb84-236" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-237"><a href="#cb84-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-238"><a href="#cb84-238" aria-hidden="true" tabindex="-1"></a><span class="fu">## dplyr `rename_with()`</span></span>
+<span id="cb84-239"><a href="#cb84-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-240"><a href="#cb84-240" aria-hidden="true" tabindex="-1"></a>Uma outra alternativa é <span class="in">`rename_with()`</span>, que renomeia colunas usando uma função.</span>
+<span id="cb84-241"><a href="#cb84-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-244"><a href="#cb84-244" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-245"><a href="#cb84-245" aria-hidden="true" tabindex="-1"></a><span class="fu">rename_with</span>(long, tolower) <span class="sc">|&gt;</span> <span class="fu">names</span>()</span>
+<span id="cb84-246"><a href="#cb84-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-247"><a href="#cb84-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-248"><a href="#cb84-248" aria-hidden="true" tabindex="-1"></a><span class="fu">## metan `add_prefix()` e `add_suffix()`</span></span>
+<span id="cb84-249"><a href="#cb84-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-250"><a href="#cb84-250" aria-hidden="true" tabindex="-1"></a>Prefixos e sufixos são extremamente úteis na manipulação de dados, pois permitem que <span class="co">[</span><span class="ot">select helpers</span><span class="co">](https://tidyselect.r-lib.org/reference/language.html)</span> possam ser utilizados na seleção de variáveis, que será visto no próximo tópico. Aqui, vamos ver como prefixos e sufixos podem ser adicionados à nomes das variáveis.</span>
+<span id="cb84-251"><a href="#cb84-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-254"><a href="#cb84-254" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-255"><a href="#cb84-255" aria-hidden="true" tabindex="-1"></a>long <span class="sc">|&gt;</span> </span>
+<span id="cb84-256"><a href="#cb84-256" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_prefix</span>(UE<span class="sc">:</span>PLANTA, <span class="at">prefix =</span> <span class="st">"Fct"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb84-257"><a href="#cb84-257" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span>
+<span id="cb84-258"><a href="#cb84-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-259"><a href="#cb84-259" aria-hidden="true" tabindex="-1"></a><span class="co"># utilizando select helper</span></span>
+<span id="cb84-260"><a href="#cb84-260" aria-hidden="true" tabindex="-1"></a>long <span class="sc">|&gt;</span> </span>
+<span id="cb84-261"><a href="#cb84-261" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_suffix</span>(<span class="fu">starts_with</span>(<span class="st">"A"</span>), <span class="at">suffix =</span> <span class="st">"a"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb84-262"><a href="#cb84-262" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"_a"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb84-263"><a href="#cb84-263" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span>
+<span id="cb84-264"><a href="#cb84-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-265"><a href="#cb84-265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-266"><a href="#cb84-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-267"><a href="#cb84-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-268"><a href="#cb84-268" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/j4knVncyUIE &gt;}}</span>
+<span id="cb84-269"><a href="#cb84-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-270"><a href="#cb84-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-271"><a href="#cb84-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-272"><a href="#cb84-272" aria-hidden="true" tabindex="-1"></a><span class="fu"># Juntar</span></span>
+<span id="cb84-273"><a href="#cb84-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-274"><a href="#cb84-274" aria-hidden="true" tabindex="-1"></a>É raro que uma análise de dados envolva apenas uma única tabela de dados. Na prática, diversas tabela podem existir e ferramentas flexíveis para combiná-las são necessárias. No <span class="in">`dplyr`</span>, existem uma família de funções do tipo <span class="in">`*_join(x, y)`</span> que podem ser utilizadas para unir colunas de <span class="in">`y`</span> a <span class="in">`x`</span>, combinando linhas com base nas chaves:</span>
+<span id="cb84-275"><a href="#cb84-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-276"><a href="#cb84-276" aria-hidden="true" tabindex="-1"></a><span class="fu">## Junções com mutação</span></span>
+<span id="cb84-277"><a href="#cb84-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-278"><a href="#cb84-278" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`left_join()`</span>: inclui todas as linhas em <span class="in">`x`</span>.</span>
+<span id="cb84-279"><a href="#cb84-279" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`right_join()`</span>: inclui todas as linhas em <span class="in">`y`</span>.</span>
+<span id="cb84-280"><a href="#cb84-280" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`inner_join()`</span>: inclui todas as linhas em <span class="in">`x`</span> e <span class="in">`y`</span>.</span>
+<span id="cb84-281"><a href="#cb84-281" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`full_join()`</span>: inclui todas as linhas em <span class="in">`x`</span> ou <span class="in">`y`</span>.</span>
+<span id="cb84-282"><a href="#cb84-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-283"><a href="#cb84-283" aria-hidden="true" tabindex="-1"></a>Se uma linha em <span class="in">`x`</span> corresponder a várias linhas em <span class="in">`y`</span>, todas as linhas em <span class="in">`y`</span> serão retornadas uma vez para cada linha correspondente em <span class="in">`x`</span>.</span>
+<span id="cb84-284"><a href="#cb84-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-285"><a href="#cb84-285" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Fonte: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf](figs/mutate_join.png)</span><span class="co">](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)</span></span>
+<span id="cb84-286"><a href="#cb84-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-287"><a href="#cb84-287" aria-hidden="true" tabindex="-1"></a>Vamos à um exemplo prático!</span>
+<span id="cb84-288"><a href="#cb84-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-291"><a href="#cb84-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-292"><a href="#cb84-292" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"examples_data.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"df_left"</span>)</span>
+<span id="cb84-293"><a href="#cb84-293" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"examples_data.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"df_right"</span>)</span>
+<span id="cb84-294"><a href="#cb84-294" aria-hidden="true" tabindex="-1"></a><span class="co"># computar a média para cada híbrido</span></span>
+<span id="cb84-295"><a href="#cb84-295" aria-hidden="true" tabindex="-1"></a><span class="co"># renomear as variáveis</span></span>
+<span id="cb84-296"><a href="#cb84-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-297"><a href="#cb84-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-298"><a href="#cb84-298" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-299"><a href="#cb84-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-302"><a href="#cb84-302" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-303"><a href="#cb84-303" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df1</span></span>
+<span id="cb84-304"><a href="#cb84-304" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">left_join</span>(df2)</span>
+<span id="cb84-305"><a href="#cb84-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-306"><a href="#cb84-306" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df2</span></span>
+<span id="cb84-307"><a href="#cb84-307" aria-hidden="true" tabindex="-1"></a><span class="co"># suprima a mensagem informando por qual coluna(s) juntar</span></span>
+<span id="cb84-308"><a href="#cb84-308" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">right_join</span>(df2, <span class="at">by =</span> <span class="st">"HIBRIDO"</span>)</span>
+<span id="cb84-309"><a href="#cb84-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-310"><a href="#cb84-310" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df1 e df2</span></span>
+<span id="cb84-311"><a href="#cb84-311" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">inner_join</span>(df2)</span>
+<span id="cb84-312"><a href="#cb84-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-313"><a href="#cb84-313" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as linhas de df1 ou df2</span></span>
+<span id="cb84-314"><a href="#cb84-314" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">full_join</span>(df2, <span class="at">keep =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb84-315"><a href="#cb84-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-316"><a href="#cb84-316" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-317"><a href="#cb84-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-318"><a href="#cb84-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-319"><a href="#cb84-319" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/KpvsyMORq6w &gt;}}</span>
+<span id="cb84-320"><a href="#cb84-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-321"><a href="#cb84-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-322"><a href="#cb84-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-323"><a href="#cb84-323" aria-hidden="true" tabindex="-1"></a><span class="fu"># Avançado</span></span>
+<span id="cb84-324"><a href="#cb84-324" aria-hidden="true" tabindex="-1"></a><span class="fu">## Junções com filtragem </span></span>
+<span id="cb84-325"><a href="#cb84-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-326"><a href="#cb84-326" aria-hidden="true" tabindex="-1"></a>As duas seguintes funções de filtragem filtram linhas de <span class="in">`x`</span> com base na presença ou ausência de correspondências em <span class="in">`y`</span>:</span>
+<span id="cb84-327"><a href="#cb84-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-328"><a href="#cb84-328" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`semi_join()`</span> retorna todas as linhas de <span class="in">`x`</span> **com** uma correspondência em <span class="in">`y`</span>.</span>
+<span id="cb84-329"><a href="#cb84-329" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`anti_join()`</span> retorna todas as linhas de <span class="in">`x`</span> **sem** uma correspondência em <span class="in">`y`</span>.</span>
+<span id="cb84-330"><a href="#cb84-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-331"><a href="#cb84-331" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Fonte: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf](figs/filter_join.png)</span><span class="ot">{alt="Fonte: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf"}</span><span class="co">](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)</span></span>
+<span id="cb84-332"><a href="#cb84-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-335"><a href="#cb84-335" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-336"><a href="#cb84-336" aria-hidden="true" tabindex="-1"></a><span class="co"># linhas de df1 que estão em df2</span></span>
+<span id="cb84-337"><a href="#cb84-337" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">semi_join</span>(df2)</span>
+<span id="cb84-338"><a href="#cb84-338" aria-hidden="true" tabindex="-1"></a><span class="co"># linhas de df1 que NÃO estão em df2</span></span>
+<span id="cb84-339"><a href="#cb84-339" aria-hidden="true" tabindex="-1"></a>df1 <span class="sc">|&gt;</span> <span class="fu">anti_join</span>(df2)</span>
+<span id="cb84-340"><a href="#cb84-340" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-341"><a href="#cb84-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-342"><a href="#cb84-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-343"><a href="#cb84-343" aria-hidden="true" tabindex="-1"></a><span class="fu">## Operações com conjuntos (vetores)</span></span>
+<span id="cb84-344"><a href="#cb84-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-345"><a href="#cb84-345" aria-hidden="true" tabindex="-1"></a>Operações com conjuntos são importantes na análise de dados. Por exemplo, se um determinado genótipo foi selecionado nos ambientes A, B e C, então, este determinado genótipo é a interseção dos ambientes A, B e C. Tanto o R-base quanto o pacote <span class="in">`dplyr`</span> fornecem funções para operações com conjuntos, mas funcionam com dois conjuntos de uma vez apenas.</span>
+<span id="cb84-346"><a href="#cb84-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-349"><a href="#cb84-349" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-350"><a href="#cb84-350" aria-hidden="true" tabindex="-1"></a>(A <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
+<span id="cb84-351"><a href="#cb84-351" aria-hidden="true" tabindex="-1"></a>(B <span class="ot">&lt;-</span> letters[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb84-352"><a href="#cb84-352" aria-hidden="true" tabindex="-1"></a>(C <span class="ot">&lt;-</span> letters[<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>])</span>
+<span id="cb84-353"><a href="#cb84-353" aria-hidden="true" tabindex="-1"></a>(D <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>])</span>
+<span id="cb84-354"><a href="#cb84-354" aria-hidden="true" tabindex="-1"></a>set_lits <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">A =</span> A, <span class="at">B =</span> B, <span class="at">C =</span> C, <span class="at">D =</span> D)</span>
+<span id="cb84-355"><a href="#cb84-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-356"><a href="#cb84-356" aria-hidden="true" tabindex="-1"></a><span class="co"># intersecção de A, B (dplyr)</span></span>
+<span id="cb84-357"><a href="#cb84-357" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(A, B)</span>
+<span id="cb84-358"><a href="#cb84-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-359"><a href="#cb84-359" aria-hidden="true" tabindex="-1"></a><span class="co"># intersecção de A, B e C (dplyr)</span></span>
+<span id="cb84-360"><a href="#cb84-360" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(<span class="fu">intersect</span>(A, B), C)</span>
+<span id="cb84-361"><a href="#cb84-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-362"><a href="#cb84-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-363"><a href="#cb84-363" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-364"><a href="#cb84-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-365"><a href="#cb84-365" aria-hidden="true" tabindex="-1"></a>Observe que para computar interseções/uniões/diferenças com mais de dois conjuntos precisamos chamar (ex., <span class="in">`intersect()`</span>) várias vezes O pacote <span class="in">`metan`</span> fornece um grupo de funções <span class="in">`set_*()`</span> que supera esse problema</span>
+<span id="cb84-366"><a href="#cb84-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-369"><a href="#cb84-369" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-370"><a href="#cb84-370" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersecção de A e B</span></span>
+<span id="cb84-371"><a href="#cb84-371" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(A, B)</span>
+<span id="cb84-372"><a href="#cb84-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-373"><a href="#cb84-373" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersecção de A, B e C</span></span>
+<span id="cb84-374"><a href="#cb84-374" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(A, B, C)</span>
+<span id="cb84-375"><a href="#cb84-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-376"><a href="#cb84-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-377"><a href="#cb84-377" aria-hidden="true" tabindex="-1"></a><span class="co"># União de todos os conjuntos</span></span>
+<span id="cb84-378"><a href="#cb84-378" aria-hidden="true" tabindex="-1"></a><span class="co"># Todas as funções entendem um objeto de classe lista</span></span>
+<span id="cb84-379"><a href="#cb84-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-380"><a href="#cb84-380" aria-hidden="true" tabindex="-1"></a><span class="fu">set_union</span>(set_lits)</span>
+<span id="cb84-381"><a href="#cb84-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-382"><a href="#cb84-382" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersecção de todos os conjuntos</span></span>
+<span id="cb84-383"><a href="#cb84-383" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(set_lits)</span>
+<span id="cb84-384"><a href="#cb84-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-385"><a href="#cb84-385" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-386"><a href="#cb84-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-387"><a href="#cb84-387" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb84-388"><a href="#cb84-388" aria-hidden="true" tabindex="-1"></a><span class="fu">## Diagrama de Venn</span></span>
+<span id="cb84-389"><a href="#cb84-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-390"><a href="#cb84-390" aria-hidden="true" tabindex="-1"></a>Um diagrama de Venn é um estilo de diagrama amplamente utilizado que mostra a relação lógica entre conjuntos usando curvas fechadas simples desenhadas em um plano para representar conjuntos. Muitas vezes, essas curvas são círculos ou elipses. Para mostrar as relações entre os conjuntos A, B, C e D, usamos a função <span class="in">`venn_plot()`</span> do pacote metan.</span>
+<span id="cb84-391"><a href="#cb84-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-394"><a href="#cb84-394" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-395"><a href="#cb84-395" aria-hidden="true" tabindex="-1"></a><span class="fu">venn_plot</span>(set_lits, <span class="at">show_elements =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb84-396"><a href="#cb84-396" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-397"><a href="#cb84-397" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb84-398"><a href="#cb84-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-399"><a href="#cb84-399" aria-hidden="true" tabindex="-1"></a><span class="fu">## Operações com conjuntos (data frames)</span></span>
+<span id="cb84-400"><a href="#cb84-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-401"><a href="#cb84-401" aria-hidden="true" tabindex="-1"></a>Nesta seção será demonstrado como é possivel utilizar operações de cojuntos como interseção e união. É esperado que as entradas x e y tenham as mesmas variáveis. Para isto, vamos criar dois novos conjuntos de dados fictícios.</span>
+<span id="cb84-402"><a href="#cb84-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-405"><a href="#cb84-405" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb84-406"><a href="#cb84-406" aria-hidden="true" tabindex="-1"></a>dfi1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">gen =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>),</span>
+<span id="cb84-407"><a href="#cb84-407" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb84-408"><a href="#cb84-408" aria-hidden="true" tabindex="-1"></a>dfi2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">gen =</span> <span class="fu">c</span>(<span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>),</span>
+<span id="cb84-409"><a href="#cb84-409" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>))</span>
+<span id="cb84-410"><a href="#cb84-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-411"><a href="#cb84-411" aria-hidden="true" tabindex="-1"></a><span class="fu">set_intersect</span>(dfi1, dfi2)</span>
+<span id="cb84-412"><a href="#cb84-412" aria-hidden="true" tabindex="-1"></a><span class="fu">set_difference</span>(dfi1, dfi2)</span>
+<span id="cb84-413"><a href="#cb84-413" aria-hidden="true" tabindex="-1"></a><span class="fu">set_union</span>(dfi1, dfi2)</span>
+<span id="cb84-414"><a href="#cb84-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-415"><a href="#cb84-415" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb84-416"><a href="#cb84-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-417"><a href="#cb84-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-418"><a href="#cb84-418" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb84-419"><a href="#cb84-419" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=141636&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
+<span id="cb84-420"><a href="#cb84-420" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Material de apoio à disciplinas</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/TiagoOlivoto/classes/edit/main/RGV410046/RGV410046_05_MANIPULACAO.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/TiagoOlivoto/classes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Prof.&nbsp;Dr.&nbsp;Tiago Olivoto FIT/CCA/UFSC</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

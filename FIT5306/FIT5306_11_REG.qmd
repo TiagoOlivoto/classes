@@ -10,6 +10,7 @@ library(metan)      # estatísticas descritivas
 library(rio)        # importação/exportação de dados
 library(AgroR)
 library(broom)
+library(ggpmisc) # adiciona a equação no gráfico
 ```
 
 # Regressão linear
@@ -591,7 +592,7 @@ anova(reg)
 #| code-summary: "Mostrar código"
 #| out-width: "100%"
 
-library(ggpmisc) # adiciona a equação no gráfico
+
 p1 <-
   ggplot(reg_ex, aes(DOSE, RG)) +
   geom_smooth(se = FALSE, method = "lm") +

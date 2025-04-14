@@ -36,35 +36,6 @@ ggplot(data_ge2, aes(TKW)) +
                 ))
 ```
 
-Vamos ver a distribuição dos valores do comprimento da folha de café, mensurado na primeira aula de bioestatística.
-
-```{r}
-#| code-fold: true
-#| out-width: "100%"
-
-library(rio)
-# link dos dados
-link <- "https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1453191616"
-
-# função para importar os dados
-df <-  
-  import(link, dec = ",") |> 
-  filter(tipo == "Folha")
-
-ggplot(df, aes(comprimento)) + 
-  geom_histogram(aes(y = ..density..),
-                 bins = 10) +
-  stat_function(fun = dnorm,
-                geom = "line",
-                color = "red",
-                size = 1,
-                args = list(
-                  mean = mean(df$comprimento),
-                  sd = sd(df$comprimento)
-                ))
-
-```
-
 ## Parâmetros da distribuição
 
 A distribuição normal possui dois parâmetros:
@@ -2022,9 +1993,8 @@ Onde $\bar D$ é a média das diferenças e $S_D$ é o desvio padrão das difere
 
 ```{r echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}
 
-paired <- 
-  import("https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1507821405",
-         dec = ",")
+url <- "https://raw.githubusercontent.com/TiagoOlivoto/classes/refs/heads/master/FIT5306/data/pareado.csv"
+paired <- rio::import(url)
 paired
 
 (mean_dif <- mean(paired$DIFERENCA))
@@ -2061,11 +2031,8 @@ t.test(paired$DIFERENCA, var.equal = TRUE)
 Um experimento visando comparar dois híbridos de milho (H1 e H2) obteve dados da massa de grãos (MGRA) e número de grãos (NGRA) por espiga, apresentados abaixo.
 
 ```{r}
-
-df <- import("https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=1657403926",
-             
-             dec = ",")
-
+url <- "https://raw.githubusercontent.com/TiagoOlivoto/classes/refs/heads/master/FIT5306/data/hibridos.csv"
+df <- rio::import(url)
 df
 
 # encontrando o desvio padrão e a média
@@ -2113,15 +2080,10 @@ t.test(MGRA ~ HIBRIDO, data = df, var.equal = TRUE)
 library(ggstatsplot)
 
 ggbetweenstats(df,
-               
                x = HIBRIDO,
-               
                y = MGRA,
-               
                plot.type = "box",
-               
                bf.message = FALSE,
-               
                var.equal = TRUE)
 
 ```
@@ -2151,15 +2113,10 @@ $$
 t.test(NGRA ~ HIBRIDO, data = df, var.equal = TRUE)
 
 ggbetweenstats(df,
-               
                x = HIBRIDO,
-               
                y = NGRA,
-               
                plot.type = "box",
-               
                bf.message = FALSE,
-               
                var.equal = TRUE)
 
 ```
@@ -2185,17 +2142,11 @@ Técnicas que utilizam visão computacional e análise de imagens possibilitam g
 ```{r}
 
 library(rio)
-
 library(metan)
-
 library(tidyverse)
-
-df <- import("https://docs.google.com/spreadsheets/d/1JMrkppvv1BdGKVCekzZPsPYCKcgUWjxpuDlWqejc22s/edit#gid=2115165499",
-             
-             dec = ",")
-
+url <- "https://raw.githubusercontent.com/TiagoOlivoto/classes/refs/heads/master/FIT5306/data/regua_foto.csv"
+df <- rio::import(url)
 df
-
 ```
 
 Considerando que as medidas (régua e foto) foram obtidas no mesmo indivíduo, utilize um teste t pareado para testar, a 5% de probabilidade de erro, se o método de mensuração por imagem difere do método manual (por régua) para as variáveis em questão.
@@ -2207,17 +2158,12 @@ Considerando que as medidas (régua e foto) foram obtidas no mesmo indivíduo, u
 # ex
 
 comp_foto <- df |> subset(metodo == "foto") |> pull(comprimento)
-
 comp_foto
-
 comp_regua <- df |> subset(metodo == "regua") |> pull(comprimento)
-
 comp_regua
 
 # calcula a diferença
-
 dif <- comp_foto - comp_regua
-
 dif
 
 # realiza um teste t com a diferença
@@ -2226,11 +2172,9 @@ t.test(dif)
 
 # mesma coisa informando as duas médias com 'paired = TRUE'
 
-t.test(comprimento ~ metodo, data = df, paired = TRUE)
+t.test(comp_foto, comp_regua, paired = TRUE)
 
-# variável largura da folha
 
-t.test(largura ~ metodo, data = df, paired = TRUE)
 
 ```
 

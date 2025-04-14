@@ -11,10 +11,9 @@ library(tidyverse)
 library(rio)
 library(metan)
 
+url <- "https://raw.githubusercontent.com/TiagoOlivoto/classes/refs/heads/master/FIT5306/data/cafe.csv"
+df <- rio::import(url)
 
-# importar os dados do google sheet
-df <- import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=655855284",
-             dec = ",")
 # mostrar os dados
 knitr::kable(df)
 ```
@@ -23,8 +22,8 @@ knitr::kable(df)
 
 Para exemplificar a construção de tabelas de frequências de variáveis qualitativas / quantitativas discretas, utilizaremos a variável cor do grão. Neste caso, três classes (classes naturais) estão presentes: vermelho, amarelo e verde. Assim, a construção da tabela de frequência diz respeito a contagem de observações em cada uma destas classes e o cálculo das frequências relativas e absolutas.
 
-## Representação tabular
 
+## Representação tabular
 Pode-se criar facilmente esta tabela de frequência combinando as funções `count()` e `mutate()` do pacote `dplyr` (parte do `tidyverse`).
 
 ```{r}
@@ -93,6 +92,8 @@ frequencias <- freq_table(df, comp_grao)
 knitr::kable(frequencias$freqs)
 ```
 
+
+
 ## Apresentação gráfica
 
 ```{r}
@@ -100,96 +101,7 @@ knitr::kable(frequencias$freqs)
 freq_hist(frequencias)
 ```
 
-# Dados coletados em aula
 
-## Cor do grão do café
-
-```{r}
-#| out-width: "100%"
-df_cor_grao <- import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=1550268554",
-                      dec = ",")
-
-freq_cafe <- freq_table(df_cor_grao, var = cor)
-knitr::kable(freq_cafe$freqs)
-
-
-# criar um histograma
-freq_hist(freq_cafe)
-```
-
-## Comprimento da folha do café
-
-```{r}
-#| out-width: "100%"
-comp_folha <- import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=0",
-                    dec = ",")
-
-# Tabela
-dist_comprimento <- freq_table(comp_folha, var = comprimento)
-knitr::kable(dist_comprimento$freqs)
-
-# Gráfico
-freq_hist(dist_comprimento)
-```
-
-# Exercícios
-
-1.  Considerando os dados disponível na planilha 'grupos' (https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=323183536), construa e interprete a tabela de frequências, referente ao número de folhas avaliadas em cada grupo (quantitativa discreta).
-
-```{r}
-#| out-width: "100%"
-df_grupos <- 
-  import("https://docs.google.com/spreadsheets/d/18aXD_2ISvzB8h8_kgOfSBbr9a9d9pT0QVazt-KjVLRw/edit#gid=323183536",
-         dec = ",")
-
-# filtrar somente folhas
-df_folha <- subset(df_grupos, tipo == "Folha")
-dist_numfolha <- freq_table(df_folha, var = grupo)
-knitr::kable(dist_numfolha$freqs)
-
-
-# Gráfico
-freq_hist(dist_numfolha)
-```
-
-2.  Considerando as observações de todos os grupos para a variável quantitativa contínua comprimento da folha, calcule:
-
-    a.  O tamanho da amostra (n): 57
-
-    ```{r}
-    (n <- nrow(df_folha))
-    ```
-
-    b.  O número de classes (k):
-
-    ```{r}
-    (k <- round(sqrt(n)))
-    ```
-
-    c.  A amplitude dos dados:
-
-    ```{r}
-    (ampl <- range_data(df_folha, comprimento))
-    ```
-
-    d.  O tamanho da classe
-
-    ```{r}
-    ampl / (k - 1)
-    ```
-
-    e.  A tabela de distribuição de frequências contendo as frequências relativas e absolutas de cada classe.
-
-```{r}
-#| out-width: "100%"
-dist_largf <- 
-  freq_table(df_folha,
-             var = comprimento)
-knitr::kable(dist_largf$freqs)
-
-# Gráfico
-freq_hist(dist_largf)
-```
 
 # Tutorial R
 
