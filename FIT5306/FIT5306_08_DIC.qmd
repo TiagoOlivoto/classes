@@ -140,6 +140,12 @@ with(df_dic,
      DIC(RAD, MST))
 ```
 
+
 ```{=html}
-<div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=138598&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
+
+<div class="video-container">
+  
+<iframe src="https://www.youtube.com/embed/B1XWhCZ6vZA?si=fUM5nlmgo3ycE9nB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</div>
 ```

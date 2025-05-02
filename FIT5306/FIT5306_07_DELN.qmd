@@ -134,6 +134,7 @@ print(crd)
 plot(crd)
 ```
 
+
 ## DBC
 
 Para casualização em DBC, `RCBD` é usada.
@@ -329,6 +330,8 @@ Em adição à justificativa anterior (as alterações no rendimento de grão ob
 
 Esta última opção parece ser a mais razoável aqui. É possivel observar no boxplot para o fator bloco que o bloco 4 parece ter uma média superior aos outros blocos. Sabe-ser que no DIC, toda diferença entre as repetições de um mesmo tratamento comporão o erro experimental. Logo, neste exemplo, a área experimental não era homogênea como se pressupunha na instalação do experimento. Isto ficará claro, posteriormente, ao analisarmos o mesmo conjunto de dados, no entanto considerando um DBC.
 
+
+
 ## Anova em DBC
 
 ```{r}
@@ -336,6 +339,6 @@ with(df,
      DBC(HIBRIDO, BLOCO, RG))
 ```
 
-```{=html}
-<div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=138597&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
-```
+
+
+

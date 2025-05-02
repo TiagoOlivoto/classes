@@ -641,6 +641,7 @@ Os valores preditos também podem ser obtidos com a função `predict()`, inform
 (pred2 <- predict(reg))
 ```
 
+
 ### Residuais
 
 Os resíduos são obtidos pela diferença entre os valores observados e os preditos pelo modelo ajustado. Para isso, utilizamos o seguinte comando:
@@ -664,6 +665,22 @@ mutate(reg_ex,
        predito = pred,
        residual = res)
 ```
+
+
+
+```{=html}
+
+<div class="video-container">
+  
+<iframe src="https://www.youtube.com/embed/Rel3JKzBgtA?si=wQeuDjfYVxcvi9Sj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</div>
+```
+
+
+
+
+
 
 # Correlação
 
@@ -813,6 +830,13 @@ cor(x, y)
 cor.test(x, y)
 ```
 
+
+
 ```{=html}
-<div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=138601&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
+
+<div class="video-container">
+  
+<iframe src="https://www.youtube.com/embed/gYrp7WB5UYM?si=x-u-Lw9yffbmoE5b" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</div>
 ```

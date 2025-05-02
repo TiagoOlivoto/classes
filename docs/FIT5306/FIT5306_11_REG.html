@@ -1385,6 +1385,12 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 4    50  8.32    8.45  -0.135 </code></pre>
 </div>
 </div>
+
+<div class="video-container">
+  
+<iframe src="https://www.youtube.com/embed/Rel3JKzBgtA?si=wQeuDjfYVxcvi9Sj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+
+</div>
 </section>
 </section>
 </section>
@@ -1606,7 +1612,12 @@ sample estimates:
 0.6768405 </code></pre>
 </div>
 </div>
-<div align="center"><a href="https://www.free-website-hit-counter.com"><img src="https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138601&amp;s=2" border="0" alt="Free Website Hit Counter"></a><br><small><a href="https://www.free-website-hit-counter.com" title="Free Website Hit Counter">Free website hit counter</a></small></div>
+
+<div class="video-container">
+  
+<iframe src="https://www.youtube.com/embed/gYrp7WB5UYM?si=x-u-Lw9yffbmoE5b" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+
+</div>
 
 
 <!-- -->
@@ -2889,181 +2900,205 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb200-698"><a href="#cb200-698" aria-hidden="true" tabindex="-1"></a>(pred2 <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg))</span>
 <span id="cb200-699"><a href="#cb200-699" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb200-700"><a href="#cb200-700" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-701"><a href="#cb200-701" aria-hidden="true" tabindex="-1"></a><span class="fu">### Residuais</span></span>
-<span id="cb200-702"><a href="#cb200-702" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-703"><a href="#cb200-703" aria-hidden="true" tabindex="-1"></a>Os resíduos são obtidos pela diferença entre os valores observados e os preditos pelo modelo ajustado. Para isso, utilizamos o seguinte comando:</span>
-<span id="cb200-704"><a href="#cb200-704" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-707"><a href="#cb200-707" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb200-708"><a href="#cb200-708" aria-hidden="true" tabindex="-1"></a>(res <span class="ot">&lt;-</span> y <span class="sc">-</span> pred)</span>
-<span id="cb200-709"><a href="#cb200-709" aria-hidden="true" tabindex="-1"></a><span class="co"># o mesmo com a função residuals()</span></span>
-<span id="cb200-710"><a href="#cb200-710" aria-hidden="true" tabindex="-1"></a>(res2 <span class="ot">&lt;-</span> <span class="fu">residuals</span>(reg))</span>
-<span id="cb200-711"><a href="#cb200-711" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb200-712"><a href="#cb200-712" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-713"><a href="#cb200-713" aria-hidden="true" tabindex="-1"></a>Apenas para fins de comprovação, observe que a soma de quadrado do resíduo obtida anteriormente pode ser calculada agora como:</span>
-<span id="cb200-714"><a href="#cb200-714" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-717"><a href="#cb200-717" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb200-718"><a href="#cb200-718" aria-hidden="true" tabindex="-1"></a>(sqres2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(res <span class="sc">^</span> <span class="dv">2</span>))</span>
-<span id="cb200-719"><a href="#cb200-719" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb200-720"><a href="#cb200-720" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-721"><a href="#cb200-721" aria-hidden="true" tabindex="-1"></a>Por fim, é possível mutar o conjunto de dados incluindo os valores preditos e residuais.</span>
-<span id="cb200-722"><a href="#cb200-722" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-725"><a href="#cb200-725" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb200-726"><a href="#cb200-726" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(reg_ex,</span>
-<span id="cb200-727"><a href="#cb200-727" aria-hidden="true" tabindex="-1"></a>       <span class="at">predito =</span> pred,</span>
-<span id="cb200-728"><a href="#cb200-728" aria-hidden="true" tabindex="-1"></a>       <span class="at">residual =</span> res)</span>
-<span id="cb200-729"><a href="#cb200-729" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb200-730"><a href="#cb200-730" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-731"><a href="#cb200-731" aria-hidden="true" tabindex="-1"></a><span class="fu"># Correlação</span></span>
+<span id="cb200-701"><a href="#cb200-701" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-702"><a href="#cb200-702" aria-hidden="true" tabindex="-1"></a><span class="fu">### Residuais</span></span>
+<span id="cb200-703"><a href="#cb200-703" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-704"><a href="#cb200-704" aria-hidden="true" tabindex="-1"></a>Os resíduos são obtidos pela diferença entre os valores observados e os preditos pelo modelo ajustado. Para isso, utilizamos o seguinte comando:</span>
+<span id="cb200-705"><a href="#cb200-705" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-708"><a href="#cb200-708" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb200-709"><a href="#cb200-709" aria-hidden="true" tabindex="-1"></a>(res <span class="ot">&lt;-</span> y <span class="sc">-</span> pred)</span>
+<span id="cb200-710"><a href="#cb200-710" aria-hidden="true" tabindex="-1"></a><span class="co"># o mesmo com a função residuals()</span></span>
+<span id="cb200-711"><a href="#cb200-711" aria-hidden="true" tabindex="-1"></a>(res2 <span class="ot">&lt;-</span> <span class="fu">residuals</span>(reg))</span>
+<span id="cb200-712"><a href="#cb200-712" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb200-713"><a href="#cb200-713" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-714"><a href="#cb200-714" aria-hidden="true" tabindex="-1"></a>Apenas para fins de comprovação, observe que a soma de quadrado do resíduo obtida anteriormente pode ser calculada agora como:</span>
+<span id="cb200-715"><a href="#cb200-715" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-718"><a href="#cb200-718" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb200-719"><a href="#cb200-719" aria-hidden="true" tabindex="-1"></a>(sqres2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(res <span class="sc">^</span> <span class="dv">2</span>))</span>
+<span id="cb200-720"><a href="#cb200-720" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb200-721"><a href="#cb200-721" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-722"><a href="#cb200-722" aria-hidden="true" tabindex="-1"></a>Por fim, é possível mutar o conjunto de dados incluindo os valores preditos e residuais.</span>
+<span id="cb200-723"><a href="#cb200-723" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-726"><a href="#cb200-726" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb200-727"><a href="#cb200-727" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(reg_ex,</span>
+<span id="cb200-728"><a href="#cb200-728" aria-hidden="true" tabindex="-1"></a>       <span class="at">predito =</span> pred,</span>
+<span id="cb200-729"><a href="#cb200-729" aria-hidden="true" tabindex="-1"></a>       <span class="at">residual =</span> res)</span>
+<span id="cb200-730"><a href="#cb200-730" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb200-731"><a href="#cb200-731" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb200-732"><a href="#cb200-732" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-733"><a href="#cb200-733" aria-hidden="true" tabindex="-1"></a>Conhecer o grau de associação linear entre caracteres é de fundamental importância em um programa de melhoramento genético vegetal. Esta importância aumenta, principalmente se algum caractere desejável é de difícil mensuração, ou apresenta baixa herdabilidade. O coeficiente de correlação produto-momento de (Pearson, 1920)<span class="ot">[^3]</span>, *r*, vem sendo amplamente utilizado para este fim. Embora o mérito desta análise seja atribuído à Karl Pearson, o método foi originalmente concebido por Francis Galton, que definiu o termo correlação como como o seguinte: *duas variáveis são ditas correlacionadas quando a variação de uma é acompanhada na média, mais ou menos a variação da outra, e no mesmo sentido* (Galton, 1888)<span class="ot">[^4]</span>.</span>
-<span id="cb200-734"><a href="#cb200-734" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-735"><a href="#cb200-735" aria-hidden="true" tabindex="-1"></a><span class="ot">[^3]: </span>PEARSON, K. Notes on the History of Correlation. Biometrika, v. 13, n. 1, p. 25--45, 1920</span>
-<span id="cb200-736"><a href="#cb200-736" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-737"><a href="#cb200-737" aria-hidden="true" tabindex="-1"></a><span class="ot">[^4]: </span>GALTON, F. Co-relations and their measurement, chiefly from anthropometric data. Proceedings of the Royal Society of London, v. 45, n. 273--279, p. 135--145, 1888</span>
-<span id="cb200-738"><a href="#cb200-738" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-739"><a href="#cb200-739" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cálculo do coeficiente de correlação</span></span>
-<span id="cb200-740"><a href="#cb200-740" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-741"><a href="#cb200-741" aria-hidden="true" tabindex="-1"></a>Utilizando o método dos mínimos quadrados, a correlação entre duas variáveis (x e y) é dada por:</span>
+<span id="cb200-733"><a href="#cb200-733" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-734"><a href="#cb200-734" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb200-735"><a href="#cb200-735" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-736"><a href="#cb200-736" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="video-container"&gt;</span></span>
+<span id="cb200-737"><a href="#cb200-737" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb200-738"><a href="#cb200-738" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="https://www.youtube.com/embed/Rel3JKzBgtA?si=wQeuDjfYVxcvi9Sj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;</span></span>
+<span id="cb200-739"><a href="#cb200-739" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-740"><a href="#cb200-740" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb200-741"><a href="#cb200-741" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb200-742"><a href="#cb200-742" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-743"><a href="#cb200-743" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb200-744"><a href="#cb200-744" aria-hidden="true" tabindex="-1"></a>r = \frac{SP_{xy}}{\sqrt{SQ_x\times SQ_y}}</span>
-<span id="cb200-745"><a href="#cb200-745" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb200-743"><a href="#cb200-743" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-744"><a href="#cb200-744" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-745"><a href="#cb200-745" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb200-746"><a href="#cb200-746" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-747"><a href="#cb200-747" aria-hidden="true" tabindex="-1"></a>As definições de $SP_{xy}$, $SQ_{x}$ e $SQ_{y}$ foram apresentadas nas Equações @eq-spxy, @eq-sqx e @eq-sqy, respectivamente.</span>
-<span id="cb200-748"><a href="#cb200-748" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-749"><a href="#cb200-749" aria-hidden="true" tabindex="-1"></a>A significância da correlação (r) é testada utilizando um teste *t* com $t_{\alpha(n-2)}$ graus liberdade. As hipóteses são:</span>
-<span id="cb200-750"><a href="#cb200-750" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-751"><a href="#cb200-751" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb200-752"><a href="#cb200-752" aria-hidden="true" tabindex="-1"></a>{H_0}:r = 0</span>
-<span id="cb200-753"><a href="#cb200-753" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb200-754"><a href="#cb200-754" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-755"><a href="#cb200-755" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb200-756"><a href="#cb200-756" aria-hidden="true" tabindex="-1"></a>{H_1}:r \ne 0</span>
-<span id="cb200-757"><a href="#cb200-757" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb200-758"><a href="#cb200-758" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-759"><a href="#cb200-759" aria-hidden="true" tabindex="-1"></a>O valor de *t* calculado é dado por:</span>
-<span id="cb200-760"><a href="#cb200-760" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-761"><a href="#cb200-761" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb200-762"><a href="#cb200-762" aria-hidden="true" tabindex="-1"></a>{t_0} = r\sqrt {\frac{{n - 2}}{{1 - {r^2}}}}</span>
-<span id="cb200-763"><a href="#cb200-763" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb200-764"><a href="#cb200-764" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-765"><a href="#cb200-765" aria-hidden="true" tabindex="-1"></a>Por fim, compara-se o *t* calculado com o tabelado ao nível $\alpha$ de significância de erro (teste bilateral), com *n* menos dois graus liberdade.</span>
-<span id="cb200-766"><a href="#cb200-766" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-767"><a href="#cb200-767" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb200-768"><a href="#cb200-768" aria-hidden="true" tabindex="-1"></a>{t_0} &gt; {t_{\alpha (n - 2)}} = r \ne 0</span>
-<span id="cb200-769"><a href="#cb200-769" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb200-770"><a href="#cb200-770" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-771"><a href="#cb200-771" aria-hidden="true" tabindex="-1"></a><span class="fu">## A função `cor()` do R</span></span>
-<span id="cb200-772"><a href="#cb200-772" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-773"><a href="#cb200-773" aria-hidden="true" tabindex="-1"></a>Utilizando a função do R <span class="in">`cor()`</span> é possível obter o coeficiente de correlação entre duas variáveis, por exemplo, <span class="in">`APLA`</span> e <span class="in">`AIES`</span> do seguinte conjunto de dados:</span>
-<span id="cb200-774"><a href="#cb200-774" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-777"><a href="#cb200-777" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb200-778"><a href="#cb200-778" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
-<span id="cb200-779"><a href="#cb200-779" aria-hidden="true" tabindex="-1"></a>df_mat <span class="ot">&lt;-</span> </span>
-<span id="cb200-780"><a href="#cb200-780" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"maize"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb200-781"><a href="#cb200-781" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(APLA<span class="sc">:</span>MGRA)</span>
-<span id="cb200-782"><a href="#cb200-782" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-783"><a href="#cb200-783" aria-hidden="true" tabindex="-1"></a><span class="co"># correlação de pearson (APLA e AIES)</span></span>
-<span id="cb200-784"><a href="#cb200-784" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df_mat<span class="sc">$</span>APLA, df_mat<span class="sc">$</span>AIES)</span>
-<span id="cb200-785"><a href="#cb200-785" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb200-786"><a href="#cb200-786" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-787"><a href="#cb200-787" aria-hidden="true" tabindex="-1"></a>Uma matriz de correlação também pode ser calculada informando um data frame de variáveis numéricas</span>
-<span id="cb200-788"><a href="#cb200-788" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-791"><a href="#cb200-791" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb200-792"><a href="#cb200-792" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz gráfica de correlação</span></span>
-<span id="cb200-793"><a href="#cb200-793" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df_mat)</span>
-<span id="cb200-794"><a href="#cb200-794" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb200-795"><a href="#cb200-795" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-796"><a href="#cb200-796" aria-hidden="true" tabindex="-1"></a>Usando a função <span class="in">`corr_plot()`</span> do pacote metan, é possível obter uma matriz mista (gráfico e número), contendo a distribuição dos pontos e o coeficiente de correlação entre as variáveis.</span>
-<span id="cb200-797"><a href="#cb200-797" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-800"><a href="#cb200-800" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb200-801"><a href="#cb200-801" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz gráfica de correlação</span></span>
-<span id="cb200-802"><a href="#cb200-802" aria-hidden="true" tabindex="-1"></a><span class="fu">corr_plot</span>(df_mat)</span>
-<span id="cb200-803"><a href="#cb200-803" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb200-804"><a href="#cb200-804" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-805"><a href="#cb200-805" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercício</span></span>
-<span id="cb200-806"><a href="#cb200-806" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-807"><a href="#cb200-807" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dados</span></span>
-<span id="cb200-808"><a href="#cb200-808" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-809"><a href="#cb200-809" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Neste exemplo, serão utilizados dados referentes ao número de grãos (NGRA) e massa de grãos (MGRA) observados em 15 espigas de milho (n = 15).</span></span>
-<span id="cb200-810"><a href="#cb200-810" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-813"><a href="#cb200-813" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb200-814"><a href="#cb200-814" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
-<span id="cb200-815"><a href="#cb200-815" aria-hidden="true" tabindex="-1"></a>cor_ex <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"COR_EXERCICIO"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
-<span id="cb200-816"><a href="#cb200-816" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-817"><a href="#cb200-817" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> cor_ex<span class="sc">$</span>NGRA)</span>
-<span id="cb200-818"><a href="#cb200-818" aria-hidden="true" tabindex="-1"></a>(y <span class="ot">&lt;-</span> cor_ex<span class="sc">$</span>MGRA)</span>
-<span id="cb200-819"><a href="#cb200-819" aria-hidden="true" tabindex="-1"></a>(n <span class="ot">&lt;-</span> <span class="fu">length</span>(x))</span>
+<span id="cb200-747"><a href="#cb200-747" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-748"><a href="#cb200-748" aria-hidden="true" tabindex="-1"></a><span class="fu"># Correlação</span></span>
+<span id="cb200-749"><a href="#cb200-749" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-750"><a href="#cb200-750" aria-hidden="true" tabindex="-1"></a>Conhecer o grau de associação linear entre caracteres é de fundamental importância em um programa de melhoramento genético vegetal. Esta importância aumenta, principalmente se algum caractere desejável é de difícil mensuração, ou apresenta baixa herdabilidade. O coeficiente de correlação produto-momento de (Pearson, 1920)<span class="ot">[^3]</span>, *r*, vem sendo amplamente utilizado para este fim. Embora o mérito desta análise seja atribuído à Karl Pearson, o método foi originalmente concebido por Francis Galton, que definiu o termo correlação como como o seguinte: *duas variáveis são ditas correlacionadas quando a variação de uma é acompanhada na média, mais ou menos a variação da outra, e no mesmo sentido* (Galton, 1888)<span class="ot">[^4]</span>.</span>
+<span id="cb200-751"><a href="#cb200-751" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-752"><a href="#cb200-752" aria-hidden="true" tabindex="-1"></a><span class="ot">[^3]: </span>PEARSON, K. Notes on the History of Correlation. Biometrika, v. 13, n. 1, p. 25--45, 1920</span>
+<span id="cb200-753"><a href="#cb200-753" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-754"><a href="#cb200-754" aria-hidden="true" tabindex="-1"></a><span class="ot">[^4]: </span>GALTON, F. Co-relations and their measurement, chiefly from anthropometric data. Proceedings of the Royal Society of London, v. 45, n. 273--279, p. 135--145, 1888</span>
+<span id="cb200-755"><a href="#cb200-755" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-756"><a href="#cb200-756" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cálculo do coeficiente de correlação</span></span>
+<span id="cb200-757"><a href="#cb200-757" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-758"><a href="#cb200-758" aria-hidden="true" tabindex="-1"></a>Utilizando o método dos mínimos quadrados, a correlação entre duas variáveis (x e y) é dada por:</span>
+<span id="cb200-759"><a href="#cb200-759" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-760"><a href="#cb200-760" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb200-761"><a href="#cb200-761" aria-hidden="true" tabindex="-1"></a>r = \frac{SP_{xy}}{\sqrt{SQ_x\times SQ_y}}</span>
+<span id="cb200-762"><a href="#cb200-762" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb200-763"><a href="#cb200-763" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-764"><a href="#cb200-764" aria-hidden="true" tabindex="-1"></a>As definições de $SP_{xy}$, $SQ_{x}$ e $SQ_{y}$ foram apresentadas nas Equações @eq-spxy, @eq-sqx e @eq-sqy, respectivamente.</span>
+<span id="cb200-765"><a href="#cb200-765" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-766"><a href="#cb200-766" aria-hidden="true" tabindex="-1"></a>A significância da correlação (r) é testada utilizando um teste *t* com $t_{\alpha(n-2)}$ graus liberdade. As hipóteses são:</span>
+<span id="cb200-767"><a href="#cb200-767" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-768"><a href="#cb200-768" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb200-769"><a href="#cb200-769" aria-hidden="true" tabindex="-1"></a>{H_0}:r = 0</span>
+<span id="cb200-770"><a href="#cb200-770" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb200-771"><a href="#cb200-771" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-772"><a href="#cb200-772" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb200-773"><a href="#cb200-773" aria-hidden="true" tabindex="-1"></a>{H_1}:r \ne 0</span>
+<span id="cb200-774"><a href="#cb200-774" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb200-775"><a href="#cb200-775" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-776"><a href="#cb200-776" aria-hidden="true" tabindex="-1"></a>O valor de *t* calculado é dado por:</span>
+<span id="cb200-777"><a href="#cb200-777" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-778"><a href="#cb200-778" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb200-779"><a href="#cb200-779" aria-hidden="true" tabindex="-1"></a>{t_0} = r\sqrt {\frac{{n - 2}}{{1 - {r^2}}}}</span>
+<span id="cb200-780"><a href="#cb200-780" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb200-781"><a href="#cb200-781" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-782"><a href="#cb200-782" aria-hidden="true" tabindex="-1"></a>Por fim, compara-se o *t* calculado com o tabelado ao nível $\alpha$ de significância de erro (teste bilateral), com *n* menos dois graus liberdade.</span>
+<span id="cb200-783"><a href="#cb200-783" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-784"><a href="#cb200-784" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb200-785"><a href="#cb200-785" aria-hidden="true" tabindex="-1"></a>{t_0} &gt; {t_{\alpha (n - 2)}} = r \ne 0</span>
+<span id="cb200-786"><a href="#cb200-786" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb200-787"><a href="#cb200-787" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-788"><a href="#cb200-788" aria-hidden="true" tabindex="-1"></a><span class="fu">## A função `cor()` do R</span></span>
+<span id="cb200-789"><a href="#cb200-789" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-790"><a href="#cb200-790" aria-hidden="true" tabindex="-1"></a>Utilizando a função do R <span class="in">`cor()`</span> é possível obter o coeficiente de correlação entre duas variáveis, por exemplo, <span class="in">`APLA`</span> e <span class="in">`AIES`</span> do seguinte conjunto de dados:</span>
+<span id="cb200-791"><a href="#cb200-791" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-794"><a href="#cb200-794" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb200-795"><a href="#cb200-795" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
+<span id="cb200-796"><a href="#cb200-796" aria-hidden="true" tabindex="-1"></a>df_mat <span class="ot">&lt;-</span> </span>
+<span id="cb200-797"><a href="#cb200-797" aria-hidden="true" tabindex="-1"></a>  <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"maize"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb200-798"><a href="#cb200-798" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(APLA<span class="sc">:</span>MGRA)</span>
+<span id="cb200-799"><a href="#cb200-799" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-800"><a href="#cb200-800" aria-hidden="true" tabindex="-1"></a><span class="co"># correlação de pearson (APLA e AIES)</span></span>
+<span id="cb200-801"><a href="#cb200-801" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df_mat<span class="sc">$</span>APLA, df_mat<span class="sc">$</span>AIES)</span>
+<span id="cb200-802"><a href="#cb200-802" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb200-803"><a href="#cb200-803" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-804"><a href="#cb200-804" aria-hidden="true" tabindex="-1"></a>Uma matriz de correlação também pode ser calculada informando um data frame de variáveis numéricas</span>
+<span id="cb200-805"><a href="#cb200-805" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-808"><a href="#cb200-808" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb200-809"><a href="#cb200-809" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz gráfica de correlação</span></span>
+<span id="cb200-810"><a href="#cb200-810" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df_mat)</span>
+<span id="cb200-811"><a href="#cb200-811" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb200-812"><a href="#cb200-812" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-813"><a href="#cb200-813" aria-hidden="true" tabindex="-1"></a>Usando a função <span class="in">`corr_plot()`</span> do pacote metan, é possível obter uma matriz mista (gráfico e número), contendo a distribuição dos pontos e o coeficiente de correlação entre as variáveis.</span>
+<span id="cb200-814"><a href="#cb200-814" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-817"><a href="#cb200-817" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb200-818"><a href="#cb200-818" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz gráfica de correlação</span></span>
+<span id="cb200-819"><a href="#cb200-819" aria-hidden="true" tabindex="-1"></a><span class="fu">corr_plot</span>(df_mat)</span>
 <span id="cb200-820"><a href="#cb200-820" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb200-821"><a href="#cb200-821" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-822"><a href="#cb200-822" aria-hidden="true" tabindex="-1"></a><span class="fu">### Método dos mínimos quadrados</span></span>
+<span id="cb200-822"><a href="#cb200-822" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercício</span></span>
 <span id="cb200-823"><a href="#cb200-823" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-826"><a href="#cb200-826" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb200-827"><a href="#cb200-827" aria-hidden="true" tabindex="-1"></a>(xy <span class="ot">&lt;-</span> x <span class="sc">*</span> y)</span>
-<span id="cb200-828"><a href="#cb200-828" aria-hidden="true" tabindex="-1"></a>(x2 <span class="ot">&lt;-</span> x <span class="sc">^</span> <span class="dv">2</span>)</span>
-<span id="cb200-829"><a href="#cb200-829" aria-hidden="true" tabindex="-1"></a>(y2 <span class="ot">&lt;-</span> y <span class="sc">^</span> <span class="dv">2</span>)</span>
-<span id="cb200-830"><a href="#cb200-830" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-831"><a href="#cb200-831" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de xy</span></span>
-<span id="cb200-832"><a href="#cb200-832" aria-hidden="true" tabindex="-1"></a>(somxy <span class="ot">&lt;-</span> <span class="fu">sum</span>(xy))</span>
+<span id="cb200-824"><a href="#cb200-824" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dados</span></span>
+<span id="cb200-825"><a href="#cb200-825" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-826"><a href="#cb200-826" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Neste exemplo, serão utilizados dados referentes ao número de grãos (NGRA) e massa de grãos (MGRA) observados em 15 espigas de milho (n = 15).</span></span>
+<span id="cb200-827"><a href="#cb200-827" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-830"><a href="#cb200-830" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb200-831"><a href="#cb200-831" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://bit.ly/df_biostat"</span></span>
+<span id="cb200-832"><a href="#cb200-832" aria-hidden="true" tabindex="-1"></a>cor_ex <span class="ot">&lt;-</span> <span class="fu">import</span>(url, <span class="at">sheet =</span> <span class="st">"COR_EXERCICIO"</span>, <span class="at">setclass =</span> <span class="st">"tbl"</span>)</span>
 <span id="cb200-833"><a href="#cb200-833" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-834"><a href="#cb200-834" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de x</span></span>
-<span id="cb200-835"><a href="#cb200-835" aria-hidden="true" tabindex="-1"></a>(somx <span class="ot">&lt;-</span> <span class="fu">sum</span>(x))</span>
-<span id="cb200-836"><a href="#cb200-836" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-837"><a href="#cb200-837" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de y</span></span>
-<span id="cb200-838"><a href="#cb200-838" aria-hidden="true" tabindex="-1"></a>(somy <span class="ot">&lt;-</span> <span class="fu">sum</span>(y))</span>
-<span id="cb200-839"><a href="#cb200-839" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-840"><a href="#cb200-840" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de x2</span></span>
-<span id="cb200-841"><a href="#cb200-841" aria-hidden="true" tabindex="-1"></a>(somx2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(x2))</span>
-<span id="cb200-842"><a href="#cb200-842" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-843"><a href="#cb200-843" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de y2</span></span>
-<span id="cb200-844"><a href="#cb200-844" aria-hidden="true" tabindex="-1"></a>(somy2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(y2))</span>
-<span id="cb200-845"><a href="#cb200-845" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-846"><a href="#cb200-846" aria-hidden="true" tabindex="-1"></a><span class="co"># adiciona as colunas nos dados originais usando mutate()</span></span>
-<span id="cb200-847"><a href="#cb200-847" aria-hidden="true" tabindex="-1"></a>cor_ex <span class="ot">&lt;-</span></span>
-<span id="cb200-848"><a href="#cb200-848" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(cor_ex,</span>
-<span id="cb200-849"><a href="#cb200-849" aria-hidden="true" tabindex="-1"></a>         <span class="at">xy =</span> xy,</span>
-<span id="cb200-850"><a href="#cb200-850" aria-hidden="true" tabindex="-1"></a>         <span class="at">x2 =</span> x2,</span>
-<span id="cb200-851"><a href="#cb200-851" aria-hidden="true" tabindex="-1"></a>         <span class="at">y2 =</span> y2)</span>
-<span id="cb200-852"><a href="#cb200-852" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(cor_ex)</span>
+<span id="cb200-834"><a href="#cb200-834" aria-hidden="true" tabindex="-1"></a>(x <span class="ot">&lt;-</span> cor_ex<span class="sc">$</span>NGRA)</span>
+<span id="cb200-835"><a href="#cb200-835" aria-hidden="true" tabindex="-1"></a>(y <span class="ot">&lt;-</span> cor_ex<span class="sc">$</span>MGRA)</span>
+<span id="cb200-836"><a href="#cb200-836" aria-hidden="true" tabindex="-1"></a>(n <span class="ot">&lt;-</span> <span class="fu">length</span>(x))</span>
+<span id="cb200-837"><a href="#cb200-837" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb200-838"><a href="#cb200-838" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-839"><a href="#cb200-839" aria-hidden="true" tabindex="-1"></a><span class="fu">### Método dos mínimos quadrados</span></span>
+<span id="cb200-840"><a href="#cb200-840" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-843"><a href="#cb200-843" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb200-844"><a href="#cb200-844" aria-hidden="true" tabindex="-1"></a>(xy <span class="ot">&lt;-</span> x <span class="sc">*</span> y)</span>
+<span id="cb200-845"><a href="#cb200-845" aria-hidden="true" tabindex="-1"></a>(x2 <span class="ot">&lt;-</span> x <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb200-846"><a href="#cb200-846" aria-hidden="true" tabindex="-1"></a>(y2 <span class="ot">&lt;-</span> y <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb200-847"><a href="#cb200-847" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-848"><a href="#cb200-848" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de xy</span></span>
+<span id="cb200-849"><a href="#cb200-849" aria-hidden="true" tabindex="-1"></a>(somxy <span class="ot">&lt;-</span> <span class="fu">sum</span>(xy))</span>
+<span id="cb200-850"><a href="#cb200-850" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-851"><a href="#cb200-851" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de x</span></span>
+<span id="cb200-852"><a href="#cb200-852" aria-hidden="true" tabindex="-1"></a>(somx <span class="ot">&lt;-</span> <span class="fu">sum</span>(x))</span>
 <span id="cb200-853"><a href="#cb200-853" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-854"><a href="#cb200-854" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-855"><a href="#cb200-855" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de produtos xy</span></span>
-<span id="cb200-856"><a href="#cb200-856" aria-hidden="true" tabindex="-1"></a>(sxy <span class="ot">&lt;-</span> somxy <span class="sc">-</span> (somx <span class="sc">*</span> somy <span class="sc">/</span> n))</span>
-<span id="cb200-857"><a href="#cb200-857" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-858"><a href="#cb200-858" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados de x</span></span>
-<span id="cb200-859"><a href="#cb200-859" aria-hidden="true" tabindex="-1"></a>(sx <span class="ot">&lt;-</span> somx2 <span class="sc">-</span> somx <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> n)</span>
-<span id="cb200-860"><a href="#cb200-860" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-861"><a href="#cb200-861" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados de y</span></span>
-<span id="cb200-862"><a href="#cb200-862" aria-hidden="true" tabindex="-1"></a>(sy <span class="ot">&lt;-</span> somy2 <span class="sc">-</span> somy <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> n)</span>
-<span id="cb200-863"><a href="#cb200-863" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-864"><a href="#cb200-864" aria-hidden="true" tabindex="-1"></a><span class="co"># coeficiente de correlaçao</span></span>
-<span id="cb200-865"><a href="#cb200-865" aria-hidden="true" tabindex="-1"></a>(r <span class="ot">&lt;-</span> sxy <span class="sc">/</span> (<span class="fu">sqrt</span>(sx <span class="sc">*</span> sy)))</span>
-<span id="cb200-866"><a href="#cb200-866" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-867"><a href="#cb200-867" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-868"><a href="#cb200-868" aria-hidden="true" tabindex="-1"></a><span class="co"># t calculado</span></span>
-<span id="cb200-869"><a href="#cb200-869" aria-hidden="true" tabindex="-1"></a>(tc <span class="ot">&lt;-</span> r <span class="sc">*</span> <span class="fu">sqrt</span>((n <span class="sc">-</span> <span class="dv">2</span>) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> r <span class="sc">^</span> <span class="dv">2</span>)))</span>
+<span id="cb200-854"><a href="#cb200-854" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de y</span></span>
+<span id="cb200-855"><a href="#cb200-855" aria-hidden="true" tabindex="-1"></a>(somy <span class="ot">&lt;-</span> <span class="fu">sum</span>(y))</span>
+<span id="cb200-856"><a href="#cb200-856" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-857"><a href="#cb200-857" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de x2</span></span>
+<span id="cb200-858"><a href="#cb200-858" aria-hidden="true" tabindex="-1"></a>(somx2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(x2))</span>
+<span id="cb200-859"><a href="#cb200-859" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-860"><a href="#cb200-860" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de y2</span></span>
+<span id="cb200-861"><a href="#cb200-861" aria-hidden="true" tabindex="-1"></a>(somy2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(y2))</span>
+<span id="cb200-862"><a href="#cb200-862" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-863"><a href="#cb200-863" aria-hidden="true" tabindex="-1"></a><span class="co"># adiciona as colunas nos dados originais usando mutate()</span></span>
+<span id="cb200-864"><a href="#cb200-864" aria-hidden="true" tabindex="-1"></a>cor_ex <span class="ot">&lt;-</span></span>
+<span id="cb200-865"><a href="#cb200-865" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(cor_ex,</span>
+<span id="cb200-866"><a href="#cb200-866" aria-hidden="true" tabindex="-1"></a>         <span class="at">xy =</span> xy,</span>
+<span id="cb200-867"><a href="#cb200-867" aria-hidden="true" tabindex="-1"></a>         <span class="at">x2 =</span> x2,</span>
+<span id="cb200-868"><a href="#cb200-868" aria-hidden="true" tabindex="-1"></a>         <span class="at">y2 =</span> y2)</span>
+<span id="cb200-869"><a href="#cb200-869" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(cor_ex)</span>
 <span id="cb200-870"><a href="#cb200-870" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-871"><a href="#cb200-871" aria-hidden="true" tabindex="-1"></a><span class="co"># t tabelado (cauda direita) = 2.16</span></span>
-<span id="cb200-872"><a href="#cb200-872" aria-hidden="true" tabindex="-1"></a><span class="co"># como é bicaudal, considera-se 0.05 / 2</span></span>
-<span id="cb200-873"><a href="#cb200-873" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.025</span>, <span class="at">df =</span> <span class="dv">13</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb200-871"><a href="#cb200-871" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-872"><a href="#cb200-872" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de produtos xy</span></span>
+<span id="cb200-873"><a href="#cb200-873" aria-hidden="true" tabindex="-1"></a>(sxy <span class="ot">&lt;-</span> somxy <span class="sc">-</span> (somx <span class="sc">*</span> somy <span class="sc">/</span> n))</span>
 <span id="cb200-874"><a href="#cb200-874" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-875"><a href="#cb200-875" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-876"><a href="#cb200-876" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb200-875"><a href="#cb200-875" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados de x</span></span>
+<span id="cb200-876"><a href="#cb200-876" aria-hidden="true" tabindex="-1"></a>(sx <span class="ot">&lt;-</span> somx2 <span class="sc">-</span> somx <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> n)</span>
 <span id="cb200-877"><a href="#cb200-877" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-878"><a href="#cb200-878" aria-hidden="true" tabindex="-1"></a><span class="fu">### Função cor e cor.test()</span></span>
-<span id="cb200-879"><a href="#cb200-879" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-882"><a href="#cb200-882" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb200-883"><a href="#cb200-883" aria-hidden="true" tabindex="-1"></a><span class="co"># somente calcula o r</span></span>
-<span id="cb200-884"><a href="#cb200-884" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x, y)</span>
-<span id="cb200-885"><a href="#cb200-885" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-886"><a href="#cb200-886" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-887"><a href="#cb200-887" aria-hidden="true" tabindex="-1"></a><span class="co"># computa o r e realiza o teste de hipótese</span></span>
-<span id="cb200-888"><a href="#cb200-888" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(x, y)</span>
-<span id="cb200-889"><a href="#cb200-889" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb200-890"><a href="#cb200-890" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb200-891"><a href="#cb200-891" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb200-892"><a href="#cb200-892" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div align='center'&gt;&lt;a href='https://www.free-website-hit-counter.com'&gt;&lt;img src='https://www.free-website-hit-counter.com/c.php?d=9&amp;id=138601&amp;s=2' border='0' alt='Free Website Hit Counter'&gt;&lt;/a&gt;&lt;br / &gt;&lt;small&gt;&lt;a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter"&gt;Free website hit counter&lt;/a&gt;&lt;/small&gt;&lt;/div&gt;</span></span>
+<span id="cb200-878"><a href="#cb200-878" aria-hidden="true" tabindex="-1"></a><span class="co"># soma de quadrados de y</span></span>
+<span id="cb200-879"><a href="#cb200-879" aria-hidden="true" tabindex="-1"></a>(sy <span class="ot">&lt;-</span> somy2 <span class="sc">-</span> somy <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> n)</span>
+<span id="cb200-880"><a href="#cb200-880" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-881"><a href="#cb200-881" aria-hidden="true" tabindex="-1"></a><span class="co"># coeficiente de correlaçao</span></span>
+<span id="cb200-882"><a href="#cb200-882" aria-hidden="true" tabindex="-1"></a>(r <span class="ot">&lt;-</span> sxy <span class="sc">/</span> (<span class="fu">sqrt</span>(sx <span class="sc">*</span> sy)))</span>
+<span id="cb200-883"><a href="#cb200-883" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-884"><a href="#cb200-884" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-885"><a href="#cb200-885" aria-hidden="true" tabindex="-1"></a><span class="co"># t calculado</span></span>
+<span id="cb200-886"><a href="#cb200-886" aria-hidden="true" tabindex="-1"></a>(tc <span class="ot">&lt;-</span> r <span class="sc">*</span> <span class="fu">sqrt</span>((n <span class="sc">-</span> <span class="dv">2</span>) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> r <span class="sc">^</span> <span class="dv">2</span>)))</span>
+<span id="cb200-887"><a href="#cb200-887" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-888"><a href="#cb200-888" aria-hidden="true" tabindex="-1"></a><span class="co"># t tabelado (cauda direita) = 2.16</span></span>
+<span id="cb200-889"><a href="#cb200-889" aria-hidden="true" tabindex="-1"></a><span class="co"># como é bicaudal, considera-se 0.05 / 2</span></span>
+<span id="cb200-890"><a href="#cb200-890" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.025</span>, <span class="at">df =</span> <span class="dv">13</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb200-891"><a href="#cb200-891" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-892"><a href="#cb200-892" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb200-893"><a href="#cb200-893" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb200-894"><a href="#cb200-894" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-895"><a href="#cb200-895" aria-hidden="true" tabindex="-1"></a><span class="fu">### Função cor e cor.test()</span></span>
+<span id="cb200-896"><a href="#cb200-896" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-899"><a href="#cb200-899" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb200-900"><a href="#cb200-900" aria-hidden="true" tabindex="-1"></a><span class="co"># somente calcula o r</span></span>
+<span id="cb200-901"><a href="#cb200-901" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x, y)</span>
+<span id="cb200-902"><a href="#cb200-902" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-903"><a href="#cb200-903" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-904"><a href="#cb200-904" aria-hidden="true" tabindex="-1"></a><span class="co"># computa o r e realiza o teste de hipótese</span></span>
+<span id="cb200-905"><a href="#cb200-905" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(x, y)</span>
+<span id="cb200-906"><a href="#cb200-906" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb200-907"><a href="#cb200-907" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-908"><a href="#cb200-908" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-909"><a href="#cb200-909" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-910"><a href="#cb200-910" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb200-911"><a href="#cb200-911" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-912"><a href="#cb200-912" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="video-container"&gt;</span></span>
+<span id="cb200-913"><a href="#cb200-913" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb200-914"><a href="#cb200-914" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="https://www.youtube.com/embed/gYrp7WB5UYM?si=x-u-Lw9yffbmoE5b" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;</span></span>
+<span id="cb200-915"><a href="#cb200-915" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-916"><a href="#cb200-916" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb200-917"><a href="#cb200-917" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
