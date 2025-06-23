@@ -11,7 +11,8 @@ Bem-vindo ao material de apoio da disciplina RGV410046 (Introdução à linguage
 ::: {layout-ncol="2"}
 [![Prof. Dr. Tiago Olivoto](figs/olivoto.png)](https://olivoto.netlify.app/)
 
-[![Dr. Andre Luiz Giles de Oliveira](figs/giles.png)](http://lattes.cnpq.br/5450976686682976)
+[![Dr. Leonardo Talavera Campos
+](figs/leonardo.jpg)](http://lattes.cnpq.br/5406295733742944)
 :::
 
 # Calendário de aulas
@@ -27,27 +28,29 @@ Bem-vindo ao material de apoio da disciplina RGV410046 (Introdução à linguage
 library(calendR)
 # tutorial calendR
 # https://r-coder.com/calendar-plot-r/
-events <- rep(NA, 60)
-events[c(30, 32:34,
-         37, 39:41)] <- "Aula"
+events <- rep(NA, 30)
+events[c(8, 10:12,
+         15, 17:19)] <- "Aula"
 # Creating the calendar
-calendR(from ="2024-09-01",
-        to = "2024-10-30",
+calendR(month = 9,
         special.days = events,
         special.col =  c("lightgreen"),
         title = "RGV410046\nIntrodução à linguagem R de programação", 
-        subtitle = "Cronograma de aulas 2024/02 - 08:20 às 11:50",
+        subtitle = "Cronograma de aulas 2025/02 (Setembro) - 08:20 às 11:50",
         mbg.col = "forestgreen",            
         months.col = "white",
+        lunar = TRUE,
+        lunar.col = "gold",
         legend.pos = "bottom")
 ```
+
 
 # Salas
 * À definir
 
 # Conteúdo programático
 
-## 30/09/2024
+## 08/09/2025
 
 -   Introdução à disciplina
 -   Instalação do R e Rstudio
@@ -59,7 +62,7 @@ calendR(from ="2024-09-01",
 -   Aplicação prática
 
 
-## 02/10/2024
+## 10/09/2025
 
 -   Dinâmica aula anterior
 -   Tipos de dados
@@ -78,7 +81,7 @@ calendR(from ="2024-09-01",
 -   Aplicação prática
 
 
-## 03/10/2024
+## 11/09/2025
 
 -   Importação de dados (pc, repositório)
 -   dados tidy
@@ -87,7 +90,7 @@ calendR(from ="2024-09-01",
 -   Aplicação prática
 
 
-## 04/10/2024
+## 12/09/2025
 
 -   Seleção de dados
 -   select
@@ -97,7 +100,7 @@ calendR(from ="2024-09-01",
 -   Aplicação prática
 
 
-## 07/10/2024
+## 15/09/2025
 
 -   Manipulação de dados
 -   Longer (dados errados, para arrumar)
@@ -107,7 +110,7 @@ calendR(from ="2024-09-01",
 -   Aplicação prática
 
 
-## 09/10/2024
+## 17/09/2025
 
 -   Mutação de dados
 -   mutate
@@ -115,7 +118,7 @@ calendR(from ="2024-09-01",
 -   group_by
 -   Aplicação prática
 
-## 10/10/2024
+## 18/09/2025
 
 -   Resumo de dados
 -   summarise
@@ -123,13 +126,13 @@ calendR(from ="2024-09-01",
 -   group_by
 -   Aplicação prática
 
-## 11/10/2024
+## 19/09/2025
 - Entrega do desafio
 -   Correção do desafio
 
 
 # Forma de avaliação
-A avaliação consistirá em uma metodologia baseado em problema, onde o aluno precisará apresentar uma solução para resolução de um desafio envolvendo o conteúdo visto na disciplina. O desafio será apresentado no ínicio da disciplina e o aluno deverá entrega-lo até o dia 11/10/2024.
+A avaliação consistirá em uma metodologia baseado em problema, onde o aluno precisará apresentar uma solução para resolução de um desafio envolvendo o conteúdo visto na disciplina. O desafio será apresentado no ínicio da disciplina e o aluno deverá entrega-lo até o dia 19/09/2025.
 
 
 # Instalação do R e Rstudio
