@@ -42,7 +42,12 @@ calendR(month = 9,
         months.col = "white",
         lunar = TRUE,
         lunar.col = "gold",
+        bg.img = "RGV410046/figs/calendr.png",
         legend.pos = "bottom")
+
+# ggsave("calendario.png",
+#        width = 7,
+#        height = 7)
 ```
 
 
