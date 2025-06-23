@@ -17,7 +17,7 @@ Bem-vindo ao material de apoio da disciplina RGV410046 (Introdução à linguage
 
 # Calendário de aulas
 
-```{r }
+```{r fig.height=6}
 #| code-fold: true
 #| code-summary: "Clique aqui e veja como o calendário foi feito!"
 #| out-width: "100%"
@@ -33,6 +33,7 @@ events[c(8, 10:12,
          15, 17:19)] <- "Aula"
 # Creating the calendar
 calendR(month = 9,
+        weeknames = c("Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"),
         special.days = events,
         special.col =  c("lightgreen"),
         title = "RGV410046\nIntrodução à linguagem R de programação", 
