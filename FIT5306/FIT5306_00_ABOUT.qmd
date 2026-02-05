@@ -6,62 +6,102 @@ title: "FIT5306 - Bioestatística e Experimentação Agrícola"
 
 Bem-vindo ao material de apoio da disciplina FIT5306 (Bioestatística e Experimentação Agrícola)! Esta página contém os dados e scripts R necessários para aplicação prática dos conteúdos vistos na disciplina.
 
-# Cronograma (2025/01)
+# Cronograma (2026/01)
 
 ```{r }
 #| code-fold: true
 #| code-summary: "Clique aqui e veja como o calendário foi feito!"
 #| out-width: "100%"
-#| fig-width: 8
+#| fig-width: 10
 #| fig-height: 7
 #| warning: false
 #| message: false
 
 library(ggplot2)
 library(calendR)
-# tutorial calendR
-# https://r-coder.com/calendar-plot-r/
 
-events <- rep(NA, 153)
-segundas <- seq(10, 129, by = 7)
-tercas <- seq(11, 130, by = 7)
-events[segundas] <- "1: Aulas teóricas\nCCA/ZDR 201\nA/B/C: 13:30-16:00"
-events[tercas] <- "2: Aulas práticas (campo)\nRessacada\nC: 10:10-11:50\nA: 13:30-15:10\nB: 15:20-17:00"
+# Definição do período (Semestre 2026/01)
+# O semestre começa em 09/03/2026 e vai até o início de julho 
+start_date <- as.Date("2026-03-01")
+end_date <- as.Date("2026-07-31")
+all_dates <- seq(start_date, end_date, by = "1 day")
 
-# Aulas práticas no CCA
-events[c(32, 53, 60, 74, 81, 95, 109, 116, 123)] <- "3: Aulas práticas (análises)\nCCA\nC: 10:10-11:50\nA: 13:30-15:10\nB: 15:20-17:00"
+# Inicializa o vetor de eventos com NAs
+events <- rep(NA, length(all_dates))
 
-# Provas
-events[c(66, 129)] <- "4: Avaliações"
+# --- 1. Aulas Teóricas (Segundas-feiras) ---
+#  (Excluindo feriados e provas)
+dates_teoricas <- as.Date(c(
+  "2026-03-09", "2026-03-16", "2026-03-30", 
+  "2026-04-06", "2026-04-13", "2026-04-27", 
+  "2026-05-04", "2026-05-18", "2026-05-25", 
+  "2026-06-01", "2026-06-08", "2026-06-15", 
+  "2026-06-22", "2026-06-29"
+))
+events[which(all_dates %in% dates_teoricas)] <- "1: Aulas teóricas\nCCA/ZDR 201\nA/B/C: 13:30-16:00"
 
-# Seminário
-events[130] <- "5: Apresentação\ndo projeto"
+# --- 2. Aulas Práticas de Campo (Terças - Ressacada) ---
+# Identificadas como "destacadas em vermelho" no PDF  e citadas no cronograma 
+dates_campo <- as.Date(c(
+  "2026-03-10", "2026-03-17", "2026-03-24", 
+  "2026-04-07", "2026-04-28", "2026-05-12", 
+  "2026-05-26"
+))
+events[which(all_dates %in% dates_campo)] <- "2: Aulas práticas (campo)\nRessacada\nC: 10:10-11:50\nA: 13:30-15:10\nB: 15:20-17:00"
 
-# # Feriados
-events[c(52)] <- "6: Feriado"
+# --- 3. Aulas Práticas de Análise (Terças - CCA) ---
+# Aulas em laboratório ou sala no CCA (uso de software, cálculos, etc.) 
+dates_cca <- as.Date(c(
+  "2026-03-31", "2026-04-14", "2026-05-05", 
+  "2026-05-19", "2026-06-02", "2026-06-09", 
+  "2026-06-16", "2026-06-23", "2026-06-30"
+))
+events[which(all_dates %in% dates_cca)] <- "3: Aulas práticas (análises)\nCCA\nC: 10:10-11:50\nA: 13:30-15:10\nB: 15:20-17:00"
 
+# --- 4. Avaliações (Provas Teóricas) ---
+# Prova 1: 11/05; Prova 2: 06/07 
+dates_provas <- as.Date(c("2026-05-11", "2026-07-06"))
+events[which(all_dates %in% dates_provas)] <- "4: Avaliações"
 
+# --- 5. Apresentação do Projeto ---
+# Apresentação final: 07/07 
+dates_apresentacao <- as.Date(c("2026-07-07"))
+events[which(all_dates %in% dates_apresentacao)] <- "5: Apresentação do projeto"
 
-# Creating the calendar
-calendR(year = 2024,
-        from ="2025-03-01",
-        to = "2025-07-31",
+# --- 6. Feriados e Dias Não Letivos ---
+# Aniversário de Fpolis (23/03), Dia não letivo (20/04), Tiradentes (21/04) 
+dates_feriados <- as.Date(c("2026-03-23", "2026-04-20", "2026-04-21"))
+events[which(all_dates %in% dates_feriados)] <- "6: Feriado / Não Letivo"
+
+# --- Gerando o Calendário ---
+calendR(year = 2026,
+        from = start_date,
+        to = end_date,
+        weeknames = c("Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"),
         special.days = events,
+        # Se você não tiver o pacote metan instalado, substitua a linha abaixo por cores manuais, 
+        # ex: special.col = c("lightblue", "orange", "lightgreen", "red", "purple", "gray")
         special.col = metan::ggplot_color(length(unique(na.omit(events)))),
         title = "FIT5306 - Bioestatística e Experimentação Agrícola", 
-        subtitle = "Cronograma de aulas - 2025/01",
+        subtitle = "Cronograma de aulas - 2026/01",
         subtitle.size = 15,
         mbg.col = "forestgreen",
         months.col = "white",
-        legend.pos = "bottom",
+        legend.pos = "right",
         day.size = 4,
         months.size = 14,
         orientation = "portrait") +
-  guides(fill = guide_legend(nrow = 1))
+  theme(
+    # Aumenta o espaço da chave da legenda (o quadrado colorido)
+    legend.key.size = unit(1, "cm"),
+    legend.box.margin = margin(10, 20, 10, 10)
+  )
 
-# ggplot2::ggsave("calendario.jpg",
-#                 width = 10,
-#                 height = 6.75)
+
+
+ggplot2::ggsave("calendario.jpg",
+                width = 11,
+                height = 7)
 
 ```
 

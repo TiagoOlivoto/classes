@@ -1397,7 +1397,7 @@
     "href": "RGV410046/RGV410046_00_ABOUT.html#section",
     "title": "RGV410046 - Introdução à linguagem R de programação",
     "section": "08/09/2025",
-    "text": "08/09/2025\n\nIntrodução à disciplina\nInstalação do R e Rstudio\nIntrodução ao R\n\nScript\nPacotes\nFóruns e materiais de apoio\n\nApresentação do desafio (avaliação da disciplina)\nAplicação prática",
+    "text": "08/09/2025\n\nIntrodução à disciplina\nInstalação do R e Rstudio\nIntrodução ao R\nScript\nPacotes\nFóruns e materiais de apoio\nApresentação do desafio (avaliação da disciplina)\nAplicação prática",
     "crumbs": [
       "Introdução ao R",
       "RGV410046 - Introdução à linguagem R de programação"
@@ -1408,7 +1408,7 @@
     "href": "RGV410046/RGV410046_00_ABOUT.html#section-1",
     "title": "RGV410046 - Introdução à linguagem R de programação",
     "section": "10/09/2025",
-    "text": "10/09/2025\n\nDinâmica aula anterior\nTipos de dados\nNumérico\nLógico\nCaractere\nEstrutura de dados;\n\nVetor\nMatriz\nData frame\nTibbles\nArray\n\nLógica de programação\n\nBase\nTidyverse\n\nAplicação prática",
+    "text": "10/09/2025\n\nDinâmica aula anterior\nTipos de dados\nNumérico\nLógico\nCaractere\nEstrutura de dados;\nVetor\nMatriz\nData frame\nTibbles\nArray\nLógica de programação\nBase\nTidyverse\nAplicação prática",
     "crumbs": [
       "Introdução ao R",
       "RGV410046 - Introdução à linguagem R de programação"
@@ -1496,7 +1496,7 @@
     "href": "RGV410046/RGV410046_00_ABOUT.html#licença",
     "title": "RGV410046 - Introdução à linguagem R de programação",
     "section": "Licença",
-    "text": "Licença\nEste material é distribuído nos termos da licença CC BY-NC-SA 4.0\nO resumo legível da licença afirma que você tem o direito de:\n\nCompartilhar — copiar e redistribuir o material em qualquer suporte ou formato\nAdaptar — remixar, transformar, e criar a partir do material\nAtribuição — Você deve dar o crédito apropriado, prover um link para a licença e indicar se mudanças foram feitas. Você deve fazê-lo em qualquer circunstância razoável, mas de nenhuma maneira que sugira que o licenciante apoia você ou o seu uso.\nDe acordo com os termos seguintes\n\nNão Comercial — Você não pode usar o material para fins comerciais.\nCompartilhaIgual — Se você remixar, transformar, ou criar a partir do material, tem de distribuir as suas contribuições sob a mesma licença que o original.\nSem restrições adicionais — Você não pode aplicar termos jurídicos ou medidas de caráter tecnológico que restrinjam legalmente outros de fazerem algo que a licença permita.\n\n\nFree website hit counter",
+    "text": "Licença\nEste material é distribuído nos termos da licença CC BY-NC-SA 4.0\nO resumo legível da licença afirma que você tem o direito de:\n\nCompartilhar — copiar e redistribuir o material em qualquer suporte ou formato\nAdaptar — remixar, transformar, e criar a partir do material\nAtribuição — Você deve dar o crédito apropriado, prover um link para a licença e indicar se mudanças foram feitas. Você deve fazê-lo em qualquer circunstância razoável, mas de nenhuma maneira que sugira que o licenciante apoia você ou o seu uso.\nDe acordo com os termos seguintes\nNão Comercial — Você não pode usar o material para fins comerciais.\nCompartilhaIgual — Se você remixar, transformar, ou criar a partir do material, tem de distribuir as suas contribuições sob a mesma licença que o original.\nSem restrições adicionais — Você não pode aplicar termos jurídicos ou medidas de caráter tecnológico que restrinjam legalmente outros de fazerem algo que a licença permita.\n\nFree website hit counter",
     "crumbs": [
       "Introdução ao R",
       "RGV410046 - Introdução à linguagem R de programação"
@@ -2491,5 +2491,40 @@
       "Bioestatística",
       "4. Distribuições Contínuas"
     ]
+  },
+  {
+    "objectID": "RGV410046/desafios/desafio_2025/desafio_2025.html",
+    "href": "RGV410046/desafios/desafio_2025/desafio_2025.html",
+    "title": "Desafio Final: Análise Integrada de Genótipos de Linhaça",
+    "section": "",
+    "text": "Bem-vindos ao desafio final da disciplina de Introdução ao R! O objetivo deste projeto é aplicar as habilidades de manipulação, transformação e visualização de dados que aprendemos ao longo do curso em um problema real da área de melhoramento de plantas.\n\n\nNo melhoramento genético da linhaça (linho), pesquisadores avaliam diferentes genótipos (variedades) para selecionar aqueles com as melhores características agronômicas, como produtividade e qualidade dos grãos. Para isso, coletam dados de diversas fontes:\n\nAvaliações em laboratório/campo: Medidas diretas nas plantas, como altura e número de ramificações.\nAnálise de imagens: Fotografias de amostras de cápsulas e grãos são processadas para extrair informações como número, tamanho e forma.\nMedidas de massa: Pesagem de amostras de grãos para estimar o peso médio.\n\nO nosso desafio é atuar como um cientista de dados e integrar todas essas informações para criar um único conjunto de dados consolidado. Este dataset final nos permitirá comparar os genótipos de forma eficiente e extrair insights valiosos.\n\n\n\nVocê deverá carregar, limpar, transformar e combinar quatro conjuntos de dados distintos. O objetivo final é gerar uma tabela única onde cada linha representa a média das características de um genótipo, pronta para análises estatísticas e visualizações."
+  },
+  {
+    "objectID": "RGV410046/desafios/desafio_2025/desafio_2025.html#introdução",
+    "href": "RGV410046/desafios/desafio_2025/desafio_2025.html#introdução",
+    "title": "Desafio Final: Análise Integrada de Genótipos de Linhaça",
+    "section": "",
+    "text": "Bem-vindos ao desafio final da disciplina de Introdução ao R! O objetivo deste projeto é aplicar as habilidades de manipulação, transformação e visualização de dados que aprendemos ao longo do curso em um problema real da área de melhoramento de plantas.\n\n\nNo melhoramento genético da linhaça (linho), pesquisadores avaliam diferentes genótipos (variedades) para selecionar aqueles com as melhores características agronômicas, como produtividade e qualidade dos grãos. Para isso, coletam dados de diversas fontes:\n\nAvaliações em laboratório/campo: Medidas diretas nas plantas, como altura e número de ramificações.\nAnálise de imagens: Fotografias de amostras de cápsulas e grãos são processadas para extrair informações como número, tamanho e forma.\nMedidas de massa: Pesagem de amostras de grãos para estimar o peso médio.\n\nO nosso desafio é atuar como um cientista de dados e integrar todas essas informações para criar um único conjunto de dados consolidado. Este dataset final nos permitirá comparar os genótipos de forma eficiente e extrair insights valiosos.\n\n\n\nVocê deverá carregar, limpar, transformar e combinar quatro conjuntos de dados distintos. O objetivo final é gerar uma tabela única onde cada linha representa a média das características de um genótipo, pronta para análises estatísticas e visualizações."
+  },
+  {
+    "objectID": "RGV410046/desafios/desafio_2025/desafio_2025.html#descrição-dos-dados",
+    "href": "RGV410046/desafios/desafio_2025/desafio_2025.html#descrição-dos-dados",
+    "title": "Desafio Final: Análise Integrada de Genótipos de Linhaça",
+    "section": "Descrição dos Dados",
+    "text": "Descrição dos Dados\nOs quatro arquivos necessários para este desafio são:\n\nlaboratorio.xlsx: Contém dados fenotípicos coletados diretamente das plantas no laboratório.\n\nimg: Identificador único de cada planta.\nTIPO: O tipo de linhaça (DOURADA ou MARROM).\nGEN: O genótipo (variedade) da planta.\nAP, AC, NR, MC, MG: Variáveis agronômicas da planta (altura, etc.).\n\ncapsulas.xlsx: Resultado do processamento de imagens para contagem de cápsulas.\n\nimg: Identificador da imagem, que contém o número do INDIVIDUO.\nCada linha representa uma cápsula detectada na imagem.\n\ngraos.csv: Resultado do processamento de imagens para análise dos grãos.\n\nimg: Identificador da imagem, que contém o número do INDIVIDUO.\nlength, width: Comprimento e largura de cada grão.\nCada linha representa um grão detectado na imagem.\n\nmmg.xlsx: Contém a massa de mil grãos para cada genótipo.\n\nGEN: O genótipo.\nmmg: A massa de mil grãos, uma importante medida de produtividade."
+  },
+  {
+    "objectID": "RGV410046/desafios/desafio_2025/desafio_2025.html#objetivos-do-desafio",
+    "href": "RGV410046/desafios/desafio_2025/desafio_2025.html#objetivos-do-desafio",
+    "title": "Desafio Final: Análise Integrada de Genótipos de Linhaça",
+    "section": "Objetivos do Desafio",
+    "text": "Objetivos do Desafio\nSeu trabalho é criar um script em R, dentro deste documento Quarto, que realize as seguintes tarefas:\n\n1. Preparação do Ambiente\n\nCarregue os pacotes necessários para a análise.\nImporte os quatro arquivos de dados (laboratorio.xlsx, capsulas.xlsx, graos.csv, mmg.xlsx) para o seu ambiente R.\n\n\n# Escreva seu código aqui para carregar os pacotes e importar os dados.\n\n\n\n2. Análise e Consolidação por Planta\nO objetivo desta etapa é criar um único data frame que contenha todas as informações para cada planta (img).\n\nPara o arquivo graos: Calcule o número total de grãos (NG), o comprimento médio (CG) e a largura média (LG) para cada planta.\nPara o arquivo capsulas: Calcule o número total de cápsulas (NC) para cada planta.\nExtração do ID: Note que nos arquivos de imagem, a identificação da planta é um número no início da coluna img (ex: \"100_Cápsulas_...\"). Você precisará extrair este número para poder vincular os dados aos do arquivo laboratorio.\nUnificação: Junte as estatísticas calculadas (NG, CG, LG, NC) ao data frame principal laboratorio. O resultado deve ser uma tabela onde cada linha corresponde a uma planta (img) com todas as suas variáveis.\n\n\n# Crie os blocos de código necessários para processar os dados de grãos, \n# cápsulas e depois uni-los aos dados de laboratório.\n\n\n\n3. Análise e Consolidação por Genótipo\nCom os dados consolidados por planta, o próximo passo é agregar as informações para obter um resumo por genótipo.\n\nAgregação: Calcule a média de todas as variáveis numéricas (altura da planta, número de grãos, etc.) para cada genótipo (GEN).\nJunção Final: Adicione a informação de massa de mil grãos (mmg) do arquivo mmg ao seu data frame de genótipos.\nResultado Final: O produto desta etapa deve ser um data frame limpo e organizado, onde cada linha representa um genótipo e as colunas representam as médias de suas características.\n\n\n# Escreva seu código aqui para agrupar os dados por genótipo,\n# calcular as médias e juntar com os dados de massa de mil grãos.\n\n\n\n4. Exploração e Visualização\nAgora que você tem um dataset final consolidado por genótipo, crie pelo menos duas visualizações diferentes para explorar os dados. O objetivo é investigar possíveis relações entre as variáveis e comparar o desempenho dos genótipos.\n\nPerguntas que você deve responder:\n\nComo a altura da planta se relaciona com o número de cápsulas?\nHá indícios de que genótipos do tipo “DOURADA” e “MARROM” diferem em relação à altura de planta?\nQuais os top 5 genótipos para produção de grãos (MG) de cada tipo de linhaça?\nCalcule o diferencial de seleção, ou seja, a diferença da média geral e a média dos top 5 genótipos, para cada tipo de linhaça, representando os valores em um gráfico de barras."
+  },
+  {
+    "objectID": "RGV410046/desafios/desafio_2025/desafio_2025.html#conclusão",
+    "href": "RGV410046/desafios/desafio_2025/desafio_2025.html#conclusão",
+    "title": "Desafio Final: Análise Integrada de Genótipos de Linhaça",
+    "section": "Conclusão",
+    "text": "Conclusão\nNesta seção, escreva um breve parágrafo resumindo suas principais descobertas com base nas visualizações que você criou.\n(Escreva sua conclusão aqui)\n\nO que entregar?\n\nEste arquivo .qmd com todos os blocos de código preenchidos e a sua conclusão.\nO arquivo HTML renderizado a partir do seu .qmd, que mostrará seu código, os resultados e os gráficos."
   }
 ]

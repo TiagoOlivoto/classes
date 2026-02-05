@@ -42,12 +42,12 @@ calendR(month = 9,
         months.col = "white",
         lunar = TRUE,
         lunar.col = "gold",
-        bg.img = "RGV410046/figs/calendr.png",
+        day.size = 4,
         legend.pos = "bottom")
 
-# ggsave("calendario.png",
-#        width = 7,
-#        height = 7)
+ggplot2::ggsave("calendario.png",
+                width = 7,
+                height = 7)
 ```
 
 
@@ -61,9 +61,9 @@ calendR(month = 9,
 -   Introdução à disciplina
 -   Instalação do R e Rstudio
 -   Introdução ao R
-    -   Script
-    -   Pacotes
-    -   Fóruns e materiais de apoio
+-   Script
+-   Pacotes
+-   Fóruns e materiais de apoio
 -   Apresentação do desafio (avaliação da disciplina)
 -   Aplicação prática
 
@@ -76,14 +76,14 @@ calendR(month = 9,
 -   Lógico
 -   Caractere
 -   Estrutura de dados;
-    -   Vetor
-    -   Matriz
-    -   Data frame
-    -   Tibbles
-    -   Array
+-   Vetor
+-   Matriz
+-   Data frame
+-   Tibbles
+-   Array
 -   Lógica de programação
-    -   Base
-    -   Tidyverse
+-   Base
+-   Tidyverse
 -   Aplicação prática
 
 
@@ -201,9 +201,9 @@ O resumo legível da licença afirma que você tem o direito de:
 -   **Adaptar** --- remixar, transformar, e criar a partir do material
 -   **Atribuição** --- Você deve dar o crédito apropriado, prover um link para a licença e indicar se mudanças foram feitas. Você deve fazê-lo em qualquer circunstância razoável, mas de nenhuma maneira que sugira que o licenciante apoia você ou o seu uso.
 -   **De acordo com os termos seguintes**
-    -   **Não Comercial** --- Você não pode usar o material para fins comerciais.
-    -   **CompartilhaIgual** --- Se você remixar, transformar, ou criar a partir do material, tem de distribuir as suas contribuições sob a mesma licença que o original.
-    -   **Sem restrições adicionais** --- Você não pode aplicar termos jurídicos ou medidas de caráter tecnológico que restrinjam legalmente outros de fazerem algo que a licença permita.
+-   **Não Comercial** --- Você não pode usar o material para fins comerciais.
+-   **CompartilhaIgual** --- Se você remixar, transformar, ou criar a partir do material, tem de distribuir as suas contribuições sob a mesma licença que o original.
+-   **Sem restrições adicionais** --- Você não pode aplicar termos jurídicos ou medidas de caráter tecnológico que restrinjam legalmente outros de fazerem algo que a licença permita.
 
 ```{=html}
 <div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=138603&s=2' border='0' alt='Free Website Hit Counter'></a><br / ><small><a href='https://www.free-website-hit-counter.com' title="Free Website Hit Counter">Free website hit counter</a></small></div>
